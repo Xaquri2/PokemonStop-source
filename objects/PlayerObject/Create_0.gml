@@ -1,3 +1,6 @@
+canWalk = true
+menuOpen = false
+
 hspeedOld = 0
 vspeedOld = 0
 

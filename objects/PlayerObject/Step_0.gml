@@ -4,16 +4,26 @@ vspeedOld = vspeed
 hspeed = 0
 vspeed = 0
 
-if (keyboard_check(ord("W"))) vspeed = -2
-if (keyboard_check(ord("S"))) vspeed = 2
-if (keyboard_check(ord("A"))) hspeed = -2
-if (keyboard_check(ord("D"))) hspeed = 2
+if (keyboard_check_pressed(ord("E")) and !menuOpen) 
+{
+	canWalk = false
+	menuOpen = true
+	var menu = instance_create_layer(x,y,"UserInterface",MenuObject)
+	menu.player = id
+}
+
+if (canWalk)
+{
+	if (keyboard_check(ord("W"))) vspeed = -2
+	if (keyboard_check(ord("S"))) vspeed = 2
+	if (keyboard_check(ord("A"))) hspeed = -2
+	if (keyboard_check(ord("D"))) hspeed = 2
+}
 #endregion
 
 #region Collision
 if (x+hspeed > room_width or x-hspeed < 0 or collision_rectangle(bbox_left+hspeed, bbox_bottom, bbox_right+hspeed, bbox_top, CollisionObject, false, true) != noone) hspeed = 0
 if (y+vspeed > room_height or y-vspeed < 0 or collision_rectangle(bbox_left, bbox_bottom+vspeed, bbox_right, bbox_top+vspeed, CollisionObject, false, true) != noone) vspeed = 0
-
 #endregion
 
 #region Animation
