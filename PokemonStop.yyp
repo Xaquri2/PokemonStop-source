@@ -8,7 +8,7 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
+  "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation Curves.yy","name":"Animation Curves","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -38,6 +38,8 @@
   },
   "name":"PokemonStop",
   "resources":[
+    {"id":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},},
+    {"id":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},},
     {"id":{"name":"PlayerIdleDownSprite","path":"sprites/PlayerIdleDownSprite/PlayerIdleDownSprite.yy",},},
