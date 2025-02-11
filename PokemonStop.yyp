@@ -39,6 +39,7 @@
   "name":"PokemonStop",
   "resources":[
     {"id":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},},
+    {"id":{"name":"CollisionObject","path":"objects/CollisionObject/CollisionObject.yy",},},
     {"id":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},},
