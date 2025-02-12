@@ -52,6 +52,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"GetPokemonInfo","path":"scripts/GetPokemonInfo/GetPokemonInfo.yy",},},
     {"id":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},},
+    {"id":{"name":"GenderSprite","path":"sprites/GenderSprite/GenderSprite.yy",},},
     {"id":{"name":"MenuSprite","path":"sprites/MenuSprite/MenuSprite.yy",},},
     {"id":{"name":"PikachuSprite","path":"sprites/PikachuSprite/PikachuSprite.yy",},},
     {"id":{"name":"PlayerIdleDownSprite","path":"sprites/PlayerIdleDownSprite/PlayerIdleDownSprite.yy",},},

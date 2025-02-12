@@ -17,4 +17,10 @@ for (var i = 0; i < ds_list_size(global.playerParty); i++)
 	var level = ds_list_find_value(pkmnInfo, 2)
 	draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
 
+	var gender = ds_list_find_value(pkmnInfo, 3)
+	var genderFrame = 0
+	if (gender == "Female") genderFrame = 1
+	
+	draw_sprite_ext(GenderSprite, genderFrame, view_get_wport(0)*0.42, view_get_hport(0)*(0.145+(0.13*i)), 
+	1.5, 1.5, image_angle, image_blend, image_alpha)
 }
