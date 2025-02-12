@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"PlayerWalkUpSprite",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":31,
-  "bbox_left":7,
-  "bbox_right":24,
+  "bbox_left":8,
+  "bbox_right":23,
   "bbox_top":2,
   "collisionKind":1,
   "collisionTolerance":0,
