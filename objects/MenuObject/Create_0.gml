@@ -1,4 +1,5 @@
 player = noone
+active = true
 selectedIndex = 0
 
 optionsList = ds_list_create()

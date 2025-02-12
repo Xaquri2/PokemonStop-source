@@ -10,8 +10,8 @@
   "name":"MenuObject",
   "overriddenProperties":[],
   "parent":{
-    "name":"Important",
-    "path":"folders/Objects/Important.yy",
+    "name":"UI Elements",
+    "path":"folders/Objects/UI Elements.yy",
   },
   "parentObjectId":null,
   "persistent":false,
