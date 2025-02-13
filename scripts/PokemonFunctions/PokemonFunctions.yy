@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"GetPokemonInfo",
+  "%Name":"PokemonFunctions",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"GetPokemonInfo",
+  "name":"PokemonFunctions",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
