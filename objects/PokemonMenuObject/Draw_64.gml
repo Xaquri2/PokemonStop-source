@@ -76,4 +76,34 @@ else
 	
 	draw_sprite_ext(BarSprite, 0, view_get_wport(0)*0.14, view_get_hport(0)*0.25, 
 	12.5*(percentage/100), 1.6, image_angle, image_blend, image_alpha)
+	
+	//Stats
+	for (var i = 0; i < 6; i++)
+	{
+		var stat = floor(ds_list_find_value(GetPokemonFinalStats(selectedIndex), i))
+		var statName = ""
+		switch (i)
+		{
+			case 0:
+				statName = "HP: "
+				break
+			case 1:
+				statName = "Attack: "
+				break
+			case 2:
+				statName = "Defense: "
+				break
+			case 3:
+				statName = "Sp. Atk: "
+				break
+			case 4:
+				statName = "Sp. Def: "
+				break
+			case 5:
+				statName = "Speed: "
+				break
+		}
+		draw_text_transformed(view_get_wport(0)*0.16, view_get_hport(0)*(0.38+0.05*i), 
+		string_concat(statName, stat), 2, 2, image_angle)
+	}
 }
