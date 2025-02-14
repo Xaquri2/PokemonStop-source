@@ -21,10 +21,11 @@ function GetPartyMemberInfo(index) {
 	return ds_list_find_value(global.playerParty, index)
 }
 
-/// @param {string}   index   The name of the Pokémon to retreive stats of
-/// @description              Returns a list with the stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
+/// @param {string}   index   The name of the Pokémon to retreive base stats of
+/// @description              Returns a list with the base stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
 function GetPokemonBaseStats(index) {
-	var name = ds_list_find_value(global.playerParty, index)
+	var pokemon = ds_list_find_value(global.playerParty, index)
+	var name = ds_list_find_value(pokemon, 1)
 	var statList = ds_list_create()
 	switch (name)
 	{
@@ -42,4 +43,21 @@ function GetPokemonBaseStats(index) {
 			break
 	}
 	return statList
+}
+
+/// @param {string}   index   The name of the Pokémon to retreive final stats of
+/// @description              Returns a list with the final stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
+function GetPokemonFinalStats(index)
+{
+	var pokemon = ds_list_find_value(global.playerParty, index)
+	var level = ds_list_find_value(pokemon, 2)
+	var baseStats = GetPokemonBaseStats(index)
+	
+	var finalStats = ds_list_create()
+	for (var i = 0; i < ds_list_size(baseStats); i++)
+	{
+		ds_list_add(finalStats, ds_list_find_value(baseStats, i)*(2*(level/100)))
+	}
+	
+	return finalStats
 }
