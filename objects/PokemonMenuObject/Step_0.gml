@@ -1,4 +1,4 @@
-if (keyboard_check_pressed(ord("E"))) 
+if (keyboard_check_pressed(ord("E")) and canInteract) 
 {
 	if (summaryMode)
 	{
@@ -11,9 +11,15 @@ if (keyboard_check_pressed(ord("E")))
 	}
 }
 
-if (keyboard_check_pressed(vk_enter)) summaryMode = true
+if (keyboard_check_pressed(vk_enter))
+{
+	canInteract = false
+	//create the instance
+	//set instance menu variable to this' menu variable's value
+	//check if the pokémon can evolve, if so add 'Evolve' to the option list in the 3rd position (index 2)
+}
 
-if (!summaryMode)
+if (!summaryMode and canInteract)
 {
 	if (keyboard_check_pressed(ord("W"))) selectedIndex--
 	if (keyboard_check_pressed(ord("S"))) selectedIndex++

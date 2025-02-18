@@ -49,6 +49,7 @@
     {"id":{"name":"MenuObject","path":"objects/MenuObject/MenuObject.yy",},},
     {"id":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},},
     {"id":{"name":"PokemonMenuObject","path":"objects/PokemonMenuObject/PokemonMenuObject.yy",},},
+    {"id":{"name":"PokemonMenuOptionsObject","path":"objects/PokemonMenuOptionsObject/PokemonMenuOptionsObject.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"PokemonFunctions","path":"scripts/PokemonFunctions/PokemonFunctions.yy",},},
     {"id":{"name":"BarSprite","path":"sprites/BarSprite/BarSprite.yy",},},
