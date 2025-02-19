@@ -11,12 +11,28 @@ if (keyboard_check_pressed(ord("E")) and canInteract)
 	}
 }
 
-if (keyboard_check_pressed(vk_enter))
+if (keyboard_check_pressed(vk_enter) and canInteract)
 {
-	canInteract = false
-	//create the instance
-	//set instance menu variable to this' menu variable's value
-	//check if the pokémon can evolve, if so add 'Evolve' to the option list in the 3rd position (index 2)
+	if (switchMode)
+	{
+		var temp = ds_list_find_value(global.playerParty, selectedIndex)
+		ds_list_set(global.playerParty, selectedIndex, ds_list_find_value(global.playerParty, switchIndex))
+		ds_list_set(global.playerParty, switchIndex, temp)
+		
+		switchMode = false
+	}
+	else
+	{
+		canInteract = false
+		var options = instance_create_layer(x,y,layer,PokemonMenuOptionsObject)
+		options.xOffset = view_get_wport(0)*0.14
+		options.yOffset = view_get_hport(0)*(0.1+(0.14*selectedIndex))
+		options.menu = menu
+	
+		var pkmnInfo = GetPartyMemberInfo(selectedIndex)
+		ds_list_add(options.optionList, "Summary", "Switch")
+		if (CanEvolve(selectedIndex)) ds_list_add(options.optionList, "Evolve")
+	}
 }
 
 if (!summaryMode and canInteract)
