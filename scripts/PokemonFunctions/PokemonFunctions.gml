@@ -25,8 +25,8 @@ function GetPartyMemberInfo(index) {
 /// @description              Checks if the given party member can evolve, by checking its species, its level and the species' evolution requirements
 function CanEvolve(index) {
 	var pokemon = GetPartyMemberInfo(index)
-	var species = ds_list_find_value(pokemon, 2)
-	var level = ds_list_find_value(pokemon, 3)
+	var species = ds_list_find_value(pokemon, 1)
+	var level = ds_list_find_value(pokemon, 2)
 	
 	switch (species)
     {
