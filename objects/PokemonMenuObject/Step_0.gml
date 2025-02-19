@@ -6,8 +6,16 @@ if (keyboard_check_pressed(ord("E")) and canInteract)
 	}
 	else
 	{
-		menu.active = true
-		instance_destroy(id)
+		if (!switchMode)
+		{
+			menu.active = true
+			instance_destroy(id)
+		}
+		else 
+		{
+			switchIndex = -1
+			switchMode = false
+		}
 	}
 }
 
