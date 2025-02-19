@@ -5,34 +5,67 @@ if (!summaryMode)
 {
 	for (var i = 0; i < ds_list_size(global.playerParty); i++)
 	{
-		var pkmnInfo = GetPartyMemberInfo(i)
-		draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*(0.1+(0.13*i)), 
-		12.5, 3, image_angle, c_grey, image_alpha)
-	
-		if (selectedIndex == i) 
+		if ((i != switchIndex and switchMode) or !switchMode)
 		{
-			draw_set_alpha(0.25)
-			draw_rectangle(view_get_wport(0)*0.12, view_get_hport(0)*(0.1+(0.13*i)), 
-			view_get_wport(0)*0.12+sprite_get_width(MenuSprite)*12.5, 
-			view_get_hport(0)*(0.1+(0.13*i))+sprite_get_height(MenuSprite)*3, false)
-			draw_set_alpha(1)
+			var pkmnInfo = GetPartyMemberInfo(i)
+			draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*(0.1+(0.13*i)), 
+			12.5, 3, image_angle, c_grey, image_alpha)
+	
+			if (selectedIndex == i and !switchMode) 
+			{
+				draw_set_alpha(0.25)
+				draw_rectangle(view_get_wport(0)*0.12, view_get_hport(0)*(0.1+(0.13*i)), 
+				view_get_wport(0)*0.12+sprite_get_width(MenuSprite)*12.5, 
+				view_get_hport(0)*(0.1+(0.13*i))+sprite_get_height(MenuSprite)*3, false)
+				draw_set_alpha(1)
+			}
+	
+			var sprite = ds_list_find_value(pkmnInfo, 4)
+			draw_sprite_ext(sprite, 0, view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)), 
+			2, 2, image_angle, image_blend, image_alpha)
+	
+			var name = ds_list_find_value(pkmnInfo, 1)
+			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.11+(0.13*i)), name, 2, 2, image_angle)
+	
+			var level = ds_list_find_value(pkmnInfo, 2)
+			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
+
+			var gender = ds_list_find_value(pkmnInfo, 3)
+			var genderFrame = 0
+			if (gender == "Female") genderFrame = 1
+	
+			draw_sprite_ext(GenderSprite, genderFrame, view_get_wport(0)*0.42, view_get_hport(0)*(0.145+(0.13*i)), 
+			1.5, 1.5, image_angle, image_blend, image_alpha)
 		}
+	}
+	
+	if (switchMode)
+	{
+		var pkmnInfo = GetPartyMemberInfo(switchIndex)
+		draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.14, view_get_hport(0)*0.1+128*selectedIndex, 
+		12.5, 3, image_angle, c_grey, image_alpha)
+
+		draw_set_alpha(0.25)
+		draw_rectangle(view_get_wport(0)*0.14, view_get_hport(0)*0.1+128*selectedIndex, 
+		view_get_wport(0)*0.14+sprite_get_width(MenuSprite)*12.5, 
+		view_get_hport(0)*0.1+128*selectedIndex+sprite_get_height(MenuSprite)*3, false)
+		draw_set_alpha(1)
 	
 		var sprite = ds_list_find_value(pkmnInfo, 4)
-		draw_sprite_ext(sprite, 0, view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)), 
+		draw_sprite_ext(sprite, 0, view_get_wport(0)*0.2, view_get_hport(0)*0.15+128*selectedIndex, 
 		2, 2, image_angle, image_blend, image_alpha)
 	
 		var name = ds_list_find_value(pkmnInfo, 1)
-		draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.11+(0.13*i)), name, 2, 2, image_angle)
+		draw_text_transformed(view_get_wport(0)*0.26, view_get_hport(0)*0.11+128*selectedIndex, name, 2, 2, image_angle)
 	
 		var level = ds_list_find_value(pkmnInfo, 2)
-		draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
+		draw_text_transformed(view_get_wport(0)*0.26, view_get_hport(0)*0.15+128*selectedIndex, string_concat("Level: ", level), 2, 2, image_angle)
 
 		var gender = ds_list_find_value(pkmnInfo, 3)
 		var genderFrame = 0
 		if (gender == "Female") genderFrame = 1
 	
-		draw_sprite_ext(GenderSprite, genderFrame, view_get_wport(0)*0.42, view_get_hport(0)*(0.145+(0.13*i)), 
+		draw_sprite_ext(GenderSprite, genderFrame, view_get_wport(0)*0.44, view_get_hport(0)*0.145+128*selectedIndex, 
 		1.5, 1.5, image_angle, image_blend, image_alpha)
 	}
 }
