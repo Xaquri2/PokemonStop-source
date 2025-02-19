@@ -23,15 +23,19 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 	}
 	else
 	{
-		canInteract = false
-		var options = instance_create_layer(x,y,layer,PokemonMenuOptionsObject)
-		options.xOffset = view_get_wport(0)*0.14
-		options.yOffset = view_get_hport(0)*(0.1+(0.14*selectedIndex))
-		options.menu = menu
-	
-		var pkmnInfo = GetPartyMemberInfo(selectedIndex)
-		ds_list_add(options.optionList, "Summary", "Switch")
-		if (CanEvolve(selectedIndex)) ds_list_add(options.optionList, "Evolve")
+		if (!summaryMode and !switchMode)
+		{
+			canInteract = false
+			var options = instance_create_layer(x,y,layer,PokemonMenuOptionsObject)
+			options.xOffset = view_get_wport(0)*0.14
+			options.yOffset = view_get_hport(0)*(0.1+(0.14*selectedIndex))
+			options.menu = id
+			options.depth = depth-1
+		
+			var pkmnInfo = GetPartyMemberInfo(selectedIndex)
+			ds_list_add(options.optionList, "Summary", "Switch")
+			if (CanEvolve(selectedIndex)) ds_list_add(options.optionList, "Evolve")
+		}
 	}
 }
 
