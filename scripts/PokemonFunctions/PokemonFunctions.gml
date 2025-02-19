@@ -42,7 +42,7 @@ function CanEvolve(index) {
             break;
             
         case "Caterpie":
-			if (level == 10) return true
+			if (level >= 10) return true
             
         case "Magnemite":
             break;
@@ -52,10 +52,10 @@ function CanEvolve(index) {
             
         case "Charmander":
             // As in your snippet
-			if (level == 16) return true
+			if (level >= 16) return true
             
         case "Charmeleon":
-            if (level == 36) return true
+            if (level >= 36) return true
             
         case "Charizard":
             break;
@@ -64,10 +64,10 @@ function CanEvolve(index) {
             break;
             
         case "Squirtle":
-            if (level == 16) return true
+            if (level >= 16) return true
             
         case "Wartortle":
-            if (level == 36) return true
+            if (level >= 36) return true
             
         case "Blastoise":
             break;
