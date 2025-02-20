@@ -1,9 +1,9 @@
 {
   "$GMSprite":"",
   "%Name":"PlayerIdleLeftSprite",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":29,
-  "bbox_left":5,
+  "bbox_left":10,
   "bbox_right":21,
   "bbox_top":1,
   "collisionKind":1,
