@@ -1,6 +1,10 @@
 canWalk = true
 menuOpen = false
 
+talking = false
+nearestNPC = noone
+showNPCText = ""
+
 hspeedOld = 0
 vspeedOld = 0
 

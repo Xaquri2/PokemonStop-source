@@ -47,3 +47,30 @@ if (hspeed == 0 and vspeed == 0)
 	if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
 }
 #endregion
+
+#region NPC Interaction
+//Check if there are NPCs nearby to talk to
+var npc = instance_nearest(x,y,NPCParent)
+if (distance_to_object(npc) <= 32)
+{
+	{
+		showNPCText = "Press E to talk"
+		nearestNPC = npc
+	}
+}
+else
+{
+	showNPCText = ""
+	nearestNPC = noone
+}
+
+if (keyboard_check_pressed(vk_enter) and nearestNPC != noone and !talking)
+{
+	var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+	dialogue.textList = nearestNPC.textList
+	dialogue.iconList = nearestNPC.iconList
+	dialogue.nameList = nearestNPC.nameList
+
+	if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+}
+#endregion
