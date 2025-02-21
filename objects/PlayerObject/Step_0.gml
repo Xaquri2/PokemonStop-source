@@ -53,9 +53,14 @@ if (hspeed == 0 and vspeed == 0)
 var npc = instance_nearest(x,y,NPCParent)
 if (distance_to_object(npc) <= 32)
 {
+	if (nearestNPC != npc)
 	{
 		showNPCText = "Press E to talk"
 		nearestNPC = npc
+		
+		arrowDirection = floor(random_range(-1,3))
+		if (arrowDirection > 0) arrowDirection = 1
+		else arrowDirection = -1
 	}
 }
 else
@@ -64,13 +69,29 @@ else
 	nearestNPC = noone
 }
 
-if (keyboard_check_pressed(vk_enter) and nearestNPC != noone and !talking)
+if (nearestNPC != noone)
 {
-	var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-	dialogue.textList = nearestNPC.textList
-	dialogue.iconList = nearestNPC.iconList
-	dialogue.nameList = nearestNPC.nameList
-
-	if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	if (arrowDirection >= 0)
+	{
+		if (arrowSpeed < 0.5) arrowSpeed += 0.05
+		if (arrowOffset > 2) arrowDirection = -1
+	}
+	else
+	{
+		if (arrowSpeed > -0.5) arrowSpeed -= 0.05
+		if (arrowOffset < -2) arrowDirection = 1
+	}
+	arrowOffset += arrowSpeed
+	
+	if (keyboard_check_pressed(vk_enter) and !talking)
+	{
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.textList = nearestNPC.textList
+		dialogue.iconList = nearestNPC.iconList
+		dialogue.nameList = nearestNPC.nameList
+	
+		talking = true
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	}
 }
 #endregion

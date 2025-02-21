@@ -63,6 +63,7 @@
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"PokemonFunctions","path":"scripts/PokemonFunctions/PokemonFunctions.yy",},},
+    {"id":{"name":"ArrowSelectSprite","path":"sprites/ArrowSelectSprite/ArrowSelectSprite.yy",},},
     {"id":{"name":"BarSprite","path":"sprites/BarSprite/BarSprite.yy",},},
     {"id":{"name":"CharmanderIdleSprite","path":"sprites/CharmanderIdleSprite/CharmanderIdleSprite.yy",},},
     {"id":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},},
