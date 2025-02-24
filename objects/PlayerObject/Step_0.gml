@@ -89,7 +89,7 @@ if (nearestNPC != noone)
 		dialogue.textList = nearestNPC.textList
 		dialogue.iconList = nearestNPC.iconList
 		dialogue.nameList = nearestNPC.nameList
-	
+		dialogue.actionNPC = nearestNPC
 		talking = true
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 	}

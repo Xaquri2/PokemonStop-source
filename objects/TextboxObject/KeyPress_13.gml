@@ -7,6 +7,10 @@ else
 {
 	if (currentText+1 >= ds_list_size(textList))
 	{
+		if (!ds_list_empty(actionNPC.trainerTeam)) 
+		{
+			instance_create_layer(x,y,"Instances",BattleObject)
+		}
 		var player = instance_find(PlayerObject, 0)
 		player.alarm[1] = 1
 		instance_destroy(id)
