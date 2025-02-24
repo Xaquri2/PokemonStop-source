@@ -62,6 +62,7 @@
     {"id":{"name":"TestWildObject","path":"objects/TestWildObject/TestWildObject.yy",},},
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"id":{"name":"PokemonFunctions","path":"scripts/PokemonFunctions/PokemonFunctions.yy",},},
     {"id":{"name":"ArrowSelectSprite","path":"sprites/ArrowSelectSprite/ArrowSelectSprite.yy",},},
     {"id":{"name":"BarSprite","path":"sprites/BarSprite/BarSprite.yy",},},
@@ -94,6 +95,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

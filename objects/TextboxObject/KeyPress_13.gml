@@ -12,7 +12,8 @@ else
 		{
 			player.talking = false
 			player.battle = true
-			instance_create_layer(x,y,"Instances",BattleObject)
+			var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+			battleObj.enemyTeam = actionNPC.trainerTeam
 		}
 		else
 		{
