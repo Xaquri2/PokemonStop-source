@@ -1,9 +1,13 @@
-if (fadingIntro and fadeCount < 4)
+if (fadingIntro and fadeCount < 5)
 {
 	if (fadeAlpha < 1 and fadeDir == 1)
 	{
-		fadeAlpha += 0.12
-		if (fadeAlpha >= 1) 
+		if (fadeCount < 4) fadeAlpha += 0.12
+		else 
+		{
+			fadeAlpha += 0.02
+		}
+		if (fadeAlpha >= 1 and fadeCount < 4) 
 		{
 			fadeDir = 0
 		}

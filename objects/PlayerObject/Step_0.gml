@@ -4,7 +4,7 @@ vspeedOld = vspeed
 hspeed = 0
 vspeed = 0
 
-if (keyboard_check_pressed(ord("E")) and !menuOpen) 
+if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle) 
 {
 	canWalk = false
 	menuOpen = true
@@ -83,7 +83,7 @@ if (nearestNPC != noone)
 	}
 	arrowOffset += arrowSpeed
 	
-	if (keyboard_check_pressed(vk_enter) and !talking)
+	if (keyboard_check_pressed(vk_enter) and !talking and !battle)
 	{
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 		dialogue.textList = nearestNPC.textList

@@ -7,12 +7,17 @@ else
 {
 	if (currentText+1 >= ds_list_size(textList))
 	{
+		var player = instance_find(PlayerObject, 0)
 		if (!ds_list_empty(actionNPC.trainerTeam)) 
 		{
+			player.talking = false
+			player.battle = true
 			instance_create_layer(x,y,"Instances",BattleObject)
 		}
-		var player = instance_find(PlayerObject, 0)
-		player.alarm[1] = 1
+		else
+		{
+			player.alarm[1] = 1
+		}
 		instance_destroy(id)
 	}
 	else

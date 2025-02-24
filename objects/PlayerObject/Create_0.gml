@@ -1,6 +1,7 @@
 canWalk = true
 menuOpen = false
 
+battle = false
 talking = false
 nearestNPC = noone
 showNPCText = ""
