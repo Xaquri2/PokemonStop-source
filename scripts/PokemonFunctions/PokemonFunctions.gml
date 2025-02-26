@@ -15,7 +15,18 @@ function AddPokemon(name, level, gender, sprite) {
 	}
 }
 
+function AddPokemonTrainer(team, index, name, level, gender, sprite) {
+	var pokemon = ds_list_create()
+	ds_list_add(pokemon, index, name, level, gender, sprite, 100)
+	
+	if (ds_list_size(team) < 6)
+	{
+		ds_list_add(team, pokemon)
+	}
+}
+
 /// @param {string}   index   The position of the Pokémon in the party to retreive info about
+/// @param {string}   team    The party to search for the Pokémon at the given position in
 /// @description              Returns a list with the information of the given Pokémon, using its index in the party as an identifier, in the following order: Index, Name, Level, Gender, Sprite.
 function GetPartyMemberInfo(index) {
 	return ds_list_find_value(global.playerParty, index)
