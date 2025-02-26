@@ -14,6 +14,7 @@ else
 			player.battle = true
 			var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 			battleObj.enemyTeam = actionNPC.trainerTeam
+			battleObj.enemySprite = object_get_sprite(actionNPC.object_index)
 		}
 		else
 		{

@@ -6,3 +6,4 @@ fadingIntro = true
 topRectValue = view_get_hport(0)/2
 playerTeam = global.playerParty
 enemyTeam = 0
+enemySprite = noone
