@@ -54,9 +54,9 @@
   },
   "name":"PokemonStop",
   "resources":[
+    {"id":{"name":"BattleEntityObject","path":"objects/BattleEntityObject/BattleEntityObject.yy",},},
     {"id":{"name":"BattleFloorObject","path":"objects/BattleFloorObject/BattleFloorObject.yy",},},
     {"id":{"name":"BattleObject","path":"objects/BattleObject/BattleObject.yy",},},
-    {"id":{"name":"BattlePokemonObject","path":"objects/BattlePokemonObject/BattlePokemonObject.yy",},},
     {"id":{"name":"BattleTextboxObject","path":"objects/BattleTextboxObject/BattleTextboxObject.yy",},},
     {"id":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},},
     {"id":{"name":"Coin","path":"objects/Coin/Coin.yy",},},
