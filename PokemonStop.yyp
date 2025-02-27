@@ -114,6 +114,7 @@
     {"id":{"name":"PlayerWalkLeftSprite","path":"sprites/PlayerWalkLeftSprite/PlayerWalkLeftSprite.yy",},},
     {"id":{"name":"PlayerWalkRightSprite","path":"sprites/PlayerWalkRightSprite/PlayerWalkRightSprite.yy",},},
     {"id":{"name":"PlayerWalkUpSprite","path":"sprites/PlayerWalkUpSprite/PlayerWalkUpSprite.yy",},},
+    {"id":{"name":"PokeballRotateSprite","path":"sprites/PokeballRotateSprite/PokeballRotateSprite.yy",},},
     {"id":{"name":"SnorlaxIdleSprite","path":"sprites/SnorlaxIdleSprite/SnorlaxIdleSprite.yy",},},
     {"id":{"name":"SquirtleIdleSprite","path":"sprites/SquirtleIdleSprite/SquirtleIdleSprite.yy",},},
     {"id":{"name":"TektiteIdleSprite","path":"sprites/TektiteIdleSprite/TektiteIdleSprite.yy",},},
