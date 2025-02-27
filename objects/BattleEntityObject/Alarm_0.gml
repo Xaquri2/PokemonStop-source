@@ -1,2 +1,1 @@
-hspeed = moveSpeed
-alarm[1] = 60
+hspeed = 0
