@@ -12,7 +12,7 @@ if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle)
 	menu.player = id
 }
 
-if (canWalk)
+if (canWalk and !talking and !battle)
 {
 	if (keyboard_check(ord("W"))) vspeed = -2
 	if (keyboard_check(ord("S"))) vspeed = 2
