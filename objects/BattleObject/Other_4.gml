@@ -9,7 +9,7 @@ if (room == RoomBattle)
 	var enemyTeamMemberName = ds_list_find_value(enemyTeamMember, 1)
 	
 	ds_list_add(textList, string_concat(enemyName, " wants to battle"), 
-	string_concat(enemyName, " sent out ", enemyTeamMemberName), string_concat("Go! ", playerTeamMember))
+	string_concat(enemyName, " sent out ", enemyTeamMemberName), string_concat("Go! ", playerTeamMemberName))
 	
 	var floorEnemy = instance_create_layer(room_width*0.7, 
 	room_height*0.3, "BattleFloor", BattleFloorObject)
