@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Pokémon",
-    "path":"folders/Sprites/Pokémon.yy",
+    "name":"OverworldSprites",
+    "path":"folders/Sprites/Pokémon/OverworldSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
