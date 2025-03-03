@@ -113,7 +113,7 @@ else
 	//Stats
 	for (var i = 0; i < 6; i++)
 	{
-		var stat = floor(ds_list_find_value(GetPokemonFinalStats(selectedIndex), i))
+		var stat = floor(ds_list_find_value(GetPokemonFinalStats(selectedIndex, global.playerParty), i))
 		var statName = ""
 		switch (i)
 		{

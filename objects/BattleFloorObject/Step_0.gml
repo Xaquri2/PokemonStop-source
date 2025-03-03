@@ -14,4 +14,5 @@ if (!spawned)
 	entity.sprite_index = trainer
 	entity.moveSpeed = moveSpeed
 	entity.player = player
+	entity.team = team
 }

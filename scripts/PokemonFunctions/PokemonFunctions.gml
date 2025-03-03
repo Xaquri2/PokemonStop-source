@@ -298,8 +298,8 @@ function CanEvolve(index) {
 
 /// @param {string}   index   The position of the Pokémon in the party to retreive base stats of
 /// @description              Returns a list with the base stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
-function GetPokemonBaseStats(index) {
-	var pokemon = ds_list_find_value(global.playerParty, index)
+function GetPokemonBaseStats(index, team) {
+	var pokemon = ds_list_find_value(team, index)
 	var name = ds_list_find_value(pokemon, 1)
 	var statList = ds_list_create()
 	switch (name)
@@ -628,11 +628,11 @@ function GetPokemonBaseStats(index) {
 
 /// @param {string}   index   The position of the Pokémon in the party to retreive final stats of
 /// @description              Returns a list with the final stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
-function GetPokemonFinalStats(index)
+function GetPokemonFinalStats(index, team)
 {
-	var pokemon = ds_list_find_value(global.playerParty, index)
+	var pokemon = ds_list_find_value(team, index)
 	var level = ds_list_find_value(pokemon, 2)
-	var baseStats = GetPokemonBaseStats(index)
+	var baseStats = GetPokemonBaseStats(index, team)
 	
 	var finalStats = ds_list_create()
 	for (var i = 0; i < ds_list_size(baseStats); i++)
@@ -641,4 +641,17 @@ function GetPokemonFinalStats(index)
 	}
 	
 	return finalStats
+}
+
+function SetPokemonDefaults(index, team)
+{
+	sprite_index = ds_list_find_value(ds_list_find_value(team, index), 4)
+	
+	var stats = GetPokemonFinalStats(index, team)
+	hp = ds_list_find_value(stats, 0)
+	atk = ds_list_find_value(stats, 1)
+	def = ds_list_find_value(stats, 2)
+	spatk = ds_list_find_value(stats, 3)
+	spdef = ds_list_find_value(stats, 4)
+	spd = ds_list_find_value(stats, 5)
 }

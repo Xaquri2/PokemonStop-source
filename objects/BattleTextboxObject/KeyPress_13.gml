@@ -1,11 +1,11 @@
-if (instance_number(ImportantElementParent) == 0)
+if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 {
-	if (charNumber < string_length(ds_list_find_value(textList, currentText)))
-	{
-		charNumber = string_length(ds_list_find_value(textList, currentText))
-		charCounter = 0
-	}
-	else
+	charNumber = string_length(ds_list_find_value(textList, currentText))
+	charCounter = 0
+}
+else
+{
+	if (instance_number(ImportantElementParent) == 0)
 	{
 		if (currentText+1 >= ds_list_size(textList))
 		{
@@ -45,7 +45,7 @@ if (instance_number(ImportantElementParent) == 0)
 				if (!player.player) player = -1
 				else break
 			}
-		
+	
 			if (player != -1)
 			{
 				player.hspeed = player.moveSpeed
