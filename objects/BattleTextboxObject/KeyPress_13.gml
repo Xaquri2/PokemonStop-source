@@ -9,7 +9,7 @@ else
 	{
 		if (currentText+1 >= ds_list_size(textList))
 		{
-			instance_destroy(id)
+			alarm[0] = 30
 		}
 		else
 		{
