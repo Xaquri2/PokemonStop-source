@@ -681,4 +681,5 @@ function LearnsMoveAt(name, level)
 			if (level == 36) return "Thunderbolt"
 			break
 	}
+	return ""
 }
