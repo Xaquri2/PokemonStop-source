@@ -655,3 +655,30 @@ function SetPokemonDefaults(index, team)
 	spdef = ds_list_find_value(stats, 4)
 	spd = ds_list_find_value(stats, 5)
 }
+
+/// @param {string}   name    The name of the move to search information about
+/// @description              Returns a list with the info about the given move, in the following order: Name, Type, Category, Base Power, Accurancy, Power Point, Inflict Effect, Inflict Chance, Amount of Hits, Crit Multiplier, Makes Contact.
+function GetMoveDetails(name)
+{
+	var moveInfo = ds_list_create()
+	switch (name)
+	{
+		case "Thunderbolt":
+			ds_list_add(moveInfo, name, "Electric", "Special", 90, 100, 15, "Paralysis", 0.3, 1, 1, false)
+			break
+	}
+}
+
+/// @param {string}   name    The name of the Pokémon to search the learnset of
+/// @param {string}   level   The level to check if the given Pokémon learns a move at
+/// @description              Returns the name of any move the Pokémon might learn at the given level.
+function LearnsMoveAt(name, level)
+{
+	var moveInfo = ds_list_create()
+	switch (name)
+	{
+		case "Pikachu":
+			if (level == 36) return "Thunderbolt"
+			break
+	}
+}
