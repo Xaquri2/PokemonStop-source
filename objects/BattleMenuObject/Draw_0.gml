@@ -49,19 +49,19 @@ else if (mode == "Moves")
 	var pkmnInfo = ds_list_find_value(pkmn.team, pkmn.index)
 	var pkmnLevel = GetLevel(pkmnInfo)
 	var pkmnName = GetName(pkmnInfo)
-	var movesList = GetLevelUpMoveset(pkmnName, pkmnLevel)
+	optionsList = GetLevelUpMoveset(pkmnName, pkmnLevel)
 	
-	var str = "Choose an option"
+	var str = "Choose a move"
 	draw_sprite_ext(sprite_index, image_index, view_width/2, view_y+view_height-36, 8, 2, image_angle, image_blend, image_alpha)
 	draw_text_transformed(view_width-32-string_width(str), view_y+view_height-60, str, 0.75, 0.75, image_angle)
 
-	var xOffset = 0.8
+	var xOffset = 4.75
 	var yOffset = 48
-	for (var i = 0; i < ds_list_size(movesList); i++)
+	for (var i = 0; i < ds_list_size(optionsList); i++)
 	{
 		if (i == 2) 
 		{
-			xOffset = 0.8
+			xOffset = 4.75
 			yOffset = 20
 		}
 	
@@ -69,12 +69,12 @@ else if (mode == "Moves")
 	
 		draw_set_halign(fa_center)
 		draw_set_valign(fa_middle)
-		if (i == movesList) draw_set_color(c_yellow)
-		draw_text_transformed(view_width/xOffset, view_y+view_height-yOffset-2,ds_list_find_value(movesList, i), 0.8, 0.8, image_angle)
+		if (i == currentOption) draw_set_color(c_yellow)
+		draw_text_transformed(view_width/xOffset, view_y+view_height-yOffset-2,ds_list_find_value(optionsList, i), 0.4, 0.4, image_angle)
 		draw_set_halign(fa_left)
 		draw_set_valign(fa_top)
 	
-		xOffset -= 0.4
+		xOffset -= 2.2
 		draw_set_color(c_white)
 	}
 }
