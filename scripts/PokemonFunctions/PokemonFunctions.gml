@@ -5,7 +5,7 @@
 /// @description              Adds a Pokémon to the player's party with the provided information, with all of it being stored inside a DS list. Added Pokémon are always added with 100% of their health.
 function AddPokemon(name, level, gender, sprite) {
 	var pokemon = ds_list_create()
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, 100)
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, 100, GetLevelUpMoveset(name, level))
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 	
@@ -31,6 +31,13 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 function GetPartyMemberInfo(index) {
 	return ds_list_find_value(global.playerParty, index)
 }
+
+function GetName(pkmnInfo) { return ds_list_find_value(pkmnInfo, 1) }
+function GetLevel(pkmnInfo) { return ds_list_find_value(pkmnInfo, 2) }
+function GetGender(pkmnInfo) { return ds_list_find_value(pkmnInfo, 3) }
+function GetSprite(pkmnInfo) { return ds_list_find_value(pkmnInfo, 4) }
+function GetHealthPercentage(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
+function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
 
 /// @param {string}   index   The position of the Pokémon in the party to retreive info about
 /// @description              Checks if the given party member can evolve, by checking its species, its level and the species' evolution requirements
@@ -656,17 +663,180 @@ function SetPokemonDefaults(index, team)
 	spd = ds_list_find_value(stats, 5)
 }
 
-/// @param {string}   name    The name of the move to search information about
+/// @param {string} moveName  The name of the move to search information about
 /// @description              Returns a list with the info about the given move, in the following order: Name, Type, Category, Base Power, Accurancy, Power Point, Inflict Effect, Inflict Chance, Amount of Hits, Crit Multiplier, Makes Contact.
-function GetMoveDetails(name)
+function GetMoveDetails(moveName)
 {
 	var moveInfo = ds_list_create()
-	switch (name)
-	{
-		case "Thunderbolt":
-			ds_list_add(moveInfo, name, "Electric", "Special", 90, 100, 15, "Paralysis", 0.3, 1, 1, false)
-			break
-	}
+	switch (moveName)
+    {
+        //---------------------------------------
+        // Common / Canonical Moves
+        //---------------------------------------
+        case "Tackle":
+            // [Name, Type, Category, Power, Accuracy, PP, Effect, EffectChance, CritChance, Priority]
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, false);
+            break;
+        case "Growl":
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 40, "LowerAttack", 1, 1, false);
+            break;
+        case "Quick Attack":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 30, "None", 0, 1, true);
+            break;
+        case "Scratch":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, false);
+            break;
+        case "Ember":
+            ds_list_add(moveInfo, moveName, "Fire", "Special", 40, 100, 25, "Burn", 0.1, 1, false);
+            break;
+        case "Water Gun":
+            ds_list_add(moveInfo, moveName, "Water", "Special", 40, 100, 25, "None", 0, 1, false);
+            break;
+        case "Vine Whip":
+            ds_list_add(moveInfo, moveName, "Grass", "Physical", 45, 100, 25, "None", 0, 1, false);
+            break;
+        case "ThunderShock":
+            ds_list_add(moveInfo, moveName, "Electric", "Special", 40, 100, 30, "Paralysis", 0.1, 1, false);
+            break;
+        case "Confusion":
+            ds_list_add(moveInfo, moveName, "Psychic", "Special", 50, 100, 25, "Confuse", 0.1, 1, false);
+            break;
+        case "Gust":
+            ds_list_add(moveInfo, moveName, "Flying", "Special", 40, 100, 35, "None", 0, 1, false);
+            break;
+        case "Bite":
+            ds_list_add(moveInfo, moveName, "Dark", "Physical", 60, 100, 25, "Flinch", 0.3, 1, false);
+            break;
+        case "Self-Destruct":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 200, 100, 5, "FaintUser", 1, 1, false);
+            break;
+        case "String Shot":
+            ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, false);
+            break;
+        case "Thunder Wave":
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Paralysis", 1, 1, false);
+            break;
+        case "Ice Beam":
+            ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, false);
+            break;
+        case "Drill Peck":
+            ds_list_add(moveInfo, moveName, "Flying", "Physical", 80, 100, 20, "None", 0, 1, false);
+            break;
+        case "Shadow Punch":
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 100, 20, "None", 0, 1, false);
+            break;
+        case "Shadow Ball":
+            ds_list_add(moveInfo, moveName, "Ghost", "Special", 80, 100, 15, "LowerSpDef", 0.2, 1, false);
+            break;
+        case "Leech Life":
+            ds_list_add(moveInfo, moveName, "Bug", "Physical", 80, 100, 10, "Drain", 1, 1, false);
+            break;
+        case "Hypnosis":
+            ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 60, 20, "Sleep", 1, 1, false);
+            break;
+        case "Poison Sting":
+            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poison", 0.3, 1, false);
+            break;
+        case "Sing":
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 55, 15, "Sleep", 1, 1, false);
+            break;
+        case "Crunch":
+            ds_list_add(moveInfo, moveName, "Dark", "Physical", 80, 100, 15, "LowerDefense", 0.2, 1, false);
+            break;
+        case "Withdraw":
+            ds_list_add(moveInfo, moveName, "Water", "Status", 0, 100, 40, "RaiseDefense", 1, 1, false);
+            break;
+        case "Headbutt":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 15, "Flinch", 0.3, 1, false);
+            break;
+
+        //---------------------------------------
+        // High-power / advanced moves
+        //---------------------------------------
+        case "Giga Impact":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 150, 90, 5, "Recharge", 1, 1, false);
+            break;
+        case "Psychic":
+            ds_list_add(moveInfo, moveName, "Psychic", "Special", 90, 100, 10, "LowerSpDef", 0.1, 1, false);
+            break;
+        case "Dynamic Punch":
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 50, 5, "Confuse", 1, 1, false);
+            break;
+        case "Bulldoze":
+            ds_list_add(moveInfo, moveName, "Ground", "Physical", 60, 100, 20, "LowerSpeed", 1, 1, false);
+            break;
+        case "Rock Tomb":
+            ds_list_add(moveInfo, moveName, "Rock", "Physical", 60, 95, 15, "LowerSpeed", 1, 1, false);
+            break;
+        case "Storm Throw":
+            // In main series, always crits; here we approximate
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 60, 100, 10, "Crit", 1, 1.5, false);
+            break;
+        case "Play Rough":
+            ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 0, 1, false);
+            break;
+        case "Iron Defense":
+            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDef2", 1, 1, false);
+            break;
+
+        //---------------------------------------
+        // Custom / Fanfiction Moves
+        //---------------------------------------
+        case "Inhale":
+            // Kirby's special
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, false);
+            break;
+        case "Aura Sphere":
+            // Typically never misses in main games; here we set 100% accuracy
+            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 100, 20, "None", 0, 1, false);
+            break;
+        case "Flux":
+            // MissingNo’s reality-bending move
+            ds_list_add(moveInfo, moveName, "???", "Status", 0, 100, 5, "Flux", 1, 1, false);
+            break;
+        case "Explosion":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 250, 100, 5, "FaintUser", 1, 1, false);
+            break;
+        case "Grassy Surge":
+            // In main games, an Ability, but we'll treat it as a move
+            ds_list_add(moveInfo, moveName, "Grass", "Status", 0, 100, 5, "GrassyTerrain", 1, 1, false);
+            break;
+        case "Dual Strike":
+            // Demogorgon's special "two-head" move
+            ds_list_add(moveInfo, moveName, "Dark", "Status", 0, 100, 5, "DualStrike", 1, 1, false);
+            break;
+        case "Force Lift":
+            // Yodal’s custom telekinetic move
+            ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 100, 10, "Flinch", 1, 1, false);
+            break;
+        case "Interface":
+            // BB-8’s custom “hack” move
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 100, 10, "Interface", 1, 1, false);
+            break;
+        case "Egg Toss":
+            // Yo'Ster’s custom
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 0, 1, false);
+            break;
+        case "Jump Kick":
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 95, 10, "RecoilOnMiss", 1, 1, false);
+            break;
+        case "Acid Blood":
+            // Xenomorph’s signature
+            ds_list_add(moveInfo, moveName, "Poison", "Special", 60, 100, 15, "Corrode", 0.3, 1, false);
+            break;
+        case "Slash":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.2, false);
+            break;
+        case "Lick":
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 30, 100, 30, "Paralysis", 0.3, 1, false);
+            break;
+
+        default:
+            // If a move is unrecognized, return something safe
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "None", 0, 1, false);
+            break;
+    }
+	return moveInfo
 }
 
 /// @param {string}   name    The name of the Pokémon to search the learnset of
@@ -676,10 +846,166 @@ function LearnsMoveAt(name, level)
 {
 	var moveInfo = ds_list_create()
 	switch (name)
-	{
-		case "Pikachu":
-			if (level == 36) return "Thunderbolt"
-			break
-	}
+    {
+        //--------------------------------
+        // Official Pokémon
+        //--------------------------------
+        case "Pikachu":
+            if (level == 1)  return "Thunder Shock";
+            if (level == 4)  return "Quick Attack";
+            if (level == 8)  return "Electro Ball";
+            if (level == 12) return "Thunderbolt";
+            break;
+
+        case "Voltorb":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Thunder Shock";
+            if (level == 8)  return "Self-Destruct";
+            if (level == 12) return "Explosion";
+            break;
+
+        case "Caterpie":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "String Shot";
+            if (level == 8)  return "Bug Bite";
+            if (level == 12) return "Confusion"; 
+            break;
+
+        case "Magnemite":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Thunder Shock";
+            if (level == 8)  return "Thunderbolt";
+            if (level == 12) return "Iron Defense";
+            break;
+
+        case "Butterfree":
+            if (level == 1)  return "Confusion";
+            if (level == 4)  return "Gust";
+            if (level == 8)  return "Psychic";
+            if (level == 12) return "Play Rough";
+            break;
+
+        case "Charmander":
+            if (level == 1)  return "Scratch";
+            if (level == 4)  return "Ember";
+            if (level == 8)  return "Fire Fang";
+            if (level == 12) return "Slash";
+            break;
+
+        case "Charmeleon":
+            if (level == 1)  return "Ember";
+            if (level == 4)  return "Dragon Breath";
+            if (level == 8)  return "Slash";
+            if (level == 12) return "Fire Blast";
+            break;
+
+        case "Charizard":
+            if (level == 1)  return "Wing Attack";
+            if (level == 4)  return "Slash";
+            if (level == 8)  return "Fire Blast";
+            if (level == 12) return "Giga Impact";
+            break;
+
+        case "Clefairy":
+            if (level == 1)  return "Pound";
+            if (level == 4)  return "Sing";
+            if (level == 8)  return "Play Rough";
+            if (level == 12) return "Moonblast";
+            break;
+
+        case "Squirtle":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Water Gun";
+            if (level == 8)  return "Aqua Tail";
+            if (level == 12) return "Hydro Pump";
+            break;
+
+        case "Blastoise":
+            if (level == 1)  return "Water Gun";
+            if (level == 4)  return "Bite";
+            if (level == 8)  return "Hydro Pump";
+            if (level == 12) return "Giga Impact";
+            break;
+
+        case "Snorlax":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Lick";
+            if (level == 8)  return "Body Slam";
+            if (level == 12) return "Giga Impact";
+            break;
+
+        //--------------------------------
+        // Story-Specific & Custom Pokémon
+        //--------------------------------
+        case "Kirby":
+            if (level == 1)  return "Inhale";
+            if (level == 5)  return "Play Rough";
+            if (level == 10) return "Aura Sphere";
+            if (level == 15) return "Iron Defense";
+            break;
+
+        case "Ape-Ball":
+            if (level == 1)  return "Dynamic Punch";
+            if (level == 5)  return "Bulldoze";
+            if (level == 10) return "Rock Tomb";
+            if (level == 15) return "Storm Throw";
+            break;
+
+        case "Demogorgon":
+            if (level == 1)  return "Hypnosis";
+            if (level == 5)  return "Psychic";
+            if (level == 10) return "Dual Strike";
+            if (level == 15) return "Giga Impact";
+            break;
+
+        case "MissingNo":
+            if (level == 1)  return "Flux";
+            break;
+
+        case "Creeper":
+            if (level == 1)  return "Explosion";
+            break;
+
+        case "Ewok":
+            if (level == 1)  return "Grassy Surge";
+            break;
+
+        // Adding a few extra from fan Pokémon
+        case "Xenomorph":
+            if (level == 1)  return "Scratch";
+            if (level == 5)  return "Acid";
+            if (level == 10) return "Bite";
+            if (level == 15) return "Shadow Claw";
+            break;
+
+        case "Yo’ster":
+            if (level == 1)  return "Tackle";
+            if (level == 5)  return "Egg Throw";
+            if (level == 10) return "Double Kick";
+            if (level == 15) return "Mega Punch";
+            break;
+
+        case "Pac-Man":
+            if (level == 1)  return "Bite";
+            if (level == 5)  return "Rollout";
+            if (level == 10) return "Crunch";
+            if (level == 15) return "Hyper Beam";
+            break;
+    }
 	return ""
+}
+
+/// @param {string}   name    The name of the Pokémon to get the natural moveset of
+/// @param {string}   level   The level to use as reference for retreiving the moves
+/// @description              Returns a DS list with the last four moves the given Pokémon can learn.
+function GetLevelUpMoveset(name, level)
+{
+	var moveset = ds_list_create()
+	var j = 0
+	for (var i = level; i > 0; i--)
+	{
+		var move = LearnsMoveAt(name, i)
+		if (move != "" and ds_list_size(moveset) < 4) ds_list_add(moveset, move)
+	}
+	return moveset
 }

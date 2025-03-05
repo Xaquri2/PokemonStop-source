@@ -20,17 +20,17 @@ if (!summaryMode)
 				draw_set_alpha(1)
 			}
 	
-			var sprite = ds_list_find_value(pkmnInfo, 4)
+			var sprite = GetSprite(pkmnInfo)
 			draw_sprite_ext(sprite, 0, view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)), 
 			2, 2, image_angle, image_blend, image_alpha)
 	
-			var name = ds_list_find_value(pkmnInfo, 1)
+			var name = GetName(pkmnInfo)
 			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.11+(0.13*i)), name, 2, 2, image_angle)
 	
-			var level = ds_list_find_value(pkmnInfo, 2)
+			var level = GetLevel(pkmnInfo)
 			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
 
-			var gender = ds_list_find_value(pkmnInfo, 3)
+			var gender = GetGender(pkmnInfo)
 			var genderFrame = 0
 			if (gender == "Female") genderFrame = 1
 	
@@ -51,17 +51,17 @@ if (!summaryMode)
 		view_get_hport(0)*0.1+128*selectedIndex+sprite_get_height(MenuSprite)*3, false)
 		draw_set_alpha(1)
 	
-		var sprite = ds_list_find_value(pkmnInfo, 4)
+		var sprite = GetSprite(pkmnInfo)
 		draw_sprite_ext(sprite, 0, view_get_wport(0)*0.2, view_get_hport(0)*0.15+128*selectedIndex, 
 		2, 2, image_angle, image_blend, image_alpha)
 	
-		var name = ds_list_find_value(pkmnInfo, 1)
+		var name = GetName(pkmnInfo)
 		draw_text_transformed(view_get_wport(0)*0.26, view_get_hport(0)*0.11+128*selectedIndex, name, 2, 2, image_angle)
 	
-		var level = ds_list_find_value(pkmnInfo, 2)
+		var level = GetLevel(pkmnInfo)
 		draw_text_transformed(view_get_wport(0)*0.26, view_get_hport(0)*0.15+128*selectedIndex, string_concat("Level: ", level), 2, 2, image_angle)
 
-		var gender = ds_list_find_value(pkmnInfo, 3)
+		var gender = GetGender(pkmnInfo)
 		var genderFrame = 0
 		if (gender == "Female") genderFrame = 1
 	
@@ -79,20 +79,20 @@ else
 	12.5, 15, image_angle, c_grey, image_alpha)
 	
 	//Sprite
-	var sprite = ds_list_find_value(pkmnInfo, 4)
+	var sprite = GetSprite(pkmnInfo)
 	draw_sprite_ext(sprite, 0, view_get_wport(0)*0.18, view_get_hport(0)*0.15, 
 	2, 2, image_angle, image_blend, image_alpha)
 	
 	//Name
-	var name = ds_list_find_value(pkmnInfo, 1)
+	var name = GetName(pkmnInfo)
 	draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*0.11, name, 2, 2, image_angle)
 	
 	//Level
-	var level = ds_list_find_value(pkmnInfo, 2)
+	var level = GetLevel(pkmnInfo)
 	draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*0.15, string_concat("Level: ", level), 2, 2, image_angle)
 
 	//Gender
-	var gender = ds_list_find_value(pkmnInfo, 3)
+	var gender = GetGender(pkmnInfo)
 	var genderFrame = 0
 	if (gender == "Female") genderFrame = 1
 	
@@ -100,7 +100,7 @@ else
 	1.5, 1.5, image_angle, image_blend, image_alpha)
 	
 	//Health Bar
-	var percentage = ds_list_find_value(pkmnInfo, 5)
+	var percentage = GetHealthPercentage(pkmnInfo)
 	draw_text_transformed(view_get_wport(0)*0.14, view_get_hport(0)*0.2, 
 	string_concat("HP: ", percentage, "%"), 2, 2, image_angle)
 	
