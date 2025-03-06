@@ -55,7 +55,7 @@ if (distance_to_object(npc) <= 32)
 {
 	if (nearestNPC != npc)
 	{
-		showNPCText = "Press E to talk"
+		showNPCText = "Press Enter to talk"
 		nearestNPC = npc
 		
 		arrowDirection = floor(random_range(-1,3))
@@ -83,7 +83,7 @@ if (nearestNPC != noone)
 	}
 	arrowOffset += arrowSpeed
 	
-	if (keyboard_check_pressed(vk_enter) and !talking and !battle)
+	if (keyboard_check_pressed(vk_enter) and !menuOpen and !talking and !battle)
 	{
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 		dialogue.textList = nearestNPC.textList
