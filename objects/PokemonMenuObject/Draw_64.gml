@@ -139,4 +139,23 @@ else
 		draw_text_transformed(view_get_wport(0)*0.16, view_get_hport(0)*(0.38+0.05*i), 
 		string_concat(statName, stat), 2, 2, image_angle)
 	}
+	
+	var moves = GetLevelUpMoveset(GetName(pkmnInfo), GetLevel(pkmnInfo))
+	var xOffset = 0
+	var yOffset = 0
+	for (var i = 0; i < ds_list_size(moves); i++)
+	{
+		if (i == 2) 
+		{
+			xOffset = 0
+			yOffset = 64
+		}
+	
+		draw_sprite_ext(MenuSprite, image_index, view_get_wport(0)*(0.14+xOffset), view_get_hport(0)-300+yOffset, 5, 1.5, image_angle, image_blend, image_alpha)
+		if (i == moveIndex) draw_set_color(c_yellow)
+		draw_text_transformed(view_get_wport(0)*(0.14+xOffset), view_get_hport(0)-300+yOffset,ds_list_find_value(moves, i), 1.5, 1.5, image_angle)
+	
+		xOffset += 0.2
+		draw_set_color(c_white)
+	}
 }

@@ -52,6 +52,24 @@ if (!summaryMode and canInteract)
 	if (keyboard_check_pressed(ord("W"))) selectedIndex--
 	if (keyboard_check_pressed(ord("S"))) selectedIndex++
 }
+else if (summaryMode)
+{
+	if (keyboard_check_pressed(ord("W"))) moveIndex -= 2
+	if (keyboard_check_pressed(ord("S"))) moveIndex += 2
+	if (keyboard_check_pressed(ord("A"))) 
+	{
+		if (moveIndex % 2 == 0) moveIndex += 1
+		else moveIndex -= 1
+	}
+	if (keyboard_check_pressed(ord("D"))) 
+	{
+		if (moveIndex % 2 == 0) moveIndex += 1
+		else moveIndex -= 1
+	}
+}
+
+if (moveIndex < 0) moveIndex += 4
+if (moveIndex > 3) moveIndex -= 4
 
 if (selectedIndex == ds_list_size(global.playerParty)) selectedIndex = 0
 if (selectedIndex < 0) selectedIndex = ds_list_size(global.playerParty)-1
