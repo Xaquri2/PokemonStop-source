@@ -2,6 +2,7 @@ if (keyboard_check_pressed(ord("E")) and canInteract)
 {
 	if (summaryMode)
 	{
+		moveIndex = 0
 		summaryMode = false
 	}
 	else
