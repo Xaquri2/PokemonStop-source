@@ -110,6 +110,7 @@
     {"id":{"name":"CharmanderIdleSprite","path":"sprites/CharmanderIdleSprite/CharmanderIdleSprite.yy",},},
     {"id":{"name":"CoinRotateSprite","path":"sprites/CoinRotateSprite/CoinRotateSprite.yy",},},
     {"id":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},},
+    {"id":{"name":"ExpBarSprite","path":"sprites/ExpBarSprite/ExpBarSprite.yy",},},
     {"id":{"name":"GenderSprite","path":"sprites/GenderSprite/GenderSprite.yy",},},
     {"id":{"name":"GhostPlayerIdleDownSprite","path":"sprites/GhostPlayerIdleDownSprite/GhostPlayerIdleDownSprite.yy",},},
     {"id":{"name":"GhostPlayerIdleLeftSprite","path":"sprites/GhostPlayerIdleLeftSprite/GhostPlayerIdleLeftSprite.yy",},},

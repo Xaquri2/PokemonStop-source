@@ -73,7 +73,7 @@ else
 {
 	var pkmnInfo = GetPartyMemberInfo(selectedIndex)
 	draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*0.1, 
-	12.5, 6, image_angle, c_grey, image_alpha)
+	12.5, 7.25, image_angle, c_grey, image_alpha)
 	
 	draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*0.35, 
 	12.5, 15, image_angle, c_grey, image_alpha)
@@ -100,20 +100,31 @@ else
 	1.5, 1.5, image_angle, image_blend, image_alpha)
 	
 	//Health Bar
-	var percentage = GetHealthPercentage(pkmnInfo)
+	var percentage = GetHealth(pkmnInfo)/ds_list_find_value(GetPokemonFinalStats(name, level), 0)*100
 	draw_text_transformed(view_get_wport(0)*0.14, view_get_hport(0)*0.2, 
-	string_concat("HP: ", percentage, "%"), 2, 2, image_angle)
+	string_concat("HP: ", percentage, "%"), 1.5, 1.5, image_angle)
 	
-	draw_sprite_ext(BarSprite, 1, view_get_wport(0)*0.14, view_get_hport(0)*0.25, 
-	12.5*(percentage/100), 1.6, image_angle, image_blend, image_alpha)
+	draw_sprite_ext(BarSprite, 1, view_get_wport(0)*0.14, view_get_hport(0)*0.23, 
+	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
 	
-	draw_sprite_ext(BarSprite, 0, view_get_wport(0)*0.14, view_get_hport(0)*0.25, 
-	12.5*(percentage/100), 1.6, image_angle, image_blend, image_alpha)
+	draw_sprite_ext(BarSprite, 0, view_get_wport(0)*0.14, view_get_hport(0)*0.23, 
+	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
+	
+	//Experience Bar
+	percentage = GetExpPercentage(pkmnInfo)
+	draw_text_transformed(view_get_wport(0)*0.14, view_get_hport(0)*0.26, 
+	string_concat("EXP: ", GetExp(pkmnInfo)), 1.5, 1.5, image_angle)
+	
+	draw_sprite_ext(ExpBarSprite, 1, view_get_wport(0)*0.14, view_get_hport(0)*0.3, 
+	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
+	
+	draw_sprite_ext(ExpBarSprite, 0, view_get_wport(0)*0.14, view_get_hport(0)*0.3, 
+	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
 	
 	//Stats
 	for (var i = 0; i < 6; i++)
 	{
-		var stat = floor(ds_list_find_value(GetPokemonFinalStats(selectedIndex, global.playerParty), i))
+		var stat = floor(ds_list_find_value(GetPokemonFinalStats(name, level), i))
 		var statName = ""
 		switch (i)
 		{

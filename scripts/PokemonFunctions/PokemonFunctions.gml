@@ -5,7 +5,11 @@
 /// @description              Adds a Pokémon to the player's party with the provided information, with all of it being stored inside a DS list. Added Pokémon are always added with 100% of their health.
 function AddPokemon(name, level, gender, sprite) {
 	var pokemon = ds_list_create()
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, 100, GetLevelUpMoveset(name, level))
+	var growthRate = "Very Fast"
+	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var expLevelFloor = GetExpLevelFloor(level, growthRate)
+	
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate)
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 	
@@ -36,8 +40,10 @@ function GetName(pkmnInfo) { return ds_list_find_value(pkmnInfo, 1) }
 function GetLevel(pkmnInfo) { return ds_list_find_value(pkmnInfo, 2) }
 function GetGender(pkmnInfo) { return ds_list_find_value(pkmnInfo, 3) }
 function GetSprite(pkmnInfo) { return ds_list_find_value(pkmnInfo, 4) }
-function GetHealthPercentage(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
+function GetHealth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
 function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
+function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
+function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
 
 /// @param {string}   index   The position of the Pokémon in the party to retreive info about
 /// @description              Checks if the given party member can evolve, by checking its species, its level and the species' evolution requirements
@@ -303,11 +309,9 @@ function CanEvolve(index) {
 	return false
 }
 
-/// @param {string}   index   The position of the Pokémon in the party to retreive base stats of
+/// @param {string}   name    The name of the Pokémon to retreive base stats of
 /// @description              Returns a list with the base stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
-function GetPokemonBaseStats(index, team) {
-	var pokemon = ds_list_find_value(team, index)
-	var name = ds_list_find_value(pokemon, 1)
+function GetPokemonBaseStats(name) {
 	var statList = ds_list_create()
 	switch (name)
     {
@@ -633,13 +637,12 @@ function GetPokemonBaseStats(index, team) {
 	return statList
 }
 
-/// @param {string}   index   The position of the Pokémon in the party to retreive final stats of
+/// @param {string}   name    The name Pokémon to retreive final stats of
+/// @param {string}   level   The level Pokémon to retreive final stats of
 /// @description              Returns a list with the final stats of the given Pokémon, in the following order: HP, Attack, Defense, Special Attack, Special Defense, Speed.
-function GetPokemonFinalStats(index, team)
+function GetPokemonFinalStats(name, level)
 {
-	var pokemon = ds_list_find_value(team, index)
-	var level = ds_list_find_value(pokemon, 2)
-	var baseStats = GetPokemonBaseStats(index, team)
+	var baseStats = GetPokemonBaseStats(name)
 	
 	var finalStats = ds_list_create()
 	for (var i = 0; i < ds_list_size(baseStats); i++)
@@ -650,11 +653,15 @@ function GetPokemonFinalStats(index, team)
 	return finalStats
 }
 
-function SetPokemonDefaults(index, team)
+/// @param           pkmn     The Pokémon to set the stats of
+/// @description              Sets all stat values in a Battle Pokémon object, based on their Pokémon info.
+function SetPokemonDefaults(pkmn)
 {
-	sprite_index = ds_list_find_value(ds_list_find_value(team, index), 4)
+	sprite_index = GetSprite(pkmn)
+	var name = GetName(pkmn)
+	var level = GetLevel(pkmn)
 	
-	var stats = GetPokemonFinalStats(index, team)
+	var stats = GetPokemonFinalStats(name, level)
 	hp = ds_list_find_value(stats, 0)
 	atk = ds_list_find_value(stats, 1)
 	def = ds_list_find_value(stats, 2)
@@ -1008,4 +1015,41 @@ function GetLevelUpMoveset(name, level)
 		if (move != "" and ds_list_size(moveset) < 4) ds_list_add(moveset, move)
 	}
 	return moveset
+}
+
+/// @param           pkmn     The Pokémon to get the level to calculate the exp floor
+/// @description              Returns the level's exp floor
+function GetExpLevelFloor(level, growthRate)
+{
+	switch (growthRate)
+	{
+		case "Very Fast":
+			return 10000/100*level
+		case "Fast":
+			return 11000/100*level
+		case "Average":
+			return 11500/100*level
+		case "Slow":
+			return 12000/100*level
+		case "Very Slow":
+			return 12500/100*level
+	}
+}
+
+/// @param           pkmn     The Pokémon to get the level's exp percentage of
+/// @description              Returns the Pokémon's exp percentage
+function GetExpPercentage(pkmn)
+{
+	var level = GetLevel(pkmn)
+	var growthRate = GetGrowth(pkmn)
+	
+	var expFloor = GetExpLevelFloor(level, growthRate)
+	var expCeiling = GetExpLevelFloor(level+1, growthRate)
+	
+	var currentExp = GetExp(pkmn)
+	if (level > 1) currentExp -= expFloor
+	var expToNext = expCeiling-expFloor
+	
+	var perc = currentExp/expToNext*100
+	return perc
 }
