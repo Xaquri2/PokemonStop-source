@@ -45,6 +45,8 @@ function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
 function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
 function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
 
+function AddExp(pkmnInfo, expValue) { ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) }
+
 /// @param {string}   index   The position of the Pokémon in the party to retreive info about
 /// @description              Checks if the given party member can evolve, by checking its species, its level and the species' evolution requirements
 function CanEvolve(index) {
