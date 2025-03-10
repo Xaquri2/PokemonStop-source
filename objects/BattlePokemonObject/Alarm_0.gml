@@ -1,1 +1,1 @@
-SetPokemonDefaults(index, team)
+SetPokemonDefaults(ds_list_find_value(team, index))

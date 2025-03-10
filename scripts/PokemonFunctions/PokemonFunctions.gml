@@ -1019,7 +1019,8 @@ function GetLevelUpMoveset(name, level)
 	return moveset
 }
 
-/// @param           pkmn     The Pokémon to get the level to calculate the exp floor
+/// @param        level       The level to calculate the exp floor
+/// @param        growthRate  The growth rate to calculate the exp floor
 /// @description              Returns the level's exp floor
 function GetExpLevelFloor(level, growthRate)
 {
