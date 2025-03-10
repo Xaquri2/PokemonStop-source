@@ -9,7 +9,18 @@ function AddPokemon(name, level, gender, sprite) {
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate)
+	var types = ds_list_create()
+	switch (name)
+	{
+		case "Pikachu":
+			ds_list_add(types, "Electric")
+			break
+		case "Magnemite":
+			ds_list_add(types, "Electric", "Steel")
+			break
+	}
+	
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate, types)
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 	
@@ -44,6 +55,7 @@ function GetHealth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
 function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
 function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
 function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
+function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9)}
 
 function AddExp(pkmnInfo, expValue) { ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) }
 
@@ -655,6 +667,13 @@ function GetPokemonFinalStats(name, level)
 	return finalStats
 }
 
+function GetHPStat(statList) { return ds_list_find_value(statList, 0) }
+function GetAtkStat(statList) { return ds_list_find_value(statList, 1) }
+function GetDefStat(statList) { return ds_list_find_value(statList, 2) }
+function GetSpAtkStat(statList) { return ds_list_find_value(statList, 3) }
+function GetSpDefStat(statList) { return ds_list_find_value(statList, 4) }
+function GetSpeedStat(statList) { return ds_list_find_value(statList, 5) }
+
 /// @param           pkmn     The Pokémon to set the stats of
 /// @description              Sets all stat values in a Battle Pokémon object, based on their Pokémon info.
 function SetPokemonDefaults(pkmn)
@@ -673,7 +692,7 @@ function SetPokemonDefaults(pkmn)
 }
 
 /// @param {string} moveName  The name of the move to search information about
-/// @description              Returns a list with the info about the given move, in the following order: Name, Type, Category, Base Power, Accurancy, Power Point, Inflict Effect, Inflict Chance, Amount of Hits, Crit Multiplier, Makes Contact.
+/// @description              Returns a list with the info about the given move, in the following order: Name, Type, Category, Base Power, Accurancy, Power Point, Inflict Effect, Inflict Chance, Crit Multiplier, Priority.
 function GetMoveDetails(moveName)
 {
 	var moveInfo = ds_list_create()
@@ -847,6 +866,16 @@ function GetMoveDetails(moveName)
     }
 	return moveInfo
 }
+
+function GetMoveType(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 1) }
+function GetMoveCategory(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 2) }
+function GetMovePower(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 3) }
+function GetMoveAccurancy(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 4) }
+function GetMovePP(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 5) }
+function GetMoveEffect(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 6) }
+function GetMoveEffectChance(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 7) }
+function GetMoveCritMultiplier(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 8) }
+function GetMovePriority(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 9) }
 
 /// @param {string}   name    The name of the Pokémon to search the learnset of
 /// @param {string}   level   The level to check if the given Pokémon learns a move at
@@ -1055,4 +1084,47 @@ function GetExpPercentage(pkmn)
 	
 	var perc = currentExp/expToNext*100
 	return perc
+}
+
+function GetDamage(playerPkmn, enemyPkmn, moveName)
+{
+	var pName = GetName(playerPkmn)
+	var pLevel = GetLevel(playerPkmn)
+	var pStats = GetPokemonFinalStats(pName, pLevel)
+	var pType = GetTypes(playerPkmn)
+	
+	var eName = GetName(enemyPkmn)
+	var eLevel = GetLevel(enemyPkmn)
+	var eStats = GetPokemonFinalStats(eName, eLevel)
+	
+	var moveType = GetMoveType(moveName)
+	var movePower = GetMovePower(moveName)
+	var moveAcc = GetMoveAccurancy(moveName)
+	var moveCat = GetMoveCategory(moveName)
+	var moveCrit = GetMoveCritMultiplier(moveName) //Still needs to be used
+	
+	var atkStat = 0
+	var defStat = 0
+	
+	if (moveCat == "Physical")
+	{
+		atkStat = GetAtkStat(pStats)
+		defStat = GetDefStat(pStats)
+	}
+	else
+	{
+		atkStat = GetSpAtkStat(pStats)
+		defStat = GetSpDefStat(pStats)
+	}
+	
+	if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)
+	{
+		movePower *= 1.5
+	}
+	
+	if (random_range(0,101) > moveAcc) return 0
+	else
+	{
+		return (((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2
+	}
 }
