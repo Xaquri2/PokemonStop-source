@@ -7,7 +7,7 @@ if (!summaryMode)
 	{
 		if ((i != switchIndex and switchMode) or !switchMode)
 		{
-			var pkmnInfo = GetPartyMemberInfo(i)
+			var pkmnInfo = GetPartyMemberInfo(global.playerParty, i)
 			draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*(0.1+(0.13*i)), 
 			12.5, 3, image_angle, c_grey, image_alpha)
 	
@@ -41,7 +41,7 @@ if (!summaryMode)
 	
 	if (switchMode)
 	{
-		var pkmnInfo = GetPartyMemberInfo(switchIndex)
+		var pkmnInfo = GetPartyMemberInfo(global.playerParty, switchIndex)
 		draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.14, view_get_hport(0)*0.1+128*selectedIndex, 
 		12.5, 3, image_angle, c_grey, image_alpha)
 
@@ -71,7 +71,7 @@ if (!summaryMode)
 }
 else
 {
-	var pkmnInfo = GetPartyMemberInfo(selectedIndex)
+	var pkmnInfo = GetPartyMemberInfo(global.playerParty, selectedIndex)
 	draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*0.1, 
 	12.5, 7.25, image_angle, c_grey, image_alpha)
 	

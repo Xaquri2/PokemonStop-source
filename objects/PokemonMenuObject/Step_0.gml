@@ -41,9 +41,9 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 			options.menu = id
 			options.depth = depth-1
 		
-			var pkmnInfo = GetPartyMemberInfo(selectedIndex)
+			var pkmnInfo = GetPartyMemberInfo(global.playerParty, selectedIndex)
 			ds_list_add(options.optionList, "Summary", "Switch")
-			if (CanEvolve(selectedIndex)) ds_list_add(options.optionList, "Evolve")
+			if (CanEvolve(global.playerParty, selectedIndex)) ds_list_add(options.optionList, "Evolve")
 		}
 	}
 }

@@ -1,3 +1,4 @@
+enableDrawing = false
 playerTeam = true
 index = 0
 team = -1

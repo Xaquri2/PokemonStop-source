@@ -8,17 +8,7 @@ function AddPokemon(name, level, gender, sprite) {
 	var growthRate = "Very Fast"
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
-	
-	var types = ds_list_create()
-	switch (name)
-	{
-		case "Pikachu":
-			ds_list_add(types, "Electric")
-			break
-		case "Magnemite":
-			ds_list_add(types, "Electric", "Steel")
-			break
-	}
+	var types = GetPokemonType(name)
 	
 	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate, types)
 	ds_list_add(global.pokemonList, pokemon)
@@ -32,7 +22,12 @@ function AddPokemon(name, level, gender, sprite) {
 
 function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	var pokemon = ds_list_create()
-	ds_list_add(pokemon, index, name, level, gender, sprite, 100)
+	var growthRate = "Very Fast"
+	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var expLevelFloor = GetExpLevelFloor(level, growthRate)
+	var types = GetPokemonType(name)
+	
+	ds_list_add(pokemon, index, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate, types)
 	
 	if (ds_list_size(team) < 6)
 	{
@@ -40,11 +35,26 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	}
 }
 
-/// @param {string}   index   The position of the Pokémon in the party to retreive info about
-/// @param {string}   team    The party to search for the Pokémon at the given position in
+function GetPokemonType(name)
+{
+	var types = ds_list_create()
+	switch (name)
+	{
+		case "Pikachu":
+			ds_list_add(types, "Electric")
+			break
+		case "Magnemite":
+			ds_list_add(types, "Electric", "Steel")
+			break
+	}
+	return types
+}
+
+/// @param            team    The position of the Pokémon in the party to retreive info about
+/// @param {string}   index   The party to search for the Pokémon at the given position in
 /// @description              Returns a list with the information of the given Pokémon, using its index in the party as an identifier, in the following order: Index, Name, Level, Gender, Sprite.
-function GetPartyMemberInfo(index) {
-	return ds_list_find_value(global.playerParty, index)
+function GetPartyMemberInfo(team, index) {
+	return ds_list_find_value(team, index)
 }
 
 function GetName(pkmnInfo) { return ds_list_find_value(pkmnInfo, 1) }
@@ -59,10 +69,11 @@ function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9)}
 
 function AddExp(pkmnInfo, expValue) { ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) }
 
+/// @param            team    The team to search for the Pokémon you want to retreive info about
 /// @param {string}   index   The position of the Pokémon in the party to retreive info about
 /// @description              Checks if the given party member can evolve, by checking its species, its level and the species' evolution requirements
-function CanEvolve(index) {
-	var pokemon = GetPartyMemberInfo(index)
+function CanEvolve(team, index) {
+	var pokemon = GetPartyMemberInfo(team, index)
 	var species = ds_list_find_value(pokemon, 1)
 	var level = ds_list_find_value(pokemon, 2)
 	
@@ -1138,8 +1149,13 @@ function GetEffectPower(playerPkmn, enemyPkmn, effectName)
 	switch (effectName)
 	{
 		case "SpeedPower":
-			var userSpeed = GetSpeedStat(GetPokemonFinalStats(GetName(playerPkmn), GetLevel(playerPkmn)))
-			var targetSpeed = GetSpeedStat(GetPokemonFinalStats(GetName(enemyPkmn), GetLevel(enemyPkmn)))
+			var userName = GetName(playerPkmn)
+			var userLevel = GetLevel(playerPkmn)
+			var userSpeed = GetSpeedStat(GetPokemonFinalStats(userName, userLevel))
+			
+			var targetName = GetName(enemyPkmn)
+			var targetLevel = GetLevel(enemyPkmn)
+			var targetSpeed = GetSpeedStat(GetPokemonFinalStats(targetName, targetLevel))
 			var perc = (targetSpeed/userSpeed)*100
 			if (perc >= 100) return 40
 			else if (perc > 50 and perc <= 100) return 60
@@ -1147,7 +1163,6 @@ function GetEffectPower(playerPkmn, enemyPkmn, effectName)
 			else if (perc > 25 and perc <= 33.33) return 120
 			else if (perc > 0 and perc <= 25) return 150
 			return 40
-			break
 	}
 	return 0
 }
