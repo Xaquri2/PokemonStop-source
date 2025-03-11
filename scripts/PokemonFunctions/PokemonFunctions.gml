@@ -726,6 +726,9 @@ function GetMoveDetails(moveName)
         case "ThunderShock":
             ds_list_add(moveInfo, moveName, "Electric", "Special", 40, 100, 30, "Paralysis", 0.1, 1, false);
             break;
+		case "ElectroBall":
+            ds_list_add(moveInfo, moveName, "Electric", "Special", 0, 100, 30, "SpeedPower", 1, 1, false);
+            break;
         case "Confusion":
             ds_list_add(moveInfo, moveName, "Psychic", "Special", 50, 100, 25, "Confuse", 0.1, 1, false);
             break;
