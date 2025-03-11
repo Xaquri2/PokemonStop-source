@@ -723,10 +723,10 @@ function GetMoveDetails(moveName)
         case "Vine Whip":
             ds_list_add(moveInfo, moveName, "Grass", "Physical", 45, 100, 25, "None", 0, 1, false);
             break;
-        case "ThunderShock":
+        case "Thunder Shock":
             ds_list_add(moveInfo, moveName, "Electric", "Special", 40, 100, 30, "Paralysis", 0.1, 1, false);
             break;
-		case "ElectroBall":
+		case "Electro Ball":
             ds_list_add(moveInfo, moveName, "Electric", "Special", 0, 100, 30, "SpeedPower", 1, 1, false);
             break;
         case "Confusion":
@@ -1125,6 +1125,29 @@ function GetDamage(playerPkmn, enemyPkmn, moveName)
 		movePower *= 1.5
 	}
 	
+	var moveEffect = GetMoveEffect(moveName)
+	movePower += GetEffectPower(playerPkmn, enemyPkmn, GetMoveEffect(moveName))
+	var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
+	
 	if (random_range(0,101) > moveAcc) return 0
-	return floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
+	return damage
+}
+
+function GetEffectPower(playerPkmn, enemyPkmn, effectName)
+{
+	switch (effectName)
+	{
+		case "SpeedPower":
+			var userSpeed = GetSpeedStat(GetPokemonFinalStats(GetName(playerPkmn), GetLevel(playerPkmn)))
+			var targetSpeed = GetSpeedStat(GetPokemonFinalStats(GetName(enemyPkmn), GetLevel(enemyPkmn)))
+			var perc = (targetSpeed/userSpeed)*100
+			if (perc >= 100) return 40
+			else if (perc > 50 and perc <= 100) return 60
+			else if (perc > 33.33 and perc <= 50) return 80
+			else if (perc > 25 and perc <= 33.33) return 120
+			else if (perc > 0 and perc <= 25) return 150
+			return 40
+			break
+	}
+	return 0
 }
