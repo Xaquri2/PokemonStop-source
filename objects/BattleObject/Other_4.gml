@@ -2,11 +2,11 @@ if (room == RoomBattle)
 {
 	alarm[0] = 100
 	
-	var playerTeamMember = ds_list_find_value(playerTeam, 0)
-	var playerTeamMemberName = ds_list_find_value(playerTeamMember, 1)
+	playerPkmn = ds_list_find_value(playerTeam, 0)
+	var playerTeamMemberName = GetName(playerPkmn)
 	
-	var enemyTeamMember =  ds_list_find_value(enemyTeam, 0)
-	var enemyTeamMemberName = ds_list_find_value(enemyTeamMember, 1)
+	enemyPkmn =  ds_list_find_value(enemyTeam, 0)
+	var enemyTeamMemberName = GetName(enemyPkmn)
 	
 	ds_list_add(textList, string_concat(enemyName, " wants to battle"), 
 	string_concat(enemyName, " sent out ", enemyTeamMemberName), string_concat("Go! ", playerTeamMemberName))

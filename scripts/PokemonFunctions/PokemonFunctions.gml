@@ -1123,5 +1123,5 @@ function GetDamage(playerPkmn, enemyPkmn, moveName)
 	}
 	
 	if (random_range(0,101) > moveAcc) return 0
-	return (((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2
+	return floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 }

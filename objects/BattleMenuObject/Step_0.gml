@@ -1,7 +1,22 @@
 if (keyboard_check_pressed(vk_enter)) 
 {
-	mode = "Moves"
-	currentOption = 0
+	if (mode == "Choosing")
+	{
+		if (currentOption == 0)
+		{
+			mode = "Moves"
+		}
+	}
+	else if (mode == "Moves")
+	{
+		var battle = instance_find(BattleObject, 0)
+		var moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+		var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
+		
+		var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+		ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " uses ", moveName, ". It deals ", damage, " damage!"))
+		instance_destroy(id)
+	}
 }
 
 if (mode == "Choosing" or mode == "Moves")
