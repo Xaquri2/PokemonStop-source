@@ -148,16 +148,8 @@ function DealDamage(damage)
 			break
 		}
 	}
-	
-	var enemyPkmn = ds_list_find_value(enemyEntity.team, enemyEntity.index)
-	var name = GetName(enemyPkmn)
-	var level = GetLevel(enemyPkmn)
-	var statList = GetPokemonFinalStats(name, level)
-	var currentHealth = GetHPStat(statList)
 
-	var finalHealth = currentHealth - damage
-	finalHealth = clamp(finalHealth, 0, 9999)
-	
-	enemyEntity.hp = currentHealth
-	ds_list_set(enemyPkmn, 5, finalHealth)
+	enemyEntity.hp -= damage
+	enemyEntity.hp = clamp(enemyEntity.hp, 0, 9999)
+	ds_list_set(enemyPkmn, 5, enemyEntity.hp)
 }
