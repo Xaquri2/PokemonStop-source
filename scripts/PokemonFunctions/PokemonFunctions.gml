@@ -1195,3 +1195,29 @@ function IsTypeSuperEffective(type, targetType)
 	}
 	return false
 }
+
+function IsMoveNotVeryEffective(moveName, enemyPkmn)
+{
+	var moveType = GetMoveType(moveName)
+	var enemyTypes = GetTypes(enemyPkmn)
+	for (var i = 0; i < ds_list_size(enemyTypes); i++)
+	{
+		if (IsTypeNotVeryEffective(moveType, ds_list_find_value(enemyTypes, i))) return true
+	}
+	return false
+}
+
+function IsTypeNotVeryEffective(type, targetType)
+{
+	switch (targetType)
+	{
+		case "Fire":
+			if (type == targetType or type == "Grass" or type == "Bug" or 
+			type == "Ice" or type == "Steel" or type == "Fairy") return true
+			break
+		case "Electric":
+			if (type == targetType or type == "Flying" or type == "Steel") return true
+			break
+	}
+	return false
+}
