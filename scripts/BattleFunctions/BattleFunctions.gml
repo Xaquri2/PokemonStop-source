@@ -41,6 +41,7 @@ function GetDamage(playerPkmn, enemyPkmn, moveName)
 	if (IsMoveNotVeryEffective(moveName, enemyPkmn)) movePower *= 0.5
 	
 	var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
+	damage = clamp(damage, 0, 1000000)
 	
 	if (random_range(0,101) > moveAcc) return 0
 	return damage
