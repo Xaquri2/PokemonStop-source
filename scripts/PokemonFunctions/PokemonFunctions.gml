@@ -1138,6 +1138,7 @@ function GetDamage(playerPkmn, enemyPkmn, moveName)
 	
 	var moveEffect = GetMoveEffect(moveName)
 	movePower += GetEffectPower(playerPkmn, enemyPkmn, GetMoveEffect(moveName))
+	if (IsMoveSuperEffective(moveName, enemyPkmn)) movePower *= 1.5
 	var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 	
 	if (random_range(0,101) > moveAcc) return 0
