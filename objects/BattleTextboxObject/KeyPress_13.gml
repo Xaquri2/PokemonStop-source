@@ -9,13 +9,22 @@ else
 	{
 		if (currentText+1 >= ds_list_size(textList))
 		{
-			alarm[0] = 30
+			alarm[0] = 15
 		}
 		else
 		{
-			currentText++
-			charCounter = 0
-			charNumber = 0
+			if (alarm[1] < 0)
+			{
+				currentText++
+				charCounter = 0
+				charNumber = 0
+				var newText = ds_list_find_value(textList, currentText)
+				var count = string_count("used", newText)
+				if (count > 0) 
+				{
+					alarm[1] = GetMoveAnimationTime(moveName)
+				}
+			}
 		}
 	
 		var text = ds_list_find_value(textList, currentText)

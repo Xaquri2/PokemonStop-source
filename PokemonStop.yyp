@@ -95,6 +95,7 @@
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
+    {"id":{"name":"BattleFunctions","path":"scripts/BattleFunctions/BattleFunctions.yy",},},
     {"id":{"name":"PokemonFunctions","path":"scripts/PokemonFunctions/PokemonFunctions.yy",},},
     {"id":{"name":"MutantPathGymBattleTheme","path":"sounds/MutantPathGymBattleTheme/MutantPathGymBattleTheme.yy",},},
     {"id":{"name":"MutantPathUndergroundTheme","path":"sounds/MutantPathUndergroundTheme/MutantPathUndergroundTheme.yy",},},

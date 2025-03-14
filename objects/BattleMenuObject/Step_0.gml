@@ -14,11 +14,15 @@ if (keyboard_check_pressed(vk_enter))
 		var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
 		
 		var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+		battleText.moveName = moveName
+		battleText.playerPkmn = battle.playerPkmn
+		battleText.enemyPkmn = battle.enemyPkmn
 		var superEffStr = ""
+		
 		if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 		else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-		ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " uses ", moveName, "."),
+		ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),
 		string_concat(superEffStr, "It deals ", damage, " damage!"))
 		instance_destroy(id)
 	}

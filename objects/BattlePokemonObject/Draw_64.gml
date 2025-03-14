@@ -6,7 +6,9 @@ if (enableDrawing)
 	{
 		xOffset = view_get_wport(0)*0.4
 		yOffset = view_get_hport(0)*0.45
+		draw_text(20,30,hp)
 	}
+	else draw_text(20,15,hp)
 	
 	var pkmnInfo = GetPartyMemberInfo(team, index)
 	draw_sprite_ext(MenuSprite, 0, xOffset+view_get_wport(0)*0.12, yOffset+view_get_hport(0)*0.1, 
