@@ -672,7 +672,8 @@ function GetPokemonFinalStats(name, level)
 	var finalStats = ds_list_create()
 	for (var i = 0; i < ds_list_size(baseStats); i++)
 	{
-		ds_list_add(finalStats, ds_list_find_value(baseStats, i)*(2*(level/100)))
+		if (i == 0) ds_list_add(finalStats, 2*ds_list_find_value(baseStats, i)*level/100+level+10)
+		else ds_list_add(finalStats, 2*ds_list_find_value(baseStats, i)*level/100+5)
 	}
 	
 	return finalStats
