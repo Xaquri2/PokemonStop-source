@@ -1166,3 +1166,31 @@ function GetEffectPower(playerPkmn, enemyPkmn, effectName)
 	}
 	return 0
 }
+
+function IsMoveSuperEffective(moveName, enemyPkmn)
+{
+	var moveType = GetMoveType(moveName)
+	var enemyTypes = GetTypes(enemyPkmn)
+	for (var i = 0; i < ds_list_size(enemyTypes); i++)
+	{
+		if (IsTypeSuperEffective(moveType, ds_list_find_value(enemyTypes, i))) return true
+	}
+	return false
+}
+
+function IsTypeSuperEffective(type, targetType)
+{
+	switch (targetType)
+	{
+		case "Normal":
+			if (type == "Fighting") return true
+			break
+		case "Fire":
+			if (type == "Rock" or type == "Ground" or type == "Water") return true
+			break
+		case "Electric":
+			if (type == "Ground") return true
+			break
+	}
+	return false
+}
