@@ -27,3 +27,7 @@ if (room == RoomBattle)
 	floorEnemy.image_xscale = 2
 	floorPlayer.image_xscale = 2
 }
+else
+{
+	if (ending) instance_destroy(id)
+}

@@ -7,5 +7,5 @@ global.playerParty = ds_list_create() //The player party list
 
 AddPokemon("Pikachu", 80, "Male", PikachuIdleSprite)
 AddPokemon("Squirtle", 25, "Female", SquirtleIdleSprite)
-AddPokemon("Charmander", 10, "Male", CharmanderIdleSprite)
-AddPokemon("Snorlax", 100, "Female", SnorlaxIdleSprite)
+AddPokemon("Charmander", 25, "Male", CharmanderIdleSprite)
+AddPokemon("Snorlax", 25, "Female", SnorlaxIdleSprite)

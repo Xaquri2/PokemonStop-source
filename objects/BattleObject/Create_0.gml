@@ -11,5 +11,7 @@ enemyTeam = ds_list_create()
 enemySprite = noone
 enemyName = ""
 
+ending = false
+
 topRectValue = view_get_hport(0)/2
 textList = ds_list_create()

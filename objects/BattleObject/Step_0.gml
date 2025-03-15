@@ -31,6 +31,11 @@ if (room != RoomBattle)
 }
 else
 {
+	if (ending) 
+	{
+		if (fadeAlpha < 1) fadeAlpha += 0.05
+		else room_goto(Room1)
+	}
 	if (topRectValue-5 > 0)
 	{
 		topRectValue -= 5

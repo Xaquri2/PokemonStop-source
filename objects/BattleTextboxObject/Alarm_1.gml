@@ -26,7 +26,9 @@ if (GetHealth(enemyPkmn) == 0)
 	
 	if (enemy.currentPkmn >= ds_list_size(enemy.team)) 
 	{
+		endBattle = true
 		enemy.currentPkmn = -1
+		ds_list_add(textList, "You win!")
 	}
 	else 
 	{
