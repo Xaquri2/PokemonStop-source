@@ -10,6 +10,8 @@ spatk = 0
 spdef = 0
 spd = 0
 
+dying = false
+
 alarm[0] = 1
 image_xscale = 2
 image_yscale = 2

@@ -151,5 +151,7 @@ function DealDamage(damage)
 
 	enemyEntity.hp -= damage
 	enemyEntity.hp = clamp(enemyEntity.hp, 0, 9999)
+	
 	ds_list_set(enemyPkmn, 5, enemyEntity.hp)
+	ds_list_set(enemyEntity.team, enemyEntity.index, enemyPkmn)
 }

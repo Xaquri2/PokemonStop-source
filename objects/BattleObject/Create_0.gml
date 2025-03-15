@@ -6,10 +6,10 @@ fadingIntro = true
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
 
-topRectValue = view_get_hport(0)/2
 playerTeam = global.playerParty
 enemyTeam = ds_list_create()
 enemySprite = noone
 enemyName = ""
 
+topRectValue = view_get_hport(0)/2
 textList = ds_list_create()
