@@ -5,7 +5,7 @@ charCounter = 0
 charNumber = 0
 
 moveName = ""
-playerPkmn = -1
-enemyPkmn = -1
+playerPkmn = ds_list_create()
+enemyPkmn = ds_list_create()
 
 alarm[5] = 1

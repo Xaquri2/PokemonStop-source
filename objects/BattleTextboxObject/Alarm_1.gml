@@ -17,11 +17,13 @@ while (enemy == -1)
 if (GetHealth(enemyPkmn) == 0) 
 {
 	var name = GetName(enemyPkmn)
+	var battle = instance_find(BattleObject, 0)
 	ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
 	
 	enemy.currentPkmn++
 	enemyPkmn = ds_list_find_value(enemy.team, enemy.currentPkmn)
-
+	battle.enemyPkmn = enemyPkmn
+	
 	if (enemy.currentPkmn >= ds_list_size(enemy.team)) 
 	{
 		enemy.currentPkmn = -1
@@ -29,7 +31,6 @@ if (GetHealth(enemyPkmn) == 0)
 	else 
 	{
 		name = GetName(enemyPkmn)
-		var battle = instance_find(BattleObject, 0)
 		ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 	}
 }
