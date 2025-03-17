@@ -11,6 +11,7 @@ else
 		if (!ds_list_empty(actionNPC.trainerTeam)) 
 		{
 			player.talking = false
+			player.canWalk = false
 			player.battle = true
 			var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 			battleObj.enemyTeam = actionNPC.trainerTeam
