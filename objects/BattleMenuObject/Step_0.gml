@@ -37,9 +37,9 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),
 			string_concat(superEffStr, "It deals ", damage, " damage!"))
 		
-			if (GetHealth(battle.enemyPkmn) <= damage) ds_list_add(battleText.textList, 
+			if (GetHealth(battle.enemyPkmn) > damage) /*ds_list_add(battleText.textList, 
 			string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
-			else
+			else*/
 			{
 				//Enemy Move
 				moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
