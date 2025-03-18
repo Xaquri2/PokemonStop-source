@@ -12,7 +12,8 @@ else
 	charCounter = 0
 	charNumber = 0
 	
-	if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0)
+	if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0
+	and string_count("fainted", ds_list_find_value(textList, currentText+1)) > 0)
 	{
 		var enemyPkmnEntity = -1
 		for (var i = 0; i < instance_number(BattlePokemonObject); i++)

@@ -16,28 +16,78 @@ if (keyboard_check_pressed(vk_enter))
 		battleText.whoAttacked = "Player"
 		var superEffStr = ""
 		
-		//Player Move
-		var moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
-		var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
+		var pName = GetName(battle.playerPkmn)
+		var pLevel = GetLevel(battle.playerPkmn)
+		var playerStats = GetPokemonFinalStats(pName, pLevel)
 		
-		if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
-		else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+		var eName = GetName(battle.enemyPkmn)
+		var eLevel = GetLevel(battle.enemyPkmn)
+		var enemyStats = GetPokemonFinalStats(eName, eLevel)
 		
-		ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),
-		string_concat(superEffStr, "It deals ", damage, " damage!"))
+		if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats))
+		{
+			//Player Move
+			var moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+			var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
+			battleText.moveName = moveName
+			
+			if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
+			else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-		//Enemy Move
-		moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
-		damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+			ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),
+			string_concat(superEffStr, "It deals ", damage, " damage!"))
 		
-		if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-		else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+			if (GetHealth(battle.enemyPkmn) <= damage) ds_list_add(battleText.textList, 
+			string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+			else
+			{
+				//Enemy Move
+				moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+				damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+				battleText.moveName = moveName
+				
+				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-		ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."),
-		string_concat(superEffStr, "It deals ", damage, " damage!"))
+				ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."),
+				string_concat(superEffStr, "It deals ", damage, " damage!"))
 		
-		//Final logic
-		battleText.moveName = moveName
+				if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
+				string_concat(GetName(battle.playerPkmn)," fainted!"))
+			}
+		}
+		else if (GetSpeedStat(enemyStats) > GetSpeedStat(playerStats))
+		{
+			//Enemy Move
+			var moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+			var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+			battleText.moveName = moveName
+			
+			if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+			else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+		
+			ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."),
+			string_concat(superEffStr, "It deals ", damage, " damage!"))
+		
+			if (GetHealth(battle.playerPkmn) <= damage) ds_list_add(battleText.textList, 
+			string_concat(GetName(battle.playerPkmn)," fainted!"))
+			else
+			{
+				//Player Move
+				moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+				damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
+				battleText.moveName = moveName
+				
+				if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
+				else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+		
+				ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),
+				string_concat(superEffStr, "It deals ", damage, " damage!"))
+		
+				if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
+				string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+			}
+		}
 		instance_destroy(id)
 	}
 }

@@ -40,7 +40,10 @@ if (GetHealth(enemyPkmn) == 0)
 			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 		}
 	}
-	else if (whoAttacked == "Enemy")
+}
+if (GetHealth(playerPkmn) == 0)
+{
+	if (whoAttacked == "Enemy")
 	{
 		var name = GetName(playerPkmn)
 		var battle = instance_find(BattleObject, 0)
