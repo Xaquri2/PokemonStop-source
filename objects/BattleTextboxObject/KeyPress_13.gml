@@ -22,6 +22,7 @@ else
 				var count = string_count("used", newText)
 				if (count > 0) 
 				{
+					whoAttacked = "Player"
 					alarm[1] = GetMoveAnimationTime(moveName)
 				}
 	
@@ -66,7 +67,8 @@ else
 						player.alarm[1] = 1
 					}
 				}
-				else if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0)
+				else if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0
+				and string_count("used", ds_list_find_value(textList, currentText+1)) == 0)
 				{
 					var enemyPkmnEntity = -1
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
@@ -84,6 +86,12 @@ else
 						alarm[3] = 120
 						enemyPkmnEntity.alarm[1] = 120
 					}
+				}
+				else if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0
+				and string_count("used", ds_list_find_value(textList, currentText+1)) > 0)
+				{
+					whoAttacked = "Enemy"
+					alarm[1] = GetMoveAnimationTime(moveName)
 				}
 			}
 		}

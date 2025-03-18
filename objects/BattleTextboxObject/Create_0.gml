@@ -8,5 +8,6 @@ moveName = ""
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
 
+whoAttacked = ""
 endBattle = false
 alarm[5] = 1

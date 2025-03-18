@@ -1,12 +1,12 @@
-function GetDamage(playerPkmn, enemyPkmn, moveName)
+function GetDamage(pkmn, targetPkmn, moveName)
 {
-	var pName = GetName(playerPkmn)
-	var pLevel = GetLevel(playerPkmn)
+	var pName = GetName(pkmn)
+	var pLevel = GetLevel(pkmn)
 	var pStats = GetPokemonFinalStats(pName, pLevel)
-	var pType = GetTypes(playerPkmn)
+	var pType = GetTypes(pkmn)
 	
-	var eName = GetName(enemyPkmn)
-	var eLevel = GetLevel(enemyPkmn)
+	var eName = GetName(targetPkmn)
+	var eLevel = GetLevel(targetPkmn)
 	var eStats = GetPokemonFinalStats(eName, eLevel)
 	
 	var moveType = GetMoveType(moveName)
@@ -35,10 +35,10 @@ function GetDamage(playerPkmn, enemyPkmn, moveName)
 	}
 	
 	var moveEffect = GetMoveEffect(moveName)
-	movePower += GetEffectPower(playerPkmn, enemyPkmn, GetMoveEffect(moveName))
+	movePower += GetEffectPower(pkmn, targetPkmn, GetMoveEffect(moveName))
 	
-	if (IsMoveSuperEffective(moveName, enemyPkmn)) movePower *= 1.5
-	if (IsMoveNotVeryEffective(moveName, enemyPkmn)) movePower *= 0.5
+	if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
+	if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
 	
 	var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 	damage = clamp(damage, 0, 1000000)
@@ -47,17 +47,17 @@ function GetDamage(playerPkmn, enemyPkmn, moveName)
 	return damage
 }
 
-function GetEffectPower(playerPkmn, enemyPkmn, effectName)
+function GetEffectPower(pkmn, targetPkmn, effectName)
 {
 	switch (effectName)
 	{
 		case "SpeedPower":
-			var userName = GetName(playerPkmn)
-			var userLevel = GetLevel(playerPkmn)
+			var userName = GetName(pkmn)
+			var userLevel = GetLevel(pkmn)
 			var userSpeed = GetSpeedStat(GetPokemonFinalStats(userName, userLevel))
 			
-			var targetName = GetName(enemyPkmn)
-			var targetLevel = GetLevel(enemyPkmn)
+			var targetName = GetName(targetPkmn)
+			var targetLevel = GetLevel(targetPkmn)
 			var targetSpeed = GetSpeedStat(GetPokemonFinalStats(targetName, targetLevel))
 			var perc = (targetSpeed/userSpeed)*100
 			if (perc >= 100) return 40
@@ -70,10 +70,10 @@ function GetEffectPower(playerPkmn, enemyPkmn, effectName)
 	return 0
 }
 
-function IsMoveSuperEffective(moveName, enemyPkmn)
+function IsMoveSuperEffective(moveName, targetPkmn)
 {
 	var moveType = GetMoveType(moveName)
-	var enemyTypes = GetTypes(enemyPkmn)
+	var enemyTypes = GetTypes(targetPkmn)
 	for (var i = 0; i < ds_list_size(enemyTypes); i++)
 	{
 		if (IsTypeSuperEffective(moveType, ds_list_find_value(enemyTypes, i))) return true
@@ -98,10 +98,10 @@ function IsTypeSuperEffective(type, targetType)
 	return false
 }
 
-function IsMoveNotVeryEffective(moveName, enemyPkmn)
+function IsMoveNotVeryEffective(moveName, targetPkmn)
 {
 	var moveType = GetMoveType(moveName)
-	var enemyTypes = GetTypes(enemyPkmn)
+	var enemyTypes = GetTypes(targetPkmn)
 	for (var i = 0; i < ds_list_size(enemyTypes); i++)
 	{
 		if (IsTypeNotVeryEffective(moveType, ds_list_find_value(enemyTypes, i))) return true
@@ -136,24 +136,32 @@ function GetMoveAnimationTime(moveName)
 	return 60
 }
 
-function DealDamage(damage)
+function DealDamage(damage, isPlayer)
 {
-	var enemyEntity = -1
+	var entity = -1
 	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
 		var attempt = instance_find(BattlePokemonObject, i)
-		if (!attempt.playerTeam) 
+		if (!attempt.playerTeam and isPlayer or attempt.playerTeam and !isPlayer)
 		{
-			enemyEntity = attempt
+			entity = attempt
 			break
 		}
 	}
 
-	enemyEntity.hp -= damage
-	enemyEntity.hp = clamp(enemyEntity.hp, 0, 9999)
+	entity.hp -= damage
+	entity.hp = clamp(entity.hp, 0, 9999)
 	
-	ds_list_set(enemyPkmn, 5, enemyEntity.hp)
-	ds_list_set(enemyEntity.team, enemyEntity.index, enemyPkmn)
+	if (isPlayer) 
+	{
+		ds_list_set(enemyPkmn, 5, entity.hp)
+		ds_list_set(entity.team, entity.index, enemyPkmn)
+	}
+	else 
+	{
+		ds_list_set(playerPkmn, 5, entity.hp)
+		ds_list_set(entity.team, entity.index, playerPkmn)
+	}
 }
 
 function ChooseMove(pkmn, targetPkmn)
@@ -225,5 +233,4 @@ function ChooseMove(pkmn, targetPkmn)
 		var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
 		return moveName
 	}
-	return ds_list_find_value(moves, 0)
 }
