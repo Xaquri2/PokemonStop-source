@@ -171,7 +171,26 @@ function ChooseMove(pkmn, targetPkmn)
 	{
 		if (floor(random_range(0,2)) > 0) 
 		{
-			//Check for speed reducing moves
+			var chosenMove = ""
+			var chosenMoveDmg = 0
+			var speedLoweringMoves = ds_list_create()
+			for (var i = 0; i < ds_list_size(moves); i++)
+			{
+				var moveName = ds_list_find_value(moves, i)
+				var effect = GetMoveEffect(moveName)
+				if (effect == "LowerSpeed") ds_list_add(speedLoweringMoves, moveName)
+			}
+			for (var i = 0; i < ds_list_size(speedLoweringMoves); i++)
+			{
+				var moveName = ds_list_find_value(speedLoweringMoves, i)
+				var dmg = GetDamage(pkmn, targetPkmn, moveName)
+				if (chosenMove == "" or dmg > chosenMoveDmg)
+				{
+					chosenMove = moveName
+					chosenMoveDmg = dmg
+				}
+			}
+			return chosenMove
 		}
 		else
 		{
