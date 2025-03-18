@@ -155,3 +155,56 @@ function DealDamage(damage)
 	ds_list_set(enemyPkmn, 5, enemyEntity.hp)
 	ds_list_set(enemyEntity.team, enemyEntity.index, enemyPkmn)
 }
+
+function ChooseMove(pkmn, targetPkmn)
+{
+	var name = GetName(pkmn)
+	var level = GetLevel(pkmn)
+	
+	var stats = GetPokemonFinalStats(name, level)
+	var enemyStats = GetPokemonFinalStats(name, level)
+	
+	var type = GetTypes(pkmn)
+	var moves = GetMoves(pkmn)
+	
+	if (GetSpeedStat(stats) <= GetSpeedStat(enemyStats))
+	{
+		if (floor(random_range(0,2)) > 0) 
+		{
+			//Check for speed reducing moves
+		}
+		else
+		{
+			var biggerDamage = 0
+			var damageList = ds_list_create()
+			for (var i = 0; i < ds_list_size(moves); i++)
+			{
+				ds_list_add(damageList, GetDamage(pkmn, targetPkmn, ds_list_find_value(moves, i)))
+			}
+			for (var i = 0; i < ds_list_size(damageList); i++)
+			{
+				var attempt = ds_list_find_value(damageList, i)
+				if (attempt > biggerDamage) biggerDamage = attempt
+			} 
+			var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+			return moveName
+		}
+	}
+	else
+	{
+		var biggerDamage = 0
+		var damageList = ds_list_create()
+		for (var i = 0; i < ds_list_size(moves); i++)
+		{
+			ds_list_add(damageList, GetDamage(pkmn, targetPkmn, ds_list_find_value(moves, i)))
+		}
+		for (var i = 0; i < ds_list_size(damageList); i++)
+		{
+			var attempt = ds_list_find_value(damageList, i)
+			if (attempt > biggerDamage) biggerDamage = attempt
+		} 
+		var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+		return moveName
+	}
+	return ds_list_find_value(moves, 0)
+}
