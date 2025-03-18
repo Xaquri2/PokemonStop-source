@@ -167,9 +167,9 @@ function ChooseMove(pkmn, targetPkmn)
 	var type = GetTypes(pkmn)
 	var moves = GetMoves(pkmn)
 	
-	if (GetSpeedStat(stats) <= GetSpeedStat(enemyStats))
+	if (GetSpeedStat(stats) <= GetSpeedStat(enemyStats)) //If user speed is lower
 	{
-		if (floor(random_range(0,2)) > 0) 
+		if (floor(random_range(0,3)) == 0) //66% chance to use a speed lowering move
 		{
 			var chosenMove = ""
 			var chosenMoveDmg = 0
@@ -209,7 +209,7 @@ function ChooseMove(pkmn, targetPkmn)
 			return moveName
 		}
 	}
-	else
+	else //Choose strongest move
 	{
 		var biggerDamage = 0
 		var damageList = ds_list_create()
