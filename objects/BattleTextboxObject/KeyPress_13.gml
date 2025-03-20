@@ -22,7 +22,7 @@ else
 				var count = string_count("used", newText)
 				if (count > 0) 
 				{
-					whoAttacked = "Player"
+					if (string_count("opposing", newText) == 0) whoAttacked = "Player"
 					alarm[1] = GetMoveAnimationTime(moveName)
 				}
 	

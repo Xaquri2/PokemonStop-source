@@ -76,26 +76,113 @@ function IsMoveSuperEffective(moveName, targetPkmn)
 	var enemyTypes = GetTypes(targetPkmn)
 	for (var i = 0; i < ds_list_size(enemyTypes); i++)
 	{
-		if (IsTypeSuperEffective(moveType, ds_list_find_value(enemyTypes, i))) return true
+		if (IsTypeSuperEffective(moveType, ds_list_find_value(enemyTypes, i))) 
+		{
+			return true
+		}
 	}
 	return false
 }
 
 function IsTypeSuperEffective(type, targetType)
 {
-	switch (targetType)
-	{
-		case "Normal":
-			if (type == "Fighting") return true
-			break
-		case "Fire":
-			if (type == "Rock" or type == "Ground" or type == "Water") return true
-			break
-		case "Electric":
-			if (type == "Ground") return true
-			break
-	}
-	return false
+    switch (targetType)
+    {
+        case "Normal":
+            // Fighting is super effective against Normal
+            if (type == "Fighting") return true;
+            break;
+
+        case "Fire":
+            // Water, Ground, Rock are super effective against Fire
+            if (type == "Water" or type == "Ground" or type == "Rock") return true;
+            break;
+
+        case "Water":
+            // Electric, Grass are super effective against Water
+            if (type == "Electric" or type == "Grass") return true;
+            break;
+
+        case "Electric":
+            // Ground is super effective against Electric
+            if (type == "Ground") return true;
+            break;
+
+        case "Grass":
+            // Fire, Ice, Poison, Flying, Bug are super effective against Grass
+            if (type == "Fire" or type == "Ice" or type == "Poison" or type == "Flying" or type == "Bug") return true;
+            break;
+
+        case "Ice":
+            // Fire, Fighting, Rock, Steel are super effective against Ice
+            if (type == "Fire" or type == "Fighting" or type == "Rock" or type == "Steel") return true;
+            break;
+
+        case "Fighting":
+            // Flying, Psychic, Fairy are super effective against Fighting
+            if (type == "Flying" or type == "Psychic" or type == "Fairy") return true;
+            break;
+
+        case "Poison":
+            // Ground, Psychic are super effective against Poison
+            if (type == "Ground" or type == "Psychic") return true;
+            break;
+
+        case "Ground":
+            // Water, Grass, Ice are super effective against Ground
+            if (type == "Water" or type == "Grass" or type == "Ice") return true;
+            break;
+
+        case "Flying":
+            // Electric, Ice, Rock are super effective against Flying
+            if (type == "Electric" or type == "Ice" or type == "Rock") return true;
+            break;
+
+        case "Psychic":
+            // Bug, Ghost, Dark are super effective against Psychic
+            if (type == "Bug" or type == "Ghost" or type == "Dark") return true;
+            break;
+
+        case "Bug":
+            // Fire, Flying, Rock are super effective against Bug
+            if (type == "Fire" or type == "Flying" or type == "Rock") return true;
+            break;
+
+        case "Rock":
+            // Water, Grass, Fighting, Ground, Steel are super effective against Rock
+            if (type == "Water" or type == "Grass" or type == "Fighting" or type == "Ground" or type == "Steel") return true;
+            break;
+
+        case "Ghost":
+            // Ghost, Dark are super effective against Ghost
+            if (type == "Ghost" or type == "Dark") return true;
+            break;
+
+        case "Dragon":
+            // Ice, Dragon, Fairy are super effective against Dragon
+            if (type == "Ice" or type == "Dragon" or type == "Fairy") return true;
+            break;
+
+        case "Dark":
+            // Fighting, Bug, Fairy are super effective against Dark
+            if (type == "Fighting" or type == "Bug" or type == "Fairy") return true;
+            break;
+
+        case "Steel":
+            // Fire, Fighting, Ground are super effective against Steel
+            if (type == "Fire" or type == "Fighting" or type == "Ground") return true;
+            break;
+
+        case "Fairy":
+            // Poison, Steel are super effective against Fairy
+            if (type == "Poison" or type == "Steel") return true;
+            break;
+
+        case "???":
+            // Typically ??? has no weaknesses, but feel free to customize
+            break;
+    }
+    return false;
 }
 
 function IsMoveNotVeryEffective(moveName, targetPkmn)
@@ -111,17 +198,103 @@ function IsMoveNotVeryEffective(moveName, targetPkmn)
 
 function IsTypeNotVeryEffective(type, targetType)
 {
-	switch (targetType)
-	{
-		case "Fire":
-			if (type == targetType or type == "Grass" or type == "Bug" or 
-			type == "Ice" or type == "Steel" or type == "Fairy") return true
-			break
-		case "Electric":
-			if (type == targetType or type == "Flying" or type == "Steel") return true
-			break
-	}
-	return false
+    switch (targetType)
+    {
+        case "Normal":
+            // Fighting is super effective against Normal
+            if (type == "Fighting") return true;
+            break;
+
+        case "Fire":
+            // Water, Ground, Rock are super effective against Fire
+            if (type == "Water" or type == "Ground" or type == "Rock") return true;
+            break;
+
+        case "Water":
+            // Electric, Grass are super effective against Water
+            if (type == "Electric" or type == "Grass") return true;
+            break;
+
+        case "Electric":
+            // Ground is super effective against Electric
+            if (type == "Ground") return true;
+            break;
+
+        case "Grass":
+            // Fire, Ice, Poison, Flying, Bug are super effective against Grass
+            if (type == "Fire" or type == "Ice" or type == "Poison" or type == "Flying" or type == "Bug") return true;
+            break;
+
+        case "Ice":
+            // Fire, Fighting, Rock, Steel are super effective against Ice
+            if (type == "Fire" or type == "Fighting" or type == "Rock" or type == "Steel") return true;
+            break;
+
+        case "Fighting":
+            // Flying, Psychic, Fairy are super effective against Fighting
+            if (type == "Flying" or type == "Psychic" or type == "Fairy") return true;
+            break;
+
+        case "Poison":
+            // Ground, Psychic are super effective against Poison
+            if (type == "Ground" or type == "Psychic") return true;
+            break;
+
+        case "Ground":
+            // Water, Grass, Ice are super effective against Ground
+            if (type == "Water" or type == "Grass" or type == "Ice") return true;
+            break;
+
+        case "Flying":
+            // Electric, Ice, Rock are super effective against Flying
+            if (type == "Electric" or type == "Ice" or type == "Rock") return true;
+            break;
+
+        case "Psychic":
+            // Bug, Ghost, Dark are super effective against Psychic
+            if (type == "Bug" or type == "Ghost" or type == "Dark") return true;
+            break;
+
+        case "Bug":
+            // Fire, Flying, Rock are super effective against Bug
+            if (type == "Fire" or type == "Flying" or type == "Rock") return true;
+            break;
+
+        case "Rock":
+            // Water, Grass, Fighting, Ground, Steel are super effective against Rock
+            if (type == "Water" or type == "Grass" or type == "Fighting" or type == "Ground" or type == "Steel") return true;
+            break;
+
+        case "Ghost":
+            // Ghost, Dark are super effective against Ghost
+            if (type == "Ghost" or type == "Dark") return true;
+            break;
+
+        case "Dragon":
+            // Ice, Dragon, Fairy are super effective against Dragon
+            if (type == "Ice" or type == "Dragon" or type == "Fairy") return true;
+            break;
+
+        case "Dark":
+            // Fighting, Bug, Fairy are super effective against Dark
+            if (type == "Fighting" or type == "Bug" or type == "Fairy") return true;
+            break;
+
+        case "Steel":
+            // Fire, Fighting, Ground are super effective against Steel
+            if (type == "Fire" or type == "Fighting" or type == "Ground") return true;
+            break;
+
+        case "Fairy":
+            // Poison, Steel are super effective against Fairy
+            if (type == "Poison" or type == "Steel") return true;
+            break;
+
+        case "???":
+            // Typically ??? has no weaknesses, but feel free to customize
+            break;
+    }
+    return false;
 }
 
 function GetMoveAnimationTime(moveName)
