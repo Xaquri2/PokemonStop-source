@@ -21,12 +21,12 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	if (moveCat == "Physical")
 	{
 		atkStat = GetAtkStat(pStats)
-		defStat = GetDefStat(pStats)
+		defStat = GetDefStat(eStats)
 	}
 	else
 	{
 		atkStat = GetSpAtkStat(pStats)
-		defStat = GetSpDefStat(pStats)
+		defStat = GetSpDefStat(eStats)
 	}
 	
 	if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)

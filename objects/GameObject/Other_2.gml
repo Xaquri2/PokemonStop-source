@@ -5,7 +5,7 @@ global.pokemonList = ds_list_create() //The list containing all Pokémon caught
 global.partySize = 6 //The maximum size of the player party
 global.playerParty = ds_list_create() //The player party list
 
-AddPokemon("Pikachu", 80, "Male", PikachuIdleSprite)
+AddPokemon("Pikachu", 40, "Male", PikachuIdleSprite)
 AddPokemon("Squirtle", 25, "Female", SquirtleIdleSprite)
 AddPokemon("Charmander", 25, "Male", CharmanderIdleSprite)
 AddPokemon("Snorlax", 25, "Female", SnorlaxIdleSprite)
