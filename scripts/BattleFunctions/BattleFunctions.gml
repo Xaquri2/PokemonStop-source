@@ -324,7 +324,7 @@ function DealDamage(damage, isPlayer)
 
 	entity.hp -= damage
 	entity.hp = clamp(entity.hp, 0, 9999)
-	
+
 	if (isPlayer) 
 	{
 		ds_list_set(enemyPkmn, 5, entity.hp)

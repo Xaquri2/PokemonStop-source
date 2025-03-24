@@ -19,15 +19,14 @@ else
 				charCounter = 0
 				charNumber = 0
 				var newText = ds_list_find_value(textList, currentText)
-				var count = string_count("used", newText)
-				if (count > 0) 
+				if (string_count("used", newText) > 0) 
 				{
 					if (string_count("opposing", newText) == 0) whoAttacked = "Player"
 					alarm[1] = GetMoveAnimationTime(moveName)
 				}
 	
 				var text = ds_list_find_value(textList, currentText)
-				if (string_count(" sent out ", text) > 0)
+				if (string_count(" sent out ", text) > 0) //Enemy pokémon released
 				{
 					var enemy = -1
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
@@ -51,7 +50,7 @@ else
 						}
 					}
 				}
-				else if (string_count("Go!", text) > 0)
+				else if (string_count("Go!", text) > 0) //Player pokémon released
 				{
 					var player = -1
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
@@ -67,8 +66,8 @@ else
 						player.alarm[1] = 1
 					}
 				}
-				else if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0
-				and string_count("used", ds_list_find_value(textList, currentText+1)) == 0)
+				else if (string_count("opposing", ds_list_find_value(textList, currentText)) > 0 //If fainted?
+				and string_count("used", ds_list_find_value(textList, currentText+1)) == 0) 
 				{
 					var enemyPkmnEntity = -1
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
@@ -83,11 +82,11 @@ else
 			
 					if (enemyPkmnEntity != -1)
 					{
-						alarm[3] = 120
-						enemyPkmnEntity.alarm[1] = 120
+						alarm[3] = 100
+						enemyPkmnEntity.alarm[1] = 100
 					}
 				}
-				else if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0
+				else if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0 //Oponent attack
 				and string_count("used", ds_list_find_value(textList, currentText+1)) > 0)
 				{
 					whoAttacked = "Enemy"

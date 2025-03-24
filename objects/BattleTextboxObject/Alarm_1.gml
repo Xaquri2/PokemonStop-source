@@ -1,6 +1,5 @@
 if (whoAttacked == "Player") DealDamage(GetDamage(playerPkmn, enemyPkmn, moveName), true)
-else if (whoAttacked == "Enemy") DealDamage(GetDamage(playerPkmn, enemyPkmn, moveName), false)
-//The issue is that whoAttacked is always ""
+else if (whoAttacked == "Enemy") DealDamage(GetDamage(enemyPkmn, playerPkmn, moveName), false)
 
 var target = -1
 while (target == -1)
