@@ -37,17 +37,221 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 
 function GetPokemonType(name)
 {
-	var types = ds_list_create()
-	switch (name)
-	{
-		case "Pikachu":
-			ds_list_add(types, "Electric")
-			break
-		case "Magnemite":
-			ds_list_add(types, "Electric", "Steel")
-			break
-	}
-	return types
+    var types = ds_list_create();
+    switch (name)
+    {
+        // Official / Classic
+        case "Pikachu":
+            ds_list_add(types, "Electric");
+            break;
+        case "Voltorb":
+            ds_list_add(types, "Electric");
+            break;
+        case "Caterpie":
+            ds_list_add(types, "Bug");
+            break;
+        case "Magnemite":
+            ds_list_add(types, "Electric", "Steel");
+            break;
+        case "Butterfree":
+            ds_list_add(types, "Bug", "Flying");
+            break;
+        case "Charmander":
+            ds_list_add(types, "Fire");
+            break;
+
+        // Replaced Charmeleon -> Charmandorian
+        case "Charmandorian":
+            // Charmander + Andorian
+            ds_list_add(types, "Fire", "Ice");
+            break;
+
+        // Replaced Charizard -> Charmandalorian
+        case "Charmandalorian":
+            // Charmander + Mandalorian + Andorian + Charizard
+            ds_list_add(types, "Fire", "Ice", "Steel");
+            break;
+
+        case "Clefairy":
+            ds_list_add(types, "Fairy");
+            break;
+        case "Squirtle":
+            ds_list_add(types, "Water");
+            break;
+
+        // Replaced Wartortle -> Ninja Squirtle
+        case "Ninja Squirtle":
+            // Ninja Turtle + Squirtle
+            ds_list_add(types, "Water", "Fighting");
+            break;
+
+        // Replaced Blastoise -> Omega Squirtle
+        case "Omega Squirtle":
+            // Transcendent superhero water-being
+            ds_list_add(types, "Water", "Psychic");
+            break;
+
+        case "Snorlax":
+            ds_list_add(types, "Normal");
+            break;
+        case "MissingNo":
+            ds_list_add(types, "???");
+            break;
+        case "Articuno":
+            ds_list_add(types, "Ice", "Flying");
+            break;
+        case "Moltres":
+            ds_list_add(types, "Fire", "Flying");
+            break;
+        case "Zapdos":
+            ds_list_add(types, "Electric", "Flying");
+            break;
+        case "Yamask":
+            ds_list_add(types, "Ghost");
+            break;
+        case "Umbreon":
+            ds_list_add(types, "Dark", "Ghost");
+            break;
+        case "Zubat":
+            ds_list_add(types, "Poison", "Flying");
+            break;
+        case "Envy":
+            ds_list_add(types, "Water", "Ghost", "Dark");
+            break;
+        case "Ape-Ball":
+            ds_list_add(types, "Fighting");
+            break;
+        case "Woob-Wub":
+            ds_list_add(types, "Normal");
+            break;
+        case "Fig":
+            ds_list_add(types, "Normal");
+            break;
+        case "Umbrian":
+            ds_list_add(types, "Ghost", "Dark");
+            break;
+        case "Caelian":
+            ds_list_add(types, "Ghost", "Psychic");
+            break;
+        case "Baby (Tutorial Bot)":
+            ds_list_add(types, "Steel");
+            break;
+        case "Box Bot":
+            ds_list_add(types, "Steel");
+            break;
+        case "Tutorial Bot":
+            ds_list_add(types, "Steel");
+            break;
+        case "Silver Scorpion":
+            ds_list_add(types, "Bug", "Steel");
+            break;
+        case "Moosephant":
+            ds_list_add(types, "Normal");
+            break;
+        case "ZooChomper":
+            ds_list_add(types, "Normal");
+            break;
+        case "Green Bubble":
+            ds_list_add(types, "???");
+            break;
+        case "Tribble":
+            ds_list_add(types, "Normal");
+            break;
+        case "Ewok":
+            ds_list_add(types, "Grass", "Fighting");
+            break;
+        case "Yodal":
+            ds_list_add(types, "Psychic");
+            break;
+        case "Porg":
+            ds_list_add(types, "Flying");
+            break;
+        case "Rancor":
+            ds_list_add(types, "Dark");
+            break;
+        case "BB-8":
+            ds_list_add(types, "Steel");
+            break;
+        case "Human":
+            ds_list_add(types, "Normal");
+            break;
+        case "Squirrel":
+            ds_list_add(types, "Normal");
+            break;
+        case "Goomba":
+            ds_list_add(types, "Grass");
+            break;
+        case "Koopa":
+            ds_list_add(types, "Grass");
+            break;
+        case "King Koopa":
+            ds_list_add(types, "Fire", "Dragon");
+            break;
+        case "Boo":
+            ds_list_add(types, "Ghost");
+            break;
+        case "Yo’ster":
+            ds_list_add(types, "Dragon");
+            break;
+        case "Tektite":
+            ds_list_add(types, "Bug");
+            break;
+        case "Demo Dog":
+            ds_list_add(types, "Dark");
+            break;
+        case "Demogorgon":
+            ds_list_add(types, "Dark", "Psychic");
+            break;
+        case "Metroid":
+            ds_list_add(types, "Bug");
+            break;
+        case "Kirby":
+            ds_list_add(types, "Fairy");
+            break;
+        case "Krypton Firefly":
+            ds_list_add(types, "Fire", "Flying");
+            break;
+        case "Zoombini":
+            ds_list_add(types, "Fairy");
+            break;
+        case "Pikmin":
+            ds_list_add(types, "Grass");
+            break;
+        case "Creeper":
+            ds_list_add(types, "Grass");
+            break;
+        case "Enderman":
+            ds_list_add(types, "Ghost");
+            break;
+        case "Pac-Man":
+            ds_list_add(types, "Normal");
+            break;
+        case "Pac-Ghost":
+            ds_list_add(types, "Ghost");
+            break;
+        case "Morlock":
+            ds_list_add(types, "Dark");
+            break;
+        case "Zergling":
+            ds_list_add(types, "Bug");
+            break;
+        case "Xenomorph":
+            ds_list_add(types, "Bug", "Dark");
+            break;
+        case "Andalite":
+            ds_list_add(types, "Psychic");
+            break;
+        case "Licker":
+            ds_list_add(types, "Dark");
+            break;
+        case "Godzooky":
+            ds_list_add(types, "Dragon", "Flying");
+            break;
+        case "Godzilla":
+            ds_list_add(types, "Dragon");
+            break;
+    }
+    return types;
 }
 
 /// @param            team    The position of the Pokémon in the party to retreive info about
