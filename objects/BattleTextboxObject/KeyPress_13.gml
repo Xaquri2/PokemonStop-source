@@ -89,6 +89,7 @@ else
 				and string_count("used", text) > 0)
 				{
 					whoAttacked = "Enemy"
+					moveName = ChooseMove(enemyPkmn, playerPkmn)
 					alarm[1] = GetMoveAnimationTime(moveName)
 				}
 			}
