@@ -44,6 +44,7 @@ if (keyboard_check_pressed(vk_enter))
 				damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 				battleText.moveName = moveName
 				
+				superEffStr = ""
 				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
@@ -74,6 +75,7 @@ if (keyboard_check_pressed(vk_enter))
 				damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 				battleText.moveName = moveName
 				
+				superEffStr = ""
 				if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 				else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
