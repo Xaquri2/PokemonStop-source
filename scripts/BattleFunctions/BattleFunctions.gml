@@ -420,7 +420,7 @@ function DealEffect(effectName, accurancy, user, target)
 			#endregion
 		}
 	}
-	else "The user missed!"
+	else ""
 }
 
 function ChooseMove(pkmn, targetPkmn)
