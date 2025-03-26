@@ -341,97 +341,86 @@ function DealDamage(damage, isPlayer)
 	}
 }
 
-function DealEffect(effectName, accurancy, isPlayer)
+function DealEffect(effectName, accurancy, user, target)
 {
 	if (random_range(0,101) <= accurancy)
 	{
-		var target = -1
-		var entity = -1
-		for (var i = 0; i < instance_number(BattlePokemonObject); i++)
-		{
-			var attempt = instance_find(BattlePokemonObject, i)
-			if (!attempt.playerTeam and isPlayer or attempt.playerTeam and !isPlayer)
-			{
-				entity = attempt
-				break
-			}
-		}
-	
 		switch (effectName)
 		{
 			#region Lower 1
 			case "LowerAttack":
 				target.attackModifier -= 1
-				break
+				return "It lowered the foe's Attack stat!"
 			case "LowerDefense":
 				target.defenseModifier -= 1
-				break
+				return "It lowered the foe's Defense stat!"
 			case "LowerSpAtk":
 				target.spAtkModifier -= 1
-				break
+				return "It lowered the foe's Special Attack stat!"
 			case "LowerSpDef":
 				target.spDefModifier -= 1
-				break
+				return "It lowered the foe's Special Defense stat!"
 			case "LowerSpeed":
 				target.speedModifier -= 1
-				break
+				return "It lowered the foe's Speed stat!"
 			#endregion
 		
 			#region Lower 2
 			case "LowerAttack2":
 				target.attackModifier -= 2
-				break
+				return "It greatly lowered the foe's Attack stat!"
 			case "LowerDefense2":
 				target.defenseModifier -= 2
-				break
+				return "It greatly lowered the foe's Defense stat!"
 			case "LowerSpAtk2":
 				target.spAtkModifier -= 2
-				break
+				return "It greatly lowered the foe's Special Attack stat!"
 			case "LowerSpDef2":
 				target.spDefModifier -= 2
-				break
+				return "It greatly lowered the foe's Special Defense stat!"
 			case "LowerSpeed2":
 				target.speedModifier -= 2
-				break
+				return "It greatly lowered the foe's Speed stat!"
 			#endregion
 		
 			#region Raise 1
 			case "RaiseAttack":
-				target.attackModifier += 1
-				break
+				user.attackModifier += 1
+				return "It raised the user's Attack stat!"
 			case "RaiseDefense":
-				target.defenseModifier += 1
-				break
+				user.defenseModifier += 1
+				return "It raised the user's Defense stat!"
 			case "RaiseSpAtk":
-				target.spAtkModifier += 1
-				break
+				user.spAtkModifier += 1
+				return "It raised the user's Special Attack stat!"
 			case "RaiseSpDef":
-				target.spDefModifier += 1
-				break
+				user.spDefModifier += 1
+				return "It raised the user's Special Defense stat!"
 			case "RaiseSpeed":
-				target.speedModifier += 1
-				break
+				user.speedModifier += 1
+				return "It raised the user's Speed stat!"
 			#endregion
 		
 			#region Raise 2
 			case "RaiseAttack2":
-				target.attackModifier += 2
-				break
+				user.attackModifier += 2
+				return "It greatly raised the user's Attack stat!"
 			case "RaiseDefense2":
-				target.defenseModifier += 2
-				break
+				user.defenseModifier += 2
+				return "It greatly raised the user's Defense stat!"
 			case "RaiseSpAtk2":
-				target.spAtkModifier += 2
-				break
+				user.spAtkModifier += 2
+				return "It greatly raised the user's Special Attack stat!"
 			case "RaiseSpDef2":
-				target.spDefModifier += 2
-				break
+				user.spDefModifier += 2
+				return "It greatly raised the user's Special Defense stat!"
 			case "RaiseSpeed2":
-				target.speedModifier += 2
-				break
+				user.speedModifier += 2
+				return "It greatly raised the user's Speed stat!"
 			#endregion
 		}
 	}
+	else "The user missed!"
 }
 
 function ChooseMove(pkmn, targetPkmn)
