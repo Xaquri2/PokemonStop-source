@@ -18,33 +18,37 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	var atkStat = 0
 	var defStat = 0
 	
-	if (moveCat == "Physical")
+	if (moveCat != "Status")
 	{
-		atkStat = GetAtkStat(pStats)
-		defStat = GetDefStat(eStats)
+		if (moveCat == "Physical")
+		{
+			atkStat = GetAtkStat(pStats)
+			defStat = GetDefStat(eStats)
+		}
+		else
+		{
+			atkStat = GetSpAtkStat(pStats)
+			defStat = GetSpDefStat(eStats)
+		}
+	
+		if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)
+		{
+			movePower *= 1.5
+		}
+	
+		var moveEffect = GetMoveEffect(moveName)
+		movePower += GetEffectPower(pkmn, targetPkmn, GetMoveEffect(moveName))
+	
+		if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
+		if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
+	
+		var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
+		damage = clamp(damage, 0, 1000000)
+	
+		if (random_range(0,101) > moveAcc) return 0
+		return damage
 	}
-	else
-	{
-		atkStat = GetSpAtkStat(pStats)
-		defStat = GetSpDefStat(eStats)
-	}
-	
-	if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)
-	{
-		movePower *= 1.5
-	}
-	
-	var moveEffect = GetMoveEffect(moveName)
-	movePower += GetEffectPower(pkmn, targetPkmn, GetMoveEffect(moveName))
-	
-	if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
-	if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
-	
-	var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
-	damage = clamp(damage, 0, 1000000)
-	
-	if (random_range(0,101) > moveAcc) return 0
-	return damage
+	else return 0
 }
 
 function GetEffectPower(pkmn, targetPkmn, effectName)
