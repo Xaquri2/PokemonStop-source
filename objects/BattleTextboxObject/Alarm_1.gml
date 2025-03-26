@@ -1,5 +1,5 @@
-if (whoAttacked == "Player") DealDamage(GetDamage(playerPkmn, enemyPkmn, moveName), true)
-else if (whoAttacked == "Enemy") DealDamage(GetDamage(enemyPkmn, playerPkmn, moveName), false)
+if (whoAttacked == "Player") DealDamage(playerDamage, true)
+else if (whoAttacked == "Enemy") DealDamage(enemyDamage, false)
 
 var target = -1
 while (target == -1)
