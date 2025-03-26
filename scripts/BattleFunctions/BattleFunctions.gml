@@ -341,6 +341,96 @@ function DealDamage(damage, isPlayer)
 	}
 }
 
+function DealEffect(effectName, isPlayer)
+{
+	var target = -1
+	var entity = -1
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	{
+		var attempt = instance_find(BattlePokemonObject, i)
+		if (!attempt.playerTeam and isPlayer or attempt.playerTeam and !isPlayer)
+		{
+			entity = attempt
+			break
+		}
+	}
+	
+	switch (effectName)
+	{
+		#region Lower 1
+		case "LowerAttack":
+			target.attackModifier -= 1
+			break
+		case "LowerDefense":
+			target.defenseModifier -= 1
+			break
+		case "LowerSpAtk":
+			target.spAtkModifier -= 1
+			break
+		case "LowerSpDef":
+			target.spDefModifier -= 1
+			break
+		case "LowerSpeed":
+			target.speedModifier -= 1
+			break
+		#endregion
+		
+		#region Lower 2
+		case "LowerAttack2":
+			target.attackModifier -= 2
+			break
+		case "LowerDefense2":
+			target.defenseModifier -= 2
+			break
+		case "LowerSpAtk2":
+			target.spAtkModifier -= 2
+			break
+		case "LowerSpDef2":
+			target.spDefModifier -= 2
+			break
+		case "LowerSpeed2":
+			target.speedModifier -= 2
+			break
+		#endregion
+		
+		#region Raise 1
+		case "RaiseAttack":
+			target.attackModifier += 1
+			break
+		case "RaiseDefense":
+			target.defenseModifier += 1
+			break
+		case "RaiseSpAtk":
+			target.spAtkModifier += 1
+			break
+		case "RaiseSpDef":
+			target.spDefModifier += 1
+			break
+		case "RaiseSpeed":
+			target.speedModifier += 1
+			break
+		#endregion
+		
+		#region Raise 2
+		case "RaiseAttack2":
+			target.attackModifier += 2
+			break
+		case "RaiseDefense2":
+			target.defenseModifier += 2
+			break
+		case "RaiseSpAtk2":
+			target.spAtkModifier += 2
+			break
+		case "RaiseSpDef2":
+			target.spDefModifier += 2
+			break
+		case "RaiseSpeed2":
+			target.speedModifier += 2
+			break
+		#endregion
+	}
+}
+
 function ChooseMove(pkmn, targetPkmn)
 {
 	var name = GetName(pkmn)
