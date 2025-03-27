@@ -343,6 +343,7 @@ function DealDamage(damage, isPlayer)
 
 function DealEffect(effectName, accurancy, user, target)
 {
+	var str = ""
 	if (random_range(0,101) <= accurancy)
 	{
 		switch (effectName)
@@ -350,77 +351,97 @@ function DealEffect(effectName, accurancy, user, target)
 			#region Lower 1
 			case "LowerAttack":
 				target.attackModifier -= 1
-				return "It lowered the foe's Attack stat!"
+				str = "It lowered the foe's Attack stat!"
+				break
 			case "LowerDefense":
 				target.defenseModifier -= 1
-				return "It lowered the foe's Defense stat!"
+				str = "It lowered the foe's Defense stat!"
+				break
 			case "LowerSpAtk":
 				target.spAtkModifier -= 1
-				return "It lowered the foe's Special Attack stat!"
+				str = "It lowered the foe's Special Attack stat!"
+				break
 			case "LowerSpDef":
 				target.spDefModifier -= 1
-				return "It lowered the foe's Special Defense stat!"
+				str = "It lowered the foe's Special Defense stat!"
+				break
 			case "LowerSpeed":
 				target.speedModifier -= 1
-				return "It lowered the foe's Speed stat!"
+				str = "It lowered the foe's Speed stat!"
+				break
 			#endregion
 		
 			#region Lower 2
 			case "LowerAttack2":
 				target.attackModifier -= 2
-				return "It greatly lowered the foe's Attack stat!"
+				str = "It greatly lowered the foe's Attack stat!"
+				break
 			case "LowerDefense2":
 				target.defenseModifier -= 2
-				return "It greatly lowered the foe's Defense stat!"
+				str = "It greatly lowered the foe's Defense stat!"
+				break
 			case "LowerSpAtk2":
 				target.spAtkModifier -= 2
-				return "It greatly lowered the foe's Special Attack stat!"
+				str = "It greatly lowered the foe's Special Attack stat!"
+				break
 			case "LowerSpDef2":
 				target.spDefModifier -= 2
-				return "It greatly lowered the foe's Special Defense stat!"
+				str = "It greatly lowered the foe's Special Defense stat!"
+				break
 			case "LowerSpeed2":
 				target.speedModifier -= 2
-				return "It greatly lowered the foe's Speed stat!"
+				str = "It greatly lowered the foe's Speed stat!"
+				break
 			#endregion
 		
 			#region Raise 1
 			case "RaiseAttack":
 				user.attackModifier += 1
-				return "It raised the user's Attack stat!"
+				str = "It raised the user's Attack stat!"
+				break
 			case "RaiseDefense":
 				user.defenseModifier += 1
-				return "It raised the user's Defense stat!"
+				str = "It raised the user's Defense stat!"
+				break
 			case "RaiseSpAtk":
 				user.spAtkModifier += 1
-				return "It raised the user's Special Attack stat!"
+				str = "It raised the user's Special Attack stat!"
+				break
 			case "RaiseSpDef":
 				user.spDefModifier += 1
-				return "It raised the user's Special Defense stat!"
+				str = "It raised the user's Special Defense stat!"
+				break
 			case "RaiseSpeed":
 				user.speedModifier += 1
-				return "It raised the user's Speed stat!"
+				str = "It raised the user's Speed stat!"
+				break
 			#endregion
 		
 			#region Raise 2
 			case "RaiseAttack2":
 				user.attackModifier += 2
-				return "It greatly raised the user's Attack stat!"
+				str = "It greatly raised the user's Attack stat!"
+				break
 			case "RaiseDefense2":
 				user.defenseModifier += 2
-				return "It greatly raised the user's Defense stat!"
+				str = "It greatly raised the user's Defense stat!"
+				break
 			case "RaiseSpAtk2":
 				user.spAtkModifier += 2
-				return "It greatly raised the user's Special Attack stat!"
+				str = "It greatly raised the user's Special Attack stat!"
+				break
 			case "RaiseSpDef2":
 				user.spDefModifier += 2
-				return "It greatly raised the user's Special Defense stat!"
+				str = "It greatly raised the user's Special Defense stat!"
+				break
 			case "RaiseSpeed2":
 				user.speedModifier += 2
-				return "It greatly raised the user's Speed stat!"
+				str = "It greatly raised the user's Speed stat!"
+				break
 			#endregion
 		}
 	}
-	else ""
+	else return str
 }
 
 function ChooseMove(pkmn, targetPkmn)
