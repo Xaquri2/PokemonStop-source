@@ -28,6 +28,7 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			//Player Move
 			var moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+			var moveEff = GetMoveEffect(moveName)
 			var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 			battleText.moveName = moveName
 			battleText.playerDamage = damage
@@ -37,13 +38,15 @@ if (keyboard_check_pressed(vk_enter))
 		
 			ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
 			
-			if (floor(random_range(0,101)) <= GetMoveAccurancy(moveName)) 
+			var moveAcc = GetMoveAccurancy(moveName)
+			var effectAcc = GetMoveEffectChance(moveName)*100
+			if (floor(random_range(0,101)) <= moveAcc) 
 			{
 				if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-				if (floor(random_range(0,101)) <= GetMoveEffectChance(moveName))
+				if (floor(random_range(0,101)) <= effectAcc)
 				{
-					var effectChance = GetMoveEffectChance(moveName)
-					ds_list_add(battleText.textList, DealEffect(GetMoveEffect(moveName), effectChance, playerPkmn, enemyPkmn))
+					var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+					ds_list_add(battleText.textList, effStr)
 				}
 			}
 			else ds_list_add(battleText.textList, "But it missed!")
@@ -52,6 +55,7 @@ if (keyboard_check_pressed(vk_enter))
 			{
 				//Enemy Move
 				moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+				moveEff = GetMoveEffect(moveName)
 				damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 				battleText.moveName = moveName
 				battleText.enemyDamage = damage
@@ -60,9 +64,21 @@ if (keyboard_check_pressed(vk_enter))
 				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-				ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."),
-				string_concat(superEffStr, "It deals ", damage, " damage!"))
+				ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
 		
+				moveAcc = GetMoveAccurancy(moveName)
+				effectAcc = GetMoveEffectChance(moveName)*100
+				if (floor(random_range(0,101)) <= moveAcc) 
+				{
+					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+					if (floor(random_range(0,101)) <= effectAcc)
+					{
+						var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+						ds_list_add(battleText.textList, effStr)
+					}
+				}
+				else ds_list_add(battleText.textList, "But it missed!")
+			
 				if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
 				string_concat(GetName(battle.playerPkmn)," fainted!"))
 			}
@@ -71,6 +87,7 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			//Enemy Move
 			var moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+			var moveEff = GetMoveEffect(moveName)
 			var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 			battleText.moveName = moveName
 			battleText.enemyDamage = damage
@@ -78,13 +95,26 @@ if (keyboard_check_pressed(vk_enter))
 			if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 			else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-			ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."),
-			string_concat(superEffStr, "It deals ", damage, " damage!"))
+			ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
+			
+			var moveAcc = GetMoveAccurancy(moveName)
+			var effectAcc = GetMoveEffectChance(moveName)*100
+			if (floor(random_range(0,101)) <= moveAcc) 
+			{
+				if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+				if (floor(random_range(0,101)) <= effectAcc)
+				{
+					var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+					ds_list_add(battleText.textList, effStr)
+				}
+			}
+			else ds_list_add(battleText.textList, "But it missed!")
 		
 			if (GetHealth(battle.playerPkmn) > damage)
 			{
 				//Player Move
 				moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+				moveEff = GetMoveEffect(moveName)
 				damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 				battleText.moveName = moveName
 				battleText.playerDamage = damage
@@ -93,9 +123,21 @@ if (keyboard_check_pressed(vk_enter))
 				if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 				else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-				ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),
-				string_concat(superEffStr, "It deals ", damage, " damage!"))
-		
+				ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
+				
+				var moveAcc = GetMoveAccurancy(moveName)
+				var effectAcc = GetMoveEffectChance(moveName)*100
+				if (floor(random_range(0,101)) <= moveAcc) 
+				{
+					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+					if (floor(random_range(0,101)) <= effectAcc)
+					{
+						var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+						ds_list_add(battleText.textList, effStr)
+					}
+				}
+				else ds_list_add(battleText.textList, "But it missed!")
+				
 				if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
 				string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
 			}

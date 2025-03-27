@@ -10,6 +10,12 @@ spatk = 0
 spdef = 0
 spd = 0
 
+attackModifier = 0
+defenseModifier = 0
+spAtkModifier = 0
+spDefModifier = 0
+speedModifier = 0
+
 dying = false
 
 alarm[0] = 1
