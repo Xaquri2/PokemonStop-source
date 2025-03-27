@@ -441,7 +441,7 @@ function DealEffect(effectName, accurancy, user, target)
 			#endregion
 		}
 	}
-	else return str
+	return str
 }
 
 function ChooseMove(pkmn, targetPkmn)
