@@ -3,6 +3,10 @@ playerTeam = true
 index = 0
 team = -1
 
+pkmnInfo = ds_list_create()
+name = ""
+level = 0
+
 hp = 0
 atk = 0
 def = 0
