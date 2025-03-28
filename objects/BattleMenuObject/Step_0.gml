@@ -125,8 +125,8 @@ if (keyboard_check_pressed(vk_enter))
 		
 				ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
 				
-				var moveAcc = GetMoveAccurancy(moveName)
-				var effectAcc = GetMoveEffectChance(moveName)*100
+			    moveAcc = GetMoveAccurancy(moveName)
+				effectAcc = GetMoveEffectChance(moveName)*100
 				if (floor(random_range(0,101)) <= moveAcc) 
 				{
 					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))

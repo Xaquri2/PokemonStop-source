@@ -5,8 +5,12 @@ if (dying)
 	if (alarm[2] < 0) alarm[2] = 20
 }
 
-atk = GetAtkStat(GetPokemonFinalStats(name, level))*(0.5*attackModifier)
-def = GetDefStat(GetPokemonFinalStats(name, level))*(0.5*defenseModifier)
-spatk = GetSpAtkStat(GetPokemonFinalStats(name, level))*(0.5*spAtkModifier)
-spdef = GetSpDefStat(GetPokemonFinalStats(name, level))*(0.5*spDefModifier)
-spd = GetSpeedStat(GetPokemonFinalStats(name, level))*(0.5*speedModifier)
+if (enableDrawing)
+{
+	//Need this check cuz Step was running before Alarm 0
+	atk = GetAtkStat(statList)*(0.5*attackModifier)
+	def = GetDefStat(statList)*(0.5*defenseModifier)
+	spatk = GetSpAtkStat(statList)*(0.5*spAtkModifier)
+	spdef = GetSpDefStat(statList)*(0.5*spDefModifier)
+	spd = GetSpeedStat(statList)*(0.5*speedModifier)
+}
