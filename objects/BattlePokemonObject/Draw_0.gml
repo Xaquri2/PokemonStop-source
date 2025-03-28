@@ -1,2 +1,2 @@
 draw_self()
-draw_text(x,y+64,atk)
+draw_text(x,y+32,atk)
