@@ -457,7 +457,19 @@ function ChooseMove(pkmn, targetPkmn)
 	
 	if (GetSpeedStat(stats) <= GetSpeedStat(enemyStats)) //If user speed is lower
 	{
-		if (floor(random_range(0,3)) == 0) //66% chance to use a speed lowering move
+		var hasSpeedControl = false
+		for (var i = 0; i < ds_list_size(moves); i++)
+		{
+			var moveName = ds_list_find_value(moves, i)
+			var effect = GetMoveEffect(moveName)
+			if (effect == "LowerSpeed") 
+			{
+				hasSpeedControl = true
+				break
+			}
+		}
+		
+		if (floor(random_range(0,3)) == 0 and hasSpeedControl) //33% chance to use a speed lowering move
 		{
 			var chosenMove = ""
 			var chosenMoveDmg = 0
@@ -482,6 +494,38 @@ function ChooseMove(pkmn, targetPkmn)
 		}
 		else
 		{
+			if (floor(random_range(0,3)) == 0) //33% chance to use a random move
+			{
+				var moveName = ds_list_find_value(moves, floor(random_range(0,ds_list_size(moves))))
+				return moveName
+			}
+			else
+			{
+				var biggerDamage = 0
+				var damageList = ds_list_create()
+				for (var i = 0; i < ds_list_size(moves); i++)
+				{
+					ds_list_add(damageList, GetDamage(pkmn, targetPkmn, ds_list_find_value(moves, i)))
+				}
+				for (var i = 0; i < ds_list_size(damageList); i++)
+				{
+					var attempt = ds_list_find_value(damageList, i)
+					if (attempt > biggerDamage) biggerDamage = attempt
+				} 
+				var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+				return moveName
+			}
+		}
+	}
+	else //Choose strongest move
+	{
+		if (floor(random_range(0,3)) == 0) //33% chance to use a status move
+		{
+			var moveName = ds_list_find_value(moves, floor(random_range(0,ds_list_size(moves))))
+			return moveName
+		}
+		else
+		{
 			var biggerDamage = 0
 			var damageList = ds_list_create()
 			for (var i = 0; i < ds_list_size(moves); i++)
@@ -496,22 +540,6 @@ function ChooseMove(pkmn, targetPkmn)
 			var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
 			return moveName
 		}
-	}
-	else //Choose strongest move
-	{
-		var biggerDamage = 0
-		var damageList = ds_list_create()
-		for (var i = 0; i < ds_list_size(moves); i++)
-		{
-			ds_list_add(damageList, GetDamage(pkmn, targetPkmn, ds_list_find_value(moves, i)))
-		}
-		for (var i = 0; i < ds_list_size(damageList); i++)
-		{
-			var attempt = ds_list_find_value(damageList, i)
-			if (attempt > biggerDamage) biggerDamage = attempt
-		} 
-		var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
-		return moveName
 	}
 }
 
