@@ -514,3 +514,20 @@ function ChooseMove(pkmn, targetPkmn)
 		return moveName
 	}
 }
+
+function SetFinalStat(stat, modifier)
+{
+	if (modifier == 0) return stat
+	else if (modifier == 1) return stat*1.1
+	else if (modifier == 2) return stat*1.25
+	else if (modifier == 3) return stat*1.4
+	else if (modifier == 4) return stat*1.5
+	else if (modifier == 5) return stat*1.75
+	else if (modifier == 6) return stat*2
+	else if (modifier == -1) return stat*0.75
+	else if (modifier == -2) return stat*0.66
+	else if (modifier == -3) return stat*0.5
+	else if (modifier == -4) return stat*0.4
+	else if (modifier == -5) return stat*0.3
+	else if (modifier == -6) return stat*0.2
+}
