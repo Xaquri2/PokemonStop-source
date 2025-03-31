@@ -24,7 +24,7 @@ else
 					if (string_count("opposing", text) == 0) whoAttacked = "Player"
 					alarm[1] = GetMoveAnimationTime(moveName)
 				}
-	
+
 				if (string_count(" sent out ", text) > 0) //Enemy pokémon released
 				{
 					var enemy = -1
