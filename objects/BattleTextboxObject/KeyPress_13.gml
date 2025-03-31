@@ -65,8 +65,28 @@ else
 						player.alarm[1] = 1
 					}
 				}
-				else if (string_count("opposing", text) > 0 //If fainted?
-				and string_count("used", text) == 0) 
+				else if (string_count("opposing", text) == 0 //Player pokémon fainted
+				and string_count("fainted", text) > 0) 
+				{
+					var playerPkmnEntity = -1
+					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+					{
+						var attempt = instance_find(BattlePokemonObject, i)
+						if (attempt.playerTeam)
+						{
+							playerPkmnEntity = attempt
+							break
+						}
+					}
+			
+					if (playerPkmnEntity != -1)
+					{
+						alarm[3] = 100
+						playerPkmnEntity.alarm[1] = 100
+					}
+				}
+				else if (string_count("opposing", text) > 0 //Enemy pokémon fainted
+				and string_count("fainted", text) > 0) 
 				{
 					var enemyPkmnEntity = -1
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
