@@ -60,9 +60,16 @@ else
 	
 					if (player != -1)
 					{
-						player.hspeed = player.moveSpeed
-						player.alarm[0] = 100
-						player.alarm[1] = 1
+						if (player.currentPkmn == 0)
+						{
+							player.hspeed = player.moveSpeed
+							player.alarm[0] = 100
+							player.alarm[1] = 1
+						}
+						else
+						{
+							player.alarm[2] = 1
+						}
 					}
 				}
 				else if (string_count("opposing", text) == 0 //Player pokémon fainted
