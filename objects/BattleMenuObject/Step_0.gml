@@ -105,7 +105,7 @@ if (keyboard_check_pressed(vk_enter))
 				if (floor(random_range(0,101)) <= effectAcc)
 				{
 					var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-					ds_list_add(battleText.textList, effStr)
+					if (effStr != "") ds_list_add(battleText.textList, effStr)
 				}
 			}
 			else ds_list_add(battleText.textList, "But it missed!")
