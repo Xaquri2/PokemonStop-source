@@ -439,6 +439,11 @@ function DealEffect(effectName, accurancy, user, target)
 				str = "It greatly raised the user's Speed stat!"
 				break
 			#endregion
+			
+			case "Recoil":
+			case "RecoilOnMiss":
+				str = "The user took some damage!"
+				break
 		}
 	}
 	return str
