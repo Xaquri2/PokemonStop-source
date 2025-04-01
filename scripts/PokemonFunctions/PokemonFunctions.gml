@@ -919,111 +919,111 @@ function GetMoveDetails(moveName)
         //---------------------------------------
         case "Tackle":
             // [Name, Type, Category, Power, Accuracy, PP, Effect, EffectChance, CritChance, Priority]
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, 0);
             break;
         case "Growl":
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 40, "LowerAttack", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 40, "LowerAttack", 1, 1, 0);
             break;
         case "Quick Attack":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 30, "None", 0, 1, true);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 30, "None", 0, 1, 1);
             break;
         case "Scratch":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, 0);
             break;
         case "Ember":
-            ds_list_add(moveInfo, moveName, "Fire", "Special", 40, 100, 25, "Burn", 0.1, 1, false);
+            ds_list_add(moveInfo, moveName, "Fire", "Special", 40, 100, 25, "Burn", 0.1, 1, 0);
             break;
         case "Water Gun":
-            ds_list_add(moveInfo, moveName, "Water", "Special", 40, 100, 25, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Water", "Special", 40, 100, 25, "None", 0, 1, 0);
             break;
         case "Vine Whip":
-            ds_list_add(moveInfo, moveName, "Grass", "Physical", 45, 100, 25, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Grass", "Physical", 45, 100, 25, "None", 0, 1, 0);
             break;
         case "Thunder Shock":
-            ds_list_add(moveInfo, moveName, "Electric", "Special", 40, 100, 30, "Paralysis", 0.1, 1, false);
+            ds_list_add(moveInfo, moveName, "Electric", "Special", 40, 100, 30, "Paralysis", 0.1, 1, 0);
             break;
 		case "Electro Ball":
-            ds_list_add(moveInfo, moveName, "Electric", "Special", 0, 100, 30, "SpeedPower", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Electric", "Special", 0, 100, 30, "SpeedPower", 1, 1, 0);
             break;
         case "Confusion":
-            ds_list_add(moveInfo, moveName, "Psychic", "Special", 50, 100, 25, "Confuse", 0.1, 1, false);
+            ds_list_add(moveInfo, moveName, "Psychic", "Special", 50, 100, 25, "Confuse", 0.1, 1, 0);
             break;
         case "Gust":
-            ds_list_add(moveInfo, moveName, "Flying", "Special", 40, 100, 35, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Flying", "Special", 40, 100, 35, "None", 0, 1, 0);
             break;
         case "Bite":
-            ds_list_add(moveInfo, moveName, "Dark", "Physical", 60, 100, 25, "Flinch", 0.3, 1, false);
+            ds_list_add(moveInfo, moveName, "Dark", "Physical", 60, 100, 25, "Flinch", 0.3, 1, 0);
             break;
         case "Self-Destruct":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 200, 100, 5, "FaintUser", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 200, 100, 5, "FaintUser", 1, 1, 0);
             break;
         case "String Shot":
-            ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, 0);
             break;
         case "Thunder Wave":
-            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Paralysis", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Paralysis", 1, 1, 0);
             break;
         case "Ice Beam":
-            ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, false);
+            ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, 0);
             break;
         case "Drill Peck":
-            ds_list_add(moveInfo, moveName, "Flying", "Physical", 80, 100, 20, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Flying", "Physical", 80, 100, 20, "None", 0, 1, 0);
             break;
         case "Shadow Punch":
-            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 100, 20, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 100, 20, "None", 0, 1, 0);
             break;
         case "Shadow Ball":
-            ds_list_add(moveInfo, moveName, "Ghost", "Special", 80, 100, 15, "LowerSpDef", 0.2, 1, false);
+            ds_list_add(moveInfo, moveName, "Ghost", "Special", 80, 100, 15, "LowerSpDef", 0.2, 1, 0);
             break;
         case "Leech Life":
-            ds_list_add(moveInfo, moveName, "Bug", "Physical", 80, 100, 10, "Drain", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Bug", "Physical", 80, 100, 10, "Drain", 1, 1, 0);
             break;
         case "Hypnosis":
-            ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 60, 20, "Sleep", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 60, 20, "Sleep", 1, 1, 0);
             break;
         case "Poison Sting":
-            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poison", 0.3, 1, false);
+            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poison", 0.3, 1, 0);
             break;
         case "Sing":
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 55, 15, "Sleep", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 55, 15, "Sleep", 1, 1, 0);
             break;
         case "Crunch":
-            ds_list_add(moveInfo, moveName, "Dark", "Physical", 80, 100, 15, "LowerDefense", 0.2, 1, false);
+            ds_list_add(moveInfo, moveName, "Dark", "Physical", 80, 100, 15, "LowerDefense", 0.2, 1, 0);
             break;
         case "Withdraw":
-            ds_list_add(moveInfo, moveName, "Water", "Status", 0, 100, 40, "RaiseDefense", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Water", "Status", 0, 100, 40, "RaiseDefense", 1, 1, 0);
             break;
         case "Headbutt":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 15, "Flinch", 0.3, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 15, "Flinch", 0.3, 1, 0);
             break;
 
         //---------------------------------------
         // High-power / advanced moves
         //---------------------------------------
         case "Giga Impact":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 150, 90, 5, "Recharge", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 150, 90, 5, "Recharge", 1, 1, 0);
             break;
         case "Psychic":
-            ds_list_add(moveInfo, moveName, "Psychic", "Special", 90, 100, 10, "LowerSpDef", 0.1, 1, false);
+            ds_list_add(moveInfo, moveName, "Psychic", "Special", 90, 100, 10, "LowerSpDef", 0.1, 1, 0);
             break;
         case "Dynamic Punch":
-            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 50, 5, "Confuse", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 50, 5, "Confuse", 1, 1, 0);
             break;
         case "Bulldoze":
-            ds_list_add(moveInfo, moveName, "Ground", "Physical", 60, 100, 20, "LowerSpeed", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Ground", "Physical", 60, 100, 20, "LowerSpeed", 1, 1, 0);
             break;
         case "Rock Tomb":
-            ds_list_add(moveInfo, moveName, "Rock", "Physical", 60, 95, 15, "LowerSpeed", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Rock", "Physical", 60, 95, 15, "LowerSpeed", 1, 1, 0);
             break;
         case "Storm Throw":
             // In main series, always crits; here we approximate
-            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 60, 100, 10, "Crit", 1, 1.5, false);
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 60, 100, 10, "Crit", 1, 1.5, 0);
             break;
         case "Play Rough":
-            ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 0, 1, 0);
             break;
         case "Iron Defense":
-            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDef2", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDef2", 1, 1, 0);
             break;
 
         //---------------------------------------
@@ -1031,56 +1031,56 @@ function GetMoveDetails(moveName)
         //---------------------------------------
         case "Inhale":
             // Kirby's special
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 0);
             break;
         case "Aura Sphere":
             // Typically never misses in main games; here we set 100% accuracy
-            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 100, 20, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 100, 20, "None", 0, 1, 0);
             break;
         case "Flux":
             // MissingNo’s reality-bending move
-            ds_list_add(moveInfo, moveName, "???", "Status", 0, 100, 5, "Flux", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "???", "Status", 0, 100, 5, "Flux", 1, 1, 0);
             break;
         case "Explosion":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 250, 100, 5, "FaintUser", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 250, 100, 5, "FaintUser", 1, 1, 0);
             break;
         case "Grassy Surge":
             // In main games, an Ability, but we'll treat it as a move
-            ds_list_add(moveInfo, moveName, "Grass", "Status", 0, 100, 5, "GrassyTerrain", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Grass", "Status", 0, 100, 5, "GrassyTerrain", 1, 1, 0);
             break;
         case "Dual Strike":
             // Demogorgon's special "two-head" move
-            ds_list_add(moveInfo, moveName, "Dark", "Status", 0, 100, 5, "DualStrike", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Dark", "Status", 0, 100, 5, "DualStrike", 1, 1, 0);
             break;
         case "Force Lift":
             // Yodal’s custom telekinetic move
-            ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 100, 10, "Flinch", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 100, 10, "Flinch", 1, 1, 0);
             break;
         case "Interface":
             // BB-8’s custom “hack” move
-            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 100, 10, "Interface", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 100, 10, "Interface", 1, 1, 0);
             break;
         case "Egg Toss":
             // Yo'Ster’s custom
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 0, 1, 0);
             break;
         case "Jump Kick":
-            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 95, 10, "RecoilOnMiss", 1, 1, false);
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 95, 10, "RecoilOnMiss", 1, 1, 0);
             break;
         case "Acid Blood":
             // Xenomorph’s signature
-            ds_list_add(moveInfo, moveName, "Poison", "Special", 60, 100, 15, "Corrode", 0.3, 1, false);
+            ds_list_add(moveInfo, moveName, "Poison", "Special", 60, 100, 15, "Corrode", 0.3, 1, 0);
             break;
         case "Slash":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.2, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.2, 0);
             break;
         case "Lick":
-            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 30, 100, 30, "Paralysis", 0.3, 1, false);
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 30, 100, 30, "Paralysis", 0.3, 1, 0);
             break;
 
         default:
             // If a move is unrecognized, return something safe
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "None", 0, 1, false);
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "None", 0, 1, 0);
             break;
     }
 	return moveInfo

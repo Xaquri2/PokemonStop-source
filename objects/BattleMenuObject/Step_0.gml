@@ -24,10 +24,16 @@ if (keyboard_check_pressed(vk_enter))
 		var eLevel = GetLevel(battle.enemyPkmn)
 		var enemyStats = GetPokemonFinalStats(eName, eLevel)
 		
-		if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats))
+		var playerMoveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+		var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+		
+		var pPriority = GetMovePriority(playerMoveName)
+		var ePriority = GetMovePriority(enemyMoveName)
+		
+		if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 		{
 			//Player Move
-			var moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+			var moveName = playerMoveName
 			var moveEff = GetMoveEffect(moveName)
 			var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 			battleText.moveName = moveName
@@ -54,7 +60,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (GetHealth(battle.enemyPkmn) > damage)
 			{
 				//Enemy Move
-				moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+				moveName = enemyMoveName
 				moveEff = GetMoveEffect(moveName)
 				damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 				battleText.moveName = moveName
@@ -83,10 +89,9 @@ if (keyboard_check_pressed(vk_enter))
 				string_concat(GetName(battle.playerPkmn)," fainted!"))
 			}
 		}
-		else if (GetSpeedStat(enemyStats) > GetSpeedStat(playerStats))
+		else if (GetSpeedStat(enemyStats) > GetSpeedStat(playerStats) or ePriority > pPriority)
 		{
-			//Enemy Move
-			var moveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+			var moveName = enemyMoveName
 			var moveEff = GetMoveEffect(moveName)
 			var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 			battleText.moveName = moveName
@@ -113,7 +118,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (GetHealth(battle.playerPkmn) > damage)
 			{
 				//Player Move
-				moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+				moveName = playerMoveName
 				moveEff = GetMoveEffect(moveName)
 				damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 				battleText.moveName = moveName
