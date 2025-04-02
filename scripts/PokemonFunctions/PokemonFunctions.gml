@@ -7,10 +7,12 @@ function AddPokemon(name, level, gender, sprite) {
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var learnset = GetLevelUpMoveset(name, level)
+	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate, types)
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 	
@@ -24,10 +26,12 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var learnset = GetLevelUpMoveset(name, level)
+	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
-	ds_list_add(pokemon, index, name, level, gender, sprite, hp, GetLevelUpMoveset(name, level), expLevelFloor+20, growthRate, types)
+	ds_list_add(pokemon, index, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
 	
 	if (ds_list_size(team) < 6)
 	{
@@ -256,7 +260,7 @@ function GetPokemonType(name)
 
 /// @param            team    The position of the Pokémon in the party to retreive info about
 /// @param {string}   index   The party to search for the Pokémon at the given position in
-/// @description              Returns a list with the information of the given Pokémon, using its index in the party as an identifier, in the following order: Index, Name, Level, Gender, Sprite, HP, Move List, EXP, Growth Rate, and Types
+/// @description              Returns a list with the information of the given Pokémon, using its index in the party as an identifier, in the following order: Index, Name, Level, Gender, Sprite, HP, Move List, Move PP List, EXP, Growth Rate, and Types
 function GetPartyMemberInfo(team, index) {
 	return ds_list_find_value(team, index)
 }
@@ -267,9 +271,10 @@ function GetGender(pkmnInfo) { return ds_list_find_value(pkmnInfo, 3) }
 function GetSprite(pkmnInfo) { return ds_list_find_value(pkmnInfo, 4) }
 function GetHealth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
 function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
-function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
-function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
-function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9)}
+function GetMovesPP(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
+function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
+function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9) }
+function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 
 function AddExp(pkmnInfo, expValue) { ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) }
 
@@ -1304,4 +1309,14 @@ function GetExpPercentage(pkmn)
 	
 	var perc = currentExp/expToNext*100
 	return perc
+}
+
+function GetLearnsetPP(learnset)
+{
+	var list = ds_list_create()
+	for (var i = 0; i < ds_list_size(learnset); i++)
+	{
+		var attempt = ds_list_find_value(learnset, i)
+		ds_list_add(list, GetMovePP(attempt))
+	}
 }
