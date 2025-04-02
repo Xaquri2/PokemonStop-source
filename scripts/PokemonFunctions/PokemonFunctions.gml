@@ -271,7 +271,7 @@ function GetGender(pkmnInfo) { return ds_list_find_value(pkmnInfo, 3) }
 function GetSprite(pkmnInfo) { return ds_list_find_value(pkmnInfo, 4) }
 function GetHealth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
 function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
-function GetMovesPP(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
+function GetMovePPList(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
 function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
 function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9) }
 function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
@@ -1311,6 +1311,8 @@ function GetExpPercentage(pkmn)
 	return perc
 }
 
+/// @param        learnset    The learnset to retrieve info about
+/// @description              Returns a list with the PP info for every move in the learnset list
 function GetLearnsetPP(learnset)
 {
 	var list = ds_list_create()
@@ -1319,4 +1321,15 @@ function GetLearnsetPP(learnset)
 		var attempt = ds_list_find_value(learnset, i)
 		ds_list_add(list, GetMovePP(attempt))
 	}
+	return list
+}
+
+/// @param        pkmnInfo    The Pokémon's info list
+/// @param        index       The index of the move to consume PP
+/// @description              Updates the PP of the chosen move to consume 1 PP
+function ConsumePP(pkmnInfo, index)
+{
+	var movePPList = ds_list_find_value(pkmnInfo, 7)
+	ds_list_set(movePPList, index, ds_list_find_value(movePPList, index)-1)
+	ds_list_set(pkmnInfo, 7, movePPList)
 }
