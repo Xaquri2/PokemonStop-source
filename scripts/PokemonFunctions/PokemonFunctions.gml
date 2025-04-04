@@ -1333,3 +1333,26 @@ function ConsumePP(pkmnInfo, index)
 	ds_list_set(movePPList, index, ds_list_find_value(movePPList, index)-1)
 	ds_list_set(pkmnInfo, 7, movePPList)
 }
+
+/// @param       name          The fainted Pokémon's name
+/// @description               Gets the defeated Pokémon's base EXP yield value
+function GetBaseYield(name)
+{
+	return 100
+}
+
+/// @param       name          The fainted Pokémon's name
+/// @param       level         The fainted Pokémon's level
+/// @param       pokemonCount  The number of Pokémon involved in the battle
+/// @description               Gets the EXP yield value to be given to the involved Pokémon
+function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
+{
+	var baseYield = GetBaseYield(name)
+	var luckyEggValue = 1
+	var isTrainerValue = 1
+	
+	if (luckyEgg) luckyEggValue = 1.5
+	if (isTrainer) isTrainerValue = 1.5
+	
+	return (baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue
+}

@@ -40,7 +40,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 			{
 				//Player Move
-				var moveName = playerMoveName
+				moveName = playerMoveName
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 				battleText.moveName = moveName
@@ -98,7 +98,7 @@ if (keyboard_check_pressed(vk_enter))
 			}
 			else if (GetSpeedStat(enemyStats) > GetSpeedStat(playerStats) or ePriority > pPriority)
 			{
-				var moveName = enemyMoveName
+				moveName = enemyMoveName
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 				battleText.moveName = moveName
