@@ -279,14 +279,16 @@ function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 function AddExp(pkmnInfo, expValue) 
 { 
 	var pkmnExp = GetExp(pkmnInfo)
+	var expPerc = GetExpPercentage(pkmnInfo)
 	
 	var level = GetLevel(pkmnInfo)
 	var growthRate = GetGrowth(pkmnInfo)
 	
 	var levelsGained = 0
-	for (var i = 0; i < 100; i++)
+	for (var i = 1; i < 100; i++)
 	{
-		if (pkmnExp+expValue >= GetExpLevelFloor(level+i, growthRate))
+		var levelFloorCheck = GetExpLevelFloor(level+i, growthRate)
+		if (pkmnExp+expValue >= levelFloorCheck)
 		{
 			levelsGained++
 		}
