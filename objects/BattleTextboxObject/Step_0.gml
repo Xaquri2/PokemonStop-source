@@ -22,20 +22,26 @@ if (expGainValue > 0 and expGaining)
 			AddExp(playerPkmn, expGainValue)
 			expGainValue = 0
 		}
-	
-		for (var i = 0; i < instance_number(BattlePokemonObject); i++)
-		{
-			var attempt = instance_find(BattlePokemonObject, i)
-			if (attempt.playerTeam) attempt.pkmnInfo = playerPkmn
-		}
-	
+		
+		var entity = -1
 		for (var i = 0; i < instance_number(BattleEntityObject); i++)
 		{
 			var attempt = instance_find(BattleEntityObject, i)
 			if (attempt.player)
 			{
+				entity = attempt
 				ds_list_set(attempt.team, attempt.currentPkmn, playerPkmn)
 				ds_list_set(global.playerParty, attempt.currentPkmn, playerPkmn)
+			}
+		}
+		
+		for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+		{
+			var attempt = instance_find(BattlePokemonObject, i)
+			if (attempt.playerTeam) 
+			{
+				attempt.pkmnInfo = playerPkmn
+				ds_list_set(attempt.team, entity.currentPkmn, playerPkmn)
 			}
 		}
 	}
