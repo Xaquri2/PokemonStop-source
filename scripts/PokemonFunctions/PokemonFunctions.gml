@@ -278,25 +278,28 @@ function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 
 function AddExp(pkmnInfo, expValue) 
 { 
+	var pkmnExp = GetExp(pkmnInfo)
+	
 	var level = GetLevel(pkmnInfo)
 	var growthRate = GetGrowth(pkmnInfo)
 	
 	var levelsGained = 0
 	for (var i = 0; i < 100; i++)
 	{
-		if (GetExp(pkmnInfo)+expValue >= GetExpLevelFloor(level+i, growthRate))
+		if (pkmnExp+expValue >= GetExpLevelFloor(level+i, growthRate))
 		{
 			levelsGained++
 		}
 		else break
 	}
 	
-	if (GetExp(pkmnInfo)+expValue >= GetExpLevelFloor(level, growthRate))
+	if (pkmnExp+expValue >= GetExpLevelFloor(level, growthRate))
 	{
-		ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) 
+		ds_list_set(pkmnInfo, 8, pkmnExp+expValue) 
 		ds_list_set(pkmnInfo, 2, level+levelsGained)
 	}
-	else ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) 
+	else ds_list_set(pkmnInfo, 8, pkmnExp+expValue) 
+	var a = 0
 }
 
 /// @param            team    The team to search for the Pokémon you want to retreive info about
