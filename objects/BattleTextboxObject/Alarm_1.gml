@@ -20,9 +20,14 @@ if (GetHealth(enemyPkmn) == 0)
 	if (whoAttacked == "Player")
 	{
 		var name = GetName(enemyPkmn)
+		var level = GetLevel(enemyPkmn)
 		var battle = instance_find(BattleObject, 0)
+		var experience = GetEXPYield(name, level, 1, false, false)
+		expGainValue = experience
+		
 		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
-	
+		ds_list_add(textList, string_concat("Your Pokémon gained ", experience, " EXP"))
+		
 		target.currentPkmn++
 		enemyPkmn = ds_list_find_value(target.team, target.currentPkmn)
 		battle.enemyPkmn = enemyPkmn

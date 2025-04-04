@@ -119,6 +119,11 @@ else
 					moveName = ChooseMove(enemyPkmn, playerPkmn)
 					alarm[1] = GetMoveAnimationTime(moveName)
 				}
+				else if (string_count("Your Pokémon gained", text) > 0) //Player's pokémon gained EXP
+				{
+					expGaining = true
+					alarm[3] = 5
+				}
 			}
 		}
 	}

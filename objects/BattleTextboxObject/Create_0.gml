@@ -13,4 +13,7 @@ enemyDamage = 0
 
 whoAttacked = ""
 endBattle = false
+
+expGaining = false
+expGainValue = 0
 alarm[5] = 1

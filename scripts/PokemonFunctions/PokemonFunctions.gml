@@ -276,7 +276,28 @@ function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
 function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9) }
 function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 
-function AddExp(pkmnInfo, expValue) { ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) }
+function AddExp(pkmnInfo, expValue) 
+{ 
+	var level = GetLevel(pkmnInfo)
+	var growthRate = GetGrowth(pkmnInfo)
+	
+	var levelsGained = 0
+	for (var i = 0; i < 100; i++)
+	{
+		if (GetExp(pkmnInfo)+expValue >= GetExpLevelFloor(level+i, growthRate))
+		{
+			levelsGained++
+		}
+		else break
+	}
+	
+	if (GetExp(pkmnInfo)+expValue >= GetExpLevelFloor(level, growthRate))
+	{
+		ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) 
+		ds_list_set(pkmnInfo, 2, level+levelsGained)
+	}
+	else ds_list_set(pkmnInfo, 7, GetExp(pkmnInfo)+expValue) 
+}
 
 /// @param            team    The team to search for the Pokémon you want to retreive info about
 /// @param {string}   index   The position of the Pokémon in the party to retreive info about
