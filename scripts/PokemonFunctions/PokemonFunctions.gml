@@ -299,7 +299,6 @@ function AddExp(pkmnInfo, expValue)
 		ds_list_set(pkmnInfo, 2, level+levelsGained)
 	}
 	else ds_list_set(pkmnInfo, 8, pkmnExp+expValue) 
-	var a = 0
 }
 
 /// @param            team    The team to search for the Pokémon you want to retreive info about

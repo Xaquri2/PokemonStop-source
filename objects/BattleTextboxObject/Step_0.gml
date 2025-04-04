@@ -10,39 +10,38 @@ if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 
 if (expGainValue > 0 and expGaining)
 {
-	while (expGainValue > 0)
+	alarm[3] = 5
+	if (expGainValue-1 > 0)
 	{
-		if (expGainValue-10 > 0)
-		{
-			AddExp(playerPkmn, 10)
-			expGainValue -= 10
-		}
-		else
-		{
-			AddExp(playerPkmn, expGainValue)
-			expGainValue = 0
-		}
+		AddExp(playerPkmn, 1)
+		expGainValue -= 1
+	}
+	else
+	{
+		AddExp(playerPkmn, expGainValue)
+		expGainValue = 0
+		expGaining = false
+	}
 		
-		var entity = -1
-		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+	var entity = -1
+	for (var i = 0; i < instance_number(BattleEntityObject); i++)
+	{
+		var attempt = instance_find(BattleEntityObject, i)
+		if (attempt.player)
 		{
-			var attempt = instance_find(BattleEntityObject, i)
-			if (attempt.player)
-			{
-				entity = attempt
-				ds_list_set(attempt.team, attempt.currentPkmn, playerPkmn)
-				ds_list_set(global.playerParty, attempt.currentPkmn, playerPkmn)
-			}
+			entity = attempt
+			ds_list_set(attempt.team, attempt.currentPkmn, playerPkmn)
+			ds_list_set(global.playerParty, attempt.currentPkmn, playerPkmn)
 		}
+	}
 		
-		for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	{
+		var attempt = instance_find(BattlePokemonObject, i)
+		if (attempt.playerTeam) 
 		{
-			var attempt = instance_find(BattlePokemonObject, i)
-			if (attempt.playerTeam) 
-			{
-				attempt.pkmnInfo = playerPkmn
-				ds_list_set(attempt.team, entity.currentPkmn, playerPkmn)
-			}
+			attempt.pkmnInfo = playerPkmn
+			ds_list_set(attempt.team, entity.currentPkmn, playerPkmn)
 		}
 	}
 }
