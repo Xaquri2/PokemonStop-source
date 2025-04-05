@@ -1379,5 +1379,5 @@ function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
 	if (luckyEgg) luckyEggValue = 1.5
 	if (isTrainer) isTrainerValue = 1.5
 	
-	return (baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue
+	return floor((baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue)
 }
