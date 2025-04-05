@@ -25,7 +25,7 @@ if (keyboard_check_pressed(vk_enter))
 		var enemyStats = GetPokemonFinalStats(eName, eLevel)
 		
 		var playerMoveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
-		var moveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
+		var moveName = playerMoveName
 		var moveTotalPP = GetMovePP(moveName)
 		var moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.playerPkmn), currentOption))
 		
@@ -40,7 +40,6 @@ if (keyboard_check_pressed(vk_enter))
 			if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 			{
 				//Player Move
-				moveName = playerMoveName
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 				battleText.moveName = moveName
@@ -59,7 +58,7 @@ if (keyboard_check_pressed(vk_enter))
 					if (floor(random_range(0,101)) <= effectAcc)
 					{
 						var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-						ds_list_add(battleText.textList, effStr)
+						if (effStr != "") ds_list_add(battleText.textList, effStr)
 					}
 				}
 				else ds_list_add(battleText.textList, "But it missed!")
@@ -87,7 +86,7 @@ if (keyboard_check_pressed(vk_enter))
 						if (floor(random_range(0,101)) <= effectAcc)
 						{
 							var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-							ds_list_add(battleText.textList, effStr)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
 					}
 					else ds_list_add(battleText.textList, "But it missed!")
@@ -145,7 +144,7 @@ if (keyboard_check_pressed(vk_enter))
 						if (floor(random_range(0,101)) <= effectAcc)
 						{
 							var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-							ds_list_add(battleText.textList, effStr)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
 					}
 					else ds_list_add(battleText.textList, "But it missed!")

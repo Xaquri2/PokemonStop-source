@@ -1,3 +1,4 @@
+var a = playerDamage
 if (whoAttacked == "Player") DealDamage(playerDamage, true)
 else if (whoAttacked == "Enemy") DealDamage(enemyDamage, false)
 
