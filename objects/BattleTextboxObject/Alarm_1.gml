@@ -27,7 +27,7 @@ if (GetHealth(enemyPkmn) == 0)
 		expGainValue = experience
 		
 		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
-		ds_list_add(textList, string_concat("Your Pokémon gained ", experience, " EXP"))
+		ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 		
 		target.currentPkmn++
 		enemyPkmn = ds_list_find_value(target.team, target.currentPkmn)
