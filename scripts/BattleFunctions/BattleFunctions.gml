@@ -350,93 +350,172 @@ function DealEffect(effectName, accurancy, user, target)
 		{
 			#region Lower 1
 			case "LowerAttack":
-				target.attackModifier -= 1
-				str = "It lowered the foe's Attack stat!"
+				if (target.attackModifier > -6)
+				{
+					target.attackModifier -= 1
+					str = "It lowered the foe's Attack stat!"
+				}
+				else str = "The opponent's Attack stat couldn't go any lower!"
 				break
 			case "LowerDefense":
-				target.defenseModifier -= 1
-				str = "It lowered the foe's Defense stat!"
+				if (target.attackModifier > -6)
+				{
+					target.defenseModifier -= 1
+					str = "It lowered the foe's Defense stat!"
+				}
+				else str = "The opponent's Defense stat couldn't go any lower!"
 				break
 			case "LowerSpAtk":
-				target.spAtkModifier -= 1
-				str = "It lowered the foe's Special Attack stat!"
+				if (target.attackModifier > -6)
+				{
+					target.spAtkModifier -= 1
+					str = "It lowered the foe's Special Attack stat!"
+				}
+				else str = "The opponent's Special Attack stat couldn't go any lower!"
 				break
 			case "LowerSpDef":
-				target.spDefModifier -= 1
-				str = "It lowered the foe's Special Defense stat!"
+				if (target.attackModifier > -6)
+				{
+					target.spDefModifier -= 1
+					str = "It lowered the foe's Special Defense stat!"
+				}
+				else str = "The opponent's Special Defense stat couldn't go any lower!"
 				break
 			case "LowerSpeed":
-				target.speedModifier -= 1
-				str = "It lowered the foe's Speed stat!"
+				if (target.attackModifier > -6)
+				{
+					target.speedModifier -= 1
+					str = "It lowered the foe's Speed stat!"
+				}
+				else str = "The opponent's Speed stat couldn't go any lower!"
 				break
 			#endregion
 		
 			#region Lower 2
 			case "LowerAttack2":
-				target.attackModifier -= 2
-				str = "It greatly lowered the foe's Attack stat!"
+				if (target.attackModifier > -5)
+				{
+					target.attackModifier -= 2
+					str = "It greatly lowered the foe's Attack stat!"
+				}
+				else str = "The opponent's Attack stat couldn't go any lower!"
 				break
 			case "LowerDefense2":
-				target.defenseModifier -= 2
-				str = "It greatly lowered the foe's Defense stat!"
+				if (target.attackModifier > -5)
+				{
+					target.defenseModifier -= 2
+					str = "It greatly lowered the foe's Defense stat!"
+				}
+				else str = "The opponent's Defense stat couldn't go any lower!"
 				break
 			case "LowerSpAtk2":
-				target.spAtkModifier -= 2
-				str = "It greatly lowered the foe's Special Attack stat!"
+				if (target.attackModifier > -5)
+				{
+					target.spAtkModifier -= 2
+					str = "It greatly lowered the foe's Special Attack stat!"
+				}
+				else str = "The opponent's Special Attack stat couldn't go any lower!"
 				break
 			case "LowerSpDef2":
-				target.spDefModifier -= 2
-				str = "It greatly lowered the foe's Special Defense stat!"
+				if (target.attackModifier > -5)
+				{
+					target.spDefModifier -= 2
+					str = "It greatly lowered the foe's Special Defense stat!"
+				}
+				else str = "The opponent's Special Defense stat couldn't go any lower!"
 				break
 			case "LowerSpeed2":
-				target.speedModifier -= 2
-				str = "It greatly lowered the foe's Speed stat!"
+				if (target.attackModifier > -5)
+				{
+					target.speedModifier -= 2
+					str = "It greatly lowered the foe's Speed stat!"
+				}
+				else str = "The opponent's Speed stat couldn't go any lower!"
 				break
 			#endregion
 		
 			#region Raise 1
 			case "RaiseAttack":
-				user.attackModifier += 1
-				str = "It raised the user's Attack stat!"
+				if (target.attackModifier < 6)
+				{
+					user.attackModifier += 1
+					str = "It raised the user's Attack stat!"
+				}
+				else str = "Its Attack stat couldn't go any higher!"
 				break
 			case "RaiseDefense":
-				user.defenseModifier += 1
-				str = "It raised the user's Defense stat!"
+				if (target.attackModifier < 6)
+				{
+					user.defenseModifier += 1
+					str = "It raised the user's Defense stat!"
+				}
+				else str = "Its Defense stat couldn't go any higher!"
 				break
 			case "RaiseSpAtk":
-				user.spAtkModifier += 1
-				str = "It raised the user's Special Attack stat!"
+				if (target.attackModifier < 6)
+				{
+					user.spAtkModifier += 1
+					str = "It raised the user's Special Attack stat!"
+				}
+				else str = "Its Special Attack stat couldn't go any higher!"
 				break
 			case "RaiseSpDef":
-				user.spDefModifier += 1
-				str = "It raised the user's Special Defense stat!"
+				if (target.attackModifier < 6)
+				{
+					user.spDefModifier += 1
+					str = "It raised the user's Special Defense stat!"
+				}
+				else str = "Its Special Defense stat couldn't go any higher!"
 				break
 			case "RaiseSpeed":
-				user.speedModifier += 1
-				str = "It raised the user's Speed stat!"
+				if (target.attackModifier < 6)
+				{
+					user.speedModifier += 1
+					str = "It raised the user's Speed stat!"
+				}
+				else str = "Its Speed stat couldn't go any higher!"
 				break
 			#endregion
 		
 			#region Raise 2
 			case "RaiseAttack2":
-				user.attackModifier += 2
-				str = "It greatly raised the user's Attack stat!"
+				if (target.attackModifier < 5)
+				{
+					user.attackModifier += 2
+					str = "It greatly raised the user's Attack stat!"
+				}
+				else str = "Its Attack stat couldn't go any higher!"
 				break
 			case "RaiseDefense2":
-				user.defenseModifier += 2
-				str = "It greatly raised the user's Defense stat!"
+				if (target.attackModifier < 5)
+				{
+					user.defenseModifier += 2
+					str = "It greatly raised the user's Defense stat!"
+				}
+				else str = "Its Defense stat couldn't go any higher!"
 				break
 			case "RaiseSpAtk2":
-				user.spAtkModifier += 2
-				str = "It greatly raised the user's Special Attack stat!"
-				break
+				if (target.attackModifier < 5)
+				{
+					user.spAtkModifier += 2
+					str = "It greatly raised the user's Special Attack stat!"
+				}
+				else str = "Its Special Attack stat couldn't go any higher!"
 			case "RaiseSpDef2":
-				user.spDefModifier += 2
-				str = "It greatly raised the user's Special Defense stat!"
+				if (target.attackModifier < 5)
+				{
+					user.spDefModifier += 2
+					str = "It greatly raised the user's Special Defense stat!"
+				}
+				else str = "Its Special Defense stat couldn't go any higher!"
 				break
 			case "RaiseSpeed2":
-				user.speedModifier += 2
-				str = "It greatly raised the user's Speed stat!"
+				if (target.attackModifier < 5)
+				{
+					user.speedModifier += 2
+					str = "It greatly raised the user's Speed stat!"
+				}
+				else str = "Its Speed stat couldn't go any higher!"
 				break
 			#endregion
 			
