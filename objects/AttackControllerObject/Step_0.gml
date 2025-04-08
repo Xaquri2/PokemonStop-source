@@ -1,4 +1,4 @@
-if (alarm[0] == particleSpawnTime)
+if (alarm[0] == particleSpawnTime and attackParticle != noone)
 {
 	var xPos = playerPkmnEntity.x
 	var yPos = playerPkmnEntity.y
@@ -8,5 +8,5 @@ if (alarm[0] == particleSpawnTime)
 		yPos = enemyPkmnEntity.y
 	}
 	
-	instance_create_layer(xPos, yPos, "Particles", hitParticle)
+	instance_create_layer(xPos, yPos, "Particles", attackParticle)
 }

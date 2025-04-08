@@ -653,3 +653,10 @@ function SetFinalStat(stat, modifier)
 	else if (modifier == -5) return stat*0.3
 	else if (modifier == -6) return stat*0.2
 }
+
+function GetAttackParticle(moveName)
+{
+	var cat = GetMoveCategory(moveName)
+	if (cat != "Status") return HitAttackObject
+	else return noone
+}

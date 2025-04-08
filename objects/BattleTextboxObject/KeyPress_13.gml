@@ -31,6 +31,7 @@ else
 					
 					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 					attackC.alarm[0] = alarm[1]
+					attackC.moveName = moveName
 					attackC.whoAttacked = whoAttacked
 					attackC.particleSpawnTime = floor(alarm[1] / 2)
 				}

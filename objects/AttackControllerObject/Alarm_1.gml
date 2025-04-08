@@ -1,0 +1,1 @@
+attackParticle = GetAttackParticle(moveName)
