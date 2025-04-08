@@ -21,3 +21,7 @@ if (enableDrawing)
 	spdef = SetFinalStat(GetSpDefStat(statList), attackModifier)
 	spd = SetFinalStat(GetSpeedStat(statList), attackModifier)
 }
+
+//Flashing
+if (alarm[3] % 5 == 0) flashMode++
+if (flashMode > 1) flashMode = 0

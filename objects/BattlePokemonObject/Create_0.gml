@@ -21,6 +21,8 @@ spAtkModifier = 1
 spDefModifier = 1
 speedModifier = 1
 
+flash = false
+flashMode = 1
 dying = false
 
 alarm[0] = 1

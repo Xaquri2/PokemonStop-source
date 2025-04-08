@@ -19,6 +19,21 @@ while (target == -1)
 	}
 }
 
+for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+{
+	var attempt = instance_find(BattlePokemonObject, i)
+	if (attempt.playerTeam and whoAttacked == "Enemy") 
+	{
+		attempt.flash = true
+		attempt.alarm[3] = 60
+	}
+	else if (!attempt.playerTeam and whoAttacked == "Player")
+	{
+		attempt.flash = true
+		attempt.alarm[3] = 60
+	}
+}
+
 if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0) 
 {
 	var name = GetName(enemyPkmn)

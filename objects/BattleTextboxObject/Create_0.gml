@@ -19,4 +19,7 @@ expGainValue = 0
 
 damaging = false
 damageValue = 0
+
+flash = false
+flashMode = 1
 alarm[5] = 1
