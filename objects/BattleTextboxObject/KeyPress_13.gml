@@ -19,10 +19,20 @@ else
 				charCounter = 0
 				charNumber = 0
 				var text = ds_list_find_value(textList, currentText)
-				if (string_count("used", text) > 0) //Player attack
+				if (string_count("used", text) > 0) //Player and enemy attacks
 				{
 					if (string_count("opposing", text) == 0) whoAttacked = "Player"
+					else
+					{
+						whoAttacked = "Enemy"
+						moveName = ChooseMove(enemyPkmn, playerPkmn)
+					}
 					alarm[1] = GetMoveAnimationTime(moveName)
+					
+					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+					attackC.alarm[0] = alarm[1]
+					attackC.whoAttacked = whoAttacked
+					attackC.particleSpawnTime = floor(alarm[1] / 2)
 				}
 
 				if (string_count(" sent out ", text) > 0) //Enemy pokémon released
@@ -111,13 +121,6 @@ else
 						alarm[3] = 100
 						enemyPkmnEntity.alarm[1] = 100
 					}
-				}
-				else if (string_count("opposing", text) > 0 //Oponent attack
-				and string_count("used", text) > 0)
-				{
-					whoAttacked = "Enemy"
-					moveName = ChooseMove(enemyPkmn, playerPkmn)
-					alarm[1] = GetMoveAnimationTime(moveName)
 				}
 				else if (string_count("Your Pokémon gained", text) > 0) //Player's pokémon gained EXP
 				{
