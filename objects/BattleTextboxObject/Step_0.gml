@@ -11,17 +11,9 @@ if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 if (expGainValue > 0 and expGaining)
 {
 	alarm[3] = 5
-	if (expGainValue-1 > 0)
-	{
-		AddExp(playerPkmn, 1)
-		expGainValue -= 1
-	}
-	else
-	{
-		AddExp(playerPkmn, expGainValue)
-		expGainValue = 0
-		expGaining = false
-	}
+	if (expGainValue == 1) expGaining = false
+	AddExp(playerPkmn, 1)
+	expGainValue--
 		
 	var entity = -1
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
@@ -44,4 +36,18 @@ if (expGainValue > 0 and expGaining)
 			ds_list_set(attempt.team, entity.currentPkmn, playerPkmn)
 		}
 	}
+}
+
+if (damageValue > 0 and damaging)
+{
+	alarm[3] = 5
+	if (damageValue == 1) 
+	{
+		damaging = false
+		whoAttacked = ""
+		alarm[4] = 30
+	}
+	if (whoAttacked == "Player") DealDamage(0.2, true)
+	else if (whoAttacked == "Enemy") DealDamage(0.2, false)
+	damageValue -= 0.2
 }

@@ -338,6 +338,16 @@ function DealDamage(damage, isPlayer)
 	{
 		ds_list_set(playerPkmn, 5, entity.hp)
 		ds_list_set(entity.team, entity.index, playerPkmn)
+		ds_list_set(global.playerParty, entity.index, playerPkmn)
+	}
+	
+	for (var i = 0; i < instance_number(BattleEntityObject); i++)
+	{
+		var attempt = instance_find(BattleEntityObject, i)
+		if (attempt.player)
+		{
+			ds_list_set(attempt.team, attempt.currentPkmn, playerPkmn)
+		}
 	}
 }
 

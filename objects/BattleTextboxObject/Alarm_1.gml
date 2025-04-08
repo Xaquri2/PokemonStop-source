@@ -1,6 +1,9 @@
 var a = playerDamage
-if (whoAttacked == "Player") DealDamage(playerDamage, true)
-else if (whoAttacked == "Enemy") DealDamage(enemyDamage, false)
+
+alarm[3] = 5
+damaging = true
+if (whoAttacked == "Player") damageValue = playerDamage
+else if (whoAttacked == "Enemy") damageValue = enemyDamage
 
 var target = -1
 while (target == -1)
@@ -16,61 +19,52 @@ while (target == -1)
 	}
 }
 
-if (GetHealth(enemyPkmn) == 0) 
+if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0) 
 {
-	if (whoAttacked == "Player")
-	{
-		var name = GetName(enemyPkmn)
-		var level = GetLevel(enemyPkmn)
-		var battle = instance_find(BattleObject, 0)
-		var experience = GetEXPYield(name, level, 1, false, false)
-		expGainValue = experience
-		
-		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
-		ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
-		
-		target.currentPkmn++
-		enemyPkmn = ds_list_find_value(target.team, target.currentPkmn)
-		battle.enemyPkmn = enemyPkmn
-		
-		if (target.currentPkmn >= ds_list_size(target.team)) 
-		{
-			endBattle = true
-			enemy.currentPkmn = -1
-			ds_list_add(textList, "You win!")
-		}
-		else 
-		{
-			name = GetName(enemyPkmn)
-			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
-		}
-	}
-}
-if (GetHealth(playerPkmn) == 0)
-{
-	if (whoAttacked == "Enemy")
-	{
-		var name = GetName(playerPkmn)
-		var battle = instance_find(BattleObject, 0)
-		ds_list_add(textList, string_concat(name, " fainted"))
+	var name = GetName(enemyPkmn)
+	var level = GetLevel(enemyPkmn)
+	var battle = instance_find(BattleObject, 0)
+	var experience = GetEXPYield(name, level, 1, false, false)
+	expGainValue = experience
 	
-		target.currentPkmn++
-		playerPkmn = ds_list_find_value(target.team, target.currentPkmn)
-		battle.playerPkmn = playerPkmn
-		a = target.player
-		if (target.currentPkmn >= ds_list_size(target.team)) 
-		{
-			endBattle = true
-			target.currentPkmn = -1
-			ds_list_add(textList, "You lose!")
-		}
-		else 
-		{
-			name = GetName(playerPkmn)
-			ds_list_add(textList, string_concat("Go! ", name, "!"))
-		}
+	ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
+	ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
+		
+	target.currentPkmn++
+	enemyPkmn = ds_list_find_value(target.team, target.currentPkmn)
+	battle.enemyPkmn = enemyPkmn
+	
+	if (target.currentPkmn >= ds_list_size(target.team)) 
+	{
+		endBattle = true
+		enemy.currentPkmn = -1
+		ds_list_add(textList, "You win!")
+	}
+	else 
+	{
+		name = GetName(enemyPkmn)
+		ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 	}
 }
-
-whoAttacked = ""
-alarm[4] = 30
+if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage == 0) 
+{
+	var name = GetName(playerPkmn)
+	var battle = instance_find(BattleObject, 0)
+	ds_list_add(textList, string_concat(name, " fainted"))
+	
+	target.currentPkmn++
+	playerPkmn = ds_list_find_value(target.team, target.currentPkmn)
+	battle.playerPkmn = playerPkmn
+	a = target.player
+	if (target.currentPkmn >= ds_list_size(target.team)) 
+	{
+		endBattle = true
+		target.currentPkmn = -1
+		ds_list_add(textList, "You lose!")
+	}
+	else 
+	{
+		name = GetName(playerPkmn)
+		ds_list_add(textList, string_concat("Go! ", name, "!"))
+	}
+}

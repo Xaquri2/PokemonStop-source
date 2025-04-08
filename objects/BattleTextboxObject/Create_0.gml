@@ -16,4 +16,7 @@ endBattle = false
 
 expGaining = false
 expGainValue = 0
+
+damaging = false
+damageValue = 0
 alarm[5] = 1
