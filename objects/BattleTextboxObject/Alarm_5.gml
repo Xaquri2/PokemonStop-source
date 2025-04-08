@@ -2,16 +2,16 @@ var newText = ds_list_find_value(textList, currentText)
 var count = string_count("used", newText)
 if (count > 0)
 {
-	if (string_count("opposing", newText)) 
+	if (string_count("opposing", newText) > 0) 
 	{
 		whoAttacked = "Enemy"
-		moveName = ChooseMove(enemyPkmn, playerPkmn)
+		moveName = enemyMoveName
 		alarm[1] = GetMoveAnimationTime(moveName)
 	}
 	else if (string_count("opposing", newText) == 0)
 	{
 		whoAttacked = "Player"
-		moveName = ChooseMove(enemyPkmn, playerPkmn)
+		moveName = playerMoveName
 		alarm[1] = GetMoveAnimationTime(moveName)
 	}
 

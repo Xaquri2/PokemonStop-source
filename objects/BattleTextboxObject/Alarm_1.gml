@@ -19,18 +19,21 @@ while (target == -1)
 	}
 }
 
-for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+if (GetMoveCategory(moveName) != "Status")
 {
-	var attempt = instance_find(BattlePokemonObject, i)
-	if (attempt.playerTeam and whoAttacked == "Enemy") 
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
-		attempt.flash = true
-		attempt.alarm[3] = 20
-	}
-	else if (!attempt.playerTeam and whoAttacked == "Player")
-	{
-		attempt.flash = true
-		attempt.alarm[3] = 20
+		var attempt = instance_find(BattlePokemonObject, i)
+		if (attempt.playerTeam and whoAttacked == "Enemy") 
+		{
+			attempt.flash = true
+			attempt.alarm[3] = 20
+		}
+		else if (!attempt.playerTeam and whoAttacked == "Player")
+		{
+			attempt.flash = true
+			attempt.alarm[3] = 20
+		}
 	}
 }
 

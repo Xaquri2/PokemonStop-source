@@ -42,7 +42,7 @@ if (keyboard_check_pressed(vk_enter))
 				//Player Move
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
-				battleText.moveName = moveName
+				battleText.playerMoveName = moveName
 				battleText.playerDamage = damage
 			
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
@@ -69,7 +69,7 @@ if (keyboard_check_pressed(vk_enter))
 					moveName = enemyMoveName
 					moveEff = GetMoveEffect(moveName)
 					damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
-					battleText.moveName = moveName
+					battleText.enemyMoveName = moveName
 					battleText.enemyDamage = damage
 				
 					superEffStr = ""
@@ -100,7 +100,7 @@ if (keyboard_check_pressed(vk_enter))
 				moveName = enemyMoveName
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
-				battleText.moveName = moveName
+				battleText.enemyMoveName = moveName
 				battleText.enemyDamage = damage
 			
 				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
@@ -128,6 +128,7 @@ if (keyboard_check_pressed(vk_enter))
 					moveEff = GetMoveEffect(moveName)
 					damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
 					battleText.moveName = moveName
+					battleText.playerMoveName = moveName
 					battleText.playerDamage = damage
 				
 					superEffStr = ""

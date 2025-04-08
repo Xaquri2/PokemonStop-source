@@ -5,6 +5,8 @@ charCounter = 0
 charNumber = 0
 
 moveName = ""
+playerMoveName = ""
+enemyMoveName = ""
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
 
