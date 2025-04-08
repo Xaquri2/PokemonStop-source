@@ -15,11 +15,11 @@ spatk = 0
 spdef = 0
 spd = 0
 
-attackModifier = 1
-defenseModifier = 1
-spAtkModifier = 1
-spDefModifier = 1
-speedModifier = 1
+attackModifier = 0
+defenseModifier = 0
+spAtkModifier = 0
+spDefModifier = 0
+speedModifier = 0
 
 flash = false
 flashMode = 1
