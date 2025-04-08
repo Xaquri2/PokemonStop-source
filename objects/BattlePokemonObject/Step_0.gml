@@ -23,5 +23,5 @@ if (enableDrawing)
 }
 
 //Flashing
-if (alarm[3] % 5 == 0) flashMode++
+if (alarm[3] % 4 == 0) flashMode++
 if (flashMode > 1) flashMode = 0

@@ -25,12 +25,12 @@ for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	if (attempt.playerTeam and whoAttacked == "Enemy") 
 	{
 		attempt.flash = true
-		attempt.alarm[3] = 60
+		attempt.alarm[3] = 20
 	}
 	else if (!attempt.playerTeam and whoAttacked == "Player")
 	{
 		attempt.flash = true
-		attempt.alarm[3] = 60
+		attempt.alarm[3] = 20
 	}
 }
 
