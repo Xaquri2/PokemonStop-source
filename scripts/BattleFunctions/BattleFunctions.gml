@@ -332,6 +332,7 @@ function DealDamage(damage, isPlayer)
 	if (isPlayer) 
 	{
 		ds_list_set(enemyPkmn, 5, entity.hp)
+		ds_list_set(entity.pkmnInfo, 5, entity.hp)
 		ds_list_set(entity.team, entity.index, enemyPkmn)
 	}
 	else 
