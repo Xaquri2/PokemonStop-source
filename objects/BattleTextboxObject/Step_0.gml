@@ -50,4 +50,11 @@ if (damageValue > 0 and damaging)
 	if (whoAttacked == "Player") DealDamage(0.2, true)
 	else if (whoAttacked == "Enemy") DealDamage(0.2, false)
 	damageValue -= 0.2
+	
+	if (GetHealth(enemyPkmn) <= 0)
+	{
+		damaging = false
+		whoAttacked = ""
+		alarm[4] = 30
+	}
 }
