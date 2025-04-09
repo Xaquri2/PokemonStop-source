@@ -1,5 +1,3 @@
-var a = playerDamage
-
 alarm[3] = 5
 damaging = true
 if (whoAttacked == "Player") damageValue = playerDamage
@@ -37,7 +35,7 @@ if (GetMoveCategory(moveName) != "Status")
 	}
 }
 
-if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0) 
+if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0) 
 {
 	var name = GetName(enemyPkmn)
 	var level = GetLevel(enemyPkmn)
@@ -64,7 +62,7 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0)
 		ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 	}
 }
-if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage == 0) 
+if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0) 
 {
 	var name = GetName(playerPkmn)
 	var battle = instance_find(BattleObject, 0)
