@@ -11,8 +11,8 @@ if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 if (expGainValue > 0 and expGaining)
 {
 	alarm[3] = 5
-	if (expGainValue == 1) expGaining = false
 	var level = GetLevel(playerPkmn)
+	if (expGainValue == 1 or GetExp(playerPkmn)+1 >= GetExpLevelFloor(101, GetGrowth(playerPkmn))) expGaining = false
 	
 	AddExp(playerPkmn, 1)
 	expGainValue--
