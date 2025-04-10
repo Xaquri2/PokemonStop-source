@@ -288,7 +288,7 @@ function AddExp(pkmnInfo, expValue)
 	for (var i = 1; i < 100; i++)
 	{
 		var levelFloorCheck = GetExpLevelFloor(level+i, growthRate)
-		if (pkmnExp+expValue >= levelFloorCheck)
+		if (pkmnExp+expValue >= levelFloorCheck and level < 100)
 		{
 			levelsGained++
 		}
