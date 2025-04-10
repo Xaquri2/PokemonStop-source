@@ -12,8 +12,16 @@ if (expGainValue > 0 and expGaining)
 {
 	alarm[3] = 5
 	if (expGainValue == 1) expGaining = false
+	var level = GetLevel(playerPkmn)
+	
 	AddExp(playerPkmn, 1)
 	expGainValue--
+	
+	var levelNew = GetLevel(playerPkmn)
+	if (levelNew > level)
+	{
+		ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
+	}
 		
 	var entity = -1
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
