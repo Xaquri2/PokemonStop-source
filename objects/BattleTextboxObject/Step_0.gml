@@ -59,14 +59,22 @@ if (damageValue > 0 and damaging)
 	else if (whoAttacked == "Enemy") DealDamage(0.2, false)
 	damageValue -= 0.2
 	
-	if (GetHealth(enemyPkmn) <= 0)
+	if (whoAttacked == "Player" and GetHealth(enemyPkmn) <= 0)
 	{
 		damaging = false
 		whoAttacked = ""
 		alarm[4] = 30
 		
-		if (whoAttacked == "Player") playerPkmn = nextPkmn
-		else if (whoAttacked == "Enemy") enemyPkmn = nextPkmn
+		enemyPkmn = nextPkmn
+		nextPkmn = -1
+	}
+	else if (whoAttacked == "Enemy" and GetHealth(playerPkmn) <= 0)
+	{
+		damaging = false
+		whoAttacked = ""
+		alarm[4] = 30
+		
+		playerPkmn = nextPkmn
 		nextPkmn = -1
 	}
 }

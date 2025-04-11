@@ -48,7 +48,7 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0)
 		
 	target.currentPkmn++
 	nextPkmn = ds_list_find_value(target.team, target.currentPkmn)
-	battle.enemyPkmn = enemyPkmn
+	battle.enemyPkmn = nextPkmn
 	
 	if (target.currentPkmn >= ds_list_size(target.team)) 
 	{
@@ -70,7 +70,7 @@ if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
 	
 	target.currentPkmn++
 	nextPkmn = ds_list_find_value(target.team, target.currentPkmn)
-	battle.playerPkmn = playerPkmn
+	battle.playerPkmn = nextPkmn
 	if (target.currentPkmn >= ds_list_size(target.team)) 
 	{
 		endBattle = true
