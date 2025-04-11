@@ -47,7 +47,7 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0)
 	ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 		
 	target.currentPkmn++
-	enemyPkmn = ds_list_find_value(target.team, target.currentPkmn)
+	nextPkmn = ds_list_find_value(target.team, target.currentPkmn)
 	battle.enemyPkmn = enemyPkmn
 	
 	if (target.currentPkmn >= ds_list_size(target.team)) 
@@ -58,7 +58,7 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0)
 	}
 	else 
 	{
-		name = GetName(enemyPkmn)
+		name = GetName(nextPkmn)
 		ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 	}
 }
@@ -69,7 +69,7 @@ if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
 	ds_list_add(textList, string_concat(name, " fainted"))
 	
 	target.currentPkmn++
-	playerPkmn = ds_list_find_value(target.team, target.currentPkmn)
+	nextPkmn = ds_list_find_value(target.team, target.currentPkmn)
 	battle.playerPkmn = playerPkmn
 	if (target.currentPkmn >= ds_list_size(target.team)) 
 	{
@@ -79,7 +79,7 @@ if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
 	}
 	else 
 	{
-		name = GetName(playerPkmn)
+		name = GetName(nextPkmn)
 		ds_list_add(textList, string_concat("Go! ", name, "!"))
 	}
 }

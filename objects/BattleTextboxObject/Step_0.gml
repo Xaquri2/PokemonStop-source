@@ -64,5 +64,9 @@ if (damageValue > 0 and damaging)
 		damaging = false
 		whoAttacked = ""
 		alarm[4] = 30
+		
+		if (whoAttacked == "Player") playerPkmn = nextPkmn
+		else if (whoAttacked == "Enemy") enemyPkmn = nextPkmn
+		nextPkmn = -1
 	}
 }

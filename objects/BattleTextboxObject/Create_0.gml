@@ -9,6 +9,7 @@ playerMoveName = ""
 enemyMoveName = ""
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
+nextPkmn = -1
 
 playerDamage = 0
 enemyDamage = 0
