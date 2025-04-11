@@ -48,6 +48,20 @@ if (expGainValue > 0 and expGaining)
 
 if (damageValue > 0 and damaging)
 {
+	var target = -1
+	while (target == -1)
+	{
+		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+		{
+			var attempt = instance_find(BattleEntityObject, i)
+			if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player")) 
+			{
+				target = attempt
+				break
+			}
+		}
+	}
+	
 	alarm[3] = 5
 	if (damageValue == 1) 
 	{
@@ -55,6 +69,7 @@ if (damageValue > 0 and damaging)
 		whoAttacked = ""
 		alarm[4] = 30
 	}
+	
 	if (whoAttacked == "Player") DealDamage(0.2, true)
 	else if (whoAttacked == "Enemy") DealDamage(0.2, false)
 	damageValue -= 0.2
@@ -65,6 +80,7 @@ if (damageValue > 0 and damaging)
 		whoAttacked = ""
 		alarm[4] = 30
 		
+		target.currentPkmn++
 		enemyPkmn = nextPkmn
 		nextPkmn = -1
 	}
@@ -74,6 +90,7 @@ if (damageValue > 0 and damaging)
 		whoAttacked = ""
 		alarm[4] = 30
 		
+		target.currentPkmn++
 		playerPkmn = nextPkmn
 		nextPkmn = -1
 	}

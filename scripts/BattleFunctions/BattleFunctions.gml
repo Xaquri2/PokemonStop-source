@@ -319,7 +319,7 @@ function DealDamage(damage, isPlayer)
 	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
 		var attempt = instance_find(BattlePokemonObject, i)
-		if (!attempt.playerTeam and isPlayer or attempt.playerTeam and !isPlayer)
+		if ((!attempt.playerTeam and isPlayer) or (attempt.playerTeam and !isPlayer))
 		{
 			entity = attempt
 			break

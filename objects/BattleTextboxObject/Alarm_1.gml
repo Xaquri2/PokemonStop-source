@@ -46,8 +46,7 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0)
 	ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
 	ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 		
-	target.currentPkmn++
-	nextPkmn = ds_list_find_value(target.team, target.currentPkmn)
+	nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
 	battle.enemyPkmn = nextPkmn
 	
 	if (target.currentPkmn >= ds_list_size(target.team)) 
@@ -68,8 +67,7 @@ if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
 	var battle = instance_find(BattleObject, 0)
 	ds_list_add(textList, string_concat(name, " fainted"))
 	
-	target.currentPkmn++
-	nextPkmn = ds_list_find_value(target.team, target.currentPkmn)
+	nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
 	battle.playerPkmn = nextPkmn
 	if (target.currentPkmn >= ds_list_size(target.team)) 
 	{
