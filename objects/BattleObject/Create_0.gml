@@ -10,6 +10,7 @@ playerTeam = global.playerParty
 enemyTeam = ds_list_create()
 enemySprite = noone
 enemyName = ""
+isWild = false
 
 ending = false
 

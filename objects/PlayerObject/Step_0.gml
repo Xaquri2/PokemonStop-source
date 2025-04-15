@@ -104,7 +104,17 @@ if (instance_exists(grassAttempt) and grassTimer == -1)
 	var wildBattle = floor(random_range(1,11))
 	if (wildBattle == 1)
 	{
-		//Start wild battle
+		var wildPokemonList = ds_list_create()
+		ds_list_add(wildPokemonList, GetWildPokemon())
+		
+		player.talking = false
+		player.canWalk = false
+		player.battle = true
+		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+		battleObj.enemyTeam = wildPokemonList
+		battleObj.enemySprite = object_get_sprite(actionNPC.object_index)
+		battleObj.enemyName = name
+		battleObj.isWild = true
 	}
 	grassTimer = 30
 }
