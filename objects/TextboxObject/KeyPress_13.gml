@@ -17,7 +17,7 @@ else
 			battleObj.enemyTeam = actionNPC.trainerTeam
 			battleObj.enemySprite = object_get_sprite(actionNPC.object_index)
 			battleObj.enemyName = name
-			battleObj.isWild = true
+			battleObj.isWild = isWild
 		}
 		else
 		{

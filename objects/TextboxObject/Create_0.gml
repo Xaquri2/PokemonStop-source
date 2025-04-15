@@ -7,4 +7,6 @@ currentText = 0
 actionNPC = -1
 charCounter = 0
 charNumber = 0
+
+isWild = false
 //Note: icons' origins must be on the bottom center

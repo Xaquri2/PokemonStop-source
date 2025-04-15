@@ -28,7 +28,7 @@ if (room == RoomBattle)
 	floorEnemy.team = enemyTeam
 	floorEnemy.trainer = enemySprite
 	floorEnemy.player = false
-	floorEnemy.isWild = true
+	floorEnemy.isWild = isWild
 	
 	floorPlayer.team = playerTeam
 	floorPlayer.trainer = object_get_sprite(PlayerObject)
