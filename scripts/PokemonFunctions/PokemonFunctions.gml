@@ -55,6 +55,8 @@ function GetWildPokemon()
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
+	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	
 	return pkmn
 }
 

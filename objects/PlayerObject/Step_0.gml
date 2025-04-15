@@ -98,25 +98,28 @@ if (nearestNPC != noone)
 }
 #endregion
 
+#region Wild Encounters
 var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
 if (instance_exists(grassAttempt) and grassTimer == -1)
 {
 	var wildBattle = floor(random_range(1,11))
 	if (wildBattle == 1)
 	{
+		var wildPkmn = GetWildPokemon()
 		var wildPokemonList = ds_list_create()
-		ds_list_add(wildPokemonList, GetWildPokemon())
+		ds_list_add(wildPokemonList, wildPkmn)
 		
-		player.talking = false
-		player.canWalk = false
-		player.battle = true
+		talking = false
+		canWalk = false
+		battle = true
 		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 		battleObj.enemyTeam = wildPokemonList
-		battleObj.enemySprite = object_get_sprite(actionNPC.object_index)
-		battleObj.enemyName = name
+		battleObj.enemySprite = GetSprite(wildPkmn)
+		battleObj.enemyName = GetName(wildPkmn)
 		battleObj.isWild = true
 	}
 	grassTimer = 30
 }
 
 if (grassTimer > -1) grassTimer--
+#endregion

@@ -1,8 +1,8 @@
 if (isWild)
 {
-	var pk = instance_create_layer(x,y,pkmnLayer,BattlePokemonObject)
-	pk.index = entity.currentPkmn
-	pk.team = entity.team
+	var pk = instance_create_layer(x,y,"EnemyPokemon",BattlePokemonObject)
+	pk.index = currentPkmn
+	pk.team = team
 	pk.playerTeam = false
 	instance_destroy(id)
 }
