@@ -97,3 +97,16 @@ if (nearestNPC != noone)
 	}
 }
 #endregion
+
+var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
+if (instance_exists(grassAttempt) and grassTimer == -1)
+{
+	var wildBattle = floor(random_range(1,11))
+	if (wildBattle == 1)
+	{
+		//Start wild battle
+	}
+	grassTimer = 30
+}
+
+if (grassTimer > -1) grassTimer--
