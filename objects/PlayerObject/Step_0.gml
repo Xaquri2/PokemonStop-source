@@ -100,7 +100,8 @@ if (nearestNPC != noone)
 
 #region Wild Encounters
 var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
-if (instance_exists(grassAttempt) and grassTimer == -1)
+if (instance_exists(grassAttempt) and grassTimer == -1 and 
+(hspeed != 0 or vspeed != 0))
 {
 	var wildBattle = floor(random_range(1,11))
 	if (wildBattle == 1)
