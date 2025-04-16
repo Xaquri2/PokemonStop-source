@@ -958,7 +958,7 @@ function SetPokemonDefaults(pkmn)
 	var level = GetLevel(pkmn)
 	
 	var stats = GetPokemonFinalStats(name, level)
-	hp = ds_list_find_value(stats, 0)
+	hp = GetHealth(pkmnInfo)
 	atk = ds_list_find_value(stats, 1)
 	def = ds_list_find_value(stats, 2)
 	spatk = ds_list_find_value(stats, 3)
