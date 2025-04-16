@@ -1,3 +1,5 @@
+depth = -y
+
 #region Movement
 hspeedOld = hspeed
 vspeedOld = vspeed
