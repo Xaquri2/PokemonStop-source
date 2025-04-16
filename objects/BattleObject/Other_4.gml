@@ -2,7 +2,7 @@ if (room == RoomBattle)
 {
 	alarm[0] = 100
 	
-	playerPkmn = ds_list_find_value(playerTeam, 0)
+	playerPkmn = GetFirstHealthyPokemon(playerTeam)
 	var playerTeamMemberName = GetName(playerPkmn)
 	
 	enemyPkmn =  ds_list_find_value(enemyTeam, 0)

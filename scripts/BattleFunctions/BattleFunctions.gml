@@ -661,3 +661,16 @@ function GetAttackParticle(moveName)
 	if (cat != "Status") return HitAttackObject
 	else return noone
 }
+
+function GetFirstHealthyPokemon(playerTeam)
+{
+	for (var i = 0; i < 6; i++)
+	{
+		var attempt = ds_list_find_value(playerTeam, 0)
+		if (GetHealth(attempt) > 0)
+		{
+			return i
+		}
+	}
+	return -1
+}
