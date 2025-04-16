@@ -1,5 +1,3 @@
-var a = playerDamage
-
 alarm[3] = 5
 damaging = true
 if (whoAttacked == "Player") damageValue = playerDamage
@@ -37,7 +35,7 @@ if (GetMoveCategory(moveName) != "Status")
 	}
 }
 
-if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0) 
+if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0) 
 {
 	var name = GetName(enemyPkmn)
 	var level = GetLevel(enemyPkmn)
@@ -48,9 +46,8 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0)
 	ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
 	ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 		
-	target.currentPkmn++
-	enemyPkmn = ds_list_find_value(target.team, target.currentPkmn)
-	battle.enemyPkmn = enemyPkmn
+	nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
+	battle.enemyPkmn = nextPkmn
 	
 	if (target.currentPkmn >= ds_list_size(target.team)) 
 	{
@@ -60,20 +57,18 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage == 0)
 	}
 	else 
 	{
-		name = GetName(enemyPkmn)
+		name = GetName(nextPkmn)
 		ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 	}
 }
-if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage == 0) 
+if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0) 
 {
 	var name = GetName(playerPkmn)
 	var battle = instance_find(BattleObject, 0)
 	ds_list_add(textList, string_concat(name, " fainted"))
 	
-	target.currentPkmn++
-	playerPkmn = ds_list_find_value(target.team, target.currentPkmn)
-	battle.playerPkmn = playerPkmn
-	a = target.player
+	nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
+	battle.playerPkmn = nextPkmn
 	if (target.currentPkmn >= ds_list_size(target.team)) 
 	{
 		endBattle = true
@@ -82,7 +77,7 @@ if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage == 0)
 	}
 	else 
 	{
-		name = GetName(playerPkmn)
+		name = GetName(nextPkmn)
 		ds_list_add(textList, string_concat("Go! ", name, "!"))
 	}
 }

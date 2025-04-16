@@ -15,4 +15,5 @@ if (!spawned)
 	entity.moveSpeed = moveSpeed
 	entity.player = player
 	entity.team = team
+	entity.isWild = isWild
 }

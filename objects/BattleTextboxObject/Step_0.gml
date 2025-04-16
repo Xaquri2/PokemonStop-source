@@ -11,9 +11,17 @@ if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 if (expGainValue > 0 and expGaining)
 {
 	alarm[3] = 5
-	if (expGainValue == 1) expGaining = false
+	var level = GetLevel(playerPkmn)
+	if (expGainValue == 1 or GetExp(playerPkmn)+1 >= GetExpLevelFloor(101, GetGrowth(playerPkmn))) expGaining = false
+	
 	AddExp(playerPkmn, 1)
 	expGainValue--
+	
+	var levelNew = GetLevel(playerPkmn)
+	if (levelNew > level)
+	{
+		ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
+	}
 		
 	var entity = -1
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
@@ -40,6 +48,20 @@ if (expGainValue > 0 and expGaining)
 
 if (damageValue > 0 and damaging)
 {
+	var target = -1
+	while (target == -1)
+	{
+		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+		{
+			var attempt = instance_find(BattleEntityObject, i)
+			if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player")) 
+			{
+				target = attempt
+				break
+			}
+		}
+	}
+	
 	alarm[3] = 5
 	if (damageValue == 1) 
 	{
@@ -47,7 +69,29 @@ if (damageValue > 0 and damaging)
 		whoAttacked = ""
 		alarm[4] = 30
 	}
+	
 	if (whoAttacked == "Player") DealDamage(0.2, true)
 	else if (whoAttacked == "Enemy") DealDamage(0.2, false)
 	damageValue -= 0.2
+	
+	if (whoAttacked == "Player" and GetHealth(enemyPkmn) <= 0)
+	{
+		damaging = false
+		whoAttacked = ""
+		alarm[4] = 30
+		
+		target.currentPkmn++
+		enemyPkmn = nextPkmn
+		nextPkmn = -1
+	}
+	else if (whoAttacked == "Enemy" and GetHealth(playerPkmn) <= 0)
+	{
+		damaging = false
+		whoAttacked = ""
+		alarm[4] = 30
+		
+		target.currentPkmn++
+		playerPkmn = nextPkmn
+		nextPkmn = -1
+	}
 }

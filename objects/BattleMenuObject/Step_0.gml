@@ -52,7 +52,9 @@ if (keyboard_check_pressed(vk_enter))
 			
 				var moveAcc = GetMoveAccurancy(moveName)
 				var effectAcc = GetMoveEffectChance(moveName)*100
-				if (floor(random_range(0,101)) <= moveAcc) 
+				
+				var accRoll = floor(random_range(0,101))
+				if (accRoll <= moveAcc) 
 				{
 					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 					if (floor(random_range(0,101)) <= effectAcc)

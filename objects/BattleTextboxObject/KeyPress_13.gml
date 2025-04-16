@@ -5,7 +5,7 @@ if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 }
 else
 {
-	if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0)
+	if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 	{
 		if (currentText+1 >= ds_list_size(textList))
 		{
@@ -127,7 +127,7 @@ else
 						enemyPkmnEntity.alarm[1] = 100
 					}
 				}
-				else if (string_count("Your Pokémon gained", text) > 0) //Player's pokémon gained EXP
+				else if (string_count("Your Pokemon gained", text) > 0) //Player's pokémon gained EXP
 				{
 					expGaining = true
 					alarm[3] = 5

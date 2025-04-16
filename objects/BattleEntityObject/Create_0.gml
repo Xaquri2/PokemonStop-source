@@ -4,3 +4,4 @@ moveSpeed = 0
 player = true
 team = ds_list_create()
 currentPkmn = 0
+isWild = false

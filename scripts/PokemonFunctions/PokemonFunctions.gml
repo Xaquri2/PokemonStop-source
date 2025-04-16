@@ -39,6 +39,27 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	}
 }
 
+function GetWildPokemon()
+{
+	var pkmn = ds_list_create()
+	var name = "Charmander"
+	var level = floor(random_range(10,20))
+	var gender = "Male"
+	if (floor(random_range(1,3)) > 1) gender = "Female"
+	var sprite = CharmanderIdleSprite
+	
+	var growthRate = "Very Fast"
+	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var learnset = GetLevelUpMoveset(name, level)
+	var learnsetPP = GetLearnsetPP(learnset)
+	var expLevelFloor = GetExpLevelFloor(level, growthRate)
+	var types = GetPokemonType(name)
+	
+	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	
+	return pkmn
+}
+
 function GetPokemonType(name)
 {
     var types = ds_list_create();
@@ -288,7 +309,7 @@ function AddExp(pkmnInfo, expValue)
 	for (var i = 1; i < 100; i++)
 	{
 		var levelFloorCheck = GetExpLevelFloor(level+i, growthRate)
-		if (pkmnExp+expValue >= levelFloorCheck)
+		if (pkmnExp+expValue >= levelFloorCheck and level < 100)
 		{
 			levelsGained++
 		}

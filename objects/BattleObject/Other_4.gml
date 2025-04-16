@@ -8,8 +8,16 @@ if (room == RoomBattle)
 	enemyPkmn =  ds_list_find_value(enemyTeam, 0)
 	var enemyTeamMemberName = GetName(enemyPkmn)
 	
-	ds_list_add(textList, string_concat(enemyName, " wants to battle"), 
-	string_concat(enemyName, " sent out ", enemyTeamMemberName), string_concat("Go! ", playerTeamMemberName))
+	if (isWild) 
+	{
+		ds_list_add(textList, string_concat("You found a wild ", enemyName), 
+		string_concat("Go! ", playerTeamMemberName))
+	}
+	else 
+	{
+		ds_list_add(textList, string_concat(enemyName, " wants to battle"), string_concat(enemyName, " sent out ", enemyTeamMemberName), 
+		string_concat("Go! ", playerTeamMemberName))
+	}
 	
 	var floorEnemy = instance_create_layer(room_width*0.7, 
 	room_height*0.3, "BattleFloor", BattleFloorObject)
@@ -20,6 +28,7 @@ if (room == RoomBattle)
 	floorEnemy.team = enemyTeam
 	floorEnemy.trainer = enemySprite
 	floorEnemy.player = false
+	floorEnemy.isWild = isWild
 	
 	floorPlayer.team = playerTeam
 	floorPlayer.trainer = object_get_sprite(PlayerObject)
