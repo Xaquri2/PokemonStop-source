@@ -2,9 +2,15 @@ if (keyboard_check_pressed(vk_enter))
 {
 	if (mode == "Choosing")
 	{
-		if (currentOption == 0)
+		switch (currentOption)
 		{
-			mode = "Moves"
+			case 0:
+				mode = "Moves"
+				break
+			case 1:
+				instance_create_layer(x,y,layer,BagMenuObject)
+				mode = "Bag"
+				break
 		}
 	}
 	else if (mode == "Moves")

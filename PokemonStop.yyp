@@ -71,11 +71,12 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.0.190",
+    "IDEVersion":"2024.13.1.193",
   },
   "name":"PokemonStop",
   "resources":[
     {"id":{"name":"AttackControllerObject","path":"objects/AttackControllerObject/AttackControllerObject.yy",},},
+    {"id":{"name":"BagMenuObject","path":"objects/BagMenuObject/BagMenuObject.yy",},},
     {"id":{"name":"BattleEntityObject","path":"objects/BattleEntityObject/BattleEntityObject.yy",},},
     {"id":{"name":"BattleFloorObject","path":"objects/BattleFloorObject/BattleFloorObject.yy",},},
     {"id":{"name":"BattleMenuObject","path":"objects/BattleMenuObject/BattleMenuObject.yy",},},
