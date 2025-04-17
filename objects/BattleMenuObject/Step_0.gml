@@ -8,7 +8,9 @@ if (keyboard_check_pressed(vk_enter))
 				mode = "Moves"
 				break
 			case 1:
-				instance_create_layer(x,y,layer,BagMenuObject)
+				var bag = instance_create_layer(x,y,layer,BagMenuObject)
+				bag.menu = id
+				
 				mode = "Bag"
 				break
 		}
