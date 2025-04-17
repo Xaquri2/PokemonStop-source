@@ -662,11 +662,11 @@ function GetAttackParticle(moveName)
 	else return noone
 }
 
-function GetFirstHealthyPokemon(playerTeam)
+function GetFirstHealthyPokemon()
 {
 	for (var i = 0; i < 6; i++)
 	{
-		var attempt = ds_list_find_value(playerTeam, 0)
+		var attempt = ds_list_find_value(global.playerParty, i)
 		if (GetHealth(attempt) > 0)
 		{
 			return i
