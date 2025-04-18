@@ -6,8 +6,6 @@ var battleList = ds_list_create()
 var berryList = ds_list_create()
 var keyList = ds_list_create()
 
-ds_list_add(itemsList, "Potion", "Potion", "Super Potion", "Potion", "Hyper Potion", "Hyper Potion")
-
 global.categoryNameList = ds_list_create()
 ds_list_add(global.categoryNameList, "Items", "Balls", "Battle Items", "Berries", "Key Items")
 
@@ -24,3 +22,7 @@ AddPokemon("Pikachu", 15, "Male", PikachuIdleSprite)
 AddPokemon("Squirtle", 25, "Female", SquirtleIdleSprite)
 AddPokemon("Charmander", 25, "Male", CharmanderIdleSprite)
 AddPokemon("Snorlax", 25, "Female", SnorlaxIdleSprite)
+
+AddItem("Potion", 1)
+AddItem("Super Potion", 1)
+AddItem("Potion", 2)

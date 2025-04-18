@@ -128,6 +128,7 @@
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
     {"id":{"name":"BattleFunctions","path":"scripts/BattleFunctions/BattleFunctions.yy",},},
+    {"id":{"name":"InventoryFunctions","path":"scripts/InventoryFunctions/InventoryFunctions.yy",},},
     {"id":{"name":"PokemonFunctions","path":"scripts/PokemonFunctions/PokemonFunctions.yy",},},
     {"id":{"name":"seq_menu","path":"sequences/seq_menu/seq_menu.yy",},},
     {"id":{"name":"MutantPathGymBattleTheme","path":"sounds/MutantPathGymBattleTheme/MutantPathGymBattleTheme.yy",},},

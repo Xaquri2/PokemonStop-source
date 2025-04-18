@@ -24,11 +24,18 @@ for (var i = 0; i < ds_list_size(global.categoryNameList); i++)
 	}
 }
 
-for (var i = 0; i < 15; i++)
+var itemCount = ds_list_size(ds_list_find_value(global.categoryItemList, selectedCategory))
+if (itemCount > 15) itemCount = 15
+
+for (var i = 0; i < itemCount; i++)
 {
-	var itemName = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), i)
+	var itemDetails = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), i)
+	var itemAmount = GetItemAmount(itemDetails)
+	var itemName = GetItemName(itemDetails)
 	var originX = view_get_wport(0)*0.15
 	var originY = 80+view_get_hport(0)*0.075+40*i
 	
-	if (itemName != undefined) draw_text_transformed(originX,originY,itemName, 1.5, 1.5, image_angle)
+	if (itemName != undefined) draw_text_transformed(originX, originY, itemName, 1.5, 1.5, image_angle)
+	draw_text_transformed(view_get_wport(0)*0.85, originY, string_concat("x", itemAmount), 1.5, 1.5, image_angle)
+	
 }
