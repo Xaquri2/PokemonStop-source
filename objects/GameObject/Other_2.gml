@@ -6,6 +6,8 @@ var battleList = ds_list_create()
 var berryList = ds_list_create()
 var keyList = ds_list_create()
 
+ds_list_add(itemsList, "Potion", "Potion", "Super Potion", "Potion", "Hyper Potion", "Hyper Potion")
+
 global.categoryNameList = ds_list_create()
 ds_list_add(global.categoryNameList, "Items", "Balls", "Battle Items", "Berries", "Key Items")
 

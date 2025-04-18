@@ -23,3 +23,12 @@ for (var i = 0; i < ds_list_size(global.categoryNameList); i++)
 		draw_set_alpha(1)
 	}
 }
+
+for (var i = 0; i < 15; i++)
+{
+	var itemName = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), i)
+	var originX = view_get_wport(0)*0.15
+	var originY = 80+view_get_hport(0)*0.075+40*i
+	
+	if (itemName != undefined) draw_text_transformed(originX,originY,itemName, 1.5, 1.5, image_angle)
+}
