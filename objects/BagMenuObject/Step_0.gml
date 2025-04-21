@@ -1,8 +1,15 @@
 if (keyboard_check_pressed(ord("E"))) 
 {
-	menu.mode = "Choosing"
-	menu.currentOption = 0
-	instance_destroy(id)
+	if (battle)
+	{
+		menu.mode = "Choosing"
+		menu.currentOption = 0
+		instance_destroy(id)
+	}
+	else
+	{
+		alarm[0] = 1
+	}
 }
 
 if (keyboard_check_pressed(vk_enter))

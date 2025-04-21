@@ -14,6 +14,11 @@ if (keyboard_check_pressed(vk_enter) and active)
 			var pkmnMenu = instance_create_layer(x,y,layer,PokemonMenuObject)
 			pkmnMenu.menu = id
 			break
+		case "Bag":
+			var bag = instance_create_layer(x,y,layer,BagMenuObject)
+			bag.menu = id
+			visible = false
+			break
 		case "Exit":
 			player.alarm[0] = 5
 			break

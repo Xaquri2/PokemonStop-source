@@ -10,7 +10,7 @@ if (keyboard_check_pressed(vk_enter))
 			case 1:
 				var bag = instance_create_layer(x,y,layer,BagMenuObject)
 				bag.menu = id
-				
+				bag.battle = true
 				mode = "Bag"
 				break
 		}
