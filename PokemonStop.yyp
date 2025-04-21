@@ -110,6 +110,7 @@
     {"id":{"name":"obj_play_button","path":"objects/obj_play_button/obj_play_button.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_quit_button","path":"objects/obj_quit_button/obj_quit_button.yy",},},
+    {"id":{"name":"OptionObject","path":"objects/OptionObject/OptionObject.yy",},},
     {"id":{"name":"OverworldParent","path":"objects/OverworldParent/OverworldParent.yy",},},
     {"id":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},},
     {"id":{"name":"PokemonMenuObject","path":"objects/PokemonMenuObject/PokemonMenuObject.yy",},},
