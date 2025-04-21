@@ -28,8 +28,8 @@ if (selectedCategory < 0) selectedCategory = ds_list_size(global.categoryNameLis
 #region Item Controls
 var itemList = ds_list_find_value(global.categoryItemList, selectedCategory)
 
-if (keyboard_check_pressed(ord("A"))) selectedItem--
-if (keyboard_check_pressed(ord("D"))) selectedItem++
+if (keyboard_check_pressed(ord("W"))) selectedItem--
+if (keyboard_check_pressed(ord("S"))) selectedItem++
 	
 if (selectedItem == ds_list_size(itemList)) selectedItem = 0
 if (selectedItem < 0) selectedItem = ds_list_size(itemList)-1
