@@ -100,9 +100,10 @@ else
 	1.5, 1.5, image_angle, image_blend, image_alpha)
 	
 	//Health Bar
+	var baseHP = GetHPStat(GetPokemonFinalStats(name, level))
 	var percentage = GetHealth(pkmnInfo)/ds_list_find_value(GetPokemonFinalStats(name, level), 0)*100
 	draw_text_transformed(view_get_wport(0)*0.14, view_get_hport(0)*0.2, 
-	string_concat("HP: ", percentage, "%"), 1.5, 1.5, image_angle)
+	string_concat("HP: ", floor(percentage), "% (", floor(GetHealth(pkmnInfo)), "/", baseHP, ")"), 1.5, 1.5, image_angle)
 	
 	draw_sprite_ext(BarSprite, 1, view_get_wport(0)*0.14, view_get_hport(0)*0.23, 
 	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
