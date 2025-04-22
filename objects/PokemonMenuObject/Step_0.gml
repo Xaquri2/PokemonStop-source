@@ -49,7 +49,11 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 		{
 			if (itemName == "Potion")
 			{
+				var player = instance_find(PlayerObject, 0)
+				player.alarm[0] = 5
+				
 				HealPokemon(global.playerParty, selectedIndex, 20)
+				instance_destroy(id)
 			}
 		}
 	}

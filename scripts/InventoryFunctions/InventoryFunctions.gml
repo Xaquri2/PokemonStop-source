@@ -1,4 +1,5 @@
 //Items are stored in lists, with the data being in the following order: Name, Amount.
+function GetItemInfo(categoryIndex, itemIndex) { return ds_list_find_value(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex) }
 function GetItemName(itemInfo) { return ds_list_find_value(itemInfo, 0) }
 function GetItemAmount(itemInfo) { return ds_list_find_value(itemInfo, 1) }
 function UpdateItemAmount(itemInfo, amount) { ds_list_set(itemInfo, 1, amount) }
