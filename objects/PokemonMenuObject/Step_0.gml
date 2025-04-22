@@ -32,7 +32,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 	}
 	else
 	{
-		if (!summaryMode and !switchMode)
+		if (!summaryMode and !switchMode and !itemUse)
 		{
 			canInteract = false
 			var options = instance_create_layer(x,y,layer,PokemonMenuOptionsObject)
@@ -44,6 +44,13 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 			var pkmnInfo = GetPartyMemberInfo(global.playerParty, selectedIndex)
 			ds_list_add(options.optionList, "Summary", "Switch")
 			if (CanEvolve(global.playerParty, selectedIndex)) ds_list_add(options.optionList, "Evolve")
+		}
+		else if (itemUse)
+		{
+			if (itemName == "Potion")
+			{
+				HealPokemon(global.playerParty, selectedIndex, 20)
+			}
 		}
 	}
 }

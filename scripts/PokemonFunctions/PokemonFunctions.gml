@@ -6,7 +6,7 @@
 function AddPokemon(name, level, gender, sprite) {
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
-	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var hp = 1//ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
@@ -1409,4 +1409,17 @@ function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
 	if (isTrainer) isTrainerValue = 1.5
 	
 	return floor((baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue)
+}
+
+function HealPokemon(team, index, amount)
+{
+	var pkmnInfo = ds_list_find_value(team, index)
+	var name = GetName(pkmnInfo)
+	var level = GetLevel(pkmnInfo)
+	
+	var maxHealth = GetHPStat(GetPokemonFinalStats(name, level))
+	var currentHealth = GetHealth(pkmnInfo)
+	
+	if (currentHealth+amount > maxHealth) ds_list_set(pkmnInfo, 5, maxHealth)
+	else ds_list_set(pkmnInfo, 5, currentHealth+amount)
 }
