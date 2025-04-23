@@ -3,6 +3,7 @@ function GetItemInfo(categoryIndex, itemIndex) { return ds_list_find_value(ds_li
 function GetItemName(itemInfo) { return ds_list_find_value(itemInfo, 0) }
 function GetItemAmount(itemInfo) { return ds_list_find_value(itemInfo, 1) }
 function UpdateItemAmount(itemInfo, amount) { ds_list_set(itemInfo, 1, amount) }
+function DeleteItem(categoryIndex, itemIndex) { ds_list_delete(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex) }
 
 function AddItem(name, amount)
 {
@@ -41,5 +42,16 @@ function AddItem(name, amount)
 				added = true
 			}
 			break
+	}
+}
+
+function ConsumeItem(categoryIndex, itemIndex, amount)
+{
+	var itemInfo = GetItemInfo(categoryIndex, itemIndex)
+	if (GetItemAmount(itemInfo)-amount <= 0) DeleteItem(categoryIndex, itemIndex)
+	else 
+	{
+		UpdateItemAmount(itemInfo, GetItemAmount(itemInfo)-amount)
+		ds_list_replace(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex, itemInfo)
 	}
 }

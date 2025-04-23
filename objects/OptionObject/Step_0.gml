@@ -17,7 +17,8 @@ if (keyboard_check_pressed(vk_enter))
 				var pkmnMenu = instance_create_depth(x,y,depth-1,PokemonMenuObject)
 				pkmnMenu.itemUse = true
 				pkmnMenu.itemName = itemName
-			
+				
+				ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 				instance_destroy(menu.id)
 				instance_destroy(id)
 			}
