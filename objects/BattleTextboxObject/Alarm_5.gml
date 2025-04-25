@@ -21,11 +21,11 @@ if (count > 0)
 			moveName = playerMoveName
 			alarm[1] = GetMoveAnimationTime(moveName)
 		}
+
+		var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+		attackC.alarm[0] = alarm[1]
+		attackC.moveName = moveName
+		attackC.whoAttacked = whoAttacked
+		attackC.particleSpawnTime = floor(alarm[1] / 2)
 	}
-	
-	var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
-	attackC.alarm[0] = alarm[1]
-	attackC.moveName = moveName
-	attackC.whoAttacked = whoAttacked
-	attackC.particleSpawnTime = floor(alarm[1] / 2)
 }
