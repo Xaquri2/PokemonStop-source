@@ -82,12 +82,12 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 					var eLevel = GetLevel(battle.enemyPkmn)
 					var enemyStats = GetPokemonFinalStats(eName, eLevel)
 		
-					var playerMoveName = "Item"
+					var playerMoveName = itemName
 					var moveName = playerMoveName	
 
 					var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
 		
-					var pPriority = GetMovePriority(playerMoveName)
+					var pPriority = 100 //Item usage needs to happen first
 					var ePriority = GetMovePriority(enemyMoveName)
 		
 					if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)

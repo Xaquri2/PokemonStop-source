@@ -2,17 +2,25 @@ var newText = ds_list_find_value(textList, currentText)
 var count = string_count("used", newText)
 if (count > 0)
 {
-	if (string_count("opposing", newText) > 0) 
+	if (string_count("You", newText) > 0)
 	{
-		whoAttacked = "Enemy"
-		moveName = enemyMoveName
-		alarm[1] = GetMoveAnimationTime(moveName)
-	}
-	else if (string_count("opposing", newText) == 0 and string_count("You", newText) == 0)
-	{
-		whoAttacked = "Player"
+		whoAttacked = "Enemy" //This is for playing the animation on the player's pokémon
 		moveName = playerMoveName
-		alarm[1] = GetMoveAnimationTime(moveName)
+	}
+	else
+	{
+		if (string_count("opposing", newText) > 0) 
+		{
+			whoAttacked = "Enemy"
+			moveName = enemyMoveName
+			alarm[1] = GetMoveAnimationTime(moveName)
+		}
+		else if (string_count("opposing", newText) == 0)
+		{
+			whoAttacked = "Player"
+			moveName = playerMoveName
+			alarm[1] = GetMoveAnimationTime(moveName)
+		}
 	}
 	
 	var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
