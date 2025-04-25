@@ -49,8 +49,16 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 		{
 			if (itemName == "Potion")
 			{
-				var player = instance_find(PlayerObject, 0)
-				player.alarm[0] = 5
+				if (instance_number(PlayerObject) > 0)
+				{
+					var player = instance_find(PlayerObject, 0)
+					player.alarm[0] = 5
+				}
+				else
+				{
+					var battleMenu = instance_find(BattleMenuObject, 0)
+					battleMenu.mode = "Choosing"
+				}
 				
 				HealPokemon(global.playerParty, selectedIndex, 20)
 				instance_destroy(id)
