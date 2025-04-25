@@ -1411,7 +1411,7 @@ function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
 	return floor((baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue)
 }
 
-function HealPokemon(team, index, amount)
+function HealPokemon(team, index, amount, isPlayer)
 {
 	var pkmnInfo = ds_list_find_value(team, index)
 	var name = GetName(pkmnInfo)
@@ -1422,4 +1422,17 @@ function HealPokemon(team, index, amount)
 	
 	if (currentHealth+amount > maxHealth) ds_list_set(pkmnInfo, 5, maxHealth)
 	else ds_list_set(pkmnInfo, 5, currentHealth+amount)
+	
+	if (instance_number(BattleObject) > 0)
+	{
+		var pkmnEntity = noone
+		for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+		{
+			var attempt = instance_find(BattlePokemonObject, i)
+			if (isPlayer and attempt.playerTeam) pkmnEntity = attempt
+			else if (!isPlayer and !attempt.playerTeam) pkmnEntity = attempt
+		}
+		
+		pkmnEntity.hp = GetHealth(pkmnInfo)
+	}
 }
