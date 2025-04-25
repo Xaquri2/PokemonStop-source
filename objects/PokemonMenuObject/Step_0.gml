@@ -58,10 +58,77 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 				{
 					var battleMenu = instance_find(BattleMenuObject, 0)
 					battleMenu.mode = "Choosing"
-				}
+					
+					var playerPkmn = -1
+					var enemyPkmn = -1
+					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+					{
+						var attempt = instance_find(BattlePokemonObject, i)
+						if (!attempt.playerTeam) enemyPkmn = attempt
+						else playerPkmn = attempt
+					}
 				
-				HealPokemon(global.playerParty, selectedIndex, 20)
-				instance_destroy(id)
+					var battle = instance_find(BattleObject, 0)
+					var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+					battleText.playerPkmn = battle.playerPkmn
+					battleText.enemyPkmn = battle.enemyPkmn
+					var superEffStr = ""
+		
+					var pName = GetName(battle.playerPkmn)
+					var pLevel = GetLevel(battle.playerPkmn)
+					var playerStats = GetPokemonFinalStats(pName, pLevel)
+		
+					var eName = GetName(battle.enemyPkmn)
+					var eLevel = GetLevel(battle.enemyPkmn)
+					var enemyStats = GetPokemonFinalStats(eName, eLevel)
+		
+					var playerMoveName = "Item"
+					var moveName = playerMoveName	
+
+					var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+		
+					var pPriority = GetMovePriority(playerMoveName)
+					var ePriority = GetMovePriority(enemyMoveName)
+		
+					if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
+					{
+						battleText.playerMoveName = moveName
+						ds_list_add(battleText.textList, string_concat("You used a ", itemName))
+
+						//Enemy Move
+						moveName = enemyMoveName
+						var moveEff = GetMoveEffect(moveName)
+						var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+						battleText.enemyMoveName = moveName
+						battleText.enemyDamage = damage
+				
+						superEffStr = ""
+						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+		
+						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+		
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
+						if (floor(random_range(0,101)) <= moveAcc) 
+						{
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (floor(random_range(0,101)) <= effectAcc)
+							{
+								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
+							}
+						}
+						else ds_list_add(battleText.textList, "But it missed!")
+			
+						if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
+						string_concat(GetName(battle.playerPkmn)," fainted!"))
+					}
+	
+					HealPokemon(global.playerParty, selectedIndex, 20)
+					instance_destroy(battleMenu)
+					instance_destroy(id)
+				}
 			}
 		}
 	}

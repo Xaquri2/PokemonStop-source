@@ -973,6 +973,9 @@ function GetMoveDetails(moveName)
 	var moveInfo = ds_list_create()
 	switch (moveName)
     {
+		case "Item":
+			ds_list_add(moveInfo, moveName, "None", "None", 0, 0, 0, "None", 0, 0, 100)
+		
         //---------------------------------------
         // Common / Canonical Moves
         //---------------------------------------

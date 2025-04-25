@@ -8,7 +8,7 @@ if (count > 0)
 		moveName = enemyMoveName
 		alarm[1] = GetMoveAnimationTime(moveName)
 	}
-	else if (string_count("opposing", newText) == 0)
+	else if (string_count("opposing", newText) == 0 and string_count("You", newText) == 0)
 	{
 		whoAttacked = "Player"
 		moveName = playerMoveName
