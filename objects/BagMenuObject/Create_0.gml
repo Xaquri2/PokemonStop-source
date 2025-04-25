@@ -1,4 +1,6 @@
 menu = -1
+optionMenu = noone
+
 battle = false
 
 selectedCategory = 0

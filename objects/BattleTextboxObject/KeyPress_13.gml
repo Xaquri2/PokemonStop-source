@@ -45,6 +45,7 @@ else
 						attackC.moveName = moveName
 						attackC.whoAttacked = whoAttacked
 						attackC.particleSpawnTime = floor(alarm[1] / 2)
+					}
 				}
 
 				if (string_count(" sent out ", text) > 0) //Enemy pokémon released

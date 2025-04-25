@@ -4,6 +4,13 @@ if (keyboard_check_pressed(ord("W")) or keyboard_check_pressed(ord("S")))
 	else if (currentOption == 1) currentOption = 0
 }
 
+if (keyboard_check_pressed(ord("E"))) 
+{
+	menu.optionMenu = noone
+	menu.hasSelected = false
+	instance_destroy(id)
+}
+
 if (keyboard_check_pressed(vk_enter))
 {
 	var itemInfo = GetItemInfo(menu.selectedCategory, menu.selectedItem)
@@ -14,12 +21,14 @@ if (keyboard_check_pressed(vk_enter))
 		case "Potion":
 			if (currentOption == 0)
 			{
+				ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
+				
 				var pkmnMenu = instance_create_depth(x,y,depth-1,PokemonMenuObject)
 				pkmnMenu.itemUse = true
 				pkmnMenu.itemName = itemName
+				pkmnMenu.bagMenu = menu
 				
-				ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
-				instance_destroy(menu.id)
+				menu.optionMenu = noone
 				instance_destroy(id)
 			}
 			break

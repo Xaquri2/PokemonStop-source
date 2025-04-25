@@ -1,4 +1,5 @@
 menu = noone
+bagMenu = noone
 canInteract = true
 
 summaryMode = false

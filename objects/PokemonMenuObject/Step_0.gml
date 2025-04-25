@@ -1,21 +1,29 @@
 if (keyboard_check_pressed(ord("E")) and canInteract) 
 {
-	if (summaryMode)
+	if (bagMenu != noone)
 	{
-		moveIndex = 0
-		summaryMode = false
+		bagMenu.hasSelected = false
+		instance_destroy(id)
 	}
 	else
 	{
-		if (!switchMode)
+		if (summaryMode)
 		{
-			menu.active = true
-			instance_destroy(id)
+			moveIndex = 0
+			summaryMode = false
 		}
-		else 
+		else
 		{
-			switchIndex = -1
-			switchMode = false
+			if (!switchMode)
+			{
+				menu.active = true
+				instance_destroy(id)
+			}
+			else 
+			{
+				switchIndex = -1
+				switchMode = false
+			}
 		}
 	}
 }
@@ -51,6 +59,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 			{
 				if (instance_number(PlayerObject) > 0)
 				{
+					HealPokemon(global.playerParty, selectedIndex, 20, true)
 					var player = instance_find(PlayerObject, 0)
 					player.alarm[0] = 5
 				}
@@ -129,6 +138,8 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 					instance_destroy(battleMenu)
 					instance_destroy(id)
 				}
+			
+				if (bagMenu != noone) instance_destroy(bagMenu)
 			}
 		}
 	}
