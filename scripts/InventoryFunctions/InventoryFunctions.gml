@@ -55,3 +55,34 @@ function ConsumeItem(categoryIndex, itemIndex, amount)
 		ds_list_replace(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex, itemInfo)
 	}
 }
+
+function IsConsumableItem(itemName)
+{
+	switch (itemName)
+	{
+		case "Potion":
+		case "Super Potion":
+		case "Hyper Potion":
+		case "Max Potion":
+		case "Full Restore":
+			return true
+	}
+	return false
+}
+
+function GetHealValue(itemName)
+{
+	switch (itemName)
+	{
+		case "Potion":
+			return 20
+		case "Super Potion":
+			return 50
+		case "Hyper Potion":
+			return 200
+		case "Max Potion":
+		case "Full Restore":
+			return 10000
+	}
+	return -1
+}

@@ -16,10 +16,9 @@ if (keyboard_check_pressed(vk_enter))
 	var itemInfo = GetItemInfo(menu.selectedCategory, menu.selectedItem)
 	var itemName = GetItemName(itemInfo)
 
-	switch (itemName)
+	if (IsConsumableItem(itemName))
 	{
-		case "Potion":
-			if (currentOption == 0)
+		if (currentOption == 0)
 			{
 				ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 				
@@ -31,6 +30,5 @@ if (keyboard_check_pressed(vk_enter))
 				menu.optionMenu = noone
 				instance_destroy(id)
 			}
-			break
 	}
 }

@@ -55,11 +55,12 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 		}
 		else if (itemUse)
 		{
-			if (itemName == "Potion")
+			var healValue = GetHealValue(itemName)
+			if (healValue != -1)
 			{
 				if (instance_number(PlayerObject) > 0)
 				{
-					HealPokemon(global.playerParty, selectedIndex, 20, true)
+					HealPokemon(global.playerParty, selectedIndex, healValue, true)
 					var player = instance_find(PlayerObject, 0)
 					player.alarm[0] = 5
 				}
