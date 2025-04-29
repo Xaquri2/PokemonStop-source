@@ -26,3 +26,7 @@ AddPokemon("Snorlax", 25, "Female", SnorlaxIdleSprite)
 AddItem("Potion", 1)
 AddItem("Super Potion", 1)
 AddItem("Potion", 2)
+
+AddItem("X Attack", 1)
+AddItem("X Defense", 1)
+AddItem("X Defense 2", 4)

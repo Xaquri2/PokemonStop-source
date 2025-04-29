@@ -5,11 +5,8 @@ function GetItemAmount(itemInfo) { return ds_list_find_value(itemInfo, 1) }
 function UpdateItemAmount(itemInfo, amount) { ds_list_set(itemInfo, 1, amount) }
 function DeleteItem(categoryIndex, itemIndex) { ds_list_delete(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex) }
 
-function AddItem(name, amount)
+function GetItemCategory(name)
 {
-	var itemDetails = ds_list_create()
-	ds_list_add(itemDetails, name, amount)
-	
 	switch (name)
 	{
 		//Items Category
@@ -18,30 +15,56 @@ function AddItem(name, amount)
 		case "Hyper Potion":
 		case "Max Potion":
 		case "Full Restore":
-			var added = false
-			var catIndex = ds_list_find_index(global.categoryNameList, "Items")
-			var catList = ds_list_find_value(global.categoryItemList, catIndex)
+			return "Items"
 			
-			for (var i = 0; i < ds_list_size(catList); i++)
-			{
-				var attempt = ds_list_find_value(catList, i)
-				if (GetItemName(attempt) == name)
-				{
-					UpdateItemAmount(attempt, GetItemAmount(attempt)+amount)
-					ds_list_set(catList, i, attempt)
-					ds_list_set(global.categoryItemList, catIndex, catList)
-					added = true
-					break
-				}
-			}
+		case "X Attack":
+		case "X Defense":
+		case "X Special Attack":
+		case "X Special Defense":
+		case "X Speed":
+		
+		case "X Attack 2":
+		case "X Defense 2":
+		case "X Special Attack 2":
+		case "X Special Defense 2":
+		case "X Speed 2":
+			return "Battle Items"
+	}
+	return ""
+}
+
+function AddItem(name, amount)
+{
+	var category = GetItemCategory(name)
+	
+	if (category != "")
+	{
+		var itemDetails = ds_list_create()
+		ds_list_add(itemDetails, name, amount)
+	
+		var added = false
+		var catIndex = ds_list_find_index(global.categoryNameList, category)
+		var catList = ds_list_find_value(global.categoryItemList, catIndex)
 			
-			if (!added)
+		for (var i = 0; i < ds_list_size(catList); i++)
+		{
+			var attempt = ds_list_find_value(catList, i)
+			if (GetItemName(attempt) == name)
 			{
-				ds_list_add(catList, itemDetails)
+				UpdateItemAmount(attempt, GetItemAmount(attempt)+amount)
+				ds_list_set(catList, i, attempt)
 				ds_list_set(global.categoryItemList, catIndex, catList)
 				added = true
+				break
 			}
-			break
+		}
+			
+		if (!added)
+		{
+			ds_list_add(catList, itemDetails)
+			ds_list_set(global.categoryItemList, catIndex, catList)
+			added = true
+		}
 	}
 }
 
@@ -65,6 +88,38 @@ function IsConsumableItem(itemName)
 		case "Hyper Potion":
 		case "Max Potion":
 		case "Full Restore":
+		
+		case "X Attack":
+		case "X Defense":
+		case "X Special Attack":
+		case "X Special Defense":
+		case "X Speed":
+		
+		case "X Attack 2":
+		case "X Defense 2":
+		case "X Special Attack 2":
+		case "X Special Defense 2":
+		case "X Speed 2":
+			return true
+	}
+	return false
+}
+
+function IsBattleItem(itemName)
+{
+	switch (itemName)
+	{
+		case "X Attack":
+		case "X Defense":
+		case "X Special Attack":
+		case "X Special Defense":
+		case "X Speed":
+		
+		case "X Attack 2":
+		case "X Defense 2":
+		case "X Special Attack 2":
+		case "X Special Defense 2":
+		case "X Speed 2":
 			return true
 	}
 	return false
@@ -84,5 +139,47 @@ function GetHealValue(itemName)
 		case "Full Restore":
 			return 10000
 	}
+	return -1
+}
+
+function GetStatItemChange(itemName)
+{
+	var statChangeList = ds_list_create()
+	switch (itemName)
+	{
+		case "X Attack":
+			ds_list_add(statChangeList, "Attack", 1)
+			break
+		case "X Defense":
+			ds_list_add(statChangeList, "Defense", 1)
+			break
+		case "X Special Attack":
+			ds_list_add(statChangeList, "Special Attack", 1)
+			break
+		case "X Special Defense":
+			ds_list_add(statChangeList, "Special Defense", 1)
+			break
+		case "X Speed":
+			ds_list_add(statChangeList, "Speed", 1)
+			break
+			
+		case "X Attack 2":
+			ds_list_add(statChangeList, "Attack", 2)
+			break
+		case "X Defense 2":
+			ds_list_add(statChangeList, "Defense", 2)
+			break
+		case "X Special Attack 2":
+			ds_list_add(statChangeList, "Special Attack", 2)
+			break
+		case "X Special Defense 2":
+			ds_list_add(statChangeList, "Special Defense", 2)
+			break
+		case "X Speed 2":
+			ds_list_add(statChangeList, "Speed", 2)
+			break
+	}
+	
+	if (!ds_list_empty(statChangeList)) return statChangeList
 	return -1
 }

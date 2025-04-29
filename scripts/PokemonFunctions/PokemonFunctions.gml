@@ -6,7 +6,7 @@
 function AddPokemon(name, level, gender, sprite) {
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
-	var hp = 1//ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)

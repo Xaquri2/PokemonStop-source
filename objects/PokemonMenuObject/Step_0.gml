@@ -141,6 +141,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 				
 				instance_destroy(id)
 			
+				ConsumeItem(bagMenu.selectedCategory, bagMenu.selectedItem, 1)
 				if (bagMenu != noone) instance_destroy(bagMenu)
 			}
 		}
