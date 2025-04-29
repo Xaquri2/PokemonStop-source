@@ -20,6 +20,7 @@ if (keyboard_check_pressed(vk_enter))
 	{
 		if (IsBattleItem(itemName) and instance_number(BattleObject) > 0)
 		{
+			ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 			var statChange = GetStatItemChange(itemName)
 			var modifier = ds_list_find_value(statChange, 1)
 			
@@ -88,12 +89,15 @@ if (keyboard_check_pressed(vk_enter))
 		
 				var pPriority = 100 //Item usage needs to happen first
 				var ePriority = GetMovePriority(enemyMoveName)
-	
+				
+				var strongEffectStr = ""
+				if (string_count("2", itemName) > 0) strongEffectStr = "greatly "
+				
 				if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 				{
 					battleText.playerMoveName = moveName
 					ds_list_add(battleText.textList, string_concat("You used a ", itemName, 
-					". It increased your ", ds_list_find_value(statChange, 0), " value!"))
+					". It ", strongEffectStr, "increased your ", ds_list_find_value(statChange, 0), " value!"))
 
 					//Enemy Move
 					moveName = enemyMoveName
