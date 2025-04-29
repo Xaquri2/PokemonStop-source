@@ -136,8 +136,9 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 	
 					HealPokemon(global.playerParty, selectedIndex, 20, true)
 					instance_destroy(battleMenu)
-					instance_destroy(id)
 				}
+				
+				instance_destroy(id)
 			
 				if (bagMenu != noone) instance_destroy(bagMenu)
 			}
