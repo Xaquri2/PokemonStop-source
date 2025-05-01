@@ -452,7 +452,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 6)
 					{
 						user.attackModifier += 1
-						str = "It raised your pokémon's Attack stat!"
+						str = "It raised your pokemon's Attack stat!"
 					}
 					else str = "Its Attack stat couldn't go any higher!"
 					break
@@ -460,7 +460,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 6)
 					{
 						user.defenseModifier += 1
-						str = "It raised your pokémon's Defense stat!"
+						str = "It raised your pokemon's Defense stat!"
 					}
 					else str = "Its Defense stat couldn't go any higher!"
 					break
@@ -468,7 +468,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 6)
 					{
 						user.spAtkModifier += 1
-						str = "It raised your pokémon's Special Attack stat!"
+						str = "It raised your pokemon's Special Attack stat!"
 					}
 					else str = "Its Special Attack stat couldn't go any higher!"
 					break
@@ -476,7 +476,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 6)
 					{
 						user.spDefModifier += 1
-						str = "It raised your pokémon's Special Defense stat!"
+						str = "It raised your pokemon's Special Defense stat!"
 					}
 					else str = "Its Special Defense stat couldn't go any higher!"
 					break
@@ -484,7 +484,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 6)
 					{
 						user.speedModifier += 1
-						str = "It raised your pokémon's Speed stat!"
+						str = "It raised your pokemon's Speed stat!"
 					}
 					else str = "Its Speed stat couldn't go any higher!"
 					break
@@ -495,7 +495,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 5)
 					{
 						user.attackModifier += 2
-						str = "It greatly raised your pokémon's Attack stat!"
+						str = "It greatly raised your pokemon's Attack stat!"
 					}
 					else str = "Its Attack stat couldn't go any higher!"
 					break
@@ -503,7 +503,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 5)
 					{
 						user.defenseModifier += 2
-						str = "It greatly raised your pokémon's Defense stat!"
+						str = "It greatly raised your pokemon's Defense stat!"
 					}
 					else str = "Its Defense stat couldn't go any higher!"
 					break
@@ -511,14 +511,14 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 5)
 					{
 						user.spAtkModifier += 2
-						str = "It greatly raised your pokémon's Special Attack stat!"
+						str = "It greatly raised your pokemon's Special Attack stat!"
 					}
 					else str = "Its Special Attack stat couldn't go any higher!"
 				case "RaiseSpDef2":
 					if (target.attackModifier < 5)
 					{
 						user.spDefModifier += 2
-						str = "It greatly raised your pokémon's Special Defense stat!"
+						str = "It greatly raised your pokemon's Special Defense stat!"
 					}
 					else str = "Its Special Defense stat couldn't go any higher!"
 					break
@@ -526,7 +526,7 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier < 5)
 					{
 						user.speedModifier += 2
-						str = "It greatly raised your pokémon's Speed stat!"
+						str = "It greatly raised your pokemon's Speed stat!"
 					}
 					else str = "Its Speed stat couldn't go any higher!"
 					break
@@ -547,41 +547,41 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier > -6)
 					{
 						target.attackModifier -= 1
-						str = "It lowered your pokémon's Attack stat!"
+						str = "It lowered your pokemon's Attack stat!"
 					}
-					else str = "Your pokémon's Attack stat couldn't go any lower!"
+					else str = "Your pokemon's Attack stat couldn't go any lower!"
 					break
 				case "LowerDefense":
 					if (target.attackModifier > -6)
 					{
 						target.defenseModifier -= 1
-						str = "It lowered your pokémon's Defense stat!"
+						str = "It lowered your pokemon's Defense stat!"
 					}
-					else str = "Your pokémon's Defense stat couldn't go any lower!"
+					else str = "Your pokemon's Defense stat couldn't go any lower!"
 					break
 				case "LowerSpAtk":
 					if (target.attackModifier > -6)
 					{
 						target.spAtkModifier -= 1
-						str = "It lowered your pokémon's Special Attack stat!"
+						str = "It lowered your pokemon's Special Attack stat!"
 					}
-					else str = "Your pokémon's Special Attack stat couldn't go any lower!"
+					else str = "Your pokemon's Special Attack stat couldn't go any lower!"
 					break
 				case "LowerSpDef":
 					if (target.attackModifier > -6)
 					{
 						target.spDefModifier -= 1
-						str = "It lowered your pokémon's Special Defense stat!"
+						str = "It lowered your pokemon's Special Defense stat!"
 					}
-					else str = "Your pokémon's Special Defense stat couldn't go any lower!"
+					else str = "Your pokemon's Special Defense stat couldn't go any lower!"
 					break
 				case "LowerSpeed":
 					if (target.attackModifier > -6)
 					{
 						target.speedModifier -= 1
-						str = "It lowered your pokémon's Speed stat!"
+						str = "It lowered your pokemon's Speed stat!"
 					}
-					else str = "Your pokémon's Speed stat couldn't go any lower!"
+					else str = "Your pokemon's Speed stat couldn't go any lower!"
 					break
 				#endregion
 		
@@ -590,41 +590,41 @@ function DealEffect(effectName, accurancy, user, target)
 					if (target.attackModifier > -5)
 					{
 						target.attackModifier -= 2
-						str = "It greatly lowered your pokémon's Attack stat!"
+						str = "It greatly lowered your pokemon's Attack stat!"
 					}
-					else str = "Your pokémon's Attack stat couldn't go any lower!"
+					else str = "Your pokemon's Attack stat couldn't go any lower!"
 					break
 				case "LowerDefense2":
 					if (target.attackModifier > -5)
 					{
 						target.defenseModifier -= 2
-						str = "It greatly lowered your pokémon's Defense stat!"
+						str = "It greatly lowered your pokemon's Defense stat!"
 					}
-					else str = "Your pokémon's Defense stat couldn't go any lower!"
+					else str = "Your pokemon's Defense stat couldn't go any lower!"
 					break
 				case "LowerSpAtk2":
 					if (target.attackModifier > -5)
 					{
 						target.spAtkModifier -= 2
-						str = "It greatly lowered your pokémon's Special Attack stat!"
+						str = "It greatly lowered your pokemon's Special Attack stat!"
 					}
-					else str = "Your pokémon's Special Attack stat couldn't go any lower!"
+					else str = "Your pokemon's Special Attack stat couldn't go any lower!"
 					break
 				case "LowerSpDef2":
 					if (target.attackModifier > -5)
 					{
 						target.spDefModifier -= 2
-						str = "It greatly lowered your pokémon's Special Defense stat!"
+						str = "It greatly lowered your pokemon's Special Defense stat!"
 					}
-					else str = "Your pokémon's Special Defense stat couldn't go any lower!"
+					else str = "Your pokemon's Special Defense stat couldn't go any lower!"
 					break
 				case "LowerSpeed2":
 					if (target.attackModifier > -5)
 					{
 						target.speedModifier -= 2
-						str = "It greatly lowered your pokémon's Speed stat!"
+						str = "It greatly lowered your pokemon's Speed stat!"
 					}
-					else str = "Your pokémon's Speed stat couldn't go any lower!"
+					else str = "Your pokemon's Speed stat couldn't go any lower!"
 					break
 				#endregion
 		
