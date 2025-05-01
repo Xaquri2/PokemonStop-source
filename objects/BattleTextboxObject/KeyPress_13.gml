@@ -140,6 +140,60 @@ else
 					expGaining = true
 					alarm[3] = 5
 				}
+				else if (string_count("lowered", text) > 0)
+				{
+					if (string_count("foe", text) > 0)
+					{
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (!attempt.playerTeam)
+							{
+								var statEff = instance_create_layer(attempt.x,attempt.y,"Particles",StatBoostObject)
+								statEff.boosting = false
+							}
+						}
+					}
+					else
+					{
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (attempt.playerTeam)
+							{
+								var statEff = instance_create_layer(attempt.x,attempt.y,"Particles",StatBoostObject)
+								statEff.boosting = false
+							}
+						}
+					}
+				}
+				else if (string_count("raised", text) > 0)
+				{
+					if (string_count("foe", text) > 0)
+					{
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (!attempt.playerTeam)
+							{
+								var statEff = instance_create_layer(attempt.x,attempt.y,"Particles",StatBoostObject)
+								statEff.boosting = true
+							}
+						}
+					}
+					else
+					{
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (attempt.playerTeam)
+							{
+								var statEff = instance_create_layer(attempt.x,attempt.y,"Particles",StatBoostObject)
+								statEff.boosting = true
+							}
+						}
+					}
+				}
 			}
 		}
 	}

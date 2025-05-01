@@ -450,7 +450,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 6)
 				{
 					user.attackModifier += 1
-					str = "It raised the user's Attack stat!"
+					str = "It raised your pokémon's Attack stat!"
 				}
 				else str = "Its Attack stat couldn't go any higher!"
 				break
@@ -458,7 +458,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 6)
 				{
 					user.defenseModifier += 1
-					str = "It raised the user's Defense stat!"
+					str = "It raised your pokémon's Defense stat!"
 				}
 				else str = "Its Defense stat couldn't go any higher!"
 				break
@@ -466,7 +466,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 6)
 				{
 					user.spAtkModifier += 1
-					str = "It raised the user's Special Attack stat!"
+					str = "It raised your pokémon's Special Attack stat!"
 				}
 				else str = "Its Special Attack stat couldn't go any higher!"
 				break
@@ -474,7 +474,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 6)
 				{
 					user.spDefModifier += 1
-					str = "It raised the user's Special Defense stat!"
+					str = "It raised your pokémon's Special Defense stat!"
 				}
 				else str = "Its Special Defense stat couldn't go any higher!"
 				break
@@ -482,7 +482,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 6)
 				{
 					user.speedModifier += 1
-					str = "It raised the user's Speed stat!"
+					str = "It raised your pokémon's Speed stat!"
 				}
 				else str = "Its Speed stat couldn't go any higher!"
 				break
@@ -493,7 +493,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 5)
 				{
 					user.attackModifier += 2
-					str = "It greatly raised the user's Attack stat!"
+					str = "It greatly raised your pokémon's Attack stat!"
 				}
 				else str = "Its Attack stat couldn't go any higher!"
 				break
@@ -501,7 +501,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 5)
 				{
 					user.defenseModifier += 2
-					str = "It greatly raised the user's Defense stat!"
+					str = "It greatly raised your pokémon's Defense stat!"
 				}
 				else str = "Its Defense stat couldn't go any higher!"
 				break
@@ -509,14 +509,14 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 5)
 				{
 					user.spAtkModifier += 2
-					str = "It greatly raised the user's Special Attack stat!"
+					str = "It greatly raised your pokémon's Special Attack stat!"
 				}
 				else str = "Its Special Attack stat couldn't go any higher!"
 			case "RaiseSpDef2":
 				if (target.attackModifier < 5)
 				{
 					user.spDefModifier += 2
-					str = "It greatly raised the user's Special Defense stat!"
+					str = "It greatly raised your pokémon's Special Defense stat!"
 				}
 				else str = "Its Special Defense stat couldn't go any higher!"
 				break
@@ -524,7 +524,7 @@ function DealEffect(effectName, accurancy, user, target)
 				if (target.attackModifier < 5)
 				{
 					user.speedModifier += 2
-					str = "It greatly raised the user's Speed stat!"
+					str = "It greatly raised your pokémon's Speed stat!"
 				}
 				else str = "Its Speed stat couldn't go any higher!"
 				break
