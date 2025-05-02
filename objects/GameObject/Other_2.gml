@@ -27,6 +27,11 @@ AddItem("Potion", 1)
 AddItem("Super Potion", 1)
 AddItem("Potion", 2)
 
+for (var i = 0; i < 20; i++)
+{
+	AddItem(string_concat("Potion Test ", i), 1)
+}
+
 AddItem("X Attack", 1)
 AddItem("X Defense", 1)
 AddItem("X Defense 2", 4)

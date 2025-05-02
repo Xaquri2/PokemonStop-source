@@ -41,11 +41,29 @@ if (!hasSelected)
 if (!hasSelected)
 {
 	var itemList = ds_list_find_value(global.categoryItemList, selectedCategory)
-
-	if (keyboard_check_pressed(ord("W"))) selectedItem--
-	if (keyboard_check_pressed(ord("S"))) selectedItem++
+	var itemCount = ds_list_size(itemList)
 	
-	if (selectedItem == ds_list_size(itemList)) selectedItem = 0
-	if (selectedItem < 0) selectedItem = ds_list_size(itemList)-1
+	if (keyboard_check_pressed(ord("W"))) 
+	{
+		selectedItem--
+		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
+	}
+	if (keyboard_check_pressed(ord("S"))) 
+	{
+		selectedItem++
+		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
+		and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
+	}
+	
+	if (selectedItem == ds_list_size(itemList)) 
+	{
+		selectedItem = 0
+		startingItemOffset = 0
+	}
+	if (selectedItem < 0) 
+	{
+		selectedItem = ds_list_size(itemList)-1
+		startingItemOffset = itemCount-itemDisplayLimit
+	}
 }
 #endregion

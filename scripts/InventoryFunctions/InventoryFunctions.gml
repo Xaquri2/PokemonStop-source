@@ -35,7 +35,7 @@ function GetItemCategory(name)
 
 function AddItem(name, amount)
 {
-	var category = GetItemCategory(name)
+	var category = "Items" //GetItemCategory(name)
 	
 	if (category != "")
 	{

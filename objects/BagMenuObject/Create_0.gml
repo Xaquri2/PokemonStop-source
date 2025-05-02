@@ -2,7 +2,9 @@ menu = -1
 optionMenu = noone
 
 battle = false
-
+hasSelected = false
 selectedCategory = 0
 selectedItem = 0
-hasSelected = false
+
+startingItemOffset = 0
+itemDisplayLimit = 14
