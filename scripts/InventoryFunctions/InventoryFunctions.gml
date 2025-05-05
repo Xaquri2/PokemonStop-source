@@ -9,14 +9,23 @@ function GetItemCategory(name)
 {
 	switch (name)
 	{
-		//Items Category
+		#region Items
 		case "Potion":
 		case "Super Potion":
 		case "Hyper Potion":
 		case "Max Potion":
 		case "Full Restore":
 			return "Items"
-			
+		#endregion
+		
+		#region Balls
+		case "Poke Ball":
+		case "Great Ball":
+		case "Ultra Ball":
+			return "Balls"
+		#endregion
+		
+		#region Battle Items
 		case "X Attack":
 		case "X Defense":
 		case "X Special Attack":
@@ -29,13 +38,14 @@ function GetItemCategory(name)
 		case "X Special Defense 2":
 		case "X Speed 2":
 			return "Battle Items"
+		#endregion	
 	}
 	return ""
 }
 
 function AddItem(name, amount)
 {
-	var category = "Items" //GetItemCategory(name)
+	var category = GetItemCategory(name)
 	
 	if (category != "")
 	{
