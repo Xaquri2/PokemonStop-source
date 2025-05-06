@@ -25,4 +25,7 @@ damageValue = 0
 
 flash = false
 flashMode = 1
+
+catching = false
+timesBobbed = 0
 alarm[5] = 1

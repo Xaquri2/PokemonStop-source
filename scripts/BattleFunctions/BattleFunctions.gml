@@ -858,3 +858,51 @@ function GetFirstHealthyPokemon()
 	}
 	return -1
 }
+
+function GetPokeballChance(type)
+{
+	switch (name)
+	{
+		case "Poke Ball":
+			return 0.75
+		case "Great Ball":
+			return 0.8
+		case "Ultra Ball":
+			return 0.9
+	}
+	return 0
+}
+
+function TryCatching(ballName)
+{
+	var chance = GetPokeballChance(ballName)
+	if (random_range(0,100) <= 100*chance)
+	{
+		if (random_range(0,100) <= 100*chance)
+		{
+			if (random_range(0,100) <= 100*chance)
+			{
+				return 3
+			}
+			return 2 
+		}
+		return 1
+	}
+	return 0
+}
+
+function GetCatchingString(timesBobbed, pkmnName)
+{
+	switch (timesBobbed)
+	{
+		case 0:
+			return "Oops, try again!"
+		case 1:
+			return "Aw dangit, it escaped!"
+		case 2:
+			return "So close! Maybe next time..."
+		case 3:
+			return string_concat("You've caught a ", pkmnName, "!")
+	}
+	return ""
+}

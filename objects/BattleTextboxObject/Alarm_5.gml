@@ -1,6 +1,5 @@
 var newText = ds_list_find_value(textList, currentText)
-var count = string_count("used", newText)
-if (count > 0)
+if (string_count("used", newText) > 0)
 {
 	if (string_count("You", newText) > 0)
 	{
@@ -28,4 +27,11 @@ if (count > 0)
 		attackC.whoAttacked = whoAttacked
 		attackC.particleSpawnTime = floor(alarm[1] / 2)
 	}
+}
+
+if (string_count("threw", newText) > 0)
+{
+	catching = true
+	alarm[6] = 60
+	//Check if caught, and then end battle if true
 }
