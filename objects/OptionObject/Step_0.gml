@@ -22,7 +22,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 			var statChange = GetStatItemChange(itemName)
-			var modifier = ds_list_find_value(statChange, 1)
+			if (statChange != -1) var modifier = ds_list_find_value(statChange, 1)
+			var itemCat = GetItemCategory(itemName)
 			
 			if (statChange != -1)
 			{
@@ -132,7 +133,7 @@ if (keyboard_check_pressed(vk_enter))
 				instance_destroy(menu)
 				instance_destroy(id)
 			}
-			else if (GetItemCategory(itemName) == "Balls")
+			else if (itemCat == "Balls")
 			{
 				var playerPkmn = -1
 				for (var i = 0; i < instance_number(BattlePokemonObject); i++) //Find player pokémon
@@ -184,7 +185,7 @@ if (keyboard_check_pressed(vk_enter))
 					battleText.playerMoveName = moveName
 					ds_list_add(battleText.textList, string_concat("You threw a ", itemName, "!"))
 				    battleText.timesBobbed = TryCatching(itemName)
-					if (battleText.caught) ds_list_add(battleText.textList, GetCatchingString(battleText.caught, battle.enemyPkmn))
+					if (battleText.timesBobbed == 3) ds_list_add(battleText.textList, GetCatchingString(battleText.caught, battle.enemyPkmn))
 					
 					moveName = enemyMoveName
 					var moveEff = GetMoveEffect(moveName)
@@ -213,6 +214,9 @@ if (keyboard_check_pressed(vk_enter))
 			
 					if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
 					string_concat(GetName(battle.playerPkmn)," fainted!"))
+					instance_destroy(battleMenu)
+					instance_destroy(menu)
+					instance_destroy(id)
 				}
 			}
 		}

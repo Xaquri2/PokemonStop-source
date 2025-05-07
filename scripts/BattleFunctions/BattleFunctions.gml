@@ -861,7 +861,7 @@ function GetFirstHealthyPokemon()
 
 function GetPokeballChance(type)
 {
-	switch (name)
+	switch (type)
 	{
 		case "Poke Ball":
 			return 0.75

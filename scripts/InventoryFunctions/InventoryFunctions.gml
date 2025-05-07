@@ -91,6 +91,7 @@ function ConsumeItem(categoryIndex, itemIndex, amount)
 
 function IsConsumableItem(itemName)
 {
+	if (IsBattleItem(itemName)) return true
 	switch (itemName)
 	{
 		case "Potion":
@@ -98,18 +99,6 @@ function IsConsumableItem(itemName)
 		case "Hyper Potion":
 		case "Max Potion":
 		case "Full Restore":
-		
-		case "X Attack":
-		case "X Defense":
-		case "X Special Attack":
-		case "X Special Defense":
-		case "X Speed":
-		
-		case "X Attack 2":
-		case "X Defense 2":
-		case "X Special Attack 2":
-		case "X Special Defense 2":
-		case "X Speed 2":
 			return true
 	}
 	return false
@@ -119,6 +108,10 @@ function IsBattleItem(itemName)
 {
 	switch (itemName)
 	{
+		case "Poke Ball":
+		case "Great Ball":
+		case "Ultra Ball":
+		
 		case "X Attack":
 		case "X Defense":
 		case "X Special Attack":
