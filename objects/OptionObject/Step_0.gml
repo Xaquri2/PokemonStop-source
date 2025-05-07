@@ -185,7 +185,7 @@ if (keyboard_check_pressed(vk_enter))
 					battleText.playerMoveName = moveName
 					ds_list_add(battleText.textList, string_concat("You threw a ", itemName, "!"))
 				    battleText.timesBobbed = TryCatching(itemName)
-					if (battleText.timesBobbed == 3) ds_list_add(battleText.textList, GetCatchingString(battleText.caught, battle.enemyPkmn))
+					if (battleText.timesBobbed == 3) ds_list_add(battleText.textList, GetCatchingString(battleText.timesBobbed, battle.enemyPkmn))
 					
 					moveName = enemyMoveName
 					var moveEff = GetMoveEffect(moveName)

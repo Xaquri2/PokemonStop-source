@@ -118,7 +118,7 @@
     {"id":{"name":"Snorlax","path":"objects/Snorlax/Snorlax.yy",},},
     {"id":{"name":"Squirtle","path":"objects/Squirtle/Squirtle.yy",},},
     {"id":{"name":"StatBoostObject","path":"objects/StatBoostObject/StatBoostObject.yy",},},
-    {"id":{"name":"StatBoostParticle","path":"objects/StatBoostParticle/StatBoostParticle.yy",},},
+    {"id":{"name":"StatBoostParticleObject","path":"objects/StatBoostParticleObject/StatBoostParticleObject.yy",},},
     {"id":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},},
     {"id":{"name":"TestWildObject","path":"objects/TestWildObject/TestWildObject.yy",},},
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
