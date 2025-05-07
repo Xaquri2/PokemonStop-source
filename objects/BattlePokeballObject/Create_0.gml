@@ -11,3 +11,5 @@ currentBobbing = 1
 
 angleOffset = 0
 angleValue = 2
+
+target = -1

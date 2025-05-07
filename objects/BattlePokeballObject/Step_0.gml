@@ -8,7 +8,7 @@ if (activated)
 	{
 		if (bobbingTimer < 90) 
 		{
-			if (timesBobbed >= currentBobbing) 
+			if (currentBobbing <= timesBobbed) 
 			{
 				if (bobbingTimer < 50) angleOffset += angleValue
 				else if (bobbingTimer < 70) angleOffset -= angleValue*2
@@ -18,8 +18,12 @@ if (activated)
 		else 
 		{
 			bobbingTimer = 0
-			if (currentBobbing < timesBobbed) currentBobbing++
-			else instance_destroy(id)
+			currentBobbing++
+			if (currentBobbing > timesBobbed)
+			{
+				 if (timesBobbed < 3) instance_destroy(id)
+				 //else (If successful at catching, spawn stars upwards)
+			}
 		}
 	}
 }

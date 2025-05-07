@@ -13,5 +13,7 @@ if (catching and !activated)
 		part.hspeed = random_range(-2,2)
 		part.vspeed = random_range(-2,2)
 	}
+	
 	other.catchEffect = true
+	target = other.id
 }
