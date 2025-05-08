@@ -184,10 +184,44 @@ if (keyboard_check_pressed(vk_enter))
 				{
 					battleText.playerMoveName = moveName
 					ds_list_add(battleText.textList, string_concat("You threw a ", itemName, "!"))
-				    battleText.timesBobbed = TryCatching(itemName)
-					if (battleText.timesBobbed == 3) ds_list_add(battleText.textList, GetCatchingString(battleText.timesBobbed, GetName(battle.enemyPkmn)))
+				    if (battle.isWild)
+					{
+						battleText.timesBobbed = TryCatching(itemName)
+						if (battleText.timesBobbed == 3) ds_list_add(battleText.textList, GetCatchingString(battleText.timesBobbed, GetName(battle.enemyPkmn)))
+						else
+						{
+							moveName = enemyMoveName
+							var moveEff = GetMoveEffect(moveName)
+							var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+							battleText.enemyMoveName = moveName
+							battleText.enemyDamage = damage
+				
+							superEffStr = ""
+							if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+							else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+		
+							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+		
+							var moveAcc = GetMoveAccurancy(moveName)
+							var effectAcc = GetMoveEffectChance(moveName)*100
+							if (floor(random_range(0,101)) <= moveAcc) 
+							{
+								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (floor(random_range(0,101)) <= effectAcc)
+								{
+									var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+									if (effStr != "") ds_list_add(battleText.textList, effStr)
+								}
+							}
+							else ds_list_add(battleText.textList, "But it missed!")
+			
+							if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
+							string_concat(GetName(battle.playerPkmn)," fainted!"))
+						}
+					}
 					else
 					{
+						ds_list_add(battleText.textList, "You can't catch a trainer pokemon!")
 						moveName = enemyMoveName
 						var moveEff = GetMoveEffect(moveName)
 						var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
@@ -216,6 +250,7 @@ if (keyboard_check_pressed(vk_enter))
 						if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
 						string_concat(GetName(battle.playerPkmn)," fainted!"))
 					}
+					
 					instance_destroy(battleMenu)
 					instance_destroy(menu)
 					instance_destroy(id)
