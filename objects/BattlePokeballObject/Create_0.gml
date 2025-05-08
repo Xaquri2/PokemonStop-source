@@ -4,6 +4,7 @@ alarm[0] = 1
 entity = -1
 catching = false
 activated = false
+success = false
 
 timesBobbed = 0
 bobbingTimer = 0

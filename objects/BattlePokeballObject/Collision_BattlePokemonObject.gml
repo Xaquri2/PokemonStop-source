@@ -8,8 +8,8 @@ if (catching and !activated)
 	for (var i = 0; i < random_range(5,13); i++)
 	{
 		var part = instance_create_layer(other.x,other.y,
-		"Particles",StatBoostParticleObject)
-		
+		"Particles",PokeballParticleObject)
+
 		part.hspeed = random_range(-2,2)
 		part.vspeed = random_range(-2,2)
 	}

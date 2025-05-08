@@ -1,6 +1,12 @@
 if (vspeed < 3 and !activated) vspeed += 0.1
 //if (activated) image_angle += 5
 
+if (success) 
+{
+	if (image_alpha > 0) image_alpha -= 0.05
+	else instance_destroy(id)
+}
+
 if (activated)
 {
 	bobbingTimer++
@@ -22,7 +28,10 @@ if (activated)
 			if (currentBobbing > timesBobbed)
 			{
 				 if (timesBobbed < 3) instance_destroy(id)
-				 //else (If successful at catching, spawn stars upwards)
+				 else success = true
+				 
+				 var textbox = instance_find(BattleTextboxObject, 0)
+				 textbox.catching = false
 			}
 		}
 	}
