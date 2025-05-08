@@ -33,5 +33,4 @@ if (string_count("threw", newText) > 0)
 {
 	catching = true
 	alarm[6] = 60
-	//Check if caught, and then end battle if true
 }

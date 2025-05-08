@@ -196,6 +196,10 @@ if (!catching)
 							}
 						}
 					}
+					else if (string_count("caught", text) > 0)
+					{
+						endBattle = true
+					}
 				}
 			}
 		}
