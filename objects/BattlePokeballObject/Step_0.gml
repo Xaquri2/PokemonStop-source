@@ -1,5 +1,4 @@
 if (vspeed < 3 and !activated) vspeed += 0.1
-//if (activated) image_angle += 5
 
 if (success) 
 {
@@ -37,4 +36,5 @@ if (activated)
 	}
 }
 
-image_angle = angleOffset
+if (!activated) image_angle += 5
+else image_angle = angleOffset
