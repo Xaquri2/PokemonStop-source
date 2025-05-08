@@ -6,7 +6,25 @@
 function AddPokemon(name, level, gender, sprite) {
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
-	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
+	var hp =  GetPokemonFinalHP(name, level)
+	var learnset = GetLevelUpMoveset(name, level)
+	var learnsetPP = GetLearnsetPP(learnset)
+	var expLevelFloor = GetExpLevelFloor(level, growthRate)
+	var types = GetPokemonType(name)
+	
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	ds_list_add(global.pokemonList, pokemon)
+	global.catchIndex++
+	
+	if (ds_list_size(global.playerParty) < 6)
+	{
+		ds_list_add(global.playerParty, pokemon)
+	}
+}
+
+function AddPokemonWithHP(name, level, gender, sprite, hp) {
+	var pokemon = ds_list_create()
+	var growthRate = "Very Fast"
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
@@ -941,6 +959,8 @@ function GetPokemonFinalStats(name, level)
 	
 	return finalStats
 }
+
+function GetPokemonFinalHP(name, level) { return ds_list_find_value(GetPokemonFinalStats(name, level), 0) }
 
 function GetHPStat(statList) { return ds_list_find_value(statList, 0) }
 function GetAtkStat(statList) { return ds_list_find_value(statList, 1) }

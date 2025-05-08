@@ -199,6 +199,12 @@ if (!catching)
 					else if (string_count("caught", text) > 0)
 					{
 						endBattle = true
+						var name = GetName(enemyPkmn)
+						var level = GetLevel(enemyPkmn)
+						var gender = GetGender(enemyPkmn)
+						var sprite = GetSprite(enemyPkmn)
+						var hp = GetHealth(enemyPkmn)
+						AddPokemonWithHP(name, level, gender, sprite, hp)
 					}
 				}
 			}
