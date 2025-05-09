@@ -31,7 +31,7 @@ if (enableDrawing)
 	var baseHP = GetHPStat(GetPokemonFinalStats(name, level))
 	var percentage = GetHealth(pkmnInfo)/ds_list_find_value(GetPokemonFinalStats(name, level), 0)*100
 	draw_text_transformed(xOffset+view_get_wport(0)*0.14, yOffset+view_get_hport(0)*0.15, 
-	string_concat("HP: ", floor(percentage), "% (", floor(GetHealth(pkmnInfo)), "/", baseHP, ")"), 1.5, 1.5, image_angle)
+	string_concat("HP: ", floor(percentage), "% (", GetHealth(pkmnInfo), "/", baseHP, ")"), 1.5, 1.5, image_angle)
 	
 	draw_sprite_ext(BarSprite, 1, xOffset+view_get_wport(0)*0.14, yOffset+view_get_hport(0)*0.18, 
 	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)

@@ -73,9 +73,9 @@ if (damageValue > 0 and damaging)
 		alarm[4] = 30
 	}
 	
-	if (whoAttacked == "Player") DealDamage(0.2, true)
-	else if (whoAttacked == "Enemy") DealDamage(0.2, false)
-	damageValue -= 0.2
+	if (whoAttacked == "Player") DealDamage(1, true)
+	else if (whoAttacked == "Enemy") DealDamage(1, false)
+	damageValue -= 1
 	
 	if (whoAttacked == "Player" and GetHealth(enemyPkmn) <= 0)
 	{
