@@ -20,6 +20,7 @@ if (!catching)
 					currentText++
 					charCounter = 0
 					charNumber = 0
+					alarm[2] = -1
 					var text = ds_list_find_value(textList, currentText)
 					if (string_count("used", text) > 0) //Player and enemy attacks
 					{
