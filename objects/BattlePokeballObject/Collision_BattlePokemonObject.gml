@@ -1,4 +1,4 @@
-if (catching and !activated)
+if (catching and !activated and !other.playerTeam)
 {
 	var battle = instance_find(BattleObject, 0)
 	if (battle.isWild)
