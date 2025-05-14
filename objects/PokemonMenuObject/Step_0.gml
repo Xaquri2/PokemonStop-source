@@ -46,7 +46,11 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 	}
 	else if (battleSwitchMode)
 	{
-		//Switch logic
+		var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+		optionMenu.menu = id
+		optionMenu.question = "Would you like to switch to this pokemon?"
+		optionMenu.option1 = "Switch"
+		optionMenu.option2 = "Exit"
 	}
 	else
 	{
