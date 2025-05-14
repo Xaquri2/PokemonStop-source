@@ -5,6 +5,12 @@ if (keyboard_check_pressed(ord("E")) and canInteract)
 		bagMenu.hasSelected = false
 		instance_destroy(id)
 	}
+	else if (battleSwitchMode)
+	{
+		menu.visible = true
+		menu.mode = "Choosing"
+		instance_destroy(id)
+	}
 	else
 	{
 		if (summaryMode)
@@ -37,6 +43,10 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 		ds_list_set(global.playerParty, switchIndex, temp)
 		
 		switchMode = false
+	}
+	else if (battleSwitchMode)
+	{
+		//Switch logic
 	}
 	else
 	{

@@ -13,6 +13,12 @@ if (keyboard_check_pressed(vk_enter))
 				bag.battle = true
 				mode = "Bag"
 				break
+			case 2:
+				var pkmnMenu = instance_create_layer(x,y,layer,PokemonMenuObject)
+				pkmnMenu.menu = id
+				pkmnMenu.battleSwitchMode = true
+				mode = "Switch"
+				break
 		}
 	}
 	else if (mode == "Moves")
