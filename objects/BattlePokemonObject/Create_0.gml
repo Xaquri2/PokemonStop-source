@@ -24,9 +24,12 @@ speedModifier = 0
 flash = false
 flashMode = 1
 dying = false
+switching = false
 
 catchEffect = false
 catchEffectAlpha = 1
+
+textbox = -1
 
 alarm[0] = 1
 image_xscale = 2

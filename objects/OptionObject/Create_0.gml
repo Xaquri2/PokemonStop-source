@@ -1,3 +1,4 @@
+menu = -1
 question = ""
 option1 = ""
 option2 = ""

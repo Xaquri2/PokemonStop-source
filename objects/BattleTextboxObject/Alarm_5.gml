@@ -34,3 +34,17 @@ if (string_count("threw", newText) > 0)
 	catching = true
 	alarm[6] = 60
 }
+
+if (string_count("come back", newText) > 0)
+{
+	switching = true
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	{
+		var attempt = instance_find(BattlePokemonObject, i)
+		if (attempt.playerTeam) 
+		{
+			attempt.switching = true
+			attempt.textbox = id
+		}
+	}
+}

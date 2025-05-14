@@ -1,7 +1,11 @@
 image_xscale = 2
 image_yscale = 2
-moveSpeed = 0
-player = true
+
 team = ds_list_create()
-currentPkmn = 0
+
+player = true
 isWild = false
+
+moveSpeed = 0
+currentPkmn = 0
+switchIndex = -1

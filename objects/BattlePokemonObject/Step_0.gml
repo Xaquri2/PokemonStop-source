@@ -5,6 +5,19 @@ if (dying) //Move down and fade away
 	if (alarm[2] < 0) alarm[2] = 20
 }
 
+if (switching) //Scale down
+{
+	if (image_xscale > 0)
+	{
+		image_xscale -= 0.05
+		image_yscale -= 0.05
+	}
+	else 
+	{
+		if (alarm[4] == -1) alarm[4] = 30
+	}
+}
+
 if (enableDrawing) //Get final stats
 {
 	//Need this check cuz Step was running before Alarm 0

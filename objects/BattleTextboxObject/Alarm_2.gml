@@ -1,4 +1,4 @@
-if (ds_list_find_value(textList, currentText+1) != undefined)
+if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !switching)
 {
 	currentText++
 	charCounter = 0
@@ -199,6 +199,18 @@ if (ds_list_find_value(textList, currentText+1) != undefined)
 					var sprite = GetSprite(enemyPkmn)
 					var hp = GetHealth(enemyPkmn)
 					AddPokemonWithHP(name, level, gender, sprite, hp)
+				}
+				else if (string_count("up!", text) > 0)
+				{
+					var plr = -1
+					for (var i = 0; i < instance_number(BattleEntityObject); i++)
+					{
+						var attempt = instance_find(BattleEntityObject, i)
+						if (attempt.player) plr = attempt
+					}
+					plr.currentPkmn = switchIndex
+					plr.switchIndex = switchIndex
+					plr.alarm[2] = 30
 				}
 			}
 		}

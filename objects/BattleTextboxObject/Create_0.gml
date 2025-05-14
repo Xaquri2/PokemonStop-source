@@ -26,6 +26,8 @@ damageValue = 0
 flash = false
 flashMode = 1
 
+switchIndex = -1
+switching = false
 catching = false
 timesBobbed = 0
 alarm[5] = 1

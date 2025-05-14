@@ -1,4 +1,4 @@
-if (!catching)
+if (!catching and !switching)
 {
 	if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 	{
@@ -206,6 +206,18 @@ if (!catching)
 						var sprite = GetSprite(enemyPkmn)
 						var hp = GetHealth(enemyPkmn)
 						AddPokemonWithHP(name, level, gender, sprite, hp)
+					}
+					else if (string_count("up!", text) > 0)
+					{
+						var plr = -1
+						for (var i = 0; i < instance_number(BattleEntityObject); i++)
+						{
+							var attempt = instance_find(BattleEntityObject, i)
+							if (attempt.player) plr = attempt
+						}
+						
+						plr.switchIndex = switchIndex
+						plr.alarm[2] = 30
 					}
 				}
 			}

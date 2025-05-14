@@ -5,11 +5,13 @@ if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 	{
 		charCounter = 0
 		charNumber++
-		if (charNumber >= string_length(ds_list_find_value(textList, currentText))) alarm[2] = 100
+		if (charNumber >= string_length(ds_list_find_value(textList, currentText))) 
+		{
+			alarm[2] = 100
+		}
 	}
 }
 if (instance_number(ImportantElementParent) > 0 and alarm[2] > 0) alarm[2]++
-
 
 if (expGainValue > 0 and expGaining)
 {

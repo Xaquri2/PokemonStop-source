@@ -45,7 +45,7 @@ else if (mode == "Moves")
 			else pkmn = -1
 		}
 	}
-
+	
 	var pkmnInfo = ds_list_find_value(pkmn.team, pkmn.index)
 	var pkmnLevel = GetLevel(pkmnInfo)
 	var pkmnName = GetName(pkmnInfo)
