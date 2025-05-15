@@ -24,11 +24,54 @@ if (keyboard_check_pressed(vk_enter))
 				var battle = instance_find(BattleObject, 0)
 				if (battle.isWild) 
 				{
-					var canRun = true //Need to make a function for rolling run chances
+					var canRun = TryToRun(battle.playerPkmn, battle.enemyPkmn, battle.runAttempts)
 					if (canRun) 
 					{
 						ds_list_add(battleText.textList, "You ran away!")
 						battleText.endBattle = true
+					}
+					else
+					{
+						ds_list_add(battleText.textList, "You couldn't run!")
+						battle.runAttempts++
+						
+						battleText.playerPkmn = battle.playerPkmn
+						battleText.enemyPkmn = battle.enemyPkmn
+						battleText.whoAttacked = "Player"
+						var superEffStr = ""
+		
+						var pName = GetName(battle.playerPkmn)
+						var pLevel = GetLevel(battle.playerPkmn)
+						var playerStats = GetPokemonFinalStats(pName, pLevel)
+		
+						var eName = GetName(battle.enemyPkmn)
+						var eLevel = GetLevel(battle.enemyPkmn)
+						var enemyStats = GetPokemonFinalStats(eName, eLevel)
+	
+						var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
+						var moveName = enemyMoveName
+						var moveEff = GetMoveEffect(moveName)
+						var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+						battleText.enemyMoveName = moveName
+						battleText.enemyDamage = damage
+			
+						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+		
+						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
+			
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
+						if (floor(random_range(0,101)) <= moveAcc) 
+						{
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (floor(random_range(0,101)) <= effectAcc)
+							{
+								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
+							}
+						}
+						else ds_list_add(battleText.textList, "But it missed!")
 					}
 				}
 				else ds_list_add(battleText.textList, "You can't run away from a trainer battle!")

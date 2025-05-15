@@ -906,3 +906,22 @@ function GetCatchingString(timesBobbed, pkmnName)
 	}
 	return ""
 }
+
+function TryToRun(playerPkmn, enemyPkmn, attempts)
+{
+	var chance = floor(random_range(0,256))
+	
+	var name = GetName(playerPkmn)
+	var level = GetLevel(playerPkmn)
+	var stats = GetPokemonFinalStats(name, level)
+	var playerSpd = GetSpeedStat(stats)
+
+	name = GetName(enemyPkmn)
+	level = GetLevel(enemyPkmn)
+	stats = GetPokemonFinalStats(name, level)
+	var enemySpd = GetSpeedStat(stats)
+
+	if (playerSpd >= enemySpd) return true	
+	var runChance = ((playerSpd*32)/(enemySpd/4)+30*attempts) mod 256
+	return chance < runChance
+}
