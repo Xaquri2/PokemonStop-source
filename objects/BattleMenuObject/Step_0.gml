@@ -19,6 +19,20 @@ if (keyboard_check_pressed(vk_enter))
 				pkmnMenu.battleSwitchMode = true
 				mode = "Switch"
 				break
+			case 3:
+				var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+				var battle = instance_find(BattleObject, 0)
+				if (battle.isWild) 
+				{
+					var canRun = true //Need to make a function for rolling run chances
+					if (canRun) 
+					{
+						ds_list_add(battleText.textList, "You ran away!")
+						battleText.endBattle = true
+					}
+				}
+				else ds_list_add(battleText.textList, "You can't run away from a trainer battle!")
+				instance_destroy(id)
 		}
 	}
 	else if (mode == "Moves")
