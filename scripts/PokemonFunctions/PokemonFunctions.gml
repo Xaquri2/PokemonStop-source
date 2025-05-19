@@ -20,6 +20,7 @@ function AddPokemon(name, level, gender, sprite) {
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
+	if (ds_list_find_index(global.pokedex, name) != -1) ds_list_add(global.pokedex, name)
 }
 
 function AddPokemonWithHP(name, level, gender, sprite, hp) {
@@ -38,6 +39,7 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
+	if (ds_list_find_index(global.pokedex, name) != -1) ds_list_add(global.pokedex, name)
 }
 
 function AddPokemonTrainer(team, index, name, level, gender, sprite) {
