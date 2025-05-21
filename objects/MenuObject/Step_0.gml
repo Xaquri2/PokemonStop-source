@@ -10,6 +10,11 @@ if (keyboard_check_pressed(vk_enter) and active)
 	
 	switch (option)
 	{
+		case "Pokedex":
+			var dex = instance_create_layer(x,y,layer,PokedexObject)
+			dex.menu = id
+			visible = false
+			break
 		case "Pokemon":
 			var pkmnMenu = instance_create_layer(x,y,layer,PokemonMenuObject)
 			pkmnMenu.menu = id

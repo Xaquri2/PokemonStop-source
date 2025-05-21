@@ -10,8 +10,8 @@
   "name":"PokemonMenuOptionsObject",
   "overriddenProperties":[],
   "parent":{
-    "name":"UI Elements",
-    "path":"folders/Objects/UI Elements.yy",
+    "name":"Pokemon Menu",
+    "path":"folders/Objects/UI Elements/Pokemon Menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,
