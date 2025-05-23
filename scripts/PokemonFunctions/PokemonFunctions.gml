@@ -3,7 +3,8 @@
 /// @param {string}   gender  The name of the Pokémon being added
 /// @param {asset}    sprite  The sprite of the Pokémon being added
 /// @description              Adds a Pokémon to the player's party with the provided information, with all of it being stored inside a DS list. Added Pokémon are always added with 100% of their health.
-function AddPokemon(name, level, gender, sprite) {
+function AddPokemon(name, level, gender) {
+	var sprite = GetSpriteByNumber(GetNumberByName(name))
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
 	var hp =  GetPokemonFinalHP(name, level)
@@ -20,7 +21,11 @@ function AddPokemon(name, level, gender, sprite) {
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
-	if (ds_list_find_index(global.pokedex, name) != -1) ds_list_add(global.pokedex, name)
+	
+	if (ds_list_find_index(global.pokedex, name) == -1) 
+	{
+		ds_list_add(global.pokedex, name)
+	}
 }
 
 function AddPokemonWithHP(name, level, gender, sprite, hp) {
@@ -1459,17 +1464,36 @@ function HealPokemon(team, index, amount, isPlayer)
 	}
 }
 
-function GetPokemonNumber(name)
+function GetNameByNumber(num)
+{
+	switch (num)
+	{
+		case "001": return "Pikachu"
+		case "002": return "Squirtle"
+		case "003": return "Charmander"
+		case "004": return "Snorlax"
+	}
+}
+
+function GetNumberByName(name)
 {
 	switch (name)
 	{
-		case "Pikachu":
-			return "001"
-		case "Squirtle":
-			return "002"
-		case "Charmander":
-			return "003"
-		case "Snorlax":
-			return "004"
+		case "Pikachu": return "001"
+		case "Squirtle": return "002"
+		case "Charmander": return "003"
+		case "Snorlax": return "004"
 	}
+}
+
+function GetSpriteByNumber(num)
+{
+	switch (num)
+	{
+		case "001": return PikachuIdleSprite
+		case "002": return SquirtleIdleSprite
+		case "003": return CharmanderIdleSprite
+		case "004": return SnorlaxIdleSprite
+	}
+	return undefined
 }

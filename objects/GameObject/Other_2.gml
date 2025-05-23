@@ -22,10 +22,10 @@ global.playerParty = ds_list_create() //The player party list
 
 global.pokedex = ds_list_create()
 
-AddPokemon("Pikachu", 15, "Male", PikachuIdleSprite)
-AddPokemon("Squirtle", 25, "Female", SquirtleIdleSprite)
-AddPokemon("Charmander", 25, "Male", CharmanderIdleSprite)
-AddPokemon("Snorlax", 25, "Female", SnorlaxIdleSprite)
+AddPokemon("Pikachu", 15, "Male")
+AddPokemon("Squirtle", 25, "Female")
+AddPokemon("Charmander", 25, "Male")
+AddPokemon("Snorlax", 25, "Female")
 
 AddItem("Potion", 1)
 AddItem("Super Potion", 1)
