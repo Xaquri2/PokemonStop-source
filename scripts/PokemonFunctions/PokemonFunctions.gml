@@ -1458,3 +1458,18 @@ function HealPokemon(team, index, amount, isPlayer)
 		pkmnEntity.hp = GetHealth(pkmnInfo)
 	}
 }
+
+function GetPokemonNumber(name)
+{
+	switch (name)
+	{
+		case "Pikachu":
+			return "001"
+		case "Squirtle":
+			return "002"
+		case "Charmander":
+			return "003"
+		case "Snorlax":
+			return "004"
+	}
+}
