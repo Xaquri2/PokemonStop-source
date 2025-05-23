@@ -9,7 +9,7 @@ var yOffset = 0
 var counter = 0
 for (var i = 0; i < pageAmount; i++)
 {	
-	var pokedexIndex = i+16*page
+	var pokedexIndex = i+pageAmount*page
 	var name = GetNameByNumber(pokedexIndex+1)
 
 	var frameScaledWidth = sprite_get_width(MenuSprite)*4
@@ -19,7 +19,6 @@ for (var i = 0; i < pageAmount; i++)
 	var frameYOffset = yOrigin+64+160*yOffset
 	
 	draw_sprite_ext(MenuSprite, 0, frameXOffset, frameYOffset, 4, 4, image_angle, image_blend, image_alpha)
-	
 	if (ds_list_find_index(global.pokedex, name) >= 0) //Draw Pokémon Icon
 	{
 		var pkmnSprite = GetSpriteByNumber(pokedexIndex+1)
@@ -37,6 +36,11 @@ for (var i = 0; i < pageAmount; i++)
 		frameXOffset, frameYOffset, 4, 4, image_blend, image_alpha)
 	}
 	
+	draw_set_alpha(0.5)
+	if (currentOption == i) draw_rectangle(frameXOffset, frameYOffset, 
+	frameXOffset+frameScaledWidth, frameYOffset+frameScaledHeight, false)
+	draw_set_alpha(1)
+	
 	counter++
 	xOffset++
 	if (counter == lineAmount)
@@ -46,3 +50,23 @@ for (var i = 0; i < pageAmount; i++)
 		yOffset++
 	}
 }
+
+if (arrowAlpha != 0)
+{
+	var angle = -90
+	var arrowX = xOrigin+64
+	if (arrowDir > 0) 
+	{
+		angle = 90
+		arrowX += sprite_get_width(MenuSprite)*25-128
+	}
+	
+	var arrowY = yOrigin+sprite_get_height(MenuSprite)*25/2
+	
+	draw_sprite_ext(ArrowSelectSprite, 0, arrowX, arrowY, 8, 4, angle, image_blend, arrowAlpha)
+}
+
+CenterTextPosition()
+draw_text_transformed(xOrigin+sprite_get_width(MenuSprite)*25/2, 
+yOrigin+sprite_get_height(MenuSprite)*25-64, "Pokedex", 4, 4, image_angle)
+ResetTextPosition()
