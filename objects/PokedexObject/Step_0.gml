@@ -21,12 +21,26 @@ if (keyboard_check_pressed(ord("D")))
 	else currentOption++
 }
 
-if ((currentOption+1)%4==0)
+if (keyboard_check_pressed(vk_enter))
+{
+	if (!summaryMode)
+	{
+		summaryMode = true
+		pokemonNumber = 1+currentOption+pageAmount*page
+	}
+	else
+	{
+		summaryMode = false
+		pokemonNumber = -1
+	}
+}
+
+if ((currentOption+1)%4==0) //Right side arrow
 {
 	arrowDir = 1
 	if (arrowAlpha < 1) arrowAlpha += 0.05
 }
-else if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
+else if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0) //Left side arrow
 {
 	arrowDir = -1
 	if (arrowAlpha < 1) arrowAlpha += 0.05

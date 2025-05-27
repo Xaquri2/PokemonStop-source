@@ -1,3 +1,6 @@
+summaryMode = false
+pokemonNumber = -1
+
 menu = -1
 currentOption = 0
 

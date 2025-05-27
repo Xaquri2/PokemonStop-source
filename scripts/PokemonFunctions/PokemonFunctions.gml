@@ -1497,3 +1497,12 @@ function GetSpriteByNumber(num)
 	}
 	return undefined
 }
+
+function GetDescriptionByNumber(num)
+{
+	switch (num)
+	{
+		case "001": return "The Mouse Pokemon"
+	}
+	return ""
+}
