@@ -101,4 +101,23 @@ else
 	if (name != "") draw_text_transformed(xOrigin+260, yOrigin+80, name, 2, 2, image_angle)
 	if (description != "") draw_text_transformed(xOrigin+260, yOrigin+120, description, 2, 2, image_angle)
 	#endregion
+	
+	#region Draw Stat Bars
+	draw_sprite_ext(MenuSprite, 0, xOrigin+44, yOrigin+220, 
+	20, 12, image_angle, c_grey, image_alpha)
+		
+	var statList = GetPokemonBaseStats(name)
+	for (var i = 0; i < ds_list_size(statList); i++)
+	{
+		var stat = ds_list_find_value(statList, i)
+		var percentage = stat/150*100
+		var text = string_concat(GetStatByIndex(i), ": ", stat)
+	
+		draw_text_transformed(xOrigin+64, yOrigin+230+40*i,
+		text, 1.5, 1.5, image_angle)
+	
+		draw_sprite_ext(BarSprite, 0, xOrigin+400, yOrigin+240+40*i,
+		12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
+	}
+	#endregion
 }
