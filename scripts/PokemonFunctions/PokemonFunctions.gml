@@ -1502,7 +1502,10 @@ function GetDescriptionByNumber(num)
 {
 	switch (num)
 	{
-		case "001": return "The Mouse Pokemon"
+		case "001": return "The Test Pokemon"
+		case "002": return "The Test Pokemon"
+		case "003": return "The Test Pokemon"
+		case "004": return "The Test Pokemon"
 	}
 	return ""
 }

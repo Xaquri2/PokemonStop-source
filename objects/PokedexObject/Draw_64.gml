@@ -98,8 +98,20 @@ else
 	
 	draw_sprite_ext(MenuSprite, 0, xOrigin+240, yOrigin+64, 
 	12, 4, image_angle, c_grey, image_alpha)
-	if (name != "") draw_text_transformed(xOrigin+260, yOrigin+80, name, 2, 2, image_angle)
-	if (description != "") draw_text_transformed(xOrigin+260, yOrigin+120, description, 2, 2, image_angle)
+	if (name != "") draw_text_transformed(xOrigin+260, yOrigin+80, name, 1.5, 1.5, image_angle)
+	draw_text_transformed(xOrigin+260+string_width(name)*1.5+20, yOrigin+80, GetNumberFormat(pokemonNumber), 1.5, 1.5, image_angle)
+	
+	if (description != "") draw_text_transformed(xOrigin+260, yOrigin+110, description, 1.5, 1.5, image_angle)
+	
+	var types = GetPokemonType(name)
+	for (var i = 0; i < ds_list_size(types); i++)
+	{
+		var type = ds_list_find_value(types, i)
+		if (i > 0) type = string_concat("/", type)
+		
+		var offset = string_width(type)
+		draw_text_transformed(xOrigin+260+(offset*1.5+20)*i,yOrigin+140,type,1.5,1.5,image_angle)
+	}
 	#endregion
 	
 	#region Draw Stat Bars
