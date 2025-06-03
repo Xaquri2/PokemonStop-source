@@ -34,7 +34,7 @@ else
 	if (ending) 
 	{
 		if (fadeAlpha < 1) fadeAlpha += 0.05
-		else room_goto(Room1)
+		else room_goto(TestRoom)
 	}
 	if (topRectValue-5 > 0)
 	{
