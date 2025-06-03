@@ -5,3 +5,5 @@ warp = false
 
 fade = false
 fadeAlpha = 0
+
+playerMoved = false

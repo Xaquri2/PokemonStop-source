@@ -15,7 +15,6 @@ if (fade)
 	{
 		if (warp and room != targetRoom) 
 		{
-			warp = false
 			room_goto(targetRoom)
 		}
 		else if (warp and room == targetRoom)
