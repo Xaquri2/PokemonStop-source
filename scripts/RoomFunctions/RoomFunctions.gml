@@ -12,3 +12,13 @@ function SetWarpDefaults(name)
 	}
 	warpName = name
 }
+
+function GetRoomName()
+{
+	switch room
+	{
+		case Mallet_Town: return "Mallet Town"
+		case TestRoom: return "Void"
+	}
+	return ""
+}
