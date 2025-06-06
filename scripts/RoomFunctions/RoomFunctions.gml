@@ -22,3 +22,18 @@ function GetRoomName()
 	}
 	return ""
 }
+
+function GetAreaEncounters()
+{
+	var encounters = ds_list_create()
+	switch (room)
+	{
+		case TestRoom: 
+			ds_list_add(encounters, "Charmander")
+			break
+		case Mallet_Town:
+			ds_list_add(encounters, "Pikachu")
+			break
+	}
+	return encounters
+}

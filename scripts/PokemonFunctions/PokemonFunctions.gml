@@ -66,12 +66,14 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 
 function GetWildPokemon()
 {
+	var encounters = GetAreaEncounters()
+	
 	var pkmn = ds_list_create()
-	var name = "Charmander"
+	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))
 	var level = floor(random_range(10,20))
 	var gender = "Male"
 	if (floor(random_range(1,3)) > 1) gender = "Female"
-	var sprite = CharmanderIdleSprite
+	var sprite = GetSpriteByNumber(GetNumberByName(name))
 	
 	var growthRate = "Very Fast"
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
