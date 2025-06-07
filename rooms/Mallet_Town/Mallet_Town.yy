@@ -124,7 +124,7 @@
         ],"TileDataFormat":1,},"tilesetId":{"name":"Serene_Village3","path":"tilesets/Serene_Village3/Serene_Village3.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Tiles_5","depth":500,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_5","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":24,"SerialiseWidth":43,"TileCompressedData":[
           -19,32,4,7,8,8,9,-39,32,4,7,8,8,9,-39,32,4,7,8,8,9,-39,32,4,7,8,8,9,-39,32,4,7,8,8,9,-39,32,4,7,8,8,
-          9,-39,32,4,7,8,8,9,-39,32,4,13,8,8,9,-40,32,3,7,8,9,-40,32,3,7,8,9,-40,32,3,7,8,9,-38,32,7,1,2,16,5,
+          9,-39,32,4,7,8,8,9,-39,32,4,13,5,8,9,-40,32,3,7,8,9,-40,32,3,7,8,9,-40,32,3,7,8,9,-38,32,7,1,2,16,5,
           10,2,3,-36,32,7,7,8,10,11,8,8,9,-36,32,1,7,-5,8,1,9,-36,32,1,7,-5,8,1,9,-36,32,1,13,-5,14,1,15,-362,
           32,
         ],"TileDataFormat":1,},"tilesetId":{"name":"Mystical_Forest_Large","path":"tilesets/Mystical_Forest_Large/Mystical_Forest_Large.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
