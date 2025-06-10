@@ -37,3 +37,20 @@ function GetAreaEncounters()
 	}
 	return encounters
 }
+
+function IsIndoors()
+{
+	switch (room)
+	{
+		#region Overworld
+		case Mallet_Town:
+			return false
+		#endregion
+			
+		#region Indoors
+		case TestRoom: 
+			return true
+		#endregion
+	}
+	return false
+}

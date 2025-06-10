@@ -16,10 +16,13 @@ if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle)
 
 if (canWalk and !talking and !battle)
 {
-	if (keyboard_check(ord("W"))) vspeed = -2
-	if (keyboard_check(ord("S"))) vspeed = 2
-	if (keyboard_check(ord("A"))) hspeed = -2
-	if (keyboard_check(ord("D"))) hspeed = 2
+	var speedValue = normalSpeed
+	if (!IsIndoors()) speedValue = overworldSpeed
+	
+	if (keyboard_check(ord("W"))) vspeed = -speedValue
+	if (keyboard_check(ord("S"))) vspeed = speedValue
+	if (keyboard_check(ord("A"))) hspeed = -speedValue
+	if (keyboard_check(ord("D"))) hspeed = speedValue
 }
 #endregion
 
