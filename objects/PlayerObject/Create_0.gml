@@ -18,4 +18,4 @@ camera.player = id
 grassTimer = -1
 
 normalSpeed = 2
-overworldSpeed = 1.8
+overworldSpeed = 2.25
