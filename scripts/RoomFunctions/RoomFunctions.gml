@@ -9,6 +9,12 @@ function SetWarpDefaults(name)
 		case "MalletToTest":
 			targetRoom = TestRoom
 			targetWarp = "TestToMallet"
+		case "MalletToMinusOne":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MalletToMinusOne"
+		case "MinusOneToMallet":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MinusOneToMallet"
 	}
 	warpName = name
 }

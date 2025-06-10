@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"Mallet_Town",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/Mallet_Town/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
@@ -48,6 +48,7 @@
     {"name":"inst_1ADD9E54","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_272386D","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_3698B1EC","path":"rooms/Mallet_Town/Mallet_Town.yy",},
+    {"name":"inst_D57E31D","path":"rooms/Mallet_Town/Mallet_Town.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -83,6 +84,7 @@
         {"$GMRInstance":"v2","%Name":"inst_BE8CE34","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_BE8CE34","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.46275,"scaleX":1.2706437,"scaleY":1.1377845,"x":341.7644,"y":535.4534,},
         {"$GMRInstance":"v2","%Name":"inst_185EDF9","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":true,"name":"inst_185EDF9","objectId":{"name":"Door_to_Ginkgo","path":"objects/Door_to_Ginkgo/Door_to_Ginkgo.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.8996506,"scaleY":1.1504478,"x":400.77448,"y":531.37177,},
         {"$GMRInstance":"v2","%Name":"inst_37F82E88","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_37F82E88","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":672.0,"y":416.0,},
+        {"$GMRInstance":"v2","%Name":"inst_D57E31D","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_D57E31D","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":8.090424,"scaleY":1.0,"x":537.10645,"y":5.39246,},
         {"$GMRInstance":"v2","%Name":"inst_36B477C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_36B477C","objectId":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":-32.0,"y":0.0,},
         {"$GMRInstance":"v2","%Name":"inst_483A7284","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_483A7284","objectId":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5625,"scaleY":1.53125,"x":905.0,"y":375.5,},
         {"$GMRInstance":"v2","%Name":"inst_222EFF61","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_222EFF61","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-89.24439,"scaleX":1.0963005,"scaleY":1.5416926,"x":1297.3458,"y":504.99118,},

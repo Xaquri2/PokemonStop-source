@@ -9,7 +9,10 @@
     "name":"Pokemon",
     "path":"folders/Objects/Pokemon.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"CollisionParent",
+    "path":"objects/CollisionParent/CollisionParent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
