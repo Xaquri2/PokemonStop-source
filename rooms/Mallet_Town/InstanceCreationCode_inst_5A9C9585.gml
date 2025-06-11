@@ -1,0 +1,1 @@
+SetWarpDefaults("MalletHouse3ToTest", "Down", false)

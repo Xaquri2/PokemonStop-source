@@ -1,1 +1,1 @@
-SetWarpDefaults("MalletToTest")
+SetWarpDefaults("MalletHouse2ToTest", "Down", false)

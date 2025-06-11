@@ -1,1 +1,1 @@
-SetWarpDefaults("MalletToMinusOne")
+SetWarpDefaults("MalletToMinusOne", "Down", false)

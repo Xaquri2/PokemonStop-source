@@ -1,28 +1,51 @@
-function SetWarpDefaults(name)
+function SetWarpDefaults(name, spawnDir, show)
 {
 	switch (name)
 	{
-		case "TestToMallet":
+		#region Test Room (Void)
+		case "TestToMalletHouse1":
 			targetRoom = Mallet_Town
-			targetWarp = "MalletToTest"
+			targetWarp = "MalletHouse1ToTest"
 			break
-		case "MalletToTest":
+		#endregion
+		
+		#region Mallet Town
+		case "MalletHouse1ToTest":
 			targetRoom = TestRoom
-			targetWarp = "TestToMallet"
+			targetWarp = "TestToMalletHouse1"
+			break
+		case "MalletHouse2ToTest":
+			targetRoom = TestRoom
+			targetWarp = "TestToMalletHouse1"
+			break
+		case "MalletHouse3ToTest":
+			targetRoom = TestRoom
+			targetWarp = "TestToMalletHouse1"
+			break
 		case "MalletToMinusOne":
 			targetRoom = RouteMinusOneBottom
-			targetWarp = "MalletToMinusOne"
-		case "MinusOneToMallet":
-			targetRoom = RouteMinusOneBottom
 			targetWarp = "MinusOneToMallet"
+			break
+		#endregion
+		
+		#region Route Minus One
+		case "MinusOneToMallet":
+			targetRoom = Mallet_Town
+			targetWarp = "MalletToMinusOne"
+			break
+		#endregion
 	}
+	
 	warpName = name
+	spawnDirection = spawnDir
+	visible = show
 }
 
 function GetRoomName()
 {
 	switch room
 	{
+		case RouteMinusOneBottom: return "Route -1"
 		case Mallet_Town: return "Mallet Town"
 		case TestRoom: return "Void"
 	}
