@@ -129,6 +129,7 @@
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
     {"id":{"name":"TrainerHatKid","path":"objects/TrainerHatKid/TrainerHatKid.yy",},},
     {"id":{"name":"TrainerKiddFunkadelic","path":"objects/TrainerKiddFunkadelic/TrainerKiddFunkadelic.yy",},},
+    {"id":{"name":"TrainerParent","path":"objects/TrainerParent/TrainerParent.yy",},},
     {"id":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},},
     {"id":{"name":"Zoombini","path":"objects/Zoombini/Zoombini.yy",},},
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},

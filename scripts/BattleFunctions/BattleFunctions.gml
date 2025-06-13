@@ -925,3 +925,15 @@ function TryToRun(playerPkmn, enemyPkmn, attempts)
 	var runChance = ((playerSpd*32)/(enemySpd/4)+30*attempts) mod 256
 	return chance < runChance
 }
+
+function GetTrainerTeam(trainerName)
+{
+	var team = ds_list_create()
+	switch(trainerName)
+	{
+		case "Ash Ketchum":
+			AddPokemonTrainer(team, 0, "Pikachu", 100, "Female", PikachuIdleSprite)
+			break
+	}
+	return team
+}
