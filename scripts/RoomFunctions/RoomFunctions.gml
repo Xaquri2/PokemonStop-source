@@ -33,7 +33,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = Mallet_Town
 			targetWarp = "MalletToMinusOne"
 			break
+		case "MinusOneToMutant":
+			targetRoom = MutantPath1
+			targetWarp = "MutantToMinusOne"
+			break
 		#endregion
+		
+		#region Mutant Path
+		case "MutantToMinusOne":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MinusOneToMutant"
+			break
 	}
 	
 	warpName = name

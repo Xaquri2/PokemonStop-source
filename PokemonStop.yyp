@@ -136,6 +136,7 @@
     {"id":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},},
     {"id":{"name":"Zoombini","path":"objects/Zoombini/Zoombini.yy",},},
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
+    {"id":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
@@ -242,8 +243,9 @@
     {"roomId":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"roomId":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"roomId":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
-    {"roomId":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
     {"roomId":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
+    {"roomId":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
+    {"roomId":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
