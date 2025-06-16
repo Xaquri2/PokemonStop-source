@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":89.23428,
+  "duration":89.18669,
   "name":"TitleTheme",
   "parent":{
     "name":"Music",
