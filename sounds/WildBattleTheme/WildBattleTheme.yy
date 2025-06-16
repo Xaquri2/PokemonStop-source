@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":98.220406,
+  "duration":98.18676,
   "name":"WildBattleTheme",
   "parent":{
     "name":"Music",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"WildBattleTheme.mp3",
   "type":0,
-  "volume":0.42,
+  "volume":0.26,
 }
