@@ -62,6 +62,15 @@ function GetRoomName()
 	return ""
 }
 
+function GetRoomMusic()
+{
+	switch room
+	{
+		case Mallet_Town: return MalletTownMusic
+	}
+	return noone
+}
+
 function GetAreaEncounters()
 {
 	var encounters = ds_list_create()

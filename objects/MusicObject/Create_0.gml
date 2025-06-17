@@ -1,1 +1,0 @@
-audio_play_sound(MalletTownMusic, 0, true)
