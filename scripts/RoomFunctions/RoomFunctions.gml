@@ -66,6 +66,7 @@ function GetRoomMusic()
 {
 	switch room
 	{
+		case TitleScreen: return TitleTheme
 		case Mallet_Town: return MalletTownMusic
 	}
 	return noone

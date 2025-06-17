@@ -34,5 +34,18 @@ if (walk and instance_exists(player))
 if (distance_to_point(targetX, targetY) < 4)
 {
 	speed = 0
-	if (alarm[2] < 0 and instance_number(BattleObject) == 0) alarm[2] = 60
+	if (!dialogueStart) 
+	{
+		dialogueStart = true
+		
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.textList = textList
+		dialogue.iconList = iconList
+		dialogue.nameList = nameList
+		
+		dialogue.name = name
+		dialogue.actionNPC = id
+		dialogue.startBattle = true
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	}
 }

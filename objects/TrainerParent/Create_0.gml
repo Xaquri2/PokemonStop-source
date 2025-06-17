@@ -1,6 +1,5 @@
 event_inherited();
 trainerName = ""
-teamMembers = ds_list_create()
 
 startX = bbox_left
 startY = bbox_top
@@ -15,4 +14,5 @@ lineSightDir = "" //Should be Up, Down, Left or Right
 triggered = false
 walk = false
 
+dialogueStart = false
 alarm[0] = 1
