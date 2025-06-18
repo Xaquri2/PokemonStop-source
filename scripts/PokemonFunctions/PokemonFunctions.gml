@@ -13,7 +13,7 @@ function AddPokemon(name, level, gender) {
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 	
@@ -36,7 +36,7 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 	
@@ -56,7 +56,7 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
-	ds_list_add(pokemon, index, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	ds_list_add(pokemon, index, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
 	
 	if (ds_list_size(team) < 6)
 	{
@@ -82,7 +82,7 @@ function GetWildPokemon()
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 	
-	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types)
+	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
 	
 	return pkmn
 }
@@ -323,6 +323,7 @@ function GetMovePPList(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
 function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
 function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9) }
 function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
+function GetStatus(pkmnInfo) { return ds_list_find_value(pkmnInfo, 11)}
 
 function AddExp(pkmnInfo, expValue) 
 { 
