@@ -532,6 +532,13 @@ function DealEffect(effectName, accurancy, user, target)
 					break
 				#endregion
 			
+				#region Statuses
+				case "Paralysis":
+					target.status = effectName
+					str = "The opponent is now paralyzed"
+					break
+				#endregion
+				
 				case "Recoil":
 				case "RecoilOnMiss":
 					str = "The user took some damage!"
@@ -713,6 +720,17 @@ function DealEffect(effectName, accurancy, user, target)
 					break
 				#endregion
 			
+				#region Statuses
+				case "Paralysis":
+					var index = ds_list_find_index(global.playerParty, target.pkmnInfo)
+					SetStatus(target.pkmnInfo, effectName)
+					ds_list_set(global.playerParty, index, target.pkmnInfo)
+					
+					target.status = effectName
+					str = "Your pokemon is now paralyzed"
+					break
+				#endregion
+				
 				case "Recoil":
 				case "RecoilOnMiss":
 					str = "The user took some damage!"
@@ -932,7 +950,7 @@ function GetTrainerTeam(trainerName)
 	switch(trainerName)
 	{
 		case "Ash Ketchum":
-			AddPokemonTrainer(team, 0, "Pikachu", 100, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 0, "Pikachu", 2, "Female", PikachuIdleSprite)
 			break
 	}
 	return team

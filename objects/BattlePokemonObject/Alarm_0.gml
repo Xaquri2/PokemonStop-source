@@ -1,6 +1,7 @@
 pkmnInfo = ds_list_find_value(team, index)
 name = GetName(pkmnInfo)
 level = GetLevel(pkmnInfo)
+status = GetStatus(pkmnInfo)
 statList = GetPokemonFinalStats(name, level)
 
 enableDrawing = true

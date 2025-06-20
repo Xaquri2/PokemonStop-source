@@ -1,3 +1,4 @@
+draw_text(x,y+30,status)
 if ((alarm[3] > 0 and flashMode == 1))
 {
 	gpu_set_fog(true,c_white,0,0);
