@@ -534,6 +534,7 @@ function DealEffect(effectName, accurancy, user, target)
 			
 				#region Statuses
 				case "Paralysis":
+					SetStatus(target.pkmnInfo, effectName)
 					target.status = effectName
 					str = "The opponent is now paralyzed"
 					break
@@ -955,3 +956,5 @@ function GetTrainerTeam(trainerName)
 	}
 	return team
 }
+
+function ParalysisCheck() { return floor(random_range(0,4)) != 0 }

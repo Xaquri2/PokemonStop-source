@@ -49,4 +49,13 @@ if (enableDrawing)
 	
 	draw_sprite_ext(ExpBarSprite, 0, xOffset+view_get_wport(0)*0.14, yOffset+view_get_hport(0)*0.225, 
 	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
+	
+	//Status
+	if (GetStatus(pkmnInfo) != "None")
+	{
+		CenterTextPosition()
+		draw_text_transformed(xOffset+view_get_wport(0)*0.48, yOffset+view_get_hport(0)*0.225, 
+		GetStatus(pkmnInfo), 1.5, 1.5, image_angle)
+		ResetTextPosition()
+	}
 }

@@ -89,10 +89,12 @@ if (keyboard_check_pressed(vk_enter))
 		
 		var pName = GetName(battle.playerPkmn)
 		var pLevel = GetLevel(battle.playerPkmn)
+		var pStatus = GetStatus(battle.playerPkmn)
 		var playerStats = GetPokemonFinalStats(pName, pLevel)
 		
 		var eName = GetName(battle.enemyPkmn)
 		var eLevel = GetLevel(battle.enemyPkmn)
+		var eStatus = GetStatus(battle.enemyPkmn)
 		var enemyStats = GetPokemonFinalStats(eName, eLevel)
 		
 		var playerMoveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
@@ -102,13 +104,18 @@ if (keyboard_check_pressed(vk_enter))
 		
 		if (moveCurrentPP > 0)
 		{	
-			ConsumePP(battle.playerPkmn, currentOption)
 			var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
 		
 			var pPriority = GetMovePriority(playerMoveName)
 			var ePriority = GetMovePriority(enemyMoveName)
 		
-			if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
+			var pSpeedStat = GetSpeedStat(playerStats)
+			if (pStatus == "Paralysis") pSpeedStat /= 2
+			
+			var eSpeedStat = GetSpeedStat(enemyStats)
+			if (eStatus == "Paralysis") eSpeedStat /= 2
+			
+			if (pSpeedStat > eSpeedStat or pPriority > ePriority)
 			{
 				//Player Move
 				var moveEff = GetMoveEffect(moveName)
@@ -119,23 +126,31 @@ if (keyboard_check_pressed(vk_enter))
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-				ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
-			
-				var moveAcc = GetMoveAccurancy(moveName)
-				var effectAcc = GetMoveEffectChance(moveName)*100
-				
-				var accRoll = floor(random_range(0,101))
-				if (accRoll <= moveAcc) 
+				if ((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis")
 				{
-					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-					if (floor(random_range(0,101)) <= effectAcc)
+					ConsumePP(battle.playerPkmn, currentOption)
+					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
+				
+					var moveAcc = GetMoveAccurancy(moveName)
+					var effectAcc = GetMoveEffectChance(moveName)*100
+				
+					var accRoll = floor(random_range(0,101))
+					if (accRoll <= moveAcc) 
 					{
-						var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-						if (effStr != "") ds_list_add(battleText.textList, effStr)
+						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+						if (floor(random_range(0,101)) <= effectAcc)
+						{
+							var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
+						}
 					}
+					else ds_list_add(battleText.textList, "But it missed!")
 				}
-				else ds_list_add(battleText.textList, "But it missed!")
-			
+				else
+				{
+					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
+				}
+				
 				if (GetHealth(battle.enemyPkmn) > damage)
 				{
 					//Enemy Move
@@ -149,26 +164,34 @@ if (keyboard_check_pressed(vk_enter))
 					if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 					else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-					ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
-		
-					moveAcc = GetMoveAccurancy(moveName)
-					effectAcc = GetMoveEffectChance(moveName)*100
-					if (floor(random_range(0,101)) <= moveAcc) 
+					if ((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis")
 					{
-						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-						if (floor(random_range(0,101)) <= effectAcc)
+						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+		
+						moveAcc = GetMoveAccurancy(moveName)
+						effectAcc = GetMoveEffectChance(moveName)*100
+						if (floor(random_range(0,101)) <= moveAcc) 
 						{
-							var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-							if (effStr != "") ds_list_add(battleText.textList, effStr)
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (floor(random_range(0,101)) <= effectAcc)
+							{
+								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
+							}
 						}
-					}
-					else ds_list_add(battleText.textList, "But it missed!")
+						else ds_list_add(battleText.textList, "But it missed!")
 			
-					if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
-					string_concat(GetName(battle.playerPkmn)," fainted!"))
+						if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
+						string_concat(GetName(battle.playerPkmn)," fainted!"))
+					}
+					else
+					{
+						ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
+					}
 				}
 			}
-			else if (GetSpeedStat(enemyStats) > GetSpeedStat(playerStats) or ePriority > pPriority)
+			else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
 			{
 				moveName = enemyMoveName
 				var moveEff = GetMoveEffect(moveName)
@@ -179,21 +202,29 @@ if (keyboard_check_pressed(vk_enter))
 				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-				ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
-			
-				var moveAcc = GetMoveAccurancy(moveName)
-				var effectAcc = GetMoveEffectChance(moveName)*100
-				if (floor(random_range(0,101)) <= moveAcc) 
+				if ((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis")
 				{
-					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-					if (floor(random_range(0,101)) <= effectAcc)
+					ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+					ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
+			
+					var moveAcc = GetMoveAccurancy(moveName)
+					var effectAcc = GetMoveEffectChance(moveName)*100
+					if (floor(random_range(0,101)) <= moveAcc) 
 					{
-						var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-						if (effStr != "") ds_list_add(battleText.textList, effStr)
+						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+						if (floor(random_range(0,101)) <= effectAcc)
+						{
+							var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
+						}
 					}
+					else ds_list_add(battleText.textList, "But it missed!")
 				}
-				else ds_list_add(battleText.textList, "But it missed!")
-		
+				else
+				{
+					ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
+				}
+					
 				if (GetHealth(battle.playerPkmn) > damage)
 				{
 					//Player Move
@@ -208,23 +239,31 @@ if (keyboard_check_pressed(vk_enter))
 					if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 					else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
-				
-				    moveAcc = GetMoveAccurancy(moveName)
-					effectAcc = GetMoveEffectChance(moveName)*100
-					if (floor(random_range(0,101)) <= moveAcc) 
+					if ((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis")
 					{
-						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-						if (floor(random_range(0,101)) <= effectAcc)
-						{
-							var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-							if (effStr != "") ds_list_add(battleText.textList, effStr)
-						}
-					}
-					else ds_list_add(battleText.textList, "But it missed!")
+						ConsumePP(battle.playerPkmn, currentOption)
+						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
 				
-					if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
-					string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+					    moveAcc = GetMoveAccurancy(moveName)
+						effectAcc = GetMoveEffectChance(moveName)*100
+						if (floor(random_range(0,101)) <= moveAcc) 
+						{
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (floor(random_range(0,101)) <= effectAcc)
+							{
+								var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
+							}
+						}
+						else ds_list_add(battleText.textList, "But it missed!")
+				
+						if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
+						string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+					}
+					else
+					{
+						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
+					}
 				}
 			}
 			instance_destroy(id)

@@ -325,7 +325,7 @@ function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9) }
 function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 function GetStatus(pkmnInfo) { return ds_list_find_value(pkmnInfo, 11)}
 function SetStatus(pkmnInfo, status) { ds_list_set(pkmnInfo, 11, status)}
-
+function ClearStatus(pkmnInfo) { ds_list_set(pkmnInfo, 11, "None") }
 function AddExp(pkmnInfo, expValue) 
 { 
 	var pkmnExp = GetExp(pkmnInfo)
