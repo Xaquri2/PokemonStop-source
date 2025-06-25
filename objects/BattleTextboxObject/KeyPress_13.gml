@@ -50,6 +50,30 @@ if (!catching and !switching)
 							attackC.particleSpawnTime = floor(alarm[1] / 2)
 						}
 					}
+					if (string_count("poison damage", text) > 0) //Poison damage
+					{
+						var otherEntity = "Enemy"
+						var name = GetName(playerPkmn)
+						var level = GetLevel(playerPkmn)
+						enemyDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
+						
+						if (string_count("opponent", text) > 0)
+						{
+							name = GetName(enemyPkmn)
+							level = GetLevel(enemyPkmn)
+							otherEntity = "Player"
+							playerDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
+						}
+						
+						whoAttacked = otherEntity
+						alarm[1] = GetMoveAnimationTime(moveName)
+					
+						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+						attackC.alarm[0] = alarm[1]
+						attackC.moveName = "Poison"
+						attackC.whoAttacked = otherEntity
+						attackC.particleSpawnTime = floor(alarm[1] / 2)
+					}
 
 					if (string_count(" sent out ", text) > 0) //Enemy pokémon released
 					{

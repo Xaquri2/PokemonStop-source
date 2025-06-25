@@ -189,6 +189,9 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
 					}
+					
+					if (pStatus == "Poisoned") ds_list_add(battleText.textList, "Your pokemon took poison damage")
+					if (eStatus == "Poisoned") ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
 				}
 			}
 			else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
@@ -264,6 +267,9 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
 					}
+					
+					if (pStatus == "Poisoned") ds_list_add("Your pokemon took poison damage")
+					if (eStatus == "Poisoned") ds_list_add("The opponent's pokemon took poison damage")
 				}
 			}
 			instance_destroy(id)

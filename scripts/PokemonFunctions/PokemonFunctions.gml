@@ -1051,7 +1051,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, 0);
             break;
         case "Thunder Wave":
-            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Paralysis", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Poisoned", 1, 1, 0);
             break;
         case "Ice Beam":
             ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, 0);
