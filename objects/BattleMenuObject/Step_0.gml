@@ -169,8 +169,8 @@ if (keyboard_check_pressed(vk_enter))
 						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
 						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
 		
-						moveAcc = GetMoveAccurancy(moveName)
-						effectAcc = GetMoveEffectChance(moveName)*100
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
 						if (floor(random_range(0,101)) <= moveAcc) 
 						{
 							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
@@ -247,8 +247,8 @@ if (keyboard_check_pressed(vk_enter))
 						ConsumePP(battle.playerPkmn, currentOption)
 						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
 				
-					    moveAcc = GetMoveAccurancy(moveName)
-						effectAcc = GetMoveEffectChance(moveName)*100
+					    var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
 						if (floor(random_range(0,101)) <= moveAcc) 
 						{
 							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
@@ -268,8 +268,8 @@ if (keyboard_check_pressed(vk_enter))
 						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
 					}
 					
-					if (pStatus == "Poisoned") ds_list_add("Your pokemon took poison damage")
-					if (eStatus == "Poisoned") ds_list_add("The opponent's pokemon took poison damage")
+					if (pStatus == "Poisoned") ds_list_add(battleText.textList, "Your pokemon took poison damage")
+					if (eStatus == "Poisoned") ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
 				}
 			}
 			instance_destroy(id)

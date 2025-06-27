@@ -325,7 +325,7 @@ function DealDamage(damage, isPlayer)
 			break
 		}
 	}
-
+	
 	entity.hp -= damage
 	entity.hp = clamp(entity.hp, 0, 9999)
 
@@ -737,7 +737,7 @@ function DealEffect(effectName, accurancy, user, target)
 					str = "Your pokemon is now paralyzed"
 					
 				case "Poisoned":
-					var index = ds_list_find_index(global.playerParty, target.pkmnInfo)
+					index = ds_list_find_index(global.playerParty, target.pkmnInfo)
 					SetStatus(target.pkmnInfo, effectName)
 					ds_list_set(global.playerParty, index, target.pkmnInfo)
 					
