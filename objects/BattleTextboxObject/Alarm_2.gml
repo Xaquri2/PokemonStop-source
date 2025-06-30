@@ -50,7 +50,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					var level = GetLevel(playerPkmn)
 					
 					var rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
-					playerDamage = clamp(floor(rawDamage), 1, 1000000)
+					enemyDamage = clamp(floor(rawDamage), 1, 1000000)
 					
 					if (string_count("opponent", text) > 0)
 					{
@@ -68,6 +68,34 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 					attackC.alarm[0] = alarm[1]
 					attackC.moveName = "Poison"
+					attackC.whoAttacked = otherEntity
+					attackC.particleSpawnTime = floor(alarm[1] / 2)
+				}
+				if (string_count("burn damage", text) > 0) //Burn damage
+				{
+					var otherEntity = "Enemy"
+					var name = GetName(playerPkmn)
+					var level = GetLevel(playerPkmn)
+					
+					var rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
+					enemyDamage = clamp(floor(rawDamage), 1, 1000000)
+					
+					if (string_count("opponent", text) > 0)
+					{
+						name = GetName(enemyPkmn)
+						level = GetLevel(enemyPkmn)
+						otherEntity = "Player"
+						
+						rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
+						playerDamage = clamp(floor(rawDamage), 1, 1000000)
+					}
+
+					whoAttacked = otherEntity
+					alarm[1] = GetMoveAnimationTime(moveName)
+
+					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+					attackC.alarm[0] = alarm[1]
+					attackC.moveName = "Burn"
 					attackC.whoAttacked = otherEntity
 					attackC.particleSpawnTime = floor(alarm[1] / 2)
 				}

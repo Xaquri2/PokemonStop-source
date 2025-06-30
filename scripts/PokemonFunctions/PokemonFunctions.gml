@@ -326,6 +326,18 @@ function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 function GetStatus(pkmnInfo) { return ds_list_find_value(pkmnInfo, 11)}
 function SetStatus(pkmnInfo, status) { ds_list_set(pkmnInfo, 11, status)}
 function ClearStatus(pkmnInfo) { ds_list_set(pkmnInfo, 11, "None") }
+
+function GetStatusColor(status)
+{
+	switch (status)
+	{
+		case "Paralysis": return c_yellow
+		case "Poisoned": return make_color_rgb(255,0,255)
+		case "Burn": return make_color_rgb(255,36,0)
+	}
+	return c_white
+}
+
 function AddExp(pkmnInfo, expValue) 
 { 
 	var pkmnExp = GetExp(pkmnInfo)
@@ -1051,7 +1063,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, 0);
             break;
         case "Thunder Wave":
-            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Poisoned", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Burn", 1, 1, 0);
             break;
         case "Ice Beam":
             ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, 0);

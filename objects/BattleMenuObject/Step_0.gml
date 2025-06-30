@@ -190,8 +190,11 @@ if (keyboard_check_pressed(vk_enter))
 						ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
 					}
 					
-					if (pStatus == "Poisoned") ds_list_add(battleText.textList, "Your pokemon took poison damage")
-					if (eStatus == "Poisoned") ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+					if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+					if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+				
+					if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+					if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 				}
 			}
 			else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
@@ -268,8 +271,11 @@ if (keyboard_check_pressed(vk_enter))
 						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
 					}
 					
-					if (pStatus == "Poisoned") ds_list_add(battleText.textList, "Your pokemon took poison damage")
-					if (eStatus == "Poisoned") ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+					if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+					if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+					
+					if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
+					if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 				}
 			}
 			instance_destroy(id)

@@ -538,11 +538,15 @@ function DealEffect(effectName, accurancy, user, target)
 					target.status = effectName
 					str = "The opponent is now paralyzed"
 					break
-					
 				case "Poisoned":
 					SetStatus(target.pkmnInfo, effectName)
 					target.status = effectName
 					str = "The opponent is now poisoned"
+					break
+				case "Burn":
+					SetStatus(target.pkmnInfo, effectName)
+					target.status = effectName
+					str = "The opponent is now burned"
 					break
 				#endregion
 				
@@ -735,7 +739,7 @@ function DealEffect(effectName, accurancy, user, target)
 					
 					target.status = effectName
 					str = "Your pokemon is now paralyzed"
-					
+					break
 				case "Poisoned":
 					index = ds_list_find_index(global.playerParty, target.pkmnInfo)
 					SetStatus(target.pkmnInfo, effectName)
@@ -743,6 +747,14 @@ function DealEffect(effectName, accurancy, user, target)
 					
 					target.status = effectName
 					str = "Your pokemon is now poisoned"
+					break
+				case "Burn":
+					index = ds_list_find_index(global.playerParty, target.pkmnInfo)
+					SetStatus(target.pkmnInfo, effectName)
+					ds_list_set(global.playerParty, index, target.pkmnInfo)
+					
+					target.status = effectName
+					str = "Your pokemon is now burned"
 					break
 				#endregion
 				
