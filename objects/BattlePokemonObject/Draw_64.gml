@@ -54,13 +54,13 @@ if (enableDrawing)
 	if (GetStatus(pkmnInfo) != "None")
 	{
 		var status = GetStatus(pkmnInfo)
+		var color = GetStatusColor(status)
 		var xPos = xOffset+view_get_wport(0)*0.48
 		var yPos = yOffset+view_get_hport(0)*0.225
 		
 		CenterTextPosition()
 		draw_roundrect_color(xPos-string_width(status)/2*1.5-10, yPos-string_height(status)/2*1.5-10,
-		xPos+string_width(status)/2*1.5+10, yPos+string_height(status)/2*1.5+10,GetStatusColor(status),
-		GetStatusColor(status),false)
+		xPos+string_width(status)/2*1.5+10, yPos+string_height(status)/2*1.5+10,color,color,false)
 		draw_text_transformed(xPos, yPos, status, 1.5, 1.5, image_angle)
 		ResetTextPosition()
 	}
