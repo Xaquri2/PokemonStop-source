@@ -170,7 +170,7 @@ if (keyboard_check_pressed(vk_enter))
 					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
 				}
 				
-				if (GetHealth(battle.enemyPkmn) > damage and GetMoveEffect(playerMoveName) != "Sleep")
+				if (GetHealth(battle.enemyPkmn) > damage)
 				{
 					//Enemy Move
 					moveName = enemyMoveName
@@ -187,7 +187,8 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						var awake = true
 						if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
-					
+						if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
+						
 						if (!awake) 
 						{
 							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " is asleep..."))
@@ -284,7 +285,7 @@ if (keyboard_check_pressed(vk_enter))
 					ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
 				}
 					
-				if (GetHealth(battle.playerPkmn) > damage and GetMoveEffect(enemyMoveName) != "Sleep")
+				if (GetHealth(battle.playerPkmn) > damage)
 				{
 					//Player Move
 					moveName = playerMoveName
@@ -302,6 +303,7 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						var awake = true
 						if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+						if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
 					
 						if (!awake) 
 						{
