@@ -128,30 +128,49 @@ if (keyboard_check_pressed(vk_enter))
 		
 				if ((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis")
 				{
-					ConsumePP(battle.playerPkmn, currentOption)
-					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
-				
-					var moveAcc = GetMoveAccurancy(moveName)
-					var effectAcc = GetMoveEffectChance(moveName)*100
-				
-					var accRoll = floor(random_range(0,101))
-					if (accRoll <= moveAcc) 
+					var awake = true
+					if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+					
+					if (!awake) 
 					{
-						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-						if (floor(random_range(0,101)) <= effectAcc)
-						{
-							var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-							if (effStr != "") ds_list_add(battleText.textList, effStr)
-						}
+						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is asleep..."))
+						playerPkmn.sleepCounter++
 					}
-					else ds_list_add(battleText.textList, "But it missed!")
+					else
+					{
+						if (pStatus == "Sleep")
+						{
+							var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
+							SetStatus(playerPkmn.pkmnInfo, "None")
+							ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
+							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
+						}
+						
+						ConsumePP(battle.playerPkmn, currentOption)
+						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
+				
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
+				
+						var accRoll = floor(random_range(0,101))
+						if (accRoll <= moveAcc) 
+						{
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (floor(random_range(0,101)) <= effectAcc)
+							{
+								var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
+							}
+						}
+						else ds_list_add(battleText.textList, "But it missed!")
+					}
 				}
 				else
 				{
 					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
 				}
 				
-				if (GetHealth(battle.enemyPkmn) > damage)
+				if (GetHealth(battle.enemyPkmn) > damage and GetMoveEffect(playerMoveName) != "Sleep")
 				{
 					//Enemy Move
 					moveName = enemyMoveName
@@ -166,24 +185,41 @@ if (keyboard_check_pressed(vk_enter))
 		
 					if ((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis")
 					{
-						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
-		
-						var moveAcc = GetMoveAccurancy(moveName)
-						var effectAcc = GetMoveEffectChance(moveName)*100
-						if (floor(random_range(0,101)) <= moveAcc) 
+						var awake = true
+						if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+					
+						if (!awake) 
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-							if (floor(random_range(0,101)) <= effectAcc)
-							{
-								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-								if (effStr != "") ds_list_add(battleText.textList, effStr)
-							}
+							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " is asleep..."))
+							enemyPkmn.sleepCounter++
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
+						else
+						{
+							if (eStatus == "Sleep")
+							{
+								SetStatus(enemyPkmn.pkmnInfo, "None")
+								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
+							}
+							
+							ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+		
+							var moveAcc = GetMoveAccurancy(moveName)
+							var effectAcc = GetMoveEffectChance(moveName)*100
+							if (floor(random_range(0,101)) <= moveAcc) 
+							{
+								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (floor(random_range(0,101)) <= effectAcc)
+								{
+									var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+									if (effStr != "") ds_list_add(battleText.textList, effStr)
+								}
+							}
+							else ds_list_add(battleText.textList, "But it missed!")
 			
-						if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
-						string_concat(GetName(battle.playerPkmn)," fainted!"))
+							if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
+							string_concat(GetName(battle.playerPkmn)," fainted!"))
+						}
 					}
 					else
 					{
@@ -210,28 +246,45 @@ if (keyboard_check_pressed(vk_enter))
 		
 				if ((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis")
 				{
-					ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-					ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
-			
-					var moveAcc = GetMoveAccurancy(moveName)
-					var effectAcc = GetMoveEffectChance(moveName)*100
-					if (floor(random_range(0,101)) <= moveAcc) 
+					var awake = true
+					if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+					
+					if (!awake) 
 					{
-						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-						if (floor(random_range(0,101)) <= effectAcc)
-						{
-							var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-							if (effStr != "") ds_list_add(battleText.textList, effStr)
-						}
+						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " is asleep..."))
+						enemyPkmn.sleepCounter++
 					}
-					else ds_list_add(battleText.textList, "But it missed!")
+					else
+					{
+						if (eStatus == "Sleep")
+						{
+							SetStatus(enemyPkmn.pkmnInfo, "None")
+							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
+						}
+						
+						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
+			
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
+						if (floor(random_range(0,101)) <= moveAcc) 
+						{
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (floor(random_range(0,101)) <= effectAcc)
+							{
+								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
+							}
+						}
+						else ds_list_add(battleText.textList, "But it missed!")
+					}
 				}
 				else
 				{
 					ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
 				}
 					
-				if (GetHealth(battle.playerPkmn) > damage)
+				if (GetHealth(battle.playerPkmn) > damage and GetMoveEffect(enemyMoveName) != "Sleep")
 				{
 					//Player Move
 					moveName = playerMoveName
@@ -247,24 +300,43 @@ if (keyboard_check_pressed(vk_enter))
 		
 					if ((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis")
 					{
-						ConsumePP(battle.playerPkmn, currentOption)
-						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
-				
-					    var moveAcc = GetMoveAccurancy(moveName)
-						var effectAcc = GetMoveEffectChance(moveName)*100
-						if (floor(random_range(0,101)) <= moveAcc) 
+						var awake = true
+						if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+					
+						if (!awake) 
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-							if (floor(random_range(0,101)) <= effectAcc)
-							{
-								var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-								if (effStr != "") ds_list_add(battleText.textList, effStr)
-							}
+							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is asleep..."))
+							playerPkmn.sleepCounter++
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
+						else
+						{
+							if (pStatus == "Sleep")
+							{
+								var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
+								SetStatus(playerPkmn.pkmnInfo, "None")
+								ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
+								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
+							}
+							
+							ConsumePP(battle.playerPkmn, currentOption)
+							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
 				
-						if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
-						string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+						    var moveAcc = GetMoveAccurancy(moveName)
+							var effectAcc = GetMoveEffectChance(moveName)*100
+							if (floor(random_range(0,101)) <= moveAcc) 
+							{
+								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (floor(random_range(0,101)) <= effectAcc)
+								{
+									var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+									if (effStr != "") ds_list_add(battleText.textList, effStr)
+								}
+							}
+							else ds_list_add(battleText.textList, "But it missed!")
+				
+							if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
+							string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+						}
 					}
 					else
 					{

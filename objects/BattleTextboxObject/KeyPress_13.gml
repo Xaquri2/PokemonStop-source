@@ -146,8 +146,7 @@ if (!catching and !switching)
 							}
 						}
 					}
-					else if (string_count("opposing", text) == 0 //Player pokémon fainted
-					and string_count("fainted", text) > 0) 
+					else if (string_count("opposing", text) == 0 and string_count("fainted", text) > 0) //Player pokémon fainted
 					{
 						var playerPkmnEntity = -1
 						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
@@ -166,8 +165,7 @@ if (!catching and !switching)
 							playerPkmnEntity.alarm[1] = 100
 						}
 					}
-					else if (string_count("opposing", text) > 0 //Enemy pokémon fainted
-					and string_count("fainted", text) > 0) 
+					else if (string_count("opposing", text) > 0 and string_count("fainted", text) > 0) //Enemy pokémon fainted
 					{
 						var enemyPkmnEntity = -1
 						for (var i = 0; i < instance_number(BattlePokemonObject); i++)

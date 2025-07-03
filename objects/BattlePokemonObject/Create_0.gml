@@ -22,6 +22,7 @@ spDefModifier = 0
 speedModifier = 0
 
 status = ""
+sleepCounter = 0
 
 flash = false
 flashMode = 1

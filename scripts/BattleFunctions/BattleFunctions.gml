@@ -761,7 +761,7 @@ function DealEffect(effectName, accurancy, user, target)
 					target.status = effectName
 					str = "Your pokemon is now burned"
 					break
-				case "Burn":
+				case "Sleep":
 					index = ds_list_find_index(global.playerParty, target.pkmnInfo)
 					SetStatus(target.pkmnInfo, effectName)
 					ds_list_set(global.playerParty, index, target.pkmnInfo)
@@ -990,10 +990,12 @@ function GetTrainerTeam(trainerName)
 	switch(trainerName)
 	{
 		case "Ash Ketchum":
-			AddPokemonTrainer(team, 0, "Pikachu", 2, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
 	}
 	return team
 }
 
 function ParalysisCheck() { return floor(random_range(0,4)) != 0 }
+
+function WakeUpCheck() { return floor(random_range(0,3)) == 0 }
