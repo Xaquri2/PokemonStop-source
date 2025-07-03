@@ -548,6 +548,11 @@ function DealEffect(effectName, accurancy, user, target)
 					target.status = effectName
 					str = "The opponent is now burned"
 					break
+				case "Sleep":
+					SetStatus(target.pkmnInfo, effectName)
+					target.status = effectName
+					str = "The opponent is now asleep"
+					break
 				#endregion
 				
 				case "Recoil":
@@ -755,6 +760,14 @@ function DealEffect(effectName, accurancy, user, target)
 					
 					target.status = effectName
 					str = "Your pokemon is now burned"
+					break
+				case "Burn":
+					index = ds_list_find_index(global.playerParty, target.pkmnInfo)
+					SetStatus(target.pkmnInfo, effectName)
+					ds_list_set(global.playerParty, index, target.pkmnInfo)
+					
+					target.status = effectName
+					str = "Your pokemon is now asleep"
 					break
 				#endregion
 				
