@@ -317,6 +317,8 @@ if (keyboard_check_pressed(vk_enter))
 			}
 			var battle = instance_find(BattleObject, 0)
 			var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+			var pNameOld = GetName(battle.playerPkmn)
+			
 			battle.playerPkmn = ds_list_find_value(battle.playerTeam, menu.selectedIndex)
 			battleText.switchIndex = menu.selectedIndex
 			battleText.playerPkmn = battle.playerPkmn
@@ -340,7 +342,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 			{
 				battleText.playerMoveName = moveName
-				ds_list_add(battleText.textList, string_concat(pName, ", come back!"), string_concat("You're up!"))
+				ds_list_add(battleText.textList, string_concat(pNameOld, ", come back!"), string_concat(pName, ", you're up!"))
 
 				//Enemy Move
 				moveName = enemyMoveName

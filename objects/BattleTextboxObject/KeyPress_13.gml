@@ -253,7 +253,7 @@ if (!catching and !switching)
 						var hp = GetHealth(enemyPkmn)
 						AddPokemonWithHP(name, level, gender, sprite, hp)
 					}
-					else if (string_count("up!", text) > 0)
+					else if (string_count("you're up!", text) > 0)
 					{
 						var plr = -1
 						for (var i = 0; i < instance_number(BattleEntityObject); i++)
