@@ -16,15 +16,21 @@ if (walk and instance_exists(player))
 {
 	switch (lineSightDir)
 	{
-		case "Right": 
-		case "Left":
-			targetX = player.x
+		case "Right":
+			targetX = player.bbox_right
 			targetY = y
 			break
-		case "Up": 
+		case "Left":
+			targetX = player.bbox_left
+			targetY = y
+			break
+		case "Up":
+			targetX = x
+			targetY = player.bbox_top
+			break
 		case "Down":
 			targetX = x
-			targetY = player.y
+			targetY = player.bbox_bottom
 			break
 	}
 	
