@@ -5,40 +5,43 @@ var view_y = camera_get_view_y(view_camera[0]);
 var view_width = camera_get_view_width(view_camera[0]);
 var view_height = camera_get_view_height(view_camera[0]);
 
-var name = ds_list_find_value(nameList, currentText)
-var nameBreakIndex = 0
-var nameList2 = ds_list_create()
-for (var i = 1; i <= string_length(name); i++)
+if (!ds_list_empty(nameList))
 {
-	if (string_char_at(name, i) == " ")
+	var name = ds_list_find_value(nameList, currentText)
+	var nameBreakIndex = 0
+	var nameList2 = ds_list_create()
+	for (var i = 1; i <= string_length(name); i++)
 	{
-		ds_list_add(nameList2, string_copy(name, nameBreakIndex, i-nameBreakIndex))
-		var a = ds_list_find_value(nameList2, 0)
-		a = ds_list_find_value(nameList2, 1)
-		a = ds_list_find_value(nameList2, 2)
-		nameBreakIndex = i+1
+		if (string_char_at(name, i) == " ")
+		{
+			ds_list_add(nameList2, string_copy(name, nameBreakIndex, i-nameBreakIndex))
+			var a = ds_list_find_value(nameList2, 0)
+			a = ds_list_find_value(nameList2, 1)
+			a = ds_list_find_value(nameList2, 2)
+			nameBreakIndex = i+1
+		}
+		if (i+1 > string_length(name))
+		{
+			ds_list_add(nameList2, string_copy(name, nameBreakIndex, i))
+		}
 	}
-	if (i+1 > string_length(name))
+	
+	draw_set_halign(fa_center)
+	draw_set_valign(fa_middle)
+
+	for (var i = 0; i < ds_list_size(nameList2); i++)
 	{
-		ds_list_add(nameList2, string_copy(name, nameBreakIndex, i))
+		var name2 = ds_list_find_value(nameList2, i)
+		draw_text_transformed(view_x+32, view_y+view_height-65-10*(ds_list_size(nameList2)-i-1), name2, 0.75, 0.75, image_angle)
 	}
+
+	draw_set_halign(fa_left)
+	draw_set_valign(fa_top)
 }
 
 draw_sprite_ext(sprite_index, image_index, view_x+180, view_y+view_height-32, 7, 1.75, image_angle, image_blend, image_alpha)
-draw_sprite_ext(sprite_index, image_index, view_x+32, view_y+view_height-32, 1.75, 1.75, image_angle, image_blend, image_alpha)
-draw_sprite_ext(ds_list_find_value(iconList, currentText), 0, view_x+32, view_y+view_height-32, 0.75, 0.75, image_angle, image_blend, image_alpha)
-
-draw_set_halign(fa_center)
-draw_set_valign(fa_middle)
-
-for (var i = 0; i < ds_list_size(nameList2); i++)
-{
-	var name2 = ds_list_find_value(nameList2, i)
-	draw_text_transformed(view_x+32, view_y+view_height-65-10*(ds_list_size(nameList2)-i-1), name2, 0.75, 0.75, image_angle)
-}
-
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
+if (!ds_list_empty(iconList)) draw_sprite_ext(sprite_index, image_index, view_x+32, view_y+view_height-32, 1.75, 1.75, image_angle, image_blend, image_alpha)
+if (!ds_list_empty(iconList)) draw_sprite_ext(ds_list_find_value(iconList, currentText), 0, view_x+32, view_y+view_height-32, 0.75, 0.75, image_angle, image_blend, image_alpha)
 
 var ogText = ds_list_find_value(textList, currentText)
 var text = string_copy(ogText, 0, charNumber)

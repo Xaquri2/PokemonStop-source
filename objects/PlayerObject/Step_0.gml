@@ -91,6 +91,16 @@ if (nearestNPC != noone)
 	if (keyboard_check_pressed(vk_enter) and !menuOpen and !talking and !battle)
 	{
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		
+		if (nearestNPC.object_index == PokelootObject)
+		{
+			dialogue.item = nearestNPC.item
+			dialogue.itemCount = nearestNPC.itemCount
+			if (nearestNPC.itemCount == 1) ds_list_add(nearestNPC.textList, string_concat("You got a ", nearestNPC.item, "!"))
+			else ds_list_add(nearestNPC.textList, string_concat("You got ", nearestNPC.itemCount, " ", nearestNPC.item, "s!"))
+			ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
+		}
+		
 		dialogue.textList = nearestNPC.textList
 		dialogue.iconList = nearestNPC.iconList
 		dialogue.nameList = nearestNPC.nameList
@@ -99,6 +109,8 @@ if (nearestNPC != noone)
 		dialogue.actionNPC = nearestNPC
 		talking = true
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		
+		if (nearestNPC.object_index == PokelootObject) instance_destroy(nearestNPC)
 	}
 }
 #endregion

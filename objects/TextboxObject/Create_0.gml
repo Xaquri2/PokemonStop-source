@@ -3,6 +3,9 @@ iconList = ds_list_create()
 nameList = ds_list_create()
 name = ""
 
+item = ""
+itemCount = 1
+
 currentText = 0
 actionNPC = -1
 charCounter = 0

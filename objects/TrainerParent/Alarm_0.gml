@@ -1,4 +1,4 @@
-trainerTeam = GetTrainerTeam(trainerName)
+trainerTeam = GetTrainerTeam(name)
 switch (lineSightDir)
 {
 	case "Up":

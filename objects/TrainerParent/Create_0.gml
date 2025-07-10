@@ -1,5 +1,4 @@
 event_inherited();
-trainerName = ""
 
 startX = bbox_left
 startY = bbox_top

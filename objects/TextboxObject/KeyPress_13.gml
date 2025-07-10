@@ -8,7 +8,7 @@ else
 	if (currentText+1 >= ds_list_size(textList))
 	{
 		var player = instance_find(PlayerObject, 0)
-		if (!ds_list_empty(actionNPC.trainerTeam)) 
+		if (instance_exists(actionNPC) and !ds_list_empty(actionNPC.trainerTeam)) 
 		{
 			player.talking = false
 			player.canWalk = false
@@ -23,6 +23,8 @@ else
 		{
 			player.alarm[1] = 1
 		}
+		
+		if (item != "") AddItem(item, itemCount)
 		instance_destroy(id)
 	}
 	else
