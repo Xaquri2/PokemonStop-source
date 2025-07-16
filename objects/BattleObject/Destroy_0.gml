@@ -1,0 +1,1 @@
+if (!isWild) ds_list_add(global.beatenTrainers, enemyName)

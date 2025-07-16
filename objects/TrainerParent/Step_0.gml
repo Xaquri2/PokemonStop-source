@@ -1,7 +1,7 @@
 event_inherited();
 
 var player = collision_line(startX,startY,finalX,finalY,PlayerObject,false,true)
-if (!triggered and instance_exists(player))
+if (!triggered and instance_exists(player) and ds_list_find_index(global.beatenTrainers, name) == -1)
 {
 	triggered = true
 	

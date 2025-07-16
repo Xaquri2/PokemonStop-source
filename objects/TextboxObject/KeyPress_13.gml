@@ -8,7 +8,7 @@ else
 	if (currentText+1 >= ds_list_size(textList))
 	{
 		var player = instance_find(PlayerObject, 0)
-		if (instance_exists(actionNPC) and !ds_list_empty(actionNPC.trainerTeam)) 
+		if (instance_exists(actionNPC) and !ds_list_empty(actionNPC.trainerTeam) and ds_list_find_index(global.beatenTrainers, actionNPC.name) == -1) 
 		{
 			player.talking = false
 			player.canWalk = false
