@@ -18,6 +18,9 @@ else
 			battleObj.enemySprite = object_get_sprite(actionNPC.object_index)
 			battleObj.enemyName = name
 			battleObj.isWild = isWild
+			battleObj.playerX = player.x
+			battleObj.playerY = player.y
+			battleObj.playerRoom = room
 		}
 		else
 		{

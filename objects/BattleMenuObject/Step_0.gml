@@ -126,7 +126,7 @@ if (keyboard_check_pressed(vk_enter))
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-				if ((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis")
+				if (((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis") and pStatus != "Sleep")
 				{
 					var awake = true
 					if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
@@ -183,7 +183,7 @@ if (keyboard_check_pressed(vk_enter))
 					if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 					else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-					if ((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis")
+					if (((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis") and pStatus != "Sleep")
 					{
 						var awake = true
 						if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
@@ -245,7 +245,7 @@ if (keyboard_check_pressed(vk_enter))
 				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-				if ((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis")
+				if (((eStatus == "Paralysis" and ParalysisCheck()) or eStatus != "Paralysis") and pStatus != "Sleep")
 				{
 					var awake = true
 					if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
@@ -299,7 +299,7 @@ if (keyboard_check_pressed(vk_enter))
 					if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 					else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-					if ((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis")
+					if (((pStatus == "Paralysis" and ParalysisCheck()) or pStatus != "Paralysis") and pStatus != "Sleep")
 					{
 						var awake = true
 						if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 

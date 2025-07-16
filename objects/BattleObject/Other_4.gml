@@ -38,5 +38,21 @@ if (room == RoomBattle)
 }
 else
 {
-	if (ending) instance_destroy(id)
+	if (ending) 
+	{
+		if (instance_number(PlayerObject) == 0)
+		{
+			var player = instance_create_layer(playerX, playerY, "Instances", PlayerObject)
+			player.x = playerX
+			player.y = playerY
+		}
+		else
+		{
+			var player = instance_find(PlayerObject, 0)
+			player.x = playerX
+			player.y = playerY
+		}
+		
+		instance_destroy(id)
+	}
 }

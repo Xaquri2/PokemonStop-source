@@ -3,6 +3,9 @@ fadeCount = 0
 fadeDir = 1
 fadingIntro = true
 
+playerX = 0
+playerY = 0
+
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
 

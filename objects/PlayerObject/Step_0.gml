@@ -135,6 +135,9 @@ if (instance_exists(grassAttempt) and grassTimer == -1 and
 		battleObj.enemySprite = GetSprite(wildPkmn)
 		battleObj.enemyName = GetName(wildPkmn)
 		battleObj.isWild = true
+		battleObj.playerX = x
+		battleObj.playerY = y
+		battleObj.playerRoom = room
 	}
 	grassTimer = 30
 }
