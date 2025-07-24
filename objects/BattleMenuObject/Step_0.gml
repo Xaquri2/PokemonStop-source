@@ -204,7 +204,7 @@ if (keyboard_check_pressed(vk_enter))
 					if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 					else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
-					var paralysisCheck = ParalysisCheck()
+					paralysisCheck = ParalysisCheck()
 					if ((eStatus == "Paralysis" and paralysisCheck) or eStatus != "Paralysis")
 					{			
 						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
@@ -361,7 +361,7 @@ if (keyboard_check_pressed(vk_enter))
 					if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 					else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
-					var paralysisCheck = ParalysisCheck()
+					paralysisCheck = ParalysisCheck()
 					if ((pStatus == "Paralysis" and paralysisCheck) or pStatus != "Paralysis")
 					{
 						ConsumePP(battle.playerPkmn, currentOption)

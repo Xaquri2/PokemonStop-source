@@ -24,6 +24,10 @@ if (keyboard_check_pressed(vk_enter) and active)
 			bag.menu = id
 			visible = false
 			break
+		case "Save":
+			SaveData()
+			instance_destroy(id)
+			break
 		case "Exit":
 			player.alarm[0] = 5
 			break

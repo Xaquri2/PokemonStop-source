@@ -15,5 +15,5 @@ audio_sound_gain(TitleTheme, 0, 500);
 /// @DnDAction : YoYo Games.Instances.Set_Alarm
 /// @DnDVersion : 1
 /// @DnDHash : 7AEE5D5C
-/// @DnDArgument : "steps" "60"
-alarm_set(0, 60);
+/// @DnDArgument : "steps" "1"
+alarm_set(0, 1);
