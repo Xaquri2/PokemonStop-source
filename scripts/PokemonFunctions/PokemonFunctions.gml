@@ -27,6 +27,22 @@ function AddPokemon(name, level, gender) {
 		ds_list_add(global.pokedex, name)
 	}
 }
+	
+function AddPokemonSpecific(pokemon) {
+	var name = GetName(pokemon)
+	ds_list_add(global.pokemonList, pokemon)
+	global.catchIndex++
+	
+	if (ds_list_size(global.playerParty) < 6)
+	{
+		ds_list_add(global.playerParty, pokemon)
+	}
+	
+	if (ds_list_find_index(global.pokedex, name) == -1) 
+	{
+		ds_list_add(global.pokedex, name)
+	}
+}
 
 function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	var pokemon = ds_list_create()

@@ -27,6 +27,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 		case "Save":
 			SaveData()
 			instance_destroy(id)
+			player.alarm[0] = 5
 			break
 		case "Exit":
 			player.alarm[0] = 5
