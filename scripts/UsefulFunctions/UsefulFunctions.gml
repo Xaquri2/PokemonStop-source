@@ -37,16 +37,18 @@ function SaveData()
 	}
 
 	var json = json_stringify(save_data)
-	var file = file_text_open_write("savefile.json")
+	var fileName = string_concat("savefile", global.saveFile, ".json")
+	var file = file_text_open_write(fileName)
 	file_text_write_string(file, json)
 	file_text_close(file)
 }
 
 function LoadData()
 {
-	if (file_exists("savefile.json")) 
+	var fileName = string_concat("savefile", global.saveFile, ".json")
+	if (file_exists(fileName)) 
 	{
-	    var file = file_text_open_read("savefile.json");
+	    var file = file_text_open_read(fileName);
 	    var json = file_text_read_string(file);
 	    file_text_close(file);
 
