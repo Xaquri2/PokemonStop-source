@@ -135,6 +135,7 @@
     {"id":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},},
     {"id":{"name":"TestWildObject","path":"objects/TestWildObject/TestWildObject.yy",},},
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
+    {"id":{"name":"TextPopupObject","path":"objects/TextPopupObject/TextPopupObject.yy",},},
     {"id":{"name":"TitleBackground","path":"objects/TitleBackground/TitleBackground.yy",},},
     {"id":{"name":"TrainerHatKid","path":"objects/TrainerHatKid/TrainerHatKid.yy",},},
     {"id":{"name":"TrainerKiddFunkadelic","path":"objects/TrainerKiddFunkadelic/TrainerKiddFunkadelic.yy",},},

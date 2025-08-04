@@ -1,3 +1,5 @@
+player = instance_find(PlayerObject, 0)
+
 if (keyboard_check_pressed(vk_control)) 
 {
 	if (global.speedUpMultiplier*2 <= 8) 
@@ -16,13 +18,23 @@ if (fade)
 		if (warp and room != targetRoom) 
 		{
 			room_goto(targetRoom)
+			if (targetRoom == loadRoom)
+			{
+				loadRoom = noone
+			}
 		}
 		else if (warp and room == targetRoom)
 		{
+			if (targetRoom == loadRoom)
+			{
+				alarm[0] = 1
+				loadRoom = noone
+			}
+			
 			warp = false
 			fade = false
 			targetRoom = noone
-			player.busy = false
+			if (instance_exists(player)) player.busy = false
 		}
 	}
 }

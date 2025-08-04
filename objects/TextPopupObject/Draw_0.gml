@@ -1,0 +1,5 @@
+CenterTextPosition()
+draw_set_alpha(image_alpha)
+draw_text_transformed(x,y,text,1,1,image_angle)
+draw_set_alpha(1)
+ResetTextPosition()

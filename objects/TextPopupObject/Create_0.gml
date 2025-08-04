@@ -1,0 +1,2 @@
+text = ""
+vspeed = -1
