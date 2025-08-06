@@ -7,3 +7,6 @@ trainerTeam = ds_list_create()
 defeatTextList = ds_list_create()
 ds_list_add(defeatTextList, "You've beaten me!")
 isWild = false
+
+originX = x
+originY = y

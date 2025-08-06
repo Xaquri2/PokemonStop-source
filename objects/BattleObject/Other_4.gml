@@ -53,6 +53,16 @@ else
 			player.y = playerY
 		}
 		
+		for (var i = 0; i < instance_number(TrainerParent); i++)
+		{
+			var attempt = instance_find(TrainerParent, i)
+			if (attempt.name == enemyName)
+			{
+				attempt.x = trainerX
+				attempt.y = trainerY
+			}
+		}
+		
 		instance_destroy(id)
 	}
 }

@@ -21,6 +21,9 @@ else
 			battleObj.playerX = player.x
 			battleObj.playerY = player.y
 			battleObj.playerRoom = room
+			
+			battleObj.trainerX = actionNPC.x
+			battleObj.trainerY = actionNPC.y
 		}
 		else
 		{

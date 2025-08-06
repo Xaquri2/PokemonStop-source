@@ -37,7 +37,12 @@ if (walk and instance_exists(player))
 	move_towards_point(targetX, targetY, 0.5)
 }
 
-if (distance_to_point(targetX, targetY) < 4)
+var nextX = lengthdir_x(0.5, point_direction(x,y,targetX,targetY))
+var nextY = lengthdir_y(0.5, point_direction(x,y,targetX,targetY))
+
+if (distance_to_point(targetX, targetY) < 4 or 
+instance_exists(collision_rectangle(bbox_left+nextX,bbox_top+nextY,
+bbox_right+nextX,bbox_bottom+nextY,PlayerObject,false,true)))
 {
 	speed = 0
 	if (!dialogueStart) 

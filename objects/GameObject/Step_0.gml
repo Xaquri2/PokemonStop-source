@@ -34,7 +34,18 @@ if (fade)
 			warp = false
 			fade = false
 			targetRoom = noone
-			if (instance_exists(player)) player.busy = false
+			if (instance_exists(player)) 
+			{
+				player.busy = false
+				player.sprite_index = PlayerIdleDownSprite
+			}
+			
+			for (var i = 0; i < instance_number(NPCParent); i++)
+			{
+				var npc = instance_find(NPCParent, i)
+				npc.x = npc.originX
+				npc.y = npc.originY
+			}
 		}
 	}
 }

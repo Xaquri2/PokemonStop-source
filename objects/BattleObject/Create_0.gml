@@ -6,6 +6,9 @@ fadingIntro = true
 playerX = 0
 playerY = 0
 
+trainerX = 0
+trainerY = 0
+
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
 
