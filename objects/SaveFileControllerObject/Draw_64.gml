@@ -1,0 +1,1 @@
+draw_text_transformed(50,50,string_concat("Current Save File: ", global.saveFile), 1, 1, image_angle)

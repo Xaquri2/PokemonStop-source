@@ -38,5 +38,3 @@ AddItem("Poke Ball", 50)
 AddItem("X Attack", 1)
 AddItem("X Defense", 1)
 AddItem("X Defense 2", 4)
-
-LoadData()

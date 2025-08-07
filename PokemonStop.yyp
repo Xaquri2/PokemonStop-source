@@ -128,6 +128,7 @@
     {"id":{"name":"PokemonMenuOptionsObject","path":"objects/PokemonMenuOptionsObject/PokemonMenuOptionsObject.yy",},},
     {"id":{"name":"RightSign","path":"objects/RightSign/RightSign.yy",},},
     {"id":{"name":"RoomNameObject","path":"objects/RoomNameObject/RoomNameObject.yy",},},
+    {"id":{"name":"SaveFileControllerObject","path":"objects/SaveFileControllerObject/SaveFileControllerObject.yy",},},
     {"id":{"name":"Snorlax","path":"objects/Snorlax/Snorlax.yy",},},
     {"id":{"name":"Squirtle","path":"objects/Squirtle/Squirtle.yy",},},
     {"id":{"name":"StatBoostObject","path":"objects/StatBoostObject/StatBoostObject.yy",},},

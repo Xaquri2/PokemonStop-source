@@ -18,18 +18,10 @@ if (fade)
 		if (warp and room != targetRoom) 
 		{
 			room_goto(targetRoom)
-			if (targetRoom == loadRoom)
-			{
-				loadRoom = noone
-			}
 		}
 		else if (warp and room == targetRoom)
 		{
-			if (targetRoom == loadRoom)
-			{
-				alarm[0] = 1
-				loadRoom = noone
-			}
+			if (targetRoom == loadRoom) alarm[0] = 1
 			
 			warp = false
 			fade = false
