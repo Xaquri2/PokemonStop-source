@@ -1,24 +1,11 @@
-if (keyboard_check_pressed(ord("E")) and optionMenu == noone) 
+if (keyboard_check_pressed(ord("E")) and !instance_exists(optionMenu)) 
 {
-	if (!hasSelected)
-	{
-		if (battle)
-		{
-			menu.mode = "Choosing"
-			menu.currentOption = 0
-			instance_destroy(id)
-		}
-		else
-		{
-			alarm[0] = 1
-		}
-	}
-	else hasSelected = false
+	if (instance_exists(optionMenu)) instance_destroy(optionMenu)
+	else instance_destroy(id)
 }
 
-if (keyboard_check_pressed(vk_enter) and !hasSelected)
+if (keyboard_check_pressed(vk_enter) and !instance_exists(optionMenu))
 {
-	hasSelected = true
 	optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 	optionMenu.menu = id
 	optionMenu.question = "Would you like to buy this item?"
@@ -27,7 +14,7 @@ if (keyboard_check_pressed(vk_enter) and !hasSelected)
 }
 
 #region Item Controls
-if (!hasSelected)
+if (!instance_exists(optionMenu))
 {
 	var itemCount = ds_list_size(itemList)
 	

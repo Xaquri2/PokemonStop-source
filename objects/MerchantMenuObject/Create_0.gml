@@ -1,8 +1,7 @@
-menu = -1
+player = noone
+menu = noone
 optionMenu = noone
 
-battle = false
-hasSelected = false
 selectedItem = 0
 itemList = ds_list_create()
 

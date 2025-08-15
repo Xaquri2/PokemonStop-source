@@ -1,0 +1,1 @@
+player.alarm[1] = 1
