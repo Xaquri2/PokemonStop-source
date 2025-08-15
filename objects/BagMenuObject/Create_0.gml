@@ -7,4 +7,4 @@ selectedCategory = 0
 selectedItem = 0
 
 startingItemOffset = 0
-itemDisplayLimit = 14
+itemDisplayLimit = 10

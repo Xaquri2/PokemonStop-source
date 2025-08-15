@@ -1,5 +1,21 @@
-draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.1, view_get_hport(0)*0.03, 25, 25, image_angle, image_blend, image_alpha)
+var xPos = view_get_wport(0)*0.1
+var yPos = view_get_hport(0)*0.03
+draw_sprite_ext(MenuSprite, 0, xPos, yPos, 25, 25, image_angle, image_blend, image_alpha)
 
+//Item Description
+var itemInfo = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), selectedItem)
+var itemName = GetItemName(itemInfo)
+
+xPos += 40
+yPos = yPos+sprite_get_height(MenuSprite)*18
+draw_sprite_ext(MenuSprite, 0, xPos, yPos, 16, 5, image_angle, image_blend, image_alpha)
+draw_text_transformed(xPos+20, yPos+20, GetItemDescription(itemName), 1.5, 1.5, image_angle)
+
+//Item Icon
+xPos = xPos+40+sprite_get_width(MenuSprite)*16+16
+draw_sprite_ext(MenuSprite, 0, xPos, yPos, 5, 5, image_angle, image_blend, image_alpha)
+
+//Item List
 var yOffset = 0.1
 for (var i = 0; i < ds_list_size(global.categoryNameList); i++) //Drawing the categories
 {

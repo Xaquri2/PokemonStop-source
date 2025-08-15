@@ -43,6 +43,49 @@ function GetItemCategory(name)
 	return ""
 }
 
+function GetItemDescription(name)
+{
+	switch (name)
+	{
+		#region Items
+		case "Potion":
+		case "Super Potion":
+		case "Hyper Potion":
+			return string_concat("Heals the Pokemon by ", GetHealValue(name), " HP")
+		case "Max Potion":
+			return "Heals the Pokemon up to full health"
+		case "Full Restore":
+			return "Heals the Pokemon up to full health and clears statuses"
+		#endregion
+		
+		#region Balls
+		case "Poke Ball":
+			return "Has a chance of catching wild Pokemon"
+		case "Great Ball":
+			return "Has an ok chance of catching wild Pokemon"
+		case "Ultra Ball":
+			return "Has a good chance of catching wild Pokemon"
+		#endregion
+		
+		#region Battle Items
+		case "X Attack":
+		case "X Defense":
+		case "X Special Attack":
+		case "X Special Defense":
+		case "X Speed":
+			return "Increases the Pokemon's respective stat by one stage"
+			
+		case "X Attack 2":
+		case "X Defense 2":
+		case "X Special Attack 2":
+		case "X Special Defense 2":
+		case "X Speed 2":
+			return "Increases the Pokemon's respective stat by two stages"
+		#endregion	
+	}
+	return ""
+}
+
 function AddItem(name, amount)
 {
 	var category = GetItemCategory(name)
