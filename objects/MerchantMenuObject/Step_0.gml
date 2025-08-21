@@ -4,13 +4,15 @@ if (keyboard_check_pressed(ord("E")) and !instance_exists(optionMenu))
 	else instance_destroy(id)
 }
 
-if (keyboard_check_pressed(vk_enter) and !instance_exists(optionMenu))
+if (keyboard_check_pressed(vk_enter) and !instance_exists(optionMenu) 
+and GetItemValue(ds_list_find_value(itemList, selectedItem)) <= global.money)
 {
 	optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 	optionMenu.menu = id
 	optionMenu.question = "Would you like to buy this item?"
 	optionMenu.option1 = "Buy"
 	optionMenu.option2 = "Exit"
+	optionMenu.buying = true
 }
 
 #region Item Controls

@@ -1,4 +1,5 @@
 randomize()
+global.money = 3000
 global.saveFile = 1
 global.originalSpeed = game_get_speed(gamespeed_fps)
 global.speedUpMultiplier = 1

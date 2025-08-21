@@ -29,6 +29,7 @@ function SaveData()
 	var beatenTrainerArray = ConvertListToArray(global.beatenTrainers)
 	
 	var saveState = {
+		money: global.money,
 		playerX: player.x, 
 		playerY: player.y, 
 		roomInfo: room, 
@@ -145,6 +146,8 @@ function LoadData()
 		loadRoom = saveState.roomInfo
 		loadX = saveState.playerX
 		loadY = saveState.playerY
+		
+		global.money = saveState.money
 	}
 }
 

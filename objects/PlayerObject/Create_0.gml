@@ -1,3 +1,5 @@
+game = instance_find(GameObject, 0)
+
 canWalk = true
 menuOpen = false
 

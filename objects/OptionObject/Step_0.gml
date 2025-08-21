@@ -4,6 +4,18 @@ if (keyboard_check_pressed(ord("W")) or keyboard_check_pressed(ord("S")))
 	else if (currentOption == 1) currentOption = 0
 }
 
+if (keyboard_check_pressed(ord("D")) and buying and 
+GetItemValue(buyItem)*(buyQuantity+1) <= global.money
+and buyQuantity < 999)
+{
+	buyQuantity++
+}
+
+if (keyboard_check_pressed(ord("A")) and buying and buyQuantity > 1) 
+{ 
+	buyQuantity--
+}
+
 if (keyboard_check_pressed(ord("E"))) 
 {
 	menu.optionMenu = noone
@@ -16,9 +28,11 @@ if (keyboard_check_pressed(vk_enter))
 	if (option1 == "Buy" and currentOption == 0)
 	{
 		var itemName = ds_list_find_value(menu.itemList, menu.selectedItem)
-		AddItem(itemName, 1)
+		AddItem(itemName, buyQuantity)
 		instance_destroy(id)
 		menu.optionMenu = noone
+		
+		global.money -= GetItemValue(buyItem)*buyQuantity
 	}
 	
 	if (option1 == "Use")

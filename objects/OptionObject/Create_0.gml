@@ -4,5 +4,9 @@ option1 = ""
 option2 = ""
 currentOption = 0
 
+buying = false
+buyItem = ""
+buyQuantity = 1
+
 image_xscale = 4
 image_yscale = 4
