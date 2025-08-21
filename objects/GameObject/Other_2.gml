@@ -30,12 +30,3 @@ AddPokemon("Pikachu", 15, "Male")
 AddPokemon("Squirtle", 25, "Female")
 AddPokemon("Charmander", 25, "Male")
 AddPokemon("Snorlax", 25, "Female")
-
-AddItem("Potion", 1)
-AddItem("Super Potion", 1)
-AddItem("Potion", 2)
-AddItem("Poke Ball", 50)
-
-AddItem("X Attack", 1)
-AddItem("X Defense", 1)
-AddItem("X Defense 2", 4)

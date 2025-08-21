@@ -27,6 +27,26 @@ function SaveData()
 	}
 	
 	var beatenTrainerArray = ConvertListToArray(global.beatenTrainers)
+	var inventoryArray = array_create(5)
+	
+	for (var i = 0; i < ds_list_size(global.categoryItemList); i++)
+	{
+		var categoryList = ds_list_find_value(global.categoryItemList, i)
+		var categoryArray = array_create(ds_list_size(categoryList))
+		
+		for (var j = 0; j < ds_list_size(categoryList); j++)
+		{
+			var itemList = ds_list_find_value(categoryList, j)
+			
+			var itemArray = array_create(2)
+			array_set(itemArray, 0, ds_list_find_value(itemList, 0))
+			array_set(itemArray, 1, ds_list_find_value(itemList, 1))
+			
+			array_set(categoryArray, j, itemArray)
+		}
+		
+		array_set(inventoryArray, i, categoryArray)
+	}
 	
 	var saveState = {
 		money: global.money,
@@ -34,6 +54,7 @@ function SaveData()
 		playerY: player.y, 
 		roomInfo: room, 
 		party: partyArray,
+		inventory: inventoryArray,
 		beatenTrainers: beatenTrainerArray
 	}
 
@@ -114,6 +135,23 @@ function LoadData()
 		for (var i = 0; i < array_length(saveState.beatenTrainers); i++)
 		{
 			ds_list_add(global.beatenTrainers, saveState.beatenTrainers[i])
+		}
+
+		for (var i = 0; i < array_length(saveState.inventory); i++)
+		{
+			var categoryList = ds_list_create()
+			var categoryArray = saveState.inventory[i]
+			
+			for (var j = 0; j < array_length(categoryArray); j++)
+			{
+				var itemArray = categoryArray[j]
+				var itemList = ds_list_create()
+				
+				ds_list_add(itemList, itemArray[0], itemArray[1])
+				ds_list_add(categoryList, itemList)
+			}
+			
+			ds_list_set(global.categoryItemList, i, categoryList)
 		}
 		
 		ds_list_clear(global.pokemonList)
