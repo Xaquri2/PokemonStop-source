@@ -9,12 +9,16 @@ GetItemValue(buyItem)*(buyQuantity+1) <= global.money
 and buyQuantity < 999)
 {
 	buyQuantity++
+	alarm[0] = quickIncrementValue
 }
 
 if (keyboard_check_pressed(ord("A")) and buying and buyQuantity > 1) 
 { 
 	buyQuantity--
 }
+
+if (alarm[0] > 0 and !keyboard_check(ord("D"))) alarm[0] = -1
+if (alarm[1] > 0 and !keyboard_check(ord("A"))) alarm[1] = -1
 
 if (keyboard_check_pressed(ord("E"))) 
 {
