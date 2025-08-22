@@ -36,11 +36,13 @@
           298,299,-26,-2147483648,6,336,337,338,339,340,341,-26,-2147483648,6,378,379,380,381,382,383,-26,-2147483648,
           6,420,421,422,423,424,425,-473,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"WallsTileset","path":"tilesets/WallsTileset/WallsTileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRTileLayer":"","%Name":"Tiles_2","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_2","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":30,"SerialiseWidth":8,"TileCompressedData":[
-          -96,-2147483648,3,5,6,7,-5,-2147483648,3,13,14,15,-5,-2147483648,3,21,22,23,-18,-2147483648,3,40,41,
-          42,-5,-2147483648,3,48,49,50,-5,-2147483648,3,56,57,58,-8,-2147483648,3,24,25,26,-5,-2147483648,3,32,
-          33,34,-18,-2147483648,3,0,1,2,-5,-2147483648,3,8,9,10,-5,-2147483648,3,16,17,18,-32,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"TileSet11","path":"tilesets/TileSet11/TileSet11.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"$GMRTileLayer":"","%Name":"Houses","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Houses","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":30,"SerialiseWidth":8,"TileCompressedData":[
+          -62,-2147483648,2,8,9,-6,-2147483648,2,4,5,-15,-2147483648,4,8,0,10,11,-4,-2147483648,5,12,0,14,15,0,
+          -4,-2147483648,-4,0,-2,-2147483648,2,8,9,-3,0,-3,-2147483648,4,12,13,8,9,-6,-2147483648,2,12,13,-3,-2147483648,
+          -2,0,1,8,-4,-2147483648,-3,0,1,12,-3,-2147483648,2,0,-2147483648,-3,0,4,11,-2147483648,-2147483648,0,
+          -4,-2147483648,1,15,-3,0,4,-2147483648,8,9,-2147483648,-4,0,3,-2147483648,12,13,-14,-2147483648,-3,0,
+          -5,-2147483648,-3,0,-5,-2147483648,-3,0,-6,-2147483648,4,8,9,8,9,-4,-2147483648,4,12,13,12,13,-14,-2147483648,
+        ],"TileDataFormat":1,},"tilesetId":{"name":"DestroyedHousesTileset","path":"tilesets/DestroyedHousesTileset/DestroyedHousesTileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Floor","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Floor","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":119,"SerialiseWidth":32,"TileCompressedData":[
           -2948,-2147483648,2,1217,1218,-27,-2147483648,-2,1266,3,-2147483648,1267,1268,-27,-2147483648,-2,1316,
           3,1218,1317,1318,-27,-2147483648,6,1366,1217,1218,1217,1218,1219,-17,-2147483648,4,1118,1119,1120,1121,
