@@ -39,7 +39,7 @@ if (keyboard_check_pressed(vk_enter))
 		global.money -= GetItemValue(buyItem)*buyQuantity
 	}
 	
-	if (option1 == "Use")
+	if (option1 == "Use" and currentOption == 0)
 	{
 		var itemInfo = GetItemInfo(menu.selectedCategory, menu.selectedItem)
 		var itemName = GetItemName(itemInfo)
@@ -312,7 +312,7 @@ if (keyboard_check_pressed(vk_enter))
 		}
 	}
 	
-	if (option1 == "Switch")
+	if (option1 == "Switch" and currentOption == 0)
 	{
 		if (currentOption == 0)
 		{	
@@ -414,11 +414,16 @@ if (keyboard_check_pressed(vk_enter))
 		}
 	}
 	
-	if (option1 == "Wake it up")
+	if (option1 == "Wake it up" and currentOption == 0)
 	{
 		target.alarm[1] = 100
 		instance_destroy(id)
 	}
 	
-	if (option2 == "Exit" and currentOption == 1) instance_destroy(id)
+	if ((option2 == "Exit" or option2 == "Leave") and currentOption == 1) 
+	{
+		var player = instance_find(PlayerObject, 0)
+		player.alarm[1] = 1
+		instance_destroy(id)
+	}
 }

@@ -10,7 +10,7 @@ if (instance_exists(actionNPC))
 	switch (actionNPC.object_index)
 	{
 		case Snorlax:
-			if (ds_list_empty(actionNPC.trainerTeam))
+			if (HasItem("Poke Flute") and ds_list_empty(actionNPC.trainerTeam))
 			{
 				var player = instance_find(PlayerObject, 0)
 				if (player.alarm[1] > -1) player.alarm[1] = -1
