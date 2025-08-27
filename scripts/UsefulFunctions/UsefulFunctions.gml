@@ -27,6 +27,7 @@ function SaveData()
 	}
 	
 	var beatenTrainerArray = ConvertListToArray(global.beatenTrainers)
+	var flagsArray = ConvertListToArray(global.flags)
 	var inventoryArray = array_create(5)
 	
 	for (var i = 0; i < ds_list_size(global.categoryItemList); i++)
@@ -55,7 +56,8 @@ function SaveData()
 		roomInfo: room, 
 		party: partyArray,
 		inventory: inventoryArray,
-		beatenTrainers: beatenTrainerArray
+		beatenTrainers: beatenTrainerArray,
+		flags: flagsArray
 	}
 
 	var fileName = string_concat("savefile", global.saveFile, ".json")
@@ -135,6 +137,11 @@ function LoadData()
 		for (var i = 0; i < array_length(saveState.beatenTrainers); i++)
 		{
 			ds_list_add(global.beatenTrainers, saveState.beatenTrainers[i])
+		}
+		
+		for (var i = 0; i < array_length(saveState.flags); i++)
+		{
+			ds_list_add(global.flags, saveState.flags[i])
 		}
 
 		for (var i = 0; i < array_length(saveState.inventory); i++)
@@ -255,4 +262,10 @@ function SaveStateAction(stateNumber)
 		if (game.loadRoom != noone) game.targetRoom = game.loadRoom
 		else game.targetRoom = Mallet_Town
 	}
+}
+
+function HasFlag(flag)
+{
+	if (ds_list_find_index(global.flags, flag) != -1) return true
+	return false
 }

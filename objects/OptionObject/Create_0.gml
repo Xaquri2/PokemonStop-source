@@ -1,4 +1,6 @@
-menu = -1
+menu = noone
+target = noone //Used for when targeting certain NPCs (Like Sleeping Snorlax)
+
 question = ""
 option1 = ""
 option2 = ""

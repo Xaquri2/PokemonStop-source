@@ -30,4 +30,7 @@ switchIndex = -1
 switching = false
 catching = false
 timesBobbed = 0
+
+battleFlag = ""
+
 alarm[5] = 1

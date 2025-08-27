@@ -1,4 +1,6 @@
 randomize()
+audio_group_load(Music)
+
 global.money = 3000
 global.saveFile = 1
 global.originalSpeed = game_get_speed(gamespeed_fps)
@@ -25,6 +27,7 @@ global.playerParty = ds_list_create() //The player party list
 global.pokedex = ds_list_create()
 
 global.beatenTrainers = ds_list_create()
+global.flags = ds_list_create()
 
 AddPokemon("Pikachu", 15, "Male")
 AddPokemon("Squirtle", 25, "Female")

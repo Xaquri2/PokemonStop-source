@@ -1,4 +1,3 @@
-var game = instance_find(GameObject, 0)
 if (!game.warp)
 {
 	other.canWalk = false

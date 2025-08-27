@@ -39,6 +39,11 @@ function GetItemCategory(name)
 		case "X Speed 2":
 			return "Battle Items"
 		#endregion	
+		
+		#region Key Items
+		case "Poke Flute":
+			return "Key Items"
+		#endregion
 	}
 	return ""
 }
@@ -82,6 +87,11 @@ function GetItemDescription(name)
 		case "X Speed 2":
 			return "Increases the Pokemon's respective stat by two stages"
 		#endregion	
+		
+		#region Key Items
+		case "Poke Flute":
+			return "Can be used to wake sleeping pokemon"
+		#endregion
 	}
 	return ""
 }
@@ -119,6 +129,23 @@ function AddItem(name, amount)
 			added = true
 		}
 	}
+}
+
+function HasItem(itemName)
+{
+	var category = GetItemCategory(itemName)
+	var catIndex = ds_list_find_index(global.categoryNameList, category)
+	var catList = ds_list_find_value(global.categoryItemList, catIndex)
+		
+	for (var i = 0; i < ds_list_size(catList); i++)
+	{
+		var attempt = ds_list_find_value(catList, i)
+		if (GetItemName(attempt) == itemName)
+		{
+			return true
+		}
+	}
+	return false
 }
 
 function ConsumeItem(categoryIndex, itemIndex, amount)

@@ -24,6 +24,8 @@ else
 			
 			battleObj.trainerX = actionNPC.x
 			battleObj.trainerY = actionNPC.y
+			
+			if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
 		}
 		else
 		{

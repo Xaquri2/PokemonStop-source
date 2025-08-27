@@ -1,3 +1,5 @@
+game = instance_find(GameObject, 0)
+
 targetRoom = noone
 targetWarp = ""
 

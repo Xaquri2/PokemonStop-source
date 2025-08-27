@@ -414,5 +414,11 @@ if (keyboard_check_pressed(vk_enter))
 		}
 	}
 	
+	if (option1 == "Wake it up")
+	{
+		target.alarm[1] = 100
+		instance_destroy(id)
+	}
+	
 	if (option2 == "Exit" and currentOption == 1) instance_destroy(id)
 }
