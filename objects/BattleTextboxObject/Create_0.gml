@@ -16,6 +16,7 @@ enemyDamage = 0
 
 whoAttacked = ""
 endBattle = false
+defeat = false
 
 expGaining = false
 expGainValue = 0

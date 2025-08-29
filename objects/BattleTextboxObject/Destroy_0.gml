@@ -1,4 +1,4 @@
-if (endBattle)
+if (endBattle and !defeat)
 {	
 	var battle = instance_find(BattleObject, 0)
 	battle.ending = true
