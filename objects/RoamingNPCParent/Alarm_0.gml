@@ -1,0 +1,2 @@
+state = "Walk"
+walkCoords = GetWalkingCoords()

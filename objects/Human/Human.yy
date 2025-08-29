@@ -10,8 +10,8 @@
     "path":"folders/Objects/Pokemon.yy",
   },
   "parentObjectId":{
-    "name":"CollisionParent",
-    "path":"objects/CollisionParent/CollisionParent.yy",
+    "name":"RoamingNPCParent",
+    "path":"objects/RoamingNPCParent/RoamingNPCParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"HumanIdleSprite",
-    "path":"sprites/HumanIdleSprite/HumanIdleSprite.yy",
+    "name":"Human2IdleSprite",
+    "path":"sprites/Human2IdleSprite/Human2IdleSprite.yy",
   },
   "spriteMaskId":null,
   "visible":true,

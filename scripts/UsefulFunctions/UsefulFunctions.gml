@@ -168,7 +168,7 @@ function LoadData()
 			var pkmnInfo = ds_list_create()
 			var pkmnArray = saveState.party[i]
 			
-			for (j = 0; j < array_length(saveState.party[i]); j++)
+			for (var j = 0; j < array_length(saveState.party[i]); j++)
 			{
 				if (j == 6 or j == 7)
 				{
