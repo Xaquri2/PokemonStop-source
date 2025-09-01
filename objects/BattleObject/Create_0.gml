@@ -21,6 +21,7 @@ isWild = false
 runAttempts = 0
 
 ending = false
+defeat = false
 battleFlag = ""
 
 topRectValue = view_get_hport(0)/2

@@ -52,7 +52,7 @@ if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0)
 	if (target.currentPkmn+1 >= ds_list_size(target.team)) 
 	{
 		endBattle = true
-		target.currentPkmn = -1
+		target.currentPkmn = noone
 		ds_list_add(textList, "You win!")
 	}
 	else 
@@ -73,7 +73,7 @@ if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
 	{
 		endBattle = true
 		defeat = true
-		target.currentPkmn = -1
+		target.currentPkmn = noone
 		ds_list_add(textList, "You lose!")
 	}
 	else 

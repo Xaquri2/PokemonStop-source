@@ -343,6 +343,12 @@ function GetStatus(pkmnInfo) { return ds_list_find_value(pkmnInfo, 11)}
 function SetStatus(pkmnInfo, status) { ds_list_set(pkmnInfo, 11, status)}
 function ClearStatus(pkmnInfo) { ds_list_set(pkmnInfo, 11, "None") }
 
+function GetRandomGender(maleChance, femaleChance)
+{
+	if (floor(random_range(0,100)) <= 50) return "Male"
+	else return "Female"
+}
+
 function GetStatusColor(status)
 {
 	switch (status)
@@ -1368,6 +1374,10 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Crunch";
             if (level == 15) return "Hyper Beam";
             break;
+			
+		case "Human":
+			if (level == 1) return "Scratch"
+			break
     }
 	return ""
 }

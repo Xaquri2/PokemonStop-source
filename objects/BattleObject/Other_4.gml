@@ -40,28 +40,32 @@ else
 {
 	if (ending) 
 	{
-		if (instance_number(PlayerObject) == 0)
+		if (!defeat)
 		{
-			var player = instance_create_layer(playerX, playerY, "Instances", PlayerObject)
-			player.x = playerX
-			player.y = playerY
-		}
-		else
-		{
-			var player = instance_find(PlayerObject, 0)
-			player.x = playerX
-			player.y = playerY
-		}
-		
-		for (var i = 0; i < instance_number(TrainerParent); i++)
-		{
-			var attempt = instance_find(TrainerParent, i)
-			if (attempt.name == enemyName)
+			if (instance_number(PlayerObject) == 0)
 			{
-				attempt.x = trainerX
-				attempt.y = trainerY
+				var player = instance_create_layer(playerX, playerY, "Instances", PlayerObject)
+				player.x = playerX
+				player.y = playerY
+			}
+			else
+			{
+				var player = instance_find(PlayerObject, 0)
+				player.x = playerX
+				player.y = playerY
+			}
+		
+			for (var i = 0; i < instance_number(TrainerParent); i++)
+			{
+				var attempt = instance_find(TrainerParent, i)
+				if (attempt.name == enemyName)
+				{
+					attempt.x = trainerX
+					attempt.y = trainerY
+				}
 			}
 		}
+		else SaveStateAction(1)
 		
 		instance_destroy(id)
 	}
