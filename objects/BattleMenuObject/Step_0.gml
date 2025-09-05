@@ -127,7 +127,7 @@ if (keyboard_check_pressed(vk_enter))
 				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
 				var paralysisCheck = ParalysisCheck()
-				if ((pStatus == "Paralysis" and paralysisCheck) or pStatus != "Paralysis")
+				if ((pStatus == "Paralysis" and paralysisCheck))
 				{			
 					ConsumePP(battle.playerPkmn, currentOption)
 					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
@@ -205,7 +205,7 @@ if (keyboard_check_pressed(vk_enter))
 					else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
 					paralysisCheck = ParalysisCheck()
-					if ((eStatus == "Paralysis" and paralysisCheck) or eStatus != "Paralysis")
+					if ((eStatus == "Paralysis" and paralysisCheck))
 					{			
 						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
 						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
@@ -289,7 +289,7 @@ if (keyboard_check_pressed(vk_enter))
 				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
 				var paralysisCheck = ParalysisCheck()
-				if ((eStatus == "Paralysis" and paralysisCheck) or eStatus != "Paralysis")
+				if ((eStatus == "Paralysis" and paralysisCheck))
 				{
 					ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
 					ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
@@ -362,7 +362,7 @@ if (keyboard_check_pressed(vk_enter))
 					else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
 					paralysisCheck = ParalysisCheck()
-					if ((pStatus == "Paralysis" and paralysisCheck) or pStatus != "Paralysis")
+					if ((pStatus == "Paralysis" and paralysisCheck))
 					{
 						ConsumePP(battle.playerPkmn, currentOption)
 						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
