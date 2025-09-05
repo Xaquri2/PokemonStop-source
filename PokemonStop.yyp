@@ -153,6 +153,7 @@
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"id":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
     {"id":{"name":"BattleFunctions","path":"scripts/BattleFunctions/BattleFunctions.yy",},},
+    {"id":{"name":"DataFunctions","path":"scripts/DataFunctions/DataFunctions.yy",},},
     {"id":{"name":"InventoryFunctions","path":"scripts/InventoryFunctions/InventoryFunctions.yy",},},
     {"id":{"name":"MerchantFunctions","path":"scripts/MerchantFunctions/MerchantFunctions.yy",},},
     {"id":{"name":"NPCFunctions","path":"scripts/NPCFunctions/NPCFunctions.yy",},},
