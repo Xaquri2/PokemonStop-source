@@ -30,6 +30,7 @@ global.playerParty = ds_list_create() //The player party list
 global.pokedex = ds_list_create()
 
 global.beatenTrainers = ds_list_create()
+global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 
 AddPokemon("Pikachu", 50, "Male")

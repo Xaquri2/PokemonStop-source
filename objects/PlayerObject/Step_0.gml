@@ -102,6 +102,7 @@ if (nearestNPC != noone)
 		{
 			dialogue.item = nearestNPC.item
 			dialogue.itemCount = nearestNPC.itemCount
+			ds_list_add(global.collectedPokeloot, nearestNPC.itemTag)
 			if (nearestNPC.itemCount == 1) ds_list_add(nearestNPC.textList, string_concat("You got a ", nearestNPC.item, "!"))
 			else ds_list_add(nearestNPC.textList, string_concat("You got ", nearestNPC.itemCount, " ", nearestNPC.item, "s!"))
 			ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
