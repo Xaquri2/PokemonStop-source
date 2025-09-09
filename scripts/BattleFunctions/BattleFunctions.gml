@@ -998,4 +998,4 @@ function GetTrainerTeam(trainerName)
 
 function ParalysisCheck() { return floor(random_range(0,4)) != 0 }
 
-function WakeUpCheck() { return floor(random_range(0,3)) == 0 }
+function WakeUpCheck() { return floor(random_range(0,4)) == 0 }
