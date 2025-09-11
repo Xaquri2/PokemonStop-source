@@ -1204,8 +1204,8 @@ function GetMoveDetails(moveName)
             break;
 
         default:
-            // If a move is unrecognized, return something safe
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "None", 0, 1, 0);
+            // If a move is unrecognized, return Struggle
+            ds_list_add(moveInfo, "Struggle", "Normal", "Status", 50, 100, 30, "StruggleRecoil", 1, 0, 0);
             break;
     }
 	return moveInfo

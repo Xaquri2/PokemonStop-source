@@ -557,7 +557,11 @@ function DealEffect(effectName, accurancy, user, target)
 				
 				case "Recoil":
 				case "RecoilOnMiss":
-					str = "The user took some damage!"
+					str = "Your pokemon took some damage!"
+					break
+					
+				case "StruggleRecoil":
+					str = "Your pokemon struggled and took some damage!"
 					break
 			}
 		}
@@ -773,7 +777,11 @@ function DealEffect(effectName, accurancy, user, target)
 				
 				case "Recoil":
 				case "RecoilOnMiss":
-					str = "The user took some damage!"
+					str = "The opponent took some damage!"
+					break
+					
+				case "StruggleRecoil":
+					str = "The opponent struggled and took some damage!"
 					break
 			}
 		}

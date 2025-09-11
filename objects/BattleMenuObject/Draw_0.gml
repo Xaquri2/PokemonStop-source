@@ -49,7 +49,7 @@ else if (mode == "Moves")
 	var pkmnInfo = ds_list_find_value(pkmn.team, pkmn.index)
 	var pkmnLevel = GetLevel(pkmnInfo)
 	var pkmnName = GetName(pkmnInfo)
-	optionsList = GetLevelUpMoveset(pkmnName, pkmnLevel)
+	optionsList = GetMoves(pkmnInfo)
 	
 	var moveName = ds_list_find_value(GetMoves(pkmnInfo), currentOption)
 	var moveType = GetMoveType(moveName)
