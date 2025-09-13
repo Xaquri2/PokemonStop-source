@@ -1443,8 +1443,7 @@ function GetLearnsetPP(learnset)
 	for (var i = 0; i < ds_list_size(learnset); i++)
 	{
 		var attempt = ds_list_find_value(learnset, i)
-		ds_list_add(list, 0)
-		//ds_list_add(list, GetMovePP(attempt))
+		ds_list_add(list, GetMovePP(attempt))
 	}
 	return list
 }
