@@ -51,6 +51,18 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	else return 0
 }
 
+function GetRecoilDamage(pkmn, moveName)
+{
+	var name = GetName(pkmn)
+	var level = GetLevel(pkmn)
+	
+	switch (moveName)
+	{
+		default:
+			return GetPokemonFinalHP(name, level)/4
+	}
+}
+
 function GetEffectPower(pkmn, targetPkmn, effectName)
 {
 	switch (effectName)

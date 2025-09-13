@@ -17,6 +17,7 @@ if (!catching and !switching)
 			{
 				if (alarm[1] < 0)
 				{
+					recoil = false
 					currentText++
 					charCounter = 0
 					charNumber = 0
@@ -264,6 +265,30 @@ if (!catching and !switching)
 						
 						plr.switchIndex = switchIndex
 						plr.alarm[2] = 30
+					}
+					else if (string_count("struggled and took", text) > 0)
+					{
+						moveName = "Struggle"
+						recoil = true
+					
+						if (string_count("opposing", text) == 0) 
+						{
+							whoAttacked = "Enemy"
+							pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						}
+						else 
+						{
+							whoAttacked = "Player"
+							eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						}
+					
+						alarm[1] = GetMoveAnimationTime(moveName)
+			
+						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+						attackC.alarm[0] = alarm[1]
+						attackC.moveName = moveName
+						attackC.whoAttacked = whoAttacked
+						attackC.particleSpawnTime = floor(alarm[1] / 2)
 					}
 				}
 			}

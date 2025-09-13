@@ -26,22 +26,6 @@ if (keyboard_check_pressed(vk_enter))
 				if (!ds_list_empty(optionsList))
 				{
 					var battle = instance_find(BattleObject, 0)
-					var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
-					battleText.playerPkmn = battle.playerPkmn
-					battleText.enemyPkmn = battle.enemyPkmn
-					battleText.whoAttacked = "Player"
-					var superEffStr = ""
-		
-					var pName = GetName(battle.playerPkmn)
-					var pLevel = GetLevel(battle.playerPkmn)
-					var pStatus = GetStatus(battle.playerPkmn)
-					var playerStats = GetPokemonFinalStats(pName, pLevel)
-		
-					var eName = GetName(battle.enemyPkmn)
-					var eLevel = GetLevel(battle.enemyPkmn)
-					var eStatus = GetStatus(battle.enemyPkmn)
-					var enemyStats = GetPokemonFinalStats(eName, eLevel)
-		
 					var pMoves = GetMoves(battle.playerPkmn)
 					for (var i = 0; i < ds_list_size(pMoves); i++)
 					{
@@ -53,11 +37,6 @@ if (keyboard_check_pressed(vk_enter))
 							break
 						}
 					}
-					
-					var playerMoveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
-					var moveName = playerMoveName
-					var moveTotalPP = GetMovePP(moveName)
-					var moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.playerPkmn), currentOption))
 				}
 	
 				if (struggle)

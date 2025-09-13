@@ -1205,7 +1205,7 @@ function GetMoveDetails(moveName)
 
         default:
             // If a move is unrecognized, return Struggle
-            ds_list_add(moveInfo, "Struggle", "Normal", "Status", 50, 100, 30, "StruggleRecoil", 1, 0, 0);
+            ds_list_add(moveInfo, "Struggle", "Normal", "Physical", 50, 100, 30, "StruggleRecoil", 1, 0, 0);
             break;
     }
 	return moveInfo
@@ -1443,7 +1443,8 @@ function GetLearnsetPP(learnset)
 	for (var i = 0; i < ds_list_size(learnset); i++)
 	{
 		var attempt = ds_list_find_value(learnset, i)
-		ds_list_add(list, GetMovePP(attempt))
+		ds_list_add(list, 0)
+		//ds_list_add(list, GetMovePP(attempt))
 	}
 	return list
 }
@@ -1454,8 +1455,13 @@ function GetLearnsetPP(learnset)
 function ConsumePP(pkmnInfo, index)
 {
 	var movePPList = ds_list_find_value(pkmnInfo, 7)
-	ds_list_set(movePPList, index, ds_list_find_value(movePPList, index)-1)
-	ds_list_set(pkmnInfo, 7, movePPList)
+	var ppValue = ds_list_find_value(movePPList, index)
+	
+	if (ppValue-1 >= 0)
+	{
+		ds_list_set(movePPList, index, ppValue-1)
+		ds_list_set(pkmnInfo, 7, movePPList)
+	}
 }
 
 /// @param       name          The fainted Pokémon's name

@@ -1,7 +1,15 @@
 alarm[3] = 5
 damaging = true
-if (whoAttacked == "Player") damageValue = playerDamage
-else if (whoAttacked == "Enemy") damageValue = enemyDamage
+if (whoAttacked == "Player") 
+{
+	if (!recoil) damageValue = playerDamage
+	else damageValue = eRecoilDamage
+}
+else if (whoAttacked == "Enemy") 
+{
+	if (!recoil) damageValue = enemyDamage
+	else damageValue = pRecoilDamage
+}
 
 var target = -1
 while (target == -1)
@@ -35,50 +43,108 @@ if (GetMoveCategory(moveName) != "Status")
 	}
 }
 
-if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0) 
+if (!recoil)
 {
-	var name = GetName(enemyPkmn)
-	var level = GetLevel(enemyPkmn)
-	var battle = instance_find(BattleObject, 0)
-	var experience = GetEXPYield(name, level, 1, false, false)
-	expGainValue = experience
+	if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0) 
+	{
+		var name = GetName(enemyPkmn)
+		var level = GetLevel(enemyPkmn)
+		var battle = instance_find(BattleObject, 0)
+		var experience = GetEXPYield(name, level, 1, false, false)
+		expGainValue = experience
 	
-	ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
-	ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
+		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
+		ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 		
-	nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-	battle.enemyPkmn = nextPkmn
+		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
+		battle.enemyPkmn = nextPkmn
 	
-	if (target.currentPkmn+1 >= ds_list_size(target.team)) 
-	{
-		endBattle = true
-		target.currentPkmn = noone
-		ds_list_add(textList, "You win!")
+		if (target.currentPkmn+1 >= ds_list_size(target.team)) 
+		{
+			endBattle = true
+			target.currentPkmn = noone
+			ds_list_add(textList, "You win!")
+		}
+		else 
+		{
+			name = GetName(nextPkmn)
+			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
+		}
 	}
-	else 
+	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0) 
 	{
-		name = GetName(nextPkmn)
-		ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
+		var name = GetName(playerPkmn)
+		var battle = instance_find(BattleObject, 0)
+		ds_list_add(textList, string_concat(name, " fainted"))
+	
+		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
+		battle.playerPkmn = nextPkmn
+		if (target.currentPkmn+1 >= ds_list_size(target.team)) 
+		{
+			endBattle = true
+			defeat = true
+			target.currentPkmn = noone
+			ds_list_add(textList, "You lose!")
+		}
+		else 
+		{
+			name = GetName(nextPkmn)
+			ds_list_add(textList, string_concat("Go! ", name, "!"))
+		}
 	}
 }
-if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0) 
+else
 {
-	var name = GetName(playerPkmn)
-	var battle = instance_find(BattleObject, 0)
-	ds_list_add(textList, string_concat(name, " fainted"))
-	
-	nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-	battle.playerPkmn = nextPkmn
-	if (target.currentPkmn+1 >= ds_list_size(target.team)) 
+	for (var i = currentText+1; i < ds_list_size(textList); i++)
 	{
-		endBattle = true
-		defeat = true
-		target.currentPkmn = noone
-		ds_list_add(textList, "You lose!")
+		ds_list_delete(textList, i)
 	}
-	else 
+	
+	if (whoAttacked == "Player" and GetHealth(enemyPkmn)-eRecoilDamage <= 0) 
 	{
-		name = GetName(nextPkmn)
-		ds_list_add(textList, string_concat("Go! ", name, "!"))
+		var name = GetName(enemyPkmn)
+		var level = GetLevel(enemyPkmn)
+		var battle = instance_find(BattleObject, 0)
+		var experience = GetEXPYield(name, level, 1, false, false)
+		expGainValue = experience
+	
+		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
+		ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
+		
+		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
+		battle.enemyPkmn = nextPkmn
+	
+		if (target.currentPkmn+1 >= ds_list_size(target.team)) 
+		{
+			endBattle = true
+			target.currentPkmn = noone
+			ds_list_add(textList, "You win!")
+		}
+		else 
+		{
+			name = GetName(nextPkmn)
+			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
+		}
+	}
+	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-pRecoilDamage <= 0) 
+	{
+		var name = GetName(playerPkmn)
+		var battle = instance_find(BattleObject, 0)
+		ds_list_add(textList, string_concat(name, " fainted"))
+	
+		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
+		battle.playerPkmn = nextPkmn
+		if (target.currentPkmn+1 >= ds_list_size(target.team)) 
+		{
+			endBattle = true
+			defeat = true
+			target.currentPkmn = noone
+			ds_list_add(textList, "You lose!")
+		}
+		else 
+		{
+			name = GetName(nextPkmn)
+			ds_list_add(textList, string_concat("Go! ", name, "!"))
+		}
 	}
 }

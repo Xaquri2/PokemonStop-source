@@ -14,6 +14,10 @@ nextPkmn = -1
 playerDamage = 0
 enemyDamage = 0
 
+recoil = false
+pRecoilDamage = 0
+eRecoilDamage = 0
+
 whoAttacked = ""
 endBattle = false
 defeat = false
