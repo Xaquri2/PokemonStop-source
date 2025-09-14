@@ -74,7 +74,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.1.193",
+    "IDEVersion":"2024.13.0.190",
   },
   "name":"PokemonStop",
   "resources":[
@@ -132,6 +132,7 @@
     {"id":{"name":"RoamingNPCParent","path":"objects/RoamingNPCParent/RoamingNPCParent.yy",},},
     {"id":{"name":"RoomNameObject","path":"objects/RoomNameObject/RoomNameObject.yy",},},
     {"id":{"name":"SaveFileControllerObject","path":"objects/SaveFileControllerObject/SaveFileControllerObject.yy",},},
+    {"id":{"name":"SaveMenuObject","path":"objects/SaveMenuObject/SaveMenuObject.yy",},},
     {"id":{"name":"Snorlax","path":"objects/Snorlax/Snorlax.yy",},},
     {"id":{"name":"Squirtle","path":"objects/Squirtle/Squirtle.yy",},},
     {"id":{"name":"StatBoostObject","path":"objects/StatBoostObject/StatBoostObject.yy",},},
