@@ -24,7 +24,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 			bag.menu = id
 			visible = false
 			break
-		case "Save":
+		case "Save Game":
 		    var save_menu = instance_create_layer(x, y,layer, SaveMenuObject);
 			save_menu.mode = "save";
 			save_menu.parent_menu = id;     // so the save menu can return here
