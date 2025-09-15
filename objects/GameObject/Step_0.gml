@@ -1,5 +1,8 @@
 player = instance_find(PlayerObject, 0)
 
+if (global.autosave and alarm[1] == -1) alarm[1] = 60*60
+else if (!global.autosave) alarm[1] = -1
+
 if (keyboard_check_pressed(vk_control)) 
 {
 	if (global.speedUpMultiplier*2 <= 8) 
@@ -15,6 +18,9 @@ if (fade)
 	if (fadeAlpha < 1) fadeAlpha += 0.05
 	else 
 	{
+		var z = warp
+		var a = room
+		var b = targetRoom
 		if (warp and room != targetRoom) 
 		{
 			room_goto(targetRoom)

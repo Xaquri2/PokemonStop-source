@@ -1,4 +1,4 @@
-player = -1
+player = noone
 targetRoom = noone
 targetWarp = "None"
 warp = false

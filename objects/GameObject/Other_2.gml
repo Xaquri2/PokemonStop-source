@@ -3,6 +3,7 @@ audio_group_load(Music)
 
 global.money = 3000
 
+global.autosave = false
 global.saveFile = 1
 global.latestSaveState = 1
 

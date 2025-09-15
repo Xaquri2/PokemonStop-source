@@ -47,3 +47,9 @@ function HasFlag(flag)
 	if (ds_list_find_index(global.flags, flag) != -1) return true
 	return false
 }
+
+function GenerateTextPopup(xPos,yPos,displayText)
+{
+	var obj = instance_create_depth(xPos,yPos,-1000000,TextPopupObject)
+	obj.text = displayText
+}

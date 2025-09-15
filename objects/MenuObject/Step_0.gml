@@ -25,14 +25,22 @@ if (keyboard_check_pressed(vk_enter) and active)
 			visible = false
 			break
 		case "Save Game":
-		    var save_menu = instance_create_layer(x, y,layer, SaveMenuObject);
-			save_menu.mode = "save";
-			save_menu.parent_menu = id;     // so the save menu can return here
-			save_menu.use_recent = true;    // tells the menu to list recent saves
-			save_menu.recent_limit = 10;    // how many recent saves to show
-			SaveData()
+		    var saveMenu = instance_create_layer(x, y,layer, SaveMenuObject);
+			saveMenu.mode = "Save"
+			saveMenu.player = player
+			saveMenu.parent_menu = id     // so the save menu can return here
+			saveMenu.use_recent = true    // tells the menu to list recent saves
+			saveMenu.recent_limit = 10    // how many recent saves to show
 			instance_destroy(id)
-			player.alarm[0] = 5
+			break
+		case "Load Game":
+		    var loadMenu = instance_create_layer(x, y,layer, SaveMenuObject);
+			loadMenu.mode = "Load"
+			loadMenu.player = player
+			loadMenu.parent_menu = id     // so the save menu can return here
+			loadMenu.use_recent = true    // tells the menu to list recent saves
+			loadMenu.recent_limit = 10    // how many recent saves to show
+			instance_destroy(id)
 			break
 		case "Exit":
 			player.alarm[0] = 5

@@ -23,12 +23,20 @@ if (canWalk and !talking and !battle)
 	if (keyboard_check(ord("S"))) vspeed = speedValue
 	if (keyboard_check(ord("A"))) hspeed = -speedValue
 	if (keyboard_check(ord("D"))) hspeed = speedValue
-	
-	if (keyboard_check_pressed(ord("1"))) SaveStateAction("1")
-	if (keyboard_check_pressed(ord("2"))) SaveStateAction("2")
-	if (keyboard_check_pressed(ord("3"))) SaveStateAction("3")
-	if (keyboard_check_pressed(ord("4"))) SaveStateAction("4")
-	if (keyboard_check_pressed(ord("5"))) SaveStateAction("5")
+
+	if (keyboard_check_pressed(ord("Q")))
+	{
+		if (global.autosave)
+		{
+			global.autosave = false
+			GenerateTextPopup(x,bbox_top-10,"Autosave Disabled")
+		}
+		else
+		{
+			global.autosave = true
+			GenerateTextPopup(x,bbox_top-10,"Autosave Enabled")
+		}
+	}
 }
 #endregion
 

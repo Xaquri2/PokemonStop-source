@@ -57,9 +57,10 @@ function SaveData()
 		party: partyArray,
 		inventory: inventoryArray,
 		beatenTrainers: beatenTrainerArray,
-		flags: flagsArray
+		flags: flagsArray,
+		latestSaveState: global.latestSaveState
 	}
-
+	
 	var fileName = string_concat("savefile", global.saveFile, ".json")
 	if (file_exists(fileName)) 
 	{
@@ -193,20 +194,20 @@ function LoadData()
 		loadY = saveState.playerY
 		
 		global.money = saveState.money
+		global.latestSaveState = saveState.latestSaveState
 	}
 }
 
-function SaveStateAction(stateNumber)
+function SaveStateAction(stateNumber, actionMode)
 {
-	var text = instance_create_depth(x,bbox_top-10,depth,TextPopupObject)
-	text.text = string_concat("Loaded Save State ", stateNumber)
+	var text = string_concat("Loaded Save State ", stateNumber)
 
 	global.currentSaveState = int64(stateNumber)
-	if (keyboard_check(vk_shift)) 
+	if (actionMode == "Save") 
 	{
 		var game = instance_find(GameObject, 0)
 		if (instance_exists(game)) with (game) SaveData()
-		text.text = string_concat("Saved Save State ", stateNumber)
+		text = string_concat("Saved Save State ", stateNumber)
 		
 		global.latestSaveState = stateNumber
 	}
@@ -217,7 +218,12 @@ function SaveStateAction(stateNumber)
 		game.warp = true
 		game.fade = true
 
-		if (game.loadRoom != noone) game.targetRoom = game.loadRoom
+		if (game.loadRoom != noone) 
+		{
+			game.targetRoom = game.loadRoom
+		}
 		else game.targetRoom = Mallet_Town
 	}
+	
+	GenerateTextPopup(x,bbox_top-10,text)
 }

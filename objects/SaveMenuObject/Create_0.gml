@@ -1,5 +1,6 @@
-player = noone
+mode = "Save"
 active = true
+player = noone
 selectedIndex = 0
 
 optionsList = ds_list_create()
