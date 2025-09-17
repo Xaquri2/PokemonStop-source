@@ -1,6 +1,8 @@
 if (keyboard_check_pressed(ord("E")) and active) 
 {
 	instance_destroy()
+	
+	player.alarm[0] = 5
 }
 
 if (keyboard_check_pressed(vk_enter) and active)

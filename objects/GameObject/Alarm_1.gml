@@ -1,1 +1,1 @@
-SaveStateAction(1, "Save")
+SaveStateAction(global.latestSaveState, "Save")

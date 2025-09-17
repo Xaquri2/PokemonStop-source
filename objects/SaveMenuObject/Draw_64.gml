@@ -7,7 +7,15 @@ for (var i = 0; i < ds_list_size(optionsList); i++)
 
 	var color = c_black
 	if (selectedIndex == i) color = c_yellow
-	draw_text_transformed_color(view_get_wport(0)*0.75, view_get_hport(0)*yOffset, 
+	draw_text_transformed_color(view_get_wport(0)*0.735, view_get_hport(0)*yOffset, 
 	ds_list_find_value(optionsList, i), 2, 2, image_angle, color, color, color, color, image_alpha)
+	
+	var timestamp = GetSaveSlotTimestamp(int64(ds_list_find_value(optionsList, i)))
+	if (timestamp != undefined) 
+	{
+		draw_text_transformed_color(view_get_wport(0)*0.75+16, view_get_hport(0)*yOffset, 
+		timestamp, 2, 2, image_angle, color, color, color, color, image_alpha)
+	}
+	
 	yOffset += 0.06
 }

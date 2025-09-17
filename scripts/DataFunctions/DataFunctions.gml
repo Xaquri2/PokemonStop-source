@@ -49,6 +49,15 @@ function SaveData()
 		array_set(inventoryArray, i, categoryArray)
 	}
 	
+	var timestampString = ""
+	var currentTime = date_current_datetime()
+	var hour = date_get_hour(currentTime)
+	var minute = date_get_minute(currentTime)
+	var day = date_get_day(currentTime)
+	var month = date_get_month(currentTime)
+	var year = date_get_year(currentTime)
+	timestampString = string_concat(hour, ":", minute, " ", day, "/", month, "/", year)
+	
 	var saveState = {
 		money: global.money,
 		playerX: player.x, 
@@ -58,7 +67,8 @@ function SaveData()
 		inventory: inventoryArray,
 		beatenTrainers: beatenTrainerArray,
 		flags: flagsArray,
-		latestSaveState: global.latestSaveState
+		latestSaveState: global.latestSaveState,
+		saveSlotTimestamp: timestampString
 	}
 	
 	var fileName = string_concat("savefile", global.saveFile, ".json")
@@ -208,8 +218,6 @@ function SaveStateAction(stateNumber, actionMode)
 		var game = instance_find(GameObject, 0)
 		if (instance_exists(game)) with (game) SaveData()
 		text = string_concat("Saved Save State ", stateNumber)
-		
-		global.latestSaveState = stateNumber
 	}
 	else 
 	{	
@@ -226,4 +234,39 @@ function SaveStateAction(stateNumber, actionMode)
 	}
 	
 	GenerateTextPopup(x,bbox_top-10,text)
+}
+
+function GetSaveSlotTimestamp(slot)
+{
+	var fileName = string_concat("savefile", global.saveFile, ".json")
+	if (file_exists(fileName)) 
+	{
+	    var file = file_text_open_read(fileName);
+	    var json = file_text_read_string(file);
+	    file_text_close(file);
+
+	    var data = json_parse(json);
+		var saveState = noone
+		switch (slot)
+		{
+			case 1:
+				if (variable_struct_exists(data, "saveState1")) saveState = data.saveState1
+				break
+			case 2:
+				if (variable_struct_exists(data, "saveState2")) saveState = data.saveState2
+				break
+			case 3:
+				if (variable_struct_exists(data, "saveState3")) saveState = data.saveState3
+				break
+			case 4:
+				if (variable_struct_exists(data, "saveState4")) saveState = data.saveState4
+				break
+			case 5:
+				if (variable_struct_exists(data, "saveState5")) saveState = data.saveState5
+				break
+		}
+		
+		if (saveState != noone) return saveState.saveSlotTimestamp
+		else return undefined
+	}
 }
