@@ -65,7 +65,7 @@ else
 				}
 			}
 		}
-		else SaveStateAction(global.latestSaveState)
+		else SaveStateAction(global.latestSaveState, "Load")
 		
 		instance_destroy(id)
 	}

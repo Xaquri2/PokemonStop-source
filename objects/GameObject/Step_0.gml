@@ -13,6 +13,18 @@ if (keyboard_check_pressed(vk_control))
 	game_set_speed(global.originalSpeed*global.speedUpMultiplier, gamespeed_fps)
 }
 
+if (keyboard_check_pressed(vk_alt))
+{
+	for (var i = 1; i <= 5; i++)
+	{
+		var fileName = string_concat("savefile", i, ".json")
+		if (file_exists(fileName)) 
+		{
+			file_delete(fileName)
+		}
+	}
+}
+
 if (fade) 
 {
 	if (fadeAlpha < 1) fadeAlpha += 0.05

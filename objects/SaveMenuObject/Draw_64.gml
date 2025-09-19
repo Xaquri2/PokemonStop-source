@@ -3,18 +3,18 @@ draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.7, view_get_hport(0)*0.05, 8,
 var yOffset = 0.1
 for (var i = 0; i < ds_list_size(optionsList); i++)
 {
-	draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.72, view_get_hport(0)*0.1+56*i, 6, 1.5, image_angle, image_blend, image_alpha)
+	draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.72, view_get_hport(0)*0.1+120*i, 6, 3, image_angle, image_blend, image_alpha)
 
 	var color = c_black
 	if (selectedIndex == i) color = c_yellow
-	draw_text_transformed_color(view_get_wport(0)*0.735, view_get_hport(0)*yOffset, 
-	ds_list_find_value(optionsList, i), 2, 2, image_angle, color, color, color, color, image_alpha)
+	draw_text_transformed_color(view_get_wport(0)*0.735, view_get_hport(0)*0.1+120*i+16, 
+	string_concat("Slot ", ds_list_find_value(optionsList, i)), 2, 2, image_angle, color, color, color, color, image_alpha)
 	
 	var timestamp = GetSaveSlotTimestamp(int64(ds_list_find_value(optionsList, i)))
 	if (timestamp != undefined) 
 	{
-		draw_text_transformed_color(view_get_wport(0)*0.75+16, view_get_hport(0)*yOffset, 
-		timestamp, 2, 2, image_angle, color, color, color, color, image_alpha)
+		draw_text_transformed_color(view_get_wport(0)*0.735, view_get_hport(0)*0.1+120*i+64, 
+		timestamp, 1.5, 1.5, image_angle, color, color, color, color, image_alpha)
 	}
 	
 	yOffset += 0.06
