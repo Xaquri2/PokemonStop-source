@@ -79,7 +79,9 @@ if (keyboard_check_pressed(vk_enter))
 						{
 							//Player Move
 							var moveEff = GetMoveEffect(moveName)
-							var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
+							var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
+							var isCrit = RollCriticalChance(playerPkmn)
+							if (isCrit) damage *= 1.5
 							battleText.playerMoveName = moveName
 							battleText.playerDamage = damage
 			
@@ -89,8 +91,11 @@ if (keyboard_check_pressed(vk_enter))
 							var paralysisCheck = ParalysisCheck()
 							if ((pStatus == "Paralysis" and paralysisCheck))
 							{			
+								var moveString = string_concat(GetName(battle.playerPkmn), " used ", moveName, ".")
+								if (isCrit) moveString = string_concat(moveString, " It was a critical hit!")
+								
 								ConsumePP(battle.playerPkmn, currentOption)
-								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
+								ds_list_add(battleText.textList, moveString)
 				
 								var moveAcc = GetMoveAccurancy(moveName)
 								var effectAcc = GetMoveEffectChance(moveName)*100
@@ -157,6 +162,8 @@ if (keyboard_check_pressed(vk_enter))
 								moveName = enemyMoveName
 								moveEff = GetMoveEffect(moveName)
 								damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+								isCrit = RollCriticalChance(enemyPkmn)
+								if (isCrit) damage *= 1.5
 								battleText.enemyMoveName = moveName
 								battleText.enemyDamage = damage
 				
@@ -167,8 +174,11 @@ if (keyboard_check_pressed(vk_enter))
 								paralysisCheck = ParalysisCheck()
 								if ((eStatus == "Paralysis" and paralysisCheck))
 								{			
+									var moveString = string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName)
+									if (isCrit) moveString = string_concat(moveString, " It was a critical hit!")
+									
 									ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-									ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+									ds_list_add(battleText.textList, moveString)
 		
 									var moveAcc = GetMoveAccurancy(moveName)
 									var effectAcc = GetMoveEffectChance(moveName)*100
@@ -242,6 +252,8 @@ if (keyboard_check_pressed(vk_enter))
 							moveName = enemyMoveName
 							var moveEff = GetMoveEffect(moveName)
 							var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+							var isCrit = RollCriticalChance(enemyPkmn)
+							if (isCrit) damage *= 1.5
 							battleText.enemyMoveName = moveName
 							battleText.enemyDamage = damage
 			
@@ -251,8 +263,11 @@ if (keyboard_check_pressed(vk_enter))
 							var paralysisCheck = ParalysisCheck()
 							if ((eStatus == "Paralysis" and paralysisCheck))
 							{
+								var moveString = string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, ".")
+								if (isCrit) moveString = string_concat(moveString, " It was a critical hit!")
+								
 								ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
+								ds_list_add(battleText.textList, moveString)
 			
 								var moveAcc = GetMoveAccurancy(moveName)
 								var effectAcc = GetMoveEffectChance(moveName)*100
@@ -312,7 +327,9 @@ if (keyboard_check_pressed(vk_enter))
 								//Player Move
 								moveName = playerMoveName
 								moveEff = GetMoveEffect(moveName)
-								damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)		
+								damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)	
+								isCrit = RollCriticalChance(playerPkmn)
+								if (isCrit) damage *= 1.5
 								battleText.moveName = moveName
 								battleText.playerMoveName = moveName
 								battleText.playerDamage = damage
@@ -324,8 +341,11 @@ if (keyboard_check_pressed(vk_enter))
 								paralysisCheck = ParalysisCheck()
 								if ((pStatus == "Paralysis" and paralysisCheck))
 								{
+									var moveString = string_concat(GetName(battle.playerPkmn), " used ", moveName, ".")
+									if (isCrit) moveString = string_concat(moveString, " It was a critical hit!")
+									
 									ConsumePP(battle.playerPkmn, currentOption)
-									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
+									ds_list_add(battleText.textList, moveString)
 				
 									var moveAcc = GetMoveAccurancy(moveName)
 									var effectAcc = GetMoveEffectChance(moveName)*100

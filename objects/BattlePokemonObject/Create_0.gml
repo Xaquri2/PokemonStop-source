@@ -20,6 +20,7 @@ defenseModifier = 0
 spAtkModifier = 0
 spDefModifier = 0
 speedModifier = 0
+critModifier = 0
 
 status = ""
 sleepCounter = 0

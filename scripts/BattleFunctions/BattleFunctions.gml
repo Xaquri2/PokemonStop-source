@@ -63,6 +63,18 @@ function GetRecoilDamage(pkmn, moveName)
 	}
 }
 
+function RollCriticalChance(critMod)
+{
+	var value = floor(random_range(0,101))
+	switch (critMod)
+	{
+		case 0: return value <= 1/24
+		case 1: return value <= 1/8
+		case 2: return value <= 1/2
+		default: return true
+	}
+}
+
 function GetEffectPower(pkmn, targetPkmn, effectName)
 {
 	switch (effectName)
