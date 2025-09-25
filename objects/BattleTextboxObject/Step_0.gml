@@ -23,10 +23,8 @@ if (expGainValue > 0 and expGaining)
 	expGainValue--
 	
 	var levelNew = GetLevel(playerPkmn)
-	if (levelNew > level)
-	{
-		ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
-	}
+	if (levelNew > level and !leveledUp) leveledUp = true
+	if (expGainValue <= 0) ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
 		
 	var entity = -1
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)

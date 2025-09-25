@@ -101,7 +101,7 @@ if (keyboard_check_pressed(vk_enter))
 								var effectAcc = GetMoveEffectChance(moveName)*100
 				
 								var accRoll = floor(random_range(0,101))
-								if (accRoll <= moveAcc) 
+								if (accRoll <= moveAcc*0.95) 
 								{
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
@@ -158,8 +158,27 @@ if (keyboard_check_pressed(vk_enter))
 				
 							if (GetHealth(battle.enemyPkmn) > damage)
 							{
+								struggle = true 
+				
+								if (!ds_list_empty(optionsList))
+								{
+									var eMoves = GetMoves(battle.enemyPkmn)
+									for (var i = 0; i < ds_list_size(eMoves); i++)
+									{
+										moveName = ds_list_find_value(eMoves, i)
+										moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.enemyPkmn), currentOption))
+										if (moveCurrentPP != 0)
+										{
+											struggle = false
+											break
+										}
+									}
+								}
+				
 								//Enemy Move
-								moveName = enemyMoveName
+								if (!struggle) moveName = enemyMoveName
+								else moveName = "Struggle"
+								
 								moveEff = GetMoveEffect(moveName)
 								damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 								isCrit = RollCriticalChance(enemyPkmn)
@@ -182,7 +201,7 @@ if (keyboard_check_pressed(vk_enter))
 		
 									var moveAcc = GetMoveAccurancy(moveName)
 									var effectAcc = GetMoveEffectChance(moveName)*100
-									if (floor(random_range(0,101)) <= moveAcc) 
+									if (floor(random_range(0,101)) <= moveAcc*0.95) 
 									{
 										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
@@ -249,7 +268,27 @@ if (keyboard_check_pressed(vk_enter))
 						}
 						else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
 						{
-							moveName = enemyMoveName
+							struggle = true 
+				
+							if (!ds_list_empty(optionsList))
+							{
+								battle = instance_find(BattleObject, 0)
+								var eMoves = GetMoves(battle.enemyPkmn)
+								for (var i = 0; i < ds_list_size(eMoves); i++)
+								{
+									moveName = ds_list_find_value(eMoves, i)
+									moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.enemyPkmn), currentOption))
+									if (moveCurrentPP != 0)
+									{
+										struggle = false
+										break
+									}
+								}
+							}
+				
+							if (!struggle) moveName = enemyMoveName
+							else moveName = "Struggle"
+							
 							var moveEff = GetMoveEffect(moveName)
 							var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 							var isCrit = RollCriticalChance(enemyPkmn)
@@ -271,7 +310,7 @@ if (keyboard_check_pressed(vk_enter))
 			
 								var moveAcc = GetMoveAccurancy(moveName)
 								var effectAcc = GetMoveEffectChance(moveName)*100
-								if (floor(random_range(0,101)) <= moveAcc) 
+								if (floor(random_range(0,101)) <= moveAcc*0.95) 
 								{
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
@@ -324,8 +363,28 @@ if (keyboard_check_pressed(vk_enter))
 					
 							if (GetHealth(battle.playerPkmn) > damage)
 							{
+								struggle = true 
+				
+								if (!ds_list_empty(optionsList))
+								{
+									battle = instance_find(BattleObject, 0)
+									var pMoves = GetMoves(battle.playerPkmn)
+									for (var i = 0; i < ds_list_size(pMoves); i++)
+									{
+										moveName = ds_list_find_value(pMoves, i)
+										moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.playerPkmn), currentOption))
+										if (moveCurrentPP != 0)
+										{
+											struggle = false
+											break
+										}
+									}
+								}
+				
 								//Player Move
-								moveName = playerMoveName
+								if (!struggle) moveName = playerMoveName
+								else moveName = "Struggle"
+								
 								moveEff = GetMoveEffect(moveName)
 								damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)	
 								isCrit = RollCriticalChance(playerPkmn)
@@ -349,7 +408,7 @@ if (keyboard_check_pressed(vk_enter))
 				
 									var moveAcc = GetMoveAccurancy(moveName)
 									var effectAcc = GetMoveEffectChance(moveName)*100
-									if (floor(random_range(0,101)) <= moveAcc) 
+									if (floor(random_range(0,101)) <= moveAcc*0.95) 
 									{
 										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)

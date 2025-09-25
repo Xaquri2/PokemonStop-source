@@ -1095,7 +1095,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Flying", "Physical", 80, 100, 20, "None", 0, 1, 0);
             break;
         case "Shadow Punch":
-            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 100, 20, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 1000, 20, "None", 0, 1, 0);
             break;
         case "Shadow Ball":
             ds_list_add(moveInfo, moveName, "Ghost", "Special", 80, 100, 15, "LowerSpDef", 0.2, 1, 0);
@@ -1159,8 +1159,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 0);
             break;
         case "Aura Sphere":
-            // Typically never misses in main games; here we set 100% accuracy
-            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 100, 20, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 1000, 20, "None", 0, 1, 0);
             break;
         case "Flux":
             // MissingNo’s reality-bending move
@@ -1205,7 +1204,7 @@ function GetMoveDetails(moveName)
 
         default:
             // If a move is unrecognized, return Struggle
-            ds_list_add(moveInfo, "Struggle", "Normal", "Physical", 50, 100, 30, "StruggleRecoil", 1, 0, 0);
+            ds_list_add(moveInfo, "Struggle", "Normal", "Physical", 50, 1000, 30, "StruggleRecoil", 1, 0, 0);
             break;
     }
 	return moveInfo

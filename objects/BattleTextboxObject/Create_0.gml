@@ -24,6 +24,7 @@ defeat = false
 
 expGaining = false
 expGainValue = 0
+leveledUp = false
 
 damaging = false
 damageValue = 0
