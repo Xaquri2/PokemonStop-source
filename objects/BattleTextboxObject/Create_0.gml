@@ -9,7 +9,7 @@ playerMoveName = ""
 enemyMoveName = ""
 playerPkmn = ds_list_create()
 enemyPkmn = ds_list_create()
-nextPkmn = -1
+nextPkmn = noone
 
 playerDamage = 0
 enemyDamage = 0
@@ -25,6 +25,7 @@ defeat = false
 expGaining = false
 expGainValue = 0
 leveledUp = false
+listLevelUpMoves = ds_list_create()
 
 damaging = false
 damageValue = 0

@@ -25,7 +25,26 @@ if (expGainValue > 0 and expGaining)
 	var levelNew = GetLevel(playerPkmn)
 	if (levelNew > level and !leveledUp) leveledUp = true
 	if (expGainValue <= 0) ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
-		
+	
+	if (leveledUp)
+	{
+		var newMoveName = LearnsMoveAt(GetName(playerPkmn), levelNew)
+		var moveList = GetMoves(playerPkmn)
+		if (newMoveName != "")
+		{
+			if (ds_list_size(moveList) < 4)
+			{
+				LearnMove(playerPkmn, newMoveName, ds_list_size(moveList)-1)
+			}
+			else
+			{
+				ds_list_add(listLevelUpMoves, newMoveName)
+				ds_list_add(textList, string_concat("Your Pokemon wants to learn ", newMoveName),
+				"However, it already knows four moves", "Would you like to replace one?")
+			}
+		}
+	}
+	
 	var entity = -1
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
 	{

@@ -1220,6 +1220,13 @@ function GetMoveEffectChance(moveName) { return ds_list_find_value(GetMoveDetail
 function GetMoveCritMultiplier(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 8) }
 function GetMovePriority(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 9) }
 
+function LearnMove(pkmnInfo, moveName, pos)
+{
+	var movesList = ds_list_find_value(pkmnInfo, 6)
+	if (ds_list_size(movesList) < 4) ds_list_add(movesList, moveName)
+	else ds_list_replace(movesList, pos, moveName)
+}
+
 /// @param {string}   name    The name of the Pokémon to search the learnset of
 /// @param {string}   level   The level to check if the given Pokémon learns a move at
 /// @description              Returns the name of any move the Pokémon might learn at the given level.

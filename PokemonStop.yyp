@@ -107,6 +107,7 @@
     {"id":{"name":"Mary","path":"objects/Mary/Mary.yy",},},
     {"id":{"name":"MenuObject","path":"objects/MenuObject/MenuObject.yy",},},
     {"id":{"name":"MerchantMenuObject","path":"objects/MerchantMenuObject/MerchantMenuObject.yy",},},
+    {"id":{"name":"MoveReplaceObject","path":"objects/MoveReplaceObject/MoveReplaceObject.yy",},},
     {"id":{"name":"MusicObject","path":"objects/MusicObject/MusicObject.yy",},},
     {"id":{"name":"NPCParent","path":"objects/NPCParent/NPCParent.yy",},},
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},},
