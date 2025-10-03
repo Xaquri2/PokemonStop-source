@@ -1,4 +1,4 @@
-if (charNumber < string_length(ds_list_find_value(textList, currentText)))
+if (!inactive and charNumber < string_length(ds_list_find_value(textList, currentText)))
 {
 	charCounter++
 	if (charCounter >= 2) 
@@ -34,12 +34,14 @@ if (expGainValue > 0 and expGaining)
 		{
 			if (ds_list_size(moveList) < 4)
 			{
+				ds_list_add(textList, string_concat("Your Pokemon learned ", newMoveName, "!"),
+				"However, it already knows four moves", "Would you like to replace one?")
 				LearnMove(playerPkmn, newMoveName, ds_list_size(moveList)-1)
 			}
 			else
 			{
 				ds_list_add(listLevelUpMoves, newMoveName)
-				ds_list_add(textList, string_concat("Your Pokemon wants to learn ", newMoveName),
+				ds_list_add(textList, string_concat("Your Pokemon wants to learn ", newMoveName, "."),
 				"However, it already knows four moves", "Would you like to replace one?")
 			}
 		}

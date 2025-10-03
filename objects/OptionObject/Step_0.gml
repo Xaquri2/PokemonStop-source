@@ -426,4 +426,33 @@ if (keyboard_check_pressed(vk_enter))
 		player.alarm[1] = 1
 		instance_destroy(id)
 	}
+	
+	if (string_count("replace", question) > 0)
+	{
+		if (currentOption == 0)
+		{
+			var moveReplace = instance_create_layer(0,0,"UIElements",MoveReplaceObject)
+			moveReplace.newMove = newMove
+			moveReplace.moveList = moveList
+		}
+		else
+		{
+			menu.inactive = false
+			menu.visible = true
+		}
+		
+		instance_destroy(id)
+	}
+	
+	if (string_count("stop learning", question) > 0)
+	{
+		if (string("option", currentOption) == "Yes")
+		{
+			
+		}
+		else if (string("option", currentOption) == "No")
+		{
+		
+		}
+	}
 }

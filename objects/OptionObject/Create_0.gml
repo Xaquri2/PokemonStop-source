@@ -11,5 +11,8 @@ buyItem = ""
 buyQuantity = 1
 quickIncrementValue = 30
 
+newMove = ""
+moveList = noone
+
 image_xscale = 4
 image_yscale = 4

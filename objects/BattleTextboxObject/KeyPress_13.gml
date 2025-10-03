@@ -1,4 +1,4 @@
-if (!catching and !switching)
+if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !switching and !inactive)
 {
 	if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 	{
@@ -9,9 +9,22 @@ if (!catching and !switching)
 	{
 		if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 		{
-			if (currentText+1 >= ds_list_size(textList))
+			if (currentText+1 > ds_list_size(textList))
 			{
 				alarm[0] = 15
+			}
+			else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
+			{
+				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+				optionMenu.menu = id
+				optionMenu.question = "Would you like to replace a move?"
+				optionMenu.option1 = "Yes"
+				optionMenu.option2 = "No"
+				optionMenu.newMove = ds_list_find_value(listLevelUpMoves, 0)
+				optionMenu.moveList = GetMoves(playerPkmn)
+
+				inactive = true
+				visible = false
 			}
 			else
 			{

@@ -1,4 +1,4 @@
-if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !switching)
+if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !switching and !inactive)
 {
 	recoil = false
 	currentText++
@@ -11,11 +11,37 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 		{
 			alarm[0] = 15
 		}
+		else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
+		{
+			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+			optionMenu.menu = id
+			optionMenu.question = "Would you like to replace a move?"
+			optionMenu.option1 = "Yes"
+			optionMenu.option2 = "No"
+			optionMenu.newMove = ds_list_find_value(listLevelUpMoves, 0)
+			optionMenu.moveList = GetMoves(playerPkmn)
+
+			inactive = true
+			visible = false
+		}
+		else if (string_count("stop learning", ds_list_find_value(textList, ds_list_size(textList)-1)) > 0)
+		{
+			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+			optionMenu.menu = id
+			optionMenu.question = "Would you like to stop learning a new move?"
+			optionMenu.option1 = "Yes"
+			optionMenu.option2 = "No"
+			optionMenu.target = id
+			
+			inactive = true
+			visible = false
+		}
 		else
 		{
 			if (alarm[1] < 0)
 			{
 				var text = ds_list_find_value(textList, currentText)
+				
 				if (string_count("used", text) > 0) //Player and enemy attacks
 				{
 					if (string_count("You", text) > 0)

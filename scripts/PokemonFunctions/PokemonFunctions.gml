@@ -86,7 +86,7 @@ function GetWildPokemon()
 	
 	var pkmn = ds_list_create()
 	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))
-	var level = floor(random_range(10,20))
+	var level = floor(random_range(10,15))
 	var gender = "Male"
 	if (floor(random_range(1,3)) > 1) gender = "Female"
 	var sprite = GetSpriteByNumber(GetNumberByName(name))
@@ -1240,10 +1240,11 @@ function LearnsMoveAt(name, level)
         //--------------------------------
         case "Pikachu":
             if (level == 1)  return "Thunder Wave";//return "Thunder Shock";
-            if (level == 4)  return "Quick Attack";/*
+            if (level == 4)  return "Quick Attack";
             if (level == 8)  return "Electro Ball";
             if (level == 12) return "Thunderbolt";
-			if (level == 15) return "Thunder Wave";*/
+			if (level == 16) return "Thunder Wave";
+			if (level == 17) return "Tackle";
             break;
 
         case "Voltorb":

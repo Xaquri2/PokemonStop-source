@@ -1,4 +1,7 @@
+inactive = false
+
 textList = ds_list_create()
+interruptedTextList = ds_list_create()
 
 currentText = 0
 charCounter = 0
@@ -24,6 +27,8 @@ defeat = false
 
 expGaining = false
 expGainValue = 0
+
+newMoveTrigger = false
 leveledUp = false
 listLevelUpMoves = ds_list_create()
 
