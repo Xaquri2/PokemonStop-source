@@ -1,0 +1,1 @@
+SetWarpDefaults("GinkgoToMallet", "Down", false)

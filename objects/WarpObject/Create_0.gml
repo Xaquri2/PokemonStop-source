@@ -4,5 +4,5 @@ targetRoom = noone
 targetWarp = ""
 
 warpName = ""
-spawnDirection = "Down"
+spawnDirection = "Up"
 alarm[0] = 1

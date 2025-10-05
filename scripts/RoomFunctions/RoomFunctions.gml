@@ -19,8 +19,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TestToMalletHouse1"
 			break
 		case "MalletHouse3ToTest":
-			targetRoom = TestRoom
-			targetWarp = "TestToMalletHouse1"
+			targetRoom = GinkgoLab
+			targetWarp = "GinkgoToMallet"
 			break
 		case "MalletToMinusOne":
 			targetRoom = RouteMinusOneBottom
@@ -44,6 +44,13 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = RouteMinusOneBottom
 			targetWarp = "MinusOneToMutant"
 			break
+			
+		#region GinkgoLab
+		case "GinkgoToMallet":
+			targetRoom = Mallet_Town
+			targetWarp = "MalletHouse3ToTest"
+			break
+		#endregion
 	}
 	
 	warpName = name
