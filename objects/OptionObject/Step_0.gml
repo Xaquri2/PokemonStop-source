@@ -22,9 +22,17 @@ if (alarm[1] > 0 and !keyboard_check(ord("A"))) alarm[1] = -1
 
 if (keyboard_check_pressed(ord("E"))) 
 {
-	menu.optionMenu = noone
-	menu.hasSelected = false
-	instance_destroy(id)
+	if (menu.object_index == BattleTextboxObject)
+	{
+		menu.visible = true
+		menu.inactive = false
+	}
+	else
+	{
+		menu.optionMenu = noone
+		menu.hasSelected = false
+		instance_destroy(id)
+	}
 }
 
 if (keyboard_check_pressed(vk_enter))
@@ -434,6 +442,7 @@ if (keyboard_check_pressed(vk_enter))
 			var moveReplace = instance_create_layer(0,0,"UIElements",MoveReplaceObject)
 			moveReplace.newMove = newMove
 			moveReplace.moveList = moveList
+			moveReplace.menu = menu
 		}
 		else
 		{
@@ -446,13 +455,27 @@ if (keyboard_check_pressed(vk_enter))
 	
 	if (string_count("stop learning", question) > 0)
 	{
-		if (string("option", currentOption) == "Yes")
+		if (currentOption == 0)
 		{
+			ds_list_set(menu.textList, ds_list_size(menu.textList)-1, string_concat("You stopped learning ", newMove, "!"))
+		}
+		else if (currentOption == 1)
+		{
+			var youWinText = ""
+			if (ds_list_find_value(menu.textList, ds_list_size(menu.textList)-1) == "You win!") 
+			{
+				ds_list_delete(menu.textList, ds_list_size(menu.textList)-1)
+				youWinText = "You win!"
+			}
 			
+			ds_list_add(menu.textList, string_concat("Your Pokemon wants to learn ", newMove, "."),
+			"However, it already knows four moves", "Would you like to replace one?")
+			
+			if (youWinText != "") ds_list_add(menu.textList, youWinText)
 		}
-		else if (string("option", currentOption) == "No")
-		{
 		
-		}
+		menu.inactive = false
+		menu.visible = true
+		instance_destroy(id)
 	}
 }

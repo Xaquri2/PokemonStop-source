@@ -24,7 +24,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			inactive = true
 			visible = false
 		}
-		else if (string_count("stop learning", ds_list_find_value(textList, ds_list_size(textList)-1)) > 0)
+		else if (string_count("stop learning", ds_list_find_value(textList, currentText-1)) > 0)
 		{
 			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 			optionMenu.menu = id
@@ -300,12 +300,12 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					
 					if (string_count("opposing", text) == 0) 
 					{
-						whoAttacked = "Enemy"
+						whoAttacked = "Player"
 						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 					else 
 					{
-						whoAttacked = "Player"
+						whoAttacked = "Enemy"
 						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 					

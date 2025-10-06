@@ -26,6 +26,18 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				inactive = true
 				visible = false
 			}
+			else if (string_count("stop learning", ds_list_find_value(textList, currentText-1)) > 0)
+			{
+				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+				optionMenu.menu = id
+				optionMenu.question = "Would you like to stop learning a new move?"
+				optionMenu.option1 = "Yes"
+				optionMenu.option2 = "No"
+				optionMenu.target = id
+			
+				inactive = true
+				visible = false
+			}
 			else
 			{
 				if (alarm[1] < 0)
@@ -286,12 +298,12 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					
 						if (string_count("opposing", text) == 0) 
 						{
-							whoAttacked = "Enemy"
+							whoAttacked = "Player"
 							pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 						}
 						else 
 						{
-							whoAttacked = "Player"
+							whoAttacked = "Enemy"
 							eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 						}
 					
