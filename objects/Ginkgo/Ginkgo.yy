@@ -9,7 +9,10 @@
     "name":"Characters",
     "path":"folders/Objects/Characters.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"NPCParent",
+    "path":"objects/NPCParent/NPCParent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

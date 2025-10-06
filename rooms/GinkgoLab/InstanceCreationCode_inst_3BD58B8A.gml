@@ -1,1 +1,1 @@
-SetWarpDefaults("GinkgoToMallet", "Down", false)
+SetWarpDefaults("GinkgoToMallet", "Up", false)
