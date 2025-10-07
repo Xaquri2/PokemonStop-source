@@ -79,6 +79,7 @@ function GetRoomMusic()
 		case RoomBattle: return WildBattleTheme
 		case MutantPath1: return MutantPathAmbiance
 		case TestRoom: return SacredBeasts
+		case GinkgoLab: return PokeGymLofi
 	}
 	return noone
 }
