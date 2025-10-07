@@ -1,0 +1,1 @@
+SetWarpDefaults("UpstairsToGash", "Down", false)
