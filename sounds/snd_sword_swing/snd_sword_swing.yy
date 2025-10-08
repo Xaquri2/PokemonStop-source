@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.676917,
+  "duration":0.6769388,
   "name":"snd_sword_swing",
   "parent":{
     "name":"Characters",

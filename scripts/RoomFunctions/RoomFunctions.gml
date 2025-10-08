@@ -99,6 +99,8 @@ function GetRoomMusic()
 		case MutantPath1: return MutantPathAmbiance
 		case TestRoom: return SacredBeasts
 		case GinkgoLab: return PokeGymLofi
+		case GashHouse: return SacredBeasts
+		case GashUpstairs: return SacredBeasts
 	}
 	return noone
 }

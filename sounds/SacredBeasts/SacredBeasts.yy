@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"SacredBeasts.mp3",
   "type":0,
-  "volume":0.48,
+  "volume":0.28,
 }
