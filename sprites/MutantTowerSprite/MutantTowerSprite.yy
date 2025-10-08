@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"MutantTowerSprite",
   "bboxMode":0,
-  "bbox_bottom":1535,
+  "bbox_bottom":1469,
   "bbox_left":0,
   "bbox_right":1023,
   "bbox_top":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"d1377bbd-b33e-4629-9c92-b40f4781cbd3","name":"d1377bbd-b33e-4629-9c92-b40f4781cbd3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"dcd9754d-339b-4b71-8b22-86dc46f58d87","name":"dcd9754d-339b-4b71-8b22-86dc46f58d87","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":1536,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"eba44375-f965-490a-8644-4b84afc1f439","blendMode":0,"displayName":"default","isLocked":false,"name":"eba44375-f965-490a-8644-4b84afc1f439","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"76c27248-fb48-4ae5-b4cd-f64a0697b78d","blendMode":0,"displayName":"default","isLocked":false,"name":"76c27248-fb48-4ae5-b4cd-f64a0697b78d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"MutantTowerSprite",
   "nineSlice":null,
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d1377bbd-b33e-4629-9c92-b40f4781cbd3","path":"sprites/MutantTowerSprite/MutantTowerSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"1db33184-29af-40ce-9ed5-49317884d8d0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"dcd9754d-339b-4b71-8b22-86dc46f58d87","path":"sprites/MutantTowerSprite/MutantTowerSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"61af7b4f-0baa-4a7b-9558-f107b7f14396","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
