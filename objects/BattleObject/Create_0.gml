@@ -9,8 +9,8 @@ playerY = 0
 trainerX = 0
 trainerY = 0
 
-playerPkmn = ds_list_create()
-enemyPkmn = ds_list_create()
+playerPkmn = noone
+enemyPkmn = noone
 
 playerTeam = global.playerParty
 enemyTeam = ds_list_create()

@@ -1246,7 +1246,7 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Quick Attack";
             if (level == 8)  return "Electro Ball";
             if (level == 12) return "Thunderbolt";
-			if (level == 16) return "Thunder Wave";
+			if (level == 16) return "Growl";
 			if (level == 17) return "Tackle";
             break;
 

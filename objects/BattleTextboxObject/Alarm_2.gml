@@ -7,9 +7,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 	if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 	{
+		var text = ds_list_find_value(textList, currentText)
+		
 		if (currentText+1 > ds_list_size(textList))
 		{
 			alarm[0] = 15
+		}
+		else if (string_count("learned", text) > 0 and string_count("forgot", text) == 0)
+		{
+			LearnMove(battle.playerPkmn, newMove, -1)
 		}
 		else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
 		{
@@ -32,6 +38,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			optionMenu.option1 = "Yes"
 			optionMenu.option2 = "No"
 			optionMenu.target = id
+			optionMenu.newMove = ds_list_find_value(listLevelUpMoves, 0)
+			optionMenu.moveList = GetMoves(playerPkmn)
 			
 			inactive = true
 			visible = false
@@ -40,8 +48,6 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 		{
 			if (alarm[1] < 0)
 			{
-				var text = ds_list_find_value(textList, currentText)
-				
 				if (string_count("used", text) > 0) //Player and enemy attacks
 				{
 					if (string_count("You", text) > 0)
