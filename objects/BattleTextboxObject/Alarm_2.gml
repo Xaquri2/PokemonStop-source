@@ -323,6 +323,14 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					attackC.whoAttacked = whoAttacked
 					attackC.particleSpawnTime = floor(alarm[1] / 2)
 				}
+				else if (string_count("You lose!", text) > 0)
+				{
+					var battle = instance_find(BattleObject, 0)
+					for (var i = 0; i < ds_list_size(battle.playerTeam); i++)
+					{
+						HealPokemon(battle.playerTeam, i, 1000000, true)
+					}
+				}
 			}
 		}
 	}
