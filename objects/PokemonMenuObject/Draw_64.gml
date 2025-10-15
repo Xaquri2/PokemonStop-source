@@ -161,7 +161,7 @@ else
 		string_concat(statName, stat), 2, 2, image_angle)
 	}
 	
-	var moves = GetLevelUpMoveset(name, level)
+	var moves = GetMoves(pkmnInfo)
 	var xOffset = 0
 	var yOffset = 0
 	for (var i = 0; i < ds_list_size(moves); i++)

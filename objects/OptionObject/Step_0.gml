@@ -458,6 +458,7 @@ if (keyboard_check_pressed(vk_enter))
 		if (currentOption == 0)
 		{
 			ds_list_set(menu.textList, ds_list_size(menu.textList)-1, string_concat("You stopped learning ", newMove, "!"))
+			ds_list_delete(menu.listLevelUpMoves, 0)
 		}
 		else if (currentOption == 1)
 		{

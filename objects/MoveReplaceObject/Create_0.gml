@@ -5,5 +5,7 @@ newMove = ""
 moveList = ds_list_create()
 currentOption = 0
 
+battle = instance_find(BattleObject, 0)
+
 image_xscale = 4
 image_yscale = 4

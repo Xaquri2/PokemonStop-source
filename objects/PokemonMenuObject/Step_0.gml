@@ -74,7 +74,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 			{
 				if (instance_number(PlayerObject) > 0)
 				{
-					HealPokemon(global.playerParty, selectedIndex, healValue, true)
+					HealPokemon(global.playerParty, selectedIndex, healValue, true, false)
 					var player = instance_find(PlayerObject, 0)
 					player.alarm[0] = 5
 				}
@@ -149,7 +149,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 						string_concat(GetName(battle.playerPkmn)," fainted!"))
 					}
 	
-					HealPokemon(global.playerParty, selectedIndex, 20, true)
+					HealPokemon(global.playerParty, selectedIndex, 20, true, false)
 					instance_destroy(battleMenu)
 				}
 				

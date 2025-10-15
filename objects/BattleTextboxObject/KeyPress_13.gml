@@ -9,9 +9,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 	{
 		if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 		{
+			var text = ds_list_find_value(textList, currentText)
+			
 			if (currentText+1 > ds_list_size(textList))
 			{
 				alarm[0] = 15
+			}
+			else if (string_count("learned", text) > 0 and string_count("forgot", text) == 0)
+			{
+				LearnMove(battle.playerPkmn, newMove, -1)
 			}
 			else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
 			{
@@ -47,7 +53,6 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					charCounter = 0
 					charNumber = 0
 					alarm[2] = -1
-					var text = ds_list_find_value(textList, currentText)
 					if (string_count("used", text) > 0) //Player and enemy attacks
 					{
 						if (string_count("You", text) > 0)
@@ -314,6 +319,14 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						attackC.moveName = moveName
 						attackC.whoAttacked = whoAttacked
 						attackC.particleSpawnTime = floor(alarm[1] / 2)
+					}
+					else if (string_count("You lose!", text) > 0)
+					{
+						var battle = instance_find(BattleObject, 0)
+						for (var i = 0; i < ds_list_size(battle.playerTeam); i++)
+						{
+							HealPokemon(battle.playerTeam, i, 1000000, true)
+						}
 					}
 				}
 			}
