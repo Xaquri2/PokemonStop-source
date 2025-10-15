@@ -8,4 +8,4 @@ battleObj.enemyName = "Human"
 battleObj.isWild = true
 battleObj.playerX = other.x
 battleObj.playerY = other.y
-battleObj.playerRoom = other.room
+battleObj.playerRoom = room

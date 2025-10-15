@@ -9,14 +9,16 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 	{
 		if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 		{
-			var text = ds_list_find_value(textList, currentText)
+			var text = ds_list_find_value(textList, currentText+1)
 			
-			if (currentText+1 > ds_list_size(textList))
+			if (currentText > ds_list_size(textList))
 			{
-				alarm[0] = 15
+				if (!endBattle) var battleMenu = instance_create_layer(x,y,"UIElements",BattleMenuObject)
+				instance_destroy(id)
 			}
 			else if (string_count("learned", text) > 0 and string_count("forgot", text) == 0)
 			{
+				var battle = instance_find(BattleObject, 0)
 				LearnMove(battle.playerPkmn, newMove, -1)
 			}
 			else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
