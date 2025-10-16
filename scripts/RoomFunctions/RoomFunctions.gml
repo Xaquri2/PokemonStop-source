@@ -7,6 +7,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = Mallet_Town
 			targetWarp = "MalletHouse1ToTest"
 			break
+		case "TestToMutant":
+			targetRoom = MutantPath1
+			targetWarp = "MutantToBuilding"
+			break
 		#endregion
 		
 		#region Mallet Town
@@ -26,6 +30,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = RouteMinusOneBottom
 			targetWarp = "MinusOneToMallet"
 			break
+		case "MalletToTest":
+			targetRoom = TestRoom
+			targetWarp = "TestToMalletHouse1"
+			break
 		#endregion
 		
 		#region Route Minus One
@@ -43,6 +51,10 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "MutantToMinusOne":
 			targetRoom = RouteMinusOneBottom
 			targetWarp = "MinusOneToMutant"
+			break
+		case "MutantToBuilding":
+			targetRoom = TestRoom
+			targetWarp = "TestToMalletHouse1"
 			break
 			
 		#region GinkgoLab
