@@ -1,4 +1,4 @@
-if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !switching and !inactive)
+/*if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !switching and !inactive)
 {
 	if (charNumber < string_length(ds_list_find_value(textList, currentText)))
 	{
@@ -334,4 +334,4 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			}
 		}
 	}
-}
+}*/
