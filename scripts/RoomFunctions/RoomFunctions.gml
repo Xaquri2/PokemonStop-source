@@ -53,8 +53,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MinusOneToMutant"
 			break
 		case "MutantToBuilding":
-			targetRoom = TestRoom
-			targetWarp = "TestToMalletHouse1"
+			targetRoom = TiltedBuildingInterior
+			targetWarp = "TiltedToMutant"
 			break
 			
 		#region GinkgoLab
@@ -79,6 +79,13 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "UpstairsToGash":
 			targetRoom = GashHouse
 			targetWarp = "GashToUpstair"
+			break
+		#endregion
+		
+			#region TiltedBuilding
+		case "TiltedToMutant":
+			targetRoom = MutantPath1
+			targetWarp = "MutantToBuilding"
 			break
 		#endregion
 		
