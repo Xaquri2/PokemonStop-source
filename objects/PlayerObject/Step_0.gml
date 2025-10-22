@@ -49,7 +49,7 @@ if (canWalk and !talking and !battle)
 var collidedTile = collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed, 
 bbox_right+hspeed, bbox_top+vspeed, CollisionParent, false, true)
 
-if (collidedTile != noone) 
+if (instance_exists(collidedTile)) 
 {
 	if (collidedTile.object_index == TiltedFloor)
 	{

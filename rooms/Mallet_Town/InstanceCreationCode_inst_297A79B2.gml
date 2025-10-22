@@ -1,0 +1,1 @@
+ds_list_add(textList, "Welcome to Mallet Town, your home town. Enjoy your calm life!")

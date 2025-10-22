@@ -10,8 +10,8 @@
     "path":"folders/Objects/Level.yy",
   },
   "parentObjectId":{
-    "name":"CollisionParent",
-    "path":"objects/CollisionParent/CollisionParent.yy",
+    "name":"NPCParent",
+    "path":"objects/NPCParent/NPCParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

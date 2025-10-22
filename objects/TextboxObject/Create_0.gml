@@ -8,6 +8,7 @@ itemCount = 1
 
 currentText = 0
 actionNPC = -1
+charCounterMax = 2
 charCounter = 0
 charNumber = 0
 
