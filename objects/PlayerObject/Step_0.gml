@@ -53,7 +53,7 @@ if (collidedTile != noone)
 {
 	if (collidedTile.object_index == TiltedFloor)
 	{
-		if (hspeed != 0) y -= 5
+		if (hspeed != 0) y -= 1
 	}
 	else
 	{
