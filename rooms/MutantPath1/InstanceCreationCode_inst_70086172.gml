@@ -1,1 +1,0 @@
-SetWarpDefaults("MutantToBuilding", "Down", false)

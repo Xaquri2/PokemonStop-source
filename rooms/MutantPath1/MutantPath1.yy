@@ -31,7 +31,6 @@
     {"name":"inst_7A556092","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_6B5CC663","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_353E690D","path":"rooms/MutantPath1/MutantPath1.yy",},
-    {"name":"inst_70086172","path":"rooms/MutantPath1/MutantPath1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -65,7 +64,6 @@
         {"$GMRInstance":"v2","%Name":"inst_2DAF295C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2DAF295C","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-43.713963,"scaleX":1.8247697,"scaleY":3.591699,"x":11.196512,"y":319.43683,},
         {"$GMRInstance":"v2","%Name":"inst_7A556092","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7A556092","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-139.2229,"scaleX":1.7310197,"scaleY":2.654199,"x":499.99997,"y":312.9375,},
         {"$GMRInstance":"v2","%Name":"inst_6B5CC663","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6B5CC663","objectId":{"name":"BasicSign","path":"objects/BasicSign/BasicSign.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5754533,"scaleY":0.61150026,"x":98.585495,"y":430.91843,},
-        {"$GMRInstance":"v2","%Name":"inst_70086172","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70086172","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":4.0,"scaleY":1.0,"x":224.0,"y":288.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Walls","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Walls","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":119,"SerialiseWidth":32,"TileCompressedData":[
           -1664,-2147483648,-3,0,-1374,-2147483648,1,210,-4,-2147483648,1,215,-26,-2147483648,1,210,-4,-2147483648,

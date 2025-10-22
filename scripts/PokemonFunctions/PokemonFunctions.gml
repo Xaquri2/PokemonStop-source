@@ -336,6 +336,7 @@ function GetSprite(pkmnInfo) { return ds_list_find_value(pkmnInfo, 4) }
 function GetHealth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 5) }
 function GetMoves(pkmnInfo) { return ds_list_find_value(pkmnInfo, 6) }
 function GetMovePPList(pkmnInfo) { return ds_list_find_value(pkmnInfo, 7) }
+function SetMovePP(movePPList, moveIndex, amount) { ds_list_set(movePPList, moveIndex, amount) }
 function GetExp(pkmnInfo) { return ds_list_find_value(pkmnInfo, 8) }
 function GetGrowth(pkmnInfo) { return ds_list_find_value(pkmnInfo, 9) }
 function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
@@ -1225,9 +1226,18 @@ function GetMovePriority(moveName) { return ds_list_find_value(GetMoveDetails(mo
 
 function LearnMove(pkmnInfo, moveName, pos)
 {
-	var movesList = ds_list_find_value(pkmnInfo, 6)
-	if (ds_list_size(movesList) < 4) ds_list_add(movesList, moveName)
-	else ds_list_replace(movesList, pos, moveName)
+	var movesList = GetMoves(pkmnInfo)
+	var movesPPList = GetMovePPList(pkmnInfo)
+	if (ds_list_size(movesList) < 4) 
+	{
+		ds_list_add(movesList, moveName)
+		ds_list_add(movesPPList, GetMovePP(moveName))
+	}
+	else 
+	{
+		ds_list_replace(movesList, pos, moveName)
+		ds_list_replace(movesPPList, pos, GetMovePP(moveName))
+	}
 }
 
 /// @param {string}   name    The name of the Pokémon to search the learnset of
@@ -1496,7 +1506,7 @@ function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
 	return floor((baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue)
 }
 
-function HealPokemon(team, index, amount, isPlayer, healStatus)
+function HealPokemon(team, index, amount, isPlayer, healStatus, recoverPP)
 {
 	var pkmnInfo = ds_list_find_value(team, index)
 	var name = GetName(pkmnInfo)
@@ -1509,6 +1519,17 @@ function HealPokemon(team, index, amount, isPlayer, healStatus)
 	else ds_list_set(pkmnInfo, 5, currentHealth+amount)
 	
 	if (healStatus) ClearStatus(pkmnInfo)
+	
+	if (recoverPP)
+	{
+		var movePPList = GetMovePPList(pkmnInfo)
+		for (var i = 0; i < ds_list_size(movePPList); i++)
+		{
+			var moveList = GetMoves(pkmnInfo)
+			var moveMaxPP = GetMovePP(ds_list_find_value(moveList, i))
+			SetMovePP(movePPList, i, moveMaxPP)
+		}
+	}
 	
 	if (instance_number(BattleObject) > 0)
 	{
