@@ -130,7 +130,7 @@ if (nearestNPC != noone)
 			ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
 		}
 		
-		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) != -1) 
+		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) == -1) 
 		{
 			dialogue.textList = nearestNPC.textList
 		}
