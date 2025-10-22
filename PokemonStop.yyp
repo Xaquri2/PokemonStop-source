@@ -167,6 +167,7 @@
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
+    {"id":{"name":"TestTiltedRoom","path":"rooms/TestTiltedRoom/TestTiltedRoom.yy",},},
     {"id":{"name":"TiltedBuildingInterior","path":"rooms/TiltedBuildingInterior/TiltedBuildingInterior.yy",},},
     {"id":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
     {"id":{"name":"RoomUI","path":"roomui/RoomUI/RoomUI.yy",},},
@@ -319,6 +320,7 @@
     {"roomId":{"name":"GashHouse","path":"rooms/GashHouse/GashHouse.yy",},},
     {"roomId":{"name":"GashUpstairs","path":"rooms/GashUpstairs/GashUpstairs.yy",},},
     {"roomId":{"name":"TiltedBuildingInterior","path":"rooms/TiltedBuildingInterior/TiltedBuildingInterior.yy",},},
+    {"roomId":{"name":"TestTiltedRoom","path":"rooms/TestTiltedRoom/TestTiltedRoom.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

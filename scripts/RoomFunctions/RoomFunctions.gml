@@ -53,9 +53,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MinusOneToMutant"
 			break
 		case "MutantToBuilding":
-			targetRoom = TiltedBuildingInterior
+			targetRoom = TestTiltedRoom
 			targetWarp = "TiltedToMutant"
 			break
+		#endregion
 			
 		#region GinkgoLab
 		case "GinkgoToMallet":
@@ -75,14 +76,14 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		#endregion
 		
-			#region GashUpstairs
+		#region GashUpstairs
 		case "UpstairsToGash":
 			targetRoom = GashHouse
 			targetWarp = "GashToUpstair"
 			break
 		#endregion
 		
-			#region TiltedBuilding
+		#region TiltedBuilding
 		case "TiltedToMutant":
 			targetRoom = MutantPath1
 			targetWarp = "MutantToBuilding"
@@ -137,6 +138,18 @@ function GetAreaEncounters()
 			break
 	}
 	return encounters
+}
+
+function RoomHasGravity()
+{
+	switch (room)
+	{
+		case TestTiltedRoom:
+			return true
+			
+		default:
+			return false
+	}
 }
 
 function IsIndoors()

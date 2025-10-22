@@ -4,7 +4,12 @@ depth = -y
 hspeedOld = hspeed
 vspeedOld = vspeed
 hspeed = 0
-vspeed = 0
+
+if (RoomHasGravity())
+{
+	if (vspeed < 1) vspeed += 0.2
+}
+else vspeed = 0
 
 if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle) 
 {
@@ -19,8 +24,8 @@ if (canWalk and !talking and !battle)
 	var speedValue = normalSpeed
 	if (!IsIndoors()) speedValue = overworldSpeed
 	
-	if (keyboard_check(ord("W"))) vspeed = -speedValue
-	if (keyboard_check(ord("S"))) vspeed = speedValue
+	if (keyboard_check(ord("W")) and !RoomHasGravity()) vspeed = -speedValue
+	if (keyboard_check(ord("S")) and !RoomHasGravity()) vspeed = speedValue
 	if (keyboard_check(ord("A"))) hspeed = -speedValue
 	if (keyboard_check(ord("D"))) hspeed = speedValue
 
@@ -41,11 +46,20 @@ if (canWalk and !talking and !battle)
 #endregion
 
 #region Collision
-if (collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed, bbox_right+hspeed, bbox_top+vspeed, 
-CollisionParent, false, true) != noone) 
+var collidedTile = collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed, 
+bbox_right+hspeed, bbox_top+vspeed, CollisionParent, false, true)
+
+if (collidedTile != noone) 
 {
-	hspeed = 0
-	vspeed = 0
+	if (collidedTile.object_index == TiltedFloor)
+	{
+		if (hspeed != 0) y -= 5
+	}
+	else
+	{
+		hspeed = 0
+		vspeed = 0
+	}
 }
 
 if (x+hspeed > room_width or x-hspeed < 0 or collision_rectangle(bbox_left+hspeed, bbox_bottom, bbox_right+hspeed, bbox_top, CollisionParent, false, true) != noone) hspeed = 0

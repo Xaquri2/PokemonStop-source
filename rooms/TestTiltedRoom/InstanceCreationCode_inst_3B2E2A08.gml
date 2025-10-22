@@ -1,0 +1,1 @@
+SetWarpDefaults("TiltedToMutant", "Right", false)

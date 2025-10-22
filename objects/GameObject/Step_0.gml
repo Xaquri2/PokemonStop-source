@@ -30,9 +30,6 @@ if (fade)
 	if (fadeAlpha < 1) fadeAlpha += 0.05
 	else 
 	{
-		var z = warp
-		var a = room
-		var b = targetRoom
 		if (warp and room != targetRoom) 
 		{
 			room_goto(targetRoom)
