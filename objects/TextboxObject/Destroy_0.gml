@@ -12,11 +12,31 @@ if (instance_exists(actionNPC))
 		case Snorlax:
 			if (HasItem("Poke Flute") and ds_list_empty(actionNPC.trainerTeam))
 			{
-				var player = instance_find(PlayerObject, 0)
 				if (player.alarm[1] > -1) player.alarm[1] = -1
 			
 				actionNPC.alarm[0] = 5
 			}
 			break
 	}
+}
+
+if (startBattle)
+{
+	player.talking = false
+	player.canWalk = false
+	player.battle = true
+	
+	var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+	battleObj.enemyTeam = actionNPC.trainerTeam
+	battleObj.enemySprite = object_get_sprite(actionNPC.object_index)
+	battleObj.enemyName = name
+	battleObj.isWild = isWild
+	battleObj.playerX = player.x
+	battleObj.playerY = player.y
+	battleObj.playerRoom = room
+	
+	battleObj.trainerX = actionNPC.x
+	battleObj.trainerY = actionNPC.y
+	
+	if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
 }

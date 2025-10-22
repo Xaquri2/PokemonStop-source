@@ -12,5 +12,6 @@ dialogue.nameList = nameList
 
 dialogue.name = name
 dialogue.actionNPC = id
+dialogue.isWild = true
 player.talking = true
 if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
