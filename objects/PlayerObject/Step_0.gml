@@ -28,6 +28,11 @@ if (canWalk and !talking and !battle)
 	if (keyboard_check(ord("S")) and !RoomHasGravity()) vspeed = speedValue
 	if (keyboard_check(ord("A"))) hspeed = -speedValue
 	if (keyboard_check(ord("D"))) hspeed = speedValue
+	
+	if (keyboard_check(vk_up) and !RoomHasGravity()) vspeed = -speedValue
+	if (keyboard_check(vk_down) and !RoomHasGravity()) vspeed = speedValue
+	if (keyboard_check(vk_left)) hspeed = -speedValue
+	if (keyboard_check(vk_right)) hspeed = speedValue
 
 	if (keyboard_check_pressed(ord("Q")))
 	{
