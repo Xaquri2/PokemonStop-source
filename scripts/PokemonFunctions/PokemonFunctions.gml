@@ -1506,6 +1506,12 @@ function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
 	return floor((baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue)
 }
 
+/// @param {Id.DsList} team
+/// @param {Real} index
+/// @param {Real} amount
+/// @param {Bool} isPlayer
+/// @param {Bool} healStatus
+/// @param {Bool} recoverPP
 function HealPokemon(team, index, amount, isPlayer, healStatus, recoverPP)
 {
 	var pkmnInfo = ds_list_find_value(team, index)

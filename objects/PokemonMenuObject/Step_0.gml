@@ -149,7 +149,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 						string_concat(GetName(battle.playerPkmn)," fainted!"))
 					}
 	
-					HealPokemon(global.playerParty, selectedIndex, 20, true, false)
+					HealPokemon(global.playerParty, selectedIndex, 20, true, false, false)
 					instance_destroy(battleMenu)
 				}
 				
