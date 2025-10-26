@@ -1,0 +1,1 @@
+SetWarpDefaults("ShadowToMinusOne", "Up", false)

@@ -11,6 +11,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MutantPath1
 			targetWarp = "MutantToBuilding"
 			break
+		case "TestToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToMinusOne"
+			break
 		#endregion
 		
 		#region Mallet Town
@@ -45,6 +49,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MutantPath1
 			targetWarp = "MutantToMinusOne"
 			break
+		case "MinusOneToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToMinusOne"
+			break
 		#endregion
 		
 		#region Mutant Path
@@ -55,6 +63,13 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "MutantToBuilding":
 			targetRoom = TestTiltedRoom
 			targetWarp = "TiltedToMutant"
+			break
+		#endregion
+		
+		#region Shadow Path
+		case "ShadowToMinusOne":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MinusOneToShadow"
 			break
 		#endregion
 			
@@ -121,6 +136,7 @@ function GetRoomMusic()
 		case GinkgoLab: return PokeGymLofi
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
+		case ShadowPath: return OathToOrder
 	}
 	return noone
 }

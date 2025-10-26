@@ -8,8 +8,8 @@
   "name":"ToMutantText",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Text",
+    "path":"folders/Objects/Text.yy",
   },
   "parentObjectId":null,
   "persistent":false,

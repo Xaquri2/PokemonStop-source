@@ -77,6 +77,7 @@
     {"name":"inst_6A660F63","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
     {"name":"inst_6B27A630","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
     {"name":"inst_2E9F2039","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
+    {"name":"inst_424F9477","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -153,6 +154,7 @@
         {"$GMRInstance":"v2","%Name":"inst_6A660F63","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6A660F63","objectId":{"name":"BasicSign","path":"objects/BasicSign/BasicSign.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.647841,"scaleY":0.6875,"x":374.53818,"y":20.0,},
         {"$GMRInstance":"v2","%Name":"inst_6B27A630","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6B27A630","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":3.125,"x":1904.0,"y":256.0,},
         {"$GMRInstance":"v2","%Name":"inst_2E9F2039","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2E9F2039","objectId":{"name":"PokelootObject","path":"objects/PokelootObject/PokelootObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":576.0,},
+        {"$GMRInstance":"v2","%Name":"inst_424F9477","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_424F9477","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":4.125,"x":0.0,"y":256.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":20,"SerialiseWidth":60,"TileCompressedData":[
           -12,0,5,32,7,8,9,32,-3,0,-53,32,3,7,8,9,-50,32,1,1,-6,2,4,11,8,10,3,-49,32,1,7,-3,8,-6,14,1,15,-49,32,
