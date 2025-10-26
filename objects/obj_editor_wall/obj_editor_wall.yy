@@ -35,5 +35,5 @@
     "path":"sprites/spr_editor_wall/spr_editor_wall.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
