@@ -16,7 +16,6 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 		}
 		else if (string_count("learned", text) > 0 and string_count("forgot", text) == 0)
 		{
-			var battle = instance_find(BattleObject, 0)
 			LearnMove(battle.playerPkmn, newMove, -1)
 		}
 		else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
@@ -327,11 +326,44 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				}
 				else if (string_count("You lose!", text) > 0)
 				{
-					var battle = instance_find(BattleObject, 0)
 					for (var i = 0; i < ds_list_size(battle.playerTeam); i++)
 					{
 						HealPokemon(battle.playerTeam, i, 1000000, true)
 					}
+				}
+				else if (string_count("opponent is now", text) > 0)
+				{
+					var target = noone
+					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+					{
+						target = instance_find(BattlePokemonObject, i)
+						if (!target.playerTeam) break
+					}
+					
+					var effectName = GetMoveEffect(playerMoveName)
+					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
+					
+					SetStatus(target.pkmnInfo, effectName)
+					target.status = effectName
+				}
+				else if (string_count("pokemon is now", text) > 0)
+				{
+					var target = noone
+					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+					{
+						target = instance_find(BattlePokemonObject, i)
+						if (target.playerTeam) break
+					}
+					
+					var effectName = GetMoveEffect(playerMoveName)
+					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
+					
+					var index = ds_list_find_index(global.playerParty, target.pkmnInfo)
+					
+					SetStatus(target.pkmnInfo, effectName)
+					ds_list_set(global.playerParty, index, target.pkmnInfo)
+					
+					target.status = effectName
 				}
 			}
 		}

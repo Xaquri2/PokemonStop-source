@@ -1,4 +1,4 @@
-if (battle)
+if (!battle)
 {
 	battle = true
 	

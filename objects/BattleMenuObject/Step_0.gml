@@ -58,6 +58,9 @@ if (keyboard_check_pressed(vk_enter))
 					var eStatus = GetStatus(battle.enemyPkmn)
 					var enemyStats = GetPokemonFinalStats(eName, eLevel)
 		
+					var pFutureStatus = "None"
+					var eFutureStatus = "None"
+					
 					var playerMoveName = "Struggle"
 					var moveName = playerMoveName
 					var moveCurrentPP = 1
@@ -107,6 +110,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
+										if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 										var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
@@ -148,6 +152,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
+											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 											var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
@@ -193,7 +198,8 @@ if (keyboard_check_pressed(vk_enter))
 		
 								awake = true
 								paralysisCheck = ParalysisCheck()
-								if ((eStatus == "Paralysis" and paralysisCheck))
+								if ((eStatus == "Paralysis" and paralysisCheck) or 
+								(eFutureStatus == "Paralysis" and paralysisCheck))
 								{			
 									var moveString = string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName)
 									if (isCrit) moveString = string_concat(moveString, " It was a critical hit!")
@@ -217,13 +223,15 @@ if (keyboard_check_pressed(vk_enter))
 									if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList, 
 										string_concat(GetName(battle.playerPkmn)," fainted!"))
 								}
-								else if (eStatus == "Paralysis" and !paralysisCheck)
+								else if ((eStatus == "Paralysis" and !paralysisCheck) or 
+								(eFutureStatus == "Paralysis" and !paralysisCheck))
 								{
 									ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
 								}
 								else
 								{
-									if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+									if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) or 
+									(eFutureStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
 									if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
 						
 									if (!awake) 
@@ -233,7 +241,7 @@ if (keyboard_check_pressed(vk_enter))
 									}
 									else
 									{
-										if (eStatus == "Sleep")
+										if (eStatus == "Sleep" or eFutureStatus == "Sleep")
 										{
 											SetStatus(enemyPkmn.pkmnInfo, "None")
 											ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
@@ -322,6 +330,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
+										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 										var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
@@ -359,6 +368,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
+											if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 											var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
@@ -406,7 +416,8 @@ if (keyboard_check_pressed(vk_enter))
 		
 								awake = true
 								paralysisCheck = ParalysisCheck()
-								if ((pStatus == "Paralysis" and paralysisCheck))
+								if ((pStatus == "Paralysis" and paralysisCheck) or
+								(pFutureStatus == "Paralysis" and paralysisCheck))
 								{
 									var moveString = string_concat(GetName(battle.playerPkmn), " used ", moveName, ".")
 									if (isCrit) moveString = string_concat(moveString, " It was a critical hit!")
@@ -430,13 +441,15 @@ if (keyboard_check_pressed(vk_enter))
 									if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList, 
 									string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
 								}
-								else if (pStatus == "Paralysis" and !paralysisCheck)
+								else if ((pStatus == "Paralysis" and !paralysisCheck) or
+								(pFutureStatus == "Paralysis" and !paralysisCheck))
 								{
 									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
 								}
 								else
 								{
-									if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
+									if ((pStatus == "Sleep" and playerPkmn.sleepCounter < 4) or 
+									(pFutureStatus == "Sleep" and playerPkmn.sleepCounter < 4)) awake = WakeUpCheck() 
 									if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
 					
 									if (!awake) 
@@ -446,7 +459,7 @@ if (keyboard_check_pressed(vk_enter))
 									}
 									else
 									{
-										if (pStatus == "Sleep")
+										if (pStatus == "Sleep" or pFutureStatus == "Sleep")
 										{
 											var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
 											SetStatus(playerPkmn.pkmnInfo, "None")
