@@ -88,6 +88,7 @@ if (keyboard_check_pressed(vk_enter))
 							if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 							else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
+							var awake = true
 							var paralysisCheck = ParalysisCheck()
 							if ((pStatus == "Paralysis" and paralysisCheck))
 							{			
@@ -118,7 +119,6 @@ if (keyboard_check_pressed(vk_enter))
 							}
 							else
 							{
-								var awake = true
 								if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
 					
 								if (!awake) 
@@ -156,7 +156,8 @@ if (keyboard_check_pressed(vk_enter))
 								}
 							}
 				
-							if (GetHealth(battle.enemyPkmn) > damage)
+							if ((GetHealth(battle.enemyPkmn) > damage or 
+							pStatus == "Paralysis" and !paralysisCheck) and awake)
 							{
 								struggle = true 
 				
@@ -190,6 +191,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 								else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
+								awake = true
 								paralysisCheck = ParalysisCheck()
 								if ((eStatus == "Paralysis" and paralysisCheck))
 								{			
@@ -221,7 +223,6 @@ if (keyboard_check_pressed(vk_enter))
 								}
 								else
 								{
-									var awake = true
 									if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
 									if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
 						
@@ -265,6 +266,11 @@ if (keyboard_check_pressed(vk_enter))
 								if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 								if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 							}
+							else
+							{
+								if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+								if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+							}
 						}
 						else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
 						{
@@ -299,6 +305,7 @@ if (keyboard_check_pressed(vk_enter))
 							if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 							else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
 		
+							var awake = true
 							var paralysisCheck = ParalysisCheck()
 							if ((eStatus == "Paralysis" and paralysisCheck))
 							{
@@ -327,7 +334,6 @@ if (keyboard_check_pressed(vk_enter))
 							}
 							else
 							{
-								var awake = true
 								if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck() 
 					
 								if (!awake) 
@@ -361,7 +367,8 @@ if (keyboard_check_pressed(vk_enter))
 								}
 							}
 					
-							if (GetHealth(battle.playerPkmn) > damage)
+							if ((GetHealth(battle.playerPkmn) > damage or
+							eStatus == "Paralysis" and !paralysisCheck) and awake)
 							{
 								struggle = true 
 				
@@ -397,6 +404,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 								else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
 		
+								awake = true
 								paralysisCheck = ParalysisCheck()
 								if ((pStatus == "Paralysis" and paralysisCheck))
 								{
@@ -428,7 +436,6 @@ if (keyboard_check_pressed(vk_enter))
 								}
 								else
 								{
-									var awake = true
 									if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck() 
 									if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
 					
@@ -472,6 +479,11 @@ if (keyboard_check_pressed(vk_enter))
 								if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
 					
 								if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
+								if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+							}
+							else
+							{
+								if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
 								if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 							}
 						}
