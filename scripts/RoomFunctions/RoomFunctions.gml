@@ -130,7 +130,6 @@ function GetRoomMusic()
 		case TitleScreen: return TitleTheme
 		case Mallet_Town: return MalletTownMusic
 		case RouteMinusOneBottom: return RouteMinusOneTheme
-		case RoomBattle: return WildBattleTheme
 		case MutantPath1: return MutantPathAmbiance
 		case TestRoom: return SacredBeasts
 		case GinkgoLab: return PokeGymLofi

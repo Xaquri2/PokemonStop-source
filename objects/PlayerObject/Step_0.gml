@@ -165,6 +165,12 @@ if (instance_exists(grassAttempt) and grassTimer == -1 and
 	var wildBattle = floor(random_range(1,11))
 	if (wildBattle == 1)
 	{
+		var musicC = instance_find(MusicObject, 0)
+		var music = musicC.currentMusic
+		audio_stop_sound(music)
+		audio_play_sound(WildBattleTheme, 1, false)
+		musicC.currentMusic = WildBattleTheme
+		
 		var wildPkmn = GetWildPokemon()
 		var wildPokemonList = ds_list_create()
 		ds_list_add(wildPokemonList, wildPkmn)

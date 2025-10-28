@@ -22,6 +22,12 @@ if (instance_exists(actionNPC))
 
 if (startBattle)
 {
+	var musicC = instance_find(MusicObject, 0)
+	var music = musicC.currentMusic
+	audio_stop_sound(music)
+	audio_play_sound(GetBattleTheme(name), 1, false)
+	musicC.currentMusic = GetBattleTheme(name)
+	
 	player.talking = false
 	player.canWalk = false
 	player.battle = true

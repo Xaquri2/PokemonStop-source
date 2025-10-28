@@ -1,1 +1,1 @@
-//global._current_music = noone;
+currentMusic = noone

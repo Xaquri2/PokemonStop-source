@@ -1,5 +1,15 @@
 var music = GetRoomMusic()
-if (music != noone) 
+if (room != RoomBattle)
 {
-	audio_play_sound(music, 1, true)
+	if (currentMusic == noone)
+	{
+		audio_play_sound(music, 1, true)
+		currentMusic = music
+	}
+	else if (currentMusic != music) 
+	{
+		audio_stop_sound(currentMusic)
+		audio_play_sound(music, 1, true)
+		currentMusic = music
+	}
 }

@@ -38,3 +38,8 @@ function GetWalkingCoords()
 		else return [attempt[0], attempt[1]]
 	}
 }
+
+function GetBattleTheme(name)
+{
+	return WildBattleTheme
+}
