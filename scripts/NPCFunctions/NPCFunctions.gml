@@ -41,5 +41,10 @@ function GetWalkingCoords()
 
 function GetBattleTheme(name)
 {
-	return WildBattleTheme
+	switch (name)
+	{
+		//case "Rival Trainer Name": return RivalTheme
+		
+		default: return WildBattleTheme
+	}
 }
