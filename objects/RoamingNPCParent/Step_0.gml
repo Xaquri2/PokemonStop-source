@@ -23,12 +23,8 @@ if (state == "Walk")
 		speed = 0
 		image_xscale = 1
 		sprite_index = Human2IdleSprite
-		alarm[0] = random_range(60*6, 60*10)
+		alarm[0] = random_range(60*3, 60*6)
 	}
-}
-else if (state == "Idle")
-{
-	alarm[0] = -1
 }
 
 if (speed != 0)
