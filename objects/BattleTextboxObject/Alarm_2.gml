@@ -328,7 +328,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				{
 					for (var i = 0; i < ds_list_size(battle.playerTeam); i++)
 					{
-						HealPokemon(battle.playerTeam, i, 1000000, true)
+						HealPokemon(battle.playerTeam, i, 1000000, true, true, true)
 					}
 				}
 				else if (string_count("opponent is now", text) > 0)

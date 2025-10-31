@@ -92,16 +92,16 @@ else
 	xOrigin+64, yOrigin+64, 4, 4, image_blend, image_alpha)
 	#endregion
 	
-	#region Draw Pokémon Number, Name and Description
+	#region Draw Pokémon Number, Name, Title and Description
 	var name = GetNameByNumber(pokemonNumber)
-	var description = GetDescriptionByNumber(pokemonNumber)
+	var title = GetTitleByNumber(pokemonNumber)
 	
 	draw_sprite_ext(MenuSprite, 0, xOrigin+240, yOrigin+64, 
 	12, 4, image_angle, c_grey, image_alpha)
 	if (name != "") draw_text_transformed(xOrigin+260, yOrigin+80, name, 1.5, 1.5, image_angle)
 	draw_text_transformed(xOrigin+260+string_width(name)*1.5+20, yOrigin+80, GetNumberFormat(pokemonNumber), 1.5, 1.5, image_angle)
 	
-	if (description != "") draw_text_transformed(xOrigin+260, yOrigin+110, description, 1.5, 1.5, image_angle)
+	if (title != "") draw_text_transformed(xOrigin+260, yOrigin+110, title, 1.5, 1.5, image_angle)
 	
 	var types = GetPokemonType(name)
 	for (var i = 0; i < ds_list_size(types); i++)
@@ -112,10 +112,14 @@ else
 		var offset = string_width(type)
 		draw_text_transformed(xOrigin+260+(offset*1.5+20)*i,yOrigin+140,type,1.5,1.5,image_angle)
 	}
+	
+	draw_sprite_ext(MenuSprite, 0, xOrigin+44, yOrigin+220, 
+	20, 4.5, image_angle, c_grey, image_alpha)
+	draw_text_transformed(xOrigin+64, yOrigin+240, GetDescriptionByNumber(pokemonNumber), 1.5, 1.5, image_angle)
 	#endregion
 	
-	#region Draw Stat Bars
-	draw_sprite_ext(MenuSprite, 0, xOrigin+44, yOrigin+220, 
+	#region Draw Stat Bars and Game of Origin
+	draw_sprite_ext(MenuSprite, 0, xOrigin+44, yOrigin+220+160, 
 	20, 12, image_angle, c_grey, image_alpha)
 		
 	var statList = GetPokemonBaseStats(name)
@@ -125,11 +129,14 @@ else
 		var percentage = stat/150*100
 		var text = string_concat(GetStatByIndex(i), ": ", stat)
 	
-		draw_text_transformed(xOrigin+64, yOrigin+230+40*i,
+		draw_text_transformed(xOrigin+64, yOrigin+240+160+40*i,
 		text, 1.5, 1.5, image_angle)
 	
-		draw_sprite_ext(BarSprite, 0, xOrigin+400, yOrigin+240+40*i,
+		draw_sprite_ext(BarSprite, 0, xOrigin+400, yOrigin+240+160+40*i,
 		12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
 	}
+	
+	draw_text_transformed(xOrigin+64, yOrigin+720, 
+	string_concat("Game of Origin: ", GetGameOfOrigin(name)), 1.5, 1.5, image_angle)
 	#endregion
 }

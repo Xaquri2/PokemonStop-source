@@ -1585,16 +1585,22 @@ function GetSpriteByNumber(num)
 	return undefined
 }
 
+function GetTitleByNumber(num)
+{
+	switch (GetNameByNumber(num))
+	{
+		case "Pikachu": return "The Mouse Pokemon"
+	}
+	return "The Test Pokemon"
+}
+
 function GetDescriptionByNumber(num)
 {
-	switch (num)
+	switch (GetNameByNumber(num))
 	{
-		case "001": return "The Test Pokemon"
-		case "002": return "The Test Pokemon"
-		case "003": return "The Test Pokemon"
-		case "004": return "The Test Pokemon"
+		case "Pikachu": return "This is a test description, the first one that was made."
 	}
-	return ""
+	return "This is a test description, the default one for the forgotten."
 }
 
 function GetStatByIndex(i)
@@ -1614,4 +1620,9 @@ function GetStatByIndex(i)
 		case 5:
 			return "Speed"
 	}
+}
+
+function GetGameOfOrigin(name)
+{
+	return "Test Origin Game"
 }

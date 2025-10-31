@@ -74,7 +74,7 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 			{
 				if (instance_number(PlayerObject) > 0)
 				{
-					HealPokemon(global.playerParty, selectedIndex, healValue, true, false)
+					HealPokemon(global.playerParty, selectedIndex, healValue, true, false, false)
 					var player = instance_find(PlayerObject, 0)
 					player.alarm[0] = 5
 				}

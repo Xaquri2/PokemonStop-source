@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"MorlockDoorSprite",
   "bboxMode":0,
   "bbox_bottom":60,
@@ -12,11 +12,11 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"034605e5-b718-4e94-b8c5-8d84445cce36","name":"034605e5-b718-4e94-b8c5-8d84445cce36","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"4715dd2e-9e76-40a7-b999-2e93b34cf6b8","name":"4715dd2e-9e76-40a7-b999-2e93b34cf6b8","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"7470d259-9ee4-440c-b87f-41716156f6cc","name":"7470d259-9ee4-440c-b87f-41716156f6cc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"48896a08-3577-4eeb-a91c-f823aaaf5348","name":"48896a08-3577-4eeb-a91c-f823aaaf5348","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"d00f6e01-d98d-41f8-9d1a-feaf75ae263c","name":"d00f6e01-d98d-41f8-9d1a-feaf75ae263c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"034605e5-b718-4e94-b8c5-8d84445cce36","name":"034605e5-b718-4e94-b8c5-8d84445cce36","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"4715dd2e-9e76-40a7-b999-2e93b34cf6b8","name":"4715dd2e-9e76-40a7-b999-2e93b34cf6b8","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"7470d259-9ee4-440c-b87f-41716156f6cc","name":"7470d259-9ee4-440c-b87f-41716156f6cc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"48896a08-3577-4eeb-a91c-f823aaaf5348","name":"48896a08-3577-4eeb-a91c-f823aaaf5348","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"d00f6e01-d98d-41f8-9d1a-feaf75ae263c","name":"d00f6e01-d98d-41f8-9d1a-feaf75ae263c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -74,21 +74,11 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"034605e5-b718-4e94-b8c5-8d84445cce36","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"dedf9e72-daa8-410e-8c91-a7559502ea53","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4715dd2e-9e76-40a7-b999-2e93b34cf6b8","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"14fa43c4-252b-4904-afca-4b051718dc95","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7470d259-9ee4-440c-b87f-41716156f6cc","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"0138387c-a6c0-45dd-8460-27e77ed06cea","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"48896a08-3577-4eeb-a91c-f823aaaf5348","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"8dc65f47-73bd-4708-8804-52577e2b8b8f","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d00f6e01-d98d-41f8-9d1a-feaf75ae263c","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"fbbe213b-7e69-4334-afb4-6ca6ee3b7c32","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"034605e5-b718-4e94-b8c5-8d84445cce36","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"dedf9e72-daa8-410e-8c91-a7559502ea53","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"4715dd2e-9e76-40a7-b999-2e93b34cf6b8","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"14fa43c4-252b-4904-afca-4b051718dc95","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"7470d259-9ee4-440c-b87f-41716156f6cc","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"0138387c-a6c0-45dd-8460-27e77ed06cea","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"48896a08-3577-4eeb-a91c-f823aaaf5348","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"8dc65f47-73bd-4708-8804-52577e2b8b8f","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"d00f6e01-d98d-41f8-9d1a-feaf75ae263c","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"fbbe213b-7e69-4334-afb4-6ca6ee3b7c32","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
