@@ -1598,7 +1598,8 @@ function GetDescriptionByNumber(num)
 {
 	switch (GetNameByNumber(num))
 	{
-		case "Pikachu": return "This is a test description, the first one that was made."
+		case "Pikachu": return "This Pokémon has electricity-storing pouches on its cheeks. These appear to become electrically charged during the night while Pikachu sleeps. It occasionally discharges electricity when it is dozy after waking up. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt."//"This is a test description, the first one that was made."
+		case "Squirtle": return "Shoots water at prey while in the water. Withdraws into its shell when in danger."
 	}
 	return "This is a test description, the default one for the forgotten."
 }
@@ -1627,8 +1628,17 @@ function GetGameOfOrigin(name)
 	switch (name)
 	{
 		case "Pikachu":
-			return "Pokémon Red/Blue"
-			
+			return "Pokémon Red/Blue (1996)"
+		case "Squirtle":
+			return "Pokémon Red/Blue (1996)"	
+		case "Charmander":
+			return "Pokémon Red/Blue (1996)"
+		case "Charmandorian":
+			return "Pokémon Red/Blue (1996)"
+		case "Charizard":
+			return "Pokémon Red/Blue (1996)"
+		case "Snorlax":
+			return "Pokémon Red/Blue (1996)"
 		default: return "Test Origin Game"
 	}
 }
