@@ -1624,5 +1624,11 @@ function GetStatByIndex(i)
 
 function GetGameOfOrigin(name)
 {
-	return "Test Origin Game"
+	switch (name)
+	{
+		case "Pikachu":
+			return "Pokémon Red/Blue"
+			
+		default: return "Test Origin Game"
+	}
 }
