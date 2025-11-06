@@ -1628,17 +1628,27 @@ function GetGameOfOrigin(name)
 	switch (name)
 	{
 		case "Pikachu":
-			return "Pokémon Red/Blue (1996)"
 		case "Squirtle":
-			return "Pokémon Red/Blue (1996)"	
 		case "Charmander":
-			return "Pokémon Red/Blue (1996)"
 		case "Charmandorian":
-			return "Pokémon Red/Blue (1996)"
 		case "Charizard":
-			return "Pokémon Red/Blue (1996)"
 		case "Snorlax":
-			return "Pokémon Red/Blue (1996)"
+			return "Pokémon Red/Blue"
+		default: return "Test Origin Game"
+	}
+}
+
+function GetGameDetails(name)
+{
+	switch (name)
+	{
+		case "Pikachu":
+		case "Squirtle":
+		case "Charmander":
+		case "Charmandorian":
+		case "Charizard":
+		case "Snorlax":
+			return "1996 * Nintendo / Game Freak"
 		default: return "Test Origin Game"
 	}
 }

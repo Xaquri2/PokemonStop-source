@@ -137,7 +137,8 @@ else
 		12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
 	}
 	
-	draw_text_transformed(xOrigin+64, yOrigin+720, 
-	string_concat("Game of Origin: ", GetGameOfOrigin(name)), 1.5, 1.5, image_angle)
+	draw_sprite_ext(MenuSprite, 0, xOrigin+64, yOrigin+650, 16, 3, image_angle, image_blend, image_alpha)
+	draw_text_transformed(xOrigin+80, yOrigin+665, string_concat(GetGameOfOrigin(name)), 1.5, 1.5, image_angle)
+	draw_text_transformed(xOrigin+80, yOrigin+695, string_concat(GetGameDetails(name)), 1.5, 1.5, image_angle)
 	#endregion
 }
