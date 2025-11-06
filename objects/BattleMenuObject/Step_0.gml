@@ -255,11 +255,8 @@ if (keyboard_check_pressed(vk_enter))
 										if (floor(random_range(0,101)) <= moveAcc) 
 										{
 											if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-											if (floor(random_range(0,101)) <= effectAcc)
-											{
-												var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-												if (effStr != "") ds_list_add(battleText.textList, effStr)
-											}
+											var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 										else ds_list_add(battleText.textList, "But it missed!")
 			
@@ -366,12 +363,9 @@ if (keyboard_check_pressed(vk_enter))
 									if (floor(random_range(0,101)) <= moveAcc) 
 									{
 										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-										if (floor(random_range(0,101)) <= effectAcc)
-										{
-											if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
-											var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-											if (effStr != "") ds_list_add(battleText.textList, effStr)
-										}
+										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+										var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
 									else ds_list_add(battleText.textList, "But it missed!")
 								}
