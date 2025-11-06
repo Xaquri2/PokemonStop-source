@@ -25,6 +25,12 @@ if (keyboard_check_pressed(vk_alt))
 	}
 }
 
+if (keyboard_check_pressed(ord("M")))
+{
+	if (audio_get_master_gain(0) == 1) audio_set_master_gain(0, 0)
+	else audio_set_master_gain(0, 1)
+}
+
 if (fade) 
 {
 	if (fadeAlpha < 1) fadeAlpha += 0.05
