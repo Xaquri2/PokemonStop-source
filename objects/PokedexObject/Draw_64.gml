@@ -115,7 +115,8 @@ else
 	
 	draw_sprite_ext(MenuSprite, 0, xOrigin+44, yOrigin+220, 
 	20, 4.5, image_angle, c_grey, image_alpha)
-	draw_text_transformed(xOrigin+64, yOrigin+240, GetDescriptionByNumber(pokemonNumber), 1.5, 1.5, image_angle)
+	draw_text_ext_transformed(xOrigin+64, yOrigin+230, GetDescriptionByNumber(pokemonNumber), 
+	20, 480, 1.2, 1.2, image_angle)
 	#endregion
 	
 	#region Draw Stat Bars and Game of Origin
