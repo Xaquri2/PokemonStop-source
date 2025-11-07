@@ -28,7 +28,14 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"speech","filters":[],"listItems":[
+        "\"Item 0\"",
+        "\"Item 1\"",
+        "\"Item 2\"",
+      ],"multiselect":false,"name":"speech","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"[\"Hello, world\"]","varType":4,},
+    {"$GMObjectProperty":"v2","%Name":"npc_name","filters":[],"listItems":[],"multiselect":false,"name":"npc_name","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"Thing 1","varType":2,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
