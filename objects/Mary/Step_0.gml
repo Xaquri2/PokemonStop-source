@@ -18,7 +18,7 @@ if (instance_exists(player) and room == Mallet_Town and
 player.hspeed != 0 and (player.x >= 540 and player.x <= 800))
 {
 	sprite_index = MaryWalkRightSprite
-	image_speed = sprite_get_speed(MaryWalkRightSprite)
+	image_speed = 1//sprite_get_speed(MaryWalkRightSprite)
 	
 	if (player.hspeed < 0) image_xscale = -1.7
 	else image_xscale = 1.7
