@@ -20,14 +20,15 @@ player.hspeed != 0 and (player.x >= 540 and player.x <= 800))
 	sprite_index = MaryWalkRightSprite
 	image_speed = sprite_get_speed(MaryWalkRightSprite)
 	
-	if (player.hspeed < 0) image_xscale = -1
-	else image_xscale = 1
+	if (player.hspeed < 0) image_xscale = -1.7
+	else image_xscale = 1.7
 }
 else 
 {
 	sprite_index = MaryWalkDownSprite
 	image_index = 0
 	image_speed = 0
+	image_xscale = 1
 }
 
 if (keyboard_check(vk_shift)) speed = 0
