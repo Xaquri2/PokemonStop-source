@@ -297,6 +297,7 @@
     {"id":{"name":"TrainerUltironWalkDownSprite","path":"sprites/TrainerUltironWalkDownSprite/TrainerUltironWalkDownSprite.yy",},},
     {"id":{"name":"TrainerUltironWalkLeftSprite","path":"sprites/TrainerUltironWalkLeftSprite/TrainerUltironWalkLeftSprite.yy",},},
     {"id":{"name":"TrainerUltironWalkRightSprite","path":"sprites/TrainerUltironWalkRightSprite/TrainerUltironWalkRightSprite.yy",},},
+    {"id":{"name":"Triforce","path":"sprites/Triforce/Triforce.yy",},},
     {"id":{"name":"WallsSprite","path":"sprites/WallsSprite/WallsSprite.yy",},},
     {"id":{"name":"WallVariationsSprite","path":"sprites/WallVariationsSprite/WallVariationsSprite.yy",},},
     {"id":{"name":"WarpSprite","path":"sprites/WarpSprite/WarpSprite.yy",},},
