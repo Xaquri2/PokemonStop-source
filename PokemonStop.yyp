@@ -282,6 +282,7 @@
     {"id":{"name":"spr_pillar_whole","path":"sprites/spr_pillar_whole/spr_pillar_whole.yy",},},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},},
     {"id":{"name":"spr_tileset_floor","path":"sprites/spr_tileset_floor/spr_tileset_floor.yy",},},
+    {"id":{"name":"Sprite104","path":"sprites/Sprite104/Sprite104.yy",},},
     {"id":{"name":"Sprite62","path":"sprites/Sprite62/Sprite62.yy",},},
     {"id":{"name":"Sprite63","path":"sprites/Sprite63/Sprite63.yy",},},
     {"id":{"name":"Sprite64","path":"sprites/Sprite64/Sprite64.yy",},},
