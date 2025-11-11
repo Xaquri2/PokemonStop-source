@@ -204,6 +204,7 @@
     {"id":{"name":"snd_button","path":"sounds/snd_button/snd_button.yy",},},
     {"id":{"name":"snd_music_menu","path":"sounds/snd_music_menu/snd_music_menu.yy",},},
     {"id":{"name":"snd_sword_swing","path":"sounds/snd_sword_swing/snd_sword_swing.yy",},},
+    {"id":{"name":"StairsSound","path":"sounds/StairsSound/StairsSound.yy",},},
     {"id":{"name":"TitleTheme","path":"sounds/TitleTheme/TitleTheme.yy",},},
     {"id":{"name":"WildBattleTheme","path":"sounds/WildBattleTheme/WildBattleTheme.yy",},},
     {"id":{"name":"ArrowSelectSprite","path":"sprites/ArrowSelectSprite/ArrowSelectSprite.yy",},},

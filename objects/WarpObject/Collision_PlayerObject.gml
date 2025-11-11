@@ -6,6 +6,10 @@ if (!game.warp)
 		audio_play_sound(DoorOpen, 1, false);
 	}
 	
+		if (is_stairs) {
+		audio_play_sound(StairsSound, 1, false);
+	}
+	
 	other.canWalk = false
 	game.fade = true
 	game.warp = true
