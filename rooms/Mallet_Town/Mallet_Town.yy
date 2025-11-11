@@ -59,6 +59,7 @@
     {"name":"inst_179E7EBE","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_68856D27","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_28CE391E","path":"rooms/Mallet_Town/Mallet_Town.yy",},
+    {"name":"inst_30B59D5E","path":"rooms/Mallet_Town/Mallet_Town.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -139,6 +140,7 @@
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":288.0,"y":64.0,},
         {"$GMRInstance":"v4","%Name":"inst_68856D27","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_68856D27","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":9.100452,"scaleY":0.8425369,"x":527.5532,"y":734.0,},
         {"$GMRInstance":"v4","%Name":"inst_28CE391E","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_28CE391E","objectId":{"name":"MalletStatue","path":"objects/MalletStatue/MalletStatue.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.4051399,"scaleY":1.5670948,"x":680.1897,"y":410.02103,},
+        {"$GMRInstance":"v4","%Name":"inst_30B59D5E","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_30B59D5E","objectId":{"name":"OrcTrader","path":"objects/OrcTrader/OrcTrader.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5379524,"scaleY":1.65625,"x":139.57892,"y":232.6062,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_3_1","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_3_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":29,"TileCompressedData":[
           -5,-2147483648,5,370,371,372,373,374,-8,-2147483648,21,370,371,372,373,374,351,352,353,354,355,-2147483648,
