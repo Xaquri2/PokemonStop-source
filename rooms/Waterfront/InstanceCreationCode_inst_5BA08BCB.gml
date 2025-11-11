@@ -1,0 +1,1 @@
+SetWarpDefaults("WaterfrontToMallet", "Down", false)

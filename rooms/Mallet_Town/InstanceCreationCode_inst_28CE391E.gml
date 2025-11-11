@@ -1,0 +1,1 @@
+ds_list_add(textList, "It's a statue of a mallet.", "It has a golden plaque on it.", "The plaque reads:", "'In commemoration of the MALLET OF LEGEND that saved our town eons ago...'")

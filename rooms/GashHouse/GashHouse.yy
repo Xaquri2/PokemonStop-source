@@ -166,8 +166,8 @@
   ],
   "name":"GashHouse",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Mallet Town",
+    "path":"folders/Rooms/Mallet Town.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

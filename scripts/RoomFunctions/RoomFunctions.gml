@@ -38,6 +38,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = TestRoom
 			targetWarp = "TestToMalletHouse1"
 			break
+		case "MalletToWaterfront":
+			targetRoom = Waterfront
+			targetWarp = "WaterfrontToMallet"
+			break
 		#endregion
 		
 		#region Route Minus One
@@ -105,6 +109,13 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		#endregion
 		
+		#region Waterfront
+		case "WaterfrontToMallet":
+			targetRoom = Mallet_Town
+			targetWarp = "MalletToWaterfront"
+			break
+		#endregion
+		
 	}
 	
 	warpName = name
@@ -136,6 +147,7 @@ function GetRoomMusic()
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
 		case ShadowPath: return OathToOrder
+		case Waterfront: return MalletTownMusic
 	}
 	return noone
 }

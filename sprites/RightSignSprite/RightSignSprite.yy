@@ -23,7 +23,7 @@
   ],
   "name":"RightSignSprite",
   "nineSlice":null,
-  "origin":0,
+  "origin":1,
   "parent":{
     "name":"Level",
     "path":"folders/Sprites/Level.yy",
@@ -70,12 +70,14 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"5e984f7f-3278-4be8-a27f-aab70fbb718a","path":"sprites/RightSignSprite/RightSignSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"c24981cd-174a-49f4-b3b2-2f79c6025c51","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5e984f7f-3278-4be8-a27f-aab70fbb718a","path":"sprites/RightSignSprite/RightSignSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c24981cd-174a-49f4-b3b2-2f79c6025c51","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":32,
     "yorigin":0,
   },
   "swatchColours":null,
