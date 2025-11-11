@@ -17,4 +17,6 @@ startBattle = false
 
 player = instance_find(PlayerObject, 0)
 
+audio_play_sound(Ding2, 1, false)
+
 //Note: icons' origins must be on the bottom center

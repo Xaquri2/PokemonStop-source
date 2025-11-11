@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Ding2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":4.175533,
+  "exportDir":"",
+  "name":"Ding2",
+  "parent":{
+    "name":"UI Sounds",
+    "path":"folders/Sounds/UI Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Ding2.wav",
+  "volume":0.44,
+}
