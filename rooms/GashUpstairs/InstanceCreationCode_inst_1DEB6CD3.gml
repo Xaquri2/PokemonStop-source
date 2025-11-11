@@ -1,0 +1,1 @@
+ds_list_add(textList, "A poster of one of your favorite games!", "You remember when it came out, you couldn't believe how many characters appeared in it!", "Too bad the creator SUCKS...")

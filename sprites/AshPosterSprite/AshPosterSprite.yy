@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
   "%Name":"AshPosterSprite",
-  "bboxMode":0,
-  "bbox_bottom":1040,
+  "bboxMode":2,
+  "bbox_bottom":533,
   "bbox_left":0,
-  "bbox_right":734,
+  "bbox_right":723,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -23,7 +23,7 @@
   ],
   "name":"AshPosterSprite",
   "nineSlice":null,
-  "origin":0,
+  "origin":4,
   "parent":{
     "name":"Items",
     "path":"folders/Sprites/Items.yy",
@@ -70,13 +70,15 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"e215796a-bc0f-4388-82ef-de6395425e7e","path":"sprites/AshPosterSprite/AshPosterSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"be057f23-f5b1-4652-a49f-2c26193b6d57","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e215796a-bc0f-4388-82ef-de6395425e7e","path":"sprites/AshPosterSprite/AshPosterSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"be057f23-f5b1-4652-a49f-2c26193b6d57","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":367,
+    "yorigin":520,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

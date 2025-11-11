@@ -1,0 +1,1 @@
+ds_list_add(textList, "It's your poster of your cousin, Ash, and his Pokémon.", "He's so freaking cool.", "The greatest Pokémon trainer that ever lived, you think!", "You wonder if you could ever be as great of a trainer as him..."  )

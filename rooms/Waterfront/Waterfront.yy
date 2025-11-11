@@ -14,13 +14,15 @@
     {"name":"inst_53238732","path":"rooms/Waterfront/Waterfront.yy",},
     {"name":"inst_1710ED07","path":"rooms/Waterfront/Waterfront.yy",},
     {"name":"inst_12A5D44","path":"rooms/Waterfront/Waterfront.yy",},
+    {"name":"inst_4300A63","path":"rooms/Waterfront/Waterfront.yy",},
   ],
   "isDnd":false,
   "layers":[
     {"$GMRTileLayer":"","%Name":"Trees","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Trees","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":16,"TileCompressedData":[
           -3,-2147483648,3,98,258,259,-4,-2147483648,3,260,261,103,-6,-2147483648,3,98,277,278,-4,-2147483648,
           3,279,280,103,-6,-2147483648,1,98,-8,-2147483648,1,103,-6,-2147483648,1,98,-8,-2147483648,1,103,-6,-2147483648,
-          1,98,-8,-2147483648,1,103,-6,-2147483648,10,117,118,119,120,121,118,119,120,121,122,-163,-2147483648,
+          1,98,-8,-2147483648,1,103,-4,-2147483648,12,237,238,117,118,119,120,121,118,119,120,121,122,-4,-2147483648,
+          2,256,257,-14,-2147483648,2,275,276,-141,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"Serene_Village3","path":"tilesets/Serene_Village3/Serene_Village3.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_5BA08BCB","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5BA08BCB","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":6.0,"scaleY":1.0,"x":288.0,"y":0.0,},
@@ -31,13 +33,14 @@
         {"$GMRInstance":"v4","%Name":"inst_53238732","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_53238732","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.734375,"scaleY":1.671875,"x":535.5,"y":42.5,},
         {"$GMRInstance":"v4","%Name":"inst_1710ED07","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1710ED07","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.625,"scaleY":1.6015625,"x":236.0,"y":44.75,},
         {"$GMRInstance":"v4","%Name":"inst_12A5D44","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_12A5D44","objectId":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":335.0,"y":163.0,},
+        {"$GMRInstance":"v4","%Name":"inst_4300A63","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4300A63","objectId":{"name":"MewTruck","path":"objects/MewTruck/MewTruck.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.546875,"scaleY":1.4375,"x":729.5,"y":32.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Land","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Land","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":16,"TileCompressedData":[
-          -3,-2147483648,-9,45,-4,104,-3,-2147483648,-9,45,-4,104,-3,-2147483648,-4,45,-4,42,1,45,-4,104,-3,-2147483648,
-          -3,45,-5,42,1,45,-4,104,-3,-2147483648,-3,45,-4,42,-2,45,-4,104,-3,-2147483648,-4,45,-5,-2147483648,
-          -4,104,-12,-2147483648,-4,104,-12,-2147483648,-4,104,-12,-2147483648,-4,104,-12,-2147483648,-4,104,-12,
-          -2147483648,-4,104,-10,-2147483648,-6,104,-10,-2147483648,-6,104,-10,-2147483648,-6,104,-10,-2147483648,
-          -6,104,-10,-2147483648,-6,104,
+          -3,-2147483648,-9,45,4,104,98,46,46,-3,-2147483648,-9,45,4,104,98,46,46,-3,-2147483648,-4,45,-4,42,5,
+          45,104,117,118,118,-3,-2147483648,-3,45,-5,42,1,45,-4,104,-3,-2147483648,-3,45,-4,42,-2,45,-4,104,-3,
+          -2147483648,-4,45,-5,-2147483648,-4,104,-12,-2147483648,-4,104,-12,-2147483648,-4,104,-12,-2147483648,
+          -4,104,-12,-2147483648,-4,104,-12,-2147483648,-4,104,-10,-2147483648,-6,104,-10,-2147483648,-6,104,-10,
+          -2147483648,-6,104,-10,-2147483648,-6,104,-10,-2147483648,-6,104,
         ],"TileDataFormat":1,},"tilesetId":{"name":"Serene_Village3","path":"tilesets/Serene_Village3/Serene_Village3.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Water2","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Water2","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":16,"TileCompressedData":[
           -4,104,2,258,259,-4,-2147483648,3,260,261,103,-7,104,2,277,278,-4,-2147483648,3,279,280,103,-7,104,-3,
