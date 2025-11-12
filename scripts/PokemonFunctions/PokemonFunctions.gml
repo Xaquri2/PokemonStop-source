@@ -1577,10 +1577,12 @@ function GetNameByNumber(num)
 {
 	switch (num)
 	{
-		case "001": return "Pikachu"
-		case "002": return "Squirtle"
-		case "003": return "Charmander"
-		case "004": return "Snorlax"
+		case "001": return "Creeper"
+		case "002": return "Krypton Firefly"
+		case "011": return "Pikachu"
+		case "012": return "Squirtle"
+		case "013": return "Charmander"
+		case "014": return "Snorlax"
 	}
 }
 
@@ -1588,10 +1590,12 @@ function GetNumberByName(name)
 {
 	switch (name)
 	{
-		case "Pikachu": return "001"
-		case "Squirtle": return "002"
-		case "Charmander": return "003"
-		case "Snorlax": return "004"
+		case "Creeper": return "001"
+		case "Krypton Firefly": return "002"
+		case "Pikachu": return "011"
+		case "Squirtle": return "012"
+		case "Charmander": return "013"
+		case "Snorlax": return "014"
 	}
 }
 
@@ -1599,10 +1603,12 @@ function GetSpriteByNumber(num)
 {
 	switch (num)
 	{
-		case "001": return PikachuIdleSprite
-		case "002": return SquirtleIdleSprite
-		case "003": return CharmanderIdleSprite
-		case "004": return SnorlaxIdleSprite
+		case "001": return CreeperSprite 
+		case "002": return KryptonFireflySprite
+		case "011": return PikachuIdleSprite
+		case "012": return SquirtleIdleSprite
+		case "013": return CharmanderIdleSprite
+		case "014": return SnorlaxIdleSprite
 		
 		default: return PikachuIdleSprite
 	}
@@ -1623,6 +1629,8 @@ function GetDescriptionByNumber(num)
 	{
 		case "Pikachu": return "This Pokémon has electricity-storing pouches on its cheeks. These appear to become electrically charged during the night while Pikachu sleeps. It occasionally discharges electricity when it is dozy after waking up. When it releases pent-up energy in a burst, the electric power is equal to a lightning bolt."//"This is a test description, the first one that was made."
 		case "Squirtle": return "Shoots water at prey while in the water. Withdraws into its shell when in danger."
+		case "Creeper": return "This Pokémon is made from blocks of peat moss. It waits till another Pokémon is nearby, builds up air in its sacks, and explodes concussively, discharging its spores and destroying everything nearby."
+		case "Krypton Firefly": return "This Pokémon is said to originate from a long-dead planet in deep space. Due to Earth’s lighter gravity, the Firefly has become an incredibly fast flier with durable skin. It also breathes fire. "
 	}
 	return "This is a test description, the default one for the forgotten."
 }
@@ -1657,6 +1665,11 @@ function GetGameOfOrigin(name)
 		case "Charizard":
 		case "Snorlax":
 			return "Pokémon Red/Blue"
+		case "Krypton Firefly":
+			return "Superman (comic series)"
+		case "Creeper":
+		case "Enderman": 
+			return "Minecraft"
 		default: return "Test Origin Game"
 	}
 }
@@ -1671,7 +1684,12 @@ function GetGameDetails(name)
 		case "Charmandorian":
 		case "Charizard":
 		case "Snorlax":
-			return "1996 * Nintendo / Game Freak"
+			return "1996 • Nintendo / Game Freak"
+		case "Krypton Firefly":
+			return "1950s or 60s • DC Comics"
+		case "Creeper":
+		case "Enderman": 
+			return "May, 2009 • Mojang Studios"
 		default: return "Test Origin Game"
 	}
 }
