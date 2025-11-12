@@ -125,16 +125,25 @@ if (nearestNPC != noone)
 	{
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 		
-		if (nearestNPC.object_index == PokelootObject)
+		if (nearestNPC.object_index == PokelootObject and nearestNPC.obtainable)
 		{
 			dialogue.item = nearestNPC.item
 			dialogue.itemCount = nearestNPC.itemCount
 			ds_list_add(global.collectedPokeloot, nearestNPC.itemTag)
-			if (nearestNPC.itemCount == 1) ds_list_add(nearestNPC.textList, string_concat("You got a ", nearestNPC.item, "!"))
-			else ds_list_add(nearestNPC.textList, string_concat("You got ", nearestNPC.itemCount, " ", nearestNPC.item, "s!"))
-			ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
+			
+			if (string_count("Pokemon", nearestNPC.itemTag) == 1)
+			{
+				AddPokemonSpecific(nearestNPC.pokemonInfo)
+				ds_list_add(nearestNPC.textList, string_concat("You got a ", nearestNPC.item, "! They joined the team!"))
+			}
+			else
+			{
+				if (nearestNPC.itemCount == 1) ds_list_add(nearestNPC.textList, string_concat("You got a ", nearestNPC.item, "!"))
+				else ds_list_add(nearestNPC.textList, string_concat("You got ", nearestNPC.itemCount, " ", nearestNPC.item, "s!"))
+				ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
+			}
 		}
-		
+
 		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) == -1) 
 		{
 			dialogue.textList = nearestNPC.textList
@@ -150,9 +159,13 @@ if (nearestNPC != noone)
 		dialogue.name = nearestNPC.name
 		dialogue.actionNPC = nearestNPC
 		talking = true
-		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		if (ds_list_empty(dialogue.textList)) 
+		{
+			talking = false
+			instance_destroy(dialogue)
+		}
 		
-		if (nearestNPC.object_index == PokelootObject) instance_destroy(nearestNPC)
+		if (nearestNPC.object_index == PokelootObject and nearestNPC.obtainable) instance_destroy(nearestNPC)
 	}
 }
 #endregion

@@ -9,6 +9,24 @@ function ConvertListToArray(list)
 	return arr
 }
 
+function ConvertMapToMatrix(map)
+{
+	if (!ds_map_empty(map))
+	{
+		var matrix = []
+		
+		var key = ds_map_find_first(map)
+		while (key != undefined)
+		{
+			var value = ds_map_find_value(map, key)
+			array_push(matrix, [key, value])
+			key = ds_map_find_next(map, key)
+		}
+		
+		return matrix
+	}
+}
+
 function CenterTextPosition()
 {
 	draw_set_halign(fa_center)

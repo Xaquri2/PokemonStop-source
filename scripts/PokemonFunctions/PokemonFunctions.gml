@@ -80,6 +80,28 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	}
 }
 
+function CreatePokemonInfo(name, level, gender, moveset)
+{
+	if (gender == noone) gender = GetRandomGender(GetGenderChance(name, "Male"))
+	
+	var sprite = GetSpriteByNumber(GetNumberByName(name))
+	var pokemon = ds_list_create()
+	var growthRate = "Very Fast"
+	var hp =  GetPokemonFinalHP(name, level)
+	
+	var learnset = GetLevelUpMoveset(name, level)
+	if (moveset != noone) ds_list_copy(learnset, moveset)
+	var learnsetPP = GetLearnsetPP(learnset)
+	var expLevelFloor = GetExpLevelFloor(level, growthRate)
+	var types = GetPokemonType(name)
+	
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
+	
+	instance_destroy(moveset)
+	
+	return pokemon
+}
+
 function GetWildPokemon()
 {
 	var encounters = GetAreaEncounters()
@@ -344,9 +366,9 @@ function GetStatus(pkmnInfo) { return ds_list_find_value(pkmnInfo, 11)}
 function SetStatus(pkmnInfo, status) { ds_list_set(pkmnInfo, 11, status)}
 function ClearStatus(pkmnInfo) { ds_list_set(pkmnInfo, 11, "None") }
 
-function GetRandomGender(maleChance, femaleChance)
+function GetRandomGender(maleChance)
 {
-	if (floor(random_range(0,100)) <= 50) return "Male"
+	if (floor(random_range(0,100)) <= maleChance) return "Male"
 	else return "Female"
 }
 
@@ -1581,8 +1603,9 @@ function GetSpriteByNumber(num)
 		case "002": return SquirtleIdleSprite
 		case "003": return CharmanderIdleSprite
 		case "004": return SnorlaxIdleSprite
+		
+		default: return PikachuIdleSprite
 	}
-	return undefined
 }
 
 function GetTitleByNumber(num)
@@ -1650,5 +1673,14 @@ function GetGameDetails(name)
 		case "Snorlax":
 			return "1996 * Nintendo / Game Freak"
 		default: return "Test Origin Game"
+	}
+}
+
+function GetGenderChance(species, gender)
+{
+	switch (species)
+	{
+		default:
+			return 50
 	}
 }

@@ -27,6 +27,8 @@ function SaveData()
 	}
 	
 	var beatenTrainerArray = ConvertListToArray(global.beatenTrainers)
+	var npcFlagsMatrix = ConvertMapToMatrix(global.npcFlags)
+	var collectedPokelootArray = ConvertListToArray(global.collectedPokeloot)
 	var flagsArray = ConvertListToArray(global.flags)
 	var inventoryArray = array_create(5)
 	
@@ -66,7 +68,9 @@ function SaveData()
 		party: partyArray,
 		inventory: inventoryArray,
 		beatenTrainers: beatenTrainerArray,
+		npcFlags: npcFlagsMatrix,
 		flags: flagsArray,
+		collectedPokeloot: collectedPokelootArray,
 		latestSaveState: global.latestSaveState,
 		saveSlotTimestamp: timestampString
 	}
@@ -153,6 +157,18 @@ function LoadData()
 		for (var i = 0; i < array_length(saveState.flags); i++)
 		{
 			ds_list_add(global.flags, saveState.flags[i])
+		}
+		
+		for (var i = 0; i < array_length(saveState.npcFlags); i++)
+		{
+			var key = saveState.npcFlags[i][0]
+			var value = saveState.npcFlags[i][1]
+			SetNPCFlag(key, value)
+		}
+		
+		for (var i = 0; i < array_length(saveState.collectedPokeloot); i++)
+		{
+			ds_list_add(global.collectedPokeloot, saveState.collectedPokeloot[i])
 		}
 
 		for (var i = 0; i < array_length(saveState.inventory); i++)

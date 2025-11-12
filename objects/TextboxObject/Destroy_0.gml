@@ -17,6 +17,15 @@ if (instance_exists(actionNPC))
 				actionNPC.alarm[0] = 5
 			}
 			break
+		case Ginkgo:
+			switch (GetNPCFlag("Ginkgo"))
+			{
+				case undefined:
+				case "ChoosingFirstDialogue":
+					SetNPCFlag("Ginkgo", "ChoosingDefaultDialogue")
+					break
+			}
+			break
 	}
 }
 

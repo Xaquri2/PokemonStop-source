@@ -48,3 +48,38 @@ function GetBattleTheme(name)
 		default: return WildBattleTheme
 	}
 }
+
+function GetNPCFlagDialogue(name, flag)
+{
+	var dialogue = ds_list_create()
+	switch (name)
+	{
+		case "Ginkgo":
+			if (flag == "ChoosingFirstDialogue")
+			{
+				ds_list_add(dialogue, "Ah, welcome Gash!", 
+				"It brings me to tears to realize you've come of age.", 
+				"Choose your first Pokémon!")
+			}
+			else if (flag == "ChoosingDefaultDialogue")
+			{
+				ds_list_add(dialogue, "Choose your first Pokémon!")
+			}
+			else if (flag == "StarterChosen")
+			{
+				ds_list_add(dialogue, "Have fun in your adventure!")
+			}
+			break
+		
+		default:
+			ds_list_add(dialogue, "This is the default dialogue", "Someone doesn't have a name!")
+	}
+	return dialogue
+}
+
+function GetNPCFlag(name) { return ds_map_find_value(global.npcFlags, name) }
+function SetNPCFlag(name, flag) 
+{ 
+	if (ds_map_find_value(global.npcFlags, name) != undefined) ds_map_set(global.npcFlags, name, flag)
+	else ds_map_add(global.npcFlags, name, flag)
+}

@@ -32,9 +32,6 @@ global.pokedex = ds_list_create()
 
 global.beatenTrainers = ds_list_create()
 global.collectedPokeloot = ds_list_create()
-global.flags = ds_list_create()
 
-AddPokemon("Pikachu", 15, "Male")
-/*AddPokemon("Squirtle", 25, "Female")
-AddPokemon("Charmander", 25, "Male")
-AddPokemon("Snorlax", 25, "Female")*/
+global.flags = ds_list_create()
+global.npcFlags = ds_map_create()
