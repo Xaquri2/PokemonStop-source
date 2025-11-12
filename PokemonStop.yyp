@@ -177,6 +177,7 @@
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"ShadowPath","path":"rooms/ShadowPath/ShadowPath.yy",},},
     {"id":{"name":"ShadowPathGym","path":"rooms/ShadowPathGym/ShadowPathGym.yy",},},
+    {"id":{"name":"ShadowTower","path":"rooms/ShadowTower/ShadowTower.yy",},},
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"id":{"name":"TestTiltedRoom","path":"rooms/TestTiltedRoom/TestTiltedRoom.yy",},},
     {"id":{"name":"TiltedBuildingInterior","path":"rooms/TiltedBuildingInterior/TiltedBuildingInterior.yy",},},
@@ -213,6 +214,7 @@
     {"id":{"name":"AshPosterSprite","path":"sprites/AshPosterSprite/AshPosterSprite.yy",},},
     {"id":{"name":"Atlas1","path":"sprites/Atlas1/Atlas1.yy",},},
     {"id":{"name":"Atlas2","path":"sprites/Atlas2/Atlas2.yy",},},
+    {"id":{"name":"BabelTowerSprite","path":"sprites/BabelTowerSprite/BabelTowerSprite.yy",},},
     {"id":{"name":"BallParticleSprite","path":"sprites/BallParticleSprite/BallParticleSprite.yy",},},
     {"id":{"name":"BarSprite","path":"sprites/BarSprite/BarSprite.yy",},},
     {"id":{"name":"BasicSignSprite","path":"sprites/BasicSignSprite/BasicSignSprite.yy",},},
@@ -355,6 +357,7 @@
     {"roomId":{"name":"ShadowPath","path":"rooms/ShadowPath/ShadowPath.yy",},},
     {"roomId":{"name":"ShadowPathGym","path":"rooms/ShadowPathGym/ShadowPathGym.yy",},},
     {"roomId":{"name":"Waterfront","path":"rooms/Waterfront/Waterfront.yy",},},
+    {"roomId":{"name":"ShadowTower","path":"rooms/ShadowTower/ShadowTower.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

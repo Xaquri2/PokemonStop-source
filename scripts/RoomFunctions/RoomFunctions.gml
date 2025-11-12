@@ -75,6 +75,23 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = RouteMinusOneBottom
 			targetWarp = "MinusOneToShadow"
 			break
+		case "ShadowToShadowTower":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToShadow"
+			break
+			
+		#region Shadow Tower	
+		case "ShadowTowerToShadowGym":
+			targetRoom = ShadowPathGym
+			targetWarp = "ShadowGymToShadowTower"
+			break
+		#endregion
+		
+		#region Shadow Gym
+		case "ShadowGymToShadowTower":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToShadowGym"
+			break
 		#endregion
 			
 		#region GinkgoLab
@@ -147,6 +164,8 @@ function GetRoomMusic()
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
 		case ShadowPath: return OathToOrder
+		case ShadowTower: return OathToOrder
+		case ShadowPathGym: return PokeGymLofi
 		case Waterfront: return MalletTownMusic
 	}
 	return noone

@@ -57,6 +57,7 @@
     {"name":"inst_3287E165","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_619457CE","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_58F8C23C","path":"rooms/ShadowPath/ShadowPath.yy",},
+    {"name":"inst_20C4ADFA","path":"rooms/ShadowPath/ShadowPath.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -113,6 +114,7 @@
         {"$GMRInstance":"v4","%Name":"inst_3287E165","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3287E165","objectId":{"name":"obj_pillar_whole","path":"objects/obj_pillar_whole/obj_pillar_whole.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.28644717,"scaleY":0.33739042,"x":1076.729,"y":643.0,},
         {"$GMRInstance":"v4","%Name":"inst_619457CE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_619457CE","objectId":{"name":"obj_pillar_whole","path":"objects/obj_pillar_whole/obj_pillar_whole.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.28644717,"scaleY":0.33739042,"x":1057.4579,"y":612.0,},
         {"$GMRInstance":"v4","%Name":"inst_58F8C23C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_58F8C23C","objectId":{"name":"obj_pillar_whole","path":"objects/obj_pillar_whole/obj_pillar_whole.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.28644717,"scaleY":0.33739042,"x":1022.72894,"y":587.0,},
+        {"$GMRInstance":"v4","%Name":"inst_20C4ADFA","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_20C4ADFA","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":18.0,"scaleY":1.0,"x":1024.0,"y":1728.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":167,"SerialiseWidth":125,"TileCompressedData":[
           -6628,-2147483648,2,321,322,-123,-2147483648,2,385,386,-123,-2147483648,2,449,450,-123,-2147483648,2,
