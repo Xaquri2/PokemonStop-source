@@ -14,5 +14,7 @@ quickIncrementValue = 30
 newMove = ""
 moveList = noone
 
+referenceNPC = noone
+
 image_xscale = 4
 image_yscale = 4

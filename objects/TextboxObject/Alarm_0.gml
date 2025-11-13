@@ -1,0 +1,1 @@
+audio_play_sound(Ding2, 1, false)

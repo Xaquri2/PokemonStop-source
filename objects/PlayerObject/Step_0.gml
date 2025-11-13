@@ -133,8 +133,11 @@ if (nearestNPC != noone)
 			
 			if (string_count("Pokemon", nearestNPC.itemTag) == 1)
 			{
-				AddPokemonSpecific(nearestNPC.pokemonInfo)
-				ds_list_add(nearestNPC.textList, string_concat("You got a ", nearestNPC.item, "! They joined the team!"))
+				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+				optionMenu.question = string_concat("Do you want ", nearestNPC.item, GetTitleByNumber(GetNumberByName(nearestNPC.item)), "?")
+				optionMenu.option1 = "Yes"
+				optionMenu.option2 = "No"
+				optionMenu.referenceNPC = nearestNPC
 			}
 			else
 			{
@@ -158,14 +161,23 @@ if (nearestNPC != noone)
 		
 		dialogue.name = nearestNPC.name
 		dialogue.actionNPC = nearestNPC
-		talking = true
+		if (nearestNPC.object_index != PokelootObject or nearestNPC.obtainable) talking = true
+		
 		if (ds_list_empty(dialogue.textList)) 
 		{
-			talking = false
+			if !(nearestNPC.object_index == PokelootObject and 
+			string_count("Pokemon", nearestNPC.itemTag) == 1)
+			{
+				talking = false
+			}
 			instance_destroy(dialogue)
 		}
 		
-		if (nearestNPC.object_index == PokelootObject and nearestNPC.obtainable) instance_destroy(nearestNPC)
+		if (nearestNPC.object_index == PokelootObject and 
+		nearestNPC.obtainable and string_count("Pokemon", nearestNPC.itemTag) != 1) 
+		{
+			instance_destroy(nearestNPC)
+		}
 	}
 }
 #endregion

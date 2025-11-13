@@ -7,7 +7,7 @@ item = ""
 itemCount = 1
 
 currentText = 0
-actionNPC = -1
+actionNPC = noone
 charCounterMax = 2
 charCounter = 0
 charNumber = 0
@@ -17,6 +17,6 @@ startBattle = false
 
 player = instance_find(PlayerObject, 0)
 
-audio_play_sound(Ding2, 1, false)
+alarm[0] = 1
 
 //Note: icons' origins must be on the bottom center

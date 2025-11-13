@@ -479,4 +479,28 @@ if (keyboard_check_pressed(vk_enter))
 		menu.visible = true
 		instance_destroy(id)
 	}
+	
+	if (string_count("want", question) > 0 and string_count("Pokemon", question) > 0)
+	{
+		if (currentOption == 0)
+		{
+			AddPokemonSpecific(referenceNPC.pokemonInfo)
+			
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.iconList = referenceNPC.iconList
+			dialogue.nameList = referenceNPC.nameList
+			player.talking = true
+			
+			ds_list_add(dialogue.textList, string_concat("You got a ", 
+			referenceNPC.item, "! They joined the team!"))
+			
+			instance_destroy(referenceNPC)
+			instance_destroy(id)
+		}
+		else 
+		{
+			alarm[2] = 1
+		}
+	}
 }
