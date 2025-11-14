@@ -1,5 +1,5 @@
 event_inherited();
-name = npc_name
+name = "Prof. Ginkgo"
 if (typeof(speech) == "array") {
 	for (var i = 0; i < array_length(speech); i++) {
 		ds_list_add(textList, speech[i])
@@ -8,3 +8,4 @@ if (typeof(speech) == "array") {
 else if (typeof(speech) == "string") {
 	ds_list_add(textList, speech)
 }
+

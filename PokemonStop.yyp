@@ -245,6 +245,7 @@
     {"id":{"name":"GhostPlayerWalkLeftSprite","path":"sprites/GhostPlayerWalkLeftSprite/GhostPlayerWalkLeftSprite.yy",},},
     {"id":{"name":"GhostPlayerWalkRightSprite","path":"sprites/GhostPlayerWalkRightSprite/GhostPlayerWalkRightSprite.yy",},},
     {"id":{"name":"GhostPlayerWalkUpSprite","path":"sprites/GhostPlayerWalkUpSprite/GhostPlayerWalkUpSprite.yy",},},
+    {"id":{"name":"GinkgoSprite_CLOSE","path":"sprites/GinkgoSprite_CLOSE/GinkgoSprite_CLOSE.yy",},},
     {"id":{"name":"GinkgoSprite","path":"sprites/GinkgoSprite/GinkgoSprite.yy",},},
     {"id":{"name":"HatKidWalkRightSprite","path":"sprites/HatKidWalkRightSprite/HatKidWalkRightSprite.yy",},},
     {"id":{"name":"HatKidWalkUpSprite","path":"sprites/HatKidWalkUpSprite/HatKidWalkUpSprite.yy",},},
