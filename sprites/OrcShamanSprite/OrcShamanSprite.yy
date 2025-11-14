@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Characters",
-    "path":"folders/Sprites/Characters.yy",
+    "name":"Merchants",
+    "path":"folders/Sprites/Characters/Merchants.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
