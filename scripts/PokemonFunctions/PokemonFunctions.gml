@@ -1583,7 +1583,7 @@ function GetNameByNumber(num)
 		case "012": return "Squirtle"
 		case "013": return "Charmander"
 		case "014": return "Snorlax"
-		//case "003": return "Envy"
+		case "003": return "Envy"
 	}
 }
 
@@ -1622,9 +1622,9 @@ function GetTitleByNumber(num)
 	switch (GetNameByNumber(num))
 	{
 		case "Pikachu": return "The Mouse Pokémon"
-		case "Envy": return "The Aquatic Shadow Pokémon"
-		case "Creeper": return "The Exploding Moss Pokémon"
-		case "Krypton Firefly": return "The Firefly of Steel Pokémon"
+		//case "Envy": return "The Aquatic Shadow Pokémon"
+		//case "Creeper": return "The Exploding Moss Pokémon"
+		//case "Krypton Firefly": return "The Firefly of Steel Pokémon"
 	}
 	return "The Test Pokemon"
 }
