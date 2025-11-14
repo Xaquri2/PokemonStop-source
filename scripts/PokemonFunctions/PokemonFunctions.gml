@@ -1583,6 +1583,7 @@ function GetNameByNumber(num)
 		case "012": return "Squirtle"
 		case "013": return "Charmander"
 		case "014": return "Snorlax"
+		//case "003": return "Envy"
 	}
 }
 
@@ -1592,6 +1593,7 @@ function GetNumberByName(name)
 	{
 		case "Creeper": return "001"
 		case "Krypton Firefly": return "002"
+		case "Envy": return "003"
 		case "Pikachu": return "011"
 		case "Squirtle": return "012"
 		case "Charmander": return "013"
@@ -1605,6 +1607,7 @@ function GetSpriteByNumber(num)
 	{
 		case "001": return CreeperSprite 
 		case "002": return KryptonFireflySprite
+		case "003": return EnvySprite
 		case "011": return PikachuIdleSprite
 		case "012": return SquirtleIdleSprite
 		case "013": return CharmanderIdleSprite
@@ -1618,7 +1621,10 @@ function GetTitleByNumber(num)
 {
 	switch (GetNameByNumber(num))
 	{
-		case "Pikachu": return "The Mouse Pokemon"
+		case "Pikachu": return "The Mouse Pokémon"
+		case "Envy": return "The Aquatic Shadow Pokémon"
+		case "Creeper": return "The Exploding Moss Pokémon"
+		case "Krypton Firefly": return "The Firefly of Steel Pokémon"
 	}
 	return "The Test Pokemon"
 }
@@ -1631,6 +1637,7 @@ function GetDescriptionByNumber(num)
 		case "Squirtle": return "Shoots water at prey while in the water. Withdraws into its shell when in danger."
 		case "Creeper": return "This Pokémon is made from blocks of peat moss. It waits till another Pokémon is nearby, builds up air in its sacks, and explodes concussively, discharging its spores and destroying everything nearby."
 		case "Krypton Firefly": return "This Pokémon is said to originate from a long-dead planet in deep space. Due to Earth’s lighter gravity, the Firefly has become an incredibly fast flier with durable skin. It also breathes fire. "
+		case "Envy": return "This aquatic Pokémon is part of the shadowy Umbrian family. It’s so envious of the living, its hairs have each taken the form of a beautiful woman. These lure men into the water, where they’re dragged down to their deaths. "
 	}
 	return "This is a test description, the default one for the forgotten."
 }
@@ -1670,6 +1677,8 @@ function GetGameOfOrigin(name)
 		case "Creeper":
 		case "Enderman": 
 			return "Minecraft"
+		case "Envy":
+			return "Exile"
 		default: return "Test Origin Game"
 	}
 }
@@ -1690,6 +1699,8 @@ function GetGameDetails(name)
 		case "Creeper":
 		case "Enderman": 
 			return "May, 2009 • Mojang Studios"
+		case "Envy": 
+			return "2008 • Krierre House"
 		default: return "Test Origin Game"
 	}
 }
