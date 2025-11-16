@@ -177,6 +177,7 @@
     {"id":{"name":"GashHouse","path":"rooms/GashHouse/GashHouse.yy",},},
     {"id":{"name":"GashUpstairs","path":"rooms/GashUpstairs/GashUpstairs.yy",},},
     {"id":{"name":"GinkgoLab","path":"rooms/GinkgoLab/GinkgoLab.yy",},},
+    {"id":{"name":"Mallet_East","path":"rooms/Mallet_East/Mallet_East.yy",},},
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
     {"id":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
@@ -373,6 +374,7 @@
     {"roomId":{"name":"ShadowPathGym","path":"rooms/ShadowPathGym/ShadowPathGym.yy",},},
     {"roomId":{"name":"Waterfront","path":"rooms/Waterfront/Waterfront.yy",},},
     {"roomId":{"name":"ShadowTower","path":"rooms/ShadowTower/ShadowTower.yy",},},
+    {"roomId":{"name":"Mallet_East","path":"rooms/Mallet_East/Mallet_East.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

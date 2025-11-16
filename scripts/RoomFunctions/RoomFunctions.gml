@@ -42,6 +42,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = Waterfront
 			targetWarp = "WaterfrontToMallet"
 			break
+		case "MalletToMalletEast":
+			targetRoom = Mallet_East
+			targetWarp = "MalletEastToMallet"
+			break
 		#endregion
 		
 		#region Route Minus One
@@ -133,6 +137,13 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		#endregion
 		
+		#region Mallet_East
+		case "MalletEastToMallet":
+			targetRoom = Mallet_Town
+			targetWarp = "MalletToMalletEast"
+			break
+		#endregion
+		
 	}
 	
 	warpName = name
@@ -167,6 +178,7 @@ function GetRoomMusic()
 		case ShadowTower: return OathToOrder
 		case ShadowPathGym: return PokeGymLofi
 		case Waterfront: return MalletTownMusic
+		case Mallet_East: return MalletTownMusic
 	}
 	return noone
 }
