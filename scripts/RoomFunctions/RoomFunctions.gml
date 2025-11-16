@@ -46,6 +46,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = Mallet_East
 			targetWarp = "MalletEastToMallet"
 			break
+		case "MalletToMalletEastTOP":
+			targetRoom = Mallet_East
+			targetWarp = "MalletEastToMalletTOP"
+			break
 		#endregion
 		
 		#region Route Minus One
@@ -141,6 +145,10 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "MalletEastToMallet":
 			targetRoom = Mallet_Town
 			targetWarp = "MalletToMalletEast"
+			break
+		case "MalletEastToMalletTOP":
+			targetRoom = Mallet_Town
+			targetWarp = "MalletToMalletEastTOP"
 			break
 		#endregion
 		
