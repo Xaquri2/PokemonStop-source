@@ -1598,6 +1598,8 @@ function GetNumberByName(name)
 		case "Squirtle": return "012"
 		case "Charmander": return "013"
 		case "Snorlax": return "014"
+		
+		default: return -1
 	}
 }
 

@@ -134,7 +134,7 @@ if (nearestNPC != noone)
 			if (string_count("Pokemon", nearestNPC.itemTag) == 1)
 			{
 				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
-				optionMenu.question = string_concat("Do you want ", nearestNPC.item, GetTitleByNumber(GetNumberByName(nearestNPC.item)), "?")
+				optionMenu.question = string_concat("Do you want ", nearestNPC.item, ", ", GetTitleByNumber(GetNumberByName(nearestNPC.item)), "?")
 				optionMenu.option1 = "Yes"
 				optionMenu.option2 = "No"
 				optionMenu.referenceNPC = nearestNPC
