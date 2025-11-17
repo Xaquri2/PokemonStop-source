@@ -1,3 +1,5 @@
+depth = -y
+
 hover_time += 1;
 
 // gentle up/down
