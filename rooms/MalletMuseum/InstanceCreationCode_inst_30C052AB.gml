@@ -1,0 +1,1 @@
+ds_list_add(textList, "Misty, the Gym Leader of the Cerulean Gym in Kanto Region's Cerulean City,", "Heroically wielded a Mallet on numerous occasions!", "Here, she's seen using it to (figuratively) drive off the scourge of BUGS!!", "More commonly, she brought her Mallet's might to bear on her friend and traveling companion, Brock.")

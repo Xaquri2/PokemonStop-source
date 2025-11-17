@@ -1,0 +1,1 @@
+ds_list_add(textList, "This Mallet was used as a prop in a Pokémon Musical.", "These musicals took place in Nimbasa City, Unovo, and yes,", "That DOES mean some LUCKY trainers got to dress up their LUCKY Pokémon with this dashing Mallet.")
