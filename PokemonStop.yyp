@@ -191,6 +191,7 @@
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
     {"id":{"name":"MalletMuseum","path":"rooms/MalletMuseum/MalletMuseum.yy",},},
     {"id":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
+    {"id":{"name":"RegionCenter","path":"rooms/RegionCenter/RegionCenter.yy",},},
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"ShadowPath","path":"rooms/ShadowPath/ShadowPath.yy",},},
@@ -304,6 +305,7 @@
     {"id":{"name":"NurseJoySprite","path":"sprites/NurseJoySprite/NurseJoySprite.yy",},},
     {"id":{"name":"OrcShamanSprite","path":"sprites/OrcShamanSprite/OrcShamanSprite.yy",},},
     {"id":{"name":"OutsideMallet","path":"sprites/OutsideMallet/OutsideMallet.yy",},},
+    {"id":{"name":"OutsideMallet2","path":"sprites/OutsideMallet2/OutsideMallet2.yy",},},
     {"id":{"name":"PaperShadowPath","path":"sprites/PaperShadowPath/PaperShadowPath.yy",},},
     {"id":{"name":"PaperShadowPath2","path":"sprites/PaperShadowPath2/PaperShadowPath2.yy",},},
     {"id":{"name":"PCG_FloatSprite","path":"sprites/PCG_FloatSprite/PCG_FloatSprite.yy",},},
@@ -405,6 +407,7 @@
     {"roomId":{"name":"ShadowTower","path":"rooms/ShadowTower/ShadowTower.yy",},},
     {"roomId":{"name":"Mallet_East","path":"rooms/Mallet_East/Mallet_East.yy",},},
     {"roomId":{"name":"MalletMuseum","path":"rooms/MalletMuseum/MalletMuseum.yy",},},
+    {"roomId":{"name":"RegionCenter","path":"rooms/RegionCenter/RegionCenter.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

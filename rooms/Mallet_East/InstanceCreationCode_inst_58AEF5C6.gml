@@ -1,0 +1,1 @@
+SetWarpDefaults("MalletEastToRegionCenter", "Down", false)

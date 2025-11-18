@@ -1,0 +1,1 @@
+ds_list_add(textList, "It's a peg.","At the very center of the map.","Maybe it signifies some kind of tower?")

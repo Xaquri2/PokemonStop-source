@@ -162,6 +162,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MalletMuseum
 			targetWarp = "MalletMuseumToEast"
 			break
+		case "MalletEastToRegionCenter":
+			targetRoom = RegionCenter
+			targetWarp = "RegionCenterToMalletEast"
+			break
 		#endregion
 		
 		#region MalletMuseum
@@ -170,6 +174,12 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MalletEastToMuseum"
 			break
 		#endregion
+		
+		#region RegionCenter
+		case "RegionCenterToMalletEast":
+			targetRoom = Mallet_East
+			targetWarp = "MalletEastToRegionCenter"
+			break
 		
 	}
 	
@@ -208,6 +218,7 @@ function GetRoomMusic()
 		case Waterfront: return MalletTownMusic
 		case Mallet_East: 
 		case MalletMuseum:
+		case RegionCenter:
 			return MalletTownMusic
 	}
 	return noone
