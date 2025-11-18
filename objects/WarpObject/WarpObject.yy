@@ -39,7 +39,7 @@
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"WarpSprite",
     "path":"sprites/WarpSprite/WarpSprite.yy",

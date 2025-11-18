@@ -177,6 +177,7 @@
     {"id":{"name":"ToMalletText","path":"objects/ToMalletText/ToMalletText.yy",},},
     {"id":{"name":"ToMutantText","path":"objects/ToMutantText/ToMutantText.yy",},},
     {"id":{"name":"ToShadowText","path":"objects/ToShadowText/ToShadowText.yy",},},
+    {"id":{"name":"ToShadowTowerText","path":"objects/ToShadowTowerText/ToShadowTowerText.yy",},},
     {"id":{"name":"ToTestText","path":"objects/ToTestText/ToTestText.yy",},},
     {"id":{"name":"TrainerHatKid","path":"objects/TrainerHatKid/TrainerHatKid.yy",},},
     {"id":{"name":"TrainerKiddFunkadelic","path":"objects/TrainerKiddFunkadelic/TrainerKiddFunkadelic.yy",},},

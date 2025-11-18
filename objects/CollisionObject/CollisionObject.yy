@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"CollisionObject",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"CollisionObject",
   "overriddenProperties":[],
@@ -26,7 +28,11 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"spriteChoice","filters":[
+        "GMSprite",
+      ],"listItems":[],"multiselect":false,"name":"spriteChoice","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
