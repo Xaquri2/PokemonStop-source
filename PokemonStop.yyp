@@ -366,6 +366,8 @@
     {"id":{"name":"WaterTilesetSprite_Large","path":"sprites/WaterTilesetSprite_Large/WaterTilesetSprite_Large.yy",},},
     {"id":{"name":"WaterTilesetSprite","path":"sprites/WaterTilesetSprite/WaterTilesetSprite.yy",},},
     {"id":{"name":"WoodHammerSprite","path":"sprites/WoodHammerSprite/WoodHammerSprite.yy",},},
+    {"id":{"name":"YamaskBackSprite","path":"sprites/YamaskBackSprite/YamaskBackSprite.yy",},},
+    {"id":{"name":"YamaskFrontSprite","path":"sprites/YamaskFrontSprite/YamaskFrontSprite.yy",},},
     {"id":{"name":"YoshiEggSprite","path":"sprites/YoshiEggSprite/YoshiEggSprite.yy",},},
     {"id":{"name":"ZoombiniIdleSprite","path":"sprites/ZoombiniIdleSprite/ZoombiniIdleSprite.yy",},},
     {"id":{"name":"ZubatIdleSprite","path":"sprites/ZubatIdleSprite/ZubatIdleSprite.yy",},},

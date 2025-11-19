@@ -1,0 +1,1 @@
+ds_list_add(textList, "About 50 years ago, strange Pokémon began appearing in this region.","No one knows for sure why, or where they came from.","Some of them have incredible abilities. Some can seemingly alter reality itself!")

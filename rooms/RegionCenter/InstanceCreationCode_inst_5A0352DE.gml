@@ -1,0 +1,1 @@
+ds_list_add(textList, "Welcome to the Regional Center!","Mallet Town is part of one of the most unique regions in the Pokémon world!", "This region is home to many strange and different Pokémon, unlike those seen in other regions.","Feel free to explore, and learn about your region!")
