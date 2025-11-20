@@ -1,4 +1,7 @@
 event_inherited();
+postBattleTextList = ds_list_create()
+postBattleIconList = ds_list_create()
+postBattleNameList = ds_list_create()
 
 startX = bbox_left
 startY = bbox_top

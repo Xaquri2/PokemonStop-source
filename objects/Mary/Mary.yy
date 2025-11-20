@@ -13,8 +13,8 @@
     "path":"folders/Objects/Characters.yy",
   },
   "parentObjectId":{
-    "name":"NPCParent",
-    "path":"objects/NPCParent/NPCParent.yy",
+    "name":"TrainerParent",
+    "path":"objects/TrainerParent/TrainerParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

@@ -996,8 +996,35 @@ function GetTrainerTeam(trainerName)
 		case "Ash Ketchum":
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
+		case "Mary":
+			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
 	}
 	return team
+}
+
+function GetRivalStarter()
+{
+	switch (GetStarterChoice())
+	{
+		case "StarterPokemonOne":
+			return "Krypton Firefly"
+		case "StarterPokemonTwo":
+			return "Envy"
+		case "StarterPokemonThree":
+			return "Creeper"
+	}
+}
+
+function GetStarterChoice()
+{
+	for (var i = 0; i < ds_list_size(global.flags); i++)
+	{
+		var attempt = ds_list_find_value(global.flags, i)
+		if (attempt == "StarterPokemonOne" or attempt == "StarterPokemonTwo" or attempt == "StarterPokemonThree")
+		{
+			return attempt
+		}
+	}
 }
 
 function ParalysisCheck() { return floor(random_range(0,4)) != 0 }

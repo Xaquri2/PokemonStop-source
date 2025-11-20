@@ -129,7 +129,6 @@ if (nearestNPC != noone)
 		{
 			dialogue.item = nearestNPC.item
 			dialogue.itemCount = nearestNPC.itemCount
-			ds_list_add(global.collectedPokeloot, nearestNPC.itemTag)
 			
 			if (string_count("Pokemon", nearestNPC.itemTag) == 1)
 			{
@@ -146,7 +145,7 @@ if (nearestNPC != noone)
 				ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
 			}
 		}
-
+		
 		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) == -1) 
 		{
 			dialogue.textList = nearestNPC.textList

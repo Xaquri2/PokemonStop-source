@@ -12,7 +12,7 @@ draw_text_transformed(40, view_get_hport(0)*0.9, option2, 1.5, 1.5, image_angle)
 if (currentOption == 1) draw_sprite_ext(ArrowSelectSprite, 0, 40+string_width(option2)*1.5+20, 
 view_get_hport(0)*0.9+20, 1.5, 1.5, 270, image_blend, image_alpha)
 
-if (GetNumberByName(referenceNPC.item) != -1)//Draw Pokémon Icon
+if (instance_exists(referenceNPC) and GetNumberByName(referenceNPC.item) != -1)//Draw Pokémon Icon
 {
 	var pkmnSprite = GetSpriteByNumber(GetNumberByName(referenceNPC.item))
 	var spriteWidth = sprite_get_width(pkmnSprite)

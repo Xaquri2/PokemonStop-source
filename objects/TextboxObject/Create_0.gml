@@ -14,6 +14,7 @@ charNumber = 0
 
 isWild = false
 startBattle = false
+isDefeatDialogue = false
 
 player = instance_find(PlayerObject, 0)
 

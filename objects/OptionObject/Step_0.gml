@@ -503,4 +503,31 @@ if (keyboard_check_pressed(vk_enter))
 			alarm[2] = 1
 		}
 	}
+	
+	if (question == "Pick an option.")
+	{
+		if (option1 == "Get lost, loser!" and currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Shut up! I'm going away anyways...")
+
+			player.talking = true
+	
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (option1 == "Why don't you join me?" and currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Fine! Whatever...")
+	
+			player.talking = true
+	
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+	}
 }

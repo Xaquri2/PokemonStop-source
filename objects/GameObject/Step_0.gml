@@ -5,9 +5,9 @@ else if (!global.autosave) alarm[1] = -1
 
 if (keyboard_check_pressed(vk_control)) 
 {
-	if (global.speedUpMultiplier*2 <= 8) 
+	if (global.speedUpMultiplier*2 <= 2) 
 	{
-		global.speedUpMultiplier = clamp(global.speedUpMultiplier*2, 0, 8)
+		global.speedUpMultiplier *= 2
 	}
 	else global.speedUpMultiplier = 1
 	game_set_speed(global.originalSpeed*global.speedUpMultiplier, gamespeed_fps)

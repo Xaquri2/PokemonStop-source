@@ -26,3 +26,7 @@ battleFlag = ""
 
 topRectValue = view_get_hport(0)/2
 textList = ds_list_create()
+
+postBattleTextList = noone
+postBattleIconList = noone
+postBattleNameList = noone

@@ -29,6 +29,22 @@ if (instance_exists(actionNPC))
 	}
 }
 
+if (isDefeatDialogue)
+{
+	switch(name)
+	{
+		case "Mary":
+			if (ds_list_find_value(textList, 0) == "How? I can't believe i lost!") //Mary's defeat dialogue
+			{
+				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+				optionMenu.question = "Pick an option."
+				optionMenu.option1 = "Get lost, loser!"
+				optionMenu.option2 = "Why don't you join me?"
+			}
+			break
+	}
+}
+
 if (startBattle)
 {
 	var musicC = instance_find(MusicObject, 0)
@@ -52,6 +68,13 @@ if (startBattle)
 	
 	battleObj.trainerX = actionNPC.x
 	battleObj.trainerY = actionNPC.y
+	
+	if (!ds_list_empty(actionNPC.postBattleTextList))
+	{
+		battleObj.postBattleTextList = actionNPC.postBattleTextList
+		battleObj.postBattleIconList = actionNPC.postBattleIconList
+		battleObj.postBattleNameList = actionNPC.postBattleNameList
+	}
 	
 	if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
 }
