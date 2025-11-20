@@ -50,6 +50,21 @@ if (canWalk and !talking and !battle)
 }
 #endregion
 
+#region Animation
+if (vspeed < 0) sprite_index = PlayerWalkUpSprite
+if (vspeed > 0) sprite_index = PlayerWalkDownSprite
+if (hspeed > 0) sprite_index = PlayerWalkRightSprite
+if (hspeed < 0) sprite_index = PlayerWalkLeftSprite
+
+if (hspeed == 0 and vspeed == 0)
+{
+	if (vspeedOld < 0) sprite_index = PlayerIdleUpSprite
+	if (vspeedOld > 0) sprite_index = PlayerIdleDownSprite
+	if (hspeedOld > 0) sprite_index = PlayerIdleRightSprite
+	if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
+}
+#endregion
+
 #region Collision
 var collidedTile = collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed, 
 bbox_right+hspeed, bbox_top+vspeed, CollisionParent, false, true)
@@ -69,21 +84,6 @@ if (instance_exists(collidedTile))
 
 if (x+hspeed > room_width or x-hspeed < 0 or collision_rectangle(bbox_left+hspeed, bbox_bottom, bbox_right+hspeed, bbox_top, CollisionParent, false, true) != noone) hspeed = 0
 if (y+vspeed > room_height or y-vspeed < 0 or collision_rectangle(bbox_left, bbox_bottom+vspeed, bbox_right, bbox_top+vspeed, CollisionParent, false, true) != noone) vspeed = 0
-#endregion
-
-#region Animation
-if (vspeed < 0) sprite_index = PlayerWalkUpSprite
-if (vspeed > 0) sprite_index = PlayerWalkDownSprite
-if (hspeed > 0) sprite_index = PlayerWalkRightSprite
-if (hspeed < 0) sprite_index = PlayerWalkLeftSprite
-
-if (hspeed == 0 and vspeed == 0)
-{
-	if (vspeedOld < 0) sprite_index = PlayerIdleUpSprite
-	if (vspeedOld > 0) sprite_index = PlayerIdleDownSprite
-	if (hspeedOld > 0) sprite_index = PlayerIdleRightSprite
-	if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
-}
 #endregion
 
 #region NPC Interaction
