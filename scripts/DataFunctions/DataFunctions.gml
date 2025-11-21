@@ -9,7 +9,7 @@ function SaveData()
 		var pkmn = GetPartyMemberInfo(global.pokemonList, i)
 		for (var j = 0; j < ds_list_size(pkmn); j++)
 		{
-			if (j == 6 or j == 7)
+			if (j == 6 or j == 7 or j == 10)
 			{
 				var list = ds_list_find_value(pkmn, j)
 				var array = []
@@ -197,7 +197,7 @@ function LoadData()
 			
 			for (var j = 0; j < array_length(saveState.party[i]); j++)
 			{
-				if (j == 6 or j == 7)
+				if (j == 6 or j == 7 or j == 10)
 				{
 					var list = ds_list_create()
 										

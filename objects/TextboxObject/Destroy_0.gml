@@ -36,7 +36,8 @@ if (isDefeatDialogue)
 		case "Mary":
 			if (ds_list_find_value(textList, 0) == "How? I can't believe i lost!") //Mary's defeat dialogue
 			{
-				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
 				optionMenu.question = "Pick an option."
 				optionMenu.option1 = "Get lost, loser!"
 				optionMenu.option2 = "Why don't you join me?"

@@ -340,6 +340,10 @@ function GetPokemonType(name)
         case "Godzilla":
             ds_list_add(types, "Dragon");
             break;
+		
+		default:
+			ds_list_add(types, "Normal");
+            break;
     }
     return types;
 }

@@ -529,5 +529,7 @@ if (keyboard_check_pressed(vk_enter))
 	
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
+		
+		instance_destroy(id)
 	}
 }
