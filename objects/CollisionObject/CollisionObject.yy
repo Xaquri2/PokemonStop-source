@@ -31,7 +31,7 @@
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"spriteChoice","filters":[
         "GMSprite",
-      ],"listItems":[],"multiselect":false,"name":"spriteChoice","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+      ],"listItems":[],"multiselect":false,"name":"spriteChoice","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

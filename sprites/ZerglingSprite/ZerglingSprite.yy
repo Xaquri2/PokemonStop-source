@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Battle Sprites",
-    "path":"folders/Sprites/Pokémon/Battle Sprites.yy",
+    "name":"OverworldSprites",
+    "path":"folders/Sprites/Pokémon/OverworldSprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
