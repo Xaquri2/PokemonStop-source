@@ -83,3 +83,12 @@ function SetNPCFlag(name, flag)
 	if (ds_map_find_value(global.npcFlags, name) != undefined) ds_map_set(global.npcFlags, name, flag)
 	else ds_map_add(global.npcFlags, name, flag)
 }
+
+function PostBattleFlagActivation(flag)
+{
+	switch (flag)
+	{
+		case "MaryRivalBattle1": return false
+		default: return true
+	}
+}
