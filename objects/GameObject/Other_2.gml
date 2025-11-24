@@ -10,6 +10,8 @@ global.latestSaveState = 1
 global.originalSpeed = game_get_speed(gamespeed_fps)
 global.speedUpMultiplier = 1
 
+global.followerType = ""
+
 var itemsList = ds_list_create()
 var ballsList = ds_list_create()
 var battleList = ds_list_create()

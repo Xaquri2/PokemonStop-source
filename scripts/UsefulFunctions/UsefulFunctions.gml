@@ -71,3 +71,38 @@ function GenerateTextPopup(xPos,yPos,displayText)
 	var obj = instance_create_depth(xPos,yPos,-1000000,TextPopupObject)
 	obj.text = displayText
 }
+
+function GetFollowerSprite(spriteDir)
+{
+	switch (global.followerType)
+	{
+		case "Mary":
+			if (spriteDir == "Down") return MaryWalkDownSprite
+			if (spriteDir == "Right") 
+			{
+				image_xscale = 1
+				return MaryWalkRightSprite
+			}
+			if (spriteDir == "Left")
+			{
+				image_xscale = -1
+				return MaryWalkRightSprite
+			}
+			if (spriteDir == "Up") return MaryWalkUpSprite
+			
+		default:
+			if (spriteDir == "Down") return MaryWalkDownSprite
+			if (spriteDir == "Right") 
+			{
+				image_xscale = 1
+				return MaryWalkRightSprite
+			}
+			if (spriteDir == "Left")
+			{
+				image_xscale = -1
+				return MaryWalkRightSprite
+			}
+			if (spriteDir == "Up") return MaryWalkUpSprite
+			return
+	}
+}

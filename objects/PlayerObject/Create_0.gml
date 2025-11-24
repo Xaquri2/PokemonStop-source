@@ -21,3 +21,5 @@ grassTimer = -1
 
 normalSpeed = 2
 overworldSpeed = 2.25
+
+follower = noone

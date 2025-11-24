@@ -112,6 +112,7 @@
     {"id":{"name":"CollisionParent","path":"objects/CollisionParent/CollisionParent.yy",},},
     {"id":{"name":"DarkTower","path":"objects/DarkTower/DarkTower.yy",},},
     {"id":{"name":"Door_to_Ginkgo","path":"objects/Door_to_Ginkgo/Door_to_Ginkgo.yy",},},
+    {"id":{"name":"FollowerObject","path":"objects/FollowerObject/FollowerObject.yy",},},
     {"id":{"name":"GameObject","path":"objects/GameObject/GameObject.yy",},},
     {"id":{"name":"GashsMom","path":"objects/GashsMom/GashsMom.yy",},},
     {"id":{"name":"Ginkgo","path":"objects/Ginkgo/Ginkgo.yy",},},
