@@ -19,6 +19,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToTest"
 			break
+		case "TestToTest":
+			targetRoom = TestRoom2
+			targetWarp = "Test2Warp"
+			break
 		#endregion
 		
 		#region Mallet Town
@@ -180,6 +184,13 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = Mallet_East
 			targetWarp = "MalletEastToRegionCenter"
 			break
+		#endregion
+			
+		#region TestRoom2
+		case "Test2Warp":
+			targetRoom = TestRoom
+			targetWarp = "TestToTest"
+			break
 		
 	}
 	
@@ -207,7 +218,9 @@ function GetRoomMusic()
 		case Mallet_Town: return MalletTownMusic
 		case RouteMinusOneBottom: return RouteMinusOneTheme
 		case MutantPath1: return MutantPathAmbiance
-		case TiltedBuildingInterior: return MutantPathUndergroundTheme
+		case TiltedBuildingInterior: 
+		case TestTiltedRoom:
+			return MutantPathUndergroundTheme
 		case TestRoom: return SacredBeasts
 		case GinkgoLab: return PokeGymLofi
 		case GashHouse: return SacredBeasts
@@ -220,6 +233,8 @@ function GetRoomMusic()
 		case MalletMuseum:
 		case RegionCenter:
 			return MalletTownMusic
+		default: 
+			return SacredBeasts
 	}
 	return noone
 }

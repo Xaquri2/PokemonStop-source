@@ -1,0 +1,1 @@
+ds_list_add(textList, "This intrepid reporter tolerates no nonsense!","Here, she's using her MALLET to furiously attack a small child who was getting in her way.", "(Erm, I should rephrase that part...)", "Here, she's using her MALLET to ward off those who would stand in the way of the TRUTH!!")

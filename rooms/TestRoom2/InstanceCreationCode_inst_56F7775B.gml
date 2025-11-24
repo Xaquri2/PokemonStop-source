@@ -1,0 +1,1 @@
+SetWarpDefaults("Test2Warp", "Right", true)
