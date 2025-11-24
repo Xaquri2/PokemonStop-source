@@ -2,6 +2,11 @@ function SetWarpDefaults(name, spawnDir, show)
 {
 	switch (name)
 	{
+		//default:
+		//	targetRoom = TestRoom
+		//	targetWarp = TestToMalletHouse1
+		//	break
+		
 		#region Test Room (Void)
 		case "TestToMalletHouse1":
 			targetRoom = Mallet_Town

@@ -993,16 +993,30 @@ function GetTrainerTeam(trainerName)
 	var team = ds_list_create()
 	switch(trainerName)
 	{
-		case "Ash Ketchum":
-			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
-			break
+
 		case "Mary":
 			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+	//Route Minus One BOTTOM
+
+		case "Hat Kid":
+			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			break
+		case "Kidd Funkadelic, Jr.":
+			AddPokemonTrainer(team, 0, "Ape-Ball", 5, "Male", ApeBallSprite)
+			break
+
+
+	//Route Minus One TOP
 		case "Ultiron":
 			AddPokemonTrainer(team, 0, "Pikachu", 1, "Female", PikachuIdleSprite)
 			AddPokemonTrainer(team, 2, "Caterpie", 4, "Female", CaterpieIdleSprite)
 			AddPokemonTrainer(team, 3, "Pikmin", 4, "Female", PikminIdleSprite)
 			break
+		case "Bestie":
+			AddPokemonTrainer(team, 1, "Squirtle", 1, "Female", SquirtleIdleSprite)
+			AddPokemonTrainer(team, 1, "Caterpie", 2, "Female", CaterpieIdleSprite)
+			break
+		
 	}
 	return team
 }

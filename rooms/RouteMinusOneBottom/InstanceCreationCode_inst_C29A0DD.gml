@@ -1,0 +1,1 @@
+SetWarpDefaults("MinusOneToTower", "Down", false)
