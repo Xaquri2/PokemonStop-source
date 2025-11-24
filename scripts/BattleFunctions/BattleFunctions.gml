@@ -998,6 +998,11 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Mary":
 			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+		case "Ultiron":
+			AddPokemonTrainer(team, 0, "Pikachu", 1, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 2, "Caterpie", 4, "Female", CaterpieIdleSprite)
+			AddPokemonTrainer(team, 3, "Pikmin", 4, "Female", PikminIdleSprite)
+			break
 	}
 	return team
 }

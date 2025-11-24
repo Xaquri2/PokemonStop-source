@@ -1,5 +1,5 @@
 event_inherited();
-name = "Ash Ketchum"
+name = "Hat Kid"
 lineSightDir = "Right"
 lineSight = 64
 
