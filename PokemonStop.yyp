@@ -320,6 +320,7 @@
     {"id":{"name":"MagnemiteOverworldSprite","path":"sprites/MagnemiteOverworldSprite/MagnemiteOverworldSprite.yy",},},
     {"id":{"name":"MalletGrandUnderground","path":"sprites/MalletGrandUnderground/MalletGrandUnderground.yy",},},
     {"id":{"name":"MalletPropBlackAndWhite","path":"sprites/MalletPropBlackAndWhite/MalletPropBlackAndWhite.yy",},},
+    {"id":{"name":"MalletShardsSprite","path":"sprites/MalletShardsSprite/MalletShardsSprite.yy",},},
     {"id":{"name":"MalletStatueSprite","path":"sprites/MalletStatueSprite/MalletStatueSprite.yy",},},
     {"id":{"name":"MarioMallet","path":"sprites/MarioMallet/MarioMallet.yy",},},
     {"id":{"name":"MaryWalkDownSprite","path":"sprites/MaryWalkDownSprite/MaryWalkDownSprite.yy",},},
