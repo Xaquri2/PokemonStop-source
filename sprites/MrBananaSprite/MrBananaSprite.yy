@@ -35,8 +35,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Characters",
-    "path":"folders/Sprites/Characters.yy",
+    "name":"MalletTownRandomNPCs",
+    "path":"folders/Sprites/Characters/MalletTownRandomNPCs.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -1,0 +1,3 @@
+ds_list_add(textList, "Oh hey Gash!","Beautiful day for a swim, isn't it?","Too bad Mary couldn't come... she said she was too busy training her Pokémon.","She also said she was training specifically to demolish you, Gash!","I will never understand what her beef with you is...")
+ds_list_add(iconList, sprite_index, sprite_index, sprite_index, sprite_index, sprite_index)
+ds_list_add(nameList, "Stacey", "Stacey", "Stacey","Stacey","Stacey")

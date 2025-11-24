@@ -17,6 +17,8 @@
     {"name":"inst_4300A63","path":"rooms/Waterfront/Waterfront.yy",},
     {"name":"inst_1E18DA9","path":"rooms/Waterfront/Waterfront.yy",},
     {"name":"inst_18AC156C","path":"rooms/Waterfront/Waterfront.yy",},
+    {"name":"inst_1DF09BE3","path":"rooms/Waterfront/Waterfront.yy",},
+    {"name":"inst_41CB0262","path":"rooms/Waterfront/Waterfront.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -32,6 +34,8 @@
         {"$GMRInstance":"v4","%Name":"inst_4300A63","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4300A63","objectId":{"name":"MewTruck","path":"objects/MewTruck/MewTruck.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.546875,"scaleY":1.4375,"x":729.5,"y":32.0,},
         {"$GMRInstance":"v4","%Name":"inst_1E18DA9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1E18DA9","objectId":{"name":"PikminBuriedLeaf","path":"objects/PikminBuriedLeaf/PikminBuriedLeaf.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0399292,"scaleY":1.6428572,"x":201.07986,"y":106.42857,},
         {"$GMRInstance":"v4","%Name":"inst_18AC156C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_18AC156C","objectId":{"name":"PikminBuriedLeaf","path":"objects/PikminBuriedLeaf/PikminBuriedLeaf.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0399292,"scaleY":1.6428572,"x":216.0,"y":106.42857,},
+        {"$GMRInstance":"v4","%Name":"inst_1DF09BE3","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1DF09BE3","objectId":{"name":"OldGuy","path":"objects/OldGuy/OldGuy.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":233.01996,"y":223.0,},
+        {"$GMRInstance":"v4","%Name":"inst_41CB0262","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_41CB0262","objectId":{"name":"BeachGirl","path":"objects/BeachGirl/BeachGirl.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.6719532,"scaleY":0.875,"x":461.0,"y":223.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Trees","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Trees","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":16,"TileCompressedData":[
           -3,-2147483648,3,0,258,259,-4,-2147483648,6,260,261,0,-2147483648,0,0,-3,-2147483648,3,0,277,278,-4,
