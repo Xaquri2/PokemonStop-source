@@ -73,6 +73,26 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowPath
 			targetWarp = "ShadowToMinusOne"
 			break
+		case "MinusOneBottomToTop1":
+			targetRoom = RouteMinusOneTop
+			targetWarp = "MinusOneTopToBottom1"
+			break
+		case "MinusOneBottomToTop2":
+			targetRoom = RouteMinusOneTop
+			targetWarp = "MinusOneTopToBottom2"
+			break
+		#endregion
+		
+			
+		#region RouteMinusOneTop
+		case "MinusOneTopToBottom1":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MinusOneBottomToTop1"
+			break
+		case "MinusOneTopToBottom2":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MinusOneBottomToTop2"
+			break
 		#endregion
 		
 		#region Mutant Path
@@ -191,6 +211,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = TestRoom
 			targetWarp = "TestToTest"
 			break
+
 		
 	}
 	
