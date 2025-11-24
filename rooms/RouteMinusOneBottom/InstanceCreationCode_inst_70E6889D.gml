@@ -1,1 +1,1 @@
-SetWarpDefaults("MinusOneBottomToTop1", "Up", false)
+SetWarpDefaults("MinusOneBottomToTop1", "Down", false)

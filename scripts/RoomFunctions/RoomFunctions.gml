@@ -236,8 +236,9 @@ function GetRoomMusic()
 	switch room
 	{
 		case TitleScreen: return TitleTheme
-		case Mallet_Town: return MalletTownMusic
-		case RouteMinusOneBottom: return RouteMinusOneTheme
+		case RouteMinusOneBottom: 
+		case RouteMinusOneTop:
+			return RouteMinusOneTheme
 		case MutantPath1: return MutantPathAmbiance
 		case TiltedBuildingInterior: 
 		case TestTiltedRoom:
@@ -249,7 +250,8 @@ function GetRoomMusic()
 		case ShadowPath: return OathToOrder
 		case ShadowTower: return OathToOrder
 		case ShadowPathGym: return PokeGymLofi
-		case Waterfront: return MalletTownMusic
+		case Mallet_Town: 
+		case Waterfront: 
 		case Mallet_East: 
 		case MalletMuseum:
 		case RegionCenter:
