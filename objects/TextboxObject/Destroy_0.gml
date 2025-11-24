@@ -79,3 +79,10 @@ if (startBattle)
 	
 	if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
 }
+
+if (ds_list_find_value(textList, 0) == "Fine! Whatever...")
+{
+	ds_list_add(global.flags, "MaryRivalBattle1")
+	instance_destroy(Mary)
+	global.followerType = "Mary"
+}

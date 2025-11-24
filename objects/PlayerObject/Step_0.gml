@@ -216,3 +216,11 @@ if (instance_exists(grassAttempt) and grassTimer == -1 and
 
 if (grassTimer > -1) grassTimer--
 #endregion
+
+#region Follower Spawning
+if (global.followerType != "" and !instance_exists(follower))
+{
+	follower = instance_create_layer(x,y,"Instances",FollowerObject)
+	follower.player = id
+}
+#endregion
