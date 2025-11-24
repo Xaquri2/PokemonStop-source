@@ -24,7 +24,7 @@ if (expGainValue > 0 and expGaining)
 	
 	var levelNew = GetLevel(playerPkmn)
 	if (levelNew > level and !leveledUp) leveledUp = true
-	if (expGainValue <= 0) ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
+	if (leveledUp and expGainValue <= 0) ds_list_insert(textList, currentText+1, string_concat("Your Pokemon leveled up to Lvl ", levelNew))
 	
 	var newMoveName = LearnsMoveAt(GetName(playerPkmn), levelNew)
 	if (leveledUp and ds_list_find_index(listLevelUpMoves, newMoveName) == -1)

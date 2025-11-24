@@ -1424,6 +1424,10 @@ function LearnsMoveAt(name, level)
 		case "Human":
 			if (level == 1) return "Scratch"
 			break
+		
+		default:
+			if (level == 1) return "Scratch"
+			break
     }
 	return ""
 }

@@ -518,7 +518,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
-		if (option1 == "Why don't you join me?" and currentOption == 0)
+		if (option2 == "Why don't you join me?" and currentOption == 1)
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
