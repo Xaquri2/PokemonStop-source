@@ -1,3 +1,3 @@
 ds_list_add(textList, "I've heard there are weirdly... HUMANOID Pokémon in this region.","Is that true?","I mean, I'm from Kanto, so we're used to somewhat humanlike Pokémon... like Mr. Mime, for example.","But they're saying this is different... they're saying it even blurs the line between human and Pokémon.","That's ridiculous, though, right?","Humans are humans and Pokémon are Pokémon. No overlap.","I mean, right?","A Pokémon can't be a Pokémon trainer, and a human should never be caught as a Pokémon.")
 ds_list_add(iconList, sprite_index,sprite_index,sprite_index,sprite_index,sprite_index,sprite_index,sprite_index,sprite_index)
-ds_list_add(nameList, name,name,name,name,name,name,name,name)
+ds_list_add(nameList, "woman","woman","woman","woman","woman","woman","woman","woman")
