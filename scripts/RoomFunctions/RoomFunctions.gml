@@ -249,7 +249,9 @@ function GetRoomMusic()
 		case TestTiltedRoom:
 			return MutantPathUndergroundTheme
 		case TestRoom: return SacredBeasts
-		case GinkgoLab: return PokeGymLofi
+		case RegionCenter:
+		case GinkgoLab: 
+			return PokeGymLofi
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
 		case ShadowPath: return OathToOrder
@@ -259,7 +261,6 @@ function GetRoomMusic()
 		case Waterfront: 
 		case Mallet_East: 
 		case MalletMuseum:
-		case RegionCenter:
 			return MalletTownMusic
 		default: 
 			return SacredBeasts
