@@ -1,0 +1,1 @@
+ds_list_add(textList, "It's your TV!","Oh... Hmm... you won't be able to take this with you on your journey...","Okay, uh, actually maybe you should stay home after all"  )

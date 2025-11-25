@@ -1,0 +1,1 @@
+ds_list_add(textList, "It's the letter your cousin, Ash, sent you years ago when he was on his journey in the Hoenn region.","You used to stay up all night reading and re-reading it...","Imagining his incredible adventures!","It's taped together now, from when Mary ripped it, and laughed at you.")
