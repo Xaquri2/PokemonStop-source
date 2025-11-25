@@ -264,7 +264,6 @@ function GetRoomMusic()
 		default: 
 			return SacredBeasts
 	}
-	return noone
 }
 
 function GetAreaEncounters()
