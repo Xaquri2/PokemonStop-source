@@ -1,4 +1,8 @@
 event_inherited()
+idleSprite = Human2IdleSprite
+walkUpSprite = Human2WalkUpSprite
+walkDownSprite = Human2WalkDownSprite
+walkRightSprite = Human2WalkRightSprite
 
 battle = false
 AddPokemonTrainer(trainerTeam, 1, "Human", floor(random_range(8,15)), GetRandomGender(50), Human2IdleSprite)
