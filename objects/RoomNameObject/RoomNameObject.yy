@@ -37,5 +37,5 @@
     "path":"sprites/TextboxSprite/TextboxSprite.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }
