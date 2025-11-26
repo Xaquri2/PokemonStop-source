@@ -13,7 +13,10 @@ if (enableDrawing)
 
 	//Name
 	var name = GetName(pkmnInfo)
-	draw_text_transformed(xOffset+view_get_wport(0)*0.14, yOffset+view_get_hport(0)*0.11, name, 2, 2, image_angle)
+	var nameSize = 2
+	if (string_width(name) > 75) nameSize = 1.5
+	if (string_width(name) > 100) nameSize = 1.25
+	draw_text_transformed(xOffset+view_get_wport(0)*0.14, yOffset+view_get_hport(0)*0.11, name, nameSize, nameSize, image_angle)
 
 	//Level
 	var level = GetLevel(pkmnInfo)
