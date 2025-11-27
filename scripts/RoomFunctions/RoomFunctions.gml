@@ -225,9 +225,9 @@ function SetWarpDefaults(name, spawnDir, show)
 	visible = show
 }
 
-function GetRoomName()
+function GetRoomName(roomID)
 {
-	switch room
+	switch roomID
 	{
 		case RouteMinusOneBottom: return "Route -1"
 		case Mallet_Town: 
@@ -237,7 +237,6 @@ function GetRoomName()
 		case GinkgoLab: return "Prof. Ginkgo's Lab"
 		default: return "???"
 	}
-	return ""
 }
 
 function GetRoomMusic()

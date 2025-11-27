@@ -8,6 +8,7 @@ fadeAlpha = 0
 
 playerMoved = false
 
+previousRoom = noone
 loadRoom = noone
 loadX = 0
 loadY = 0

@@ -14,7 +14,7 @@ arrowOffset = 0
 arrowDirection = 0
 arrowSpeed = 0
 
-camera = instance_create_layer(x,y,layer,CameraObject)
+camera = instance_create_layer(x,y,"Important",CameraObject)
 camera.player = id
 
 grassTimer = -1

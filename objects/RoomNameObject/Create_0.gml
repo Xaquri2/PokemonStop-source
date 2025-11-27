@@ -1,7 +1,7 @@
 xPos = 120
 yPos = -100
 
-name = GetRoomName()
+name = GetRoomName(room)
 returning = false
 
 image_xscale = 6
