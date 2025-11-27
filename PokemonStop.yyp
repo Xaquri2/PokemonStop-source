@@ -450,6 +450,7 @@
     {"id":{"name":"TribbleOverworldSprite","path":"sprites/TribbleOverworldSprite/TribbleOverworldSprite.yy",},},
     {"id":{"name":"TricorderSprite","path":"sprites/TricorderSprite/TricorderSprite.yy",},},
     {"id":{"name":"Triforce","path":"sprites/Triforce/Triforce.yy",},},
+    {"id":{"name":"TutorialBotSprite","path":"sprites/TutorialBotSprite/TutorialBotSprite.yy",},},
     {"id":{"name":"TVSprite","path":"sprites/TVSprite/TVSprite.yy",},},
     {"id":{"name":"UmbreonOverworldSprite","path":"sprites/UmbreonOverworldSprite/UmbreonOverworldSprite.yy",},},
     {"id":{"name":"UmbrianOverworldSprite","path":"sprites/UmbrianOverworldSprite/UmbrianOverworldSprite.yy",},},
