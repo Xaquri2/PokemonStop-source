@@ -1,0 +1,3 @@
+ds_list_add(textList, "Hello! Welcome to the Mallet Town Mallet Museum!!","You know, a lot of people don't realize how important Mallets have been,","Trying to imagine our world without Mallets is like...","Like a mallet without a handle!", "Feel free to look around at some of these beauties.")
+ds_list_add(iconList, sprite_index, sprite_index, sprite_index, sprite_index, sprite_index)
+ds_list_add(nameList, name,name,name,name,name)

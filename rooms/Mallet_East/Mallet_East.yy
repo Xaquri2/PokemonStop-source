@@ -66,6 +66,7 @@
   ],
   "isDnd":false,
   "layers":[
+    {"$GMRInstanceLayer":"","%Name":"Important","depth":-100300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Doodads","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_4E1534BF","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_4E1534BF","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"OutsideMallet","path":"sprites/OutsideMallet/OutsideMallet.yy",},"x":544.0,"y":160.0,},
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_7B19030A","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_7B19030A","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.375,"scaleY":1.4909091,"spriteId":{"name":"OutsideMallet2","path":"sprites/OutsideMallet2/OutsideMallet2.yy",},"x":605.5,"y":219.25455,},

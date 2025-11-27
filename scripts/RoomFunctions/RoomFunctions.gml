@@ -229,12 +229,19 @@ function GetRoomName(roomID)
 {
 	switch roomID
 	{
-		case RouteMinusOneBottom: return "Route -1"
+		case RouteMinusOneBottom: 
+		case RouteMinusOneTop:
+			return "Route -1"
 		case Mallet_Town: 
 		case Mallet_East: 
+		case Waterfront:
 			return "Mallet Town"
 		case TestRoom: return "Void"
 		case GinkgoLab: return "Prof. Ginkgo's Lab"
+		case ShadowPath:
+		case ShadowTower:
+			return "Shadow Path"
+		case MutantPath1: return "Mutant Path"
 		default: return "???"
 	}
 }
