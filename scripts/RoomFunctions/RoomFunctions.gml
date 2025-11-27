@@ -230,8 +230,12 @@ function GetRoomName()
 	switch room
 	{
 		case RouteMinusOneBottom: return "Route -1"
-		case Mallet_Town: return "Mallet Town"
+		case Mallet_Town: 
+		case Mallet_East: 
+			return "Mallet Town"
 		case TestRoom: return "Void"
+		case GinkgoLab: return "Prof. Ginkgo's Lab"
+		default: return "???"
 	}
 	return ""
 }
