@@ -86,3 +86,12 @@ if (ds_list_find_value(textList, 0) == "Fine! Whatever...")
 	instance_destroy(Mary)
 	global.followerType = "Mary"
 }
+
+if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the ground.")
+{
+	var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+	optionMenu.question = "Pull it?"
+	optionMenu.option1 = "Yes"
+	optionMenu.option2 = "No"
+	optionMenu.referenceNPC = actionNPC
+}
