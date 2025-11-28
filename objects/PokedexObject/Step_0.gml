@@ -46,3 +46,10 @@ else if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-
 	if (arrowAlpha < 1) arrowAlpha += 0.05
 }
 else { if (arrowAlpha > 0) arrowAlpha -= 0.05 }
+
+if (keyboard_check_pressed(ord("E"))) 
+{
+	instance_destroy(id)
+	menu.visible = true
+	menu.active = true
+}
