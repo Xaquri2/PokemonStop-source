@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":98.18676,
+  "duration":95.04698,
   "exportDir":"",
   "name":"WildBattleThemeNO_INTRO",
   "parent":{
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"WildBattleThemeNO_INTRO.mp3",
-  "volume":0.26,
+  "soundFile":"WildBattleThemeNO_INTRO.wav",
+  "volume":1.0,
 }

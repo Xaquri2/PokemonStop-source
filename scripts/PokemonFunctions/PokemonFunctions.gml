@@ -1587,11 +1587,66 @@ function GetNameByNumber(num)
 	{
 		case "001": return "Creeper"
 		case "002": return "Krypton Firefly"
+		case "004": return "Baby"
+		case "005": return "Zoombini"
+		case "006": return "Voltorb"
+		case "007": return "Caterpie"
+		case "008": return "Butterfree"
+		//case "009": return "Clefairy"
+		case "010": return "Woob-Wüb"
 		case "011": return "Pikachu"
 		case "012": return "Squirtle"
 		case "013": return "Charmander"
 		case "014": return "Snorlax"
 		case "003": return "Envy"
+		case "015": return "Ninja Squirtle"
+		case "016": return "Omega Squirtle"
+		case "017": return "Charmandorian"
+		case "018": return "Charmandalorian"
+		case "019": return "Ape-Ball"
+		case "020": return "Fig"
+		case "021": return "Umbrian"
+		//case "022": return "Baby"
+		case "023": return "Box Bot"
+		case "024": return "Tutorial Bot"
+		case "025": return "BB-8"
+		case "026": return "Moosephant"
+		case "027": return "ZooChomper"
+		case "028": return "Silver Scorpion"
+		case "029": return "Tribble"
+		case "030": return "Ewok"
+		case "031": return "Yodal"
+		case "032": return "Human"
+		case "033": return "Squirrel"
+		case "034": return "Goomba"
+		case "035": return "Koopa"
+		case "036": return "King Koopa"
+		case "037": return "Boo"
+		case "038": return "Yo’ster"
+		case "039": return "Tektite"
+		case "040": return "Pac-Man"
+		case "041": return "Pac-Ghost"
+		case "042": return "Enderman"
+		case "043": return "Pikmin"
+		//case "044": return "Zoombini"
+		case "045": return "Kirby"
+		case "046": return "Metroid"
+		case "047": return "Demo Dog"
+		case "048": return "Demogorgon"
+		case "049": return "Licker"
+		case "050": return "Andalite"
+		case "051": return "Xenomorph"
+		case "052": return "Zergling"
+		case "053": return "Morlock"
+		case "054": return "Rancor"
+		case "055": return "Porg"
+		case "056": return "Caelian"
+		case "057": return "MissingNo"
+		case "058": return "Articuno"
+		case "059": return "Zapdos"
+		case "060": return "Moltres"
+		case "061": return "Godzooky"
+		case "062": return "Godzilla"
 	}
 }
 
@@ -1606,6 +1661,59 @@ function GetNumberByName(name)
 		case "Squirtle": return "012"
 		case "Charmander": return "013"
 		case "Snorlax": return "014"
+				case "Baby": return "004"
+		case "Zoombini": return "005"
+		case "Voltorb": return "006"
+		case "Caterpie": return "007"
+		case "Butterfree": return "008"
+		case "Woob-Wüb": return "010"
+		case "Ninja Squirtle": return "015"
+		case "Omega Squirtle": return "016"
+		case "Charmandorian": return "017"
+		case "Charmandalorian": return "018"
+		case "Ape-Ball": return "019"
+		case "Fig": return "020"
+		case "Umbrian": return "021"
+		case "Box Bot": return "023"
+		case "Tutorial Bot": return "024"
+		case "BB-8": return "025"
+		case "Moosephant": return "026"
+		case "ZooChomper": return "027"
+		case "Silver Scorpion": return "028"
+		case "Tribble": return "029"
+		case "Ewok": return "030"
+		case "Yodal": return "031"
+		case "Human": return "032"
+		case "Squirrel": return "033"
+		case "Goomba": return "034"
+		case "Koopa": return "035"
+		case "King Koopa": return "036"
+		case "Boo": return "037"
+		case "Yo’ster": return "038"
+		case "Tektite": return "039"
+		case "Pac-Man": return "040"
+		case "Pac-Ghost": return "041"
+		case "Enderman": return "042"
+		case "Pikmin": return "043"
+		case "Kirby": return "045"
+		case "Metroid": return "046"
+		case "Demo Dog": return "047"
+		case "Demogorgon": return "048"
+		case "Licker": return "049"
+		case "Andalite": return "050"
+		case "Xenomorph": return "051"
+		case "Zergling": return "052"
+		case "Morlock": return "053"
+		case "Rancor": return "054"
+		case "Porg": return "055"
+		case "Caelian": return "056"
+		case "MissingNo": return "057"
+		case "Articuno": return "058"
+		case "Zapdos": return "059"
+		case "Moltres": return "060"
+		case "Godzooky": return "061"
+		case "Godzilla": return "062"
+
 		
 		default: return -1
 	}
@@ -1618,10 +1726,65 @@ function GetSpriteByNumber(num)
 		case "001": return CreeperSprite 
 		case "002": return KryptonFireflySprite
 		case "003": return EnvySprite
+		case "004": return BabyBattleSprite
+		case "005": return ZoombiniHoveringSprite
+		case "006": return VoltorbOverworldSprite
+		case "007": return CaterpieIdleSprite
+		case "008": return ButterfreeFlyLeftSprite
+		//case "009": return "Clefairy"
+		case "010": return WoobWubBattleSprite
 		case "011": return PikachuIdleSprite
 		case "012": return SquirtleIdleSprite
 		case "013": return CharmanderIdleSprite
 		case "014": return SnorlaxIdleSprite
+		case "015": return NinjaSquirtleSprite
+		//case "016": return "Omega Squirtle"
+		case "017": return CharmandorianSprite
+		case "018": return CharmandalorianSprite
+		case "019": return ApeBallSprite
+		case "020": return FigOverworldSprite
+		case "021": return UmbrianOverworldSprite
+		//case "022": return (Baby - Duplicate)
+		case "023": return BoxBotIdleSprite
+		case "024": return TutorialBotSprite
+		case "025": return BB8BattleSprite
+		case "026": return MoosephantOverworldSprite
+		case "027": return ZoochomperBattleSprite
+		case "028": return SIlverScorpionOverworldSprite
+		case "029": return TribbleBattleSprite
+		case "030": return EwokOverworldSprite
+		case "031": return YodalBattleSprite
+		case "032": return Human2IdleSprite
+		case "033": return SquirrelOverworldSprite
+		case "034": return GoombaOverworldSprite
+		case "035": return KoopaWalkRightSprite
+		//case "036": return (KingKoopa)
+		case "037": return BooOverworldSprite
+		case "038": return YoSterOverworldSprite
+		case "039": return TektiteIdleSprite
+		case "040": return PacManWalkRight_Strip3
+		case "041": return PacGhostOverworldSprite
+		case "042": return EndermanOverworldSprite
+		case "043": return PikminIdleSprite
+		//case "044": return Zoombini (duplicate, fix)
+		case "045": return KirbySprite
+		case "046": return MetroidOverworldSprite
+		case "047": return DemoDogSprite
+		case "048": return DemogorgonBattleSprite
+		case "049": return LickerOverworldSprite
+		case "050": return AndaliteOverworldSprite
+		case "051": return XenomorphOverworldSprite
+		case "052": return ZerglingSprite
+		case "053": return MorlockBattleSprite
+		case "054": return RancorOverworldSprite
+		case "055": return PorgBattleSprite
+		case "056": return CaelianBattleSprite
+		case "057": return MissingNoIdleSprite
+		case "058": return ArticunoSprite
+		case "059": return ZapdosOverworldSprite
+		case "060": return MoltresOverworldSprite
+		case "061": return GodzookyOverworldSprite
+		//case "062": return "Godzilla"
 		
 		default: return PikachuIdleSprite
 	}
@@ -1632,9 +1795,65 @@ function GetTitleByNumber(num)
 	switch (GetNameByNumber(num))
 	{
 		case "Pikachu": return "The Mouse Pokémon"
-		//case "Envy": return "The Aquatic Shadow Pokémon"
-		//case "Creeper": return "The Exploding Moss Pokémon"
-		//case "Krypton Firefly": return "The Firefly of Steel Pokémon"
+		case "Envy": return "The Aquatic Shadow Pokémon"
+		case "Creeper": return "The Exploding Moss Pokémon"
+		case "Krypton Firefly": return "The Pokémon of Steel"
+		case "Baby": return "The Adorable Bot Pokémon"
+		case "Zoombini": return "The Puzzling Pokémon"
+		case "Voltorb": return "The Ball Pokémon"
+		case "Caterpie": return "The Worm Pokémon"
+		case "Butterfree": return "The Butterfly Pokémon"
+		case "Woob-Wüb": return "The Unluckiest Pokémon"
+		case "Squirtle": return "The Tiny Turtle Pokémon"
+		case "Charmander": return "The Lizard Pokémon"
+		case "Snorlax": return "The Sleeping Pokémon"
+		case "Ninja Squirtle": return "The Teenage Muta-quatic Pokémon"
+		case "Omega Squirtle": return "The Omniscient Turtle Pokémon"
+		case "Charmandorian": return "The Frostfire Lizard Pokémon"
+		case "Charmandalorian": return "The Armored Hunter Pokémon"
+		case "Ape-Ball": return "The Spiked Ape Pokémon"
+		case "Fig": return "The Undeserving Pokémon"
+		case "Umbrian": return "The Masked Shadow Pokémon"
+		case "Box Bot": return "The Cardboard Bot Pokémon"
+		case "Tutorial Bot": return "The Guidebot Pokémon"
+		case "BB-8": return "The Roller Droid Pokémon"
+		case "Moosephant": return "The Antlered Trunk Pokémon"
+		case "ZooChomper": return "The Voracious Chomp Pokémon"
+		case "Silver Scorpion": return "The Metal Stinger Pokémon"
+		case "Tribble": return "The Fuzzy Swarm Pokémon"
+		case "Ewok": return "The Forest Warrior Pokémon"
+		case "Yodal": return "The Swamp Sage Pokémon"
+		case "Human": return "The Person Pokémon"
+		case "Squirrel": return "The Nut Gatherer Pokémon"
+		case "Goomba": return "The Grumpy Shroom Pokémon"
+		case "Koopa": return "The Troopa Turtle Pokémon"
+		case "King Koopa": return "The Spiked Turtle Pokémon"
+		case "Boo": return "The Shy Ghost Pokémon"
+		case "Yo’ster": return "The Saddleback Dino Pokémon"
+		case "Tektite": return "The Leaping Arachnid Pokémon"
+		case "Pac-Man": return "The Hungry Maze Pokémon"
+		case "Pac-Ghost": return "The Maze Haunting Pokémon"
+		case "Enderman": return "The Warp Slender Pokémon"
+		case "Pikmin": return "The Tiny Helper Pokémon"
+		case "Kirby": return "The Puffball Pokémon"
+		case "Metroid": return "The Parasitic Jellyfish Pokémon"
+		case "Demo Dog": return "The Demohound Pokémon"
+		case "Demogorgon": return "The Upside-Down Horror Pokémon"
+		case "Licker": return "The Long Tongue Pokémon"
+		case "Andalite": return "The Tail Blade Pokémon"
+		case "Xenomorph": return "The Perfect Organism Pokémon"
+		case "Zergling": return "The Swarmling Pokémon"
+		case "Morlock": return "The Tunnel Predator Pokémon"
+		case "Rancor": return "The Pit Beast Pokémon"
+		case "Porg": return "The Cliffbird Pokémon"
+		case "Caelian": return "The Ascended Pokémon"
+		case "MissingNo": return "The Glitch Pokémon"
+		case "Articuno": return "The Freeze Pokémon"
+		case "Zapdos": return "The Electric Pokémon"
+		case "Moltres": return "The Flame Pokémon"
+		case "Godzooky": return "The Bumbling Dragon Pokémon"
+		case "Godzilla": return "The King of all Pokémon"
+
 	}
 	return "The Test Pokemon"
 }
@@ -1648,6 +1867,60 @@ function GetDescriptionByNumber(num)
 		case "Creeper": return "This Pokémon is made from blocks of peat moss. It waits till another Pokémon is nearby, builds up air in its sacks, and explodes concussively, discharging its spores and destroying everything nearby."
 		case "Krypton Firefly": return "This Pokémon is said to originate from a long-dead planet in deep space. Due to Earth’s lighter gravity, the Firefly has become an incredibly fast flier with durable skin. It also breathes fire. "
 		case "Envy": return "This aquatic Pokémon is part of the shadowy Umbrian family. It’s so envious of the living, its hairs have each taken the form of a beautiful woman. These lure men into the water, where they’re dragged down to their deaths. "
+		case "Baby": return "This robotic Pokémon has no appendages and so it can’t do much. However, its boxy structure is mostly hollow, allowing it to store items."
+		case "Zoombini": return "This Pokémon doesn’t have any hands but is highly intelligent, having great logic skills. It’s also very friendly and trusting of other creatures. Xenophobia is unknown amongst the Zoombinis. "
+		case "Voltorb": return "This Pokémon is the result of Poké-balls malfunctioning with a Pokémon inside. The resulting bio-technological hybrid can draw on the Poké-ball’s energy source to provide devastating shocks.  "
+		case "Caterpie": return "Its feet have suction cups designed to stick to any surface. It tenaciously climbs trees to forage. If you touch the feeler on top of its head, it will release a horrible stink to protect itself."
+		case "Butterfree": return "The Powder on its wings is both poisonous and water-resistant, allowing it to fly in the rain and also harm its enemies when it blows the dust at them. "
+		case "Woob-Wüb": return "The unluckiest Pokémon in the Universe. Woob-Wub is extremely likely to die if left to its own devices. Even the tamest environments are too dangerous for Woob-Wub. Because of this, Pokémon trainers are attracted to them due to the challenge of keeping them alive."
+		case "Charmander": return "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is happy, and blazes when it is enraged."
+		case "Snorlax": return "This Pokémon just eats and sleeps. As its rotund bulk builds, it becomes steadily more slothful. Will eat anything, even if the food happens to be a little moldy. It never gets an upset stomach."
+		case "Ninja Squirtle": return "This Squirtle has learned the ways of the Ninja -- and developed a taste for pizza!"
+		case "Omega Squirtle": return "This Pokémon has gained so much mastery of the Aquatic Ninja Arts that it's partway ascended beyond this realm - into some eternal watery cosmos! Its mind can see beyond the veil of this world, and sometimes, even into the minds of other Pokémon!!"
+		case "Charmandorian": return "This Pokémon has evolved a tolerance for cold, icy climates in addition to his usual firey disposition! It's also developed antennae, which help it detect its surroundings - even in the dark."
+		case "Charmandalorian": return "Charmander's final evolution. This pokémon has developed Beskar armor and become an unstoppable Pokémon hunter, in addition to its fire abilities and cold resistance!"
+		case "Ape-Ball": return "This Pokémon is extremely fast and deadly. Their fur is comprised of ultra-sharp spikes, sharp enough to kill someone even with a casual touch. They can overtake their prey from across a large room before the prey even starts running. "
+		case "Fig": return "This Pokémon exists in a constant state of self-hatred. Figs don’t consider themselves deserving of any good things, including success, freedom, or even life itself. They will gladly sacrifice themselves to a greater being. For this reason they are extremely docile and easy to capture, though they’re not much use in a fight. However, a few trainers claim they’ve unlocked some extraordinary abilities in their Figs. "
+		case "Umbrian": return "These shadow Pokémon were once people, now bound to their mask. If the mask is broken, the Umbrian can no longer remain on this plane. "
+		case "Box Bot": return "This robotic Pokémon has flexible arms and legs, which make it adept at tasks like delivering the mail. "
+		case "Tutorial Bot": return "This robotic Pokémon hovers in midair. It’s also extremely adept at providing ineffective tutorials. However, its hands, made of blocks, can’t grasp anything. "
+		case "BB-8": return "This robotic Pokémon is effective at interfacing with computer systems, especially those aboard a vehicle. It greatly enhances that vehicle’s performance in battles. "
+		case "Moosephant": return "This Pokémon is perpetually surprised at its own existence. It’s otherwise pretty laid-back and relaxed. "
+		case "ZooChomper": return "This Pokémon can absorb anything. When it does, it can take on its characteristics, gaining new abilities. This includes inanimate objects."
+		case "Silver Scorpion": return "This Pokémon is small but extremely durable and extremely deadly. One strike from its stinger can kill most Pokémon. It can also withstand pressure equivalent to the ocean bottom. "
+		case "Tribble": return "This Pokémon has a soothing effect on most other Pokémon, even on humans. Its coos relax the other Pokémon and make it docile. It’s also an extremely efficient reproducer. "
+		case "Ewok": return "It’s skilled with making elaborate traps using foliage. "
+		case "Yodal": return "This Pokémon is part of the Human family, having adapted to swampy environments. It can move objects with its mind by interacting with a mysterious force. "
+		case "Human": return "This Pokémon is adept at making tools and working together in groups, allowing it to have a civilization. It also created Pokéballs to capture other Pokémon and use them to battle and for other purposes. "
+		case "Squirrel": return "This Pokémon is fast and agile. During the winter, it survives on a supply of nuts it’s hidden. "
+		case "Goomba": return "This fungus-based Pokémon is easy to defeat by jumping on its head. However they are extremely determined and keep marching no matter what, making them popular soldiers. "
+		case "Koopa": return "This turtle-like Pokémon is a loyal soldier. If attacked, it will retreat into its shell. Its shell can slide easily over any surface and builds up enough momentum to knock enemies over. "
+		case "King Koopa": return "This Pokémon is extremely powerful, can breathe fire, and believes itself the rightful ruler species of the world, created by Arceus for that purpose. It’s adept at commanding lesser Pokémon and forming an army. King Koopas have also been known to abduct human women for unknown reasons.  "
+		case "Boo": return "This Pokémon is extremely shy; when observed, it will stop and cover its face. When not seen, however, in sneaks up and attacks its prey. "
+		case "Yo’ster": return "This dinosaur Pokémon eats almost anything and can convert things it eats into eggs nearly immediately, which it throws as a weapon. Humans are fond of riding their yo’sters. "
+		case "Tektite": return "This Pokémon attacks by jumping into its prey. They’re not that powerful, but their dexterity makes them difficult to attack and they’re persistent. "
+		case "Pac-Man": return "This Pokémon is a voracious eater, able to eat an endless amount of food without gaining weight. It has no natural defense against shadow-type Pokémon, except that when fed energizing food, it can gobble them up for a short time."
+		case "Pac-Ghost": return "These Pokémon typically hunt in packs. They surround their prey and feed on them. If destroyed, they can regenerate at the nearest concentration of ghostly energy. "
+		case "Enderman": return "These mysterious Pokémon are docile until looked in the eyes. Then they attack viciously. They’re extremely sensitive to water, and when splashed, will run away at super speeds to avoid it. "
+		case "Pikmin": return "This plant Pokémon grows as a rooted plant; when uprooted, it becomes extremely loyal to whoever uprooted it, following them and performing tasks for them. "
+		case "Kirby": return "This single-celled Pokémon is a distant cousin of the ZooChomper. It can suck up enemies into its mouth and take on some of their characteristics. It can also fly by sucking in air, increasing his volume, and flapping his “nubblies”. "
+		case "Metroid": return "This parasitic Pokémon feeds on the life-energy of its prey. "
+		case "Demo Dog": return "About the size of a small dog, this Pokémon’s thick skin and strong muscles make it a serious threat. It can withstand a few gunshots and can climb walls. "
+		case "Demogorgon": return "This Pokémon is extremely strong and durable. Its two heads war to control its body, but when their gazes fall upon an enemy they can hypnotize and manipulate it. Demogorgon can smell blood from far off. It can also move objects with its mind and even travel between dimensions. Its main weakness is fire. "
+		case "Licker": return "This Pokémon’s long tongue can be used as a deadly weapon, impaling its prey. It’s also adept at climbing walls and can survive multiple gunshots. "
+		case "Andalite": return "This Pokémon can acquire the DNA of another Pokémon it touches, and then “morph” into it. If it stays in that shape for too long, it will remain as that Pokémon forever. Its tail is also a deadly weapon and it can see 360 degrees with its stalk eyes. "
+		case "Xenomorph": return "This Pokémon is an effective hunter. It can sense its prey’s thoughts to stalk them. Its blood is corrosive acid, able to eat through anything. "
+		case "Zergling": return "These Pokémon have a hive mind with other Zerg-types. While individual Zerglings are unintelligent, the hive mind as a whole becomes very intelligent when enough are linked together. Individuals are relatively weak but they’re fast, tending to attack in large numbers unexpectedly. This is known as a “Ling Rush”. "
+		case "Morlock": return "This Pokémon evolved from humans, and has learned to feed on other human-types. It’s adept at climbing and operating machinery. It’s used to living in a low-light environment, so bright lights will stun it. "
+		case "Rancor": return "This semi-reptilian Pokémon has long arms and an armored hide that make it a fearsome predator, especially in closed quarters. However it’s also very slow.  "
+		case "Porg": return "These cliff-dwelling Pokémon dive into the sea to hunt. They’re extremely curious and friendly to human-types. "
+		case "Caelian": return "These Pokémon are composed entirely of light, just as Umbrians are composed of shadow. Like Umbrians, they’re bound to the world through their masks, though their masks are actually crystalline prisms to rfract their light as needed. "
+		case "MissingNo": return "This Pokémon is the result of an anomalous “glitch” in spacetime. Due to its constant state of quantum flux, humans and Pokémon interacting with it for prolonged periods risk falling into flux themselves. In this way, MissingNo distorts reality around it. "
+		case "Articuno": return "A legendary bird Pokémon that can control ice. The flapping of its wings chills the air. As a result, it is said that when this Pokémon flies, snow will fall."
+		case "Zapdos": return "A legendary bird Pokémon that is said to appear from clouds while dropping enormous lightning bolts."
+		case "Moltres": return "Known as the legendary bird of fire, Moltres has the ability to control fire. If this Pokémon is injured, it is said to dip its body in the molten magma of a volcano to burn and heal itself."
+		case "Godzooky": return "This Pokémon can awkwardly fly but is extremely clumsy. It’s friendly and no slouch in a fight, but it sometimes harms itself accidentally."
+		case "Godzilla": return "This legendary Pokémon is a gigantic monster, taller than some skyscrapers. Its hide is so durable it can survive most conventional weapons, even from tanks and planes. It also breathes radioactive plasma fire. "
 	}
 	return "This is a test description, the default one for the forgotten."
 }
@@ -1677,18 +1950,93 @@ function GetGameOfOrigin(name)
 	{
 		case "Pikachu":
 		case "Squirtle":
+		case "Caterpie":
+		case "Butterfree":
 		case "Charmander":
 		case "Charmandorian":
 		case "Charizard":
 		case "Snorlax":
+		case "MissingNo":
+		case "Voltorb":
+		case "Articuno":
+		case "Moltres":
+		case "Zapdos":
 			return "Pokémon Red/Blue"
+		case "Zoombini":
+			return "Logical Journey of the Zoombinis"
 		case "Krypton Firefly":
 			return "Superman (comic series)"
 		case "Creeper":
 		case "Enderman": 
 			return "Minecraft"
+		case "Ewok":
+		case "Rancor":
+			return "Star Wars Episode VI: Return of the Jedi"
+		case "Yodal":
+			return "Star Wars Episode V: The Empire Strikes Back"
+		case "BB-8":
+			return "Star Wars Episode VII: The Force Awakens"
+		case "Porg":
+			return "Star Wars Episode VIII: The Last Jedi"
+		case "Koopa":
+			return "Mario Bros."
+		case "Goomba":
+		case "King Koopa":
+			return "Super Mario Bros."
+		case "Boo": return "Super Mario Bros. 3"
+		case "Yo’ster": return "Super Mario World"
+		case "Pac-Man":
+		case "Pac-Ghost":
+			return "Pac-Man"
+		case "Pikmin":
+			return "Pikmin"
+		case "Kirby":
+			return "Kirby's Dream Land"
+		case "Metroid":
+			return "Metroid"
+		case "Tribble":
+			return "Star Trek – \"The Trouble with Tribbles\""
+		case "Demogorgon":
+		case "Demo Dog":
+			return "Stranger Things"
+		case "Licker":
+			return "Resident Evil 2"
+		case "Andalite":
+			return "Animorphs #1: The Invasion"
+		case "Xenomorph":
+			return "Alien"
+		case "Zergling":
+			return "StarCraft"
+		case "Morlock":
+			return "The Time Machine"
+		case "Tektite":
+			return "The Legend of Zelda"
 		case "Envy":
 			return "Exile"
+		case "Baby":
+		case "Ninja Squirtle":
+		case "Omega Squirtle":
+		case "Charmandalorian":
+			return "Pokémon Stop"
+		case "Ape-Ball":
+		case "Silver Scorpion":
+			return "Xaq to the Future"
+		case "Fig":
+			return "Chrome Training: The New Recruit"
+		case "Umbrian":
+			return "Genesis"
+		case "Box Bot": return "Malphoid the Mailbox-Bot"
+		case "Tutorial Bot":
+		case "Woob-Wüb":
+		case "ZooChomper":
+			return "Space-Balls"
+		case "Moosephant": return "Ghosts! (You !#@&face)"
+		case "Human": return "Game Theory - 'Humans are Pokemon'"
+		case "Squirrel": return "Squirrels: The PCG"
+		case "Caelian": return "Soluna"
+		case "Godzooky":
+		case "Godzilla":
+			return "Godzilla"
 		default: return "Test Origin Game"
 	}
 }
@@ -1699,10 +2047,17 @@ function GetGameDetails(name)
 	{
 		case "Pikachu":
 		case "Squirtle":
+		case "Caterpie":
+		case "Butterfree":
 		case "Charmander":
 		case "Charmandorian":
 		case "Charizard":
 		case "Snorlax":
+		case "MissingNo":
+		case "Voltorb":
+		case "Articuno":
+		case "Moltres":
+		case "Zapdos":
 			return "Video game • 1996 • Nintendo / Game Freak"
 		case "Krypton Firefly":
 			return "Comic book • 1950s • DC Comics"
@@ -1711,6 +2066,73 @@ function GetGameDetails(name)
 			return "Video Game • May, 2009 • Mojang Studios"
 		case "Envy": 
 			return "Paper Computer Game • 2008 • Krierre House"
+		case "Zoombini":
+			return "Video game • 1996 • Broderbund"
+		case "Ewok":
+		case "Rancor":
+			return "Movie • 1983 • Lucasfilm"
+		case "Yodal":
+			return "Movie • 1980 • Lucasfilm"
+		case "BB-8":
+			return "Movie • 2015 • Lucasfilm"
+		case "Porg":
+			return "Movie • 2017 • Lucasfilm"
+		case "Goomba":
+		case "King Koopa":
+			return "Video game • 1985 • Nintendo"
+		case "Koopa": return "Video game • 1983 • Nintendo" 
+		case "Boo": return "Video Game • 1988 • Nintendo"
+		case "Yo’ster": return "Video game • 1990 • Nintendo"
+		case "Pac-Man":
+		case "Pac-Ghost":
+			return "Video game • 1980 • Namco"
+		case "Pikmin":
+			return "Video game • 2001 • Nintendo"
+		case "Kirby":
+			return "Video game • 1992 • Nintendo"
+		case "Metroid":
+			return "Video game • 1986 • Nintendo"
+		case "Tribble":
+			return "TV Show • 1967 • Paramount Television"
+		case "Demogorgon":
+		case "Demo Dog":
+			return "TV Show • 2016 • Netflix"
+		case "Licker":
+			return "Video game • 1998 • Capcom"
+		case "Andalite":
+			return "Book series • 1996 • K.A. Applegate/Scholastic"
+		case "Xenomorph":
+			return "Movie • 1979 • 20th Century Studios"
+		case "Zergling":
+			return "Video game • 1998 • Blizzard Entertainment"
+		case "Morlock":
+			return "Novel • 1895 • H.G. Wells"
+		case "Tektite":
+			return "Video game • 1986 • Nintendo"
+		case "Baby":
+		case "Ninja Squirtle":
+		case "Omega Squirtle":
+		case "Charmandalorian":
+			return "Paper Computer Game • 2018 • Xaq"
+		case "Ape-Ball":
+		case "Silver Scorpion":
+			return "Paper Computer Game • 2007(ish) • Keith & Kurt Elfman"
+		case "Fig":
+			return "Paper Computer Game • 2010 • Xaq"
+		case "Umbrian":
+			return "Paper Computer Game • 2004(ish) • Krierre House"
+		case "Box Bot": return "Paper Computer Game • 2005 • Xaq"
+		case "Tutorial Bot":
+		case "Woob-Wüb":
+		case "ZooChomper":
+			return "Paper Computer Game • 2006(ish) • Kurt Elfman"
+		case "Moosephant": return "Paper Computer Game • 2017 • Chris"
+		case "Human": return "YouTube Video • 2014 • MatPat/The Game Theorists"
+		case "Squirrel": return "Paper Computer Game • 2018 • Via"
+		case "Caelian": return "Tabletop RPG • 2008(ish) • Krierre House"
+		case "Godzooky": return "Cartoon Series • 1978 • Hanna-Barbera/Toho"
+		case "Godzilla":
+			return "Movie • 1954 • Toho"
 		default: return "Test Origin Game"
 	}
 }
