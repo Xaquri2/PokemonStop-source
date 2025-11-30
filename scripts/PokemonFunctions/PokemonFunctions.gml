@@ -1703,14 +1703,14 @@ function GetGameDetails(name)
 		case "Charmandorian":
 		case "Charizard":
 		case "Snorlax":
-			return "1996 • Nintendo / Game Freak"
+			return "Video game • 1996 • Nintendo / Game Freak"
 		case "Krypton Firefly":
-			return "1950s or 60s • DC Comics"
+			return "Comic book • 1950s • DC Comics"
 		case "Creeper":
 		case "Enderman": 
-			return "May, 2009 • Mojang Studios"
+			return "Video Game • May, 2009 • Mojang Studios"
 		case "Envy": 
-			return "2008 • Krierre House"
+			return "Paper Computer Game • 2008 • Krierre House"
 		default: return "Test Origin Game"
 	}
 }
