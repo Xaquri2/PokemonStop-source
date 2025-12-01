@@ -555,17 +555,16 @@ if (keyboard_check_pressed(vk_enter))
 	if (question == "Pull it?")
 	{
 		var player = instance_find(PlayerObject, 0)
-		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-		player.talking = true
-
+		player.alarm[1] = 1
+		
 		switch (currentOption)
 		{
 			case 0:
-				//Do something?
+				global.pikminCount++
 				break
 		}
 
-		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		instance_destroy(referenceNPC)
 		instance_destroy(id)
 	}
 }

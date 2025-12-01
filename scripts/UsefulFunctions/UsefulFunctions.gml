@@ -74,6 +74,18 @@ function GenerateTextPopup(xPos,yPos,displayText)
 
 function GetFollowerSprite(spriteDir)
 {
+	if (object_index == FollowerPikminObject)
+	{
+		if (spriteDir == "Down") return PikminWalkDownSprite
+		else if (spriteDir == "Up") return PikminWalkUpSprite
+		else
+		{
+			if (spriteDir == "Right") image_xscale = 1
+			else image_xscale = -1
+			return PikminWalkRightSprite
+		}
+	}
+	
 	switch (global.followerType)
 	{
 		case "Mary":

@@ -223,4 +223,13 @@ if (global.followerType != "" and !instance_exists(follower))
 	follower = instance_create_layer(x,y,"Instances",FollowerObject)
 	follower.player = id
 }
+
+if (instance_number(FollowerPikminObject) < global.pikminCount)
+{
+	repeat (global.pikminCount-instance_number(FollowerPikminObject))
+	{
+		var pikmin = instance_create_layer(x,y,"Instances",FollowerPikminObject)
+		pikmin.player = id
+	}
+}
 #endregion
