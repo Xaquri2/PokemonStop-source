@@ -2,7 +2,7 @@
 event_inherited();
 
 event_inherited();
-name = "Morlock Trainer"
+name = "Morlock"
 lineSightDir = "Left"
 lineSight = 64
 
