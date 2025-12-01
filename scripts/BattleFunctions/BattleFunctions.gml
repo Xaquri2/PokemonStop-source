@@ -1018,8 +1018,8 @@ function GetTrainerTeam(trainerName)
 			break
 			
 	//Mutant Path -- Tilted Tower
-		case "MorlockTrainer":
-			AddPokemonTrainer(team, 1, "Human", 1, "Female", Human2IdleSprite)
+		case "Morlock":
+			AddPokemonTrainer(team, 1, "Human", 1, "Male", Human2IdleSprite)
 			AddPokemonTrainer(team, 2, "Demo Dog", 1, "Female", DemoDogSprite)
 			break
 
