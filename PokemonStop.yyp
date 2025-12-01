@@ -380,6 +380,7 @@
     {"id":{"name":"MorlockBattleSprite","path":"sprites/MorlockBattleSprite/MorlockBattleSprite.yy",},},
     {"id":{"name":"MorlockDoorSprite","path":"sprites/MorlockDoorSprite/MorlockDoorSprite.yy",},},
     {"id":{"name":"MorlockOverworldSprite","path":"sprites/MorlockOverworldSprite/MorlockOverworldSprite.yy",},},
+    {"id":{"name":"MorlockWalkRightSprite","path":"sprites/MorlockWalkRightSprite/MorlockWalkRightSprite.yy",},},
     {"id":{"name":"MrBananaFaceSprite","path":"sprites/MrBananaFaceSprite/MrBananaFaceSprite.yy",},},
     {"id":{"name":"MrBananaSprite","path":"sprites/MrBananaSprite/MrBananaSprite.yy",},},
     {"id":{"name":"MutantTowerSprite","path":"sprites/MutantTowerSprite/MutantTowerSprite.yy",},},
