@@ -499,7 +499,7 @@ if (keyboard_check_pressed(vk_enter))
 		instance_destroy(id)
 	}
 
-	if (string_count("want", question) > 0 and string_count("Pokemon", question) > 0)
+	if (string_count("want", question) > 0 and (string_count("Pokemon", question) > 0 or string_count("Pokémon", question) > 0))
 	{
 		if (currentOption == 0)
 		{

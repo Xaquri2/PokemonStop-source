@@ -2,9 +2,9 @@ if (keyboard_check_pressed(ord("W"))) currentOption -= 4
 if (keyboard_check_pressed(vk_up)) currentOption -= 4
 if (keyboard_check_pressed(ord("S"))) currentOption += 4
 if (keyboard_check_pressed(vk_down)) currentOption += 4
-if (keyboard_check_pressed(ord("A")))
+if (keyboard_check_pressed(ord("A")) or keyboard_check_pressed(vk_left))
 {
-	if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
+	if ((currentOption % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
 	{
 		if (page > 0) page--
 		else page = 30-1
@@ -12,27 +12,8 @@ if (keyboard_check_pressed(ord("A")))
 	}
 	else currentOption--
 }
-if (keyboard_check_pressed(vk_left))
-{
-	if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
-	{
-		if (page > 0) page--
-		else page = 30-1
-		currentOption += 3
-	}
-	else currentOption--
-}
-if (keyboard_check_pressed(ord("D")))
-{
-	if ((currentOption+1) % 4 == 0)
-	{
-		if (page < 30-1) page++
-		else page = 0
-		currentOption -= 3
-	}
-	else currentOption++
-}
-if (keyboard_check_pressed(vk_right))
+
+if (keyboard_check_pressed(ord("D")) or keyboard_check_pressed(vk_right))
 {
 	if ((currentOption+1) % 4 == 0)
 	{
@@ -43,18 +24,13 @@ if (keyboard_check_pressed(vk_right))
 	else currentOption++
 }
 
+if (summaryMode) pokemonNumber = 1+currentOption+pageAmount*page
+else pokemonNumber = -1
+
 if (keyboard_check_pressed(vk_enter))
 {
-	if (!summaryMode)
-	{
-		summaryMode = true
-		pokemonNumber = 1+currentOption+pageAmount*page
-	}
-	else
-	{
-		summaryMode = false
-		pokemonNumber = -1
-	}
+	if (!summaryMode) summaryMode = true
+	else summaryMode = false
 }
 
 if ((currentOption+1)%4==0) //Right side arrow
@@ -62,7 +38,7 @@ if ((currentOption+1)%4==0) //Right side arrow
 	arrowDir = 1
 	if (arrowAlpha < 1) arrowAlpha += 0.05
 }
-else if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0) //Left side arrow
+else if ((currentOption % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0) //Left side arrow
 {
 	arrowDir = -1
 	if (arrowAlpha < 1) arrowAlpha += 0.05

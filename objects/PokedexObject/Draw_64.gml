@@ -1,6 +1,11 @@
 draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.08, view_get_hport(0)*0.08,
 25, 25, image_angle, image_blend, image_alpha)
 
+CenterTextPosition()
+draw_text_transformed(view_get_wport(0)*0.08+sprite_get_width(MenuSprite)*12.5,
+view_get_hport(0)*0.08+40, string_concat("Page ", page), 2, 2, image_angle)
+ResetTextPosition()
+
 var xOrigin = view_get_wport(0)*0.08
 var yOrigin = view_get_hport(0)*0.08
 
