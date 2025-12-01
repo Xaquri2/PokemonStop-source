@@ -41,8 +41,8 @@ if (active)
 {
 	if (keyboard_check_pressed(ord("W"))) selectedIndex--
 	if (keyboard_check_pressed(ord("S"))) selectedIndex++
-	if (keyboard_check_pressed(ord(vk_up))) selectedIndex--
-	if (keyboard_check_pressed(ord(vk_down))) selectedIndex++
+	if (keyboard_check_pressed(vk_up)) selectedIndex--
+	if (keyboard_check_pressed(vk_down)) selectedIndex++
 }
 if (selectedIndex == ds_list_size(optionsList)) selectedIndex = 0
 if (selectedIndex < 0) selectedIndex = ds_list_size(optionsList)-1

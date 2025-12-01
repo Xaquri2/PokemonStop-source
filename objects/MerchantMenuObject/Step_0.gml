@@ -25,7 +25,7 @@ if (!instance_exists(optionMenu))
 		selectedItem--
 		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
 	}
-	if (keyboard_check_pressed(ord(vk_up)))
+	if (keyboard_check_pressed(vk_up))
 	{
 		selectedItem--
 		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
@@ -36,7 +36,7 @@ if (!instance_exists(optionMenu))
 		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
 		and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
 	}
-	if (keyboard_check_pressed(ord(vk_down)))
+	if (keyboard_check_pressed(vk_down))
 	{
 		selectedItem++
 		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset

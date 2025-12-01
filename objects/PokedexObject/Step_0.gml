@@ -1,7 +1,7 @@
 if (keyboard_check_pressed(ord("W"))) currentOption -= 4
-if (keyboard_check_pressed(ord(vk_up))) currentOption -= 4
+if (keyboard_check_pressed(vk_up)) currentOption -= 4
 if (keyboard_check_pressed(ord("S"))) currentOption += 4
-if (keyboard_check_pressed(ord(vk_down))) currentOption += 4
+if (keyboard_check_pressed(vk_down)) currentOption += 4
 if (keyboard_check_pressed(ord("A")))
 {
 	if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
@@ -12,7 +12,7 @@ if (keyboard_check_pressed(ord("A")))
 	}
 	else currentOption--
 }
-if (keyboard_check_pressed(ord(vk_left)))
+if (keyboard_check_pressed(vk_left))
 {
 	if (((currentOption-1) % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
 	{
@@ -32,7 +32,7 @@ if (keyboard_check_pressed(ord("D")))
 	}
 	else currentOption++
 }
-if (keyboard_check_pressed(ord(vk_right)))
+if (keyboard_check_pressed(vk_right))
 {
 	if ((currentOption+1) % 4 == 0)
 	{
