@@ -1022,6 +1022,10 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Human", 1, "Male", Human2IdleSprite)
 			AddPokemonTrainer(team, 2, "Demo Dog", 1, "Female", DemoDogSprite)
 			break
+		case "Team Rocket":
+			AddPokemonTrainer(team, 1, "Zubat", 1, "Male", ZubatFlappingSprite)
+			AddPokemonTrainer(team, 2, "Morlock", 1, "Male", MorlockBattleSprite)
+			AddPokemonTrainer(team, 3, "Demo Dog", 1, "Male", DemoDogSprite)
 
 	}
 	return team

@@ -1,0 +1,1 @@
+ds_list_add(textList,"It's a metal grate.","Through it, you can see a Morlock.")

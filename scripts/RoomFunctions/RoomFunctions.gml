@@ -28,7 +28,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = TestRoom2
 			targetWarp = "Test2Warp"
 			break
-		#endregion
+		case "TestToMutant2":
+			targetRoom = TestTiltedRoom
+			targetWarp = TiltedToMorlock
+			#endregion
 
 		#region Mallet Town
 		case "MalletHouse1ToTest":
