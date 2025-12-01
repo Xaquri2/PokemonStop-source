@@ -11,6 +11,7 @@ global.originalSpeed = game_get_speed(gamespeed_fps)
 global.speedUpMultiplier = 1
 
 global.followerType = ""
+global.pikminCount = 0
 
 var itemsList = ds_list_create()
 var ballsList = ds_list_create()

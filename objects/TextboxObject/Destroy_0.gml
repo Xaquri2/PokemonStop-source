@@ -89,6 +89,7 @@ if (ds_list_find_value(textList, 0) == "Fine! Whatever...")
 
 if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the ground.")
 {
+	player.alarm[1] = -1
 	var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
 	optionMenu.question = "Pull it?"
 	optionMenu.option1 = "Yes"

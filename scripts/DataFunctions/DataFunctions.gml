@@ -72,7 +72,9 @@ function SaveData()
 		flags: flagsArray,
 		collectedPokeloot: collectedPokelootArray,
 		latestSaveState: global.latestSaveState,
-		saveSlotTimestamp: timestampString
+		saveSlotTimestamp: timestampString,
+		followerType: global.followerType,
+		pikminCount: global.pikminCount
 	}
 
 	var fileName = string_concat("savefile", global.saveFile, ".json")
@@ -221,6 +223,9 @@ function LoadData()
 
 		global.money = saveState.money
 		global.latestSaveState = saveState.latestSaveState
+		
+		global.followerType = saveState.followerType
+		global.pikminCount = saveState.pikminCount
 	}
 }
 
