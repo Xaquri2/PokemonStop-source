@@ -21,7 +21,7 @@ function GetMerchantItems(name)
 			ds_list_add(itemList, "Poke Ball", "Great Ball", "Ultra Ball")
 			break
 		case "Orc Merchant 1":
-			ds_list_add(itemList, "Poke Ball")
+			ds_list_add(itemList, "Poke Ball", "Potion,", "Poke Ball")
 			break
 	}
 	return itemList

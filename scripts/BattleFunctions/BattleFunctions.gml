@@ -1014,7 +1014,13 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Bestie":
 			AddPokemonTrainer(team, 1, "Squirtle", 1, "Female", SquirtleIdleSprite)
-			AddPokemonTrainer(team, 1, "Caterpie", 2, "Female", CaterpieIdleSprite)
+			AddPokemonTrainer(team, 2, "Caterpie", 2, "Female", CaterpieIdleSprite)
+			break
+			
+	//Mutant Path -- Tilted Tower
+		case "MorlockTrainer":
+			AddPokemonTrainer(team, 1, "Human", 1, "Female", Human2IdleSprite)
+			AddPokemonTrainer(team, 2, "Demo Dog", 1, "Female", DemoDogSprite)
 			break
 
 	}

@@ -169,6 +169,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MutantPath1
 			targetWarp = "MutantToBuilding"
 			break
+		case "TiltedToMorlock":
+			targetRoom = TestRoom
+			targetWarp = "TestToMutant"
+			break
 		#endregion
 
 		#region Waterfront
@@ -255,7 +259,6 @@ function GetRoomMusic()
 		case RouteMinusOneTop:
 			return RouteMinusOneTheme
 		case MutantPath1: return MutantPathAmbiance
-		case TiltedBuildingInterior:
 		case TestTiltedRoom:
 			return MutantPathUndergroundTheme
 		case TestRoom: return SacredBeasts
