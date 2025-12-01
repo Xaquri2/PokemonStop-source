@@ -166,6 +166,8 @@ if (!summaryMode and canInteract)
 {
 	if (keyboard_check_pressed(ord("W"))) selectedIndex--
 	if (keyboard_check_pressed(ord("S"))) selectedIndex++
+	if (keyboard_check_pressed(ord(vk_up))) selectedIndex--
+	if (keyboard_check_pressed(ord(vk_down))) selectedIndex++
 }
 else if (summaryMode)
 {
@@ -177,6 +179,19 @@ else if (summaryMode)
 		else moveIndex -= 1
 	}
 	if (keyboard_check_pressed(ord("D")))
+	{
+		if (moveIndex % 2 == 0) moveIndex += 1
+		else moveIndex -= 1
+	}
+
+	if (keyboard_check_pressed(ord(vk_up))) moveIndex -= 2
+	if (keyboard_check_pressed(ord(vk_down))) moveIndex += 2
+	if (keyboard_check_pressed(ord(vk_left)))
+	{
+		if (moveIndex % 2 == 0) moveIndex += 1
+		else moveIndex -= 1
+	}
+	if (keyboard_check_pressed(ord(vk_right)))
 	{
 		if (moveIndex % 2 == 0) moveIndex += 1
 		else moveIndex -= 1

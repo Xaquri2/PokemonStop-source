@@ -953,6 +953,19 @@ if (mode == "Choosing" or mode == "Moves")
 		if (currentOption % 2 == 0) currentOption += 1
 		else currentOption -= 1
 	}
+
+	if (keyboard_check_pressed(ord(vk_up))) currentOption -= 2
+	if (keyboard_check_pressed(ord(vk_down))) currentOption += 2
+	if (keyboard_check_pressed(ord(vk_left)))
+	{
+		if (currentOption % 2 == 0) currentOption += 1
+		else currentOption -= 1
+	}
+	if (keyboard_check_pressed(ord(vk_right)))
+	{
+		if (currentOption % 2 == 0) currentOption += 1
+		else currentOption -= 1
+	}
 }
 
 if (currentOption < 0) currentOption += 4

@@ -4,6 +4,12 @@ if (keyboard_check_pressed(ord("W")) or keyboard_check_pressed(ord("S")))
 	else if (currentOption == 1) currentOption = 0
 }
 
+if (keyboard_check_pressed(ord(vk_up)) or keyboard_check_pressed(ord(vk_down)))
+{
+	if (currentOption == 0) currentOption = 1
+	else if (currentOption == 1) currentOption = 0
+}
+
 if (keyboard_check_pressed(ord("D")) and buying and
 GetItemValue(buyItem)*(buyQuantity+1) <= global.money
 and buyQuantity < 999)
@@ -12,7 +18,20 @@ and buyQuantity < 999)
 	alarm[0] = quickIncrementValue
 }
 
+if (keyboard_check_pressed(ord(vk_right)) and buying and
+GetItemValue(buyItem)*(buyQuantity+1) <= global.money
+and buyQuantity < 999)
+{
+	buyQuantity++
+	alarm[0] = quickIncrementValue
+}
+
 if (keyboard_check_pressed(ord("A")) and buying and buyQuantity > 1)
+{
+	buyQuantity--
+}
+
+if (keyboard_check_pressed(ord(vk_left)) and buying and buyQuantity > 1)
 {
 	buyQuantity--
 }

@@ -32,6 +32,9 @@ if (!hasSelected)
 	if (keyboard_check_pressed(ord("A"))) selectedCategory--
 	if (keyboard_check_pressed(ord("D"))) selectedCategory++
 
+	if (keyboard_check_pressed(ord(vk_left))) selectedCategory--
+	if (keyboard_check_pressed(ord(vk_right))) selectedCategory++
+
 	if (selectedCategory == ds_list_size(global.categoryNameList)) selectedCategory = 0
 	if (selectedCategory < 0) selectedCategory = ds_list_size(global.categoryNameList)-1
 }
@@ -48,7 +51,21 @@ if (!hasSelected)
 		selectedItem--
 		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
 	}
+
+	if (keyboard_check_pressed(ord(vk_up)))
+	{
+		selectedItem--
+		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
+	}
+
 	if (keyboard_check_pressed(ord("S")))
+	{
+		selectedItem++
+		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
+		and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
+	}
+
+	if (keyboard_check_pressed(ord(vk_down)))
 	{
 		selectedItem++
 		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
