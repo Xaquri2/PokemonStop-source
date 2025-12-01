@@ -25,7 +25,7 @@ if (!ds_list_empty(nameList))
 			ds_list_add(nameList2, string_copy(name, nameBreakIndex, i))
 		}
 	}
-	
+
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
 

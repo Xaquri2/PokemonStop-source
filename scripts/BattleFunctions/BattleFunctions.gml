@@ -4,20 +4,20 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	var pLevel = GetLevel(pkmn)
 	var pStats = GetPokemonFinalStats(pName, pLevel)
 	var pType = GetTypes(pkmn)
-	
+
 	var eName = GetName(targetPkmn)
 	var eLevel = GetLevel(targetPkmn)
 	var eStats = GetPokemonFinalStats(eName, eLevel)
-	
+
 	var moveType = GetMoveType(moveName)
 	var movePower = GetMovePower(moveName)
 	var moveAcc = GetMoveAccurancy(moveName)
 	var moveCat = GetMoveCategory(moveName)
 	var moveCrit = GetMoveCritMultiplier(moveName) //Still needs to be used
-	
+
 	var atkStat = 0
 	var defStat = 0
-	
+
 	if (moveCat != "Status")
 	{
 		if (moveCat == "Physical")
@@ -30,21 +30,21 @@ function GetDamage(pkmn, targetPkmn, moveName)
 			atkStat = GetSpAtkStat(pStats)
 			defStat = GetSpDefStat(eStats)
 		}
-	
+
 		if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)
 		{
 			movePower *= 1.5
 		}
-	
+
 		var moveEffect = GetMoveEffect(moveName)
 		movePower += GetEffectPower(pkmn, targetPkmn, GetMoveEffect(moveName))
-	
+
 		if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
 		if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
-	
+
 		var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 		damage = clamp(damage, 0, 1000000)
-	
+
 		if (random_range(0,101) > moveAcc) return 0
 		return damage
 	}
@@ -55,7 +55,7 @@ function GetRecoilDamage(pkmn, moveName)
 {
 	var name = GetName(pkmn)
 	var level = GetLevel(pkmn)
-	
+
 	switch (moveName)
 	{
 		default:
@@ -83,7 +83,7 @@ function GetEffectPower(pkmn, targetPkmn, effectName)
 			var userName = GetName(pkmn)
 			var userLevel = GetLevel(pkmn)
 			var userSpeed = GetSpeedStat(GetPokemonFinalStats(userName, userLevel))
-			
+
 			var targetName = GetName(targetPkmn)
 			var targetLevel = GetLevel(targetPkmn)
 			var targetSpeed = GetSpeedStat(GetPokemonFinalStats(targetName, targetLevel))
@@ -104,7 +104,7 @@ function IsMoveSuperEffective(moveName, targetPkmn)
 	var enemyTypes = GetTypes(targetPkmn)
 	for (var i = 0; i < ds_list_size(enemyTypes); i++)
 	{
-		if (IsTypeSuperEffective(moveType, ds_list_find_value(enemyTypes, i))) 
+		if (IsTypeSuperEffective(moveType, ds_list_find_value(enemyTypes, i)))
 		{
 			return true
 		}
@@ -349,23 +349,23 @@ function DealDamage(damage, isPlayer)
 			break
 		}
 	}
-	
+
 	entity.hp -= damage
 	entity.hp = clamp(entity.hp, 0, 9999)
 
-	if (isPlayer) 
+	if (isPlayer)
 	{
 		ds_list_set(enemyPkmn, 5, entity.hp)
 		ds_list_set(entity.pkmnInfo, 5, entity.hp)
 		ds_list_set(entity.team, entity.index, enemyPkmn)
 	}
-	else 
+	else
 	{
 		ds_list_set(playerPkmn, 5, entity.hp)
 		ds_list_set(entity.team, entity.index, playerPkmn)
 		ds_list_set(global.playerParty, entity.index, playerPkmn)
 	}
-	
+
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
 	{
 		var attempt = instance_find(BattleEntityObject, i)
@@ -427,7 +427,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "The opponent's Speed stat couldn't go any lower!"
 					break
 				#endregion
-		
+
 				#region Lower 2
 				case "LowerAttack2":
 					if (target.attackModifier > -5)
@@ -470,7 +470,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "The opponent's Speed stat couldn't go any lower!"
 					break
 				#endregion
-		
+
 				#region Raise 1
 				case "RaiseAttack":
 					if (target.attackModifier < 6)
@@ -513,7 +513,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "Its Speed stat couldn't go any higher!"
 					break
 				#endregion
-		
+
 				#region Raise 2
 				case "RaiseAttack2":
 					if (target.attackModifier < 5)
@@ -555,7 +555,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "Its Speed stat couldn't go any higher!"
 					break
 				#endregion
-			
+
 				#region Statuses
 				case "Paralysis":
 					str = "The opponent is now paralyzed"
@@ -570,12 +570,12 @@ function DealEffect(effectName, accurancy, user, target)
 					str = "The opponent is now asleep"
 					break
 				#endregion
-				
+
 				case "Recoil":
 				case "RecoilOnMiss":
 					str = "Your pokemon took some damage!"
 					break
-					
+
 				case "StruggleRecoil":
 					str = "Your pokemon struggled and took some damage!"
 					break
@@ -627,7 +627,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "Your pokemon's Speed stat couldn't go any lower!"
 					break
 				#endregion
-		
+
 				#region Lower 2
 				case "LowerAttack2":
 					if (target.attackModifier > -5)
@@ -670,7 +670,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "Your pokemon's Speed stat couldn't go any lower!"
 					break
 				#endregion
-		
+
 				#region Raise 1
 				case "RaiseAttack":
 					if (target.attackModifier < 6)
@@ -713,7 +713,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "Its Speed stat couldn't go any higher!"
 					break
 				#endregion
-		
+
 				#region Raise 2
 				case "RaiseAttack2":
 					if (target.attackModifier < 5)
@@ -755,7 +755,7 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "Its Speed stat couldn't go any higher!"
 					break
 				#endregion
-			
+
 				#region Statuses
 				case "Paralysis":
 					str = "Your pokemon is now paralyzed"
@@ -770,12 +770,12 @@ function DealEffect(effectName, accurancy, user, target)
 					str = "Your pokemon is now asleep"
 					break
 				#endregion
-				
+
 				case "Recoil":
 				case "RecoilOnMiss":
 					str = "The opponent took some damage!"
 					break
-					
+
 				case "StruggleRecoil":
 					str = "The opponent struggled and took some damage!"
 					break
@@ -789,13 +789,13 @@ function ChooseMove(pkmn, targetPkmn)
 {
 	var name = GetName(pkmn)
 	var level = GetLevel(pkmn)
-	
+
 	var stats = GetPokemonFinalStats(name, level)
 	var enemyStats = GetPokemonFinalStats(name, level)
-	
+
 	var type = GetTypes(pkmn)
 	var moves = GetMoves(pkmn)
-	
+
 	if (GetSpeedStat(stats) <= GetSpeedStat(enemyStats)) //If user speed is lower
 	{
 		var hasSpeedControl = false
@@ -803,13 +803,13 @@ function ChooseMove(pkmn, targetPkmn)
 		{
 			var moveName = ds_list_find_value(moves, i)
 			var effect = GetMoveEffect(moveName)
-			if (effect == "LowerSpeed") 
+			if (effect == "LowerSpeed")
 			{
 				hasSpeedControl = true
 				break
 			}
 		}
-		
+
 		if (floor(random_range(0,3)) == 0 and hasSpeedControl) //33% chance to use a speed lowering move
 		{
 			var chosenMove = ""
@@ -852,7 +852,7 @@ function ChooseMove(pkmn, targetPkmn)
 				{
 					var attempt = ds_list_find_value(damageList, i)
 					if (attempt > biggerDamage) biggerDamage = attempt
-				} 
+				}
 				var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
 				return moveName
 			}
@@ -877,7 +877,7 @@ function ChooseMove(pkmn, targetPkmn)
 			{
 				var attempt = ds_list_find_value(damageList, i)
 				if (attempt > biggerDamage) biggerDamage = attempt
-			} 
+			}
 			var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
 			return moveName
 		}
@@ -946,7 +946,7 @@ function TryCatching(ballName)
 			{
 				return 3
 			}
-			return 2 
+			return 2
 		}
 		return 1
 	}
@@ -972,7 +972,7 @@ function GetCatchingString(timesBobbed, pkmnName)
 function TryToRun(playerPkmn, enemyPkmn, attempts)
 {
 	var chance = floor(random_range(0,256))
-	
+
 	var name = GetName(playerPkmn)
 	var level = GetLevel(playerPkmn)
 	var stats = GetPokemonFinalStats(name, level)
@@ -983,7 +983,7 @@ function TryToRun(playerPkmn, enemyPkmn, attempts)
 	stats = GetPokemonFinalStats(name, level)
 	var enemySpd = GetSpeedStat(stats)
 
-	if (playerSpd >= enemySpd) return true	
+	if (playerSpd >= enemySpd) return true
 	var runChance = ((playerSpd*32)/(enemySpd/4)+30*attempts) mod 256
 	return chance < runChance
 }
@@ -1016,7 +1016,7 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Squirtle", 1, "Female", SquirtleIdleSprite)
 			AddPokemonTrainer(team, 1, "Caterpie", 2, "Female", CaterpieIdleSprite)
 			break
-		
+
 	}
 	return team
 }

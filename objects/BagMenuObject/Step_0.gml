@@ -1,4 +1,4 @@
-if (keyboard_check_pressed(ord("E")) and optionMenu == noone) 
+if (keyboard_check_pressed(ord("E")) and optionMenu == noone)
 {
 	if (!hasSelected)
 	{
@@ -31,7 +31,7 @@ if (!hasSelected)
 {
 	if (keyboard_check_pressed(ord("A"))) selectedCategory--
 	if (keyboard_check_pressed(ord("D"))) selectedCategory++
-	
+
 	if (selectedCategory == ds_list_size(global.categoryNameList)) selectedCategory = 0
 	if (selectedCategory < 0) selectedCategory = ds_list_size(global.categoryNameList)-1
 }
@@ -42,25 +42,25 @@ if (!hasSelected)
 {
 	var itemList = ds_list_find_value(global.categoryItemList, selectedCategory)
 	var itemCount = ds_list_size(itemList)
-	
-	if (keyboard_check_pressed(ord("W"))) 
+
+	if (keyboard_check_pressed(ord("W")))
 	{
 		selectedItem--
 		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
 	}
-	if (keyboard_check_pressed(ord("S"))) 
+	if (keyboard_check_pressed(ord("S")))
 	{
 		selectedItem++
 		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
 		and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
 	}
-	
-	if (selectedItem == ds_list_size(itemList)) 
+
+	if (selectedItem == ds_list_size(itemList))
 	{
 		selectedItem = 0
 		startingItemOffset = 0
 	}
-	if (selectedItem < 0) 
+	if (selectedItem < 0)
 	{
 		selectedItem = ds_list_size(itemList)-1
 		startingItemOffset = itemCount-itemDisplayLimit

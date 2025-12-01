@@ -5,21 +5,21 @@ if (state == "Walk")
 	{
 		state = "Idle"
 		walkCoords = []
-		
+
 		speed = 0
 		image_xscale = 1
 		sprite_index = idleSprite
 	}
-	
+
 	if (point_distance(x, y, walkCoords[0], walkCoords[1]) > 10)
 	{
-		move_towards_point(walkCoords[0], walkCoords[1], 1)	
+		move_towards_point(walkCoords[0], walkCoords[1], 1)
 	}
 	else
 	{
 		state = "Idle"
 		walkCoords = []
-		
+
 		speed = 0
 		image_xscale = 1
 		sprite_index = idleSprite

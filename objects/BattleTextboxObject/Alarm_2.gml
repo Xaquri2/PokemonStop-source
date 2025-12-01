@@ -8,7 +8,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 	if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 	{
 		var text = ds_list_find_value(textList, currentText)
-		
+
 		if (currentText > ds_list_size(textList))
 		{
 			if (!endBattle) var battleMenu = instance_create_layer(x,y,"UIElements",BattleMenuObject)
@@ -41,7 +41,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			optionMenu.target = id
 			optionMenu.newMove = ds_list_find_value(listLevelUpMoves, 0)
 			optionMenu.moveList = GetMoves(playerPkmn)
-			
+
 			inactive = true
 			visible = false
 		}
@@ -58,7 +58,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					}
 					else
 					{
-						if (string_count("opposing", text) == 0) 
+						if (string_count("opposing", text) == 0)
 						{
 							whoAttacked = "Player"
 							moveName = playerMoveName
@@ -69,7 +69,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 							moveName = enemyMoveName
 						}
 						alarm[1] = GetMoveAnimationTime(moveName)
-			
+
 						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 						attackC.alarm[0] = alarm[1]
 						attackC.moveName = moveName
@@ -82,16 +82,16 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					var otherEntity = "Enemy"
 					var name = GetName(playerPkmn)
 					var level = GetLevel(playerPkmn)
-					
+
 					var rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
 					enemyDamage = clamp(floor(rawDamage), 1, 1000000)
-					
+
 					if (string_count("opponent", text) > 0)
 					{
 						name = GetName(enemyPkmn)
 						level = GetLevel(enemyPkmn)
 						otherEntity = "Player"
-						
+
 						rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
 						playerDamage = clamp(floor(rawDamage), 1, 1000000)
 					}
@@ -110,16 +110,16 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					var otherEntity = "Enemy"
 					var name = GetName(playerPkmn)
 					var level = GetLevel(playerPkmn)
-					
+
 					var rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
 					enemyDamage = clamp(floor(rawDamage), 1, 1000000)
-					
+
 					if (string_count("opponent", text) > 0)
 					{
 						name = GetName(enemyPkmn)
 						level = GetLevel(enemyPkmn)
 						otherEntity = "Player"
-						
+
 						rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
 						playerDamage = clamp(floor(rawDamage), 1, 1000000)
 					}
@@ -133,7 +133,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					attackC.whoAttacked = otherEntity
 					attackC.particleSpawnTime = floor(alarm[1] / 2)
 				}
-				
+
 				if (string_count(" sent out ", text) > 0) //Enemy pokémon released
 				{
 					var enemy = -1
@@ -143,7 +143,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						if (enemy.player) enemy = -1
 						else break
 					}
-		
+
 					if (enemy != -1)
 					{
 						if (enemy.currentPkmn == 0)
@@ -166,7 +166,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						player = instance_find(BattleEntityObject, i)
 						if (player.player) break
 					}
-	
+
 					if (player != -1)
 					{
 						if (player.currentPkmn == 0)
@@ -193,7 +193,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 							break
 						}
 					}
-			
+
 					if (playerPkmnEntity != -1)
 					{
 						alarm[3] = 100
@@ -212,7 +212,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 							break
 						}
 					}
-			
+
 					if (enemyPkmnEntity != -1)
 					{
 						alarm[3] = 100
@@ -304,20 +304,20 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				{
 					moveName = "Struggle"
 					recoil = true
-					
-					if (string_count("opposing", text) == 0) 
+
+					if (string_count("opposing", text) == 0)
 					{
 						whoAttacked = "Player"
 						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
-					else 
+					else
 					{
 						whoAttacked = "Enemy"
 						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
-					
+
 					alarm[1] = GetMoveAnimationTime(moveName)
-			
+
 					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 					attackC.alarm[0] = alarm[1]
 					attackC.moveName = moveName
@@ -339,10 +339,10 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						target = instance_find(BattlePokemonObject, i)
 						if (!target.playerTeam) break
 					}
-					
+
 					var effectName = GetMoveEffect(playerMoveName)
 					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
-					
+
 					SetStatus(target.pkmnInfo, effectName)
 					target.status = effectName
 				}
@@ -354,15 +354,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						target = instance_find(BattlePokemonObject, i)
 						if (target.playerTeam) break
 					}
-					
+
 					var effectName = GetMoveEffect(playerMoveName)
 					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
-					
+
 					var index = ds_list_find_index(global.playerParty, target.pkmnInfo)
-					
+
 					SetStatus(target.pkmnInfo, effectName)
 					ds_list_set(global.playerParty, index, target.pkmnInfo)
-					
+
 					target.status = effectName
 				}
 			}

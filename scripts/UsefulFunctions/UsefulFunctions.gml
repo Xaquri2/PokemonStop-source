@@ -14,7 +14,7 @@ function ConvertMapToMatrix(map)
 	if (!ds_map_empty(map))
 	{
 		var matrix = []
-		
+
 		var key = ds_map_find_first(map)
 		while (key != undefined)
 		{
@@ -22,7 +22,7 @@ function ConvertMapToMatrix(map)
 			array_push(matrix, [key, value])
 			key = ds_map_find_next(map, key)
 		}
-		
+
 		return matrix
 	}
 }
@@ -50,12 +50,12 @@ function GetNumberFormat(num)
 			ds_list_add(zeroList, "0")
 		}
 	}
-	
+
 	for (var i = 0; i < ds_list_size(zeroList); i++)
 	{
 		str = string_concat("0", str)
 	}
-	
+
 	str = string_concat("#", str)
 	return str
 }
@@ -78,7 +78,7 @@ function GetFollowerSprite(spriteDir)
 	{
 		case "Mary":
 			if (spriteDir == "Down") return MaryWalkDownSprite
-			if (spriteDir == "Right") 
+			if (spriteDir == "Right")
 			{
 				image_xscale = 1
 				return MaryWalkRightSprite
@@ -89,10 +89,10 @@ function GetFollowerSprite(spriteDir)
 				return MaryWalkRightSprite
 			}
 			if (spriteDir == "Up") return MaryWalkUpSprite
-			
+
 		default:
 			if (spriteDir == "Down") return MaryWalkDownSprite
-			if (spriteDir == "Right") 
+			if (spriteDir == "Right")
 			{
 				image_xscale = 1
 				return MaryWalkRightSprite

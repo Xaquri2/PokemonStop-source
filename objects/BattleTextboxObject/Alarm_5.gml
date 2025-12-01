@@ -8,7 +8,7 @@ if (string_count("used", newText) > 0)
 	}
 	else
 	{
-		if (string_count("opposing", newText) > 0) 
+		if (string_count("opposing", newText) > 0)
 		{
 			whoAttacked = "Enemy"
 			moveName = enemyMoveName
@@ -34,7 +34,7 @@ if (string_count("poison damage", newText) > 0)
 	var name = GetName(playerPkmn)
 	var level = GetLevel(playerPkmn)
 	enemyDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
-						
+
 	if (string_count("opponent", newText) > 0)
 	{
 		name = GetName(enemyPkmn)
@@ -58,7 +58,7 @@ if (string_count("burn damage", newText) > 0)
 	var name = GetName(playerPkmn)
 	var level = GetLevel(playerPkmn)
 	enemyDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
-						
+
 	if (string_count("opponent", newText) > 0)
 	{
 		name = GetName(enemyPkmn)
@@ -89,7 +89,7 @@ if (string_count("come back", newText) > 0)
 	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
 		var attempt = instance_find(BattlePokemonObject, i)
-		if (attempt.playerTeam) 
+		if (attempt.playerTeam)
 		{
 			attempt.switching = true
 			attempt.textbox = id

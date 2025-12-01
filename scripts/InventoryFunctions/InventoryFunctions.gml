@@ -17,29 +17,29 @@ function GetItemCategory(name)
 		case "Full Restore":
 			return "Items"
 		#endregion
-		
+
 		#region Balls
 		case "Poke Ball":
 		case "Great Ball":
 		case "Ultra Ball":
 			return "Balls"
 		#endregion
-		
+
 		#region Battle Items
 		case "X Attack":
 		case "X Defense":
 		case "X Special Attack":
 		case "X Special Defense":
 		case "X Speed":
-		
+
 		case "X Attack 2":
 		case "X Defense 2":
 		case "X Special Attack 2":
 		case "X Special Defense 2":
 		case "X Speed 2":
 			return "Battle Items"
-		#endregion	
-		
+		#endregion
+
 		#region Key Items
 		case "Poke Flute":
 			return "Key Items"
@@ -62,7 +62,7 @@ function GetItemDescription(name)
 		case "Full Restore":
 			return "Heals the Pokemon up to full health and clears statuses"
 		#endregion
-		
+
 		#region Balls
 		case "Poke Ball":
 			return "Has a chance of catching wild Pokemon"
@@ -71,7 +71,7 @@ function GetItemDescription(name)
 		case "Ultra Ball":
 			return "Has a good chance of catching wild Pokemon"
 		#endregion
-		
+
 		#region Battle Items
 		case "X Attack":
 		case "X Defense":
@@ -79,15 +79,15 @@ function GetItemDescription(name)
 		case "X Special Defense":
 		case "X Speed":
 			return "Increases the Pokemon's respective stat by one stage"
-			
+
 		case "X Attack 2":
 		case "X Defense 2":
 		case "X Special Attack 2":
 		case "X Special Defense 2":
 		case "X Speed 2":
 			return "Increases the Pokemon's respective stat by two stages"
-		#endregion	
-		
+		#endregion
+
 		#region Key Items
 		case "Poke Flute":
 			return "Can be used to wake sleeping pokemon"
@@ -99,16 +99,16 @@ function GetItemDescription(name)
 function AddItem(name, amount)
 {
 	var category = GetItemCategory(name)
-	
+
 	if (category != "")
 	{
 		var itemDetails = ds_list_create()
 		ds_list_add(itemDetails, name, amount)
-	
+
 		var added = false
 		var catIndex = ds_list_find_index(global.categoryNameList, category)
 		var catList = ds_list_find_value(global.categoryItemList, catIndex)
-			
+
 		for (var i = 0; i < ds_list_size(catList); i++)
 		{
 			var attempt = ds_list_find_value(catList, i)
@@ -121,7 +121,7 @@ function AddItem(name, amount)
 				break
 			}
 		}
-			
+
 		if (!added)
 		{
 			ds_list_add(catList, itemDetails)
@@ -136,7 +136,7 @@ function HasItem(itemName)
 	var category = GetItemCategory(itemName)
 	var catIndex = ds_list_find_index(global.categoryNameList, category)
 	var catList = ds_list_find_value(global.categoryItemList, catIndex)
-		
+
 	for (var i = 0; i < ds_list_size(catList); i++)
 	{
 		var attempt = ds_list_find_value(catList, i)
@@ -152,7 +152,7 @@ function ConsumeItem(categoryIndex, itemIndex, amount)
 {
 	var itemInfo = GetItemInfo(categoryIndex, itemIndex)
 	if (GetItemAmount(itemInfo)-amount <= 0) DeleteItem(categoryIndex, itemIndex)
-	else 
+	else
 	{
 		UpdateItemAmount(itemInfo, GetItemAmount(itemInfo)-amount)
 		ds_list_replace(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex, itemInfo)
@@ -181,13 +181,13 @@ function IsBattleItem(itemName)
 		case "Poke Ball":
 		case "Great Ball":
 		case "Ultra Ball":
-		
+
 		case "X Attack":
 		case "X Defense":
 		case "X Special Attack":
 		case "X Special Defense":
 		case "X Speed":
-		
+
 		case "X Attack 2":
 		case "X Defense 2":
 		case "X Special Attack 2":
@@ -235,7 +235,7 @@ function GetStatItemChange(itemName)
 		case "X Speed":
 			ds_list_add(statChangeList, "Speed", 1)
 			break
-			
+
 		case "X Attack 2":
 			ds_list_add(statChangeList, "Attack", 2)
 			break
@@ -252,7 +252,7 @@ function GetStatItemChange(itemName)
 			ds_list_add(statChangeList, "Speed", 2)
 			break
 	}
-	
+
 	if (!ds_list_empty(statChangeList)) return statChangeList
 	return -1
 }

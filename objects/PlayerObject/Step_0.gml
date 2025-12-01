@@ -11,7 +11,7 @@ if (RoomHasGravity())
 }
 else vspeed = 0
 
-if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle) 
+if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle)
 {
 	canWalk = false
 	menuOpen = true
@@ -23,12 +23,12 @@ if (canWalk and !talking and !battle)
 {
 	var speedValue = normalSpeed
 	if (!IsIndoors()) speedValue = overworldSpeed
-	
+
 	if (keyboard_check(ord("W")) and !RoomHasGravity()) vspeed = -speedValue
 	if (keyboard_check(ord("S")) and !RoomHasGravity()) vspeed = speedValue
 	if (keyboard_check(ord("A"))) hspeed = -speedValue
 	if (keyboard_check(ord("D"))) hspeed = speedValue
-	
+
 	if (keyboard_check(vk_up) and !RoomHasGravity()) vspeed = -speedValue
 	if (keyboard_check(vk_down) and !RoomHasGravity()) vspeed = speedValue
 	if (keyboard_check(vk_left)) hspeed = -speedValue
@@ -66,10 +66,10 @@ if (hspeed == 0 and vspeed == 0)
 #endregion
 
 #region Collision
-var collidedTile = collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed, 
+var collidedTile = collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed,
 bbox_right+hspeed, bbox_top+vspeed, CollisionParent, false, true)
 
-if (instance_exists(collidedTile)) 
+if (instance_exists(collidedTile))
 {
 	if (collidedTile.object_index == TiltedFloor)
 	{
@@ -95,7 +95,7 @@ if (distance_to_object(npc) <= 32)
 	{
 		showNPCText = "Press Enter to talk"
 		nearestNPC = npc
-		
+
 		arrowDirection = floor(random_range(-1,3))
 		if (arrowDirection > 0) arrowDirection = 1
 		else arrowDirection = -1
@@ -120,16 +120,16 @@ if (nearestNPC != noone)
 		if (arrowOffset < -2) arrowDirection = 1
 	}
 	arrowOffset += arrowSpeed
-	
+
 	if (keyboard_check_pressed(vk_enter) and !menuOpen and !talking and !battle)
 	{
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-		
+
 		if (nearestNPC.object_index == PokelootObject and nearestNPC.obtainable)
 		{
 			dialogue.item = nearestNPC.item
 			dialogue.itemCount = nearestNPC.itemCount
-			
+
 			if (string_count("Pokemon", nearestNPC.itemTag) == 1)
 			{
 				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
@@ -145,8 +145,8 @@ if (nearestNPC != noone)
 				ds_list_add(nearestNPC.textList, string_concat("You put it in your ",  GetItemCategory(nearestNPC.item), " Bag"))
 			}
 		}
-		
-		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) == -1) 
+
+		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) == -1)
 		{
 			dialogue.textList = nearestNPC.textList
 		}
@@ -154,26 +154,26 @@ if (nearestNPC != noone)
 		{
 			dialogue.textList = nearestNPC.defeatTextList
 		}
-		
+
 		dialogue.iconList = nearestNPC.iconList
 		dialogue.nameList = nearestNPC.nameList
-		
+
 		dialogue.name = nearestNPC.name
 		dialogue.actionNPC = nearestNPC
 		if (nearestNPC.object_index != PokelootObject or nearestNPC.obtainable) talking = true
-		
-		if (ds_list_empty(dialogue.textList)) 
+
+		if (ds_list_empty(dialogue.textList))
 		{
-			if !(nearestNPC.object_index == PokelootObject and 
+			if !(nearestNPC.object_index == PokelootObject and
 			string_count("Pokemon", nearestNPC.itemTag) == 1)
 			{
 				talking = false
 			}
 			instance_destroy(dialogue)
 		}
-		
-		if (nearestNPC.object_index == PokelootObject and 
-		nearestNPC.obtainable and string_count("Pokemon", nearestNPC.itemTag) != 1) 
+
+		if (nearestNPC.object_index == PokelootObject and
+		nearestNPC.obtainable and string_count("Pokemon", nearestNPC.itemTag) != 1)
 		{
 			instance_destroy(nearestNPC)
 		}
@@ -183,7 +183,7 @@ if (nearestNPC != noone)
 
 #region Wild Encounters
 var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
-if (instance_exists(grassAttempt) and grassTimer == -1 and 
+if (instance_exists(grassAttempt) and grassTimer == -1 and
 (hspeed != 0 or vspeed != 0))
 {
 	var wildBattle = floor(random_range(1,11))
@@ -194,11 +194,11 @@ if (instance_exists(grassAttempt) and grassTimer == -1 and
 		audio_stop_sound(music)
 		audio_play_sound(WildBattleTheme, 1, false)
 		musicC.currentMusic = WildBattleTheme
-		
+
 		var wildPkmn = GetWildPokemon()
 		var wildPokemonList = ds_list_create()
 		ds_list_add(wildPokemonList, wildPkmn)
-		
+
 		talking = false
 		canWalk = false
 		battle = true

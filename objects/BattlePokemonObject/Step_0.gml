@@ -12,7 +12,7 @@ if (switching) //Scale down
 		image_xscale -= 0.05
 		image_yscale -= 0.05
 	}
-	else 
+	else
 	{
 		if (alarm[4] == -1) alarm[4] = 30
 	}

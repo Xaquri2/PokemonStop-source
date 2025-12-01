@@ -12,33 +12,33 @@ function AddPokemon(name, level, gender) {
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
-	
+
 	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
-	
+
 	if (ds_list_size(global.playerParty) < 6)
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
-	
-	if (ds_list_find_index(global.pokedex, name) == -1) 
+
+	if (ds_list_find_index(global.pokedex, name) == -1)
 	{
 		ds_list_add(global.pokedex, name)
 	}
 }
-	
+
 function AddPokemonSpecific(pokemon) {
 	var name = GetName(pokemon)
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
-	
+
 	if (ds_list_size(global.playerParty) < 6)
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
-	
-	if (ds_list_find_index(global.pokedex, name) == -1) 
+
+	if (ds_list_find_index(global.pokedex, name) == -1)
 	{
 		ds_list_add(global.pokedex, name)
 	}
@@ -51,11 +51,11 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
-	
+
 	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
-	
+
 	if (ds_list_size(global.playerParty) < 6)
 	{
 		ds_list_add(global.playerParty, pokemon)
@@ -71,9 +71,9 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
-	
+
 	ds_list_add(pokemon, index, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
-	
+
 	if (ds_list_size(team) < 6)
 	{
 		ds_list_add(team, pokemon)
@@ -83,45 +83,45 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 function CreatePokemonInfo(name, level, gender, moveset)
 {
 	if (gender == noone) gender = GetRandomGender(GetGenderChance(name, "Male"))
-	
+
 	var sprite = GetSpriteByNumber(GetNumberByName(name))
 	var pokemon = ds_list_create()
 	var growthRate = "Very Fast"
 	var hp =  GetPokemonFinalHP(name, level)
-	
+
 	var learnset = GetLevelUpMoveset(name, level)
 	if (moveset != noone) ds_list_copy(learnset, moveset)
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
-	
+
 	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
-	
+
 	instance_destroy(moveset)
-	
+
 	return pokemon
 }
 
 function GetWildPokemon()
 {
 	var encounters = GetAreaEncounters()
-	
+
 	var pkmn = ds_list_create()
 	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))
 	var level = floor(random_range(10,15))
 	var gender = "Male"
 	if (floor(random_range(1,3)) > 1) gender = "Female"
 	var sprite = GetSpriteByNumber(GetNumberByName(name))
-	
+
 	var growthRate = "Very Fast"
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
 	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
-	
+
 	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
-	
+
 	return pkmn
 }
 
@@ -340,7 +340,7 @@ function GetPokemonType(name)
         case "Godzilla":
             ds_list_add(types, "Dragon");
             break;
-		
+
 		default:
 			ds_list_add(types, "Normal");
             break;
@@ -388,14 +388,14 @@ function GetStatusColor(status)
 	return c_white
 }
 
-function AddExp(pkmnInfo, expValue) 
-{ 
+function AddExp(pkmnInfo, expValue)
+{
 	var pkmnExp = GetExp(pkmnInfo)
 	var expPerc = GetExpPercentage(pkmnInfo)
-	
+
 	var level = GetLevel(pkmnInfo)
 	var growthRate = GetGrowth(pkmnInfo)
-	
+
 	var levelsGained = 0
 	for (var i = 1; i < 100; i++)
 	{
@@ -406,13 +406,13 @@ function AddExp(pkmnInfo, expValue)
 		}
 		else break
 	}
-	
+
 	if (pkmnExp+expValue >= GetExpLevelFloor(level, growthRate))
 	{
-		ds_list_set(pkmnInfo, 8, pkmnExp+expValue) 
+		ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
 		ds_list_set(pkmnInfo, 2, level+levelsGained)
 	}
-	else ds_list_set(pkmnInfo, 8, pkmnExp+expValue) 
+	else ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
 }
 
 /// @param            team    The team to search for the Pokémon you want to retreive info about
@@ -422,7 +422,7 @@ function CanEvolve(team, index) {
 	var pokemon = GetPartyMemberInfo(team, index)
 	var species = ds_list_find_value(pokemon, 1)
 	var level = ds_list_find_value(pokemon, 2)
-	
+
 	switch (species)
     {
         //--------------------------------
@@ -431,248 +431,248 @@ function CanEvolve(team, index) {
         case "Pikachu":
             // As in your snippet
             break;
-            
+
         case "Voltorb":
             // Canonical Gen 1 base stats
             break;
-            
+
         case "Caterpie":
 			if (level >= 10) return true
-            
+
         case "Magnemite":
             break;
-            
+
         case "Butterfree":
             break;
-            
+
         case "Charmander":
             // As in your snippet
 			if (level >= 16) return true
-            
+
         case "Charmeleon":
             if (level >= 36) return true
-            
+
         case "Charizard":
             break;
-            
+
         case "Clefairy":
             break;
-            
+
         case "Squirtle":
             if (level >= 16) return true
-            
+
         case "Wartortle":
             if (level >= 36) return true
-            
+
         case "Blastoise":
             break;
-            
+
         case "Snorlax":
             // As in your snippet
             break;
-            
+
         case "MissingNo":
             // “Glitchy” stats, just for fun
             break;
-            
+
         case "Articuno":
             break;
-            
+
         case "Moltres":
             break;
-            
+
         case "Zapdos":
             break;
-            
+
         case "Yamask":
             break;
-            
+
         // “Shadow Umbreon” – slight twist on normal Umbreon’s stats
         case "Umbreon (Shadow Version)":
             break;
-            
+
         case "Zubat":
             break;
-        
+
         //------------------------------
         // Fan/Crossover Pokémon
         //------------------------------
         case "Envy":
             // Aquatic shadow Pokémon, envious spirit
             break;
-            
+
         case "Ape-Ball":
             // Extremely fast and deadly
             break;
-            
+
         case "Woob-Wub":
             // The unluckiest Pokémon, extremely fragile
             break;
-            
+
         case "Fig":
             // Docile, self-sacrificing
             break;
-            
+
         case "Umbrian":
             // Shadow Pokémon, mask-bound
             break;
-            
+
         case "Caelian":
             // Light counterpart to Umbrian
             break;
-            
+
         case "Baby (Tutorial Bot)":
             // Only a head, very limited physically
             break;
-            
+
         case "Box Bot":
             // Has arms/legs, decent at tasks
             break;
-            
+
         case "Tutorial Bot":
             // Hovers, “ineffective” tutorial prowess
             break;
-            
+
         case "Silver Scorpion":
             // Small, extremely durable and deadly
             break;
-            
+
         case "Moosephant":
             // Big, laid-back
             break;
-            
+
         case "ZooChomper":
             // Can absorb anything, balanced stats
             break;
-            
+
         case "Green Bubble":
             // Mysterious Pokedex entry
             break;
-            
+
         case "Tribble":
             // Very small, soothing
             break;
-            
+
         case "Ewok":
             // Jungle-adapted, trap-setting
             break;
-            
+
         case "Yodal":
             // Small but powerful psychically
             break;
-            
+
         case "Porg":
             // Cliff-dwelling, friendly
             break;
-            
+
         case "Rancor":
             // Large, strong, slow
             break;
-            
+
         case "BB-8":
             // Robotic, fast roller
             break;
-            
+
         case "Human":
             // Average all-around
             break;
-            
+
         case "Squirrel":
             // Fast, agile
             break;
-            
+
         case "Goomba":
             // Easy to defeat, but keeps marching
             break;
-            
+
         case "Koopa":
             // Turtle-like soldier
             break;
-            
+
         case "King Koopa (Bowser’s Species)":
             // Powerful, can breathe fire, leads armies
             break;
-            
+
         case "Boo":
             // Shy ghost
             break;
-            
+
         case "Yo’Ster":
             // Dino that converts eaten items into eggs
             break;
-            
+
         case "Tektite":
             // Jumps to attack, tricky to hit
             break;
-            
+
         case "Demo Dog":
             // Thick skin, strong, climbs walls
             break;
-            
+
         case "Demogorgon":
             // Extremely strong, durable, telekinetic
             break;
-            
+
         case "Metroid":
             // Parasitic, drains life-energy
             break;
-            
+
         case "Kirby":
             // Can inhale enemies, decent all-around
             break;
-            
+
         case "Krypton Firefly":
             // Incredibly fast/durable under Earth conditions
             break;
-            
+
         case "Zoombini":
             // Very intelligent, not physically strong
             break;
-            
+
         case "Pikmin":
             // Tiny plant-like helpers
             break;
-            
+
         case "Creeper":
             // Explodes when close
             break;
-            
+
         case "Enderman":
             // Docile until looked at; then very fast
             break;
-            
+
         case "Pac-Man":
             // Voracious eater, moderate overall
             break;
-            
+
         case "Ghost (Pac-Man)":
             // Hunts in packs, intangible
             break;
-            
+
         case "Morlock":
             // Evolved from humans, hunts them, agile
             break;
-            
+
         case "Zergling":
             // Weak individually but fast and swarm
             break;
-            
+
         case "Xenomorph":
             // Deadly, acid blood
             break;
-            
+
         case "Andalite":
             // Can morph, deadly tail, wide vision
             break;
-            
+
         case "Licker":
             // Long tongue, climbs walls
             break;
-            
+
         case "Godzooky":
             // Friendly, can fly (awkwardly), moderate
             break;
-            
+
         case "Godzilla":
             // Enormous, legendary monster
             break;
@@ -693,89 +693,89 @@ function GetPokemonBaseStats(name) {
             // As in your snippet
             ds_list_add(statList, 35, 55, 40, 50, 50, 90);
             break;
-            
+
         case "Voltorb":
             // Canonical Gen 1 base stats
             ds_list_add(statList, 40, 30, 50, 55, 55, 100);
             break;
-            
+
         case "Caterpie":
             ds_list_add(statList, 45, 30, 35, 20, 20, 45);
             break;
-            
+
         case "Magnemite":
             ds_list_add(statList, 25, 35, 70, 95, 55, 45);
             break;
-            
+
         case "Butterfree":
             ds_list_add(statList, 60, 45, 50, 90, 80, 70);
             break;
-            
+
         case "Charmander":
             // As in your snippet
             ds_list_add(statList, 39, 52, 43, 60, 50, 65);
             break;
-            
+
         case "Charmeleon":
             ds_list_add(statList, 58, 64, 58, 80, 65, 80);
             break;
-            
+
         case "Charizard":
             ds_list_add(statList, 78, 84, 78, 109, 85, 100);
             break;
-            
+
         case "Clefairy":
             ds_list_add(statList, 70, 45, 48, 60, 65, 35);
             break;
-            
+
         case "Squirtle":
             // As in your snippet
             ds_list_add(statList, 44, 48, 65, 50, 64, 43);
             break;
-            
+
         case "Wartortle":
             ds_list_add(statList, 59, 63, 80, 65, 80, 58);
             break;
-            
+
         case "Blastoise":
             ds_list_add(statList, 79, 83, 100, 85, 105, 78);
             break;
-            
+
         case "Snorlax":
             // As in your snippet
             ds_list_add(statList, 160, 110, 65, 65, 110, 30);
             break;
-            
+
         case "MissingNo":
             // “Glitchy” stats, just for fun
             ds_list_add(statList, 33, 136, 0, 6, 0, 29);
             break;
-            
+
         case "Articuno":
             ds_list_add(statList, 90, 85, 100, 95, 125, 85);
             break;
-            
+
         case "Moltres":
             ds_list_add(statList, 90, 100, 90, 125, 85, 90);
             break;
-            
+
         case "Zapdos":
             ds_list_add(statList, 90, 90, 85, 125, 90, 100);
             break;
-            
+
         case "Yamask":
             ds_list_add(statList, 38, 30, 85, 55, 65, 30);
             break;
-            
+
         // “Shadow Umbreon” – slight twist on normal Umbreon’s stats
         case "Umbreon (Shadow Version)":
             ds_list_add(statList, 95, 75, 110, 60, 130, 65);
             break;
-            
+
         case "Zubat":
             ds_list_add(statList, 40, 45, 35, 30, 40, 55);
             break;
-        
+
         //------------------------------
         // Fan/Crossover Pokémon
         //------------------------------
@@ -783,222 +783,222 @@ function GetPokemonBaseStats(name) {
             // Aquatic shadow Pokémon, envious spirit
             ds_list_add(statList, 55, 50, 45, 60, 70, 55);
             break;
-            
+
         case "Ape-Ball":
             // Extremely fast and deadly
             ds_list_add(statList, 60, 110, 60, 40, 50, 120);
             break;
-            
+
         case "Woob-Wub":
             // The unluckiest Pokémon, extremely fragile
             ds_list_add(statList, 20, 5, 10, 10, 10, 5);
             break;
-            
+
         case "Fig":
             // Docile, self-sacrificing
             ds_list_add(statList, 20, 10, 10, 10, 10, 10);
             break;
-            
+
         case "Umbrian":
             // Shadow Pokémon, mask-bound
             ds_list_add(statList, 60, 85, 65, 70, 90, 65);
             break;
-            
+
         case "Caelian":
             // Light counterpart to Umbrian
             ds_list_add(statList, 60, 70, 65, 85, 90, 80);
             break;
-            
+
         case "Baby (Tutorial Bot)":
             // Only a head, very limited physically
             ds_list_add(statList, 30, 5, 30, 20, 30, 5);
             break;
-            
+
         case "Box Bot":
             // Has arms/legs, decent at tasks
             ds_list_add(statList, 45, 40, 40, 30, 40, 35);
             break;
-            
+
         case "Tutorial Bot":
             // Hovers, “ineffective” tutorial prowess
             ds_list_add(statList, 50, 30, 40, 50, 50, 40);
             break;
-            
+
         case "Silver Scorpion":
             // Small, extremely durable and deadly
             ds_list_add(statList, 40, 95, 120, 30, 50, 70);
             break;
-            
+
         case "Moosephant":
             // Big, laid-back
             ds_list_add(statList, 90, 75, 80, 60, 80, 40);
             break;
-            
+
         case "ZooChomper":
             // Can absorb anything, balanced stats
             ds_list_add(statList, 70, 70, 60, 70, 60, 70);
             break;
-            
+
         case "Green Bubble":
             // Mysterious Pokedex entry
             ds_list_add(statList, 10, 10, 10, 10, 10, 10);
             break;
-            
+
         case "Tribble":
             // Very small, soothing
             ds_list_add(statList, 20, 5, 5, 5, 5, 10);
             break;
-            
+
         case "Ewok":
             // Jungle-adapted, trap-setting
             ds_list_add(statList, 50, 65, 40, 20, 45, 55);
             break;
-            
+
         case "Yodal":
             // Small but powerful psychically
             ds_list_add(statList, 40, 40, 35, 80, 75, 60);
             break;
-            
+
         case "Porg":
             // Cliff-dwelling, friendly
             ds_list_add(statList, 40, 30, 35, 30, 35, 50);
             break;
-            
+
         case "Rancor":
             // Large, strong, slow
             ds_list_add(statList, 100, 110, 90, 30, 60, 35);
             break;
-            
+
         case "BB-8":
             // Robotic, fast roller
             ds_list_add(statList, 45, 55, 50, 40, 50, 100);
             break;
-            
+
         case "Human":
             // Average all-around
             ds_list_add(statList, 50, 50, 50, 50, 50, 50);
             break;
-            
+
         case "Squirrel":
             // Fast, agile
             ds_list_add(statList, 35, 50, 30, 20, 30, 90);
             break;
-            
+
         case "Goomba":
             // Easy to defeat, but keeps marching
             ds_list_add(statList, 30, 30, 30, 10, 20, 20);
             break;
-            
+
         case "Koopa":
             // Turtle-like soldier
             ds_list_add(statList, 40, 40, 60, 30, 40, 20);
             break;
-            
+
         case "King Koopa (Bowser’s Species)":
             // Powerful, can breathe fire, leads armies
             ds_list_add(statList, 100, 100, 95, 85, 80, 50);
             break;
-            
+
         case "Boo":
             // Shy ghost
             ds_list_add(statList, 45, 50, 30, 65, 80, 55);
             break;
-            
+
         case "Yo’Ster":
             // Dino that converts eaten items into eggs
             ds_list_add(statList, 70, 70, 65, 40, 50, 75);
             break;
-            
+
         case "Tektite":
             // Jumps to attack, tricky to hit
             ds_list_add(statList, 30, 50, 25, 25, 25, 60);
             break;
-            
+
         case "Demo Dog":
             // Thick skin, strong, climbs walls
             ds_list_add(statList, 60, 70, 55, 20, 50, 65);
             break;
-            
+
         case "Demogorgon":
             // Extremely strong, durable, telekinetic
             ds_list_add(statList, 100, 100, 90, 60, 70, 60);
             break;
-            
+
         case "Metroid":
             // Parasitic, drains life-energy
             ds_list_add(statList, 45, 60, 40, 90, 50, 70);
             break;
-            
+
         case "Kirby":
             // Can inhale enemies, decent all-around
             ds_list_add(statList, 70, 75, 50, 75, 50, 60);
             break;
-            
+
         case "Krypton Firefly":
             // Incredibly fast/durable under Earth conditions
             ds_list_add(statList, 60, 75, 70, 65, 65, 125);
             break;
-            
+
         case "Zoombini":
             // Very intelligent, not physically strong
             ds_list_add(statList, 45, 20, 40, 75, 50, 55);
             break;
-            
+
         case "Pikmin":
             // Tiny plant-like helpers
             ds_list_add(statList, 20, 15, 15, 10, 20, 20);
             break;
-            
+
         case "Creeper":
             // Explodes when close
             ds_list_add(statList, 35, 55, 35, 5, 30, 50);
             break;
-            
+
         case "Enderman":
             // Docile until looked at; then very fast
             ds_list_add(statList, 70, 80, 60, 40, 50, 100);
             break;
-            
+
         case "Pac-Man":
             // Voracious eater, moderate overall
             ds_list_add(statList, 60, 70, 45, 25, 45, 70);
             break;
-            
+
         case "Ghost (Pac-Man)":
             // Hunts in packs, intangible
             ds_list_add(statList, 35, 40, 25, 65, 70, 60);
             break;
-            
+
         case "Morlock":
             // Evolved from humans, hunts them, agile
             ds_list_add(statList, 60, 65, 45, 20, 40, 70);
             break;
-            
+
         case "Zergling":
             // Weak individually but fast and swarm
             ds_list_add(statList, 35, 65, 30, 20, 25, 90);
             break;
-            
+
         case "Xenomorph":
             // Deadly, acid blood
             ds_list_add(statList, 80, 90, 70, 30, 60, 70);
             break;
-            
+
         case "Andalite":
             // Can morph, deadly tail, wide vision
             ds_list_add(statList, 75, 80, 70, 70, 70, 80);
             break;
-            
+
         case "Licker":
             // Long tongue, climbs walls
             ds_list_add(statList, 65, 85, 60, 25, 40, 70);
             break;
-            
+
         case "Godzooky":
             // Friendly, can fly (awkwardly), moderate
             ds_list_add(statList, 70, 65, 60, 60, 60, 50);
             break;
-            
+
         case "Godzilla":
             // Enormous, legendary monster
             ds_list_add(statList, 150, 130, 120, 100, 100, 50);
@@ -1014,22 +1014,22 @@ function GetPokemonBaseStats(name) {
 function GetPokemonFinalStats(name, level)
 {
 	var baseStats = GetPokemonBaseStats(name)
-	
+
 	var finalStats = ds_list_create()
 	for (var i = 0; i < ds_list_size(baseStats); i++)
 	{
-		if (i == 0) 
+		if (i == 0)
 		{
 			var hpStat = floor(2*ds_list_find_value(baseStats, i)*level/100+level+10)
 			ds_list_add(finalStats, hpStat)
 		}
-		else 
+		else
 		{
 			var stat = floor(2*ds_list_find_value(baseStats, i)*level/100+5)
 			ds_list_add(finalStats, stat)
 		}
 	}
-	
+
 	return finalStats
 }
 
@@ -1049,7 +1049,7 @@ function SetPokemonDefaults(pkmn)
 	sprite_index = GetSprite(pkmn)
 	var name = GetName(pkmn)
 	var level = GetLevel(pkmn)
-	
+
 	var stats = GetPokemonFinalStats(name, level)
 	hp = GetHealth(pkmnInfo)
 	atk = ds_list_find_value(stats, 1)
@@ -1254,12 +1254,12 @@ function LearnMove(pkmnInfo, moveName, pos)
 {
 	var movesList = GetMoves(pkmnInfo)
 	var movesPPList = GetMovePPList(pkmnInfo)
-	if (ds_list_size(movesList) < 4) 
+	if (ds_list_size(movesList) < 4)
 	{
 		ds_list_add(movesList, moveName)
 		ds_list_add(movesPPList, GetMovePP(moveName))
 	}
-	else 
+	else
 	{
 		ds_list_replace(movesList, pos, moveName)
 		ds_list_replace(movesPPList, pos, GetMovePP(moveName))
@@ -1297,7 +1297,7 @@ function LearnsMoveAt(name, level)
             if (level == 1)  return "Tackle";
             if (level == 4)  return "String Shot";
             if (level == 8)  return "Bug Bite";
-            if (level == 12) return "Confusion"; 
+            if (level == 12) return "Confusion";
             break;
 
         case "Magnemite":
@@ -1420,11 +1420,11 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Crunch";
             if (level == 15) return "Hyper Beam";
             break;
-			
+
 		case "Human":
 			if (level == 1) return "Scratch"
 			break
-		
+
 		default:
 			if (level == 1) return "Scratch"
 			break
@@ -1473,14 +1473,14 @@ function GetExpPercentage(pkmn)
 {
 	var level = GetLevel(pkmn)
 	var growthRate = GetGrowth(pkmn)
-	
+
 	var expFloor = GetExpLevelFloor(level, growthRate)
 	var expCeiling = GetExpLevelFloor(level+1, growthRate)
-	
+
 	var currentExp = GetExp(pkmn)
 	if (level > 1) currentExp -= expFloor
 	var expToNext = expCeiling-expFloor
-	
+
 	var perc = currentExp/expToNext*100
 	return perc
 }
@@ -1505,7 +1505,7 @@ function ConsumePP(pkmnInfo, index)
 {
 	var movePPList = ds_list_find_value(pkmnInfo, 7)
 	var ppValue = ds_list_find_value(movePPList, index)
-	
+
 	if (ppValue-1 >= 0)
 	{
 		ds_list_set(movePPList, index, ppValue-1)
@@ -1529,10 +1529,10 @@ function GetEXPYield(name, level, pokemonCount, luckyEgg, isTrainer)
 	var baseYield = GetBaseYield(name)
 	var luckyEggValue = 1
 	var isTrainerValue = 1
-	
+
 	if (luckyEgg) luckyEggValue = 1.5
 	if (isTrainer) isTrainerValue = 1.5
-	
+
 	return floor((baseYield*level/7)*(1/pokemonCount)*luckyEggValue*isTrainerValue)
 }
 
@@ -1547,15 +1547,15 @@ function HealPokemon(team, index, amount, isPlayer, healStatus, recoverPP)
 	var pkmnInfo = ds_list_find_value(team, index)
 	var name = GetName(pkmnInfo)
 	var level = GetLevel(pkmnInfo)
-	
+
 	var maxHealth = GetHPStat(GetPokemonFinalStats(name, level))
 	var currentHealth = GetHealth(pkmnInfo)
-	
+
 	if (currentHealth+amount > maxHealth) ds_list_set(pkmnInfo, 5, maxHealth)
 	else ds_list_set(pkmnInfo, 5, currentHealth+amount)
-	
+
 	if (healStatus) ClearStatus(pkmnInfo)
-	
+
 	if (recoverPP)
 	{
 		var movePPList = GetMovePPList(pkmnInfo)
@@ -1566,7 +1566,7 @@ function HealPokemon(team, index, amount, isPlayer, healStatus, recoverPP)
 			SetMovePP(movePPList, i, moveMaxPP)
 		}
 	}
-	
+
 	if (instance_number(BattleObject) > 0)
 	{
 		var pkmnEntity = noone
@@ -1576,7 +1576,7 @@ function HealPokemon(team, index, amount, isPlayer, healStatus, recoverPP)
 			if (isPlayer and attempt.playerTeam) pkmnEntity = attempt
 			else if (!isPlayer and !attempt.playerTeam) pkmnEntity = attempt
 		}
-		
+
 		if (pkmnEntity != noone) pkmnEntity.hp = GetHealth(pkmnInfo)
 	}
 }
@@ -1714,7 +1714,7 @@ function GetNumberByName(name)
 		case "Godzooky": return "061"
 		case "Godzilla": return "062"
 
-		
+
 		default: return -1
 	}
 }
@@ -1723,7 +1723,7 @@ function GetSpriteByNumber(num)
 {
 	switch (num)
 	{
-		case "001": return CreeperSprite 
+		case "001": return CreeperSprite
 		case "002": return KryptonFireflySprite
 		case "003": return EnvySprite
 		case "004": return BabyBattleSprite
@@ -1785,7 +1785,7 @@ function GetSpriteByNumber(num)
 		case "060": return MoltresOverworldSprite
 		case "061": return GodzookyOverworldSprite
 		//case "062": return "Godzilla"
-		
+
 		default: return PikachuIdleSprite
 	}
 }
@@ -1967,7 +1967,7 @@ function GetGameOfOrigin(name)
 		case "Krypton Firefly":
 			return "Superman (comic series)"
 		case "Creeper":
-		case "Enderman": 
+		case "Enderman":
 			return "Minecraft"
 		case "Ewok":
 		case "Rancor":
@@ -2062,9 +2062,9 @@ function GetGameDetails(name)
 		case "Krypton Firefly":
 			return "Comic book • 1950s • DC Comics"
 		case "Creeper":
-		case "Enderman": 
+		case "Enderman":
 			return "Video Game • May, 2009 • Mojang Studios"
-		case "Envy": 
+		case "Envy":
 			return "Paper Computer Game • 2008 • Krierre House"
 		case "Zoombini":
 			return "Video game • 1996 • Broderbund"
@@ -2080,7 +2080,7 @@ function GetGameDetails(name)
 		case "Goomba":
 		case "King Koopa":
 			return "Video game • 1985 • Nintendo"
-		case "Koopa": return "Video game • 1983 • Nintendo" 
+		case "Koopa": return "Video game • 1983 • Nintendo"
 		case "Boo": return "Video Game • 1988 • Nintendo"
 		case "Yo’ster": return "Video game • 1990 • Nintendo"
 		case "Pac-Man":

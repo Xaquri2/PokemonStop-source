@@ -5,7 +5,7 @@ if (currentText+1 >= ds_list_size(textList))
 	alarm[0] = 60
 }
 else
-{	
+{
 	if (string_count("opposing", ds_list_find_value(textList, currentText+1)) > 0
 	and string_count("fainted", ds_list_find_value(textList, currentText+1)) > 0)
 	{
@@ -19,7 +19,7 @@ else
 				break
 			}
 		}
-		
+
 		if (enemyPkmnEntity != -1)
 		{
 			alarm[3] = 120

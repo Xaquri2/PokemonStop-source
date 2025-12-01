@@ -2,7 +2,7 @@ if (game.warp and game.targetWarp == warpName)
 {
 	var player = instance_find(PlayerObject, 0)
 	if (!instance_exists(player)) player = instance_create_layer(0, 0, "Instances", PlayerObject)
-	
+
 	switch (spawnDirection)
 	{
 		case "Up":
@@ -22,7 +22,7 @@ if (game.warp and game.targetWarp == warpName)
 			player.y = y+sprite_height/2
 			break
 	}
-	
+
 	game.warp = false
 	game.targetWarp = ""
 }

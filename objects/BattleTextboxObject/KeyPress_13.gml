@@ -10,7 +10,7 @@
 		if (instance_number(ImportantElementParent) == 0 and alarm[3] < 0 and !expGaining)
 		{
 			var text = ds_list_find_value(textList, currentText+1)
-			
+
 			if (currentText > ds_list_size(textList))
 			{
 				if (!endBattle) var battleMenu = instance_create_layer(x,y,"UIElements",BattleMenuObject)
@@ -42,7 +42,7 @@
 				optionMenu.option1 = "Yes"
 				optionMenu.option2 = "No"
 				optionMenu.target = id
-			
+
 				inactive = true
 				visible = false
 			}
@@ -64,7 +64,7 @@
 						}
 						else
 						{
-							if (string_count("opposing", text) == 0) 
+							if (string_count("opposing", text) == 0)
 							{
 								whoAttacked = "Player"
 								moveName = playerMoveName
@@ -75,7 +75,7 @@
 								moveName = enemyMoveName
 							}
 							alarm[1] = GetMoveAnimationTime(moveName)
-					
+
 							var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 							attackC.alarm[0] = alarm[1]
 							attackC.moveName = moveName
@@ -89,7 +89,7 @@
 						var name = GetName(playerPkmn)
 						var level = GetLevel(playerPkmn)
 						enemyDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
-						
+
 						if (string_count("opponent", text) > 0)
 						{
 							name = GetName(enemyPkmn)
@@ -97,10 +97,10 @@
 							otherEntity = "Player"
 							playerDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
 						}
-						
+
 						whoAttacked = otherEntity
 						alarm[1] = GetMoveAnimationTime(moveName)
-					
+
 						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 						attackC.alarm[0] = alarm[1]
 						attackC.moveName = "Poison"
@@ -113,7 +113,7 @@
 						var name = GetName(playerPkmn)
 						var level = GetLevel(playerPkmn)
 						enemyDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
-						
+
 						if (string_count("opponent", text) > 0)
 						{
 							name = GetName(enemyPkmn)
@@ -121,17 +121,17 @@
 							otherEntity = "Player"
 							playerDamage = clamp(floor(GetHPStat(GetPokemonFinalStats(name, level))/16), 1, 1000000)
 						}
-						
+
 						whoAttacked = otherEntity
 						alarm[1] = GetMoveAnimationTime(moveName)
-					
+
 						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 						attackC.alarm[0] = alarm[1]
 						attackC.moveName = "Burn"
 						attackC.whoAttacked = otherEntity
 						attackC.particleSpawnTime = floor(alarm[1] / 2)
 					}
-					
+
 					if (string_count(" sent out ", text) > 0) //Enemy pokémon released
 					{
 						var enemy = -1
@@ -141,7 +141,7 @@
 							if (enemy.player) enemy = -1
 							else break
 						}
-		
+
 						if (enemy != -1)
 						{
 							if (enemy.currentPkmn == 0)
@@ -164,7 +164,7 @@
 							player = instance_find(BattleEntityObject, i)
 							if (player.player) break
 						}
-	
+
 						if (player != -1)
 						{
 							if (player.currentPkmn == 0)
@@ -191,7 +191,7 @@
 								break
 							}
 						}
-			
+
 						if (playerPkmnEntity != -1)
 						{
 							alarm[3] = 100
@@ -210,7 +210,7 @@
 								break
 							}
 						}
-			
+
 						if (enemyPkmnEntity != -1)
 						{
 							alarm[3] = 100
@@ -294,7 +294,7 @@
 							var attempt = instance_find(BattleEntityObject, i)
 							if (attempt.player) plr = attempt
 						}
-						
+
 						plr.switchIndex = switchIndex
 						plr.alarm[2] = 30
 					}
@@ -302,20 +302,20 @@
 					{
 						moveName = "Struggle"
 						recoil = true
-					
-						if (string_count("opposing", text) == 0) 
+
+						if (string_count("opposing", text) == 0)
 						{
 							whoAttacked = "Player"
 							pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 						}
-						else 
+						else
 						{
 							whoAttacked = "Enemy"
 							eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 						}
-					
+
 						alarm[1] = GetMoveAnimationTime(moveName)
-			
+
 						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 						attackC.alarm[0] = alarm[1]
 						attackC.moveName = moveName

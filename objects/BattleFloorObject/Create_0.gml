@@ -1,5 +1,5 @@
 team = -1
 trainer = noone
-spawned = false	
+spawned = false
 player = true
 isWild = false

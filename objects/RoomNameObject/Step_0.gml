@@ -3,8 +3,8 @@ if (!returning)
 	var a = name
 	var b = yPos
 	if (yPos < 80) yPos += 2
-	else 
-	{ 
+	else
+	{
 		if (alarm[0] < 0 and !returning) alarm[0] = 120
 	}
 }

@@ -7,6 +7,6 @@ if (alarm[0] == particleSpawnTime and attackParticle != noone)
 		xPos = enemyPkmnEntity.x
 		yPos = enemyPkmnEntity.y
 	}
-	
+
 	instance_create_layer(xPos, yPos, "Particles", attackParticle)
 }

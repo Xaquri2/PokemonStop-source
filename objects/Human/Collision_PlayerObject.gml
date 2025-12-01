@@ -1,7 +1,7 @@
 if (!battle)
 {
 	battle = true
-	
+
 	other.talking = false
 	other.canWalk = false
 	other.battle = true
@@ -14,6 +14,6 @@ if (!battle)
 	battleObj.playerX = other.x
 	battleObj.playerY = other.y
 	battleObj.playerRoom = room
-	
+
 	if (battleFlag != "") battleObj.battleFlag = battleFlag
 }

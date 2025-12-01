@@ -6,7 +6,7 @@ function SetWarpDefaults(name, spawnDir, show)
 		//	targetRoom = TestRoom
 		//	targetWarp = TestToMalletHouse1
 		//	break
-		
+
 		#region Test Room (Void)
 		case "TestToMalletHouse1":
 			targetRoom = Mallet_Town
@@ -29,7 +29,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "Test2Warp"
 			break
 		#endregion
-		
+
 		#region Mallet Town
 		case "MalletHouse1ToTest":
 			targetRoom = TestRoom
@@ -64,7 +64,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MalletEastToMalletTOP"
 			break
 		#endregion
-		
+
 		#region Route Minus One
 		case "MinusOneToMallet":
 			targetRoom = Mallet_Town
@@ -87,8 +87,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MinusOneTopToBottom2"
 			break
 		#endregion
-		
-			
+
+
 		#region RouteMinusOneTop
 		case "MinusOneTopToBottom1":
 			targetRoom = RouteMinusOneBottom
@@ -99,7 +99,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MinusOneBottomToTop2"
 			break
 		#endregion
-		
+
 		#region Mutant Path
 		case "MutantToMinusOne":
 			targetRoom = RouteMinusOneBottom
@@ -110,7 +110,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TiltedToMutant"
 			break
 		#endregion
-		
+
 		#region Shadow Path
 		case "ShadowToMinusOne":
 			targetRoom = RouteMinusOneBottom
@@ -120,8 +120,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToShadow"
 			break
-			
-		#region Shadow Tower	
+
+		#region Shadow Tower
 		case "ShadowTowerToShadowGym":
 			targetRoom = ShadowPathGym
 			targetWarp = "ShadowGymToShadowTower"
@@ -131,21 +131,21 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TestToShadowTower"
 			break
 		#endregion
-		
+
 		#region Shadow Gym
 		case "ShadowGymToShadowTower":
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToShadowGym"
 			break
 		#endregion
-			
+
 		#region GinkgoLab
 		case "GinkgoToMallet":
 			targetRoom = Mallet_Town
 			targetWarp = "MalletHouse3ToTest"
 			break
 		#endregion
-		
+
 		#region GashHouse
 		case "GashToMallet":
 			targetRoom = Mallet_Town
@@ -156,28 +156,28 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "UpstairsToGash"
 			break
 		#endregion
-		
+
 		#region GashUpstairs
 		case "UpstairsToGash":
 			targetRoom = GashHouse
 			targetWarp = "GashToUpstair"
 			break
 		#endregion
-		
+
 		#region TiltedBuilding
 		case "TiltedToMutant":
 			targetRoom = MutantPath1
 			targetWarp = "MutantToBuilding"
 			break
 		#endregion
-		
+
 		#region Waterfront
 		case "WaterfrontToMallet":
 			targetRoom = Mallet_Town
 			targetWarp = "MalletToWaterfront"
 			break
 		#endregion
-		
+
 		#region Mallet_East
 		case "MalletEastToMallet":
 			targetRoom = Mallet_Town
@@ -196,30 +196,30 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "RegionCenterToMalletEast"
 			break
 		#endregion
-		
+
 		#region MalletMuseum
 		case "MalletMuseumToEast":
 			targetRoom = Mallet_East
 			targetWarp = "MalletEastToMuseum"
 			break
 		#endregion
-		
+
 		#region RegionCenter
 		case "RegionCenterToMalletEast":
 			targetRoom = Mallet_East
 			targetWarp = "MalletEastToRegionCenter"
 			break
 		#endregion
-			
+
 		#region TestRoom2
 		case "Test2Warp":
 			targetRoom = TestRoom
 			targetWarp = "TestToTest"
 			break
 
-		
+
 	}
-	
+
 	warpName = name
 	spawnDirection = spawnDir
 	visible = show
@@ -229,11 +229,11 @@ function GetRoomName(roomID)
 {
 	switch roomID
 	{
-		case RouteMinusOneBottom: 
+		case RouteMinusOneBottom:
 		case RouteMinusOneTop:
 			return "Route -1"
-		case Mallet_Town: 
-		case Mallet_East: 
+		case Mallet_Town:
+		case Mallet_East:
 		case Waterfront:
 			return "Mallet Town"
 		case TestRoom: return "Void"
@@ -251,28 +251,28 @@ function GetRoomMusic()
 	switch room
 	{
 		case TitleScreen: return TitleTheme
-		case RouteMinusOneBottom: 
+		case RouteMinusOneBottom:
 		case RouteMinusOneTop:
 			return RouteMinusOneTheme
 		case MutantPath1: return MutantPathAmbiance
-		case TiltedBuildingInterior: 
+		case TiltedBuildingInterior:
 		case TestTiltedRoom:
 			return MutantPathUndergroundTheme
 		case TestRoom: return SacredBeasts
 		case RegionCenter:
-		case GinkgoLab: 
+		case GinkgoLab:
 			return PokeGymLofi
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
 		case ShadowPath: return OathToOrder
 		case ShadowTower: return OathToOrder
 		case ShadowPathGym: return PokeGymLofi
-		case Mallet_Town: 
-		case Waterfront: 
-		case Mallet_East: 
+		case Mallet_Town:
+		case Waterfront:
+		case Mallet_East:
 		case MalletMuseum:
 			return MalletTownMusic
-		default: 
+		default:
 			return SacredBeasts
 	}
 }
@@ -282,7 +282,7 @@ function GetAreaEncounters()
 	var encounters = ds_list_create()
 	switch (room)
 	{
-		case TestRoom: 
+		case TestRoom:
 			ds_list_add(encounters, "Charmander")
 			break
 		case Mallet_Town:
@@ -298,7 +298,7 @@ function RoomHasGravity()
 	{
 		case TestTiltedRoom:
 			return true
-			
+
 		default:
 			return false
 	}
@@ -312,9 +312,9 @@ function IsIndoors()
 		case Mallet_Town:
 			return false
 		#endregion
-			
+
 		#region Indoors
-		case TestRoom: 
+		case TestRoom:
 			return true
 		#endregion
 	}

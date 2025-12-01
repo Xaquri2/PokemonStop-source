@@ -1,4 +1,4 @@
-if (keyboard_check_pressed(ord("E")) and player.menuOpen and active) 
+if (keyboard_check_pressed(ord("E")) and player.menuOpen and active)
 {
 	player.alarm[0] = 5
 }
@@ -7,7 +7,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 {
 	var option = ds_list_find_value(optionsList, selectedIndex)
 	if (option != "Exit") active = false
-	
+
 	switch (option)
 	{
 		case "Pokedex":
