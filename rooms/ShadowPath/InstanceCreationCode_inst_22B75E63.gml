@@ -1,0 +1,1 @@
+SetWarpDefaults("ShadowTOPToGreed", "Left", false)

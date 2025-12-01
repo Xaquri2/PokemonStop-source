@@ -1,0 +1,1 @@
+SetWarpDefaults("ShadowToPokeCenter", "Left", false)
