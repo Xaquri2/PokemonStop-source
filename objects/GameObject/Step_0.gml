@@ -66,3 +66,9 @@ else
 {
 	if (fadeAlpha > 0) fadeAlpha -= 0.05
 }
+
+var battle = instance_find(BattleObject, 0)
+if (room == RoomBattle and !audio_is_playing(GetBattleTheme(battle.enemyName)))
+{
+	audio_play_sound(WildBattleThemeNO_INTRO, 1, false)
+}
