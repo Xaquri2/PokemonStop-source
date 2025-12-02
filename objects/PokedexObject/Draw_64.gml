@@ -27,9 +27,9 @@ if (!summaryMode)
 
 		draw_sprite_ext(MenuSprite, 0, frameXOffset, frameYOffset, 4, 4, image_angle, image_blend, image_alpha)
 
-		var finalPokedexIndex = string(pokedexIndex)
-		if (pokedexIndex < 100) finalPokedexIndex = string_concat("0", finalPokedexIndex)
-		if (pokedexIndex < 10) finalPokedexIndex = string_concat("0", finalPokedexIndex)
+		var finalPokedexIndex = string(pokedexIndex+1)
+		if (pokedexIndex+1 < 100) finalPokedexIndex = string_concat("0", finalPokedexIndex)
+		if (pokedexIndex+1 < 10) finalPokedexIndex = string_concat("0", finalPokedexIndex)
 
 		CenterTextPosition()
 		draw_text_transformed(frameXOffset+sprite_get_width(MenuSprite)*4/2, 
