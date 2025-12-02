@@ -1062,13 +1062,13 @@ function WakeUpCheck() { return floor(random_range(0,4)) == 0 }
 
 function GetBattleXscale(name)
 {
-	switch (name)
+	/*switch (name)
 	{
-		//case "Name of Pokémon 1":
-		//case "Name of Pokémon 2":
-		//case "Name of Pokémon 3":
-		//	return -1
+		case "Name of Pokémon 1":
+		case "Name of Pokémon 2":
+		case "Name of Pokémon 3":
+			return -1
 		//Use this for naturally flipped pokémon
-	}
+	}*/
 	return 1
 }
