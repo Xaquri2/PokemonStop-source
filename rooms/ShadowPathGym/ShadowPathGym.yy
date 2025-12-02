@@ -31,8 +31,8 @@
   ],
   "name":"ShadowPathGym",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Shadow Path",
+    "path":"folders/Rooms/Shadow Path.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

@@ -123,6 +123,11 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToShadow"
 			break
+		case "ShadowToEmptyHouse":
+			targetRoom = EmptyHouse
+			targetWarp = "EmptyHouseToShadow"
+			break
+			#endregion
 
 		#region Shadow Tower
 		case "ShadowTowerToShadowGym":
@@ -139,6 +144,13 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "ShadowGymToShadowTower":
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToShadowGym"
+			break
+		#endregion
+		
+		#region EmptyHouse
+		case "EmptyHouseToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToEmptyHouse"
 			break
 		#endregion
 

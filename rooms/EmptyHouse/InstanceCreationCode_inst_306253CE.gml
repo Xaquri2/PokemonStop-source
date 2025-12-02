@@ -1,0 +1,1 @@
+SetWarpDefaults("EmptyHouseToShadow", "Right", false)
