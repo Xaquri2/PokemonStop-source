@@ -33,7 +33,7 @@ if (!summaryMode)
 
 		CenterTextPosition()
 		draw_text_transformed(frameXOffset+sprite_get_width(MenuSprite)*4/2, 
-		frameYOffset+sprite_get_height(MenuSprite)*4+10, finalPokedexIndex, 2, 2, image_angle)
+		frameYOffset+sprite_get_height(MenuSprite)*4+20, finalPokedexIndex, 2, 2, image_angle)
 		ResetTextPosition()
 		
 		if (ds_list_find_index(global.pokedex, name) >= 0) //Draw Pokémon Icon
