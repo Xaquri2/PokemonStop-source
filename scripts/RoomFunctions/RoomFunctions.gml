@@ -127,6 +127,14 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = EmptyHouse
 			targetWarp = "EmptyHouseToShadow"
 			break
+		case "ShadowTOPToGreed":
+			targetRoom = GreedShop
+			targetWarp = "GreedTOPToShadow"
+			break
+		case "ShadowBOTTOMToGreed":
+			targetRoom = GreedShop
+			targetWarp = "GreedBOTTOMToShadow"
+			break
 			#endregion
 
 		#region Shadow Tower
@@ -153,6 +161,16 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "ShadowToEmptyHouse"
 			break
 		#endregion
+		
+		#region GreedShop
+		case "GreedShopTOPToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowTOPToGreed"
+			break
+		case "GreedShopBOTTOMToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowBOTTOMToGreed"
+			break
 
 		#region GinkgoLab
 		case "GinkgoToMallet":

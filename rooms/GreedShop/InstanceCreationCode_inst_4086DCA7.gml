@@ -1,0 +1,2 @@
+
+SetWarpDefaults("GreedShopTOPToShadow", "Right", true)
