@@ -156,8 +156,8 @@
   ],
   "name":"TestTiltedRoom",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Mutant Path",
+    "path":"folders/Rooms/Mutant Path.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
