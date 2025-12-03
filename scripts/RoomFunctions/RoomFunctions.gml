@@ -253,6 +253,22 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = TestRoom
 			targetWarp = "TestToTest"
 			break
+		case "ShadowToPokeCenter":
+			targetRoom = ShadowPokecenter
+			targetWarp = "PokeCenterToShadow"
+			break
+
+		case "PokeCenterToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToPokeCenter"
+			break
+		case "SHORTCUT":
+			targetRoom = ShadowPokecenter
+			targetWarp = "PokeCenterToShadow"
+			break
+
+
+
 
 
 	}

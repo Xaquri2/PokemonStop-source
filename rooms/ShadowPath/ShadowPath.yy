@@ -125,7 +125,6 @@
     {"name":"inst_673CFD4E","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_7A278E0B","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_22B75E63","path":"rooms/ShadowPath/ShadowPath.yy",},
-    {"name":"inst_26D3E288","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_50591929","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_4200FFCA","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_1149F4DC","path":"rooms/ShadowPath/ShadowPath.yy",},
@@ -134,6 +133,7 @@
     {"name":"inst_AB15389","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_50647564","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_1EE0A97F","path":"rooms/ShadowPath/ShadowPath.yy",},
+    {"name":"inst_26D3E288","path":"rooms/ShadowPath/ShadowPath.yy",},
   ],
   "isDnd":false,
   "layers":[
