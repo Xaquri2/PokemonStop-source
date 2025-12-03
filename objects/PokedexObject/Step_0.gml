@@ -7,7 +7,7 @@ if (keyboard_check_pressed(ord("A")) or keyboard_check_pressed(vk_left))
 	if ((currentOption % 4 == 0 and currentOption-1 != 0) or currentOption-1 < 0)
 	{
 		if (page > 0) page--
-		else page = 30-1
+		else page = 5-1
 		currentOption += 3
 	}
 	else currentOption--
@@ -17,7 +17,7 @@ if (keyboard_check_pressed(ord("D")) or keyboard_check_pressed(vk_right))
 {
 	if ((currentOption+1) % 4 == 0)
 	{
-		if (page < 30-1) page++
+		if (page < 5-1) page++
 		else page = 0
 		currentOption -= 3
 	}
@@ -30,7 +30,24 @@ else pokemonNumber = -1
 if (keyboard_check_pressed(vk_enter))
 {
 	if (!summaryMode) summaryMode = true
-	else summaryMode = false
+	else 
+	{
+		var pokedexIndex = currentOption+pageAmount*page
+		var name = GetNameByNumber(pokedexIndex+1)
+		
+		var registered = false
+		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+		{
+			var currentPokemon = ds_list_find_value(global.pokemonList, i)
+			var currentName = GetName(currentPokemon)
+			
+			if (name == currentName)
+			{
+				summaryMode = false
+				break
+			}
+		}
+	}
 }
 
 if ((currentOption+1)%4==0) //Right side arrow
