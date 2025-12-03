@@ -266,6 +266,12 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowPokecenter
 			targetWarp = "PokeCenterToShadow"
 			break
+		case "ShadowTowerToShadow2":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToShadowTower"
+			break
+
+
 
 
 

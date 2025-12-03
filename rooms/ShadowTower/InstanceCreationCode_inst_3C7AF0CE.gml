@@ -1,0 +1,1 @@
+SetWarpDefaults("ShadowTowerToShadow2", "Up", false)
