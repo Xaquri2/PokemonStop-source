@@ -1,1 +1,1 @@
-SetWarpDefaults("ShadowToShadowTower", "Up", false)
+SetWarpDefaults("ShadowToShadowTower", "Down", false)
