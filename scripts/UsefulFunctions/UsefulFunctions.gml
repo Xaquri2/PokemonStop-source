@@ -1,3 +1,10 @@
+function OneOrMinusOne()
+{
+	var value = irandom(1)
+	if (value == 0) return -1
+	else return 1
+}
+
 function ConvertListToArray(list)
 {
 	var arr = []
