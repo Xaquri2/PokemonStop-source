@@ -28,6 +28,7 @@
     {"name":"inst_7967504F","path":"rooms/GinkgoLab/GinkgoLab.yy",},
     {"name":"inst_68D59688","path":"rooms/GinkgoLab/GinkgoLab.yy",},
     {"name":"inst_2FDA366A","path":"rooms/GinkgoLab/GinkgoLab.yy",},
+    {"name":"inst_1F17F12A","path":"rooms/GinkgoLab/GinkgoLab.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -91,6 +92,7 @@
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":0.84375,"x":290.0655,"y":27.0,},
         {"$GMRInstance":"v4","%Name":"inst_2FDA366A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2FDA366A","objectId":{"name":"PokemonCenterTable","path":"objects/PokemonCenterTable/PokemonCenterTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.3867188,"scaleY":1.3333334,"x":55.71875,"y":242.0,},
         {"$GMRInstance":"v4","%Name":"inst_68D59688","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_68D59688","objectId":{"name":"NurseJoy","path":"objects/NurseJoy/NurseJoy.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.3125,"scaleY":1.5625,"x":59.0,"y":217.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1F17F12A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1F17F12A","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.35654235,"scaleY":0.375,"x":33.846855,"y":226.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"DungeonFloor","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"DungeonFloor","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":25,"SerialiseWidth":25,"TileCompressedData":[
           42,300,301,302,303,304,301,302,303,304,301,302,303,304,301,302,303,304,301,302,303,304,302,303,304,305,

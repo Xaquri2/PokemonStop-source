@@ -1,11 +1,11 @@
 {
   "$GMSprite":"v2",
   "%Name":"PokemonCenterTableSprite",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":41,
   "bbox_left":0,
   "bbox_right":47,
-  "bbox_top":0,
+  "bbox_top":19,
   "collisionKind":4,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
