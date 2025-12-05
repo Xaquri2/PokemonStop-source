@@ -4,3 +4,4 @@ image_alpha = 1-point_distance(x,y,fogController.x,fogController.y)/fogControlle
 dir = OneOrMinusOne()
 
 alarm[0] = 60*5
+
