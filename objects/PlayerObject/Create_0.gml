@@ -23,3 +23,6 @@ normalSpeed = 2
 overworldSpeed = 2.25
 
 follower = noone
+
+fogTeleportRange = 32*5
+fogTeleportTime = 60*3

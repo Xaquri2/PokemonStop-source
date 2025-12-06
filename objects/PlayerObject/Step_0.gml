@@ -233,3 +233,16 @@ if (instance_number(FollowerPikminObject) < global.pikminCount)
 	}
 }
 #endregion
+
+#region Miscellanous Logic
+var closestFog = instance_nearest(x,y,FogControllerObject)
+if (distance_to_object(closestFog) < fogTeleportRange)
+{
+	if (alarm[2] == -1) alarm[2] = fogTeleportTime
+}
+else
+{
+	if (alarm[2] != -1) alarm[2] = -1
+}
+
+#endregion
