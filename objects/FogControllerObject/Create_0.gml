@@ -1,4 +1,7 @@
 spawnRange = 200
+spawnRangeIncrement = 0
+spawnRangeDirection = 1
+
 spawnTime = 2
 
 alarm[0] = spawnTime
