@@ -198,6 +198,7 @@
     {"id":{"name":"RegionDude1","path":"objects/RegionDude1/RegionDude1.yy",},},
     {"id":{"name":"RightSign","path":"objects/RightSign/RightSign.yy",},},
     {"id":{"name":"RoamingNPCParent","path":"objects/RoamingNPCParent/RoamingNPCParent.yy",},},
+    {"id":{"name":"RoamingPokemonParent","path":"objects/RoamingPokemonParent/RoamingPokemonParent.yy",},},
     {"id":{"name":"RoomNameObject","path":"objects/RoomNameObject/RoomNameObject.yy",},},
     {"id":{"name":"SaveFileControllerObject","path":"objects/SaveFileControllerObject/SaveFileControllerObject.yy",},},
     {"id":{"name":"SaveMenuObject","path":"objects/SaveMenuObject/SaveMenuObject.yy",},},
