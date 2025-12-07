@@ -274,6 +274,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowPath
 			targetWarp = "ShadowToShadowTower"
 			break
+		case "RobotToMinusOne":
+			targetRoom = RouteMinusOneTop
+			targetWarp = "MinusOneTopToRobot"
+			break
+
+		case "MinusOneTopToRobot":
+			targetRoom = RobotPath
+			targetWarp = "RobotToMinusOne"
+			break
+
+
 
 
 

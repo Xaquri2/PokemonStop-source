@@ -62,7 +62,6 @@
     {"name":"inst_5DFA9249","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_6996C9C9","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_583176FB","path":"rooms/Mallet_Town/Mallet_Town.yy",},
-    {"name":"inst_340C5AD9","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_3290476C","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_69E8EC86","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_1352BCD7","path":"rooms/Mallet_Town/Mallet_Town.yy",},
@@ -74,9 +73,7 @@
   ],
   "isDnd":false,
   "layers":[
-    {"$GMRInstanceLayer":"","%Name":"Important","depth":-1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v4","%Name":"inst_340C5AD9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_340C5AD9","objectId":{"name":"FogControllerObject","path":"objects/FogControllerObject/FogControllerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":640.0,"y":384.0,},
-      ],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRInstanceLayer":"","%Name":"Important","depth":-1200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"UserInterface","depth":-1100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"UserInterface","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"HouseTops","depth":-1000,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"HouseTops","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":29,"TileCompressedData":[
           -114,-2147483648,2,351,352,-7,-2147483648,3,410,411,412,-8,-2147483648,4,709,710,711,712,-5,-2147483648,
