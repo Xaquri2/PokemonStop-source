@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"WildBattleThemeNO_INTRO",
   "audioGroupId":{
-    "name":"Music",
-    "path":"audiogroups/Music",
+    "name":"BattleThemes",
+    "path":"audiogroups/BattleThemes",
   },
   "bitDepth":1,
   "channelFormat":0,
