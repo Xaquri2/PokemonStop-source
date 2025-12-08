@@ -18,12 +18,18 @@ if (keyboard_check_pressed(ord("E")) and optionMenu == noone)
 
 if (keyboard_check_pressed(vk_enter) and !hasSelected)
 {
-	hasSelected = true
-	optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
-	optionMenu.menu = id
-	optionMenu.question = "Would you like to use this item?"
-	optionMenu.option1 = "Use"
-	optionMenu.option2 = "Exit"
+	var itemList = ds_list_find_value(global.categoryItemList, selectedCategory)
+	var itemCount = ds_list_size(itemList)
+	
+	if (itemCount > 0)
+	{
+		hasSelected = true
+		optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+		optionMenu.menu = id
+		optionMenu.question = "Would you like to use this item?"
+		optionMenu.option1 = "Use"
+		optionMenu.option2 = "Exit"
+	}
 }
 
 #region Category Controls
