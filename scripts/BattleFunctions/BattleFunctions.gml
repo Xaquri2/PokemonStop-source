@@ -1026,6 +1026,28 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Zubat", 1, "Male", ZubatFlappingSprite)
 			AddPokemonTrainer(team, 2, "Morlock", 1, "Male", MorlockBattleSprite)
 			AddPokemonTrainer(team, 3, "Demo Dog", 1, "Male", DemoDogSprite)
+		
+	//Robot Path
+		case "BoxBotH":
+			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)
+			AddPokemonTrainer(team, 2, "Voltorb", 5, "Male", VoltorbOverworldSprite)
+		case "BoxBotI":
+			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)
+			AddPokemonTrainer(team, 2, "Voltorb", 5, "Male", VoltorbOverworldSprite)
+		case "Greg":
+			AddPokemonTrainer(team, 1, "BB-8", 3, "Male", BB8BattleSprite)
+			AddPokemonTrainer(team, 2, "Caterpie", 5, "Male", CaterpieIdleSprite)
+		case "Bottrick Notthuman":
+			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
+			AddPokemonTrainer(team, 2, "BB-8", 5, "Male", BB8BattleSprite)
+		case "Cloaked Trainer":
+			AddPokemonTrainer(team, 1, "Caterpie", 3, "Male", CaterpieIdleSprite)
+			AddPokemonTrainer(team, 2, "Pikachu", 5, "Female", PikachuIdleSprite)
+		case "Ephemelia":
+			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
+			AddPokemonTrainer(team, 2, "Squirrel", 5, "Female", SquirrelOverworldSprite)
+		
+			
 
 	}
 	return team

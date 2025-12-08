@@ -8,8 +8,8 @@
   "name":"TrainerHatKid",
   "overriddenProperties":[],
   "parent":{
-    "name":"Characters",
-    "path":"folders/Objects/Characters.yy",
+    "name":"Trainers",
+    "path":"folders/Objects/Characters/Trainers.yy",
   },
   "parentObjectId":{
     "name":"TrainerParent",
