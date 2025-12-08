@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"Serene_Village3",
-  "out_columns":29,
+  "out_columns":2,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"Serene_Village_48x48",
-    "path":"sprites/Serene_Village_48x48/Serene_Village_48x48.yy",
+    "name":"WoodBridge2",
+    "path":"sprites/WoodBridge2/WoodBridge2.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -34,5 +34,5 @@
   "tileWidth":48,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":855,
+  "tile_count":6,
 }
