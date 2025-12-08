@@ -283,6 +283,12 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = RobotPath
 			targetWarp = "RobotToMinusOne"
 			break
+		case "RobotTOP":
+			targetRoom = TestRoom
+			targetWarp = "TestToMallet"
+			break
+
+
 
 
 
