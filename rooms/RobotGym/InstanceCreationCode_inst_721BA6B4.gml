@@ -1,0 +1,1 @@
+SetWarpDefaults("RobotGymDoor", "Up", false)

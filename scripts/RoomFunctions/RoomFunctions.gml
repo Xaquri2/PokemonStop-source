@@ -293,6 +293,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = RobotPath
 			targetWarp = "RobotTOP"
 			break
+		case "CastleDoor":
+			targetRoom = RobotGym
+			targetWarp = "RobotGymDoor"
+			break
+
+		case "RobotGymDoor":
+			targetRoom = MuntainPeak
+			targetWarp = "CastleDoor"
+			break
+
+
 
 
 
