@@ -60,8 +60,8 @@ else
 				var attempt = instance_find(TrainerParent, i)
 				if (attempt.name == enemyName)
 				{
-					attempt.x = trainerX
-					attempt.y = trainerY
+					//attempt.x = trainerX
+					//attempt.y = trainerY
 				}
 			}
 		}

@@ -60,7 +60,7 @@ if (startBattle)
 
 	var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 	battleObj.enemyTeam = actionNPC.trainerTeam
-	battleObj.enemySprite = actionNPC.battleSprite
+	battleObj.enemySprite = actionNPC.trainerSprite
 	battleObj.enemyName = name
 	battleObj.isWild = isWild
 	battleObj.playerX = player.x
