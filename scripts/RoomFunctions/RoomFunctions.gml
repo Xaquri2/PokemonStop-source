@@ -369,6 +369,9 @@ function GetAreaEncounters()
 		case Mallet_Town:
 			ds_list_add(encounters, "Pikachu")
 			break
+			
+		default:
+			ds_list_add(encounters, "Pikachu")
 	}
 	return encounters
 }
