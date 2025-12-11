@@ -29,8 +29,7 @@ else pokemonNumber = -1
 
 if (keyboard_check_pressed(vk_enter))
 {
-	if (!summaryMode) summaryMode = true
-	else 
+	if (!summaryMode) 
 	{
 		var pokedexIndex = currentOption+pageAmount*page
 		var name = GetNameByNumber(pokedexIndex+1)
@@ -43,11 +42,12 @@ if (keyboard_check_pressed(vk_enter))
 			
 			if (name == currentName)
 			{
-				summaryMode = false
+				summaryMode = true
 				break
 			}
 		}
 	}
+	else summaryMode = false
 }
 
 if ((currentOption+1)%4==0) //Right side arrow
