@@ -304,9 +304,6 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 
 
-
-
-
 	}
 
 	warpName = name
@@ -381,7 +378,17 @@ function GetAreaEncounters()
 			ds_list_add(encounters, "Charmander")
 			break
 		case Mallet_Town:
-			ds_list_add(encounters, "Pikachu")
+			ds_list_add(encounters, "Pikmin","Pikmin","Pikachu")
+			break
+		case RouteMinusOneBottom:
+		case RouteMinusOneTop:
+			ds_list_add(encounters, "Pikmin","Charmander","Pikachu","Squirtle","Bulbasaur")
+			break
+		case MutantPath1:
+			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demogorgon","Ewok")
+			break
+		case ShadowPath:
+			ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
 			break
 			
 		default:
