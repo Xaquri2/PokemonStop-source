@@ -1,0 +1,1 @@
+if (HasFlag("MaryRivalBattle1")) instance_destroy(id)
