@@ -263,8 +263,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "ShadowToPokeCenter"
 			break
 		case "SHORTCUT":
-			targetRoom = ShadowPokecenter
-			targetWarp = "PokeCenterToShadow"
+			targetRoom = MuntainPeak
+			targetWarp = "MountainPeakBottom"
+			//targetRoom = ShadowPokecenter
+			//targetWarp = "PokeCenterToShadow"
 			break
 		case "ShadowTowerToShadow2":
 			targetRoom = ShadowPath
@@ -284,17 +286,22 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "RobotToMinusOne"
 			break
 		case "RobotTOP":
-			targetRoom = TestRoom
-			targetWarp = "TestToMallet"
+			targetRoom = MuntainPeak
+			targetWarp = "MountainPeakBottom"
+			break
+		case "MountainPeakBottom":
+			targetRoom = RobotPath
+			targetWarp = "RobotTOP"
+			break
+		case "CastleDoor":
+			targetRoom = RobotGym
+			targetWarp = "RobotGymDoor"
 			break
 
-
-
-
-
-
-
-
+		case "RobotGymDoor":
+			targetRoom = MuntainPeak
+			targetWarp = "CastleDoor"
+			break
 
 
 
@@ -323,7 +330,11 @@ function GetRoomName(roomID)
 		case ShadowPath:
 		case ShadowTower:
 			return "Shadow Path"
+		case ShadowPokecenter: return "Pokémon Center"
 		case MutantPath1: return "Mutant Path"
+		case RobotPath: 
+		case MuntainPeak:
+			return "Robot Path"
 		default: return "???"
 	}
 }
@@ -348,6 +359,9 @@ function GetRoomMusic()
 		case ShadowPath: return OathToOrder
 		case ShadowTower: return OathToOrder
 		case ShadowPathGym: return PokeGymLofi
+		case RobotPath: 
+		case MuntainPeak:
+			return ZoovacTutorialBotMusic
 		case Mallet_Town:
 		case Waterfront:
 		case Mallet_East:

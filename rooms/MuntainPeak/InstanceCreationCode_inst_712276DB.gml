@@ -1,0 +1,1 @@
+SetWarpDefaults("CastleDoor", "Down", false)

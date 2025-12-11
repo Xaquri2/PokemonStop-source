@@ -1,0 +1,1 @@
+SetWarpDefaults("PokeCenterEntrance", "Left", false)

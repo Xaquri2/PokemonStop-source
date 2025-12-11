@@ -7,4 +7,6 @@ warpName = ""
 spawnDirection = "Up"
 alarm[0] = 1
 
+//SetWarpDefaults("MinusOneTopToBottom2", "Up", false)
+
 

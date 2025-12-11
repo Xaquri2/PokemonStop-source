@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"Serene_Village_48x48",
-    "path":"sprites/Serene_Village_48x48/Serene_Village_48x48.yy",
+    "name":"Serene_Village_48x48_1",
+    "path":"sprites/Serene_Village_48x48_1/Serene_Village_48x48_1.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
