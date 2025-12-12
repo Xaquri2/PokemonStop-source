@@ -102,9 +102,9 @@ function CreatePokemonInfo(name, level, gender, moveset)
 	return pokemon
 }
 
-function GetWildPokemon()
+function GetWildPokemon(encounterType)
 {
-	var encounters = GetAreaEncounters()
+	var encounters = GetAreaEncounters(encounterType)
 
 	var pkmn = ds_list_create()
 	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))

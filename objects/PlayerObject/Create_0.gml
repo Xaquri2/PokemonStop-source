@@ -18,6 +18,7 @@ camera = instance_create_layer(x,y,"Important",CameraObject)
 camera.player = id
 
 grassTimer = -1
+fogTimer = -1
 
 normalSpeed = 2
 overworldSpeed = 2.25

@@ -369,7 +369,7 @@ function GetRoomMusic()
 	}
 }
 
-function GetAreaEncounters()
+function GetAreaEncounters(encounterType)
 {
 	var encounters = ds_list_create()
 	switch (room)
@@ -388,7 +388,8 @@ function GetAreaEncounters()
 			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demogorgon","Ewok")
 			break
 		case ShadowPath:
-			ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
+			if (encounterType == "Fog") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
+			else if (encounterType == "Grass") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
 			break
 			
 		default:
