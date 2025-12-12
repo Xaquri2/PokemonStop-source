@@ -17,4 +17,3 @@ triggered = false
 walk = false
 
 dialogueStart = false
-alarm[0] = 1

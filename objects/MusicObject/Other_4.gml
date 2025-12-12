@@ -1,5 +1,5 @@
 var music = GetRoomMusic()
-if (room != RoomBattle)
+if (room != RoomBattle and instance_number(BattleObject) == 0)
 {
 	if (currentMusic == noone)
 	{

@@ -1,5 +1,6 @@
 randomize()
 audio_group_load(Music)
+audio_group_load(BattleThemes)
 
 global.money = 3000
 

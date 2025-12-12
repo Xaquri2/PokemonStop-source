@@ -1060,6 +1060,14 @@ function GetTrainerTeam(trainerName)
 	return team
 }
 
+function GetTrainerSprite(trainerName)
+{
+	switch(trainerName)
+	{
+		default: return HatKidWalkRightSprite
+	}
+}
+
 function GetRivalStarter()
 {
 	switch (GetStarterChoice())

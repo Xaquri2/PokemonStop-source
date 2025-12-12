@@ -1,4 +1,4 @@
-trainerTeam = GetTrainerTeam(name)
+event_inherited()
 switch (lineSightDir)
 {
 	case "Up":
