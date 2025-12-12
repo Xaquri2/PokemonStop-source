@@ -1,0 +1,22 @@
+with (other)
+{
+	if (!battle)
+	{
+		battle = true
+
+		other.talking = false
+		other.canWalk = false
+		other.battle = true
+
+		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+		battleObj.enemyTeam = trainerTeam
+		battleObj.enemySprite = trainerSprite
+		battleObj.enemyName = "Human"
+		battleObj.isWild = true
+		battleObj.playerX = other.x
+		battleObj.playerY = other.y
+		battleObj.playerRoom = room
+
+		if (battleFlag != "") battleObj.battleFlag = battleFlag
+	}
+}
