@@ -15,3 +15,6 @@ if (postBattleTextList != noone and !ds_list_empty(postBattleTextList))
 
 	if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 }
+
+var game = instance_find(GameObject, 0)
+game.warp = false
