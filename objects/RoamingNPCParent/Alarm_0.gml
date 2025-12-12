@@ -1,2 +1,5 @@
-state = "Walk"
-walkCoords = GetWalkingCoords()
+if (canWalk)
+{
+	state = "Walk"
+	walkCoords = GetWalkingCoords()
+}
