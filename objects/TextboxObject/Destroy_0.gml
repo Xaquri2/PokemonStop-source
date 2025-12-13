@@ -26,6 +26,17 @@ if (instance_exists(actionNPC))
 					break
 			}
 			break
+		case GymLeaderTest:
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?") //Mary's defeat dialogue
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Start the Gym Battle?"
+				optionMenu.option1 = "Yes"
+				optionMenu.option2 = "No"
+			}
+			break
 	}
 }
 
@@ -46,7 +57,7 @@ if (isDefeatDialogue)
 	}
 }
 
-if (startBattle)
+if (startBattle and instance_number(OptionObject) == 0)
 {
 	var musicC = instance_find(MusicObject, 0)
 	var music = musicC.currentMusic
@@ -66,7 +77,13 @@ if (startBattle)
 	battleObj.playerX = player.x
 	battleObj.playerY = player.y
 	battleObj.playerRoom = room
-
+	
+	if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
+	{
+		battleObj.importantBattle = true
+		battleObj.spriteIntro = true
+	}
+	
 	battleObj.trainerX = actionNPC.x
 	battleObj.trainerY = actionNPC.y
 

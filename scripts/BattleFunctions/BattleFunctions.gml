@@ -1055,7 +1055,8 @@ function GetTrainerTeam(trainerName)
 	//Mountain Peak 
 		
 			
-
+		case "Gym Leader Test":
+			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
 	}
 	return team
 }

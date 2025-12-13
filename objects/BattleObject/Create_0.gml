@@ -24,6 +24,12 @@ ending = false
 defeat = false
 battleFlag = ""
 
+importantBattle = false
+spriteIntro = false
+maxOffset = 400
+enemySpriteOffset = maxOffset
+playerSpriteOffset = -maxOffset
+
 topRectValue = view_get_hport(0)/2
 textList = ds_list_create()
 

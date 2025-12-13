@@ -1,30 +1,51 @@
 if (room != RoomBattle)
 {
-	if (fadingIntro and fadeCount < 5)
+	if (!spriteIntro)
 	{
-		if (fadeAlpha < 1 and fadeDir == 1)
+		if (fadingIntro and fadeCount < 5)
 		{
-			if (fadeCount < 4) fadeAlpha += 0.12
-			else
+			if (fadeAlpha < 1 and fadeDir == 1)
 			{
-				fadeAlpha += 0.02
-				if (fadeAlpha >= 1)
+				if (fadeCount < 4) fadeAlpha += 0.12
+				else
 				{
-					room_goto(RoomBattle)
+					fadeAlpha += 0.02
+					if (fadeAlpha >= 1)
+					{
+						room_goto(RoomBattle)
+					}
+				}
+				if (fadeAlpha >= 1 and fadeCount < 4)
+				{
+					fadeDir = 0
 				}
 			}
-			if (fadeAlpha >= 1 and fadeCount < 4)
+			if (fadeAlpha > 0 and fadeDir == 0)
 			{
-				fadeDir = 0
+				fadeAlpha -= 0.12
+				if (fadeAlpha <= 0)
+				{
+					fadeCount++
+					fadeDir = 1
+				}
 			}
 		}
-		if (fadeAlpha > 0 and fadeDir == 0)
+	}
+	else
+	{
+		if (enemySpriteOffset > 0)
 		{
-			fadeAlpha -= 0.12
-			if (fadeAlpha <= 0)
+			enemySpriteOffset -= 10
+		}
+		else
+		{
+			if (playerSpriteOffset < 0)
 			{
-				fadeCount++
-				fadeDir = 1
+				playerSpriteOffset += 10
+			}
+			else
+			{
+				spriteIntro = false
 			}
 		}
 	}

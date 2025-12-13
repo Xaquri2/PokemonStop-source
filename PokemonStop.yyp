@@ -92,7 +92,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.1.210",
+    "IDEVersion":"2024.14.2.212",
   },
   "name":"PokemonStop",
   "resources":[
@@ -149,6 +149,8 @@
     {"id":{"name":"GrassObject","path":"objects/GrassObject/GrassObject.yy",},},
     {"id":{"name":"Greed","path":"objects/Greed/Greed.yy",},},
     {"id":{"name":"GreenBubble","path":"objects/GreenBubble/GreenBubble.yy",},},
+    {"id":{"name":"GymLeaderParent","path":"objects/GymLeaderParent/GymLeaderParent.yy",},},
+    {"id":{"name":"GymLeaderTest","path":"objects/GymLeaderTest/GymLeaderTest.yy",},},
     {"id":{"name":"HammerCard","path":"objects/HammerCard/HammerCard.yy",},},
     {"id":{"name":"HitAttackObject","path":"objects/HitAttackObject/HitAttackObject.yy",},},
     {"id":{"name":"Human","path":"objects/Human/Human.yy",},},

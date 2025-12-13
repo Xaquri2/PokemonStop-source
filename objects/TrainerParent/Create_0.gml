@@ -13,6 +13,7 @@ targetY = 0
 
 lineSight = 32 //The range they can see players
 lineSightDir = "" //Should be Up, Down, Left or Right
+sightTrigger = true
 triggered = false
 walk = false
 

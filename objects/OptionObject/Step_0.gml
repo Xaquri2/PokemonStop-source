@@ -567,4 +567,35 @@ if (keyboard_check_pressed(vk_enter))
 		instance_destroy(referenceNPC)
 		instance_destroy(id)
 	}
+	
+	if (question == "Start the Gym Battle?")
+	{
+		if (currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			dialogue.startBattle = true
+			
+			ds_list_add(dialogue.textList, "Alright, let's begin!")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Alright, i'll be here whenever you're ready.")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+
+		instance_destroy(id)
+	}
 }

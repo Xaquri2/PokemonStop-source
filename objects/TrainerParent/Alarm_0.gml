@@ -14,3 +14,8 @@ switch (lineSightDir)
 		startX -= lineSight
 		break
 }
+
+if (trainerSprite == noone and sprite_index != noone)
+{
+	trainerSprite = sprite_index
+}
