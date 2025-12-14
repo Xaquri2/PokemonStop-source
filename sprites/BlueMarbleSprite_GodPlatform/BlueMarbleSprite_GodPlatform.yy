@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Tileset Sprites",
-    "path":"folders/Sprites/Tileset Sprites.yy",
+    "name":"ShadowPath",
+    "path":"folders/Sprites/Tileset Sprites/ShadowPath.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

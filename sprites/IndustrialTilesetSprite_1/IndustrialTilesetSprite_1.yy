@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Tileset Sprites",
-    "path":"folders/Sprites/Tileset Sprites.yy",
+    "name":"RobotPath",
+    "path":"folders/Sprites/Tileset Sprites/RobotPath.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

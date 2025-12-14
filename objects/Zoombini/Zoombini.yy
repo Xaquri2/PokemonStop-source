@@ -10,8 +10,8 @@
     "path":"folders/Objects/Pokemon.yy",
   },
   "parentObjectId":{
-    "name":"CollisionParent",
-    "path":"objects/CollisionParent/CollisionParent.yy",
+    "name":"RoamingPokemonParent",
+    "path":"objects/RoamingPokemonParent/RoamingPokemonParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
