@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"GoldRushTileSet_small",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"GoldRushTileSet_small",
+  "out_columns":100,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Tile Sets",
+    "path":"folders/Tile Sets.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"GoldRush",
+    "path":"sprites/GoldRush/GoldRush.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":10,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":10,
+  "tilexoff":4,
+  "tileyoff":0,
+  "tile_count":9940,
+}

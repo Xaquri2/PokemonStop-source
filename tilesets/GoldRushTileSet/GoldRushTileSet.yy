@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"GoldRushTileSet",
-  "out_columns":39,
+  "out_columns":62,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -34,5 +34,5 @@
   "tileWidth":16,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":1540,
+  "tile_count":3872,
 }

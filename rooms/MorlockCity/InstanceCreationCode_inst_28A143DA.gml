@@ -1,0 +1,1 @@
+SetWarpDefaults("MorlockShopEntrance", "Down", false)

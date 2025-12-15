@@ -1,0 +1,1 @@
+SetWarpDefaults("MorlockPokecenterEntrance", "Down", false)

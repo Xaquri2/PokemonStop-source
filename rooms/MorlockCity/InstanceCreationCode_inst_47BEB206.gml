@@ -1,0 +1,1 @@
+ds_list_add(textList,"It's a human skull.","You look inside --","It's a SILVER SCORPION!!!")
