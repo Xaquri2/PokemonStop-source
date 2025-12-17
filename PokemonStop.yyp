@@ -80,8 +80,8 @@
     {"$GMFolder":"","%Name":"Posters","folderPath":"folders/Sprites/Posters.yy","name":"Posters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tiles","folderPath":"folders/Sprites/Tiles.yy","name":"Tiles","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tileset Sprites","folderPath":"folders/Sprites/Tileset Sprites.yy","name":"Tileset Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"RobotPath","folderPath":"folders/Sprites/Tileset Sprites/RobotPath.yy","name":"RobotPath","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"MutantPath","folderPath":"folders/Sprites/Tileset Sprites/MutantPath.yy","name":"MutantPath","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"RobotPath","folderPath":"folders/Sprites/Tileset Sprites/RobotPath.yy","name":"RobotPath","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"ShadowPath","folderPath":"folders/Sprites/Tileset Sprites/ShadowPath.yy","name":"ShadowPath","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Title Screen","folderPath":"folders/Sprites/Title Screen.yy","name":"Title Screen","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"UI Elements","folderPath":"folders/Sprites/UI Elements.yy","name":"UI Elements","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -95,7 +95,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.1.210",
+    "IDEVersion":"2024.14.2.212",
   },
   "name":"PokemonStop",
   "resources":[
