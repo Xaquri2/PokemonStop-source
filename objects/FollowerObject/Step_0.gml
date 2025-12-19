@@ -8,8 +8,8 @@ if (instance_exists(player))
 			followerPos = [player.x, player.y-40]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Down"))
 			{
-				xOffset = random_range(-24,24)
-				yOffset = random_range(-32,-8)
+				xOffset = random_range(-32,32)
+				yOffset = random_range(-40,-8)
 			}
 			sprite_index = GetFollowerSprite("Down")
 			break
@@ -19,8 +19,8 @@ if (instance_exists(player))
 			followerPos = [player.x, player.y+40]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Up"))
 			{
-				xOffset = random_range(-24,24)
-				yOffset = random_range(8,32)
+				xOffset = random_range(-32,32)
+				yOffset = random_range(8,40)
 			}
 			sprite_index = GetFollowerSprite("Up")
 			break
@@ -30,8 +30,8 @@ if (instance_exists(player))
 			followerPos = [player.x+40, player.y]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Left"))
 			{
-				xOffset = random_range(8,32)
-				yOffset = random_range(-24,24)
+				xOffset = random_range(8,40)
+				yOffset = random_range(-32,32)
 			}
 			sprite_index = GetFollowerSprite("Left")
 			break
@@ -41,8 +41,8 @@ if (instance_exists(player))
 			followerPos = [player.x-40, player.y]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Right"))
 			{
-				xOffset = random_range(-32,-8)
-				yOffset = random_range(-24,24)
+				xOffset = random_range(-40,-8)
+				yOffset = random_range(-32,32)
 			}
 			sprite_index = GetFollowerSprite("Right")
 			break
