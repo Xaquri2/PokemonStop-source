@@ -49,4 +49,17 @@ if (!ds_list_empty(iconList))
 
 var ogText = ds_list_find_value(textList, currentText)
 var text = string_copy(ogText, 0, charNumber)
+
+// Draw outline
+draw_set_color(c_black);
+for (var i = -1; i < 2; i++)
+{
+	for (var j = -1; j < 2; j++)
+	{
+		draw_text_ext_transformed(view_x+view_width*0.333+i, view_y+view_height-54+j, text, 16, 320, 0.5*scalePerc, 0.5*scalePerc, image_angle)
+	}
+}
+
+// Draw text
+draw_set_color(c_white);
 draw_text_ext_transformed(view_x+view_width*0.333, view_y+view_height-54, text, 16, 320, 0.5*scalePerc, 0.5*scalePerc, image_angle)
