@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"CaelianBattleSprite",
-    "path":"sprites/CaelianBattleSprite/CaelianBattleSprite.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
