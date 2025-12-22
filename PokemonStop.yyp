@@ -191,6 +191,7 @@
     {"id":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},},
     {"id":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},},
     {"id":{"name":"obj_menu_manager","path":"objects/obj_menu_manager/obj_menu_manager.yy",},},
+    {"id":{"name":"obj_newgame_button","path":"objects/obj_newgame_button/obj_newgame_button.yy",},},
     {"id":{"name":"obj_pillar_half","path":"objects/obj_pillar_half/obj_pillar_half.yy",},},
     {"id":{"name":"obj_pillar_whole","path":"objects/obj_pillar_whole/obj_pillar_whole.yy",},},
     {"id":{"name":"obj_play_button","path":"objects/obj_play_button/obj_play_button.yy",},},
@@ -269,6 +270,7 @@
     {"id":{"name":"MorlockCity","path":"rooms/MorlockCity/MorlockCity.yy",},},
     {"id":{"name":"MuntainPeak","path":"rooms/MuntainPeak/MuntainPeak.yy",},},
     {"id":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
+    {"id":{"name":"MutantPokecenter","path":"rooms/MutantPokecenter/MutantPokecenter.yy",},},
     {"id":{"name":"RegionCenter","path":"rooms/RegionCenter/RegionCenter.yy",},},
     {"id":{"name":"RobotGym","path":"rooms/RobotGym/RobotGym.yy",},},
     {"id":{"name":"RobotPath","path":"rooms/RobotPath/RobotPath.yy",},},
@@ -668,6 +670,7 @@
     {"roomId":{"name":"MuntainPeak","path":"rooms/MuntainPeak/MuntainPeak.yy",},},
     {"roomId":{"name":"RobotGym","path":"rooms/RobotGym/RobotGym.yy",},},
     {"roomId":{"name":"MorlockCity","path":"rooms/MorlockCity/MorlockCity.yy",},},
+    {"roomId":{"name":"MutantPokecenter","path":"rooms/MutantPokecenter/MutantPokecenter.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

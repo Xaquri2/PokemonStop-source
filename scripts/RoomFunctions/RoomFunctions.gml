@@ -203,10 +203,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MutantToBuilding"
 			break
 		case "TiltedToMorlock":
-			targetRoom = TestRoom
-			targetWarp = "TestToMutant"
+			targetRoom = MorlockCity
+			targetWarp = "MorlockEntrance"
 			break
-		#endregion
+#endregion
 
 		#region Waterfront
 		case "WaterfrontToMallet":
@@ -302,6 +302,23 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MuntainPeak
 			targetWarp = "CastleDoor"
 			break
+		case "MorlockEntrance":
+			targetRoom = TestTiltedRoom
+			targetWarp = "TiltedToMorlock"
+			break
+		case "MorlockPokeCenterEntrance":
+			targetRoom = MutantPokecenter
+			targetWarp = "PokeCenterToMorlock"
+			break
+
+		case "PokeCenterToMorlock":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockPokeCenterEntrance"
+			break
+
+
+
+
 
 
 	}
