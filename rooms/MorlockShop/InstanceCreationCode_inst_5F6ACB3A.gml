@@ -1,0 +1,1 @@
+SetWarpDefaults("MorlockShopToMorlock", "Up", false)

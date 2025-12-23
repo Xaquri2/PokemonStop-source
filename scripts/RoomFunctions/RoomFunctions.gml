@@ -344,6 +344,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MorlockCity3
 			targetWarp = "MorlockCity3BottomRight"
 			break
+		case "MorlockShopEntrance":
+			targetRoom = MorlockShop
+			targetWarp = "MorlockShopToMorlock"
+			break
+
+		case "MorlockShopToMorlock":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockShopEntrance"
+			break
+
+
 
 
 	}

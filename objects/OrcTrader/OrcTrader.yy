@@ -8,8 +8,8 @@
   "name":"OrcTrader",
   "overriddenProperties":[],
   "parent":{
-    "name":"Characters",
-    "path":"folders/Objects/Characters.yy",
+    "name":"Merchants",
+    "path":"folders/Objects/Characters/Merchants.yy",
   },
   "parentObjectId":{
     "name":"NPCParent",
