@@ -263,8 +263,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "ShadowToPokeCenter"
 			break
 		case "SHORTCUT":
-			targetRoom = MuntainPeak
-			targetWarp = "MountainPeakBottom"
+			targetRoom = MorlockCity
+			targetWarp = "MorlockEntrance"
+			//targetRoom = MuntainPeak
+			//targetWarp = "MountainPeakBottom"
 			//targetRoom = ShadowPokecenter
 			//targetWarp = "PokeCenterToShadow"
 			break
@@ -315,6 +317,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MorlockCity
 			targetWarp = "MorlockPokeCenterEntrance"
 			break
+		case "MorlockSoutheastEntrance":
+			targetRoom = MorlockCity2
+			targetWarp = "Morlock2SouthwestEntrance"
+			break
+
+		case "Morlock2SouthwestEntrance":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockSoutheastEntrance"
+			break
+
+
 
 
 
