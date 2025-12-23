@@ -1,0 +1,1 @@
+SetWarpDefaults("PokeCenterToMorlock", "Up", false)

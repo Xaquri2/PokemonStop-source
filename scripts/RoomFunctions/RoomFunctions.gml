@@ -203,10 +203,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MutantToBuilding"
 			break
 		case "TiltedToMorlock":
-			targetRoom = TestRoom
-			targetWarp = "TestToMutant"
+			targetRoom = MorlockCity
+			targetWarp = "MorlockEntrance"
 			break
-		#endregion
+#endregion
 
 		#region Waterfront
 		case "WaterfrontToMallet":
@@ -263,8 +263,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "ShadowToPokeCenter"
 			break
 		case "SHORTCUT":
-			targetRoom = MuntainPeak
-			targetWarp = "MountainPeakBottom"
+			targetRoom = MorlockCity
+			targetWarp = "MorlockEntrance"
+			//targetRoom = MuntainPeak
+			//targetWarp = "MountainPeakBottom"
 			//targetRoom = ShadowPokecenter
 			//targetWarp = "PokeCenterToShadow"
 			break
@@ -302,6 +304,46 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MuntainPeak
 			targetWarp = "CastleDoor"
 			break
+		case "MorlockEntrance":
+			targetRoom = TestTiltedRoom
+			targetWarp = "TiltedToMorlock"
+			break
+		case "MorlockPokeCenterEntrance":
+			targetRoom = MutantPokecenter
+			targetWarp = "PokeCenterToMorlock"
+			break
+
+		case "PokeCenterToMorlock":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockPokeCenterEntrance"
+			break
+		case "MorlockSoutheastEntrance":
+			targetRoom = MorlockCity2
+			targetWarp = "Morlock2SouthwestEntrance"
+			break
+
+		case "Morlock2SouthwestEntrance":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockSoutheastEntrance"
+			break
+		case "MorlockCity3Bottom":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockNorth"
+			break
+
+		case "MorlockNorth":
+			targetRoom = MorlockCity3
+			targetWarp = "MorlockCity3Bottom"
+			break
+		case "MorlockCity3BottomRight":
+			targetRoom = MorlockCity2
+			targetWarp = "Morlock2NorthwestEntrance"
+			break
+
+		case "Morlock2NorthwestEntrance":
+			targetRoom = MorlockCity3
+			targetWarp = "MorlockCity3BottomRight"
+			break
 
 
 	}
@@ -329,6 +371,10 @@ function GetRoomName(roomID)
 			return "Shadow Path"
 		case ShadowPokecenter: return "Pokémon Center"
 		case MutantPath1: return "Mutant Path"
+		case MorlockCity: 
+		case MorlockCity2:
+		case MorlockCity3:
+			return "Morlock City"
 		case RobotPath: 
 		case MuntainPeak:
 			return "Robot Path"
@@ -346,6 +392,9 @@ function GetRoomMusic()
 			return RouteMinusOneTheme
 		case MutantPath1: return MutantPathAmbiance
 		case TestTiltedRoom:
+		case MorlockCity:
+		case MorlockCity2:
+		case MorlockCity3:
 			return MutantPathUndergroundTheme
 		case TestRoom: return SacredBeasts
 		case RegionCenter:

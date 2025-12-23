@@ -1,0 +1,1 @@
+SetWarpDefaults("Morlock2SouthwestEntrance", "Right", false)
