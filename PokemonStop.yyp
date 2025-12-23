@@ -90,6 +90,9 @@
   ],
   "ForcedPrefabProjectReferences":[
     {"link":"io.gamemaker.gm_filter_ripples-1.0.0","name":"io.gamemaker.gm_filter_ripples-1.0.0","path":"io.gamemaker.gm_filter_ripples-1.0.0.yyp",},
+    {"link":"io.gamemaker.gm_filter_clouds-1.0.0","name":"io.gamemaker.gm_filter_clouds-1.0.0","path":"io.gamemaker.gm_filter_clouds-1.0.0.yyp",},
+    {"link":"io.gamemaker.gm_effect_gaussian_blur-1.0.0","name":"io.gamemaker.gm_effect_gaussian_blur-1.0.0","path":"io.gamemaker.gm_effect_gaussian_blur-1.0.0.yyp",},
+    {"link":"io.gamemaker.gm_filter_mask-1.0.0","name":"io.gamemaker.gm_filter_mask-1.0.0","path":"io.gamemaker.gm_filter_mask-1.0.0.yyp",},
   ],
   "IncludedFiles":[],
   "isEcma":false,
@@ -273,6 +276,7 @@
     {"id":{"name":"MorlockCity","path":"rooms/MorlockCity/MorlockCity.yy",},},
     {"id":{"name":"MorlockCity2","path":"rooms/MorlockCity2/MorlockCity2.yy",},},
     {"id":{"name":"MorlockCity3","path":"rooms/MorlockCity3/MorlockCity3.yy",},},
+    {"id":{"name":"MorlockShop","path":"rooms/MorlockShop/MorlockShop.yy",},},
     {"id":{"name":"MuntainPeak","path":"rooms/MuntainPeak/MuntainPeak.yy",},},
     {"id":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
     {"id":{"name":"MutantPokecenter","path":"rooms/MutantPokecenter/MutantPokecenter.yy",},},
@@ -681,6 +685,7 @@
     {"roomId":{"name":"MutantPokecenter","path":"rooms/MutantPokecenter/MutantPokecenter.yy",},},
     {"roomId":{"name":"MorlockCity2","path":"rooms/MorlockCity2/MorlockCity2.yy",},},
     {"roomId":{"name":"MorlockCity3","path":"rooms/MorlockCity3/MorlockCity3.yy",},},
+    {"roomId":{"name":"MorlockShop","path":"rooms/MorlockShop/MorlockShop.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
