@@ -598,4 +598,23 @@ if (keyboard_check_pressed(vk_enter))
 
 		instance_destroy(id)
 	}
+	
+	if (question == "Heal Pokémon?")
+	{
+		if (currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Alright, let me heal them...")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			
+			instance_destroy(id)
+		}
+	}
 }
