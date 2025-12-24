@@ -371,12 +371,15 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MorlockCity3
 			targetWarp = "MorlockToGym"
 			break
+		case "TowerExit":
+			targetRoom = RouteMinusOneBottom
+			targetWarp = "MinusOneToTower"
+			break
 
-
-
-
-
-
+		case "MinusOneToTower":
+			targetRoom = FirstFloor
+			targetWarp = "TowerExit"
+			break
 
 
 	}
@@ -408,9 +411,12 @@ function GetRoomName(roomID)
 		case MorlockCity2:
 		case MorlockCity3:
 			return "Morlock City"
+		case MorlockGym: return "Mutant Path Gym"
 		case RobotPath: 
 		case MuntainPeak:
 			return "Robot Path"
+		case FirstFloor:
+			return "Dark Tower"
 		default: return "???"
 	}
 }
@@ -446,6 +452,8 @@ function GetRoomMusic()
 		case Mallet_East:
 		case MalletMuseum:
 			return MalletTownMusic
+		case FirstFloor:
+			return OuterRingOfAtlantis
 		default:
 			return SacredBeasts
 	}

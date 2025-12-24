@@ -1,0 +1,1 @@
+SetWarpDefaults("TowerExit", "Up", false)

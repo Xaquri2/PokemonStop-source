@@ -1,1 +1,1 @@
-SetWarpDefaults("MorlockGymExit", "Up", false)
+SetWarpDefaults("MorlockGymExit", "Right", false)
