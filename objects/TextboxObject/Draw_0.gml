@@ -33,6 +33,19 @@ if (!ds_list_empty(nameList))
 	for (var i = 0; i < ds_list_size(nameList2); i++)
 	{
 		var name2 = ds_list_find_value(nameList2, i)
+		
+		// Draw outline
+		draw_set_color(c_black);
+		for (var j = -1; j < 2; j++)
+		{
+			for (var k = -1; k < 2; k++)
+			{
+				draw_text_transformed(view_x+view_width*0.15+j, view_y+view_height-65-10*(ds_list_size(nameList2)-i-1)+k, name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
+			}
+		}
+
+		// Draw text
+		draw_set_color(c_white);
 		draw_text_transformed(view_x+view_width*0.15, view_y+view_height-65-10*(ds_list_size(nameList2)-i-1), name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
 	}
 
