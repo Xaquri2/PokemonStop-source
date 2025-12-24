@@ -1,0 +1,1 @@
+SetWarpDefaults("MorlockToGym", "Left", false)

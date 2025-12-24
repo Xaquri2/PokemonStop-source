@@ -1,19 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"Object119",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"MorlockNPC",
+  "eventList":[],
   "managed":true,
-  "name":"Object119",
+  "name":"MorlockNPC",
   "overriddenProperties":[],
   "parent":{
     "name":"Characters",
     "path":"folders/Objects/Characters.yy",
   },
   "parentObjectId":{
-    "name":"TrainerParent",
-    "path":"objects/TrainerParent/TrainerParent.yy",
+    "name":"NPCParent",
+    "path":"objects/NPCParent/NPCParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
