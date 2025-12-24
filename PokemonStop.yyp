@@ -303,6 +303,7 @@
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"RouteMinusOneTop","path":"rooms/RouteMinusOneTop/RouteMinusOneTop.yy",},},
+    {"id":{"name":"SecondFloor","path":"rooms/SecondFloor/SecondFloor.yy",},},
     {"id":{"name":"ShadowPath","path":"rooms/ShadowPath/ShadowPath.yy",},},
     {"id":{"name":"ShadowPathGym","path":"rooms/ShadowPathGym/ShadowPathGym.yy",},},
     {"id":{"name":"ShadowPokecenter","path":"rooms/ShadowPokecenter/ShadowPokecenter.yy",},},
@@ -711,6 +712,7 @@
     {"roomId":{"name":"MorlockRestaurant","path":"rooms/MorlockRestaurant/MorlockRestaurant.yy",},},
     {"roomId":{"name":"MorlockGym","path":"rooms/MorlockGym/MorlockGym.yy",},},
     {"roomId":{"name":"FirstFloor","path":"rooms/FirstFloor/FirstFloor.yy",},},
+    {"roomId":{"name":"SecondFloor","path":"rooms/SecondFloor/SecondFloor.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
