@@ -380,6 +380,50 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FirstFloor
 			targetWarp = "TowerExit"
 			break
+		case "TowerFirstFloorElevator":
+			targetRoom = SecondFloor
+			targetWarp = "TowerSecondFloorElevatorDown"
+			break
+
+		case "TowerSecondFloorElevatorDown":
+			targetRoom = FirstFloor
+			targetWarp = "TowerFirstFloorElevator"
+			break
+		case "TowerSecondFloorElevatorUP":
+			targetRoom = ThirdFloor
+			targetWarp = "TowerThirdFloorElevatorDOWN"
+			break
+
+		case "TowerThirdFloorElevatorDOWN":
+			targetRoom = SecondFloor
+			targetWarp = "TowerSecondFloorElevatorUP"
+			break
+		case "TowerThirdFloorElevatorUP":
+			targetRoom = FourthFloor
+			targetWarp = "TowerFourthFloorElevatorDOWN"
+			break
+
+		case "TowerFourthFloorElevatorDOWN":
+			targetRoom = ThirdFloor
+			targetWarp = "TowerThirdFloorElevatorUP"
+			break
+		case "TowerFourthFloorElevatorUP":
+			targetRoom = FifthFloor
+			targetWarp = "TowerFifthFloorElevatorDOWN"
+			break
+
+		case "TowerFifthFloorElevatorDOWN":
+			targetRoom = FourthFloor
+			targetWarp = "TowerFourthFloorElevatorUP"
+			break
+
+
+
+
+
+
+
+
 
 
 	}

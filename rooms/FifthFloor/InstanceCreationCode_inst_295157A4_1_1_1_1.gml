@@ -1,0 +1,1 @@
+SetWarpDefaults("TowerFifthFloorElevatorDOWN", "Up", false)
