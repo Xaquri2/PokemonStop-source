@@ -37,7 +37,7 @@ if (instance_exists(actionNPC))
 				optionMenu.option2 = "No"
 			}
 		case NurseJoy:
-			if (ds_list_find_value(textList, 0) == "Would you like me to heal your pokémon?")
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come see me when your Pokémon are injured!")
 			{
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
