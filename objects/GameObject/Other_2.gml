@@ -39,3 +39,10 @@ global.collectedPokeloot = ds_list_create()
 
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
+
+AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 10, GetRandomGender(50))

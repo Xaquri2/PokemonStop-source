@@ -1,0 +1,1 @@
+instance_create_depth(x+random_range(-sprite_width/2+4,sprite_width/2-4),y+sprite_height/2-4,depth-1,GreenCrossObject)
