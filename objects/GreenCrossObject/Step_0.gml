@@ -1,2 +1,3 @@
-//depth = -y
-depth = -1000001;
+depth = -2000000;
+image_alpha -= 0.02
+if (image_alpha <= 0) instance_destroy(id)

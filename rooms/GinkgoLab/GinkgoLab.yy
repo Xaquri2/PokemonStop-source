@@ -30,7 +30,6 @@
     {"name":"inst_2FDA366A","path":"rooms/GinkgoLab/GinkgoLab.yy",},
     {"name":"inst_1F17F12A","path":"rooms/GinkgoLab/GinkgoLab.yy",},
     {"name":"inst_367B063B","path":"rooms/GinkgoLab/GinkgoLab.yy",},
-    {"name":"inst_66A82C3B","path":"rooms/GinkgoLab/GinkgoLab.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -93,7 +92,6 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"propertyId":{"name":"npc_name","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Ginkus Book 2",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"propertyId":{"name":"speech","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"Uh, don't worry about that stuff, that's not Important...\"",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":0.84375,"x":290.0655,"y":27.0,},
-        {"$GMRInstance":"v4","%Name":"inst_66A82C3B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_66A82C3B","objectId":{"name":"GreenCrossObject","path":"objects/GreenCrossObject/GreenCrossObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.33986187,"scaleY":0.234375,"x":32.0,"y":225.87878,},
         {"$GMRInstance":"v4","%Name":"inst_367B063B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_367B063B","objectId":{"name":"Screen","path":"objects/Screen/Screen.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.68,"scaleY":0.75757575,"x":33.0,"y":225.0,},
         {"$GMRInstance":"v4","%Name":"inst_2FDA366A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2FDA366A","objectId":{"name":"PokemonCenterTable","path":"objects/PokemonCenterTable/PokemonCenterTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.3867188,"scaleY":1.3333334,"x":55.71875,"y":242.0,},
         {"$GMRInstance":"v4","%Name":"inst_68D59688","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_68D59688","objectId":{"name":"NurseJoy","path":"objects/NurseJoy/NurseJoy.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.3125,"scaleY":1.5625,"x":59.0,"y":217.0,},

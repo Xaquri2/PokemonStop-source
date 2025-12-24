@@ -50,6 +50,7 @@ if (instance_exists(actionNPC))
 			{
 				player.alarm[1] = -1
 				actionNPC.alarm[1] = 60*3
+				actionNPC.alarm[2] = 20
 			}
 			break
 	}

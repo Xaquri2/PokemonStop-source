@@ -1,0 +1,1 @@
+audio_play_sound(HealPokemonJingle, 1, false)
