@@ -418,14 +418,6 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 
 
-
-
-
-
-
-
-
-
 	}
 
 	warpName = name
@@ -497,7 +489,12 @@ function GetRoomMusic()
 		case MalletMuseum:
 			return MalletTownMusic
 		case FirstFloor:
+		case SecondFloor:
+		case ThirdFloor:
+		case FourthFloor:
 			return OuterRingOfAtlantis
+		case FifthFloor:
+			return noone
 		default:
 			return SacredBeasts
 	}

@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_music_menu",
+  "%Name":"MP3_Fireball_Travel_2",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,17 +10,17 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":10.0,
   "exportDir":"",
-  "name":"snd_music_menu",
+  "name":"MP3_Fireball_Travel_2",
   "parent":{
-    "name":"Music",
-    "path":"folders/Sounds/Music.yy",
+    "name":"Battle Sounds",
+    "path":"folders/Sounds/Battle Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_music_menu",
+  "soundFile":"MP3_Fireball_Travel_2.mp3",
   "volume":1.0,
 }
