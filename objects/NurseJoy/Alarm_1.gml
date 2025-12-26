@@ -13,3 +13,5 @@ ds_list_add(dialogue.textList, "Your pokémon have been healed!")
 player.talking = true
 
 if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+
+audio_group_set_gain(Music, 1, 600)
