@@ -201,6 +201,7 @@
     {"id":{"name":"MistyMalletPoster","path":"objects/MistyMalletPoster/MistyMalletPoster.yy",},},
     {"id":{"name":"Morlock","path":"objects/Morlock/Morlock.yy",},},
     {"id":{"name":"Morlockcita","path":"objects/Morlockcita/Morlockcita.yy",},},
+    {"id":{"name":"MorlockcitaNPC","path":"objects/MorlockcitaNPC/MorlockcitaNPC.yy",},},
     {"id":{"name":"MorlockDoor_EMPTY","path":"objects/MorlockDoor_EMPTY/MorlockDoor_EMPTY.yy",},},
     {"id":{"name":"MorlockDoor","path":"objects/MorlockDoor/MorlockDoor.yy",},},
     {"id":{"name":"MorlockNPC_Right","path":"objects/MorlockNPC_Right/MorlockNPC_Right.yy",},},
