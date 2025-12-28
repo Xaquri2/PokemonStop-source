@@ -56,7 +56,7 @@ if (!ds_list_empty(nameList))
 draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.58, view_y+view_height-42, 8.9*scalePerc, 2.2, image_angle, image_blend, image_alpha)
 if (!ds_list_empty(iconList)) 
 {
-	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-32, 1.75*scalePerc, 1.75*scalePerc, image_angle, image_blend, image_alpha)
+	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-42, 2.2*scalePerc, 2.2*scalePerc, image_angle, image_blend, image_alpha)
 	draw_sprite_ext(ds_list_find_value(iconList, currentText), 0, view_x+view_width*0.15, view_y+view_height-32, 0.75*scalePerc, 0.75*scalePerc, image_angle, image_blend, image_alpha)
 }
 
