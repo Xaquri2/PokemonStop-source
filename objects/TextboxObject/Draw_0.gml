@@ -40,20 +40,20 @@ if (!ds_list_empty(nameList))
 		{
 			for (var k = -1; k < 2; k++)
 			{
-				draw_text_transformed(view_x+view_width*0.15+j, view_y+view_height-65-10*(ds_list_size(nameList2)-i-1)+k, name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
+				draw_text_transformed(view_x+view_width*0.15+j, view_y+view_height-85-10*(ds_list_size(nameList2)-i-1)+k, name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
 			}
 		}
 
 		// Draw text
 		draw_set_color(c_white);
-		draw_text_transformed(view_x+view_width*0.15, view_y+view_height-65-10*(ds_list_size(nameList2)-i-1), name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
+		draw_text_transformed(view_x+view_width*0.15, view_y+view_height-85-10*(ds_list_size(nameList2)-i-1), name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
 	}
 
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 }
 
-draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.5, view_y+view_height-32, 7*scalePerc, 1.75, image_angle, image_blend, image_alpha)
+draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.58, view_y+view_height-42, 8.9*scalePerc, 2.2, image_angle, image_blend, image_alpha)
 if (!ds_list_empty(iconList)) 
 {
 	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-32, 1.75*scalePerc, 1.75*scalePerc, image_angle, image_blend, image_alpha)
@@ -64,15 +64,15 @@ var ogText = ds_list_find_value(textList, currentText)
 var text = string_copy(ogText, 0, charNumber)
 
 // Draw outline
-draw_set_color(c_black);
-for (var i = -1; i < 2; i++)
-{
-	for (var j = -1; j < 2; j++)
-	{
-		draw_text_ext_transformed(view_x+view_width*0.333+i, view_y+view_height-54+j, text, 16, 320, 0.5*scalePerc, 0.5*scalePerc, image_angle)
-	}
-}
+//draw_set_color(c_black);
+//for (var i = -1; i < 2; i++)
+//{
+//	for (var j = -1; j < 2; j++)
+//	{
+//		draw_text_ext_transformed(view_x+view_width*0.333+i, view_y+view_height-54+j, text, 16, 320, 0.5*scalePerc, 0.5*scalePerc, image_angle)
+//	}
+//}
 
 // Draw text
 draw_set_color(c_white);
-draw_text_ext_transformed(view_x+view_width*0.333, view_y+view_height-54, text, 16, 320, 0.5*scalePerc, 0.5*scalePerc, image_angle)
+draw_text_ext_transformed(view_x+view_width*0.333, view_y+view_height-70, text, 16, 320, 0.8*scalePerc, 0.8*scalePerc, image_angle)
