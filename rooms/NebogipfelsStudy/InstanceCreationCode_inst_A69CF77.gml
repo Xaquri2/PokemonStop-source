@@ -1,0 +1,1 @@
+SetWarpDefaults("NebogipfelExit", "Left", false)

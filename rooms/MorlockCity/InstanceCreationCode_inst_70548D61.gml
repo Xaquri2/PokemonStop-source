@@ -1,1 +1,1 @@
-SetWarpDefaults("MorlockEntrance", "Right", false)
+SetWarpDefaults("MorlockToNebogipfel", "Right", false)

@@ -111,7 +111,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.1.210",
   },
   "name":"PokemonStop",
   "resources":[
@@ -211,6 +211,7 @@
     {"id":{"name":"MrBanana","path":"objects/MrBanana/MrBanana.yy",},},
     {"id":{"name":"MusicObject","path":"objects/MusicObject/MusicObject.yy",},},
     {"id":{"name":"MutantTowerObject","path":"objects/MutantTowerObject/MutantTowerObject.yy",},},
+    {"id":{"name":"Nebogipfel","path":"objects/Nebogipfel/Nebogipfel.yy",},},
     {"id":{"name":"NPCParent","path":"objects/NPCParent/NPCParent.yy",},},
     {"id":{"name":"NurseJoy_SHADOW","path":"objects/NurseJoy_SHADOW/NurseJoy_SHADOW.yy",},},
     {"id":{"name":"NurseJoy","path":"objects/NurseJoy/NurseJoy.yy",},},
@@ -312,6 +313,7 @@
     {"id":{"name":"MuntainPeak","path":"rooms/MuntainPeak/MuntainPeak.yy",},},
     {"id":{"name":"MutantPath1","path":"rooms/MutantPath1/MutantPath1.yy",},},
     {"id":{"name":"MutantPokecenter","path":"rooms/MutantPokecenter/MutantPokecenter.yy",},},
+    {"id":{"name":"NebogipfelsStudy","path":"rooms/NebogipfelsStudy/NebogipfelsStudy.yy",},},
     {"id":{"name":"RegionCenter","path":"rooms/RegionCenter/RegionCenter.yy",},},
     {"id":{"name":"RobotGym","path":"rooms/RobotGym/RobotGym.yy",},},
     {"id":{"name":"RobotPath","path":"rooms/RobotPath/RobotPath.yy",},},
@@ -522,6 +524,7 @@
     {"id":{"name":"MysticalForest_Large","path":"sprites/MysticalForest_Large/MysticalForest_Large.yy",},},
     {"id":{"name":"MysticalForest_Small","path":"sprites/MysticalForest_Small/MysticalForest_Small.yy",},},
     {"id":{"name":"MysticalForest","path":"sprites/MysticalForest/MysticalForest.yy",},},
+    {"id":{"name":"NebogipfelSprite","path":"sprites/NebogipfelSprite/NebogipfelSprite.yy",},},
     {"id":{"name":"NinjaSquirtleSprite","path":"sprites/NinjaSquirtleSprite/NinjaSquirtleSprite.yy",},},
     {"id":{"name":"NurseJoySprite_CLOSEUP_SHADOW","path":"sprites/NurseJoySprite_CLOSEUP_SHADOW/NurseJoySprite_CLOSEUP_SHADOW.yy",},},
     {"id":{"name":"NurseJoySprite_CLOSEUP","path":"sprites/NurseJoySprite_CLOSEUP/NurseJoySprite_CLOSEUP.yy",},},
@@ -742,6 +745,7 @@
     {"roomId":{"name":"ThirdFloor","path":"rooms/ThirdFloor/ThirdFloor.yy",},},
     {"roomId":{"name":"FourthFloor","path":"rooms/FourthFloor/FourthFloor.yy",},},
     {"roomId":{"name":"FifthFloor","path":"rooms/FifthFloor/FifthFloor.yy",},},
+    {"roomId":{"name":"NebogipfelsStudy","path":"rooms/NebogipfelsStudy/NebogipfelsStudy.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

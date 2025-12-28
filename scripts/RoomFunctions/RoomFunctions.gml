@@ -416,6 +416,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FourthFloor
 			targetWarp = "TowerFourthFloorElevatorUP"
 			break
+		case "NebogipfelExit":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockToNebogipfel"
+			break
+
+		case "MorlockToNebogipfel":
+			targetRoom = NebogipfelsStudy
+			targetWarp = "NebogipfelExit"
+			break
+
+
 
 
 	}
@@ -452,7 +463,11 @@ function GetRoomName(roomID)
 		case MuntainPeak:
 			return "Robot Path"
 		case FirstFloor:
-			return "Dark Tower"
+			return "Dark Tower - 1st Floor"
+		case SecondFloor: return "2nd Floor"
+		case ThirdFloor: return "3rd Floor"
+		case FourthFloor: return "4th Floor"
+		case FifthFloor: return "5th Floor"
 		default: return "???"
 	}
 }
@@ -467,6 +482,7 @@ function GetRoomMusic()
 			return RouteMinusOneTheme
 		case MutantPath1: return MutantPathAmbiance
 		case TestTiltedRoom:
+			return OuterRingOfAtlantis
 		case MorlockCity:
 		case MorlockCity2:
 		case MorlockCity3:
