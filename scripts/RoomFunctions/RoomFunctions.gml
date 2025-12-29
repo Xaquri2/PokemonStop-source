@@ -477,6 +477,7 @@ function GetRoomMusic()
 	switch room
 	{
 		case TitleScreen: return TitleTheme
+		case GinkgoIntro: return PokeGymLofi
 		case RouteMinusOneBottom:
 		case RouteMinusOneTop:
 			return RouteMinusOneTheme

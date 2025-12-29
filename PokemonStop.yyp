@@ -299,6 +299,7 @@
     {"id":{"name":"FourthFloor","path":"rooms/FourthFloor/FourthFloor.yy",},},
     {"id":{"name":"GashHouse","path":"rooms/GashHouse/GashHouse.yy",},},
     {"id":{"name":"GashUpstairs","path":"rooms/GashUpstairs/GashUpstairs.yy",},},
+    {"id":{"name":"GingkoIntro","path":"rooms/GingkoIntro/GingkoIntro.yy",},},
     {"id":{"name":"GinkgoLab","path":"rooms/GinkgoLab/GinkgoLab.yy",},},
     {"id":{"name":"GreedShop","path":"rooms/GreedShop/GreedShop.yy",},},
     {"id":{"name":"Mallet_East","path":"rooms/Mallet_East/Mallet_East.yy",},},
@@ -340,6 +341,7 @@
     {"id":{"name":"PokemonFunctions","path":"scripts/PokemonFunctions/PokemonFunctions.yy",},},
     {"id":{"name":"RoomFunctions","path":"scripts/RoomFunctions/RoomFunctions.yy",},},
     {"id":{"name":"UsefulFunctions","path":"scripts/UsefulFunctions/UsefulFunctions.yy",},},
+    {"id":{"name":"GinkgoIntro","path":"sequences/GinkgoIntro/GinkgoIntro.yy",},},
     {"id":{"name":"seq_menu","path":"sequences/seq_menu/seq_menu.yy",},},
     {"id":{"name":"Shader1","path":"shaders/Shader1/Shader1.yy",},},
     {"id":{"name":"shd_test","path":"shaders/shd_test/shd_test.yy",},},
@@ -709,6 +711,7 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
+    {"roomId":{"name":"GingkoIntro","path":"rooms/GingkoIntro/GingkoIntro.yy",},},
     {"roomId":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"roomId":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"roomId":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
