@@ -54,3 +54,10 @@ if (instance_exists(player))
 		y = lerp(y+yOffset*0.03, followerPos[1], 0.1)
 	}
 }
+
+if (global.followerType == "Mary")
+{
+	xscaleOffset = 1.3
+	image_yscale = 1.5
+}
+image_xscale = xscaleDir*xscaleOffset

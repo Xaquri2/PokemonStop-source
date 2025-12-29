@@ -87,8 +87,8 @@ function GetFollowerSprite(spriteDir)
 		else if (spriteDir == "Up") return PikminWalkUpSprite
 		else
 		{
-			if (spriteDir == "Right") image_xscale = 1
-			else image_xscale = -1
+			if (spriteDir == "Right") xscaleDir = 1
+			else xscaleDir = -1
 			return PikminWalkRightSprite
 		}
 	}
@@ -99,12 +99,12 @@ function GetFollowerSprite(spriteDir)
 			if (spriteDir == "Down") return MaryWalkDownSprite
 			if (spriteDir == "Right")
 			{
-				image_xscale = 1
+				xscaleDir = 1
 				return MaryWalkRightSprite
 			}
 			if (spriteDir == "Left")
 			{
-				image_xscale = -1
+				xscaleDir = -1
 				return MaryWalkRightSprite
 			}
 			if (spriteDir == "Up") return MaryWalkUpSprite
@@ -113,12 +113,12 @@ function GetFollowerSprite(spriteDir)
 			if (spriteDir == "Down") return MaryWalkDownSprite
 			if (spriteDir == "Right")
 			{
-				image_xscale = 1
+				xscaleDir = 1
 				return MaryWalkRightSprite
 			}
 			if (spriteDir == "Left")
 			{
-				image_xscale = -1
+				xscaleDir = -1
 				return MaryWalkRightSprite
 			}
 			if (spriteDir == "Up") return MaryWalkUpSprite
