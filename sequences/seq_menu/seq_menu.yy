@@ -35,11 +35,11 @@
   "resourceType":"GMSequence",
   "resourceVersion":"2.0",
   "seqHeight":1124.9999,
-  "seqWidth":1047.7844,
+  "seqWidth":807.7843,
   "showBackdrop":true,
   "showBackdropImage":true,
   "spriteId":null,
-  "timeUnits":1,
+  "timeUnits":0,
   "tracks":[
     {"$GMInstanceTrack":"","%Name":"SubtitleText","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<AssetInstanceKeyframe>":"","Keyframes":[
           {"$Keyframe<AssetInstanceKeyframe>":"","Channels":{

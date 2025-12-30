@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GinkgoIntro_Events9",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GinkgoIntro_Events9",
+  "parent":{
+    "name":"PokemonStop",
+    "path":"PokemonStop.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

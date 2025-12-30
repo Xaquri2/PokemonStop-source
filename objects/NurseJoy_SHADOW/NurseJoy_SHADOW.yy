@@ -10,8 +10,8 @@
     "path":"folders/Objects/Characters.yy",
   },
   "parentObjectId":{
-    "name":"NPCParent",
-    "path":"objects/NPCParent/NPCParent.yy",
+    "name":"NurseJoy",
+    "path":"objects/NurseJoy/NurseJoy.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
