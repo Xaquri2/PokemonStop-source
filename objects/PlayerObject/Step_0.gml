@@ -184,65 +184,68 @@ if (nearestNPC != noone)
 #region Wild Encounters
 var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
 var fogAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,FogObject,false,true)
-if (instance_exists(grassAttempt) and grassTimer == -1 and
-(hspeed != 0 or vspeed != 0))
+if (canEncounter)
 {
-	var wildBattle = floor(random_range(1,11))
-	if (wildBattle == 1)
+	if (instance_exists(grassAttempt) and grassTimer == -1 and
+	(hspeed != 0 or vspeed != 0))
 	{
-		var musicC = instance_find(MusicObject, 0)
-		var music = musicC.currentMusic
-		audio_stop_sound(music)
-		audio_play_sound(WildBattleTheme, 1, false)
-		musicC.currentMusic = WildBattleTheme
+		var wildBattle = floor(random_range(1,11))
+		if (wildBattle == 1)
+		{
+			var musicC = instance_find(MusicObject, 0)
+			var music = musicC.currentMusic
+			audio_stop_sound(music)
+			audio_play_sound(WildBattleTheme, 1, false)
+			musicC.currentMusic = WildBattleTheme
 
-		var wildPkmn = GetWildPokemon("Grass")
-		var wildPokemonList = ds_list_create()
-		ds_list_add(wildPokemonList, wildPkmn)
+			var wildPkmn = GetWildPokemon("Grass")
+			var wildPokemonList = ds_list_create()
+			ds_list_add(wildPokemonList, wildPkmn)
 
-		talking = false
-		canWalk = false
-		battle = true
-		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
-		battleObj.enemyTeam = wildPokemonList
-		battleObj.enemySprite = GetSprite(wildPkmn)
-		battleObj.enemyName = GetName(wildPkmn)
-		battleObj.isWild = true
-		battleObj.playerX = x
-		battleObj.playerY = y
-		battleObj.playerRoom = room
+			talking = false
+			canWalk = false
+			battle = true
+			var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+			battleObj.enemyTeam = wildPokemonList
+			battleObj.enemySprite = GetSprite(wildPkmn)
+			battleObj.enemyName = GetName(wildPkmn)
+			battleObj.isWild = true
+			battleObj.playerX = x
+			battleObj.playerY = y
+			battleObj.playerRoom = room
+		}
+		grassTimer = 30
 	}
-	grassTimer = 30
-}
-if (instance_exists(fogAttempt) and fogTimer == -1 and
-(hspeed != 0 or vspeed != 0))
-{
-	var wildBattle = floor(random_range(1,30))
-	if (wildBattle == 1)
+	if (instance_exists(fogAttempt) and fogTimer == -1 and
+	(hspeed != 0 or vspeed != 0))
 	{
-		var musicC = instance_find(MusicObject, 0)
-		var music = musicC.currentMusic
-		audio_stop_sound(music)
-		audio_play_sound(WildBattleTheme, 1, false)
-		musicC.currentMusic = WildBattleTheme
+		var wildBattle = floor(random_range(1,30))
+		if (wildBattle == 1)
+		{
+			var musicC = instance_find(MusicObject, 0)
+			var music = musicC.currentMusic
+			audio_stop_sound(music)
+			audio_play_sound(WildBattleTheme, 1, false)
+			musicC.currentMusic = WildBattleTheme
 
-		var wildPkmn = GetWildPokemon("Fog")
-		var wildPokemonList = ds_list_create()
-		ds_list_add(wildPokemonList, wildPkmn)
+			var wildPkmn = GetWildPokemon("Fog")
+			var wildPokemonList = ds_list_create()
+			ds_list_add(wildPokemonList, wildPkmn)
 
-		talking = false
-		canWalk = false
-		battle = true
-		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
-		battleObj.enemyTeam = wildPokemonList
-		battleObj.enemySprite = GetSprite(wildPkmn)
-		battleObj.enemyName = GetName(wildPkmn)
-		battleObj.isWild = true
-		battleObj.playerX = x
-		battleObj.playerY = y
-		battleObj.playerRoom = room
+			talking = false
+			canWalk = false
+			battle = true
+			var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+			battleObj.enemyTeam = wildPokemonList
+			battleObj.enemySprite = GetSprite(wildPkmn)
+			battleObj.enemyName = GetName(wildPkmn)
+			battleObj.isWild = true
+			battleObj.playerX = x
+			battleObj.playerY = y
+			battleObj.playerRoom = room
+		}
+		fogTimer = 30
 	}
-	fogTimer = 30
 }
 
 if (grassTimer > -1) grassTimer--
