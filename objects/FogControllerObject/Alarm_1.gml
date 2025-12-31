@@ -1,9 +1,9 @@
-if (instance_number(FogObject) < 2000)
+if (instance_number(FogObject) < 8000)
 {
 	repeat (spawnAmount) 
 	{
-		instance_create_layer(x+random_range(-spawnRange,spawnRange), 
-		y+random_range(-spawnRange,spawnRange), "Instances", FogObject)
+		instance_create_layer(x+random_range(-spawnRange+spawnOffset,spawnRange+spawnOffset), 
+		y+random_range(-spawnRange+spawnOffset,spawnRange+spawnOffset), "Instances", FogObject)
 	}
 }
-alarm[0] = spawnTime
+alarm[1] = spawnTime

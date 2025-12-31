@@ -2,13 +2,13 @@ if (spawnRangeDirection > 0)
 {
 	if (spawnRangeIncrement < 2) spawnRangeIncrement += 0.05
 	
-	spawnRange += spawnRangeIncrement
-	if (spawnRange > 300) spawnRangeDirection *= -1
+	spawnOffset += spawnRangeIncrement
+	if (spawnOffset > 100) spawnRangeDirection *= -1
 }
 else
 {
 	if (spawnRangeIncrement > -2) spawnRangeIncrement -= 0.05
 	
-	spawnRange += spawnRangeIncrement
-	if (spawnRange < 200) spawnRangeDirection *= -1
+	spawnOffset += spawnRangeIncrement
+	if (spawnOffset <= 0) spawnRangeDirection *= -1
 }

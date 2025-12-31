@@ -50,6 +50,7 @@ if (fade)
 			if (instance_exists(player))
 			{
 				player.busy = false
+				player.canWalk = true
 				player.sprite_index = PlayerIdleDownSprite
 			}
 

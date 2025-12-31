@@ -326,6 +326,7 @@
     {"id":{"name":"ShadowPathGym","path":"rooms/ShadowPathGym/ShadowPathGym.yy",},},
     {"id":{"name":"ShadowPokecenter","path":"rooms/ShadowPokecenter/ShadowPokecenter.yy",},},
     {"id":{"name":"ShadowTower","path":"rooms/ShadowTower/ShadowTower.yy",},},
+    {"id":{"name":"TestPath","path":"rooms/TestPath/TestPath.yy",},},
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"id":{"name":"TestRoom2","path":"rooms/TestRoom2/TestRoom2.yy",},},
     {"id":{"name":"TestTiltedRoom","path":"rooms/TestTiltedRoom/TestTiltedRoom.yy",},},
@@ -749,6 +750,7 @@
     {"roomId":{"name":"FourthFloor","path":"rooms/FourthFloor/FourthFloor.yy",},},
     {"roomId":{"name":"FifthFloor","path":"rooms/FifthFloor/FifthFloor.yy",},},
     {"roomId":{"name":"NebogipfelsStudy","path":"rooms/NebogipfelsStudy/NebogipfelsStudy.yy",},},
+    {"roomId":{"name":"TestPath","path":"rooms/TestPath/TestPath.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
