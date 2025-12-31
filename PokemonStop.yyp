@@ -111,7 +111,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.1.210",
   },
   "name":"PokemonStop",
   "resources":[
@@ -212,6 +212,7 @@
     {"id":{"name":"MusicObject","path":"objects/MusicObject/MusicObject.yy",},},
     {"id":{"name":"MutantTowerObject","path":"objects/MutantTowerObject/MutantTowerObject.yy",},},
     {"id":{"name":"Nebogipfel","path":"objects/Nebogipfel/Nebogipfel.yy",},},
+    {"id":{"name":"NextRoomObect","path":"objects/NextRoomObect/NextRoomObect.yy",},},
     {"id":{"name":"NPCParent","path":"objects/NPCParent/NPCParent.yy",},},
     {"id":{"name":"NurseJoy_SHADOW","path":"objects/NurseJoy_SHADOW/NurseJoy_SHADOW.yy",},},
     {"id":{"name":"NurseJoy","path":"objects/NurseJoy/NurseJoy.yy",},},
@@ -244,6 +245,7 @@
     {"id":{"name":"PokemonCenterTable","path":"objects/PokemonCenterTable/PokemonCenterTable.yy",},},
     {"id":{"name":"PokemonMenuObject","path":"objects/PokemonMenuObject/PokemonMenuObject.yy",},},
     {"id":{"name":"PokemonMenuOptionsObject","path":"objects/PokemonMenuOptionsObject/PokemonMenuOptionsObject.yy",},},
+    {"id":{"name":"PressKeyToContinueText","path":"objects/PressKeyToContinueText/PressKeyToContinueText.yy",},},
     {"id":{"name":"RegionCenterWoman1","path":"objects/RegionCenterWoman1/RegionCenterWoman1.yy",},},
     {"id":{"name":"RegionDude1","path":"objects/RegionDude1/RegionDude1.yy",},},
     {"id":{"name":"RestaurantText","path":"objects/RestaurantText/RestaurantText.yy",},},
@@ -336,6 +338,7 @@
     {"id":{"name":"RoomUI","path":"roomui/RoomUI/RoomUI.yy",},},
     {"id":{"name":"BattleFunctions","path":"scripts/BattleFunctions/BattleFunctions.yy",},},
     {"id":{"name":"DataFunctions","path":"scripts/DataFunctions/DataFunctions.yy",},},
+    {"id":{"name":"GinkgoIntro_Events9","path":"scripts/GinkgoIntro_Events9/GinkgoIntro_Events9.yy",},},
     {"id":{"name":"InventoryFunctions","path":"scripts/InventoryFunctions/InventoryFunctions.yy",},},
     {"id":{"name":"MerchantFunctions","path":"scripts/MerchantFunctions/MerchantFunctions.yy",},},
     {"id":{"name":"NPCFunctions","path":"scripts/NPCFunctions/NPCFunctions.yy",},},
