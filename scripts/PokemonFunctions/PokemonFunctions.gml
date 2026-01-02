@@ -645,7 +645,7 @@ function CanEvolve(team, index) {
             // Voracious eater, moderate overall
             break;
 
-        case "Ghost (Pac-Man)":
+        case "Pac-Ghost":
             // Hunts in packs, intangible
             break;
 
@@ -964,7 +964,7 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 60, 70, 45, 25, 45, 70);
             break;
 
-        case "Ghost (Pac-Man)":
+        case "Pac-Ghost":
             // Hunts in packs, intangible
             ds_list_add(statList, 35, 40, 25, 65, 70, 60);
             break;

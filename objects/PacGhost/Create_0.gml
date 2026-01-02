@@ -1,3 +1,6 @@
+
+event_inherited()
+
 // how far each side of the square is
 segment_length = 64;
 

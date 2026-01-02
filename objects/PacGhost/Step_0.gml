@@ -1,3 +1,5 @@
+event_inherited()
+
 // ===== PacGhost STEP =====
 
 // Move toward the current target
