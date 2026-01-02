@@ -509,9 +509,8 @@ function GetRoomMusic()
 		case SecondFloor:
 		case ThirdFloor:
 		case FourthFloor:
-			return OuterRingOfAtlantis
 		case FifthFloor:
-			return noone
+			return HyruleCastleRevision
 		default:
 			return SacredBeasts
 	}
