@@ -1,2 +1,2 @@
 
-SetWarpDefaults("GreedShopTOPToShadow", "Right", true)
+SetWarpDefaults("GreedShopTOPToShadow", "Right", false)
