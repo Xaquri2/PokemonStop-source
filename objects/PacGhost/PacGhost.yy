@@ -12,7 +12,10 @@
     "name":"Pokemon",
     "path":"folders/Objects/Pokemon.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"RoamingPokemonParent",
+    "path":"objects/RoamingPokemonParent/RoamingPokemonParent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

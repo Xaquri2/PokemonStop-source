@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"Boo",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"Boo",
   "overriddenProperties":[],
@@ -10,8 +12,8 @@
     "path":"folders/Objects/Pokemon.yy",
   },
   "parentObjectId":{
-    "name":"RoamingNPCParent",
-    "path":"objects/RoamingNPCParent/RoamingNPCParent.yy",
+    "name":"RoamingPokemonParent",
+    "path":"objects/RoamingPokemonParent/RoamingPokemonParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
