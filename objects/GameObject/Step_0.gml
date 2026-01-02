@@ -69,7 +69,14 @@ else
 }
 
 var battle = instance_find(BattleObject, 0)
-if (room == RoomBattle and !audio_is_playing(GetBattleTheme(battle.enemyName)) and !audio_is_playing(WildBattleThemeNO_INTRO))
+var targetBattleTheme = GetBattleTheme(battle.enemyName)
+if (room == RoomBattle and !audio_is_playing(targetBattleTheme) and 
+(targetBattleTheme == WildBattleTheme or targetBattleTheme == WildBattleThemeNO_INTRO) and 
+!audio_is_playing(WildBattleThemeNO_INTRO))
 {
 	audio_play_sound(WildBattleThemeNO_INTRO, 1, false)
+}
+else if (room == RoomBattle and !audio_is_playing(targetBattleTheme))
+{
+	audio_play_sound(targetBattleTheme, 1, false)
 }
