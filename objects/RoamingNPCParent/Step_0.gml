@@ -42,4 +42,15 @@ if (speed != 0)
 		if (hspeed > 0) image_xscale = 1
 		else image_xscale = -1
 	}
+	
+	if (collision_rectangle(bbox_left+hspeed,bbox_top+vspeed,bbox_right+hspeed,bbox_bottom+vspeed,CollisionParent,false,true))
+	{
+		state = "Idle"
+		walkCoords = []
+
+		speed = 0
+		image_xscale = 1
+		sprite_index = idleSprite
+		alarm[0] = random_range(60*3, 60*6)
+	}
 }
