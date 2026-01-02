@@ -111,7 +111,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.1.210",
+    "IDEVersion":"2024.14.2.213",
   },
   "name":"PokemonStop",
   "resources":[
@@ -353,6 +353,7 @@
     {"id":{"name":"Ding2","path":"sounds/Ding2/Ding2.yy",},},
     {"id":{"name":"DoorOpen","path":"sounds/DoorOpen/DoorOpen.yy",},},
     {"id":{"name":"HealPokemonJingle","path":"sounds/HealPokemonJingle/HealPokemonJingle.yy",},},
+    {"id":{"name":"HyruleCastleRevision","path":"sounds/HyruleCastleRevision/HyruleCastleRevision.yy",},},
     {"id":{"name":"MalletTownMusic","path":"sounds/MalletTownMusic/MalletTownMusic.yy",},},
     {"id":{"name":"MP3_Fireball_Travel_2","path":"sounds/MP3_Fireball_Travel_2/MP3_Fireball_Travel_2.yy",},},
     {"id":{"name":"MP3_Lightning_Arc_2","path":"sounds/MP3_Lightning_Arc_2/MP3_Lightning_Arc_2.yy",},},
