@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"GashMomSprite",
-    "path":"sprites/GashMomSprite/GashMomSprite.yy",
+    "name":"MaryMomSprite",
+    "path":"sprites/MaryMomSprite/MaryMomSprite.yy",
   },
   "spriteMaskId":null,
   "visible":true,

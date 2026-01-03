@@ -308,6 +308,7 @@
     {"id":{"name":"Mallet_East","path":"rooms/Mallet_East/Mallet_East.yy",},},
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
     {"id":{"name":"MalletMuseum","path":"rooms/MalletMuseum/MalletMuseum.yy",},},
+    {"id":{"name":"MaryHouse","path":"rooms/MaryHouse/MaryHouse.yy",},},
     {"id":{"name":"MorlockCity","path":"rooms/MorlockCity/MorlockCity.yy",},},
     {"id":{"name":"MorlockCity2","path":"rooms/MorlockCity2/MorlockCity2.yy",},},
     {"id":{"name":"MorlockCity3","path":"rooms/MorlockCity3/MorlockCity3.yy",},},
@@ -506,6 +507,7 @@
     {"id":{"name":"MalphoidArmSprite","path":"sprites/MalphoidArmSprite/MalphoidArmSprite.yy",},},
     {"id":{"name":"MangaMalletSprite","path":"sprites/MangaMalletSprite/MangaMalletSprite.yy",},},
     {"id":{"name":"MarioMallet","path":"sprites/MarioMallet/MarioMallet.yy",},},
+    {"id":{"name":"MaryMomSprite","path":"sprites/MaryMomSprite/MaryMomSprite.yy",},},
     {"id":{"name":"MaryWalkDownSprite","path":"sprites/MaryWalkDownSprite/MaryWalkDownSprite.yy",},},
     {"id":{"name":"MaryWalkRightSprite","path":"sprites/MaryWalkRightSprite/MaryWalkRightSprite.yy",},},
     {"id":{"name":"MaryWalkUpSprite","path":"sprites/MaryWalkUpSprite/MaryWalkUpSprite.yy",},},
@@ -759,6 +761,7 @@
     {"roomId":{"name":"FifthFloor","path":"rooms/FifthFloor/FifthFloor.yy",},},
     {"roomId":{"name":"NebogipfelsStudy","path":"rooms/NebogipfelsStudy/NebogipfelsStudy.yy",},},
     {"roomId":{"name":"TestPath","path":"rooms/TestPath/TestPath.yy",},},
+    {"roomId":{"name":"MaryHouse","path":"rooms/MaryHouse/MaryHouse.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
