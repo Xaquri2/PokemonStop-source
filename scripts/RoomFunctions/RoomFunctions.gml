@@ -432,13 +432,6 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = NebogipfelsStudy
 			targetWarp = "NebogipfelExit"
 			break
-		case "MaryToMallet":
-			targetRoom = Mallet_Town
-			targetWarp = "MalletHouse1ToTest"
-			break
-
-
-
 
 
 
