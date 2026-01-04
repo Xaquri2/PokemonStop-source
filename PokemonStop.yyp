@@ -193,6 +193,7 @@
     {"id":{"name":"MalletStatue","path":"objects/MalletStatue/MalletStatue.yy",},},
     {"id":{"name":"MangaPoster","path":"objects/MangaPoster/MangaPoster.yy",},},
     {"id":{"name":"Mary","path":"objects/Mary/Mary.yy",},},
+    {"id":{"name":"MarysMom","path":"objects/MarysMom/MarysMom.yy",},},
     {"id":{"name":"MenuObject","path":"objects/MenuObject/MenuObject.yy",},},
     {"id":{"name":"MerchantMenuObject","path":"objects/MerchantMenuObject/MerchantMenuObject.yy",},},
     {"id":{"name":"MetalGrate","path":"objects/MetalGrate/MetalGrate.yy",},},
