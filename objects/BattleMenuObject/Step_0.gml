@@ -616,6 +616,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (pSpeedStat > eSpeedStat or pPriority > ePriority)
 			{
 				//Player Move
+				var awake = true
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
 				battleText.playerMoveName = moveName
@@ -651,7 +652,6 @@ if (keyboard_check_pressed(vk_enter))
 				}
 				else
 				{
-					var awake = true
 					if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
 
 					if (!awake)
@@ -689,9 +689,10 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				if (GetHealth(battle.enemyPkmn) > damage)
+				if (GetHealth(battle.enemyPkmn) > damage or (!awake or !paralysisCheck))
 				{
 					//Enemy Move
+					awake = true
 					moveName = enemyMoveName
 					moveEff = GetMoveEffect(moveName)
 					damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
@@ -730,7 +731,6 @@ if (keyboard_check_pressed(vk_enter))
 					}
 					else
 					{
-						var awake = true
 						if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
 						if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
 
@@ -777,6 +777,7 @@ if (keyboard_check_pressed(vk_enter))
 			}
 			else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
 			{
+				var awake = true
 				moveName = enemyMoveName
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
@@ -811,7 +812,6 @@ if (keyboard_check_pressed(vk_enter))
 				}
 				else
 				{
-					var awake = true
 					if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
 
 					if (!awake)
@@ -845,9 +845,10 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				if (GetHealth(battle.playerPkmn) > damage)
+				if (GetHealth(battle.playerPkmn) > damage or (!awake or !paralysisCheck))
 				{
 					//Player Move
+					awake = true
 					moveName = playerMoveName
 					moveEff = GetMoveEffect(moveName)
 					damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
@@ -887,7 +888,6 @@ if (keyboard_check_pressed(vk_enter))
 					}
 					else
 					{
-						var awake = true
 						if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
 						if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
 
