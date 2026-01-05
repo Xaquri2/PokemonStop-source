@@ -1,5 +1,5 @@
 if (canWalk)
 {
 	state = "Walk"
-	walkCoords = GetWalkingCoords()
+	walkCoords = GetWalkingCoords(walkRange)
 }

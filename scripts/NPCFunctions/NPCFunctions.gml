@@ -1,4 +1,4 @@
-function GetWalkingCoords()
+function GetWalkingCoords(walkRange)
 {
 	var checkX1 = -1
 	var checkX2 = -1
@@ -7,7 +7,7 @@ function GetWalkingCoords()
 
 	while (checkX1 == -1)
 	{
-		var attempt = [random_range(x-50,x+50), random_range(y-50, y+50)]
+		var attempt = [random_range(x-walkRange,x+walkRange), random_range(y-walkRange, y+walkRange)]
 		if (attempt[1] > y)
 		{
 			checkY1 = bbox_top

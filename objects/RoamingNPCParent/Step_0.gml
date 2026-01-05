@@ -14,7 +14,7 @@ if (state == "Walk")
 	{
 		if (point_distance(x, y, walkCoords[0], walkCoords[1]) > 10)
 		{
-			move_towards_point(walkCoords[0], walkCoords[1], 1)
+			move_towards_point(walkCoords[0], walkCoords[1], walkSpeed)
 		}
 		else
 		{
@@ -24,7 +24,7 @@ if (state == "Walk")
 			speed = 0
 			image_xscale = 1
 			sprite_index = idleSprite
-			alarm[0] = random_range(60*3, 60*6)
+			alarm[0] = random_range(60*minWalkTimerValue, 60*maxWalkTimerValue)
 		}
 	}
 }
