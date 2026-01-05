@@ -356,6 +356,7 @@
     {"id":{"name":"RoomFunctions","path":"scripts/RoomFunctions/RoomFunctions.yy",},},
     {"id":{"name":"UsefulFunctions","path":"scripts/UsefulFunctions/UsefulFunctions.yy",},},
     {"id":{"name":"GinkgoIntro","path":"sequences/GinkgoIntro/GinkgoIntro.yy",},},
+    {"id":{"name":"seq_menu_1","path":"sequences/seq_menu_1/seq_menu_1.yy",},},
     {"id":{"name":"seq_menu","path":"sequences/seq_menu/seq_menu.yy",},},
     {"id":{"name":"Shader1","path":"shaders/Shader1/Shader1.yy",},},
     {"id":{"name":"shd_test","path":"shaders/shd_test/shd_test.yy",},},
