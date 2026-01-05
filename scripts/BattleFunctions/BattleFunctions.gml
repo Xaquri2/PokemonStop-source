@@ -996,6 +996,7 @@ function GetTrainerTeam(trainerName)
 
 		case "Mary":
 			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+			break
 	//Route Minus One BOTTOM
 
 		case "Hat Kid":
@@ -1053,10 +1054,12 @@ function GetTrainerTeam(trainerName)
 			
 			
 	//Mountain Peak 
-		
-			
 		case "Gym Leader Test":
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			
+			
+	//Dark Tower
+		
 	}
 	return team
 }

@@ -31,7 +31,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"TrainerKiddFunkadelicSprite",
     "path":"sprites/TrainerKiddFunkadelicSprite/TrainerKiddFunkadelicSprite.yy",
