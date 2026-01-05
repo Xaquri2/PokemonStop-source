@@ -99,7 +99,7 @@ if (canCollide)
 						var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 						battleObj.enemyTeam = trainerTeam
 						battleObj.enemySprite = trainerSprite
-						battleObj.enemyName = "Human"
+						battleObj.enemyName = GetName(ds_list_find_value(collidedTile.trainerTeam, 0))
 						battleObj.isWild = true
 						battleObj.playerX = other.x
 						battleObj.playerY = other.y
