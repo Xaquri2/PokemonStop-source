@@ -2,7 +2,7 @@
 event_inherited();
 
 event_inherited();
-name = "Team Rocket"
+//name = "Team Rocket"
 lineSightDir = "Right"
 lineSight = 64
 
