@@ -114,6 +114,7 @@
     {"link":"io.gamemaker.gm_filter_old_film-1.0.0","name":"io.gamemaker.gm_filter_old_film-1.0.0","path":"io.gamemaker.gm_filter_old_film-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_filter_contrast-1.0.0","name":"io.gamemaker.gm_filter_contrast-1.0.0","path":"io.gamemaker.gm_filter_contrast-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_filter_vignette-1.0.0","name":"io.gamemaker.gm_filter_vignette-1.0.0","path":"io.gamemaker.gm_filter_vignette-1.0.0.yyp",},
+    {"link":"io.gamemaker.gm_filter_pixelate-1.0.0","name":"io.gamemaker.gm_filter_pixelate-1.0.0","path":"io.gamemaker.gm_filter_pixelate-1.0.0.yyp",},
   ],
   "IncludedFiles":[],
   "isEcma":false,
