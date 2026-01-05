@@ -1119,7 +1119,7 @@ function GetTrainerTeam(trainerName)
 	        AddPokemonTrainer(team, 3, "MissingNo", 18, "Male", MissingNoIdleSprite)
 	        AddPokemonTrainer(team, 4, "Umbrian", 20, "Female", UmbrianOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Moltres", 22, "Female", MoltresOverworldSprite)
-
+fg 
 	    case "Team Rocket Harlow":
 	        AddPokemonTrainer(team, 1, "Squirrel", 18, "Female", SquirrelBattleSprite)
 	        AddPokemonTrainer(team, 2, "Tribble", 20, "Female", TribbleBattleSprite)
