@@ -1,0 +1,1 @@
+ds_list_add(textList, "There's a lot of leftovers packed neatly away in labled jars.","Some of the labels end in question marks.", "One reads, \"Meatloaf?\""  )

@@ -35,8 +35,8 @@ function SetWarpDefaults(name, spawnDir, show)
 
 		#region Mallet Town
 		case "MalletHouse1ToTest":
-			targetRoom = TestRoom
-			targetWarp = "TestToMalletHouse1"
+			targetRoom = MaryHouse
+			targetWarp = "MaryToMallet"
 			break
 		case "MalletHouse2ToTest":
 			targetRoom = GashHouse
@@ -194,6 +194,13 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "UpstairsToGash":
 			targetRoom = GashHouse
 			targetWarp = "GashToUpstair"
+			break
+		#endregion
+		
+		#region MaryHouse
+		case "MaryToMallet":
+			targetRoom = Mallet_Town
+			targetWarp = "MalletHouse1ToTest"
 			break
 		#endregion
 
@@ -425,7 +432,6 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = NebogipfelsStudy
 			targetWarp = "NebogipfelExit"
 			break
-
 
 
 
