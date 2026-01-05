@@ -8,4 +8,5 @@ approach_time = 0.2; // seconds to reach the player
 
 // --- state ---
 chasing = false;
+roar_played = false; 
 

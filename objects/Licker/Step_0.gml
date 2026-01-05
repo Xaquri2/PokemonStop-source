@@ -22,6 +22,12 @@ if (chasing)
     var dir = point_direction(x, y, p.x, p.y);
     x += lengthdir_x(spd, dir);
     y += lengthdir_y(spd, dir);
+	
+	    if (!roar_played)
+    {
+        audio_play_sound(MP3_Bear_Roar_2, 1, false);
+        roar_played = true;
+    }
 
     // Optional: snap when super close (prevents tiny jitter)
     if (d <= spd)
