@@ -1290,6 +1290,7 @@ function LearnsMoveAt(name, level)
             if (level == 1)  return "Tackle";
             if (level == 4)  return "Thunder Shock";
             if (level == 8)  return "Self-Destruct";
+			if (level == 9)  return "Thunder Wave";
             if (level == 12) return "Explosion";
             break;
 
@@ -1297,7 +1298,9 @@ function LearnsMoveAt(name, level)
             if (level == 1)  return "Tackle";
             if (level == 4)  return "String Shot";
             if (level == 8)  return "Bug Bite";
+			if (level == 8)  return "Leech Life";
             if (level == 12) return "Confusion";
+			if (level == 16) return "Gust";
             break;
 
         case "Magnemite":
@@ -1312,6 +1315,7 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Gust";
             if (level == 8)  return "Psychic";
             if (level == 12) return "Play Rough";
+			if (level == 16) return "Shadow Ball";
             break;
 
         case "Charmander":
@@ -1319,16 +1323,17 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Ember";
             if (level == 8)  return "Fire Fang";
             if (level == 12) return "Slash";
+			if (level == 16) return "Giga Impact";
             break;
 
-        case "Charmeleon":
+        case "Charmandorian":
             if (level == 1)  return "Ember";
             if (level == 4)  return "Dragon Breath";
             if (level == 8)  return "Slash";
             if (level == 12) return "Fire Blast";
             break;
 
-        case "Charizard":
+        case "Charmandalorian":
             if (level == 1)  return "Wing Attack";
             if (level == 4)  return "Slash";
             if (level == 8)  return "Fire Blast";
@@ -1349,18 +1354,19 @@ function LearnsMoveAt(name, level)
             if (level == 12) return "Hydro Pump";
             break;
 
-        case "Blastoise":
-            if (level == 1)  return "Water Gun";
-            if (level == 4)  return "Bite";
-            if (level == 8)  return "Hydro Pump";
-            if (level == 12) return "Giga Impact";
-            break;
+      // case "Blastoise":
+      //     if (level == 1)  return "Water Gun";
+      //     if (level == 4)  return "Bite";
+      //     if (level == 8)  return "Hydro Pump";
+      //     if (level == 12) return "Giga Impact";
+      //     break;
 
         case "Snorlax":
             if (level == 1)  return "Tackle";
             if (level == 4)  return "Lick";
             if (level == 8)  return "Body Slam";
-            if (level == 12) return "Giga Impact";
+			if (level == 12) return "Crunch";
+            if (level == 15) return "Giga Impact";
             break;
 
         //--------------------------------
@@ -1377,7 +1383,8 @@ function LearnsMoveAt(name, level)
             if (level == 1)  return "Dynamic Punch";
             if (level == 5)  return "Bulldoze";
             if (level == 10) return "Rock Tomb";
-            if (level == 15) return "Storm Throw";
+            if (level == 13) return "Storm Throw";
+			if (level == 16) return "Giga Impact";
             break;
 
         case "Demogorgon":
@@ -1392,17 +1399,22 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Creeper":
-            if (level == 1)  return "Explosion";
+            if (level == 1)  return "Self-Destruct";
+            if (level == 8)  return "Explosion";
+            if (level == 16) return "Giga Impact";
             break;
 
         case "Ewok":
             if (level == 1)  return "Grassy Surge";
+			if (level == 4)  return "Vine Whip";
+            if (level == 8)  return "Set Trap";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Wicket's Reversal";
             break;
 
-        // Adding a few extra from fan Pokémon
         case "Xenomorph":
             if (level == 1)  return "Scratch";
-            if (level == 5)  return "Acid";
+            if (level == 5)  return "Acid Blood";
             if (level == 10) return "Bite";
             if (level == 15) return "Shadow Claw";
             break;
@@ -1424,6 +1436,222 @@ function LearnsMoveAt(name, level)
 		case "Human":
 			if (level == 1) return "Scratch"
 			break
+			
+        case "Fig":
+            if (level == 1)  return "Vine Whip";
+            if (level == 4)  return "Grassy Surge";
+            if (level == 8)  return "Leech Life";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Giga Impact";
+            break;
+			
+		case "Baby":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Bite";
+            if (level == 16) return "Giga Impact";
+            break;
+			
+		case "Zoombini":
+            if (level == 1)  return "Convince";
+            if (level == 4)  return "Logic";
+            if (level == 8)  return "Confusion";
+            if (level == 12) return "Psychic";
+            if (level == 16) return "Giga Impact";
+            break;
+			
+		   case "Woob-Wüb":
+            if (level == 1)  return "Lick";
+            if (level == 4)  return "Hypnosis";
+            if (level == 8)  return "Shadow Ball";
+            if (level == 12) return "Shadow Punch";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Envy":
+            if (level == 1)  return "Growl";
+            if (level == 4)  return "Bite";
+            if (level == 8)  return "Crunch";
+            if (level == 12) return "Shadow Ball";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Ninja Squirtle":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Water Gun";
+            if (level == 8)  return "Quick Attack";
+            if (level == 12) return "Bite";
+            if (level == 16) return "Crunch";
+            break;
+
+        case "Omega Squirtle":
+            if (level == 1)  return "Water Gun";
+            if (level == 4)  return "Withdraw";
+            if (level == 8)  return "Iron Defense";
+            if (level == 12) return "Ice Beam";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Charmandorian":
+            if (level == 1)  return "Ember";
+            if (level == 4)  return "Ice Beam";
+            if (level == 8)  return "Slash";
+            if (level == 12) return "Thunderbolt";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Charmandalorian":
+            if (level == 1)  return "Gust";
+            if (level == 4)  return "Slash";
+            if (level == 8)  return "Ember";
+            if (level == 12) return "Drill Peck";
+            if (level == 16) return "Giga Impact";
+            break;
+        case "Umbrian":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Bite";
+            if (level == 12) return "Crunch";
+            if (level == 16) return "Shadow Ball";
+            break;
+
+        case "Box Bot":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Thunder Shock";
+            if (level == 8)  return "Iron Defense";
+            if (level == 12) return "Thunderbolt";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Tutorial Bot":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Quick Attack";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Giga Impact";
+            break;
+			
+        case "BB-8":
+            if (level == 1)  return "Interface";
+            if (level == 4)  return "Thunder Shock";
+            if (level == 8)  return "Thunderbolt";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Quick Attack";
+            break;
+
+        case "Moosephant":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Bulldoze";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Rock Tomb";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "ZooChomper":
+            if (level == 1)  return "Bite";
+            if (level == 4)  return "Headbutt";
+            if (level == 8)  return "Crunch";
+            if (level == 12) return "Shadow Ball";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Silver Scorpion":
+            if (level == 1)  return "Poison Sting";
+            if (level == 4)  return "String Shot";
+            if (level == 8)  return "Bite";
+            if (level == 12) return "Acid Blood";
+            if (level == 16) return "Crunch";
+            break;
+
+        case "Tribble":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Bite";
+            if (level == 16) return "Giga Impact";
+            break;
+			
+		case "Zergling":
+            if (level == 1)  return "Bite";
+            if (level == 4)  return "Leech Life";
+            if (level == 8)  return "Dual Strike";
+            if (level == 12) return "Crunch";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Morlock":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Bite";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Crunch";
+            break;
+			
+		case "Rancor":
+            if (level == 1)  return "Bite";
+            if (level == 4)  return "Headbutt";
+            if (level == 8)  return "Crunch";
+            if (level == 12) return "Bulldoze";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Porg":
+            if (level == 1)  return "Gust";
+            if (level == 4)  return "Quick Attack";
+            if (level == 8)  return "Drill Peck";
+            if (level == 12) return "Bite";
+            if (level == 16) return "Giga Impact";
+            break;
+		case "Caelian":
+            if (level == 1)  return "Play Rough";
+            if (level == 4)  return "Confusion";
+            if (level == 8)  return "Psychic";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "MissingNo":
+            if (level == 1)  return "Flux";
+            if (level == 8)  return "Shadow Ball";
+            if (level == 12) return "Psychic";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Articuno":
+            if (level == 1)  return "Gust";
+            if (level == 4)  return "Ice Beam";
+            if (level == 8)  return "Drill Peck";
+            if (level == 12) return "Psychic";
+            break;
+
+        case "Zapdos":
+            if (level == 1)  return "Thunder Shock";
+            if (level == 4)  return "Gust";
+            if (level == 8)  return "Thunderbolt";
+            if (level == 12) return "Drill Peck";
+            break;
+
+        case "Moltres":
+            if (level == 1)  return "Ember";
+            if (level == 4)  return "Gust";
+            if (level == 8)  return "Drill Peck";
+            if (level == 12) return "Crunch";
+            break;
+
+        case "Godzooky":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Bite";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Bulldoze";
+            break;
+
+        case "Godzilla":
+            if (level == 1)  return "Bite";
+            if (level == 4)  return "Bulldoze";
+            if (level == 8)  return "Crunch";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Giga Impact";
+            break;
 
 		default:
 			if (level == 1) return "Scratch"
@@ -1585,68 +1813,8 @@ function GetNameByNumber(num)
 {
 	switch (num)
 	{
-		case "001": return "Creeper"
-		case "002": return "Krypton Firefly"
-		case "004": return "Baby"
-		case "005": return "Zoombini"
-		case "006": return "Voltorb"
-		case "007": return "Caterpie"
-		case "008": return "Butterfree"
-		//case "009": return "Clefairy"
-		case "010": return "Woob-Wüb"
-		case "011": return "Pikachu"
-		case "012": return "Squirtle"
-		case "013": return "Charmander"
-		case "014": return "Snorlax"
-		case "003": return "Envy"
-		case "015": return "Ninja Squirtle"
-		case "016": return "Omega Squirtle"
-		case "017": return "Charmandorian"
-		case "018": return "Charmandalorian"
-		case "019": return "Ape-Ball"
-		case "020": return "Fig"
-		case "021": return "Umbrian"
-		//case "022": return "Baby"
-		case "023": return "Box Bot"
-		case "024": return "Tutorial Bot"
-		case "025": return "BB-8"
-		case "026": return "Moosephant"
-		case "027": return "ZooChomper"
-		case "028": return "Silver Scorpion"
-		case "029": return "Tribble"
-		case "030": return "Ewok"
-		case "031": return "Yodal"
-		case "032": return "Human"
-		case "033": return "Squirrel"
-		case "034": return "Goomba"
-		case "035": return "Koopa"
-		case "036": return "King Koopa"
-		case "037": return "Boo"
-		case "038": return "Yo’ster"
-		case "039": return "Tektite"
-		case "040": return "Pac-Man"
-		case "041": return "Pac-Ghost"
-		case "042": return "Enderman"
-		case "043": return "Pikmin"
-		//case "044": return "Zoombini"
-		case "045": return "Kirby"
-		case "046": return "Metroid"
-		case "047": return "Demo Dog"
-		case "048": return "Demogorgon"
-		case "049": return "Licker"
-		case "050": return "Andalite"
-		case "051": return "Xenomorph"
-		case "052": return "Zergling"
-		case "053": return "Morlock"
-		case "054": return "Rancor"
-		case "055": return "Porg"
-		case "056": return "Caelian"
-		case "057": return "MissingNo"
-		case "058": return "Articuno"
-		case "059": return "Zapdos"
-		case "060": return "Moltres"
-		case "061": return "Godzooky"
-		case "062": return "Godzilla"
+	
+	
 	}
 }
 
