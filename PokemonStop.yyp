@@ -652,6 +652,7 @@
     {"id":{"name":"TrainerBugCatcherWalkRightSprite","path":"sprites/TrainerBugCatcherWalkRightSprite/TrainerBugCatcherWalkRightSprite.yy",},},
     {"id":{"name":"TrainerGuyWalkDownSprite","path":"sprites/TrainerGuyWalkDownSprite/TrainerGuyWalkDownSprite.yy",},},
     {"id":{"name":"TrainerKiddFunkadelicSprite","path":"sprites/TrainerKiddFunkadelicSprite/TrainerKiddFunkadelicSprite.yy",},},
+    {"id":{"name":"TrainerKiddFunkadelicWalkDownSprite","path":"sprites/TrainerKiddFunkadelicWalkDownSprite/TrainerKiddFunkadelicWalkDownSprite.yy",},},
     {"id":{"name":"TrainerUltireonWalkUpSprite","path":"sprites/TrainerUltireonWalkUpSprite/TrainerUltireonWalkUpSprite.yy",},},
     {"id":{"name":"TrainerUltironIdleLaughSprite","path":"sprites/TrainerUltironIdleLaughSprite/TrainerUltironIdleLaughSprite.yy",},},
     {"id":{"name":"TrainerUltironWalkDownSprite","path":"sprites/TrainerUltironWalkDownSprite/TrainerUltironWalkDownSprite.yy",},},

@@ -1,0 +1,1 @@
+ds_list_add(postBattleTextList, "Have a nice day!")
