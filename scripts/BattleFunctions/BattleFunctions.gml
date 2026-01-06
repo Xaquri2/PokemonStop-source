@@ -1112,14 +1112,14 @@ function GetTrainerTeam(trainerName)
 	        AddPokemonTrainer(team, 2, "Koopa", 20, "Male", KoopaWalkRightSprite)
 	        AddPokemonTrainer(team, 3, "Yo’ster", 18, "Female", YoSterOverworldSprite)
 	        AddPokemonTrainer(team, 4, "Tektite", 20, "Female", TektiteIdleSprite)
-	        AddPokemonTrainer(team, 5, "King Koopa", 23, "Male", KingKoopaSprite)
+	        AddPokemonTrainer(team, 5, "King Koopa", 23, "Male", PikachuIdleSprite)
 	    case "Team Rocket Nyx":
 	        AddPokemonTrainer(team, 1, "Boo", 18, "Female", BooOverworldSprite)
 	        AddPokemonTrainer(team, 2, "Pac-Ghost", 20, "Female", PacGhostOverworldSprite)
 	        AddPokemonTrainer(team, 3, "MissingNo", 18, "Male", MissingNoIdleSprite)
 	        AddPokemonTrainer(team, 4, "Umbrian", 20, "Female", UmbrianOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Moltres", 22, "Female", MoltresOverworldSprite)
-fg 
+ 
 	    case "Team Rocket Harlow":
 	        AddPokemonTrainer(team, 1, "Squirrel", 18, "Female", SquirrelBattleSprite)
 	        AddPokemonTrainer(team, 2, "Tribble", 20, "Female", TribbleBattleSprite)
