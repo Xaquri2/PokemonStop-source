@@ -53,6 +53,13 @@ if (instance_exists(actionNPC))
 				actionNPC.alarm[2] = 20
 			}
 			break
+		case BadgeDoorObject:
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "...the badges begin to resonate!")
+			{
+				player.alarm[1] = -1
+				actionNPC.alarm[1] = 40
+			}
+			break
 	}
 }
 
