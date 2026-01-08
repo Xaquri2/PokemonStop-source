@@ -1492,21 +1492,6 @@ function LearnsMoveAt(name, level)
             if (level == 16) return "Giga Impact";
             break;
 
-        case "Charmandorian":
-            if (level == 1)  return "Ember";
-            if (level == 4)  return "Ice Beam";
-            if (level == 8)  return "Slash";
-            if (level == 12) return "Thunderbolt";
-            if (level == 16) return "Giga Impact";
-            break;
-
-        case "Charmandalorian":
-            if (level == 1)  return "Gust";
-            if (level == 4)  return "Slash";
-            if (level == 8)  return "Ember";
-            if (level == 12) return "Drill Peck";
-            if (level == 16) return "Giga Impact";
-            break;
         case "Umbrian":
             if (level == 1)  return "Tackle";
             if (level == 4)  return "Growl";
@@ -1606,13 +1591,6 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Confusion";
             if (level == 8)  return "Psychic";
             if (level == 12) return "Iron Defense";
-            if (level == 16) return "Giga Impact";
-            break;
-
-        case "MissingNo":
-            if (level == 1)  return "Flux";
-            if (level == 8)  return "Shadow Ball";
-            if (level == 12) return "Psychic";
             if (level == 16) return "Giga Impact";
             break;
 
@@ -1829,8 +1807,68 @@ function GetNameByNumber(num)
 {
 	switch (num)
 	{
-	
-	
+		case "001": return "Creeper"
+		case "002": return "Krypton Firefly"
+		case "004": return "Baby"
+		case "005": return "Zoombini"
+		case "006": return "Voltorb"
+		case "007": return "Caterpie"
+		case "008": return "Butterfree"
+		//case "009": return "Clefairy"
+		case "010": return "Woob-Wüb"
+		case "011": return "Pikachu"
+		case "012": return "Squirtle"
+		case "013": return "Charmander"
+		case "014": return "Snorlax"
+		case "003": return "Envy"
+		case "015": return "Ninja Squirtle"
+		case "016": return "Omega Squirtle"
+		case "017": return "Charmandorian"
+		case "018": return "Charmandalorian"
+		case "019": return "Ape-Ball"
+		case "020": return "Fig"
+		case "021": return "Umbrian"
+		//case "022": return "Baby"
+		case "023": return "Box Bot"
+		case "024": return "Tutorial Bot"
+		case "025": return "BB-8"
+		case "026": return "Moosephant"
+		case "027": return "ZooChomper"
+		case "028": return "Silver Scorpion"
+		case "029": return "Tribble"
+		case "030": return "Ewok"
+		case "031": return "Yodal"
+		case "032": return "Human"
+		case "033": return "Squirrel"
+		case "034": return "Goomba"
+		case "035": return "Koopa"
+		case "036": return "King Koopa"
+		case "037": return "Boo"
+		case "038": return "Yo’ster"
+		case "039": return "Tektite"
+		case "040": return "Pac-Man"
+		case "041": return "Pac-Ghost"
+		case "042": return "Enderman"
+		case "043": return "Pikmin"
+		//case "044": return "Zoombini"
+		case "045": return "Kirby"
+		case "046": return "Metroid"
+		case "047": return "Demo Dog"
+		case "048": return "Demogorgon"
+		case "049": return "Licker"
+		case "050": return "Andalite"
+		case "051": return "Xenomorph"
+		case "052": return "Zergling"
+		case "053": return "Morlock"
+		case "054": return "Rancor"
+		case "055": return "Porg"
+		case "056": return "Caelian"
+		case "057": return "MissingNo"
+		case "058": return "Articuno"
+		case "059": return "Zapdos"
+		case "060": return "Moltres"
+		case "061": return "Godzooky"
+		case "062": return "Godzilla"
 	}
 }
 

@@ -30,6 +30,7 @@ function SaveData()
 	var npcFlagsMatrix = ConvertMapToMatrix(global.npcFlags)
 	var collectedPokelootArray = ConvertListToArray(global.collectedPokeloot)
 	var flagsArray = ConvertListToArray(global.flags)
+	var activatedBadgesArray = ConvertListToArray(global.activatedBadges)
 	var inventoryArray = array_create(5)
 
 	for (var i = 0; i < ds_list_size(global.categoryItemList); i++)
@@ -70,6 +71,7 @@ function SaveData()
 		beatenTrainers: beatenTrainerArray,
 		npcFlags: npcFlagsMatrix,
 		flags: flagsArray,
+		activatedBadges: activatedBadgesArray,
 		collectedPokeloot: collectedPokelootArray,
 		latestSaveState: global.latestSaveState,
 		saveSlotTimestamp: timestampString,
@@ -159,6 +161,11 @@ function LoadData()
 		for (var i = 0; i < array_length(saveState.flags); i++)
 		{
 			ds_list_add(global.flags, saveState.flags[i])
+		}
+		
+		for (var i = 0; i < array_length(saveState.activatedBadges); i++)
+		{
+			ds_list_add(global.activatedBadges, saveState.activatedBadges[i])
 		}
 
 		for (var i = 0; i < array_length(saveState.npcFlags); i++)
@@ -251,7 +258,7 @@ function SaveStateAction(stateNumber, actionMode)
 		{
 			game.targetRoom = game.loadRoom
 		}
-		else game.targetRoom = ShadowTower
+		else game.targetRoom = Mallet_Town
 	}
 
 	GenerateTextPopup(x,bbox_top-10,text)

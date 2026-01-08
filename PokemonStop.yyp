@@ -130,6 +130,8 @@
     {"id":{"name":"AshPoster","path":"objects/AshPoster/AshPoster.yy",},},
     {"id":{"name":"AttackControllerObject","path":"objects/AttackControllerObject/AttackControllerObject.yy",},},
     {"id":{"name":"Baby","path":"objects/Baby/Baby.yy",},},
+    {"id":{"name":"BadgeDoorObject","path":"objects/BadgeDoorObject/BadgeDoorObject.yy",},},
+    {"id":{"name":"BadgeObject","path":"objects/BadgeObject/BadgeObject.yy",},},
     {"id":{"name":"BagMenuObject","path":"objects/BagMenuObject/BagMenuObject.yy",},},
     {"id":{"name":"Bars","path":"objects/Bars/Bars.yy",},},
     {"id":{"name":"BasicSign","path":"objects/BasicSign/BasicSign.yy",},},

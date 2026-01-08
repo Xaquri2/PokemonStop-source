@@ -103,6 +103,7 @@
     {"name":"inst_70E6889D","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
     {"name":"inst_24C77D7A","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
     {"name":"inst_C29A0DD","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
+    {"name":"inst_607C429B","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -110,6 +111,7 @@
     {"$GMRInstanceLayer":"","%Name":"UserInterface","depth":-350,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"UserInterface","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"DarkTower","depth":-250,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_535D903D","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_535D903D","objectId":{"name":"DarkTower","path":"objects/DarkTower/DarkTower.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5807624,"scaleY":1.3295194,"x":544.0,"y":-867.0,},
+        {"$GMRInstance":"v4","%Name":"inst_607C429B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_607C429B","objectId":{"name":"BadgeDoorObject","path":"objects/BadgeDoorObject/BadgeDoorObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":928.0,"y":224.0,},
       ],"layers":[],"name":"DarkTower","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Trees1_1","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_52B134C6","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_52B134C6","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"Tree2","path":"sprites/Tree2/Tree2.yy",},"x":311.0,"y":114.5,},
