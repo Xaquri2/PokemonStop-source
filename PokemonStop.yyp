@@ -92,10 +92,6 @@
     {"$GMFolder":"","%Name":"UI Elements","folderPath":"folders/Sprites/UI Elements.yy","name":"UI Elements","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"World Tilesets","folderPath":"folders/World Tilesets.yy","name":"World Tilesets","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/World Tilesets/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Pixel","folderPath":"folders/World Tilesets/Tile Sets/Pixel.yy","name":"Pixel","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Top","folderPath":"folders/World Tilesets/Tile Sets/Pixel/Top.yy","name":"Top","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[
     {"link":"io.gamemaker.gm_filter_ripples-1.0.0","name":"io.gamemaker.gm_filter_ripples-1.0.0","path":"io.gamemaker.gm_filter_ripples-1.0.0.yyp",},
@@ -727,7 +723,6 @@
     {"id":{"name":"TopDownHouseItems","path":"tilesets/TopDownHouseItems/TopDownHouseItems.yy",},},
     {"id":{"name":"TopDownRetroInterior","path":"tilesets/TopDownRetroInterior/TopDownRetroInterior.yy",},},
     {"id":{"name":"ts_floor","path":"tilesets/ts_floor/ts_floor.yy",},},
-    {"id":{"name":"ts_pixel_top_Neon_City","path":"tilesets/ts_pixel_top_Neon_City/ts_pixel_top_Neon_City.yy",},},
     {"id":{"name":"WallsTileset","path":"tilesets/WallsTileset/WallsTileset.yy",},},
     {"id":{"name":"WaterTileSet","path":"tilesets/WaterTileSet/WaterTileSet.yy",},},
     {"id":{"name":"WaterTilesetLarge","path":"tilesets/WaterTilesetLarge/WaterTilesetLarge.yy",},},
