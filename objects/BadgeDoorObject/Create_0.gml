@@ -29,6 +29,6 @@ if (ds_list_size(global.activatedBadges) != 3)
 }
 else
 {
-	var warp = instance_create_layer(x,y,layer,WarpObject)
+	var warp = instance_create_layer(x,y,"Instances",WarpObject)
 	with (warp) SetWarpDefaults("MinusOneToTower", "Down", false)
 }
