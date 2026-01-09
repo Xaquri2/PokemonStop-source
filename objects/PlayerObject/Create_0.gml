@@ -1,6 +1,6 @@
 game = instance_find(GameObject, 0)
 
-canEncounter = false
+canEncounter = true
 canWalk = true
 canCollide = true
 menuOpen = false

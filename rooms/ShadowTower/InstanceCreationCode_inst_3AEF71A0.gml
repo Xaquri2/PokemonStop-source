@@ -1,3 +1,8 @@
+// === BATTLE FLAG (auto) BEGIN ===
+battleFlag = "Umbrian_ShadowTower_inst_3AEF71A0";
+if (HasFlag(battleFlag)) instance_destroy();
+// === BATTLE FLAG (auto) END ===
+
 canWalk = true
 
 idleSprite = UmbrianOverworldSprite

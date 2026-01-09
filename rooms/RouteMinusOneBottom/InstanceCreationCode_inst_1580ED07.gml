@@ -1,3 +1,8 @@
+// === BATTLE FLAG (auto) BEGIN ===
+battleFlag = "Caterpie_RouteMinusOneBottom_inst_1580ED07";
+if (HasFlag(battleFlag)) instance_destroy();
+// === BATTLE FLAG (auto) END ===
+
 canWalk = true
 
 idleSprite = sprite_index

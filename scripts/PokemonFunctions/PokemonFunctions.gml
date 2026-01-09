@@ -1435,6 +1435,9 @@ function LearnsMoveAt(name, level)
 
 		case "Human":
 			if (level == 1) return "Scratch"
+			if (level == 4)  return "Growl";
+		    if (level == 8)  return "Headbutt";
+		    if (level == 12) return "Bite";
 			break
 			
         case "Fig":
@@ -1450,7 +1453,6 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Growl";
             if (level == 8)  return "Headbutt";
             if (level == 12) return "Bite";
-            if (level == 16) return "Giga Impact";
             break;
 			
 		case "Zoombini":
@@ -1458,7 +1460,6 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Logic";
             if (level == 8)  return "Confusion";
             if (level == 12) return "Psychic";
-            if (level == 16) return "Giga Impact";
             break;
 			
 		   case "Woob-Wüb":
@@ -1466,15 +1467,13 @@ function LearnsMoveAt(name, level)
             if (level == 4)  return "Hypnosis";
             if (level == 8)  return "Shadow Ball";
             if (level == 12) return "Shadow Punch";
-            if (level == 16) return "Giga Impact";
             break;
 
         case "Envy":
             if (level == 1)  return "Growl";
-            if (level == 4)  return "Bite";
+            if (level == 4)  return "Water Gun";
             if (level == 8)  return "Crunch";
             if (level == 12) return "Shadow Ball";
-            if (level == 16) return "Giga Impact";
             break;
 
         case "Ninja Squirtle":
@@ -1630,6 +1629,23 @@ function LearnsMoveAt(name, level)
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Giga Impact";
             break;
+			
+		case "Licker":
+            if (level == 1)  return "Lick";
+            if (level == 4)  return "Poison Sting";
+            if (level == 8)  return "Bite";
+            if (level == 12) return "Shadow Ball";
+            if (level == 16) return "Crunch";
+            break;
+			
+		case "Andalite":
+            if (level == 1)  return "Confusion";
+            if (level == 4)  return "Hypnosis";
+            if (level == 8)  return "Psychic";
+            if (level == 12) return "Force Lift";
+            if (level == 16) return "Giga Impact";
+            break;
+
 
 		default:
 			if (level == 1) return "Scratch"

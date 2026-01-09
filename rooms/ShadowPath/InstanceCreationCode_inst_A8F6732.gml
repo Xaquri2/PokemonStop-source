@@ -1,3 +1,8 @@
+// === BATTLE FLAG (auto) BEGIN ===
+battleFlag = "Yamask_ShadowPath_inst_A8F6732";
+if (HasFlag(battleFlag)) instance_destroy();
+// === BATTLE FLAG (auto) END ===
+
 canWalk = true
 
 idleSprite = YamaskFrontSprite
