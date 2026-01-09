@@ -258,7 +258,7 @@ function SaveStateAction(stateNumber, actionMode)
 		{
 			game.targetRoom = game.loadRoom
 		}
-		else game.targetRoom = Mallet_Town
+		else game.targetRoom = global.standardStartRoom
 	}
 
 	GenerateTextPopup(x,bbox_top-10,text)
