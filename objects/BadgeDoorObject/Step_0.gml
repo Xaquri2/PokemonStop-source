@@ -8,7 +8,7 @@ if (canFreePlayer)
 		player.alarm[1] = 1
 		canFreePlayer = false
 		
-		var warp = instance_create_layer(x,y,"Instances",WarpObject)
+		var warp = instance_create_layer(x,y+4,"Instances",WarpObject)
 		with (warp) SetWarpDefaults("MinusOneToTower", "Down", false)
 	}
 }
