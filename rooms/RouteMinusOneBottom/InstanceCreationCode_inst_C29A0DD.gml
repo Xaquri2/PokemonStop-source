@@ -1,1 +1,0 @@
-SetWarpDefaults("MinusOneToTower", "Down", false)

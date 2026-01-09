@@ -27,3 +27,8 @@ if (ds_list_size(global.activatedBadges) != 3)
 		ds_list_add(textList, "...but the door doesn't open.")
 	}
 }
+else
+{
+	var warp = instance_create_layer(x,y,layer,WarpObject)
+	with (warp) SetWarpDefaults("MinusOneToTower", "Down", false)
+}
