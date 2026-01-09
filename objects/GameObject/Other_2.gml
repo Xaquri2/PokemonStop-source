@@ -47,6 +47,6 @@ AddPokemon("Pikachu", 10, GetRandomGender(50))
 AddPokemon("Pikachu", 10, GetRandomGender(50))
 AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = FifthFloor
+global.standardStartRoom = FirstFloor
 global.activatedBadges = ds_list_create()
 ds_list_add(global.flags, "MutantBadge", "ShadowBadge", "RobotBadge")

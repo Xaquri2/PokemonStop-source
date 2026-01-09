@@ -1,7 +1,6 @@
 event_inherited()
-
-//name = "Team Rocket"
-lineSightDir = "Right"
+name = "Team Rocket"
+lineSightDir = "Down"
 lineSight = 64
 
 ds_list_add(textList, "We, Team Rocket, are Pokemon gangsters!")
