@@ -1,0 +1,1 @@
+SetWarpDefaults("TestToRobotCastle", "Up", true)

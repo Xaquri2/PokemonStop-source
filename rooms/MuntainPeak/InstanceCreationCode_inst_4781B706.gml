@@ -1,1 +1,1 @@
-SetWarpDefaults("PokeCenterEntrance", "Left", false)
+SetWarpDefaults("PokeCenterEntrance", "Right", false)
