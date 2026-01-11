@@ -7,6 +7,7 @@ function IsMerchant(name)
 		case "Orc Merchant 1": return true
 		case "Morlockcita": return true
 		case "Greed": return true
+		case "BoxBotMerchant": return true
 	}
 	return false
 }
@@ -27,8 +28,12 @@ function GetMerchantItems(name)
 			break
 		case "Greed":
 			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy")
+			break
 		case "Morlockcita":
 			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy")
+			break
+		case "BoxBotMerchant":
+			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy", "Great Ball", "Ultra Ball")
 			break
 	}
 	return itemList

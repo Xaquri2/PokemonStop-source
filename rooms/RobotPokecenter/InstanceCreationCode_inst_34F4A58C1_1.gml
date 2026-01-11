@@ -1,0 +1,1 @@
+SetWarpDefaults("RobotPokeCenterExit", "Up", false)
