@@ -1,1 +1,1 @@
-ds_list_add(textList, "This is the Mallet used in the Wood Hammer move by some Pokémon.", "They call it 'Wood Hammer' but it's clearly a mallet, right??", "I mean, come on now.", "Anyway, brave Pokémon have been using this noble MALLET since Gen IV.", "Erm, I mean, they've been using it FOR GENERATIONS! Heh heh...")
+ds_list_add(textList,"Putting this sign here because I can no longer speak in this form.", "This is still my house.","Even though I no longer have a corporeal body...","I'm still a person.","Go away!")

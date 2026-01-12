@@ -530,10 +530,12 @@ function GetRoomMusic()
 		case GashUpstairs: return SacredBeasts
 		case ShadowPath: return OathToOrder
 		case ShadowTower: return OathToOrder
+		case EmptyHouse: return ShadowPathAmbiance
 		case ShadowPathGym: return PokeGymLofi
 		case RobotPath: 
 		case MuntainPeak:
 			return ZoovacTutorialBotMusic
+		case RobotGym: return WeaponsFactoryTheme
 		case Mallet_Town:
 		case Waterfront:
 		case Mallet_East:
@@ -566,7 +568,7 @@ function GetAreaEncounters(encounterType)
 			ds_list_add(encounters, "Pikmin","Charmander","Pikachu","Squirtle","Bulbasaur")
 			break
 		case MutantPath1:
-			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demogorgon","Ewok")
+			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demo Dog","Demogorgon","Ewok","Koopa")
 			break
 		case ShadowPath:
 			if (encounterType == "Fog") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
