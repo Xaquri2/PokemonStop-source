@@ -10,4 +10,4 @@ walkRightSprite = sprite_index
 
 canWalk = false
 
-AddPokemonTrainer(trainerTeam, 1, "Tektite", floor(random_range(8,15)), GetRandomGender(50), TektiteIdleSprite)
+AddPokemonTrainer(trainerTeam, 1, "Metroid", floor(random_range(8,15)), GetRandomGender(50), MetroidOverworldSprite)

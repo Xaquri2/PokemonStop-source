@@ -432,6 +432,34 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = NebogipfelsStudy
 			targetWarp = "NebogipfelExit"
 			break
+		case "PokeCenterEntrance":
+			targetRoom = RobotPokecenter
+			targetWarp = "RobotPokeCenterExit"
+			break
+
+		case "RobotPokeCenterExit":
+			targetRoom = MuntainPeak
+			targetWarp = "PokeCenterEntrance"
+			break
+		case "MountainToRobotMart":
+			targetRoom = RobotMart
+			targetWarp = "MartExit"
+			break
+
+		case "MartExit":
+			targetRoom = MuntainPeak
+			targetWarp = "MountainToRobotMart"
+			break
+		case "TestToRobotCastle":
+			targetRoom = MuntainPeak
+			targetWarp = "MountainToRobotMart"
+			break
+
+
+
+
+
+
 
 
 
