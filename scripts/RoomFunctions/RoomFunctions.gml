@@ -529,6 +529,7 @@ function GetRoomMusic()
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
 		case ShadowPath: return OathToOrder
+		case ShadowPokecenter: return PokeGymLofi
 		case ShadowTower: return OathToOrder
 		case EmptyHouse: return ShadowPathAmbiance
 		case ShadowPathGym: return PokeGymLofi

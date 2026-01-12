@@ -489,6 +489,7 @@
     {"id":{"name":"GoldRush2","path":"sprites/GoldRush2/GoldRush2.yy",},},
     {"id":{"name":"GoombaOverworldSprite","path":"sprites/GoombaOverworldSprite/GoombaOverworldSprite.yy",},},
     {"id":{"name":"GorbertronSprite","path":"sprites/GorbertronSprite/GorbertronSprite.yy",},},
+    {"id":{"name":"GreedSprite","path":"sprites/GreedSprite/GreedSprite.yy",},},
     {"id":{"name":"GreenBubbleBattleSprite","path":"sprites/GreenBubbleBattleSprite/GreenBubbleBattleSprite.yy",},},
     {"id":{"name":"GreenBubbleOverworldSprite","path":"sprites/GreenBubbleOverworldSprite/GreenBubbleOverworldSprite.yy",},},
     {"id":{"name":"GreenCross","path":"sprites/GreenCross/GreenCross.yy",},},
