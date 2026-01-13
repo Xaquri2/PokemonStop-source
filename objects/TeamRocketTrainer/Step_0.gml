@@ -1,17 +1,34 @@
 if (!triggered)
 {
-	if (moveDir > 0)
+	if (moveType == "Vertical")
 	{
-		vspeed = 1
-		lineSightDir = "Down"
+		if (moveDir > 0)
+		{
+			vspeed = 1
+			lineSightDir = "Down"
+		}
+		else
+		{
+			vspeed = -1
+			lineSightDir = "Up"
+
+		}
 	}
-	else
+	else if (moveType == "Horizontal")
 	{
-		vspeed = -1
-		lineSightDir = "Up"
+		if (moveDir > 0)
+		{
+			hspeed = 1
+			lineSightDir = "Right"
+		}
+		else
+		{
+			hspeed = -1
+			lineSightDir = "Left"
 
+		}
 	}
-
+	
 	if (collision_rectangle(bbox_left,bbox_top+vspeed,bbox_right,bbox_bottom+vspeed,CollisionObject,false,true) != noone)
 	{
 		moveDir *= -1

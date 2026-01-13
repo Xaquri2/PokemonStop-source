@@ -1,5 +1,6 @@
 event_inherited()
 name = "Team Rocket"
+moveType = "Vertical"
 lineSightDir = "Down"
 lineSight = 64
 
