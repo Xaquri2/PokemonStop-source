@@ -455,14 +455,6 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "MountainToRobotMart"
 			break
 
-
-
-
-
-
-
-
-
 	}
 
 	warpName = name
