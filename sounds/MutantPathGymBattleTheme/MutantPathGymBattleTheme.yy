@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":138.66667,
+  "duration":140.45927,
   "exportDir":"",
   "name":"MutantPathGymBattleTheme",
   "parent":{
