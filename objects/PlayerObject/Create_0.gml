@@ -29,3 +29,6 @@ follower = noone
 
 fogTeleportRange = 32*5
 fogTeleportTime = 60*3
+
+torch = true
+torchRange = 32*5

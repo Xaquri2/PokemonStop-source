@@ -12,3 +12,4 @@ minWalkTimerValue = 1 //Time between movements
 maxWalkTimerValue = 3 
 startTimerExtra = 0 //Time to start moving
 
+detectRange = 32*8
