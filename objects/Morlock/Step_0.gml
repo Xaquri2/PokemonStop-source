@@ -9,7 +9,3 @@ if (instance_exists(player) and point_distance(x,y,player.x,player.y) <= detectR
 		move_towards_point(player.x,player.y,-walkSpeed)
 	}
 }
-else 
-{
-	speed = 0
-}
