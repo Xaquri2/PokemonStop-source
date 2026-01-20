@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"CoinRotateSprite",
-    "path":"sprites/CoinRotateSprite/CoinRotateSprite.yy",
+    "name":"RobotBadgeROTATESprite",
+    "path":"sprites/RobotBadgeROTATESprite/RobotBadgeROTATESprite.yy",
   },
   "spriteMaskId":null,
   "visible":true,
