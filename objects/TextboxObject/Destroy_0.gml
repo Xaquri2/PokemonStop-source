@@ -26,6 +26,7 @@ if (instance_exists(actionNPC))
 					break
 			}
 			break
+		case Gorbertron:
 		case GymLeaderTest:
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?") //Mary's defeat dialogue
 			{
