@@ -76,4 +76,6 @@ else if (lineSightDir == "Right")
 
 trainerSprite = TeamRocketWalkDownSprite_1
 
+
+
 event_inherited();

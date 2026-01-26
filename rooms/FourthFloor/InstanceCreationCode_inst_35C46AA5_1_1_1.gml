@@ -8,3 +8,5 @@ ds_list_add(nameList, name, name, name)
 ds_list_add(iconList, sprite_index,sprite_index,sprite_index,)
 
 name = "Team Rocket Sable"
+moveType = "Horizontal"
+walkTime = 230;

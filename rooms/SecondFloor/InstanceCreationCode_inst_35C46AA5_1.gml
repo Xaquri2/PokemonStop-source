@@ -9,3 +9,4 @@ ds_list_add(iconList, sprite_index,sprite_index,sprite_index,)
 
 name = "Team Rocket Bonnie"
 moveType = "Horizontal"
+walkTime = 500
