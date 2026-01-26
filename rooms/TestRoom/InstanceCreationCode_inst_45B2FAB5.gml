@@ -1,0 +1,1 @@
+SetWarpDefaults("TestToDarkTower", "Right", true)

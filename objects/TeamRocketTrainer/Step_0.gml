@@ -57,4 +57,23 @@ if (!triggered)
 	}
 }
 
+if (lineSightDir == "Up") 
+{
+	sprite_index = TeamRocketWalkUpSprite;
+}
+else if (lineSightDir == "Down") 
+{
+	sprite_index = TeamRocketWalkDownSprite_1;
+}
+else if (lineSightDir == "Left")
+{
+	sprite_index = TeamRocketWalkLeftSprite;
+}
+else if (lineSightDir == "Right")
+{
+	sprite_index = TeamRocketWalkRightSprite;
+}
+
+trainerSprite = TeamRocketWalkDownSprite_1
+
 event_inherited();

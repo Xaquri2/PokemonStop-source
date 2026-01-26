@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"TeamRocketWalkDownSprite",
-    "path":"sprites/TeamRocketWalkDownSprite/TeamRocketWalkDownSprite.yy",
+    "name":"TeamRocketWalkUpSprite",
+    "path":"sprites/TeamRocketWalkUpSprite/TeamRocketWalkUpSprite.yy",
   },
   "spriteMaskId":null,
   "visible":true,

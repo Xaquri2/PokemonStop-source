@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
-  "%Name":"TeamRocketWalkDownSprite",
+  "%Name":"TeamRocketWalkLeftSprite",
   "bboxMode":0,
   "bbox_bottom":31,
-  "bbox_left":0,
-  "bbox_right":31,
+  "bbox_left":5,
+  "bbox_right":28,
   "bbox_top":2,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,17 +12,17 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"4c277b42-1c4a-4835-9938-29da99172fa6","name":"4c277b42-1c4a-4835-9938-29da99172fa6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"a430429e-472c-4e42-8089-3bbdc77df9cf","name":"a430429e-472c-4e42-8089-3bbdc77df9cf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"f1e0f5f8-9f08-44b4-a215-b183f4566fa4","name":"f1e0f5f8-9f08-44b4-a215-b183f4566fa4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"2af4065c-552a-4cde-8742-1a0d769bd7ce","name":"2af4065c-552a-4cde-8742-1a0d769bd7ce","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"36546a34-1943-409a-a48b-bcc9f81e3ac7","blendMode":0,"displayName":"default","isLocked":false,"name":"36546a34-1943-409a-a48b-bcc9f81e3ac7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"4f046792-d234-4ec3-a247-0853bfc6c8d7","blendMode":0,"displayName":"default","isLocked":false,"name":"4f046792-d234-4ec3-a247-0853bfc6c8d7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"TeamRocketWalkDownSprite",
+  "name":"TeamRocketWalkLeftSprite",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -34,7 +34,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"TeamRocketWalkDownSprite",
+    "%Name":"TeamRocketWalkLeftSprite",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -58,7 +58,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"TeamRocketWalkDownSprite",
+    "name":"TeamRocketWalkLeftSprite",
     "playback":1,
     "playbackSpeed":2.0,
     "playbackSpeedType":0,
@@ -70,11 +70,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4c277b42-1c4a-4835-9938-29da99172fa6","path":"sprites/TeamRocketWalkDownSprite/TeamRocketWalkDownSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"6394c91c-8922-4b60-b375-9ecec521095d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f1e0f5f8-9f08-44b4-a215-b183f4566fa4","path":"sprites/TeamRocketWalkLeftSprite/TeamRocketWalkLeftSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2a5f73c1-89a8-43f1-afdc-87ce22120c6f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a430429e-472c-4e42-8089-3bbdc77df9cf","path":"sprites/TeamRocketWalkDownSprite/TeamRocketWalkDownSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"fa930c81-3c1a-4094-a5e1-62c1fb3ba4e9","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2af4065c-552a-4cde-8742-1a0d769bd7ce","path":"sprites/TeamRocketWalkLeftSprite/TeamRocketWalkLeftSprite.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"9e31aa14-9ce7-41f1-aed2-29e4082ccae2","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

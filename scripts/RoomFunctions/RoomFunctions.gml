@@ -454,6 +454,12 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MuntainPeak
 			targetWarp = "MountainToRobotMart"
 			break
+		case "TestToDarkTower":
+			targetRoom = FirstFloor
+			targetWarp = "TowerExit"
+			break
+
+
 
 	}
 

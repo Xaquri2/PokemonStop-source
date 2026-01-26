@@ -4,7 +4,7 @@ moveType = "Vertical"
 lineSightDir = "Down"
 lineSight = 64
 
-ds_list_add(textList, "We, Team Rocket, are Pokemon gangsters!")
+ds_list_add(textList, "We, Team Rocket, are Pokémon gangsters!")
 ds_list_add(nameList, name)
 ds_list_add(iconList, sprite_index)
 
