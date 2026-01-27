@@ -29,6 +29,7 @@
     {"name":"inst_1E612CB3","path":"rooms/FifthFloor/FifthFloor.yy",},
     {"name":"inst_23C43578","path":"rooms/FifthFloor/FifthFloor.yy",},
     {"name":"inst_4FF14AA0","path":"rooms/FifthFloor/FifthFloor.yy",},
+    {"name":"inst_14FCEEF6","path":"rooms/FifthFloor/FifthFloor.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -62,6 +63,7 @@
         {"$GMRInstance":"v4","%Name":"inst_1E612CB3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1E612CB3","objectId":{"name":"Morlock","path":"objects/Morlock/Morlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":256.0,},
         {"$GMRInstance":"v4","%Name":"inst_23C43578","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_23C43578","objectId":{"name":"Morlock","path":"objects/Morlock/Morlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":640.0,"y":512.0,},
         {"$GMRInstance":"v4","%Name":"inst_4FF14AA0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4FF14AA0","objectId":{"name":"Morlock","path":"objects/Morlock/Morlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":224.0,"y":544.0,},
+        {"$GMRInstance":"v4","%Name":"inst_14FCEEF6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_14FCEEF6","objectId":{"name":"Zoovac","path":"objects/Zoovac/Zoovac.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":360.5,"y":368.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_445E69C4","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_445E69C4","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.8875,"scaleY":3.1249986,"spriteId":{"name":"BattleFloorSprite","path":"sprites/BattleFloorSprite/BattleFloorSprite.yy",},"x":362.5,"y":375.0,},
