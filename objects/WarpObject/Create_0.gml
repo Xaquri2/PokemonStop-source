@@ -7,6 +7,10 @@ warpName = ""
 spawnDirection = "Up"
 alarm[0] = 1
 
+play_cutscene = false;
+cutscene_sprite = noone;
+
+
 //SetWarpDefaults("MinusOneTopToBottom2", "Up", false)
 
 

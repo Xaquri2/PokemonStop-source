@@ -9,4 +9,4 @@ ds_list_add(iconList, TeamRocketWalkDownSprite_1,TeamRocketWalkDownSprite_1,Team
 
 name = "Team Rocket Gage"
 moveType = "Vertical"
-walkTime = 300;
+walkTime = 200;
