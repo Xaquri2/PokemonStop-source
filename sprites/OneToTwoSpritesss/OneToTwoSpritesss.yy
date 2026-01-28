@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"OneToTwoSpritesss",
   "bboxMode":0,
-  "bbox_bottom":915,
+  "bbox_bottom":457,
   "bbox_left":0,
-  "bbox_right":915,
+  "bbox_right":457,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -245,7 +245,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":916,
+  "height":458,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"c147c0c8-ddab-4286-8a70-ac1885986c7d","blendMode":0,"displayName":"default","isLocked":false,"name":"c147c0c8-ddab-4286-8a70-ac1885986c7d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -1002,5 +1002,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":916,
+  "width":458,
 }

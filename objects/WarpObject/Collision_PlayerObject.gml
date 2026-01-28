@@ -17,7 +17,7 @@ if (!game.warp)
 
 if (play_cutscene && !instance_exists(OneToTwoObject)) {
     var cs = instance_create_depth(0, 0, -100000, OneToTwoObject);
-    cs.sprite_index = OneToTwoSpritesss;
+    cs.sprite_index = cutscene_sprite;
     cs.image_index = 0;
     cs.image_speed = 1;
 }

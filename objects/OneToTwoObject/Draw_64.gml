@@ -8,3 +8,7 @@ draw_sprite_stretched(
     0, 0,
     gw, gh
 );
+
+
+//draw_set_color(c_red);
+//draw_text(10, 10, "CUTSCENE sprite=" + string(OneToTwoSpritesss) + " frame=" + string(floor(image_index)));
