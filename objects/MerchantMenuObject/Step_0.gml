@@ -10,8 +10,8 @@ and GetItemValue(ds_list_find_value(itemList, selectedItem)) <= global.money)
 	optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 	optionMenu.menu = id
 	optionMenu.question = "Would you like to buy this item?"
-	optionMenu.option1 = "Buy"
-	optionMenu.option2 = "Exit"
+	ds_list_add(optionMenu.optionList, "Buy")
+	ds_list_add(optionMenu.optionList, "Exit")
 	optionMenu.buying = true
 }
 

@@ -27,8 +27,8 @@ if (keyboard_check_pressed(vk_enter) and !hasSelected)
 		optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 		optionMenu.menu = id
 		optionMenu.question = "Would you like to use this item?"
-		optionMenu.option1 = "Use"
-		optionMenu.option2 = "Exit"
+		ds_list_add(optionMenu.optionList, "Use")
+		ds_list_add(optionMenu.optionList, "Exit")
 	}
 }
 

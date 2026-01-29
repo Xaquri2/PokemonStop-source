@@ -1,13 +1,12 @@
-if (keyboard_check_pressed(ord("W")) or keyboard_check_pressed(ord("S")))
+if (keyboard_check_pressed(ord("W")) or keyboard_check_pressed(vk_up))
 {
-	if (currentOption == 0) currentOption = 1
-	else if (currentOption == 1) currentOption = 0
+	currentOption--
+	if (currentOption < 0) currentOption = ds_list_size(optionList)-1
 }
-
-if (keyboard_check_pressed(vk_up)) or keyboard_check_pressed(vk_down)
+if (keyboard_check_pressed(ord("S")) or keyboard_check_pressed(vk_down))
 {
-	if (currentOption == 0) currentOption = 1
-	else if (currentOption == 1) currentOption = 0
+	currentOption++
+	if (currentOption >= ds_list_size(optionList)) currentOption = 0
 }
 
 if (keyboard_check_pressed(ord("D")) and buying and
@@ -56,7 +55,7 @@ if (keyboard_check_pressed(ord("E")))
 
 if (keyboard_check_pressed(vk_enter))
 {
-	if (option1 == "Buy" and currentOption == 0)
+	if (ds_list_find_value(optionList, currentOption) == "Buy")
 	{
 		var itemName = ds_list_find_value(menu.itemList, menu.selectedItem)
 		AddItem(itemName, buyQuantity)
@@ -66,7 +65,7 @@ if (keyboard_check_pressed(vk_enter))
 		global.money -= GetItemValue(buyItem)*buyQuantity
 	}
 
-	if (option1 == "Use" and currentOption == 0)
+	if (ds_list_find_value(optionList, currentOption) == "Use")
 	{
 		var itemInfo = GetItemInfo(menu.selectedCategory, menu.selectedItem)
 		var itemName = GetItemName(itemInfo)
@@ -339,7 +338,7 @@ if (keyboard_check_pressed(vk_enter))
 		}
 	}
 
-	if (option1 == "Switch" and currentOption == 0)
+	if (ds_list_find_value(optionList, currentOption) == "Switch")
 	{
 		if (currentOption == 0)
 		{
@@ -441,16 +440,19 @@ if (keyboard_check_pressed(vk_enter))
 		}
 	}
 
-	if (option1 == "Wake it up" and currentOption == 0)
+	if (ds_list_find_value(optionList, currentOption) == "Wake it up")
 	{
 		target.alarm[1] = 100
 		instance_destroy(id)
 	}
 
-	if ((option2 == "Exit" or option2 == "Leave") and currentOption == 1)
+	if (ds_list_find_value(optionList, currentOption) == "Exit" or ds_list_find_value(optionList, currentOption) == "Leave")
 	{
-		var player = instance_find(PlayerObject, 0)
-		player.alarm[1] = 1
+		if (menu.object_index != MerchantMenuObject)
+		{
+			var player = instance_find(PlayerObject, 0)
+			player.alarm[1] = 1
+		}
 		instance_destroy(id)
 	}
 
@@ -525,7 +527,7 @@ if (keyboard_check_pressed(vk_enter))
 
 	if (question == "Pick an option.")
 	{
-		if (option1 == "Get lost, loser!" and currentOption == 0)
+		if (ds_list_find_value(optionList, currentOption) == "Get lost, loser!")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -537,7 +539,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 
-		if (option2 == "Why don't you join me?" and currentOption == 1)
+		if (ds_list_find_value(optionList, currentOption) == "Why don't you join me?")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)

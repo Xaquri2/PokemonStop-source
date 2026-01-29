@@ -5,6 +5,8 @@ if (instance_exists(actionNPC))
 		var merchantMenu = instance_create_layer(x,y,"UserInterface",MerchantMenuObject)
 		merchantMenu.itemList = GetMerchantItems(actionNPC.name)
 		merchantMenu.player = instance_find(PlayerObject, 0)
+		player.talking = true
+		player.alarm[1] = -1
 	}
 
 	switch (actionNPC.object_index)
@@ -34,8 +36,8 @@ if (instance_exists(actionNPC))
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
 				optionMenu.referenceNPC = actionNPC
 				optionMenu.question = "Start the Gym Battle?"
-				optionMenu.option1 = "Yes"
-				optionMenu.option2 = "No"
+				ds_list_add(optionMenu.optionList, "Yes")
+				ds_list_add(optionMenu.optionList, "No")
 			}
 		case NurseJoy:
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come see me when your Pokémon are injured!")
@@ -44,8 +46,8 @@ if (instance_exists(actionNPC))
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
 				optionMenu.referenceNPC = actionNPC
 				optionMenu.question = "Heal Pokémon?"
-				optionMenu.option1 = "Yes"
-				optionMenu.option2 = "No"
+				ds_list_add(optionMenu.optionList, "Yes")
+				ds_list_add(optionMenu.optionList, "No")
 			}
 			else if (ds_list_find_value(textList, 0) == "Alright, let me heal them...")
 			{
@@ -74,8 +76,8 @@ if (isDefeatDialogue)
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
 				optionMenu.question = "Pick an option."
-				optionMenu.option1 = "Get lost, loser!"
-				optionMenu.option2 = "Why don't you join me?"
+				ds_list_add(optionMenu.optionList, "Get lost, loser!")
+				ds_list_add(optionMenu.optionList, "Why don't you join me?")
 			}
 			break
 	}
@@ -133,7 +135,7 @@ if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the 
 	player.alarm[1] = -1
 	var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
 	optionMenu.question = "Pull it?"
-	optionMenu.option1 = "Yes"
-	optionMenu.option2 = "No"
+	ds_list_add(optionMenu.optionList, "Yes")
+	ds_list_add(optionMenu.optionList, "No")
 	optionMenu.referenceNPC = actionNPC
 }

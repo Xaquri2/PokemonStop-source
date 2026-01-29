@@ -168,8 +168,8 @@ if (nearestNPC != noone)
 			{
 				var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 				optionMenu.question = string_concat("Do you want ", nearestNPC.item, ", ", GetTitleByNumber(GetNumberByName(nearestNPC.item)), "?")
-				optionMenu.option1 = "Yes"
-				optionMenu.option2 = "No"
+				ds_list_add(optionMenu.optionList, "Yes")
+				ds_list_add(optionMenu.optionList, "No")
 				optionMenu.referenceNPC = nearestNPC
 			}
 			else

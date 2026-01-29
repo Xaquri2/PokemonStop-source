@@ -49,8 +49,8 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 		var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 		optionMenu.menu = id
 		optionMenu.question = "Do you want to switch to this?"
-		optionMenu.option1 = "Switch"
-		optionMenu.option2 = "Exit"
+		ds_list_add(optionMenu.optionList, "Switch")
+		ds_list_add(optionMenu.optionList, "Exit")
 	}
 	else
 	{

@@ -2,8 +2,7 @@ menu = noone
 target = noone //Used for when targeting certain NPCs (Like Sleeping Snorlax)
 
 question = ""
-option1 = ""
-option2 = ""
+optionList = ds_list_create()
 currentOption = 0
 
 buying = false

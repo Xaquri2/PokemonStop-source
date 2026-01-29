@@ -23,8 +23,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 			optionMenu.menu = id
 			optionMenu.question = "Would you like to replace a move?"
-			optionMenu.option1 = "Yes"
-			optionMenu.option2 = "No"
+			ds_list_add(optionMenu.optionList, "Yes")
+			ds_list_add(optionMenu.optionList, "No")
 			optionMenu.newMove = ds_list_find_value(listLevelUpMoves, 0)
 			optionMenu.moveList = GetMoves(playerPkmn)
 
@@ -36,8 +36,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 			optionMenu.menu = id
 			optionMenu.question = "Would you like to stop learning a new move?"
-			optionMenu.option1 = "Yes"
-			optionMenu.option2 = "No"
+			ds_list_add(optionMenu.optionList, "Yes")
+			ds_list_add(optionMenu.optionList, "No")
 			optionMenu.target = id
 			optionMenu.newMove = ds_list_find_value(listLevelUpMoves, 0)
 			optionMenu.moveList = GetMoves(playerPkmn)

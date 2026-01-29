@@ -120,7 +120,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"PokemonStop",
   "resources":[
@@ -570,6 +570,7 @@
     {"id":{"name":"OldGuySprite","path":"sprites/OldGuySprite/OldGuySprite.yy",},},
     {"id":{"name":"OneToTwoSpritesss_1","path":"sprites/OneToTwoSpritesss_1/OneToTwoSpritesss_1.yy",},},
     {"id":{"name":"OneToTwoSpritesss","path":"sprites/OneToTwoSpritesss/OneToTwoSpritesss.yy",},},
+    {"id":{"name":"OptionBoxSprite","path":"sprites/OptionBoxSprite/OptionBoxSprite.yy",},},
     {"id":{"name":"OrcShamanSprite","path":"sprites/OrcShamanSprite/OrcShamanSprite.yy",},},
     {"id":{"name":"OutsideMallet","path":"sprites/OutsideMallet/OutsideMallet.yy",},},
     {"id":{"name":"OutsideMallet2","path":"sprites/OutsideMallet2/OutsideMallet2.yy",},},

@@ -1,16 +1,27 @@
-draw_sprite_ext(MenuSprite, 0, 20, view_get_hport(0)*0.8, 16, 5, image_angle, image_blend, image_alpha)
-draw_text_transformed(40, view_get_hport(0)*0.82, question, 1.5, 1.5, image_angle)
+var scale = 5
+scale += clamp(ds_list_size(optionList), 2, 100)-2
+
+draw_sprite_ext(OptionBoxSprite, 0, 20, view_get_hport(0)*0.98, 16, scale, image_angle, image_blend, image_alpha)
+draw_text_transformed(40, view_get_hport(0)*0.98-sprite_get_height(OptionBoxSprite)*scale+20, question, 1.5, 1.5, image_angle)
 
 if (buying) draw_text_transformed(40+string_width(question)*1.5+40,
+view_get_hport(0)*0.98-sprite_get_height(OptionBoxSprite)*scale+20, 
+string_concat("(x", buyQuantity, ")"), 1.5, 1.5, image_angle)
+
+for (var i = 0; i < ds_list_size(optionList); i++)
+{
+	draw_text_transformed(40, view_get_hport(0)*0.98-sprite_get_height(OptionBoxSprite)*scale+20+40*(i+1), 
+	ds_list_find_value(optionList, i), 1.5, 1.5, image_angle)
+	
+	if (currentOption == i)
+	{
+		draw_sprite_ext(ArrowSelectSprite, 0, 40+string_width(ds_list_find_value(optionList, i))*1.5+20,
+		view_get_hport(0)*0.98-sprite_get_height(OptionBoxSprite)*scale+32+40*(i+1), 1.5, 1.5, 270, image_blend, image_alpha)
+	}
+}
+
+/*if (buying) draw_text_transformed(40+string_width(question)*1.5+40,
 view_get_hport(0)*0.82, string_concat("(x", buyQuantity, ")"), 1.5, 1.5, image_angle)
-
-draw_text_transformed(40, view_get_hport(0)*0.86, option1, 1.5, 1.5, image_angle)
-if (currentOption == 0) draw_sprite_ext(ArrowSelectSprite, 0, 40+string_width(option1)*1.5+20,
-view_get_hport(0)*0.86+20,	1.5, 1.5, 270, image_blend, image_alpha)
-
-draw_text_transformed(40, view_get_hport(0)*0.9, option2, 1.5, 1.5, image_angle)
-if (currentOption == 1) draw_sprite_ext(ArrowSelectSprite, 0, 40+string_width(option2)*1.5+20,
-view_get_hport(0)*0.9+20, 1.5, 1.5, 270, image_blend, image_alpha)
 
 if (instance_exists(referenceNPC) and referenceNPC.object_index == PokelootObject)
 {
