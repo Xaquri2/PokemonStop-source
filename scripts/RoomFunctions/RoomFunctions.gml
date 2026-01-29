@@ -387,9 +387,13 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FirstFloor
 			targetWarp = "TowerExit"
 			break
+	//	case "TowerFirstFloorElevator":
+	//		targetRoom = SecondFloor
+	//		targetWarp = "TowerSecondFloorElevatorDown"
+	//		break
 		case "TowerFirstFloorElevator":
-			targetRoom = SecondFloor
-			targetWarp = "TowerSecondFloorElevatorDown"
+			targetRoom = Room44
+			targetWarp = "Elevator1"
 			break
 
 		case "TowerSecondFloorElevatorDown":
@@ -458,7 +462,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FirstFloor
 			targetWarp = "TowerExit"
 			break
-
+		case "Elevator1":
+			targetRoom = SecondFloor
+			targetWarp = "TowerSecondFloorElevatorDOWN"
+			break
 
 
 	}
@@ -545,7 +552,8 @@ function GetRoomMusic()
 		case ThirdFloor:
 		case FourthFloor:
 		case FifthFloor:
-			return HyruleCastleRevision
+		case Room44:
+			return HyruleCastleRevision  
 		default:
 			return SacredBeasts
 	}

@@ -32,6 +32,7 @@
     {"name":"inst_5339B8C3_1","path":"rooms/MaryHouse/MaryHouse.yy",},
     {"name":"inst_5D534562","path":"rooms/MaryHouse/MaryHouse.yy",},
     {"name":"inst_C7FE1DE","path":"rooms/MaryHouse/MaryHouse.yy",},
+    {"name":"inst_1C05273B","path":"rooms/MaryHouse/MaryHouse.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -72,6 +73,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"propertyId":{"name":"speech","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"[\"It's Mary's toilet. Or, her mom's toilet, since she bought it. Mary gets to use it, though. How do you determine ownership?\"]",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"propertyId":{"name":"npc_name","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Toilet",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.25,"scaleY":0.5,"x":25.0,"y":300.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1C05273B","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1C05273B","objectId":{"name":"CutsceneTest","path":"objects/CutsceneTest/CutsceneTest.yy",},"previewSprite":{"name":"C3POHeadSprite","path":"sprites/C3POHeadSprite/C3POHeadSprite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.6875,"scaleY":1.625,"x":201.0,"y":258.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"TopDownRetroHouise","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"TopDownRetroHouise","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":25,"SerialiseWidth":25,"TileCompressedData":[
           -26,-2147483648,4,100,101,158,159,-14,-2147483648,2,199,200,-5,-2147483648,4,113,114,171,172,-21,-2147483648,
