@@ -29,7 +29,15 @@ if (instance_exists(actionNPC))
 			}
 			break
 		case Gorbertron:
-		case GymLeaderTest:
+			if (!startBattle and ds_list_find_value(textList, ds_list_size(textList)-1) != "That said... Are you ready to challenge me?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Ask a question to Gorbertron."
+				ds_list_add(optionMenu.optionList, "What are these things on your desk?",
+				"What are the Morlocks?", "What’s an Uber-Morlock?", "What is this place?")
+			}
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?") //Mary's defeat dialogue
 			{
 				player.alarm[1] = -1

@@ -70,7 +70,6 @@
     {"name":"inst_3176777A","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_134751A5","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_4C3CDF95","path":"rooms/Mallet_Town/Mallet_Town.yy",},
-    {"name":"inst_5AA7E1D6","path":"rooms/Mallet_Town/Mallet_Town.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -168,7 +167,6 @@
         {"$GMRInstance":"v4","%Name":"inst_3176777A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3176777A","objectId":{"name":"GrassObject","path":"objects/GrassObject/GrassObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":331.7847,},
         {"$GMRInstance":"v4","%Name":"inst_134751A5","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_134751A5","objectId":{"name":"Mary","path":"objects/Mary/Mary.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.3,"scaleY":1.5,"x":657.25,"y":128.0,},
         {"$GMRInstance":"v4","%Name":"inst_4C3CDF95","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4C3CDF95","objectId":{"name":"Coneito","path":"objects/Coneito/Coneito.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.890625,"scaleY":0.921875,"x":941.0,"y":526.0,},
-        {"$GMRInstance":"v4","%Name":"inst_5AA7E1D6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5AA7E1D6","objectId":{"name":"GymLeaderTest","path":"objects/GymLeaderTest/GymLeaderTest.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":864.0,"y":608.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_3_1","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_3_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":29,"TileCompressedData":[
           -5,-2147483648,5,370,371,372,373,374,-8,-2147483648,21,370,371,372,373,374,351,352,353,354,355,-2147483648,

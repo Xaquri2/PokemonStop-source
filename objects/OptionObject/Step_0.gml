@@ -619,4 +619,66 @@ if (keyboard_check_pressed(vk_enter))
 			instance_destroy(id)
 		}
 	}
+	
+	if (string_count("Gorbertron", question) > 0)
+	{
+		switch (currentOption)
+		{
+			case 0:
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				dialogue.name = referenceNPC.name
+				dialogue.actionNPC = referenceNPC
+			
+				ds_list_add(dialogue.textList, "Ah, you like the accoutrements on my desk!", 
+				"Thank you, I pride myself on my decor.", 
+				"Well, on your right is a toy model… and then we have my pet, Captain Tribble.")
+
+				player.talking = true
+
+				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+				break
+			case 1:
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				dialogue.name = referenceNPC.name
+				dialogue.actionNPC = referenceNPC
+			
+				ds_list_add(dialogue.textList, "The Morlocks were human once... But the forces of evolution and mutation have changed us. Bettered us.",
+				"We are no longer slaves to the Sun; we can work much longer hours...", "You think we should mourn our lost humanity? Such arrogance! Why should we? We are so much more.")
+
+				player.talking = true
+
+				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+				break
+			case 2:
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				dialogue.name = referenceNPC.name
+				dialogue.actionNPC = referenceNPC
+			
+				ds_list_add(dialogue.textList, "An advanced form of Morlock. Unlike the other Morlocks... I’ve gained certain abilities. I can move objects with my mind!")
+
+				player.talking = true
+
+				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+				break
+			case 3:
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				dialogue.name = referenceNPC.name
+				dialogue.actionNPC = referenceNPC
+			
+				ds_list_add(dialogue.textList, "This entire place is devoted to one goal: human evolution. You see, Morlocks are the better forms of humans, and I'm devoted to mutating humans into greater forms.",
+				"If we can bring human-types up to their next stage, humans can become the ULTIMATE POKéMON. By experimenting with evolution, we can achieve godlike status",
+				"and YOU WILL NOT GET IN MY WAY!!.", "That said... Are you ready to challenge me?")
+
+				player.talking = true
+
+				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+				break
+		}
+		
+		instance_destroy(id)
+	}
 }
