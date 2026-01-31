@@ -286,6 +286,7 @@
     {"id":{"name":"TeamRocketTrainer","path":"objects/TeamRocketTrainer/TeamRocketTrainer.yy",},},
     {"id":{"name":"Tektite","path":"objects/Tektite/Tektite.yy",},},
     {"id":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},},
+    {"id":{"name":"TestSwitchNPC","path":"objects/TestSwitchNPC/TestSwitchNPC.yy",},},
     {"id":{"name":"TestWildObject","path":"objects/TestWildObject/TestWildObject.yy",},},
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
     {"id":{"name":"TextPopupObject","path":"objects/TextPopupObject/TextPopupObject.yy",},},
