@@ -12,3 +12,5 @@ previousRoom = noone
 loadRoom = noone
 loadX = 0
 loadY = 0
+
+global.potion = true

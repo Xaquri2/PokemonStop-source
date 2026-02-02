@@ -12,8 +12,8 @@
     "path":"folders/Objects/Pokemon.yy",
   },
   "parentObjectId":{
-    "name":"RoamingNPCParent",
-    "path":"objects/RoamingNPCParent/RoamingNPCParent.yy",
+    "name":"RoamingPokemonParent",
+    "path":"objects/RoamingPokemonParent/RoamingPokemonParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

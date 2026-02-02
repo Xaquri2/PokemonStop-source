@@ -30,7 +30,7 @@ ds_list_add(global.categoryItemList, itemsList, ballsList, battleList, berryList
 global.catchIndex = 0 //The index of every new Pokémon caught
 global.pokemonList = ds_list_create() //The list containing all Pokémon caught
 
-global.partySize = 6 //The maximum size of the player party
+global.partySize = 36 //The maximum size of the player party
 global.playerParty = ds_list_create() //The player party list
 
 global.pokedex = ds_list_create()
@@ -41,12 +41,12 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 10, GetRandomGender(50))
-AddPokemon("Pikachu", 10, GetRandomGender(50))
-AddPokemon("Pikachu", 10, GetRandomGender(50))
-AddPokemon("Pikachu", 10, GetRandomGender(50))
-AddPokemon("Pikachu", 10, GetRandomGender(50))
-AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 30, GetRandomGender(50))
+AddPokemon("Pikachu", 30, GetRandomGender(50))
+AddPokemon("Pikachu", 30, GetRandomGender(50))
+AddPokemon("Pikachu", 30, GetRandomGender(50))
+AddPokemon("Pikachu", 20, GetRandomGender(50))
+//AddPokemon("Pikachu", 10, GetRandomGender(50))
 
 global.standardStartRoom = MorlockGym
 global.activatedBadges = ds_list_create()
