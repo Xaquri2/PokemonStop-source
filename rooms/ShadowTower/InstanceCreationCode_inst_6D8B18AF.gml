@@ -1,1 +1,1 @@
-SetWarpDefaults("ShadowTowerToTest", "Down", false)
+SetWarpDefaults("ShadowTowerToTest", "Down", true)
