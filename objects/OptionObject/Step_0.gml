@@ -681,4 +681,114 @@ if (keyboard_check_pressed(vk_enter))
 		
 		instance_destroy(id)
 	}
+	
+	if (question == "Do you know what this place is?")
+	{
+		if (currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Well, yes… but also much more than that.",
+			"This is a TIME-SPACE AXIS…", 
+			"Specifically, the most powerful and sensitive IN THE WORLD.",
+			"That means: this is essentially a telescope for looking out at the MULTIVERSE.",
+			"Each of the platforms in this room represents a different universe in the MULTIVERSE.",
+			"The motions of the platforms reflect the actual motions of the universes relative to one another.",
+			"You will of course recognize Palkia and Dialga?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "This is a TIME-SPACE AXIS…", 
+			"Specifically, the most powerful and sensitive IN THE WORLD.",
+			"That means: this is essentially a telescope for looking out at the MULTIVERSE.",
+			"Each of the platforms in this room represents a different universe in the MULTIVERSE.",
+			"The motions of the platforms reflect the actual motions of the universes relative to one another.",
+			"You will of course recognize Palkia and Dialga?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		instance_destroy(id)
+	}
+	
+	if (question = "Do you know who Dialga and Palkia is?")
+	{
+		var player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.name = referenceNPC.name
+		dialogue.actionNPC = referenceNPC
+			
+		if (currentOption == 0)
+		{
+			ds_list_add(dialogue.textList, "Yes, Palkia and Dialga… representing Time and Space, respectively.")
+		}
+		else
+		{
+			ds_list_add(dialogue.textList, "They’re two Pokémon seen in other regions… which were gods of sorts.", "Gods of Time and Space, respectively.  ")
+		}
+
+		player.talking = true
+
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		
+		ds_list_add(dialogue.textList, "And, of course, ARCEUS on the topmost platform… the mighty Pokémon who created this ENTIRE UNIVERSE.",
+		"Each of them resides in their own universe, which is why you see them here on different platforms.",
+		"Hnhh… you mortals wouldn’t care about things like this; this is all beyond your comprehension.",
+		"But, we do live in a multiverse;", "And you are, right now, standing on the platform which represents the universe we currently inhabit.",
+		"You see, like Palkia and Dialga, I was created by ARCEUS.", "He wanted me to simply observe, but how could I just observe when such misery existed and I had the knowledge to prevent it?", 
+		"I therefore have devoted myself to BETRAYING the trust of Arceus, and BRINGING his knowledge to the people!", "To… to EMPOWER you to …", "…Not die so much.")
+	
+		instance_destroy(id)
+	}
+	
+	if (question == "React to Lilium's monologue.")
+	{
+		if (currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Such a limited viewpoint! It’s easy to condemn that which you don’t understand.",
+			"I’m trying to help you, you schmuck!", "You guys always complain when you’re suffering… but then somehow *I’M* the bad guy for trying to alleviate it?",
+			"Self-righteous trainers like you are quick to condemn me, but then when you get the power I’m trying to offer, you’d all use it to save yourselves when dying.",
+			"Enough chatter! Let’s resolve this.", "Ready to challenge me?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "You’re welcome! I’m glad you approve.", "That is the reason for my experiments of converting people into BOOs and UMBRIANs", 
+			"And converting animals into UMBREONs and so on.", "That is how I plan to ELEVATE humanity to the next level;", 
+			"For only in that form can your minds process the information I wish to bestow.", "Ready to challenge me?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		instance_destroy(id)
+	}
 }

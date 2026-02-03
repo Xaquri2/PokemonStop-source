@@ -47,6 +47,47 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "Yes")
 				ds_list_add(optionMenu.optionList, "No")
 			}
+			break
+		case Lilium:
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "This place – do you know what it is? ")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Do you know what this place is?"
+				ds_list_add(optionMenu.optionList, "It's the gym, right?")
+				ds_list_add(optionMenu.optionList, "I do not.")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "You will of course recognize Palkia and Dialga?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Do you know who Dialga and Palkia is?"
+				ds_list_add(optionMenu.optionList, "Of course.")
+				ds_list_add(optionMenu.optionList, "Who?")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "…Not die so much.")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "React to Lilium's monologue."
+				ds_list_add(optionMenu.optionList, "You’re insane… you’ve gone power-mad. You can’t play god like that!")
+				ds_list_add(optionMenu.optionList, "Thank you! That’s very generous of you!")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come back once you’ve completed your journey… and I’d be glad to convert you into one of my … projects.")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "React to Lilium's offer."
+				ds_list_add(optionMenu.optionList, "Ooh! Convert me now pls")
+				ds_list_add(optionMenu.optionList, "Uh, yeah, sure… I’ll keep that in mind.")
+				
+				ds_list_add(global.flags, "LiliumFirstDefeatText")
+			}
+			break
 		case NurseJoy:
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come see me when your Pokémon are injured!")
 			{
