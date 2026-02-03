@@ -520,33 +520,52 @@ function GetRoomMusic()
 		case RouteMinusOneBottom:
 		case RouteMinusOneTop:
 			return RouteMinusOneTheme
+			
+		// Mutant Path 
 		case MutantPath1: return MutantPathAmbiance
 		case TestTiltedRoom:
 			return OuterRingOfAtlantis
 		case MorlockCity:
 		case MorlockCity2:
 		case MorlockCity3:
+		case MorlockShop: 
 			return MutantPathUndergroundTheme
+		case MorlockRestaurant: return BoostersTower
+		case MutantPokecenter: return PokeGymLofi
+		case MorlockGym: return OuterRingOfAtlantis
+		
 		case TestRoom: return SacredBeasts
-		case RegionCenter:
-		case GinkgoLab:
-			return PokeGymLofi
-		case GashHouse: return SacredBeasts
-		case GashUpstairs: return SacredBeasts
-		case ShadowPath: return OathToOrder
-		case ShadowPokecenter: return PokeGymLofi
-		case ShadowTower: return OathToOrder
-		case EmptyHouse: return ShadowPathAmbiance
-		case ShadowPathGym: return PokeGymLofi
-		case RobotPath: 
-		case MuntainPeak:
-			return ZoovacTutorialBotMusic
-		case RobotGym: return WeaponsFactoryTheme
+		
+		// Mallet Town
 		case Mallet_Town:
 		case Waterfront:
 		case Mallet_East:
 		case MalletMuseum:
 			return MalletTownMusic
+		case RegionCenter:
+		case GinkgoLab:
+			return PokeGymLofi
+		case GashHouse: return SacredBeasts
+		case GashUpstairs: return SacredBeasts
+		
+		//Shadow Path
+		case ShadowPath: return OathToOrder
+		case ShadowPokecenter: return PokeGymLofi
+		case ShadowTower: return OathToOrder
+		case EmptyHouse: return ShadowPathAmbiance
+		case ShadowPathGym: return PokeGymLofi
+		
+		//Robot Path
+		case RobotPath: 
+			return ZoovacTutorialBotMusic
+		case MuntainPeak:	
+		case RobotPathShop:
+		case RobotGym: 
+			return WeaponsFactoryTheme
+		case PokeCenterRobotPath:
+			return PokeGymLofi
+		
+		//Dark Tower
 		case FirstFloor:
 		case SecondFloor:
 		case ThirdFloor:
@@ -554,6 +573,7 @@ function GetRoomMusic()
 		case FifthFloor:
 		case Elevator1:
 			return HyruleCastleRevision  
+			
 		default:
 			return SacredBeasts
 	}
