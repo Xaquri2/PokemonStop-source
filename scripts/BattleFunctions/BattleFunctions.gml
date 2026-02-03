@@ -1194,11 +1194,19 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
 			break
 		case "The Collector":
-			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", ZoombiniHoveringSprite)
-			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", EwokOverworldSprite)
-			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", Human2IdleSprite)
-			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", MorlockBattleSprite)
+			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
+			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
+			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
+			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
 			AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", DemogorgonBattleSprite)
+			break
+		case "Zoovac":
+			AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)
+			AddPokemonTrainer(team, 2, "Zergling", 22, "Male", ZerglingSprite)
+			AddPokemonTrainer(team, 3, "Demogorgon", 24, "Male", DemogorgonBattleSprite)
+			AddPokemonTrainer(team, 4, "MissingNo", 24, "Male", MissingNoIdleSprite)
+			AddPokemonTrainer(team, 5, "Rancor", 25, "Male", RancorOverworldSprite)
+			AddPokemonTrainer(team, 6, "Godzilla", 35, "Male", GodzillaPosterSprite)
 			break
 	}
 	return team

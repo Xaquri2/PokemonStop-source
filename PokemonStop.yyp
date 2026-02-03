@@ -523,6 +523,7 @@
     {"id":{"name":"IndustrialTilesetSprite","path":"sprites/IndustrialTilesetSprite/IndustrialTilesetSprite.yy",},},
     {"id":{"name":"Interior","path":"sprites/Interior/Interior.yy",},},
     {"id":{"name":"KeySprite","path":"sprites/KeySprite/KeySprite.yy",},},
+    {"id":{"name":"KingKoopaBattleSprite","path":"sprites/KingKoopaBattleSprite/KingKoopaBattleSprite.yy",},},
     {"id":{"name":"KirbySprite","path":"sprites/KirbySprite/KirbySprite.yy",},},
     {"id":{"name":"KoopaWalkRightSprite","path":"sprites/KoopaWalkRightSprite/KoopaWalkRightSprite.yy",},},
     {"id":{"name":"KryptonFireflySprite","path":"sprites/KryptonFireflySprite/KryptonFireflySprite.yy",},},
