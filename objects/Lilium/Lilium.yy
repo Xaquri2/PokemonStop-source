@@ -1,20 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"Lily",
+  "%Name":"Lilium",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Lily",
+  "name":"Lilium",
   "overriddenProperties":[],
   "parent":{
     "name":"Characters",
     "path":"folders/Objects/Characters.yy",
   },
   "parentObjectId":{
-    "name":"NPCParent",
-    "path":"objects/NPCParent/NPCParent.yy",
+    "name":"TrainerParent",
+    "path":"objects/TrainerParent/TrainerParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

@@ -1,3 +1,3 @@
-with (Lily) {
+with (Lilium) {
     floatDown = true;
 }

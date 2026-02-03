@@ -1,5 +1,5 @@
 var onPedestal = place_meeting(x, y, PlayerObject);
 
-with (Lily) {
+with (Lilium) {
     floatDown = onPedestal;
 }

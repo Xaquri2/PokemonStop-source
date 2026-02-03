@@ -1031,35 +1031,44 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Zubat", 1, "Male", ZubatFlappingSprite)
 			AddPokemonTrainer(team, 2, "Morlock", 1, "Male", MorlockBattleSprite)
 			AddPokemonTrainer(team, 3, "Demo Dog", 1, "Male", DemoDogSprite)
+			break
 		
 	//Robot Path
 		case "BoxBotH":
 			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 2, "Voltorb", 5, "Male", VoltorbOverworldSprite)
+			break
 		case "BoxBotI":
 			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 2, "Voltorb", 5, "Male", VoltorbOverworldSprite)
+			break
 		case "Greg":
 			AddPokemonTrainer(team, 1, "BB-8", 3, "Male", BB8BattleSprite)
 			AddPokemonTrainer(team, 2, "Caterpie", 5, "Male", CaterpieIdleSprite)
+			break
 		case "Bottrick Notthuman":
 			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 2, "BB-8", 5, "Male", BB8BattleSprite)
+			break
 		case "Cloaked Trainer":
 			AddPokemonTrainer(team, 1, "Caterpie", 3, "Male", CaterpieIdleSprite)
 			AddPokemonTrainer(team, 2, "Pikachu", 5, "Female", PikachuIdleSprite)
+			break
 		case "Ephemelia":
 			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 2, "Squirrel", 5, "Female", SquirrelOverworldSprite)
+			break
 		case "BoxBotO":
 			AddPokemonTrainer(team, 1, "Box Bot", 4, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 2, "BB-8", 5, "Male", BB8BattleSprite)
 			AddPokemonTrainer(team, 3, "Box Bot", 6, "Male", BoxBotIdleSprite)
+			break
 			
 			
 	//Mountain Peak 
 		case "Gym Leader Test":
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			break
 			
 			
 	//Dark Tower
@@ -1069,97 +1078,109 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 3, "Charmander", 18, "Female", CharmanderBattleSprite)
 			AddPokemonTrainer(team, 4, "Morlock", 20, "Female", MorlockcitaSprite)
 			AddPokemonTrainer(team, 5, "Demogorgon", 21, "Male", DemogorgonBattleSprite)
+			break
 		case "Team Rocket Bonnie":
 			AddPokemonTrainer(team, 1, "Kirby", 18, "Female", KirbySprite)
 			AddPokemonTrainer(team, 2, "Magnemite", 20, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 3, "Box Bot", 18, "Female", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 4, "Voltorb", 20, "Female", VoltorbOverworldSprite)
 			AddPokemonTrainer(team, 5, "Human", 20, "Male", Human2IdleSprite)
+			break
 		case "Team Rocket Gladys":
 			AddPokemonTrainer(team, 1, "Tektite", 18, "Female", TektiteIdleSprite)
 			AddPokemonTrainer(team, 2, "Ape-Ball", 20, "Male", ApeBallSprite)
 			AddPokemonTrainer(team, 3, "Kirby", 18, "Female", KirbySprite)
 			AddPokemonTrainer(team, 4, "Krypton Firefly", 20, "Female", KryptonFireflySprite)
 			AddPokemonTrainer(team, 5, "Creeper", 23, "Male", CreeperSprite)
+			break
 		case "Team Rocket Roxanne":
 			AddPokemonTrainer(team, 1, "Zubat", 18, "Female", ZubatFlappingSprite)
 			AddPokemonTrainer(team, 2, "Porg", 20, "Male", PorgBattleSprite)
 			AddPokemonTrainer(team, 3, "Zergling", 18, "Female", ZerglingSprite)
 			AddPokemonTrainer(team, 4, "Zoombini", 20, "Female", ZoombiniHoveringSprite)
 			AddPokemonTrainer(team, 5, "Pac-Man", 22, "Male", PacManWalkRight_Strip3)
+			break
 		case "Team Rocket Spike":
 			AddPokemonTrainer(team, 1, "Tribble", 18, "Female", TribbleBattleSprite)
 			AddPokemonTrainer(team, 2, "Ewok", 20, "Male", EwokOverworldSprite)
 			AddPokemonTrainer(team, 3, "Demo Dog", 18, "Female", DemoDogSprite)
 			AddPokemonTrainer(team, 4, "Licker", 20, "Female", LickerOverworldSprite)
 			AddPokemonTrainer(team, 5, "ZooChomper", 23, "Male", ZoochomperBattleSprite)
+			break
 	    case "Team Rocket Marnie":
 	        AddPokemonTrainer(team, 1, "Woob-Wüb", 18, "Female", WoobWubBattleSprite)
 	        AddPokemonTrainer(team, 2, "Pac-Ghost", 20, "Female", PacGhostOverworldSprite)
 	        AddPokemonTrainer(team, 3, "Butterfree", 18, "Male", ButterfreeFlyLeftSprite)
 	        AddPokemonTrainer(team, 4, "Umbrian", 20, "Male", UmbrianOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Enderman", 22, "Female", EndermanOverworldSprite)
+			break
 	    case "Team Rocket Jett":
 	        AddPokemonTrainer(team, 1, "Pikmin", 18, "Male", PikminIdleSprite)
 	        AddPokemonTrainer(team, 2, "Box Bot", 20, "Male", BoxBotIdleSprite)
 	        AddPokemonTrainer(team, 3, "Voltorb", 18, "Female", VoltorbOverworldSprite)
 	        AddPokemonTrainer(team, 4, "BB-8", 20, "Female", BB8BattleSprite)
 	        AddPokemonTrainer(team, 5, "Metroid", 23, "Male", MetroidOverworldSprite)
+			break
 	    case "Team Rocket Sable":
 	        AddPokemonTrainer(team, 1, "Boo", 18, "Female", BooOverworldSprite)
 	        AddPokemonTrainer(team, 2, "Silver Scorpion", 20, "Male", SIlverScorpionOverworldSprite)
 	        AddPokemonTrainer(team, 3, "Envy", 18, "Female", EnvySprite)
 	        AddPokemonTrainer(team, 4, "Xenomorph", 20, "Female", XenomorphOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Godzooky", 22, "Male", GodzookyOverworldSprite)
+			break
 		case "Team Rocket Cruz":
 	        AddPokemonTrainer(team, 1, "Goomba", 18, "Male", GoombaOverworldSprite)
 	        AddPokemonTrainer(team, 2, "Koopa", 20, "Male", KoopaWalkRightSprite)
 	        AddPokemonTrainer(team, 3, "Yo’ster", 18, "Female", YoSterOverworldSprite)
 	        AddPokemonTrainer(team, 4, "Tektite", 20, "Female", TektiteIdleSprite)
 	        AddPokemonTrainer(team, 5, "King Koopa", 23, "Male", PikachuIdleSprite)
+			break
 	    case "Team Rocket Nyx":
 	        AddPokemonTrainer(team, 1, "Boo", 18, "Female", BooOverworldSprite)
 	        AddPokemonTrainer(team, 2, "Pac-Ghost", 20, "Female", PacGhostOverworldSprite)
 	        AddPokemonTrainer(team, 3, "MissingNo", 18, "Male", MissingNoIdleSprite)
 	        AddPokemonTrainer(team, 4, "Umbrian", 20, "Female", UmbrianOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Moltres", 22, "Female", MoltresOverworldSprite)
- 
+			break
 	    case "Team Rocket Harlow":
 	        AddPokemonTrainer(team, 1, "Squirrel", 18, "Female", SquirrelBattleSprite)
 	        AddPokemonTrainer(team, 2, "Tribble", 20, "Female", TribbleBattleSprite)
 	        AddPokemonTrainer(team, 3, "Porg", 18, "Male", PorgBattleSprite)
 	        AddPokemonTrainer(team, 4, "Ewok", 20, "Male", EwokOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Moosephant", 22, "Female", MoosephantOverworldSprite)
-
+			break
 	    case "Team Rocket Gage":
 	        AddPokemonTrainer(team, 1, "Box Bot", 18, "Male", BoxBotIdleSprite)
 	        AddPokemonTrainer(team, 2, "Tutorial Bot", 20, "Female", TutorialBotSprite)
 	        AddPokemonTrainer(team, 3, "BB-8", 18, "Male", BB8BattleSprite)
 	        AddPokemonTrainer(team, 4, "Voltorb", 20, "Female", VoltorbOverworldSprite)
 	        AddPokemonTrainer(team, 5, "Metroid", 23, "Male", MetroidOverworldSprite)
-
+			break
 	    case "Team Rocket Vesper":
 	        AddPokemonTrainer(team, 1, "Envy", 18, "Female", EnvySprite)
 	        AddPokemonTrainer(team, 2, "Silver Scorpion", 20, "Male", SIlverScorpionOverworldSprite)
 	        AddPokemonTrainer(team, 3, "Andalite", 18, "Female", AndaliteOverworldSprite)
 	        AddPokemonTrainer(team, 4, "Caelian", 20, "Male", CaelianBattleSprite)
 	        AddPokemonTrainer(team, 5, "Xenomorph", 22, "Female", XenomorphOverworldSprite)
-
+			break
 	    case "Team Rocket Dante":
 	        AddPokemonTrainer(team, 1, "Charmander", 18, "Male", CharmanderBattleSprite)
 	        AddPokemonTrainer(team, 2, "Charmandorian", 20, "Male", CharmandorianSprite)
 	        AddPokemonTrainer(team, 3, "Charmandalorian", 18, "Female", CharmandalorianSprite)
 	        AddPokemonTrainer(team, 4, "Krypton Firefly", 20, "Female", KryptonFireflySprite)
 	        AddPokemonTrainer(team, 5, "Godzooky", 23, "Male", GodzookyOverworldSprite)
-
+			break
 	    case "Team Rocket Kira":
 	        AddPokemonTrainer(team, 1, "Zoombini", 18, "Female", ZoombiniHoveringSprite)
 	        AddPokemonTrainer(team, 2, "Pikmin", 20, "Male", PikminIdleSprite)
 	        AddPokemonTrainer(team, 3, "Kirby", 18, "Female", KirbySprite)
 	        AddPokemonTrainer(team, 4, "Baby", 20, "Female", BabyBattleSprite)
 	        AddPokemonTrainer(team, 5, "ZooChomper", 22, "Male", ZoochomperBattleSprite)
-
+			break
 		
+		case "Lilium":
+			AddPokemonTrainer(team, 0, "Pikachu", 1, "Male", PikachuIdleSprite)
+			break
 	}
 	return team
 }
