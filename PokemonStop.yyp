@@ -427,6 +427,7 @@
     {"id":{"name":"BarSprite","path":"sprites/BarSprite/BarSprite.yy",},},
     {"id":{"name":"BarsSprite","path":"sprites/BarsSprite/BarsSprite.yy",},},
     {"id":{"name":"BasicSignSprite","path":"sprites/BasicSignSprite/BasicSignSprite.yy",},},
+    {"id":{"name":"BattleFloorSprite_SHADOW","path":"sprites/BattleFloorSprite_SHADOW/BattleFloorSprite_SHADOW.yy",},},
     {"id":{"name":"BattleFloorSprite","path":"sprites/BattleFloorSprite/BattleFloorSprite.yy",},},
     {"id":{"name":"BB8BattleSprite","path":"sprites/BB8BattleSprite/BB8BattleSprite.yy",},},
     {"id":{"name":"BB8OverworldSprite","path":"sprites/BB8OverworldSprite/BB8OverworldSprite.yy",},},
