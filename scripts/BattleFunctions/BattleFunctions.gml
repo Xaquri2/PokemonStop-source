@@ -1133,7 +1133,7 @@ function GetTrainerTeam(trainerName)
 	        AddPokemonTrainer(team, 2, "Koopa", 20, "Male", KoopaWalkRightSprite)
 	        AddPokemonTrainer(team, 3, "Yo’ster", 18, "Female", YoSterOverworldSprite)
 	        AddPokemonTrainer(team, 4, "Tektite", 20, "Female", TektiteIdleSprite)
-	        AddPokemonTrainer(team, 5, "King Koopa", 23, "Male", PikachuIdleSprite)
+	        AddPokemonTrainer(team, 5, "King Koopa", 23, "Male", KingKoopaBattleSprite)
 			break
 	    case "Team Rocket Nyx":
 	        AddPokemonTrainer(team, 1, "Boo", 18, "Female", BooOverworldSprite)
