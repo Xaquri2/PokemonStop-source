@@ -1,6 +1,33 @@
 // Inherit the parent event
 event_inherited();
 
+// If we touch the player, freeze immediately (battle is about to trigger)
+if (!frozen_for_battle && place_meeting(x, y, PlayerObject)) {
+    frozen_for_battle = true;
+
+    // Snap back to last safe spot so we don't "push through" visually
+    x = last_safe_x;
+    y = last_safe_y;
+
+    // Stop animation too (optional)
+    image_speed = 0;
+}
+
+if (!frozen_for_battle) {
+    last_safe_x = x;
+    last_safe_y = y;
+}
+
+
+if (state != prev_state) {
+    if (state == STATE_IDLE) {
+        image_index = 0;
+        image_speed = idle_fps / room_speed;
+    }
+    prev_state = state;
+}
+
+
 /// obj_tektite : Step
 
 switch (state) {
@@ -95,4 +122,6 @@ switch (state) {
         }
     break;
 }
+
+
 

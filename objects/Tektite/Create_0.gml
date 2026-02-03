@@ -8,13 +8,13 @@ wait_min = room_speed * 1;     // 1 sec
 wait_max = room_speed * 3;     // 3 sec
 
 leap_distance = 200;           // pixels
-leap_seconds  = 2;             // seconds
+leap_seconds  = 1.5;             // seconds
 leap_total    = round(room_speed * leap_seconds);
 
 arc_height    = 28;            // visual height of arc (pixels)
 
 // Sprite behavior
-idle_fps = 1;                  // play at 1 fps while idle
+idle_fps = 3;                  // play at 1 fps while idle
 
 // Which object counts as "solid"
 solid_obj = obj_editor_wall;         // change this if needed
@@ -66,6 +66,15 @@ function reset_wait() {
 }
 
 sprite_shadow = BattleFloorSprite_SHADOW // change to your shadow sprite asset name
+
+prev_state = -1;
+
+frozen_for_battle = false;
+
+last_safe_x = x;
+last_safe_y = y;
+
+
 
 
 
