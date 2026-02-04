@@ -1022,7 +1022,7 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 2, "Caterpie", 2, "Female", CaterpieIdleSprite)
 			break
 			
-	//Mutant Path -- Tilted Tower
+	//Mutant Path - Tilted Tower
 		case "Morlock":
 			AddPokemonTrainer(team, 1, "Human", 1, "Male", Human2IdleSprite)
 			AddPokemonTrainer(team, 2, "Demo Dog", 1, "Female", DemoDogSprite)
@@ -1032,7 +1032,10 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 2, "Morlock", 1, "Male", MorlockBattleSprite)
 			AddPokemonTrainer(team, 3, "Demo Dog", 1, "Male", DemoDogSprite)
 			break
-		
+		case "Skull":
+			AddPokemonTrainer(team, 3, "Silver Scorpion", 10, "Male", SIlverScorpionOverworldSprite)
+			break
+			
 	//Robot Path
 		case "BoxBotH":
 			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)

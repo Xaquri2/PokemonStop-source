@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"Skull",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"Skull",
   "overriddenProperties":[],
@@ -10,8 +12,8 @@
     "path":"folders/Objects/Items.yy",
   },
   "parentObjectId":{
-    "name":"NPCParent",
-    "path":"objects/NPCParent/NPCParent.yy",
+    "name":"TrainerParent",
+    "path":"objects/TrainerParent/TrainerParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
