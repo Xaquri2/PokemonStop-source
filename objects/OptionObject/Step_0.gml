@@ -791,4 +791,101 @@ if (keyboard_check_pressed(vk_enter))
 		
 		instance_destroy(id)
 	}
+	
+	if (question == "Did you bring inferior pokémon?")
+	{
+		var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "The mechanical is the way of the future. I aim to replace all life with Mechanics.", 
+			"I will create the TRUE heirs to humanity", "who, like Greek mythology, are our betters and will conquer us in the end.")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			
+			instance_destroy(id)
+	}
+	
+	if (question == "React to the Collector.")
+	{
+		if (ds_list_find_value(optionList, 0) == "But YOU'RE biological!")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "...For now.")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else if (ds_list_find_value(optionList, 0) == "So, you’re “inferior” then!")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Until I get an upgrade, yes!",
+			"it is an accident of my creation and soon enough I will be one of them as well.", 
+			"I'm a future robot, you see.")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "You’re pathetic.")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "At least I admit my patheticness!!", 
+			"That’s it – I’ll show you the power of the Mechanical!!", "Ready to challenge me?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else if (ds_list_find_value(optionList, currentOption) == "You’re pathetic.")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Am I? Have I?", 
+			"Or are you just afraid you’ve become OBSOLETE?!",
+			"Time for you to feel the power of Robotics!!",
+			"Ready to challenge me?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else if (ds_list_find_value(optionList, currentOption) == "You’re pathetic.")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "That’s right!! Glad you understand.",
+			"That understanding will be nice for you to enjoy… BEFORE YOUR DOOM!!",
+			"Ready to challenge me?")
+			
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		instance_destroy(id)
+	}
 }

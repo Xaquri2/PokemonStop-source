@@ -1,12 +1,42 @@
-// Inherit the parent event
 event_inherited();
 
-name = "The Collector"
+name = "Collector"
 
-ds_list_add(textList, "Welcome.", "I see you've made it all the way to my gym. That is very impressive.",
-"I’m called Gorbertron.","I am an ÜBER-MORLOCK.","I’m the Gym Leader for Mutant Path.")
+if (!HasFlag("CollectorFirstBattle")) battleFlag = "CollectorFirstBattle"
+else battleFlag = "CollectorFinalBattle"
 
-ds_list_add(nameList, "The Collector", "The Collector", "The Collector", "The Collector", "The Collector")
+ds_list_add(textList, "Welcome, you come to challenge me for the badge?",
+"Well, I assume I assume you've brought inferior biological type Pokemon?")
 
-ds_list_add(postBattleTextList, "You've already earned your badge. Get lost, biologic trash!")
+if (HasFlag("CollectorFirstBattle") and !HasFlag("CollectorFinalBattle")) 
+{
+	ds_list_add(postBattleTextList, "You think you've won, don't you?!",
+	"MEGA-BOT, Activate!!!")
+	
+	var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+	dialogue.textList = postBattleTextList
+	dialogue.iconList = iconList
+	dialogue.nameList = nameList
 
+	dialogue.name = name
+	dialogue.actionNPC = id
+	talking = true
+
+	if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+}
+else if (HasFlag("CollectorFirstBattle") and HasFlag("CollectorFinalBattle"))
+{
+	ds_list_add(postBattleTextList, "Well, it seems you've earned the robot badge.", 
+	"Enjoy being an inferior human!")
+	
+	var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+	dialogue.textList = postBattleTextList
+	dialogue.iconList = iconList
+	dialogue.nameList = nameList
+
+	dialogue.name = name
+	dialogue.actionNPC = id
+	talking = true
+
+	if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+}

@@ -88,6 +88,46 @@ if (instance_exists(actionNPC))
 				ds_list_add(global.flags, "LiliumFirstDefeatText")
 			}
 			break
+		case Collector:
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Well, I assume I assume you've brought inferior biological type Pokemon?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Did you bring inferior pokémon?"
+				ds_list_add(optionMenu.optionList, "Mostly, yeah")
+				ds_list_add(optionMenu.optionList, "Nah dude, all Robits for me")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "who, like Greek mythology, are our betters and will conquer us in the end.")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "React to the Collector."
+				ds_list_add(optionMenu.optionList, "But YOU'RE biological!")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "...For now.")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "React to the Collector."
+				ds_list_add(optionMenu.optionList, "So, you’re “inferior” then!")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "I'm a future robot, you see.")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "React to the Collector."
+				ds_list_add(optionMenu.optionList, "You’re pathetic.", 
+				"You’re insane! You’ve gone mad!", "A noble aim! I admire your ambition.")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
+			{
+				startBattle = true
+			}
+			break
 		case NurseJoy:
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come see me when your Pokémon are injured!")
 			{

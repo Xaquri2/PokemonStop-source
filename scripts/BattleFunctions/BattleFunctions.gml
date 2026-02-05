@@ -1224,6 +1224,10 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 5, "Rancor", 25, "Male", RancorOverworldSprite)
 			AddPokemonTrainer(team, 6, "Godzilla", 35, "Male", GodzillaPosterSprite)
 			break
+		case "Collector":
+			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 0, "Pikachu", 3, "Male", PikachuIdleSprite)
+			else AddPokemonTrainer(team, 0, "Pikachu", 1, "Male", PikachuIdleSprite)
+			break
 	}
 	return team
 }
