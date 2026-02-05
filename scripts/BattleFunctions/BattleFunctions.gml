@@ -1009,6 +1009,11 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 0, "Pikmin", 3, "Male", PikminIdleSprite)
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
+		case "KcoKt":
+			AddPokemonTrainer(team, 1, "Squirtle", 7, "Male", SquirtleIdleSprite)
+			AddPokemonTrainer(team, 2, "Pikachu", 10, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 3, "Tektite", 10, "Female", TektiteIdleSprite)
+			break
 
 
 	//Route Minus One TOP
@@ -1071,6 +1076,14 @@ function GetTrainerTeam(trainerName)
 	//Mountain Peak 
 		case "Gym Leader Test":
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			break
+		case "Ian":
+			AddPokemonTrainer(team, 1, "Clefairy", 15, "Female", ClefairySprite)
+			AddPokemonTrainer(team, 2, "Kirby", 16, "Female", KirbySprite)
+			break
+		case "Elise":
+			AddPokemonTrainer(team, 0, "Ewok", 15, "Female", KirbySprite)
+			AddPokemonTrainer(team, 0, "Kirby", 15, "Female", KirbySprite)
 			break
 			
 			

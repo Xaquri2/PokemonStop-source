@@ -49,6 +49,8 @@
     {"name":"inst_524396AE","path":"rooms/MuntainPeak/MuntainPeak.yy",},
     {"name":"inst_4AA9B869","path":"rooms/MuntainPeak/MuntainPeak.yy",},
     {"name":"inst_189CF549","path":"rooms/MuntainPeak/MuntainPeak.yy",},
+    {"name":"inst_3FB7055F","path":"rooms/MuntainPeak/MuntainPeak.yy",},
+    {"name":"inst_1845C1B7","path":"rooms/MuntainPeak/MuntainPeak.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -98,6 +100,8 @@
         {"$GMRInstance":"v4","%Name":"inst_524396AE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_524396AE","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.28519487,"scaleY":0.82396644,"x":4.626236,"y":438.24103,},
         {"$GMRInstance":"v4","%Name":"inst_4AA9B869","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4AA9B869","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.6679301,"scaleY":1.7525448,"x":7.626236,"y":355.7927,},
         {"$GMRInstance":"v4","%Name":"inst_189CF549","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_189CF549","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.53125,"scaleY":1.90625,"x":1283.0,"y":337.0,},
+        {"$GMRInstance":"v4","%Name":"inst_3FB7055F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3FB7055F","objectId":{"name":"Elise","path":"objects/Elise/Elise.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":739.5,"y":183.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1845C1B7","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1845C1B7","objectId":{"name":"Ian","path":"objects/Ian/Ian.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":544.0,"y":178.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"TechDoodads_1","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"TechDoodads_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":48,"SerialiseWidth":86,"TileCompressedData":[
           -184,-2147483648,9,2082,2083,2084,2082,2083,2084,2082,2083,2084,-77,-2147483648,9,2130,2131,2132,2130,
