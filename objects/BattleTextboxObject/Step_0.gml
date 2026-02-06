@@ -15,6 +15,8 @@ if (instance_number(ImportantElementParent) > 0 and alarm[2] > 0) alarm[2]++
 
 if (expGainValue > 0 and expGaining)
 {
+	if (alarm[2] > 0) alarm[2]++
+	
 	alarm[3] = 5
 	var level = GetLevel(playerPkmn)
 	if (expGainValue == 1 or GetExp(playerPkmn)+1 >= GetExpLevelFloor(101, GetGrowth(playerPkmn))) expGaining = false

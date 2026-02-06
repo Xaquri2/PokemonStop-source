@@ -136,15 +136,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 				if (string_count(" sent out ", text) > 0) //Enemy pokémon released
 				{
-					var enemy = -1
+					var enemy = noone
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
 					{
 						enemy = instance_find(BattleEntityObject, i)
-						if (enemy.player) enemy = -1
+						if (enemy.player) enemy = noone
 						else break
 					}
 
-					if (enemy != -1)
+					if (enemy != noone)
 					{
 						if (enemy.currentPkmn == 0)
 						{
@@ -160,14 +160,14 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				}
 				else if (string_count("Go!", text) > 0) //Player pokémon released
 				{
-					var player = -1
+					var player = noone
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
 					{
 						player = instance_find(BattleEntityObject, i)
 						if (player.player) break
 					}
 
-					if (player != -1)
+					if (player != noone)
 					{
 						if (player.currentPkmn == 0)
 						{
@@ -183,7 +183,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				}
 				else if (string_count("opposing", text) == 0 and string_count("fainted", text) > 0) //Player pokémon fainted
 				{
-					var playerPkmnEntity = -1
+					var playerPkmnEntity = noone
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 					{
 						var attempt = instance_find(BattlePokemonObject, i)
@@ -194,7 +194,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						}
 					}
 
-					if (playerPkmnEntity != -1)
+					if (playerPkmnEntity != noone)
 					{
 						alarm[3] = 100
 						playerPkmnEntity.alarm[1] = 100
@@ -202,7 +202,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				}
 				else if (string_count("opposing", text) > 0 and string_count("fainted", text) > 0) //Enemy pokémon fainted
 				{
-					var enemyPkmnEntity = -1
+					var enemyPkmnEntity = noone
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 					{
 						var attempt = instance_find(BattlePokemonObject, i)
@@ -213,7 +213,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						}
 					}
 
-					if (enemyPkmnEntity != -1)
+					if (enemyPkmnEntity != noone)
 					{
 						alarm[3] = 100
 						enemyPkmnEntity.alarm[1] = 100
