@@ -1209,12 +1209,13 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
 			AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
 			break
-		case "The Collector":
+		case "Collector":
+			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", DemogorgonBattleSprite)
+			else
 			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
 			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
-			AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", DemogorgonBattleSprite)
 			break
 		case "Zoovac":
 			AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)
@@ -1223,10 +1224,6 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 4, "MissingNo", 24, "Male", MissingNoIdleSprite)
 			AddPokemonTrainer(team, 5, "Rancor", 25, "Male", RancorOverworldSprite)
 			AddPokemonTrainer(team, 6, "Godzilla", 35, "Male", GodzillaPosterSprite)
-			break
-		case "Collector":
-			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 0, "Pikachu", 3, "Male", PikachuIdleSprite)
-			else AddPokemonTrainer(team, 0, "Pikachu", 1, "Male", PikachuIdleSprite)
 			break
 	}
 	return team
