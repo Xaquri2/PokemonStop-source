@@ -1,7 +1,7 @@
 var scale = 5
 scale += clamp(ds_list_size(optionList), 2, 100)-2
 
-draw_sprite_ext(OptionBoxSprite, 0, 20, view_get_hport(0)*0.98, 16, scale, image_angle, image_blend, image_alpha)
+draw_sprite_ext(OptionBoxSprite, 0, 20, view_get_hport(0)*0.98, 25, scale, image_angle, image_blend, image_alpha)
 draw_text_transformed(40, view_get_hport(0)*0.98-sprite_get_height(OptionBoxSprite)*scale+20, question, 1.5, 1.5, image_angle)
 
 if (buying) draw_text_transformed(40+string_width(question)*1.5+40,

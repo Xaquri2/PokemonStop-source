@@ -17,3 +17,6 @@ referenceNPC = noone
 
 image_xscale = 4
 image_yscale = 4
+
+nameList = ds_list_create()
+iconList = ds_list_create()

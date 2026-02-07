@@ -691,6 +691,9 @@ if (keyboard_check_pressed(vk_enter))
 			dialogue.name = referenceNPC.name
 			dialogue.actionNPC = referenceNPC
 			
+			ds_list_add(nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
+			ds_list_add(iconList, LilySprite2,LilySprite2,LilySprite2,LilySprite2,LilySprite2,LilySprite2,LilySprite2)
+			
 			ds_list_add(dialogue.textList, "Well, yes… but also much more than that.",
 			"This is a TIME-SPACE AXIS…", 
 			"Specifically, the most powerful and sensitive IN THE WORLD.",
