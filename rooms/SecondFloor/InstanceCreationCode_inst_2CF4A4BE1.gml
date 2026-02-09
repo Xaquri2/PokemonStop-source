@@ -1,1 +1,1 @@
-SetWarpDefaults("TowerSecondFloorElevatorDown", "Down", false)
+SetWarpDefaults("TowerSecondFloorElevatorDOWN", "Down", false)

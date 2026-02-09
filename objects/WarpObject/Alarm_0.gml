@@ -1,3 +1,6 @@
+var a = game.warp
+var b = game.targetWarp
+
 if (game.warp and game.targetWarp == warpName)
 {
 	var player = instance_find(PlayerObject, 0)

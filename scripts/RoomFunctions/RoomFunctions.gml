@@ -171,7 +171,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowPath
 			targetWarp = "ShadowBOTTOMToGreed"
 			break
-
+		#endregion
+		
 		#region GinkgoLab
 		case "GinkgoToMallet":
 			targetRoom = Mallet_Town
@@ -264,7 +265,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowPokecenter
 			targetWarp = "PokeCenterToShadow"
 			break
-
+		#endregion
+		
 		case "PokeCenterToShadow":
 			targetRoom = ShadowPath
 			targetWarp = "ShadowToPokeCenter"

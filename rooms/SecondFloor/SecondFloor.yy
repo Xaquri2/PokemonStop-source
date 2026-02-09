@@ -19,8 +19,8 @@
     {"name":"inst_5F66F724","path":"rooms/SecondFloor/SecondFloor.yy",},
     {"name":"inst_7153CA5B","path":"rooms/SecondFloor/SecondFloor.yy",},
     {"name":"inst_7CE12898_1","path":"rooms/SecondFloor/SecondFloor.yy",},
-    {"name":"inst_293F7AC0","path":"rooms/SecondFloor/SecondFloor.yy",},
     {"name":"inst_420A9177","path":"rooms/SecondFloor/SecondFloor.yy",},
+    {"name":"inst_293F7AC0","path":"rooms/SecondFloor/SecondFloor.yy",},
   ],
   "isDnd":false,
   "layers":[
