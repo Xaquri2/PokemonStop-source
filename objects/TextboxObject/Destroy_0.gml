@@ -29,6 +29,10 @@ if (instance_exists(actionNPC))
 			}
 			break
 		case Gorbertron:
+			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")
+			{
+				startBattle = false
+			}
 			if (!startBattle and ds_list_find_value(textList, ds_list_size(textList)-1) != "That said... Are you ready to challenge me?")
 			{
 				player.alarm[1] = -1
@@ -49,6 +53,10 @@ if (instance_exists(actionNPC))
 			}
 			break
 		case Lilium:
+			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")
+			{
+				startBattle = false
+			}
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "This place – do you know what it is? ")
 			{
 				player.alarm[1] = -1
@@ -89,6 +97,10 @@ if (instance_exists(actionNPC))
 			}
 			break
 		case Collector:
+			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")
+			{
+				startBattle = false
+			}
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Well, I assume I assume you've brought inferior biological type Pokemon?")
 			{
 				player.alarm[1] = -1
