@@ -213,7 +213,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MorlockCity
 			targetWarp = "MorlockEntrance"
 			break
-#endregion
+		#endregion
 
 		#region Waterfront
 		case "WaterfrontToMallet":
