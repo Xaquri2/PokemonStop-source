@@ -398,13 +398,15 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "Elevator1"
 			break
 
-		case "TowerSecondFloorElevatorDown":
+		case "TowerSecondFloorElevatorDOWN":
 			targetRoom = FirstFloor
 			targetWarp = "TowerFirstFloorElevator"
 			break
 		case "TowerSecondFloorElevatorUP":
-			targetRoom = ThirdFloor
-			targetWarp = "TowerThirdFloorElevatorDOWN"
+			targetRoom = Elevator2
+			targetWarp = "Elevator2"
+			//targetRoom = ThirdFloor
+			//targetWarp = "TowerThirdFloorElevatorDOWN"
 			break
 
 		case "TowerThirdFloorElevatorDOWN":
@@ -412,8 +414,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TowerSecondFloorElevatorUP"
 			break
 		case "TowerThirdFloorElevatorUP":
-			targetRoom = FourthFloor
-			targetWarp = "TowerFourthFloorElevatorDOWN"
+			targetRoom = Elevator3
+			targetWarp = "Elevator3"
+			//targetRoom = FourthFloor
+			//targetWarp = "TowerFourthFloorElevatorDOWN"
 			break
 
 		case "TowerFourthFloorElevatorDOWN":
@@ -421,8 +425,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TowerThirdFloorElevatorUP"
 			break
 		case "TowerFourthFloorElevatorUP":
-			targetRoom = FifthFloor
-			targetWarp = "TowerFifthFloorElevatorDOWN"
+			targetRoom = Elevator4
+			targetWarp = "Elevator4"
+			//targetRoom = FifthFloor
+			//targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
 
 		case "TowerFifthFloorElevatorDOWN":
@@ -468,6 +474,24 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = SecondFloor
 			targetWarp = "TowerSecondFloorElevatorDOWN"
 			break
+		case "Elevator2":
+			targetRoom = ThirdFloor
+			targetWarp = "TowerThirdFloorElevatorDOWN"
+			break
+		case "Elevator3":
+			targetRoom = FourthFloor
+			targetWarp = "TowerFourthFloorElevatorDOWN"
+			break
+		case "Elevator4":
+			targetRoom = FifthFloor
+			targetWarp = "TowerFifthFloorElevatorDOWN"
+			break
+
+
+
+
+
+
 
 
 	}
@@ -574,6 +598,9 @@ function GetRoomMusic()
 		case FourthFloor:
 		case FifthFloor:
 		case Elevator1:
+		case Elevator2:
+		case Elevator3:
+		case Elevator4:
 			return HyruleCastleRevision  
 			
 		default:
