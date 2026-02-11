@@ -57,9 +57,16 @@ else
 		if (fadeAlpha < 1) fadeAlpha += 0.05
 		else room_goto(playerRoom)
 	}
-	if (topRectValue-5 > 0)
+	
+	if (!playCutscene)
 	{
-		topRectValue -= 5
+		if (topRectValue-5 > 0)
+		{
+			topRectValue -= 5
+		}
+		else topRectValue = 0
 	}
-	else topRectValue = 0
 }
+
+if (cutsceneSprite != noone) { if (alarm[0] > 0) alarm[0]++ }
+else alarm[10] = -1

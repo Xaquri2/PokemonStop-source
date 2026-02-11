@@ -1003,6 +1003,9 @@ function GetPokemonBaseStats(name) {
             // Enormous, legendary monster
             ds_list_add(statList, 150, 130, 120, 100, 100, 50);
             break;
+			
+		default:
+			ds_list_add(statList, 50, 50, 50, 50, 50, 50);
     }
 
 	return statList

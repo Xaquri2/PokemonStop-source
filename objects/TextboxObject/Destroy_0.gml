@@ -42,7 +42,7 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "What are these things on your desk?",
 				"What are the Morlocks?", "What’s an Uber-Morlock?", "What is this place?")
 			}
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?") //Mary's defeat dialogue
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
 			{
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
@@ -95,6 +95,15 @@ if (instance_exists(actionNPC))
 				
 				ds_list_add(global.flags, "LiliumFirstDefeatText")
 			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Start the Gym Battle?"
+				ds_list_add(optionMenu.optionList, "Yes")
+				ds_list_add(optionMenu.optionList, "No")
+			}
 			break
 		case Collector:
 			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")
@@ -138,6 +147,15 @@ if (instance_exists(actionNPC))
 			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
 			{
 				startBattle = true
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Start the Gym Battle?"
+				ds_list_add(optionMenu.optionList, "Yes")
+				ds_list_add(optionMenu.optionList, "No")
 			}
 			break
 		case NurseJoy:
@@ -204,6 +222,11 @@ if (startBattle and instance_number(OptionObject) == 0)
 	battleObj.playerX = player.x
 	battleObj.playerY = player.y
 	battleObj.playerRoom = room
+	
+	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
+	{
+		battleObj.cutsceneSprite = MegaBotCutscene
+	}
 	
 	if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
 	{

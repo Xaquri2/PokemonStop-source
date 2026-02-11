@@ -770,7 +770,7 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.textList, "Such a limited viewpoint! It’s easy to condemn that which you don’t understand.",
 			"I’m trying to help you, you schmuck!", "You guys always complain when you’re suffering… but then somehow *I’M* the bad guy for trying to alleviate it?",
 			"Self-righteous trainers like you are quick to condemn me, but then when you get the power I’m trying to offer, you’d all use it to save yourselves when dying.",
-			"Enough chatter! Let’s resolve this.", "Ready to challenge me?")
+			"Enough chatter! Let’s resolve this.", "That said... Are you ready to challenge me?")
 
 			player.talking = true
 
@@ -785,7 +785,7 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "You’re welcome! I’m glad you approve.", "That is the reason for my experiments of converting people into BOOs and UMBRIANs", 
 			"And converting animals into UMBREONs and so on.", "That is how I plan to ELEVATE humanity to the next level;", 
-			"For only in that form can your minds process the information I wish to bestow.", "Ready to challenge me?")
+			"For only in that form can your minds process the information I wish to bestow.", "That said... Are you ready to challenge me?")
 
 			player.talking = true
 
@@ -851,7 +851,7 @@ if (keyboard_check_pressed(vk_enter))
 			dialogue.actionNPC = referenceNPC
 			
 			ds_list_add(dialogue.textList, "At least I admit my patheticness!!", 
-			"That’s it – I’ll show you the power of the Mechanical!!", "Ready to challenge me?")
+			"That’s it – I’ll show you the power of the Mechanical!!", "That said... Are you ready to challenge me?")
 
 			player.talking = true
 
@@ -867,7 +867,7 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.textList, "Am I? Have I?", 
 			"Or are you just afraid you’ve become OBSOLETE?!",
 			"Time for you to feel the power of Robotics!!",
-			"Ready to challenge me?")
+			"That said... Are you ready to challenge me?")
 
 			player.talking = true
 
@@ -882,7 +882,7 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "That’s right!! Glad you understand.",
 			"That understanding will be nice for you to enjoy… BEFORE YOUR DOOM!!",
-			"Ready to challenge me?")
+			"That said... Are you ready to challenge me?")
 			
 			player.talking = true
 

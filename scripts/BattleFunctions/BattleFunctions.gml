@@ -1213,10 +1213,10 @@ function GetTrainerTeam(trainerName)
 			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", DemogorgonBattleSprite)
 			else
 			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
-			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
-			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
-			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
-			AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
+			//AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
+			//AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
+			//AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
+			//AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
 			break
 		case "Zoovac":
 			AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)

@@ -1,7 +1,12 @@
 if (room == RoomBattle)
 {
 	alarm[0] = 100
-
+	if (cutsceneSprite != noone) 
+	{
+		playCutscene = true
+		alarm[10] = cutsceneSpeed
+	}
+	
 	playerPkmn = ds_list_find_value(playerTeam, GetFirstHealthyPokemon())
 	var playerTeamMemberName = GetName(playerPkmn)
 

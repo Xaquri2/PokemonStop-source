@@ -36,3 +36,8 @@ textList = ds_list_create()
 postBattleTextList = noone
 postBattleIconList = noone
 postBattleNameList = noone
+
+playCutscene = false
+cutsceneSprite = noone
+cutsceneFrame = 0
+cutsceneSpeed = 2
