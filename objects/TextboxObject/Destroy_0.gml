@@ -225,7 +225,7 @@ if (startBattle and instance_number(OptionObject) == 0)
 	
 	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
 	{
-		battleObj.cutsceneSprite = MegaBotCutscene
+		battleObj.cutsceneVideo = MegaBotCutscene
 	}
 	
 	if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 

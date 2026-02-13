@@ -58,7 +58,7 @@ else
 		else room_goto(playerRoom)
 	}
 	
-	if (!playCutscene)
+	if (cutsceneVideo == noone)
 	{
 		if (topRectValue-5 > 0)
 		{
@@ -68,5 +68,11 @@ else
 	}
 }
 
-if (cutsceneSprite != noone) { if (alarm[0] > 0) alarm[0]++ }
-else alarm[10] = -1
+if (cutsceneVideo != noone and playCutscene) 
+{
+	cutsceneSurface = video_draw()[1]
+	if !(video_get_status() == video_status_closed and cutscenePlaying)
+	{
+		alarm[0]++
+	}
+}

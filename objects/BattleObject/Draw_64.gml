@@ -37,11 +37,12 @@ else
 	}
 	else
 	{
-		draw_rectangle_color(0,0,view_get_wport(0),topRectValue,
-		c_black,c_black,c_black,c_black,false)
-		draw_rectangle_color(0,view_get_hport(0),view_get_wport(0),view_get_hport(0)-topRectValue,
-		c_black,c_black,c_black,c_black,false)
+		if (!cutscenePlaying)
+		{
+			draw_rectangle_color(0,0,view_get_wport(0),topRectValue,
+			c_black,c_black,c_black,c_black,false)
+			draw_rectangle_color(0,view_get_hport(0),view_get_wport(0),view_get_hport(0)-topRectValue,
+			c_black,c_black,c_black,c_black,false)
+		}
 	}
 }
-
-if (cutsceneSprite != noone and playCutscene) draw_sprite_ext(cutsceneSprite, cutsceneFrame, 0, 0, 2.5, 2.5, image_angle, image_blend, image_alpha)

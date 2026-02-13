@@ -117,7 +117,9 @@
     {"link":"io.gamemaker.gm_filter_pixelate-1.0.0","name":"io.gamemaker.gm_filter_pixelate-1.0.0","path":"io.gamemaker.gm_filter_pixelate-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_filter_greyscale-1.0.0","name":"io.gamemaker.gm_filter_greyscale-1.0.0","path":"io.gamemaker.gm_filter_greyscale-1.0.0.yyp",},
   ],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"MegaBot800.mp4","CopyToMask":-1,"filePath":"datafiles","name":"MegaBot800.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
@@ -390,6 +392,7 @@
     {"id":{"name":"HealPokemonJingle","path":"sounds/HealPokemonJingle/HealPokemonJingle.yy",},},
     {"id":{"name":"HyruleCastleRevision","path":"sounds/HyruleCastleRevision/HyruleCastleRevision.yy",},},
     {"id":{"name":"MalletTownMusic","path":"sounds/MalletTownMusic/MalletTownMusic.yy",},},
+    {"id":{"name":"MegaBot800CutsceneAudio","path":"sounds/MegaBot800CutsceneAudio/MegaBot800CutsceneAudio.yy",},},
     {"id":{"name":"MP3_Bear_Roar_2","path":"sounds/MP3_Bear_Roar_2/MP3_Bear_Roar_2.yy",},},
     {"id":{"name":"MP3_Fireball_Travel_2","path":"sounds/MP3_Fireball_Travel_2/MP3_Fireball_Travel_2.yy",},},
     {"id":{"name":"MP3_Lightning_Arc_2","path":"sounds/MP3_Lightning_Arc_2/MP3_Lightning_Arc_2.yy",},},

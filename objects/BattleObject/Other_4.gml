@@ -1,10 +1,17 @@
 if (room == RoomBattle)
 {
 	alarm[0] = 100
-	if (cutsceneSprite != noone) 
+	if (cutsceneVideo != noone)
 	{
+		var musicObj = instance_find(MusicObject, 0)
+		audio_stop_sound(musicObj.currentMusic)
+		musicObj.currentMusic = noone
+		
 		playCutscene = true
-		alarm[10] = cutsceneSpeed
+		cutscenePlaying = true
+		video_open("MegaBot800.mp4")
+		audio_play_sound(MegaBot800CutsceneAudio, 1, false)
+		alarm[1] = video_get_duration()
 	}
 	
 	playerPkmn = ds_list_find_value(playerTeam, GetFirstHealthyPokemon())

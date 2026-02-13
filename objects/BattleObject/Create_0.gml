@@ -38,6 +38,6 @@ postBattleIconList = noone
 postBattleNameList = noone
 
 playCutscene = false
-cutsceneSprite = noone
-cutsceneFrame = 0
-cutsceneSpeed = 2
+cutsceneVideo = noone
+cutscenePlaying = false
+cutsceneSurface = -1
