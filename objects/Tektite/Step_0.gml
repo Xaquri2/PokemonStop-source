@@ -10,11 +10,12 @@ switch (state) {
         image_speed = idle_fps / room_speed;
 
         z = 0;
-
+		if (!hasTouched) {
         wait_timer--;
         if (wait_timer <= 0) {
             start_leap();
         }
+		}
     break;
 
 
@@ -82,7 +83,7 @@ switch (state) {
             seg_end_y = seg_start_y + lengthdir_y(remaining_dist, leap_dir);
 
             // (No change to leap_timer — total timeline stays intact)
-        }
+		 }
 		
 		  // ---Stop if we hit GASH
         if (place_meeting(x, y, PlayerObject)) {
@@ -134,9 +135,15 @@ switch (state) {
 
             // resume idle animation
             image_speed = idle_fps / room_speed;
+			image_index = 0;
             z = 0;
         }
     break;
+}
+
+
+if (hasTouched == true) {
+    state = STATE_IDLE;
 }
 
 

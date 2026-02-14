@@ -3,6 +3,9 @@ event_inherited();
 
 /// obj_tektite : Create
 
+enemyName = Tektite;
+hasTouched = false; 
+
 // --- CONFIG ---
 wait_min = room_speed * 1;     // 1 sec
 wait_max = room_speed * 3;     // 3 sec
@@ -14,7 +17,7 @@ leap_total    = round(room_speed * leap_seconds);
 arc_height    = 28;            // visual height of arc (pixels)
 
 // Sprite behavior
-idle_fps = 3;                  // play at 1 fps while idle
+idle_fps = 1;                  // play at 1 fps while idle
 
 // Which object counts as "solid"
 solid_obj = obj_editor_wall;         // change this if needed
