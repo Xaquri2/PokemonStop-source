@@ -1,7 +1,7 @@
-if (torch)
+if (global.torch)
 {
 	var color = c_orange;
-	var steps = 120;
+	var steps = 120*global.torchPower;
 	var currentRadius = 61;
 	var alpha = 0
 
