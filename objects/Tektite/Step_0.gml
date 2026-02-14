@@ -1,33 +1,6 @@
 // Inherit the parent event
 event_inherited();
 
-// If we touch the player, freeze immediately (battle is about to trigger)
-if (!frozen_for_battle && place_meeting(x, y, PlayerObject)) {
-    frozen_for_battle = true;
-
-    // Snap back to last safe spot so we don't "push through" visually
-    x = last_safe_x;
-    y = last_safe_y;
-
-    // Stop animation too (optional)
-    image_speed = 0;
-}
-
-if (!frozen_for_battle) {
-    last_safe_x = x;
-    last_safe_y = y;
-}
-
-
-if (state != prev_state) {
-    if (state == STATE_IDLE) {
-        image_index = 0;
-        image_speed = idle_fps / room_speed;
-    }
-    prev_state = state;
-}
-
-
 /// obj_tektite : Step
 
 switch (state) {
@@ -88,6 +61,49 @@ switch (state) {
 
             // Remaining time in the leap (keeps total duration unchanged)
             var remaining_frames = max(0, leap_total - leap_timer);
+
+            // Original speed (pixels per frame)
+            var leap_speed = leap_distance / leap_total;
+
+            // Remaining distance should match what would've been left
+            var remaining_dist = leap_speed * remaining_frames;
+
+            // Start a NEW segment from current position to a new destination
+            seg_start_x = x;
+            seg_start_y = y;
+
+            seg_start_frame = leap_timer;
+            seg_duration    = remaining_frames;
+
+            // Aim away and pick destination using remaining_dist
+            leap_dir = away_dir;
+
+            seg_end_x = seg_start_x + lengthdir_x(remaining_dist, leap_dir);
+            seg_end_y = seg_start_y + lengthdir_y(remaining_dist, leap_dir);
+
+            // (No change to leap_timer — total timeline stays intact)
+        }
+		
+		  // ---Stop if we hit GASH
+        if (place_meeting(x, y, PlayerObject)) {
+
+            // Go back to previous safe position
+           // x = prev_x;
+           // y = prev_y;
+
+            // Find what we hit (optional but nicer)
+            var hit = instance_place(x, y, PlayerObject);
+
+            // Pick "away" direction
+            var away_dir;
+            if (hit != noone) {
+                away_dir = point_direction(hit.x, hit.y, x, y);
+            } else {
+                away_dir = leap_dir + 180;
+            }
+
+            // Remaining time in the leap (keeps total duration unchanged)
+            var remaining_frames = max(0, 0);
 
             // Original speed (pixels per frame)
             var leap_speed = leap_distance / leap_total;

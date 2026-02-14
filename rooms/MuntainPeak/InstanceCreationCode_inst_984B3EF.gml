@@ -8,6 +8,8 @@ walkUpSprite = sprite_index
 walkDownSprite = sprite_index
 walkRightSprite = sprite_index
 
+enemyName = Tektite; 
+
 canWalk = false
 
 AddPokemonTrainer(trainerTeam, 1, "Tektite", floor(random_range(8,15)), GetRandomGender(50), TektiteIdleSprite)
