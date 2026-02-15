@@ -13,3 +13,10 @@ if (charNumber < string_length(text))
 		charNumber++
 	}
 }
+
+face_timer++;
+if (face_timer >= room_speed) { // 1 FPS
+    face_timer = 0;
+    face_frame++;
+}
+

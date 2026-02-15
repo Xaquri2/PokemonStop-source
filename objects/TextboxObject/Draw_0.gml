@@ -53,11 +53,38 @@ if (!ds_list_empty(nameList))
 	draw_set_valign(fa_top)
 }
 
+	//Text box sprite: 
 draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.58, view_y+view_height-42, 8.9*scalePerc, 2.2, image_angle, image_blend, image_alpha)
 if (!ds_list_empty(iconList)) 
 {
+		//Box that the character's face goes in: 
 	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-42, 2.2*scalePerc, 2.2*scalePerc, image_angle, image_blend, image_alpha)
-	draw_sprite_ext(ds_list_find_value(iconList, currentText), 0, view_x+view_width*0.15, view_y+view_height-32, 0.75*scalePerc, 0.75*scalePerc, image_angle, image_blend, image_alpha)
+
+		// Character face sprite (auto-fit)
+		var spr = ds_list_find_value(iconList, currentText);
+		var maxf = sprite_get_number(spr);
+		face_frame = face_frame mod maxf;
+		
+		// where the face should be centered
+		var cx = view_x + view_width * 0.15;
+		var cy = view_y + view_height - 44;
+		var bottom_y = view_y + view_height - 32; // this is the bottom line you want
+		
+		// how big the face area is (tweak these)
+		var box_w = 60 * scalePerc;
+		var box_h = 60 * scalePerc;
+		
+		// sprite source size
+		var sw = sprite_get_width(spr);
+		var sh = sprite_get_height(spr);
+		
+		// scale to FIT (keeps aspect ratio)
+		var s = max(box_w / sw, box_h / sh);
+		
+		// draw centered, with origin centered (see note below)
+		draw_sprite_ext(spr, face_frame, cx, cy, s, s, 0, c_white, 1);
+
+
 }
 
 var ogText = ds_list_find_value(textList, currentText)

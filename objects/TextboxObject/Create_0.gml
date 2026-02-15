@@ -18,6 +18,9 @@ isDefeatDialogue = false
 
 player = instance_find(PlayerObject, 0)
 
+face_frame = 0;
+face_timer = 0;
+
 alarm[0] = 1
 
 //Note: icons' origins must be on the bottom center

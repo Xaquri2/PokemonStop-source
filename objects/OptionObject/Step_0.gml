@@ -533,6 +533,7 @@ if (keyboard_check_pressed(vk_enter))
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
 			ds_list_add(dialogue.textList, "Shut up! I'm going away anyways...")
+			ds_list_add(dialogue.nameList, "Mary")
 
 			player.talking = true
 
@@ -545,6 +546,8 @@ if (keyboard_check_pressed(vk_enter))
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
 			ds_list_add(dialogue.textList, "Fine! Whatever...")
+			ds_list_add(dialogue.nameList, "Mary")
+			ds_list_add(dialogue.iconList, MaryWalkDownSprite)
 
 			player.talking = true
 
@@ -611,6 +614,8 @@ if (keyboard_check_pressed(vk_enter))
 			dialogue.actionNPC = referenceNPC
 			
 			ds_list_add(dialogue.textList, "Alright, let me heal them...")
+			ds_list_add(dialogue.nameList, "Nurse Joy")
+			ds_list_add(dialogue.iconList, NurseJoySprite_CLOSEUP)
 
 			player.talking = true
 
@@ -633,6 +638,8 @@ if (keyboard_check_pressed(vk_enter))
 				ds_list_add(dialogue.textList, "Ah, you like the accoutrements on my desk!", 
 				"Thank you, I pride myself on my decor.", 
 				"Well, on your right is a toy model… and then we have my pet, Captain Tribble.")
+				ds_list_add(dialogue.nameList, "Gorbertron","Gorbertron","Gorbertron")
+				ds_list_add(dialogue.iconList, GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,)
 
 				player.talking = true
 
@@ -646,6 +653,8 @@ if (keyboard_check_pressed(vk_enter))
 			
 				ds_list_add(dialogue.textList, "The Morlocks were human once... But the forces of evolution and mutation have changed us. Bettered us.",
 				"We are no longer slaves to the Sun; we can work much longer hours...", "You think we should mourn our lost humanity? Such arrogance! Why should we? We are so much more.")
+				ds_list_add(dialogue.nameList, "Gorbertron","Gorbertron","Gorbertron")
+				ds_list_add(dialogue.iconList, GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,)
 
 				player.talking = true
 
@@ -658,6 +667,8 @@ if (keyboard_check_pressed(vk_enter))
 				dialogue.actionNPC = referenceNPC
 			
 				ds_list_add(dialogue.textList, "An advanced form of Morlock. Unlike the other Morlocks... I’ve gained certain abilities. I can move objects with my mind!")
+				ds_list_add(dialogue.nameList, "Gorbertron")
+				ds_list_add(dialogue.iconList, GorbertronSprite_CLOSEUP)
 
 				player.talking = true
 
@@ -672,6 +683,8 @@ if (keyboard_check_pressed(vk_enter))
 				ds_list_add(dialogue.textList, "This entire place is devoted to one goal: human evolution. You see, Morlocks are the better forms of humans, and I'm devoted to mutating humans into greater forms.",
 				"If we can bring human-types up to their next stage, humans can become the ULTIMATE POKéMON. By experimenting with evolution, we can achieve godlike status",
 				"and YOU WILL NOT GET IN MY WAY!!.", "That said... Are you ready to challenge me?")
+				ds_list_add(dialogue.nameList, "Gorbertron","Gorbertron","Gorbertron","Gorbertron")
+				ds_list_add(dialogue.iconList, GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP)
 
 				player.talking = true
 
@@ -691,8 +704,8 @@ if (keyboard_check_pressed(vk_enter))
 			dialogue.name = referenceNPC.name
 			dialogue.actionNPC = referenceNPC
 			
-			ds_list_add(nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
-			ds_list_add(iconList, LilySprite2,LilySprite2,LilySprite2,LilySprite2,LilySprite2,LilySprite2,LilySprite2)
+			ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,)
 			
 			ds_list_add(dialogue.textList, "Well, yes… but also much more than that.",
 			"This is a TIME-SPACE AXIS…", 
@@ -719,6 +732,9 @@ if (keyboard_check_pressed(vk_enter))
 			"Each of the platforms in this room represents a different universe in the MULTIVERSE.",
 			"The motions of the platforms reflect the actual motions of the universes relative to one another.",
 			"You will of course recognize Palkia and Dialga?")
+			ds_list_add(dialogue.nameList, "Lillium","Lillium","Lillium","Lillium","Lillium","Lillium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP)
+
 
 			player.talking = true
 
@@ -738,10 +754,15 @@ if (keyboard_check_pressed(vk_enter))
 		if (currentOption == 0)
 		{
 			ds_list_add(dialogue.textList, "Yes, Palkia and Dialga… representing Time and Space, respectively.")
+			ds_list_add(dialogue.nameList, "Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP)
+			
 		}
 		else
 		{
 			ds_list_add(dialogue.textList, "They’re two Pokémon seen in other regions… which were gods of sorts.", "Gods of Time and Space, respectively.  ")
+			ds_list_add(nameList, "Lilium","Lilium")
+			ds_list_add(iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 		}
 
 		player.talking = true
@@ -754,6 +775,8 @@ if (keyboard_check_pressed(vk_enter))
 		"But, we do live in a multiverse;", "And you are, right now, standing on the platform which represents the universe we currently inhabit.",
 		"You see, like Palkia and Dialga, I was created by ARCEUS.", "He wanted me to simply observe, but how could I just observe when such misery existed and I had the knowledge to prevent it?", 
 		"I therefore have devoted myself to BETRAYING the trust of Arceus, and BRINGING his knowledge to the people!", "To… to EMPOWER you to …", "…Not die so much.")
+		ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium",)
+		ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,)
 	
 		instance_destroy(id)
 	}
@@ -771,6 +794,8 @@ if (keyboard_check_pressed(vk_enter))
 			"I’m trying to help you, you schmuck!", "You guys always complain when you’re suffering… but then somehow *I’M* the bad guy for trying to alleviate it?",
 			"Self-righteous trainers like you are quick to condemn me, but then when you get the power I’m trying to offer, you’d all use it to save yourselves when dying.",
 			"Enough chatter! Let’s resolve this.", "That said... Are you ready to challenge me?")
+			ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 
 			player.talking = true
 
@@ -786,6 +811,8 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.textList, "You’re welcome! I’m glad you approve.", "That is the reason for my experiments of converting people into BOOs and UMBRIANs", 
 			"And converting animals into UMBREONs and so on.", "That is how I plan to ELEVATE humanity to the next level;", 
 			"For only in that form can your minds process the information I wish to bestow.", "That said... Are you ready to challenge me?")
+			ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 
 			player.talking = true
 
@@ -804,6 +831,8 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "The mechanical is the way of the future. I aim to replace all life with Mechanics.", 
 			"I will create the TRUE heirs to humanity", "who, like Greek mythology, are our betters and will conquer us in the end.")
+			ds_list_add(dialogue.nameList, "The Collector","The Collector","The Collector")
+			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP)
 
 			player.talking = true
 
@@ -822,6 +851,8 @@ if (keyboard_check_pressed(vk_enter))
 			dialogue.actionNPC = referenceNPC
 			
 			ds_list_add(dialogue.textList, "...For now.")
+			ds_list_add(dialogue.nameList, "The Collector")
+			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP)
 
 			player.talking = true
 
@@ -837,6 +868,8 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.textList, "Until I get an upgrade, yes!",
 			"it is an accident of my creation and soon enough I will be one of them as well.", 
 			"I'm a future robot, you see.")
+			ds_list_add(dialogue.nameList, "The Collector","The Collector","The Collector")
+			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP)
 
 			player.talking = true
 
@@ -852,6 +885,8 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "At least I admit my patheticness!!", 
 			"That’s it – I’ll show you the power of the Mechanical!!", "That said... Are you ready to challenge me?")
+			ds_list_add(dialogue.nameList, "The Collector","The Collector","The Collector")
+			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP)
 
 			player.talking = true
 
@@ -868,6 +903,8 @@ if (keyboard_check_pressed(vk_enter))
 			"Or are you just afraid you’ve become OBSOLETE?!",
 			"Time for you to feel the power of Robotics!!",
 			"That said... Are you ready to challenge me?")
+			ds_list_add(dialogue.nameList, "The Collector","The Collector","The Collector","The Collector")
+			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP)
 
 			player.talking = true
 
@@ -882,7 +919,10 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "That’s right!! Glad you understand.",
 			"That understanding will be nice for you to enjoy… BEFORE YOUR DOOM!!",
-			"That said... Are you ready to challenge me?")
+			"Ready to challenge me?!")
+			ds_list_add(dialogue.nameList, "The Collector","The Collector","The Collector")
+			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP)
+
 			
 			player.talking = true
 
