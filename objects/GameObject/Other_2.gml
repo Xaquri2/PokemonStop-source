@@ -51,3 +51,6 @@ AddPokemon("Pikachu", 20, GetRandomGender(50))
 global.standardStartRoom = Mallet_Town
 global.activatedBadges = ds_list_create()
 ds_list_add(global.flags, "MutantBadge", "ShadowBadge", "RobotBadge")
+
+global.torch = true
+global.torchPower = 1

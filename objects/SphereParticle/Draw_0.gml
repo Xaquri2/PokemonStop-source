@@ -1,0 +1,1 @@
+draw_circle_colour(x,y,circleRadius*image_xscale,image_blend,image_blend,false)

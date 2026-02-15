@@ -314,4 +314,9 @@ else
 	if (alarm[2] != -1) alarm[2] = -1
 }
 
+if (!talking and !battle and global.torch)
+{
+	if (global.torchPower > 0) global.torchPower -= 0.005
+	else global.torchPower = 0
+}
 #endregion
