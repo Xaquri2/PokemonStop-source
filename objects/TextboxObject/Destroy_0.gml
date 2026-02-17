@@ -263,3 +263,11 @@ if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the 
 	ds_list_add(optionMenu.optionList, "No")
 	optionMenu.referenceNPC = actionNPC
 }
+
+// Resume the controlling sequence (if we were given one)
+if (room == GinkgoIntro) {
+	if (!is_undefined(seq_element_id) && seq_element_id != -1) {
+	    layer_sequence_play(seq_element_id);
+	}
+}
+
