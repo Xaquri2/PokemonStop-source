@@ -31,11 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "link":"io.gamemaker.gm_filter_clouds-1.0.0",
-    "name":"_filter_clouds_texture",
-    "path":"sprites/_filter_clouds_texture/_filter_clouds_texture.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

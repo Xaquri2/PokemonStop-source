@@ -12,6 +12,7 @@
 	// screen-space offsets (pixels, before scalePerc if you want)
 		dialogue.ui_off_x = 0;
 		dialogue.ui_off_y = 300; 
+		dialogue.ui_scale = 1.2; // bigger
 	
 		dialogue.scalePerc = 10;
 

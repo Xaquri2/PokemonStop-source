@@ -25,3 +25,5 @@ alarm[0] = 1
 
 //Note: icons' origins must be on the bottom center
 
+ui_off_x = 0;
+ui_off_y = 0;

@@ -6,6 +6,15 @@ var view_width = camera_get_view_width(view_camera[0]);
 var view_height = camera_get_view_height(view_camera[0]);
 var scalePerc = view_width/480
 
+// Safe defaults so other rooms won't crash
+var off_x = 0;
+var off_y = 0;
+if (variable_instance_exists(id, "ui_off_x")) off_x = ui_off_x;
+if (variable_instance_exists(id, "ui_off_y")) off_y = ui_off_y;
+view_x += off_x;
+view_y += off_y;
+
+
 if (!ds_list_empty(nameList))
 {
 	var name = ds_list_find_value(nameList, currentText)

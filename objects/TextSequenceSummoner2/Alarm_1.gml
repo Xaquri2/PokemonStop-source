@@ -9,6 +9,9 @@
 //Create textbox
 	var dialogue = instance_create_depth(x,500,-9999999999999,TextboxObject)
 	
+	dialogue.ui_off_x = 0;
+	dialogue.ui_off_y = 300; 
+	
 	TextboxObject.scalePerc = 10; 
 
 	ds_list_add(dialogue.textList, 
