@@ -15,6 +15,9 @@ function GetItemCategory(name)
 		case "Hyper Potion":
 		case "Max Potion":
 		case "Full Restore":
+		case "Torch Fuel":
+		case "Super Torch Fuel":
+		case "Ultra Torch Fuel":
 			return "Items"
 		#endregion
 
@@ -61,6 +64,11 @@ function GetItemDescription(name)
 			return "Heals the Pokemon up to full health"
 		case "Full Restore":
 			return "Heals the Pokemon up to full health and clears statuses"
+			
+		case "Torch Fuel":
+		case "Super Torch Fuel":
+		case "Ultra Torch Fuel":
+			return string_concat("Restores the torch's power by ", GetHealValue(name)*100, "%")
 		#endregion
 
 		#region Balls
@@ -169,6 +177,9 @@ function IsConsumableItem(itemName)
 		case "Hyper Potion":
 		case "Max Potion":
 		case "Full Restore":
+		case "Torch Fuel":
+		case "Super Torch Fuel":
+		case "Ultra Torch Fuel":
 			return true
 	}
 	return false
@@ -211,6 +222,12 @@ function GetHealValue(itemName)
 		case "Max Potion":
 		case "Full Restore":
 			return 10000
+		case "Torch Fuel":
+			return 0.25
+		case "Super Torch Fuel":
+			return 0.5
+		case "Ultra Torch Fuel":
+			return 1
 	}
 	return -1
 }

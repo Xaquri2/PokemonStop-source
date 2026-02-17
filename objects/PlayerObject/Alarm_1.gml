@@ -1,1 +1,2 @@
 talking = false
+canWalk = true

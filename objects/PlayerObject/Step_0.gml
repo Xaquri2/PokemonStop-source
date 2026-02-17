@@ -1,6 +1,6 @@
 depth = -y
 
-#region Movement and Interactions
+#region Movement, Controls and Interactions
 hspeedOld = hspeed
 vspeedOld = vspeed
 hspeed = 0
@@ -33,7 +33,27 @@ if (canWalk and !talking and !battle)
 	if (keyboard_check(vk_down) and !RoomHasGravity()) vspeed = speedValue
 	if (keyboard_check(vk_left)) hspeed = -speedValue
 	if (keyboard_check(vk_right)) hspeed = speedValue
+	
+	if (keyboard_check_pressed(ord("T")))
+	{
+		var player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		if (!global.torch) 
+		{
+			global.torch = true
+			ds_list_add(dialogue.textList, "You are now using the torch!")
+		}
+		else
+		{
+			global.torch = false
+			ds_list_add(dialogue.textList, "You stopped using the torch.")
+		}
+		
+		player.talking = true
 
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	}
+	
 	if (keyboard_check_pressed(ord("Q")))
 	{
 		if (global.autosave)

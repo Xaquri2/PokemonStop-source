@@ -52,5 +52,5 @@ global.standardStartRoom = Mallet_Town
 global.activatedBadges = ds_list_create()
 ds_list_add(global.flags, "MutantBadge", "ShadowBadge", "RobotBadge")
 
-global.torch = true
+global.torch = false
 global.torchPower = 1
