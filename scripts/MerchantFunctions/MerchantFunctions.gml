@@ -30,7 +30,7 @@ function GetMerchantItems(name)
 			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy")
 			break
 		case "Morlockcita":
-			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy")
+			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy", "Torch Fuel", "Super Torch Fuel", "Ultra Torch Fuel")
 			break
 		case "BoxBotMerchant":
 			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy", "Great Ball", "Ultra Ball")
