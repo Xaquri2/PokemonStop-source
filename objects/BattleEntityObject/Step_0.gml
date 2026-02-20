@@ -6,3 +6,4 @@ if (isWild and visible)
 	pk.playerTeam = false
 	visible = false
 }
+
