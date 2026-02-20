@@ -13,4 +13,9 @@ loadRoom = noone
 loadX = 0
 loadY = 0
 
+beforeCutsceneVolume = 0
+cutsceneVideo = ""
+cutscenePlaying = false
+cutsceneSurface = -1
+
 global.potion = true

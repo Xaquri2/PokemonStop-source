@@ -122,6 +122,7 @@
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"MegaBot800.mp4","CopyToMask":-1,"filePath":"datafiles","name":"MegaBot800.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"ShadowGymCutscene.mp4","CopyToMask":-1,"filePath":"datafiles","name":"ShadowGymCutscene.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
