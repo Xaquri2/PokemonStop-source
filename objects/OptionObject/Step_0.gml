@@ -908,7 +908,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
-		else if (ds_list_find_value(optionList, currentOption) == "You’re pathetic.")
+		else if (ds_list_find_value(optionList, currentOption) == "You’re insane! You’ve gone mad!")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -926,7 +926,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
-		else if (ds_list_find_value(optionList, currentOption) == "You’re pathetic.")
+		else if (ds_list_find_value(optionList, currentOption) == "A noble aim! I admire your ambition.")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -956,20 +956,9 @@ if (question == "Which creature has one voice and yet becomes four-footed and tw
     var dialogue = instance_create_depth(x, y, -9999999999999, TextboxObject);
     dialogue.actionNPC = referenceNPC;
 
-    switch (currentOption)
-    {
-        case 0: // option 0
-            ds_list_add(dialogue.textList, "Humans.");
-            ds_list_add(dialogue.nameList, "Sphinx");
-            ds_list_add(dialogue.iconList, SphinxSprite);
-            break;
-
-        case 1: // option 1
-            ds_list_add(dialogue.textList, "Dogs.");
-            ds_list_add(dialogue.nameList, "Sphinx");
-            ds_list_add(dialogue.iconList, SphinxSprite);
-            break;
-    }
+	ds_list_add(dialogue.textList, "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?")
+	ds_list_add(dialogue.nameList, "Sphinx")
+	ds_list_add(dialogue.iconList, SphinxSprite)
 
     player.talking = true;
     if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue);

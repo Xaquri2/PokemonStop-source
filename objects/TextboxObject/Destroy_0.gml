@@ -182,6 +182,35 @@ if (instance_exists(actionNPC))
 				actionNPC.alarm[1] = 40
 			}
 			break
+		case Sphinx:
+		    if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
+		        "The Mighty Sphinx. Answer her riddle, if you wish to pass.")
+		    {
+		        player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?";
+
+		        ds_list_add(optionMenu.optionList, "Humans.")
+				ds_list_add(optionMenu.optionList, "Dogs.")
+				ds_list_add(optionMenu.optionList, "A Table.")
+		    }
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
+		        "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?")
+		    {
+		        player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?";
+
+		        ds_list_add(optionMenu.optionList, "Humans.")
+				ds_list_add(optionMenu.optionList, "Dogs.")
+				ds_list_add(optionMenu.optionList, "A Table.")
+		    }
+		    break;
+
 	}
 }
 
