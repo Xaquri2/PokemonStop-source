@@ -637,6 +637,18 @@ function GetAreaEncounters(encounterType)
 	return encounters
 }
 
+function GetRoomCutscene(n)
+{
+	switch (n)
+	{
+		case ShadowPathGym:
+			if (!HasFlag("HasVisitedShadowGym")) return "ShadowGymCutscene.mp4"
+			else return ""
+		default:
+			return ""
+	}
+}
+
 function RoomHasGravity()
 {
 	switch (room)

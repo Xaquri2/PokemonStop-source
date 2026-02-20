@@ -38,7 +38,38 @@ if (fade)
 	{
 		if (warp and room != targetRoom)
 		{
-			room_goto(targetRoom)
+			cutsceneVideo = GetRoomCutscene(targetRoom)
+			if (cutsceneVideo != "") 
+			{
+				if (video_get_status() == video_status_closed)
+				{
+					if (cutscenePlaying)
+					{
+						if (targetRoom == ShadowPathGym and !HasFlag("HasVisitedShadowGym")) ds_list_add(global.flags, "HasVisitedShadowGym")
+						
+						video_close()
+						room_goto(targetRoom)
+						cutscenePlaying = false
+						
+						audio_group_set_gain(Music, beforeCutsceneVolume)
+					}
+					else
+					{
+						video_open(cutsceneVideo)
+						
+						cutscenePlaying = true
+						cutsceneSurface = video_draw()[1]
+						
+						beforeCutsceneVolume = audio_group_get_gain(Music)
+						audio_group_set_gain(Music, 0)
+					}
+				}
+				else
+				{
+					if (video_get_status() == video_status_playing) cutsceneSurface = video_draw()[1]
+				}
+			}
+			else room_goto(targetRoom)
 		}
 		else if (warp and room == targetRoom)
 		{
