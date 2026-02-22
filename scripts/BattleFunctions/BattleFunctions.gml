@@ -993,7 +993,11 @@ function GetTrainerTeam(trainerName)
 	var team = ds_list_create()
 	switch(trainerName)
 	{
-
+	//Test Room
+		case "GodzillaTestTrainer":
+			AddPokemonTrainer(team, 0, "Godzilla", 5, "Female", GodzillaSprite)
+			break
+	//Mallet Town
 		case "Mary":
 			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
 			break
