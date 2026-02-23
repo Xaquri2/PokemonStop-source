@@ -41,14 +41,14 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 30, GetRandomGender(50))
+AddPokemon("Pikachu", 10, GetRandomGender(50))
 AddPokemon("Pikachu", 30, GetRandomGender(50))
 AddPokemon("Pikachu", 30, GetRandomGender(50))
 AddPokemon("Pikachu", 30, GetRandomGender(50))
 AddPokemon("Pikachu", 20, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = MorlockCity2
+global.standardStartRoom = EmptyHouse
 global.activatedBadges = ds_list_create()
 ds_list_add(global.flags, "MutantBadge", "ShadowBadge", "RobotBadge")
 
