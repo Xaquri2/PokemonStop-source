@@ -184,31 +184,38 @@ if (instance_exists(actionNPC))
 			break
 		case Sphinx:
 		    if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
-		        "The Mighty Sphinx. Answer her riddle, if you wish to pass.")
-		    {
-		        player.alarm[1] = -1;
-
-		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
-		        optionMenu.referenceNPC = actionNPC;
-		        optionMenu.question = "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?";
-
-		        ds_list_add(optionMenu.optionList, "Humans.")
-				ds_list_add(optionMenu.optionList, "Dogs.")
-				ds_list_add(optionMenu.optionList, "A Table.")
-		    }
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
 		        "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?")
 		    {
 		        player.alarm[1] = -1;
 
 		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
 		        optionMenu.referenceNPC = actionNPC;
-		        optionMenu.question = "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?";
+		        optionMenu.question = "A creature w/ one voice & becomes 4-footed & 2-footed & 3-footed?!";
 
 		        ds_list_add(optionMenu.optionList, "Humans.")
 				ds_list_add(optionMenu.optionList, "Dogs.")
 				ds_list_add(optionMenu.optionList, "A Table.")
 		    }
+			
+			if (ds_list_find_value(textList, 0) == "Humans.")
+				{
+					ds_list_add(global.flags, "MaryRivalBattle1")
+					instance_destroy(Mary)
+					global.followerType = "Mary"
+				}
+			//if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
+		   //    "Humans.")
+		   //{
+		   //    player.alarm[1] = -1;
+		   //
+		   //    var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		   //    optionMenu.referenceNPC = actionNPC;
+		   //    optionMenu.question = "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?";
+		   //
+		   //    ds_list_add(optionMenu.optionList, "vdfns.")
+			//	ds_list_add(optionMenu.optionList, "dfv.")
+			//	ds_list_add(optionMenu.optionList, "Adfvle.")
+		   //}
 		    break;
 
 	}

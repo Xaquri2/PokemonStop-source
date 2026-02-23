@@ -949,16 +949,15 @@ if (keyboard_check_pressed(vk_enter))
 	}
 }
 
-/*Sphinx
-if (question == "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?")
+/*
+Sphinx
+if (ds_list_find_value(optionList, currentOption) == "Humans.")
 {
     var player = instance_find(PlayerObject, 0);
     var dialogue = instance_create_depth(x, y, -9999999999999, TextboxObject);
     dialogue.actionNPC = referenceNPC;
 
-	ds_list_add(dialogue.textList, "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?")
-	ds_list_add(dialogue.nameList, "Sphinx")
-	ds_list_add(dialogue.iconList, SphinxSprite)
+	ds_list_add(dialogue.textList, "iuashjoidjcoi")
 
     player.talking = true;
     if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue);

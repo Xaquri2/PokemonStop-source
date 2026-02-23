@@ -1,5 +1,7 @@
 event_inherited();
 
+if (HasFlag(battleFlag)) instance_destroy();
+
 var player = instance_find(PlayerObject, 0)
 if (instance_exists(player) and point_distance(x,y,player.x,player.y) <= detectRange)
 {

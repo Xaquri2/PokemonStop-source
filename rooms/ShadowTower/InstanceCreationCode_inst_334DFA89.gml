@@ -9,5 +9,5 @@ canWalk = true
 
 idleSprite = BooOverworldSprite
 walkUpSprite = BooOverworldSprite
-walkLeftSprite = BooOverworldSprite
+walkDownSprite = BooOverworldSprite
 walkRightSprite = BooOverworldSprite 
