@@ -266,7 +266,7 @@ if (startBattle and instance_number(OptionObject) == 0)
 	battleObj.trainerX = actionNPC.x
 	battleObj.trainerY = actionNPC.y
 
-	if (!ds_list_empty(actionNPC.postBattleTextList))
+	if (object_get_parent(actionNPC.object_index) == TrainerParent and !ds_list_empty(actionNPC.postBattleTextList))
 	{
 		battleObj.postBattleTextList = actionNPC.postBattleTextList
 		battleObj.postBattleIconList = actionNPC.postBattleIconList

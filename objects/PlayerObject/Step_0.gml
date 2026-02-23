@@ -208,10 +208,11 @@ if (nearestNPC != noone)
 		{
 			dialogue.textList = nearestNPC.defeatTextList
 		}
-
+		
 		dialogue.iconList = nearestNPC.iconList
 		dialogue.nameList = nearestNPC.nameList
-
+		dialogue.isWild = nearestNPC.isWild
+		
 		dialogue.name = nearestNPC.name
 		dialogue.actionNPC = nearestNPC
 		if (nearestNPC.object_index != PokelootObject or nearestNPC.obtainable) talking = true
