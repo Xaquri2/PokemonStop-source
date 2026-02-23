@@ -584,6 +584,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			ds_list_add(dialogue.textList, "Correct. You may pass.")
 			ds_list_add(dialogue.nameList, "Sphinx")
+			ds_list_add(dialogue.iconList, SphinxSprite)
 
 			Sphinx.RiddleSolved = true 
 			player.talking = true
@@ -598,6 +599,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			ds_list_add(dialogue.textList, "Incorrect.","Foolish mortal! Dogs never become three-footed!!","Unless they lose a leg, I suppose..","Still!! That does NOT count!!")
 			ds_list_add(dialogue.nameList, "Sphinx","Sphinx","Sphinx","Sphinx")
+			ds_list_add(dialogue.iconList, SphinxSprite,SphinxSprite,SphinxSprite,SphinxSprite)
 
 			player.talking = true
 
@@ -611,6 +613,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			ds_list_add(dialogue.textList, "Incorrect.","Foolish mortal! Tables don't speak with one voice! They don't have ANY voice AT ALL!!")
 			ds_list_add(dialogue.nameList, "Sphinx","Sphinx")
+			ds_list_add(dialogue.iconList, SphinxSprite,SphinxSprite)
 
 			player.talking = true
 
@@ -825,7 +828,7 @@ if (keyboard_check_pressed(vk_enter))
 		}
 		else
 		{
-			ds_list_add(dialogue.textList, "They’re two Pokémon seen in other regions… which were gods of sorts.", "Gods of Time and Space, respectively.  ")
+			ds_list_add(dialogue.textList, "They’re two Pokémon seen in other regions… which were gods of sorts.", "Gods of Time and Space, respectively.")
 			ds_list_add(nameList, "Lilium","Lilium")
 			ds_list_add(iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 		}
@@ -837,11 +840,15 @@ if (keyboard_check_pressed(vk_enter))
 		ds_list_add(dialogue.textList, "And, of course, ARCEUS on the topmost platform… the mighty Pokémon who created this ENTIRE UNIVERSE.",
 		"Each of them resides in their own universe, which is why you see them here on different platforms.",
 		"Hnhh… you mortals wouldn’t care about things like this; this is all beyond your comprehension.",
-		"But, we do live in a multiverse;", "And you are, right now, standing on the platform which represents the universe we currently inhabit.",
-		"You see, like Palkia and Dialga, I was created by ARCEUS.", "He wanted me to simply observe, but how could I just observe when such misery existed and I had the knowledge to prevent it?", 
-		"I therefore have devoted myself to BETRAYING the trust of Arceus, and BRINGING his knowledge to the people!", "To… to EMPOWER you to …", "…Not die so much.")
-		ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium",)
-		ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,)
+		"But, we do live in a multiverse;",
+		"And you are, right now, standing on the platform which represents the universe we currently inhabit.",
+		"You see, like Palkia and Dialga, I was created by ARCEUS.",
+		"He wanted me to simply observe, but how could I just observe when such misery existed and I had the knowledge to prevent it?", 
+		"I therefore have devoted myself to BETRAYING the trust of Arceus, and BRINGING his knowledge to the people!",
+		"To… to EMPOWER you to …",
+		"…Not die so much.")
+		ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
+		ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 	
 		instance_destroy(id)
 	}

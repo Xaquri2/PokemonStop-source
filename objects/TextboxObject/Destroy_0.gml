@@ -216,10 +216,10 @@ if (instance_exists(actionNPC))
 			//	ds_list_add(optionMenu.optionList, "dfv.")
 			//	ds_list_add(optionMenu.optionList, "Adfvle.")
 		   //}
-		    break;
+		   // break;
 
 	}
-}
+
 
 if (isDefeatDialogue)
 {
@@ -308,3 +308,4 @@ if (room == GinkoIntroRoom ) {
 	}
 }
 
+}
