@@ -403,6 +403,7 @@
     {"id":{"name":"Shader1","path":"shaders/Shader1/Shader1.yy",},},
     {"id":{"name":"shd_test","path":"shaders/shd_test/shd_test.yy",},},
     {"id":{"name":"BoostersTower","path":"sounds/BoostersTower/BoostersTower.yy",},},
+    {"id":{"name":"CreepyLullabyNoVocal","path":"sounds/CreepyLullabyNoVocal/CreepyLullabyNoVocal.yy",},},
     {"id":{"name":"Ding","path":"sounds/Ding/Ding.yy",},},
     {"id":{"name":"Ding2","path":"sounds/Ding2/Ding2.yy",},},
     {"id":{"name":"DoorOpen","path":"sounds/DoorOpen/DoorOpen.yy",},},

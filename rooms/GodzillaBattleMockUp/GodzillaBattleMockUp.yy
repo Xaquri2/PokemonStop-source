@@ -20,7 +20,7 @@
         {"name":"g_VignetteEdges","type":0,"value":"1.2",},
         {"name":"g_VignetteSharpness","type":0,"value":"2",},
         {"name":"g_VignetteTexture","type":2,"value":"_filter_vignette_texture",},
-      ],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+      ],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":false,},
     {"$GMRAssetLayer":"","%Name":"MockupBoxes","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_13E29E4F","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_13E29E4F","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":0.41906002,"scaleY":0.38947368,"spriteId":{"name":"MovesMockupBox","path":"sprites/MovesMockupBox/MovesMockupBox.yy",},"x":160.0,"y":273.0,},
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_1FE1DDC5","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_1FE1DDC5","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":0.37593988,"scaleY":0.37987584,"spriteId":{"name":"GodzillaMockupBox","path":"sprites/GodzillaMockupBox/GodzillaMockupBox.yy",},"x":74.812035,"y":66.76994,},
