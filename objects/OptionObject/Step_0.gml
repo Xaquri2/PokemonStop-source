@@ -949,7 +949,7 @@ if (keyboard_check_pressed(vk_enter))
 	}
 }
 
-//Sphinx
+/*Sphinx
 if (question == "Which creature has one voice and yet becomes four-footed and two-footed and three-footed?")
 {
     var player = instance_find(PlayerObject, 0);
@@ -965,4 +965,4 @@ if (question == "Which creature has one voice and yet becomes four-footed and tw
 
     instance_destroy(id); // important: close the option menu
 }
-
+*/
