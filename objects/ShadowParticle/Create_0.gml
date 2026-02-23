@@ -9,3 +9,5 @@ pull_strength = 0.02;  // how strongly it drifts back toward start
 
 // Unique motion seed
 randomize(); // optional, only once globally usually
+
+looped = false;

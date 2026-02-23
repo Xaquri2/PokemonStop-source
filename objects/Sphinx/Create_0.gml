@@ -13,6 +13,6 @@ ds_list_add(textList, "There's a weird statue on a pedestal. The pedestal has a 
 //ds_list_add(iconList, noone,noone,noone,SphinxSprite,SphinxSprite,SphinxSprite)
 
 RiddleSolved = false;
-fading = false;
+fading_started = false;
 
 

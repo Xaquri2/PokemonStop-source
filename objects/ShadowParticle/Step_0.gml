@@ -20,3 +20,13 @@ if (point_distance(0, 0, hspeed, vspeed) > max_speed)
     hspeed = lengthdir_x(max_speed, dir);
     vspeed = lengthdir_y(max_speed, dir);
 }
+
+
+if (Sphinx.RiddleSolved == true && !instance_exists(TextboxObject)) {
+	image_alpha -= 0.004; 
+}
+
+if (Sphinx.RiddleSolved == true && !instance_exists(TextboxObject) && looped == false) {
+	looped = true
+	audio_play_sound(Downers3,0,0)
+}

@@ -572,6 +572,55 @@ if (keyboard_check_pressed(vk_enter))
 
 		instance_destroy(id)
 	}
+	
+	//asdcsdc// 
+	
+	if (question == "A creature w/ one voice & becomes 4-footed & 2-footed & 3-footed?!")
+	{
+		if (ds_list_find_value(optionList, currentOption) == "Humans.")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Correct. You may pass.")
+			ds_list_add(dialogue.nameList, "Sphinx")
+
+			Sphinx.RiddleSolved = true 
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+
+		if (ds_list_find_value(optionList, currentOption) == "Dogs.")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Incorrect.","Foolish mortal! Dogs never become three-footed!!","Unless they lose a leg, I suppose..","Still!! That does NOT count!!")
+			ds_list_add(dialogue.nameList, "Sphinx","Sphinx","Sphinx","Sphinx")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "A Table.")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Incorrect.","Foolish mortal! Tables don't speak with one voice! They don't have ANY voice AT ALL!!")
+			ds_list_add(dialogue.nameList, "Sphinx","Sphinx")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+
+		instance_destroy(id)
+	}
+	
+	// sdcdscdsds //
 
 	if (question == "Pull it?")
 	{
