@@ -1,0 +1,3 @@
+item = "Torch"
+
+itemTag = "TiltedTowerTorch"
