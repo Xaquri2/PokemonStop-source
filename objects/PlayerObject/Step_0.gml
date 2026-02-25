@@ -16,6 +16,7 @@ if (!place_meeting(x, y, TiltedFloor))
     falling = true;
 }
 
+
 if (keyboard_check_pressed(ord("E")) and !menuOpen and !talking and !battle)
 {
 	canWalk = false
@@ -80,7 +81,12 @@ if (vspeed < 0) sprite_index = PlayerWalkUpSprite
 if (vspeed > 0) sprite_index = PlayerWalkDownSprite
 if (hspeed > 0) sprite_index = PlayerWalkRightSprite
 if (hspeed < 0) sprite_index = PlayerWalkLeftSprite
-//if (RoomHasGravity() && (falling == true)) sprite_index = PikachuIdleSprite
+if (RoomHasGravity() && (falling == true) && (vspeed > 2.9))
+	{
+	   // if (alarm[4] < 1) 
+		alarm[4] = 24; // only start it once
+	}
+
 
 if (hspeed == 0 and vspeed == 0)
 {
