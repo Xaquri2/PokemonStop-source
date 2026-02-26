@@ -674,7 +674,9 @@ if (keyboard_check_pressed(vk_enter))
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
-			
+			ds_list_add(dialogue.textList, "You have more questions?")
+			ds_list_add(dialogue.nameList, "Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite)
 
 			player.talking = true
 

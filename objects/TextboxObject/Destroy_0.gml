@@ -220,6 +220,21 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "(Next)")
 		    }
 			
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
+		        "You have more questions?")
+		    {
+		        player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "More Questions for Nebogipfel";
+
+		        ds_list_add(optionMenu.optionList, "What is this place?")
+				ds_list_add(optionMenu.optionList, "What do you do here?")
+				ds_list_add(optionMenu.optionList, "Why are the other Morlocks trying to eat me?")
+				ds_list_add(optionMenu.optionList, "(Even more questions)")
+		    }
+			
 			if (ds_list_find_value(textList, 0) == "Humans.")
 				{
 					ds_list_add(global.flags, "MaryRivalBattle1")
