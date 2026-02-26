@@ -267,7 +267,7 @@ if (instance_exists(actionNPC))
 		    }
 			
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
-		        "You have more questions?")
+		        "To that end I taught myself your language... just spying from afar.")
 		    {
 		        player.alarm[1] = -1;
 

@@ -632,9 +632,13 @@ if (keyboard_check_pressed(vk_enter))
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
-			ds_list_add(dialogue.textList, "Oh, uh, excuse me — I am Called Neb —","Uh, not sure you can pronounce this in your language? —","Nebogipfel.")
-			ds_list_add(dialogue.nameList, "Morlock","Morlock","Nebogipfel")
-			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+			ds_list_add(dialogue.textList, "Oh, uh, excuse me — I am Called Neb —",
+			"Uh, not sure you can pronounce this in your language? —","Nebogipfel.",
+			"I’ve been curious about Humans for a long time - how you live, how you... think...",
+			"To that end I taught myself your language... just spying from afar.")
+			ds_list_add(dialogue.nameList, "Morlock","Morlock","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,
+			NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
 
 			player.talking = true
 
@@ -646,9 +650,12 @@ if (keyboard_check_pressed(vk_enter))
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
-			ds_list_add(dialogue.textList, "Oh, yes, very sure. You have nothing to fear from me. "," I’ve come to detest what the other Morlocks do to your people. ")
-			ds_list_add(dialogue.nameList, "Morlock","Morlock")
-			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite)
+			ds_list_add(dialogue.textList, "Oh, yes, very sure. You have nothing to fear from me. ",
+			" I’ve come to detest what the other Morlocks do to your people. ",
+			"I’ve been curious about Humans for a long time - how you live, how you... think...",
+			"To that end I taught myself your language... just spying from afar.")
+			ds_list_add(dialogue.nameList, "Morlock","Morlock","Morlock","Morlock")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
 
 			player.talking = true
 
@@ -660,9 +667,11 @@ if (keyboard_check_pressed(vk_enter))
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
-			ds_list_add(dialogue.textList, "Ah, I… am … (what’s the word?) pleased also! Upon meeting you. ")
-			ds_list_add(dialogue.nameList, "Nebogipfel")
-			ds_list_add(dialogue.iconList, NebogipfelSprite)
+			ds_list_add(dialogue.textList, "Ah, I… am … (what’s the word?) pleased also! Upon meeting you. ",
+			"I’ve been curious about Humans for a long time - how you live, how you... think...",
+			"To that end I taught myself your language... just spying from afar.")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
 
 			player.talking = true
 
@@ -674,9 +683,11 @@ if (keyboard_check_pressed(vk_enter))
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
-			ds_list_add(dialogue.textList, "You have more questions?")
-			ds_list_add(dialogue.nameList, "Nebogipfel")
-			ds_list_add(dialogue.iconList, NebogipfelSprite)
+			ds_list_add(dialogue.textList, "You have more questions?",
+			"I’ve been curious about Humans for a long time - how you live, how you... think...",
+			"To that end I taught myself your language... just spying from afar.")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
 
 			player.talking = true
 
