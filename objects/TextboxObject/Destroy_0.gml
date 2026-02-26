@@ -203,6 +203,29 @@ if (instance_exists(actionNPC))
 					instance_destroy(Mary)
 					global.followerType = "Mary"
 				}
+				
+		case Nebogipfel:
+		    if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
+		        "(Resh gliig, what do I say here??)")
+		    {
+		        player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Question this weird Morlock!";
+
+		        ds_list_add(optionMenu.optionList, "Who are you?")
+				ds_list_add(optionMenu.optionList, "You sure you’re not gonna eat me?")
+				ds_list_add(optionMenu.optionList, "Pleased to meet you, I’m Gash!")
+				ds_list_add(optionMenu.optionList, "(Next)")
+		    }
+			
+			if (ds_list_find_value(textList, 0) == "Humans.")
+				{
+					ds_list_add(global.flags, "MaryRivalBattle1")
+					instance_destroy(Mary)
+					global.followerType = "Mary"
+				}
 			//if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
 		   //    "Humans.")
 		   //{
