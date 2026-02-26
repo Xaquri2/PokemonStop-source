@@ -1,8 +1,8 @@
 {
   "$GMSprite":"v2",
   "%Name":"ZoovacSprite",
-  "bboxMode":0,
-  "bbox_bottom":63,
+  "bboxMode":2,
+  "bbox_bottom":48,
   "bbox_left":2,
   "bbox_right":62,
   "bbox_top":1,

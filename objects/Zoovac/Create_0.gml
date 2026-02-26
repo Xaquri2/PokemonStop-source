@@ -28,7 +28,30 @@ ds_list_add(nameList, "Zoovac",
 "Zoovac","Zoovac",
 "Zoovac","Zoovac",
 "Zoovac","Zoovac",
-"Zoovac",)// "Gorbertron", "Gorbertron", "Gorbertron", global.playerName, "Gorbertron",
+"Zoovac",)
+ds_list_add(iconList, ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP)
+
+ds_list_add(postBattleNameList, "Zoovac",
+"Zoovac","Zoovac",
+"Zoovac","Zoovac",
+"Zoovac","Zoovac",)
+ds_list_add(postBattleIconList, ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP,
+ZoovacSprite_CLOSEUP)
+// "Gorbertron", "Gorbertron", "Gorbertron", global.playerName, "Gorbertron",
 //"Gorbertron", "Gorbertron", global.playerName, "Gorbertron", "Gorbertron", "Gorbertron", global.playerName, "Gorbertron",
 //global.playerName, "Gorbertron", "Gorbertron", "Gorbertron", "Gorbertron")
 

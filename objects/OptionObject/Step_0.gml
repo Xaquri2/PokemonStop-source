@@ -1088,7 +1088,8 @@ if (keyboard_check_pressed(vk_enter))
 			dialogue.actionNPC = referenceNPC
 			
 			ds_list_add(dialogue.textList, "Why, the same as your plan!", "You... of course are a Pokémon trainer, are you not?")
-
+			ds_list_add(dialogue.iconList, ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP)
+			ds_list_add(dialogue.nameList, "Zoovac","Zoovac")
 			player.talking = true
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
@@ -1103,6 +1104,8 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.textList, "What?? Green, what does that have to do with anything?",
 			"Stay focused, Gash! This is important.", "Anyway, my plan is the same as your plan!",
 			"You... of course are a Pokémon trainer, are you not?")
+			ds_list_add(dialogue.iconList, ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP)
+			ds_list_add(dialogue.nameList, "Zoovac","Zoovac","Zoovac","Zoovac")
 
 			player.talking = true
 
@@ -1118,6 +1121,9 @@ if (keyboard_check_pressed(vk_enter))
 		dialogue.actionNPC = referenceNPC
 			
 		ds_list_add(dialogue.textList, "And what do Pokémon Trainers do??")
+		ds_list_add(dialogue.iconList, ZoovacSprite_CLOSEUP)
+		ds_list_add(dialogue.nameList, "Zoovac")
+		
 
 		player.talking = true
 
@@ -1132,7 +1138,8 @@ if (keyboard_check_pressed(vk_enter))
 		dialogue.actionNPC = referenceNPC
 			
 		ds_list_add(dialogue.textList, "That’s right!", "And how do we do that? What did you do to your Charmander to turn it into a Charmandalorian?")
-
+		ds_list_add(dialogue.iconList, ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP)
+		ds_list_add(dialogue.nameList, "Zoovac","Zoovac")
 		player.talking = true
 
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
@@ -1149,6 +1156,8 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "Yes, exactly right. You trained your Pokémon hard, and that is exactly what I mean to do to humanity!!", 
 			"And how do we do that? What did you do to your Charmander to turn it into a Charmandalorian?")
+			ds_list_add(dialogue.iconList, ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP)
+			ds_list_add(dialogue.nameList, "Zoovac","Zoovac")
 
 			player.talking = true
 
@@ -1174,6 +1183,18 @@ if (keyboard_check_pressed(vk_enter))
 			"There are threats from other regions that we need to be ready for.",
 			"This is the only way to protect this world and I will not stop until I achieve that goal!",
 			"That said... Are you ready to challenge me?")
+			ds_list_add(dialogue.iconList, ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,
+			ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,
+			ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,
+			ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,
+			ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,
+			ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP,
+			ZoovacSprite_CLOSEUP,)
+			ds_list_add(dialogue.nameList, "Zoovac","Zoovac",
+			"Zoovac","Zoovac","Zoovac",
+			"Zoovac","Zoovac","Zoovac",
+			"Zoovac","Zoovac","Zoovac",
+			"Zoovac","Zoovac")
 
 			player.talking = true
 

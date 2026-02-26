@@ -791,6 +791,7 @@
     {"id":{"name":"ZoochomperBattleSprite","path":"sprites/ZoochomperBattleSprite/ZoochomperBattleSprite.yy",},},
     {"id":{"name":"ZoombiniHoveringSprite","path":"sprites/ZoombiniHoveringSprite/ZoombiniHoveringSprite.yy",},},
     {"id":{"name":"ZoombiniIdleSprite","path":"sprites/ZoombiniIdleSprite/ZoombiniIdleSprite.yy",},},
+    {"id":{"name":"ZoovacSprite_CLOSEUP","path":"sprites/ZoovacSprite_CLOSEUP/ZoovacSprite_CLOSEUP.yy",},},
     {"id":{"name":"ZoovacSprite_LARGE","path":"sprites/ZoovacSprite_LARGE/ZoovacSprite_LARGE.yy",},},
     {"id":{"name":"ZoovacSprite","path":"sprites/ZoovacSprite/ZoovacSprite.yy",},},
     {"id":{"name":"ZubatFlappingSprite","path":"sprites/ZubatFlappingSprite/ZubatFlappingSprite.yy",},},
