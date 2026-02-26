@@ -158,6 +158,52 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "No")
 			}
 			break
+		case Zoovac:
+			var lastText = ds_list_find_value(textList, ds_list_size(textList)-1)
+			if (lastText == "These people are all working for me and their plans are all part of my plan!")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "React to Zoovac's plan."
+				ds_list_add(optionMenu.optionList, "And what plan is that…?", "What’s your favorite color?")
+			}
+			else if (lastText = "You... of course are a Pokémon trainer, are you not?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Are you a Pokémon trainer?"
+				ds_list_add(optionMenu.optionList, "Darn straight! I’m gonna be the best, just like my cousin Ash!", "Yes, I am.")
+			}
+			else if (lastText == "And what do Pokémon Trainers do??")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "What do Pokémon trainers do?"
+				ds_list_add(optionMenu.optionList, "Uhh… they want to be The Very Best, like no one ever was?", 
+				"Erm… to catch Pokémon is our real test, to train them is our cause?")
+			}
+			else if (lastText == "And how do we do that? What did you do to your Charmander to turn it into a Charmandalorian?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "How did you evolve your Charmander?"
+				ds_list_add(optionMenu.optionList, "I battled him to make him gain experience until he evolved!", 
+				"I forced him to evolve with rare candy, lol")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Start the Battle?"
+				ds_list_add(optionMenu.optionList, "Yes")
+				ds_list_add(optionMenu.optionList, "No")
+			}
+			break
 		case NurseJoy:
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come see me when your Pokémon are injured!")
 			{

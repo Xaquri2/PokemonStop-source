@@ -704,7 +704,7 @@ if (keyboard_check_pressed(vk_enter))
 		instance_destroy(id)
 	}
 	
-	if (question == "Start the Gym Battle?")
+	if (question == "Start the Gym Battle?" or question == "Start the Battle?")
 	{
 		if (currentOption == 0)
 		{
@@ -978,7 +978,7 @@ if (keyboard_check_pressed(vk_enter))
 	
 	if (question == "React to the Collector.")
 	{
-		if (ds_list_find_value(optionList, 0) == "But YOU'RE biological!")
+		if (ds_list_find_value(optionList, currentOption) == "But YOU'RE biological!")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -993,7 +993,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
-		else if (ds_list_find_value(optionList, 0) == "So, you’re “inferior” then!")
+		else if (ds_list_find_value(optionList, currentOption) == "So, you’re “inferior” then!")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -1065,6 +1065,109 @@ if (keyboard_check_pressed(vk_enter))
 		}
 		
 		instance_destroy(id)
+	}
+	
+	if (question == "React to Zoovac's plan.")
+	{
+		if (ds_list_find_value(optionList, currentOption) == "And what plan is that…?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Why, the same as your plan!", "You... of course are a Pokémon trainer, are you not?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else if (ds_list_find_value(optionList, currentOption) == "What’s your favorite color?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "What?? Green, what does that have to do with anything?",
+			"Stay focused, Gash! This is important.", "Anyway, my plan is the same as your plan!",
+			"You... of course are a Pokémon trainer, are you not?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+	}
+	
+	if (question == "Are you a Pokémon trainer?")
+	{
+		var player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.name = referenceNPC.name
+		dialogue.actionNPC = referenceNPC
+			
+		ds_list_add(dialogue.textList, "And what do Pokémon Trainers do??")
+
+		player.talking = true
+
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	}
+	
+	if (question == "What do Pokémon trainers do?")
+	{
+		var player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.name = referenceNPC.name
+		dialogue.actionNPC = referenceNPC
+			
+		ds_list_add(dialogue.textList, "That’s right!", "And how do we do that? What did you do to your Charmander to turn it into a Charmandalorian?")
+
+		player.talking = true
+
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	}
+	
+	if (question == "How did you evolve your Charmander?")
+	{
+		if (currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Yes, exactly right. You trained your Pokémon hard, and that is exactly what I mean to do to humanity!!", 
+			"And how do we do that? What did you do to your Charmander to turn it into a Charmandalorian?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Exactly – You evolved your Pokémon with rare candy and that is exactly what I mean to do to humanity!!", 
+			"You see, I am the ultimate Pokémon trainer…!",
+			"HUMANITY are my Pokémon!",
+			"You guys trained Pokémon, but I am to you as you are to Pokémon.",
+			"I am going to train you,",
+			"Level you up,",
+			"Evolve you,",
+			"UNTIL I CAN BE THE VERY BEST!!!",
+			"…",
+			"You wouldn't understand, but this is necessary.",
+			"There are threats from other regions that we need to be ready for.",
+			"This is the only way to protect this world and I will not stop until I achieve that goal!",
+			"That said... Are you ready to challenge me?")
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
 	}
 }
 
