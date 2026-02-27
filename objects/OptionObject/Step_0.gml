@@ -681,17 +681,16 @@ if (keyboard_check_pressed(vk_enter))
 		if (ds_list_find_value(optionList, currentOption) == "(Next)")
 		{
 			var player = instance_find(PlayerObject, 0)
-			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			player.alarm[1] = -1
+			
+			var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		    optionMenu.referenceNPC = actionNPC;
+		    optionMenu.question = "More Questions for Nebogipfel";
 
-			ds_list_add(dialogue.textList, "You have more questions?",
-			"I’ve been curious about Humans for a long time - how you live, how you... think...",
-			"To that end I taught myself your language... just spying from afar.")
-			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel")
-			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
-
-			player.talking = true
-
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		    ds_list_add(optionMenu.optionList, "What is this place?")
+			ds_list_add(optionMenu.optionList, "What do you do here?")
+			ds_list_add(optionMenu.optionList, "Why are the other Morlocks trying to eat me?")
+			ds_list_add(optionMenu.optionList, "(Even more questions)")
 		}
 
 		instance_destroy(id)
@@ -1108,6 +1107,8 @@ if (keyboard_check_pressed(vk_enter))
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
+		
+		instance_destroy(id)
 	}
 	
 	if (question == "Are you a Pokémon trainer?")
@@ -1122,6 +1123,8 @@ if (keyboard_check_pressed(vk_enter))
 		player.talking = true
 
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		
+		instance_destroy(id)
 	}
 	
 	if (question == "What do Pokémon trainers do?")
@@ -1136,6 +1139,8 @@ if (keyboard_check_pressed(vk_enter))
 		player.talking = true
 
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		
+		instance_destroy(id)
 	}
 	
 	if (question == "How did you evolve your Charmander?")
@@ -1179,6 +1184,8 @@ if (keyboard_check_pressed(vk_enter))
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
+		
+		instance_destroy(id)
 	}
 }
 
