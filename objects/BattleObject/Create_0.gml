@@ -38,6 +38,6 @@ postBattleIconList = noone
 postBattleNameList = noone
 
 playCutscene = false
-cutsceneVideo = noone
+cutsceneVideo = ""
 cutscenePlaying = false
 cutsceneSurface = -1

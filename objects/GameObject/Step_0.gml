@@ -102,15 +102,18 @@ else
 var battle = instance_find(BattleObject, 0)
 if (room == RoomBattle and instance_exists(battle))
 {
-	var targetBattleTheme = GetBattleTheme(battle.enemyName)
+	if (battle.cutsceneVideo == "")
+	{
+		var targetBattleTheme = GetBattleTheme(battle.enemyName)
 	
-	if (!audio_is_playing(targetBattleTheme) and !audio_is_playing(WildBattleThemeNO_INTRO) and
-	(targetBattleTheme == WildBattleTheme or targetBattleTheme == WildBattleThemeNO_INTRO))
-	{
-		audio_play_sound(WildBattleThemeNO_INTRO, 1, false)
-	}
-	else if (!audio_is_playing(targetBattleTheme))
-	{
-		audio_play_sound(targetBattleTheme, 1, false)
+		if (!audio_is_playing(targetBattleTheme) and !audio_is_playing(WildBattleThemeNO_INTRO) and
+		(targetBattleTheme == WildBattleTheme or targetBattleTheme == WildBattleThemeNO_INTRO))
+		{
+			audio_play_sound(WildBattleThemeNO_INTRO, 1, false)
+		}
+		else if (!audio_is_playing(targetBattleTheme))
+		{
+			audio_play_sound(targetBattleTheme, 1, false)
+		}
 	}
 }

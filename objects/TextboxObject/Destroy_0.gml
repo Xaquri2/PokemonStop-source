@@ -360,12 +360,6 @@ if (isDefeatDialogue)
 
 if (startBattle and instance_number(OptionObject) == 0)
 {
-	var musicC = instance_find(MusicObject, 0)
-	var music = musicC.currentMusic
-	audio_stop_sound(music)
-	audio_play_sound(GetBattleTheme(name), 1, false)
-	musicC.currentMusic = GetBattleTheme(name)
-
 	player.talking = false
 	player.canWalk = false
 	player.battle = true
@@ -381,7 +375,7 @@ if (startBattle and instance_number(OptionObject) == 0)
 	
 	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
 	{
-		battleObj.cutsceneVideo = MegaBotCutscene
+		battleObj.cutsceneVideo = "MegaBotCutscene"
 	}
 	
 	if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
@@ -401,6 +395,15 @@ if (startBattle and instance_number(OptionObject) == 0)
 	}
 
 	if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
+	
+	if (battleObj.cutsceneVideo == "")
+	{
+		var musicC = instance_find(MusicObject, 0)
+		var music = musicC.currentMusic
+		audio_stop_sound(music)
+		audio_play_sound(GetBattleTheme(name), 1, false)
+		musicC.currentMusic = GetBattleTheme(name)
+	}
 }
 
 if (ds_list_find_value(textList, 0) == "Fine! Whatever...")

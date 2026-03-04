@@ -1,7 +1,7 @@
 if (room == RoomBattle)
 {
 	alarm[0] = 100
-	if (cutsceneVideo != noone)
+	if (cutsceneVideo != "")
 	{
 		var musicObj = instance_find(MusicObject, 0)
 		audio_stop_sound(musicObj.currentMusic)

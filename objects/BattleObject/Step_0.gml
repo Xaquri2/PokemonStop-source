@@ -58,7 +58,7 @@ else
 		else room_goto(playerRoom)
 	}
 	
-	if (cutsceneVideo == noone)
+	if (cutsceneVideo == "")
 	{
 		if (topRectValue-5 > 0)
 		{
@@ -68,11 +68,14 @@ else
 	}
 }
 
-if (cutsceneVideo != noone and playCutscene) 
+if (cutsceneVideo != "") 
 {
-	cutsceneSurface = video_draw()[1]
-	if !(video_get_status() == video_status_closed and cutscenePlaying)
+	if (playCutscene)
 	{
-		alarm[0]++
+		cutsceneSurface = video_draw()[1]
+		if !(video_get_status() == video_status_closed and cutscenePlaying)
+		{
+			alarm[0]++
+		}
 	}
 }

@@ -1,4 +1,4 @@
-cutsceneVideo = noone
+cutsceneVideo = ""
 video_close()
 
 var musicObj = instance_find(MusicObject, 0)

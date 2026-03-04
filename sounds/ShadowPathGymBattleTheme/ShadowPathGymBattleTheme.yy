@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"ShadowPathGymBattleTheme",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"BattleThemes",
+    "path":"audiogroups/BattleThemes",
   },
   "bitDepth":1,
   "channelFormat":0,
