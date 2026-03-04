@@ -692,7 +692,263 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(optionMenu.optionList, "Why are the other Morlocks trying to eat me?")
 			ds_list_add(optionMenu.optionList, "(Even more questions)")
 		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "What is this place?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
+			ds_list_add(dialogue.textList, "Well, uh, this is my home.",
+			"As you can see, it doubles as my lab.",
+			"I’m a bit of a scientist, you see.")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "What do you do here?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "I do all sorts of experiments here - chemistry, physics, whatever.",
+			"The others have forgotten most of the Old Knowledge, except the parts needed to keep the machines running, but I can’t get enough of it!")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "Why are the other Morlocks trying to eat me?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "You’re our primary food source. We need to eat, you know.",
+			"I know, that doesn’t make it right.",
+			"The others justify it in their minds by convincing themselves humans aren’t truly people.",
+			"Ironically, we were once human… though the memory of that existence has faded from us like a dream.",
+			"The younger ones like me were never human, as we were born to Morlock parents.")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "(Even more questions)")
+		{
+			var player = instance_find(PlayerObject, 0)
+			player.alarm[1] = -1
+			
+			var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		    optionMenu.referenceNPC = actionNPC;
+		    optionMenu.question = "More Questions for Nebogipfel";
+
+		    ds_list_add(optionMenu.optionList, "Are you a Pokémon Trainer too?", "Can you help me find the Gym Leader here...?")
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "Are you a Pokémon Trainer too?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Glagash, no!",
+			"Look, it’s not just Morlock society that I differ from…",
+			"This whole society, Morlock, Human, or otherwise…",
+			"is built around the idea of CATCHING and TRAINING POKÉMON.",
+			"Every city is built around Gyms and Pokecenters, every child dreams of being a trainer, and I…",
+			"Well, I began to question that. WHY should it be that way??")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+
+		if (ds_list_find_value(optionList, currentOption) == "Can you help me find the Gym Leader here...?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Simply head North once you exit my home and follow the path, you’ll get there eventually!")
+			ds_list_add(dialogue.nameList, "Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "I mean, why not?")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "We Morlocks eat humans. We treat you like your lives, your thoughts, don’t matter.",
+			"Isn’t training Pokémon the same thing?",
+			"You attack these creatures, you capture them by force, and you force them to work for you.",
+			"To FIGHT for you. Fighting, violence, AGAINST THEIR WILL.",
+			"and THAT’s what we want our entire world built around?",
+			"Not art, not science, not curiosity about the universe,",
+			"But around forcing creatures to fight each other??")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "Cuz it's great!")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Is it, though?", 
+			"We Morlocks eat humans. We treat you like your lives, your thoughts, don’t matter.",
+			"Isn’t training Pokémon the same thing?",
+			"You attack these creatures, you capture them by force, and you force them to work for you.",
+			"To FIGHT for you. Fighting, violence, AGAINST THEIR WILL.",
+			"and THAT’s what we want our entire world built around?",
+			"Not art, not science, not curiosity about the universe,",
+			"But around forcing creatures to fight each other??")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel",
+			"Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,
+			NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "That’s not true! You build a BOND with them!")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "That doesn’t change the fact that they don’t have a CHOICE.",
+			"I hope that, perhaps in your journeys, you’ll learn to see all sentient beings as THE SAME…",
+			"Humans, Morlocks, Pokémon, … even sentient ROBOTS…",
+			"Anyway...", "Sorry to rant, that’s just what I think.")
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "I guess I can see your point...")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Thank you.", "Sorry to rant, that’s just what I think.")
+			
+			ds_list_add(dialogue.nameList, "Nebogipfel", "Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite, NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "Interesting perspective — I’d like to learn more about it!"
+		or ds_list_find_value(optionList, currentOption) == "I dunno man, i don't buy it")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+
+			ds_list_add(dialogue.textList, "Well, I learned these idea through EXPERIENCE. I think you should, too.",
+			"And I have just the thing to help!",
+			"Right now, you see us MORLOCKS only as vicious creatures. Enemies.",
+			"One might say you DEHUMANIZE us.",
+			"But perhaps if you could live as a Morlock, even just for one day, that would change.",
+			"I can make a potion that would TURN YOU INTO A MORLOCK…",
+			"Only temporarily, of course. And only if you want to try it.",
+			"The other Morlocks would think you’re one of us, and let you pass…",
+			"So that would help you get past them, to reach the Gym Leader.",
+			"More importantly… it would let you understand our language…",
+			"So, you could speak to other Morlocks, and see what they’re like.",
+			"NOT as creatures, not as enemies, but as PEOPLE.",
+			"That is how I had to relearn what humans are:",
+			"Listening to them. Hearing what they’re like, in their own words.",
+			"What do you think, you wanna try it?")
+			
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel",
+			"Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel",
+			"Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite
+			,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite
+			,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "No way! I’m not turning into one of you disgusting creatures")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			
+			ds_list_add(dialogue.textList, "Ouch.",
+			"As someone who’s longed to talk to a real human for years… that hurts.",
+			"But I suppose I understand. We do eat humans, after all.",
+			"I might have once reacted the same to a creature who eats Morlocks.",
+			"Go in peace. If you change your mind, you know where to find me.")
+			
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "Uh, no thanks… I’m not ready to change into something else")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			
+			ds_list_add(dialogue.textList, "Quite understandable.", "If you change your mind, let me know.")
+			
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		if (ds_list_find_value(optionList, currentOption) == "Yes please!")
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			
+			ds_list_add(dialogue.textList, "Ouch.",
+			"As someone who’s longed to talk to a real human for years… that hurts.",
+			"But I suppose I understand. We do eat humans, after all.",
+			"I might have once reacted the same to a creature who eats Morlocks.",
+			"Go in peace. If you change your mind, you know where to find me.")
+			
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
 		instance_destroy(id)
 	}
 	

@@ -251,8 +251,51 @@ if (instance_exists(actionNPC))
 				}
 				
 		case Nebogipfel:
-		    if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
-		        "(Resh gliig, what do I say here??)")
+			var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
+		    if (finalText == "Well, I began to question that. WHY should it be that way??")
+			{
+				player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Question this weird Morlock!";
+
+		        ds_list_add(optionMenu.optionList, "I mean, why not?", "Cuz it’s great!")
+			}
+			else if (finalText == "But around forcing creatures to fight each other??")
+			{
+				player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Question this weird Morlock!";
+
+		        ds_list_add(optionMenu.optionList, "That’s not true! You build a BOND with them!", 
+				"I guess I can see your point...")
+			}
+			else if (finalText == "Sorry to rant, that’s just what I think.")
+			{
+				player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Question this weird Morlock!";
+
+		        ds_list_add(optionMenu.optionList, "Interesting perspective — I’d like to learn more about it!", 
+				"I dunno man, I don’t buy it")
+			}
+			else if (finalText == "What do you think, you wanna try it?")
+			{
+				player.alarm[1] = -1;
+
+		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
+		        optionMenu.referenceNPC = actionNPC;
+		        optionMenu.question = "Question this weird Morlock!";
+				
+				ds_list_add(optionMenu.optionList, "No way! I’m not turning into one of you disgusting creatures",
+				"Uh, no thanks… I’m not ready to change into something else", "Yes please!")
+			}
+			else
 		    {
 		        player.alarm[1] = -1;
 
@@ -264,21 +307,6 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "You sure you’re not gonna eat me?")
 				ds_list_add(optionMenu.optionList, "Pleased to meet you, I’m Gash!")
 				ds_list_add(optionMenu.optionList, "(Next)")
-		    }
-			
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
-		        "To that end I taught myself your language... just spying from afar.")
-		    {
-		        player.alarm[1] = -1;
-
-		        var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
-		        optionMenu.referenceNPC = actionNPC;
-		        optionMenu.question = "More Questions for Nebogipfel";
-
-		        ds_list_add(optionMenu.optionList, "What is this place?")
-				ds_list_add(optionMenu.optionList, "What do you do here?")
-				ds_list_add(optionMenu.optionList, "Why are the other Morlocks trying to eat me?")
-				ds_list_add(optionMenu.optionList, "(Even more questions)")
 		    }
 			
 			if (ds_list_find_value(textList, 0) == "Humans.")
