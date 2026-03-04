@@ -932,21 +932,43 @@ if (keyboard_check_pressed(vk_enter))
 		
 		if (ds_list_find_value(optionList, currentOption) == "Yes please!")
 		{
-			var player = instance_find(PlayerObject, 0)
-			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			if (HasItem("Skyglow Mushroom"))
+			{
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 			
-			ds_list_add(dialogue.textList, "Ouch.",
-			"As someone who’s longed to talk to a real human for years… that hurts.",
-			"But I suppose I understand. We do eat humans, after all.",
-			"I might have once reacted the same to a creature who eats Morlocks.",
-			"Go in peace. If you change your mind, you know where to find me.")
+				ds_list_add(dialogue.textList, "Ooh, excellent, this is exciting! What an experiment!",
+				"Okay, here goes!!",
+				"Let’s see… two tablespoons of Glaktar… one goshgash of frashgist..",
+				"Some of my own blood for DNA… Ow! …",
+				"and one Skyglow Mushroom!",
+				"There we go! Your potion! Drink when ready!")
 			
-			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
-			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+				ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel",
+				"Nebogipfel","Nebogipfel","Nebogipfel")
+				ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,
+				NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
 
-			player.talking = true
+				player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			}
+			else
+			{
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			
+				ds_list_add(dialogue.textList, "Ooh, excellent, this is exciting! What an experiment!",
+				"Oh, one thing though, I just remembered I’m missing an important ingredient: a SKYGLOW MUSHROOM.",
+				"Bring me one of those, and I’ll make the potion for you.")
+			
+				ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel")
+				ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+
+				player.talking = true
+
+				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			}
 		}
 		
 		instance_destroy(id)

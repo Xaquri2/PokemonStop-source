@@ -295,6 +295,14 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "No way! I’m not turning into one of you disgusting creatures",
 				"Uh, no thanks… I’m not ready to change into something else", "Yes please!")
 			}
+			else if (finalText == "Go in peace. If you change your mind, you know where to find me.")
+			{
+				if (!HasFlag("ReturnToNebo")) ds_list_add(global.flags, "ReturnToNebo")
+			}
+			else if (finalText == "There we go! Your potion! Drink when ready!")
+			{
+				if (!HasFlag("HasNeboPotion")) ds_list_add(global.flags, "HasNeboPotion")
+			}
 			else
 		    {
 		        player.alarm[1] = -1;
