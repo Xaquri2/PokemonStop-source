@@ -21,7 +21,7 @@ if (HasFlag("CollectorFirstBattle") and !HasFlag("CollectorFinalBattle"))
 }
 else if (HasFlag("CollectorFirstBattle") and HasFlag("CollectorFinalBattle"))
 {
-	ds_list_add(postBattleTextList, "Well, it seems you've earned the robot badge.", 
+	ds_list_add(postBattleTextList, "Well, it seems you've earned the Robot Badge.", 
 	"Enjoy being an inferior human!")
 	ds_list_add(postBattleNameList, "The Collector","The Collector")
 	ds_list_add(postBattleIconList, TheCollectorSprite,TheCollectorSprite)

@@ -671,3 +671,16 @@ function IsIndoors()
 	}
 	return false
 }
+
+function BattleHasBackground()
+{
+	var battle = instance_find(BattleObject, 0)
+	var prevRoomName = string_replace(room_get_name(battle.playerRoom), "ref room ", "")
+	switch (prevRoomName)
+	{
+		case "RobotGym": 
+		case "MorlockGym": return string_concat(prevRoomName, "Background")
+		
+		default: return ""
+	}
+}

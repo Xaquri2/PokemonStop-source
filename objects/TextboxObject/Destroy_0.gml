@@ -51,6 +51,14 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "Yes")
 				ds_list_add(optionMenu.optionList, "No")
 			}
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "You've already earned your Mutant Badge.")
+			{
+				if (!HasFlag("MutantBadge")) 
+				{
+					global.money += GetTrainerMoney(actionNPC.name)
+					ds_list_add(global.flags, "MutantBadge")
+				}
+			}
 			break
 		case Lilium:
 			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")
@@ -93,6 +101,11 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "Ooh! Convert me now pls")
 				ds_list_add(optionMenu.optionList, "Uh, yeah, sure… I’ll keep that in mind.")
 				
+				if (!HasFlag("ShadowBadge")) 
+				{
+					global.money += GetTrainerMoney(actionNPC.name)
+					ds_list_add(global.flags, "ShadowBadge")
+				}
 				ds_list_add(global.flags, "LiliumFirstDefeatText")
 			}
 			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
@@ -156,6 +169,14 @@ if (instance_exists(actionNPC))
 				optionMenu.question = "Start the Gym Battle?"
 				ds_list_add(optionMenu.optionList, "Yes")
 				ds_list_add(optionMenu.optionList, "No")
+			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Enjoy being an inferior human!")
+			{
+				if (!HasFlag("RobotBadge")) 
+				{
+					global.money += GetTrainerMoney(actionNPC.name)
+					ds_list_add(global.flags, "RobotBadge")
+				}
 			}
 			break
 		case Zoovac:

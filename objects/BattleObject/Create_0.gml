@@ -5,6 +5,7 @@ fadingIntro = true
 
 playerX = 0
 playerY = 0
+playerRoom = noone
 
 trainerX = 0
 trainerY = 0

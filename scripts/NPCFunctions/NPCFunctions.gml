@@ -51,6 +51,15 @@ function GetBattleTheme(name)
 	}
 }
 
+function GetTrainerMoney(n)
+{
+	switch (n)
+	{
+		//case "Name of the trainer": return [value]
+		default: return 100
+	}
+}
+
 function GetNPCFlagDialogue(name, flag)
 {
 	var dialogue = ds_list_create()

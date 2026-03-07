@@ -1,5 +1,11 @@
 if (room == RoomBattle)
 {
+	var bgLayer = BattleHasBackground()
+	if (bgLayer != "")
+	{
+		layer_set_visible(layer_get_id(bgLayer), true)
+	}
+	
 	alarm[0] = 100
 	if (cutsceneVideo != "")
 	{
