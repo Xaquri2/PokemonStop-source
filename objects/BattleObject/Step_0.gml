@@ -57,7 +57,7 @@ else
 		if (fadeAlpha < 1) fadeAlpha += 0.05
 		else 
 		{
-			global.money += GetTrainerMoney(actionNPC.name)
+			global.money += GetTrainerMoney(enemyName)
 			room_goto(playerRoom)
 		}
 	}
