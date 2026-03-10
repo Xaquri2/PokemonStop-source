@@ -55,7 +55,6 @@ if (instance_exists(actionNPC))
 			{
 				if (!HasFlag("MutantBadge")) 
 				{
-					global.money += GetTrainerMoney(actionNPC.name)
 					ds_list_add(global.flags, "MutantBadge")
 				}
 			}
@@ -103,7 +102,6 @@ if (instance_exists(actionNPC))
 				
 				if (!HasFlag("ShadowBadge")) 
 				{
-					global.money += GetTrainerMoney(actionNPC.name)
 					ds_list_add(global.flags, "ShadowBadge")
 				}
 				ds_list_add(global.flags, "LiliumFirstDefeatText")
@@ -174,7 +172,6 @@ if (instance_exists(actionNPC))
 			{
 				if (!HasFlag("RobotBadge")) 
 				{
-					global.money += GetTrainerMoney(actionNPC.name)
 					ds_list_add(global.flags, "RobotBadge")
 				}
 			}
