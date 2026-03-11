@@ -358,6 +358,7 @@
     {"id":{"name":"Mallet_Town","path":"rooms/Mallet_Town/Mallet_Town.yy",},},
     {"id":{"name":"MalletMuseum","path":"rooms/MalletMuseum/MalletMuseum.yy",},},
     {"id":{"name":"MaryHouse","path":"rooms/MaryHouse/MaryHouse.yy",},},
+    {"id":{"name":"MaryHouseUpstairs","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},},
     {"id":{"name":"MorlockCity","path":"rooms/MorlockCity/MorlockCity.yy",},},
     {"id":{"name":"MorlockCity2","path":"rooms/MorlockCity2/MorlockCity2.yy",},},
     {"id":{"name":"MorlockCity3","path":"rooms/MorlockCity3/MorlockCity3.yy",},},
@@ -877,6 +878,7 @@
     {"roomId":{"name":"Elevator3","path":"rooms/Elevator3/Elevator3.yy",},},
     {"roomId":{"name":"Elevator4","path":"rooms/Elevator4/Elevator4.yy",},},
     {"roomId":{"name":"GodzillaBattleMockUp","path":"rooms/GodzillaBattleMockUp/GodzillaBattleMockUp.yy",},},
+    {"roomId":{"name":"MaryHouseUpstairs","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
