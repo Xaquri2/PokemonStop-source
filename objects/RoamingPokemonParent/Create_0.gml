@@ -1,4 +1,5 @@
-event_inherited()
+name = ""
+
 idleSprite = Human2IdleSprite
 walkUpSprite = Human2WalkUpSprite
 walkDownSprite = Human2WalkDownSprite
