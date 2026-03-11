@@ -1046,11 +1046,12 @@ if (keyboard_check_pressed(vk_enter))
 	
 	if (string_count("Gorbertron", question) > 0)
 	{
+		var player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		
 		switch (currentOption)
 		{
 			case 0:
-				var player = instance_find(PlayerObject, 0)
-				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 				dialogue.name = referenceNPC.name
 				dialogue.actionNPC = referenceNPC
 			
@@ -1065,8 +1066,6 @@ if (keyboard_check_pressed(vk_enter))
 				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 				break
 			case 1:
-				var player = instance_find(PlayerObject, 0)
-				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 				dialogue.name = referenceNPC.name
 				dialogue.actionNPC = referenceNPC
 			
@@ -1080,8 +1079,6 @@ if (keyboard_check_pressed(vk_enter))
 				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 				break
 			case 2:
-				var player = instance_find(PlayerObject, 0)
-				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 				dialogue.name = referenceNPC.name
 				dialogue.actionNPC = referenceNPC
 			
@@ -1094,8 +1091,6 @@ if (keyboard_check_pressed(vk_enter))
 				if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 				break
 			case 3:
-				var player = instance_find(PlayerObject, 0)
-				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 				dialogue.name = referenceNPC.name
 				dialogue.actionNPC = referenceNPC
 			
