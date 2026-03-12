@@ -272,8 +272,8 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "ShadowToPokeCenter"
 			break
 		case "SHORTCUT":
-			targetRoom = FifthFloor //MorlockCity
-			targetWarp = "TowerFifthFloorElevatorDOWN"//"MorlockEntrance"
+			targetRoom = RobotGym //FifthFloor //MorlockCity
+			targetWarp = "RobotGymDoor"//"TowerFifthFloorElevatorDOWN"//"MorlockEntrance"
 			//targetRoom = MuntainPeak
 			//targetWarp = "MountainPeakBottom"
 			//targetRoom = ShadowPokecenter
