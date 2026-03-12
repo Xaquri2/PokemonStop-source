@@ -1,0 +1,1 @@
+SetWarpDefaults("MaryHouseUpstairsExit", "Up", false)

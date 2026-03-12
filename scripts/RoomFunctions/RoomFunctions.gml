@@ -38,6 +38,14 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MaryHouse
 			targetWarp = "MaryToMallet"
 			break
+		case "MaryHouseToUpstairs":
+			targetRoom = MaryHouseUpstairs
+			targetWarp = "MaryHouseUpstairsExit"
+			break
+		case "MaryHouseUpstairsExit":
+			targetRoom = MaryHouse
+			targetWarp = "MaryHouseToUpstairs"
+			break
 		case "MalletHouse2ToTest":
 			targetRoom = GashHouse
 			targetWarp = "GashToMallet"
@@ -527,6 +535,7 @@ function GetRoomName(roomID)
 		case ThirdFloor: return "3rd Floor"
 		case FourthFloor: return "4th Floor"
 		case FifthFloor: return "5th Floor"
+		case MaryHouse: return "Mary's House"
 		default: return "???"
 	}
 }

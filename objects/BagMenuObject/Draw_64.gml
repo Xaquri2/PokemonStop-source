@@ -36,7 +36,8 @@ if (!ds_list_empty(categoryList))
 	xPos += 40
 	yPos = yPos+sprite_get_height(MenuSprite)*18
 	draw_sprite_ext(MenuSprite, 0, xPos, yPos, 16, 5, image_angle, image_blend, image_alpha)
-	draw_text_transformed(xPos+20, yPos+20, GetItemDescription(itemName), 1.5, 1.5, image_angle)
+	draw_text_ext_transformed(xPos+20, yPos+20, GetItemDescription(itemName), 
+	24, 100, 1.5, 1.5, image_angle)
 
 	//Item Icon
 	xPos = xPos+40+sprite_get_width(MenuSprite)*16+16
@@ -44,22 +45,69 @@ if (!ds_list_empty(categoryList))
 
 	//Item List
 	var itemCount = ds_list_size(ds_list_find_value(global.categoryItemList, selectedCategory))
-
-	var displayedItems = 0
-	for (var i = startingItemOffset; i < clamp(startingItemOffset+itemDisplayLimit, 0, itemCount); i++) //Drawing the items
+	
+	if (ds_list_find_value(global.categoryNameList, selectedCategory) != "Key Items")
 	{
-		var itemDetails = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), i)
-		var itemAmount = GetItemAmount(itemDetails)
-		itemName = GetItemName(itemDetails)
-		var originX = view_get_wport(0)*0.15
-		var originY = 80+view_get_hport(0)*0.075+40*displayedItems
+		var displayedItems = 0
+		for (var i = startingItemOffset; i < clamp(startingItemOffset+itemDisplayLimit, 0, itemCount); i++) //Drawing the items
+		{
+			var itemDetails = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), i)
+			var itemAmount = GetItemAmount(itemDetails)
+			itemName = GetItemName(itemDetails)
+			var originX = view_get_wport(0)*0.15
+			var originY = 80+view_get_hport(0)*0.075+40*displayedItems
 
-		if (itemName != undefined) draw_text_transformed(originX, originY, itemName, 1.5, 1.5, image_angle)
-		draw_text_transformed(view_get_wport(0)*0.85, originY, string_concat("x", itemAmount), 1.5, 1.5, image_angle)
+			if (itemName != undefined) draw_text_transformed(originX, originY, itemName, 1.5, 1.5, image_angle)
+			draw_text_transformed(view_get_wport(0)*0.85, originY, string_concat("x", itemAmount), 1.5, 1.5, image_angle)
 
-		if (selectedItem == i) draw_sprite_ext(ArrowSelectSprite, 0, originX+string_width(itemName)*1.5+20, originY+20,
-		1.5, 1.5, 270, image_blend, image_alpha)
+			if (selectedItem == i) draw_sprite_ext(ArrowSelectSprite, 0, originX+string_width(itemName)*1.5+20, originY+20,
+			1.5, 1.5, 270, image_blend, image_alpha)
 
-		displayedItems++
+			displayedItems++
+		}
+	}
+	else
+	{
+		var displayedItems = 0
+		for (var i = startingItemOffset; i < clamp(startingItemOffset+5, 0, itemCount); i++) //Drawing the items
+		{
+			var itemDetails = ds_list_find_value(ds_list_find_value(global.categoryItemList, selectedCategory), i)
+			var itemAmount = GetItemAmount(itemDetails)
+			itemName = GetItemName(itemDetails)
+			var originX = view_get_wport(0)*0.15
+			var originY = 240+80+view_get_hport(0)*0.075+40*displayedItems
+			
+			CenterTextPosition()
+			draw_text_transformed(view_get_wport(0)*0.5, 120+view_get_hport(0)*0.075, "Badges", 2, 2, image_angle)
+			draw_text_transformed(view_get_wport(0)*0.5, 240+80+view_get_hport(0)*0.075-32, "Other Key Items", 2, 2, image_angle)
+			ResetTextPosition()
+			
+			if (itemName != undefined) draw_text_transformed(originX, originY, itemName, 1.5, 1.5, image_angle)
+			draw_text_transformed(view_get_wport(0)*0.85, originY, string_concat("x", itemAmount), 1.5, 1.5, image_angle)
+
+			if (selectedItem == i) draw_sprite_ext(ArrowSelectSprite, 0, originX+string_width(itemName)*1.5+20, originY+20,
+			1.5, 1.5, 270, image_blend, image_alpha)
+
+			displayedItems++
+		}
+		
+		if (HasFlag("MutantBadge")) 
+		{
+			var originX = view_get_wport(0)*0.3
+			var originY = 160+view_get_hport(0)*0.075+40
+			draw_sprite_ext(MutantBadgeSprite, 0, originX, originY, 1, 1, image_angle, image_blend, image_alpha)
+		}
+		if (HasFlag("RobotBadge"))
+		{
+			var originX = view_get_wport(0)*0.5
+			var originY = 160+view_get_hport(0)*0.075+40
+			draw_sprite_ext(RobotBadgeSprite, 0, originX, originY, 0.08, 0.08, image_angle, image_blend, image_alpha)
+		}
+		if (HasFlag("ShadowBadge"))
+		{
+			var originX = view_get_wport(0)*0.7
+			var originY = 160+view_get_hport(0)*0.075+40
+			draw_sprite_ext(ShadowBadgeSprite, 0, originX, originY, 0.1, 0.1, image_angle, image_blend, image_alpha)
+		}
 	}
 }

@@ -14,7 +14,7 @@ if (!battle)
 	var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 	battleObj.enemyTeam = trainerTeam
 	battleObj.enemySprite = trainerSprite
-	battleObj.enemyName = "Human"
+	battleObj.enemyName = name
 	battleObj.isWild = true
 	battleObj.playerX = other.x
 	battleObj.playerY = other.y

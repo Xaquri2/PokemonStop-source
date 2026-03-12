@@ -37,7 +37,8 @@ if (!hasSelected)
 {
 	if (keyboard_check_pressed(ord("A"))) selectedCategory--
 	if (keyboard_check_pressed(ord("D"))) selectedCategory++
-
+	if (keyboard_check_pressed(ord("A")) or keyboard_check_pressed(ord("D"))) selectedItem = 0
+	
 	if (keyboard_check_pressed(vk_left)) selectedCategory--
 	if (keyboard_check_pressed(vk_right)) selectedCategory++
 
@@ -56,26 +57,44 @@ if (!hasSelected)
 	{
 		selectedItem--
 		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
+		else if (selectedItem < 0) selectedItem = itemCount-1
 	}
 
 	if (keyboard_check_pressed(vk_up))
 	{
 		selectedItem--
 		if (selectedItem >= 0 and selectedItem < startingItemOffset) startingItemOffset--
+		else if (selectedItem < 0) selectedItem = itemCount-1
 	}
 
 	if (keyboard_check_pressed(ord("S")))
 	{
 		selectedItem++
-		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
-		and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
+		if (ds_list_find_value(global.categoryNameList, selectedCategory) != "Key Items")
+		{
+			if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
+			and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
+		}
+		else
+		{
+			if (selectedItem < itemCount and selectedItem >= 5+startingItemOffset
+			and itemCount-startingItemOffset > 5) startingItemOffset++
+		}
 	}
 
 	if (keyboard_check_pressed(vk_down))
 	{
 		selectedItem++
-		if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
-		and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
+		if (ds_list_find_value(global.categoryNameList, selectedCategory) != "Key Items")
+		{
+			if (selectedItem < itemCount and selectedItem >= itemDisplayLimit+startingItemOffset
+			and itemCount-startingItemOffset > itemDisplayLimit) startingItemOffset++
+		}
+		else
+		{
+			if (selectedItem < itemCount and selectedItem >= 5+startingItemOffset
+			and itemCount-startingItemOffset > 5) startingItemOffset++
+		}
 	}
 
 	if (selectedItem == ds_list_size(itemList))

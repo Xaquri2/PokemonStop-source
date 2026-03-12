@@ -1,0 +1,1 @@
+SetWarpDefaults("MaryHouseToUpstairs", "Down", false)

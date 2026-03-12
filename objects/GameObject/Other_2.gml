@@ -48,7 +48,7 @@ AddPokemon("Pikachu", 30, GetRandomGender(50))
 AddPokemon("Pikachu", 20, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = MorlockGym
+global.standardStartRoom = MorlockCity
 global.activatedBadges = ds_list_create()
 
 global.torch = false
