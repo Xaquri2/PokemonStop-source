@@ -64,7 +64,7 @@ if (!ds_list_empty(nameList))
 
 	//Text box sprite: 
 draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.58, view_y+view_height-42, 8.9*scalePerc, 2.2, image_angle, image_blend, image_alpha)
-if (!ds_list_empty(iconList)) 
+if (!ds_list_empty(iconList) and ds_list_size(iconList) > currentText) 
 {
 		//Box that the character's face goes in: 
 	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-42, 2.2*scalePerc, 2.2*scalePerc, image_angle, image_blend, image_alpha)
