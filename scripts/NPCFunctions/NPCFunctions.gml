@@ -109,12 +109,6 @@ function GetTrainerLoot(rankValue)
 			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed",
 			"X Attack 2", "X Defense 2", "X Special Attack 2", "X Special Defense 2", "X Speed 2")
 			break
-			
-		default:
-			ds_list_add(healList, "Potion", "Super Potion", "Hyper Potion", "Max Potion", "Full Restore")
-			ds_list_add(ballList, "Poke Ball", "Great Ball", "Ultra Ball")
-			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed",
-			"X Attack 2", "X Defense 2", "X Special Attack 2", "X Special Defense 2", "X Speed 2")
 	}
 	
 	var healChance = irandom(100)
