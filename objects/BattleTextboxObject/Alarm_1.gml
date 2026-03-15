@@ -63,6 +63,8 @@ if (!recoil)
 		{
 			endBattle = true
 			target.currentPkmn = noone
+			var hasGainedItems = GetTrainerLoot(GetTrainerRank(battle.enemyName))
+			if (hasGainedItems) ds_list_add(textList, "You earned some items!")
 			ds_list_add(textList, "You win!")
 		}
 		else

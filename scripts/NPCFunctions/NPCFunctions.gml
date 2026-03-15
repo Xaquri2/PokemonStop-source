@@ -60,6 +60,81 @@ function GetTrainerMoney(n)
 	}
 }
 
+function GetTrainerRank(n)
+{
+	switch (n)
+	{
+		//case "Name of trainer":
+		//	return 1
+		
+		default:
+			return 0
+	}
+}
+
+function GetTrainerLoot(rankValue)
+{
+	var healList = ds_list_create()
+	var ballList = ds_list_create()
+	var xItemList = ds_list_create()
+	
+	switch (rankValue)
+	{
+		case 0:
+			ds_list_add(healList, "Potion")
+			ds_list_add(ballList, "Poke Ball")
+			break
+		
+		case 1:
+			ds_list_add(healList, "Potion")
+			ds_list_add(ballList, "Poke Ball")
+			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed")
+			break
+		
+		case 2:
+			ds_list_add(healList, "Potion", "Super Potion")
+			ds_list_add(ballList, "Poke Ball", "Great Ball")
+			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed")
+			break
+		
+		case 3:
+			ds_list_add(healList, "Potion", "Super Potion", "Hyper Potion")
+			ds_list_add(ballList, "Poke Ball", "Great Ball")
+			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed")
+			break
+		
+		case 4:
+			ds_list_add(healList, "Potion", "Super Potion", "Hyper Potion", "Max Potion", "Full Restore")
+			ds_list_add(ballList, "Poke Ball", "Great Ball", "Ultra Ball")
+			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed",
+			"X Attack 2", "X Defense 2", "X Special Attack 2", "X Special Defense 2", "X Speed 2")
+			break
+			
+		default:
+			ds_list_add(healList, "Potion", "Super Potion", "Hyper Potion", "Max Potion", "Full Restore")
+			ds_list_add(ballList, "Poke Ball", "Great Ball", "Ultra Ball")
+			ds_list_add(xItemList, "X Attack", "X Defense", "X Special Attack", "X Special Defense", "X Speed",
+			"X Attack 2", "X Defense 2", "X Special Attack 2", "X Special Defense 2", "X Speed 2")
+	}
+	
+	var healChance = irandom(100)
+	if (!ds_list_empty(healList) and healChance < 60) AddItem(ds_list_find_value(healList, floor(random_range(0,ds_list_size(healList)-1))), 1)
+	
+	var ballChance = irandom(100)
+	if (!ds_list_empty(ballList) and ballChance < 30) AddItem(ds_list_find_value(ballList, floor(random_range(0,ds_list_size(ballList)-1))), 1)
+	
+	var xItemChance = irandom(100)
+	if (!ds_list_empty(xItemList) and xItemChance < 10) AddItem(ds_list_find_value(xItemList, floor(random_range(0,ds_list_size(xItemList)-1))), 1)
+
+	var gainedItem = false
+	if (healChance < 60 or ballChance < 30 or xItemChance < 10) gainedItem = true
+	
+	ds_list_destroy(healList)
+	ds_list_destroy(ballList)
+	ds_list_destroy(xItemList)
+	return gainedItem
+}
+
 function GetNPCFlagDialogue(name, flag)
 {
 	var dialogue = ds_list_create()
