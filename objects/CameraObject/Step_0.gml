@@ -1,7 +1,16 @@
 if (player != noone)
 {
-	x = lerp(x, player.x, 0.2)
-	y = lerp(y, player.y, 0.2)
+	if (!tpedToPlayer)
+	{
+		x = player.x
+		y = player.y
+		tpedToPlayer = true
+	}
+	else
+	{
+		x = lerp(x, player.x, 0.2)
+		y = lerp(y, player.y, 0.2)
+	}
 }
 else
 {

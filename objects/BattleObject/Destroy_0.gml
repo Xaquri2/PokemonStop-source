@@ -18,3 +18,11 @@ if (postBattleTextList != noone and !ds_list_empty(postBattleTextList))
 
 var game = instance_find(GameObject, 0)
 game.warp = false
+
+player = instance_find(PlayerObject, 0)
+var camera = instance_find(CameraObject, 0)
+if (instance_exists(player) and instance_exists(camera))
+{
+	camera.x = player.x
+	camera.y = player.y
+}

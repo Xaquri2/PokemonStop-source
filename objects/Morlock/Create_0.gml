@@ -1,5 +1,6 @@
 // Inherit the parent event
 event_inherited();
+name = "Morlock"
 
 idleSprite = MorlockOverworldSprite
 walkUpSprite = MorlockWalkUpSprite
