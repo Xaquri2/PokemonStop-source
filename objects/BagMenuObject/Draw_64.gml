@@ -77,11 +77,6 @@ if (!ds_list_empty(categoryList))
 			var originX = view_get_wport(0)*0.15
 			var originY = 240+80+view_get_hport(0)*0.075+40*displayedItems
 			
-			CenterTextPosition()
-			draw_text_transformed(view_get_wport(0)*0.5, 120+view_get_hport(0)*0.075, "Badges", 2, 2, image_angle)
-			draw_text_transformed(view_get_wport(0)*0.5, 240+80+view_get_hport(0)*0.075-32, "Other Key Items", 2, 2, image_angle)
-			ResetTextPosition()
-			
 			if (itemName != undefined) draw_text_transformed(originX, originY, itemName, 1.5, 1.5, image_angle)
 			draw_text_transformed(view_get_wport(0)*0.85, originY, string_concat("x", itemAmount), 1.5, 1.5, image_angle)
 
@@ -90,24 +85,32 @@ if (!ds_list_empty(categoryList))
 
 			displayedItems++
 		}
-		
-		if (HasFlag("MutantBadge")) 
-		{
-			var originX = view_get_wport(0)*0.3
-			var originY = 160+view_get_hport(0)*0.075+40
-			draw_sprite_ext(MutantBadgeSprite, 0, originX, originY, 1, 1, image_angle, image_blend, image_alpha)
-		}
-		if (HasFlag("RobotBadge"))
-		{
-			var originX = view_get_wport(0)*0.5
-			var originY = 160+view_get_hport(0)*0.075+40
-			draw_sprite_ext(RobotBadgeSprite, 0, originX, originY, 0.08, 0.08, image_angle, image_blend, image_alpha)
-		}
-		if (HasFlag("ShadowBadge"))
-		{
-			var originX = view_get_wport(0)*0.7
-			var originY = 160+view_get_hport(0)*0.075+40
-			draw_sprite_ext(ShadowBadgeSprite, 0, originX, originY, 0.1, 0.1, image_angle, image_blend, image_alpha)
-		}
+	}
+}
+
+if (ds_list_find_value(global.categoryNameList, selectedCategory) == "Key Items")
+{
+	CenterTextPosition()
+	draw_text_transformed(view_get_wport(0)*0.5, 120+view_get_hport(0)*0.075, "Badges", 2, 2, image_angle)
+	draw_text_transformed(view_get_wport(0)*0.5, 240+80+view_get_hport(0)*0.075-32, "Other Key Items", 2, 2, image_angle)
+	ResetTextPosition()
+	
+	if (HasFlag("MutantBadge")) 
+	{
+		var originX = view_get_wport(0)*0.3
+		var originY = 160+view_get_hport(0)*0.075+40
+		draw_sprite_ext(MutantBadgeSprite, 0, originX, originY, 1, 1, image_angle, image_blend, image_alpha)
+	}
+	if (HasFlag("RobotBadge"))
+	{
+		var originX = view_get_wport(0)*0.5
+		var originY = 160+view_get_hport(0)*0.075+40
+		draw_sprite_ext(RobotBadgeSprite, 0, originX, originY, 0.08, 0.08, image_angle, image_blend, image_alpha)
+	}
+	if (HasFlag("ShadowBadge"))
+	{
+		var originX = view_get_wport(0)*0.7
+		var originY = 160+view_get_hport(0)*0.075+40
+		draw_sprite_ext(ShadowBadgeSprite, 0, originX, originY, 0.1, 0.1, image_angle, image_blend, image_alpha)
 	}
 }
