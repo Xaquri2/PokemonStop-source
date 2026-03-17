@@ -91,7 +91,7 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "You’re insane… you’ve gone power-mad. You can’t play god like that!")
 				ds_list_add(optionMenu.optionList, "Thank you! That’s very generous of you!")
 			}
-			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come back once you’ve completed your journey… and I’d be glad to convert you into one of my … projects.")
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come back once you’ve completed your journey... and I’d be glad to convert you into one of my... projects.")
 			{
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
@@ -386,6 +386,7 @@ if (startBattle and instance_number(OptionObject) == 0)
 	battleObj.enemyTeam = actionNPC.trainerTeam
 	battleObj.enemySprite = actionNPC.trainerSprite
 	battleObj.enemyName = name
+	battleObj.enemyObjectType = actionNPC.object_index
 	battleObj.isWild = isWild
 	battleObj.playerX = player.x
 	battleObj.playerY = player.y
@@ -405,7 +406,9 @@ if (startBattle and instance_number(OptionObject) == 0)
 	battleObj.trainerX = actionNPC.x
 	battleObj.trainerY = actionNPC.y
 
-	if (object_get_parent(actionNPC.object_index) == TrainerParent and !ds_list_empty(actionNPC.postBattleTextList))
+	if ((object_get_parent(actionNPC.object_index) == TrainerParent 
+	or object_get_parent(actionNPC.object_index) == GymLeaderParent)
+	and !ds_list_empty(actionNPC.postBattleTextList))
 	{
 		battleObj.postBattleTextList = actionNPC.postBattleTextList
 		battleObj.postBattleIconList = actionNPC.postBattleIconList

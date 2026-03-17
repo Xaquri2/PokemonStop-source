@@ -29,7 +29,7 @@ ds_list_add(iconList,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,Li
 if (!HasFlag("LiliumFirstDefeatText")) 
 {
 	ds_list_add(postBattleTextList, "Impossible!!", "GAAAHH !!", "Well… it seems you've earned this badge", 
-	"Come back once you’ve completed your journey… and I’d be glad to convert you into one of my … projects.")
+	"Come back once you’ve completed your journey... and I’d be glad to convert you into one of my... projects.")
 	ds_list_add(postBattleNameList, "Lilium","Lilium","Lilium","Lilium")
 	ds_list_add(postBattleIconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 }

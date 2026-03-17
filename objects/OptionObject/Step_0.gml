@@ -1225,12 +1225,46 @@ if (keyboard_check_pressed(vk_enter))
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 			dialogue.name = referenceNPC.name
 			dialogue.actionNPC = referenceNPC
-			
+
 			ds_list_add(dialogue.textList, "You’re welcome! I’m glad you approve.", "That is the reason for my experiments of converting people into BOOs and UMBRIANs", 
 			"And converting animals into UMBREONs and so on.", "That is how I plan to ELEVATE humanity to the next level;", 
 			"For only in that form can your minds process the information I wish to bestow.", "That said... Are you ready to challenge me?")
 			ds_list_add(dialogue.nameList, "Lilium","Lilium","Lilium","Lilium","Lilium","Lilium")
 			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP,LilySprite_CLOSEUP)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		
+		instance_destroy(id)
+	}
+	
+	if (question == "React to Lilium's offer.")
+	{
+		if (currentOption == 0)
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			ds_list_add(dialogue.textList, "Done.")
+			ds_list_add(dialogue.nameList, "Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP)
+
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+		}
+		else
+		{
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			ds_list_add(dialogue.textList, "You’ll be back. Sooner than you think, I bet.")
+			ds_list_add(dialogue.nameList, "Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP)
 
 			player.talking = true
 

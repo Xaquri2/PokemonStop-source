@@ -1200,10 +1200,10 @@ function GetTrainerTeam(trainerName)
 		
 		//Gym Leaders
 		case "Lilium":
-			AddPokemonTrainer(team, 1, "Boo", 16, "Male", BooOverworldSprite)
-			AddPokemonTrainer(team, 2, "Pac-Ghost", 17, "Male", PacGhostOverworldSprite)
-			AddPokemonTrainer(team, 3, "Umbreon", 17, "Male", UmbreonOverworldSprite)
-			AddPokemonTrainer(team, 4, "Yamask", 16, "Male", YamaskFrontSprite)
+			//AddPokemonTrainer(team, 1, "Boo", 16, "Male", BooOverworldSprite)
+			//AddPokemonTrainer(team, 2, "Pac-Ghost", 17, "Male", PacGhostOverworldSprite)
+			//AddPokemonTrainer(team, 3, "Umbreon", 17, "Male", UmbreonOverworldSprite)
+			//AddPokemonTrainer(team, 4, "Yamask", 16, "Male", YamaskFrontSprite)
 			AddPokemonTrainer(team, 5, "Umbrian", 18, "Male", UmbrianOverworldSprite)
 			break
 		case "Gorbertron":
