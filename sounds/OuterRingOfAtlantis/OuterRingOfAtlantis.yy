@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":152.0907,
+  "duration":148.16,
   "exportDir":"",
   "name":"OuterRingOfAtlantis",
   "parent":{
