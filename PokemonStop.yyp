@@ -593,6 +593,7 @@
     {"id":{"name":"MaryWalkDownSprite","path":"sprites/MaryWalkDownSprite/MaryWalkDownSprite.yy",},},
     {"id":{"name":"MaryWalkRightSprite","path":"sprites/MaryWalkRightSprite/MaryWalkRightSprite.yy",},},
     {"id":{"name":"MaryWalkUpSprite","path":"sprites/MaryWalkUpSprite/MaryWalkUpSprite.yy",},},
+    {"id":{"name":"MEGABOTSprite","path":"sprites/MEGABOTSprite/MEGABOTSprite.yy",},},
     {"id":{"name":"MenuSprite","path":"sprites/MenuSprite/MenuSprite.yy",},},
     {"id":{"name":"MetalGrateSprite","path":"sprites/MetalGrateSprite/MetalGrateSprite.yy",},},
     {"id":{"name":"MetroidOverworldSprite","path":"sprites/MetroidOverworldSprite/MetroidOverworldSprite.yy",},},
