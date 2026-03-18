@@ -21,10 +21,10 @@ if (instance_exists(player) and point_distance(x,y,player.x,player.y) <= detectR
 	if instance_exists(collision_rectangle(bbox_left+hspeed,bbox_top,
 	bbox_right+hspeed,bbox_bottom,TiltedFloor,false,true))
 	{
-		if !instance_exists(collision_rectangle(x+hspeed,bbox_top-5,
+		if !instance_exists(collision_rectangle(x+hspeed,bbox_top-2,
 		x+hspeed,bbox_bottom-5,TiltedFloor,false,true))
 		{
-			y -= 5
+			y -= 2
 		}
 		else hspeed = 0
 	}
