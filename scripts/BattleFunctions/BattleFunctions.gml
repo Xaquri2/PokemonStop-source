@@ -1070,7 +1070,7 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 2, "Squirrel", 5, "Female", SquirrelOverworldSprite)
 			break
-		case "BoxBotO":
+		case "Box Bot O":
 			AddPokemonTrainer(team, 1, "Box Bot", 4, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 2, "BB-8", 5, "Male", BB8BattleSprite)
 			AddPokemonTrainer(team, 3, "Box Bot", 6, "Male", BoxBotIdleSprite)
