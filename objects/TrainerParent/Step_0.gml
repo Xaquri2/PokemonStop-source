@@ -1,5 +1,29 @@
 event_inherited();
 
+if (!triggered)
+{
+	startX = bbox_left
+	startY = bbox_top
+	finalX = bbox_right
+	finalY = bbox_bottom
+	
+	switch (lineSightDir)
+	{
+		case "Up":
+			startY -= lineSight
+			break
+		case "Down":
+			finalY += lineSight
+			break
+		case "Right":
+			finalX += lineSight
+			break
+		case "Left":
+			startX -= lineSight
+			break
+	}
+}
+
 if (sightTrigger)
 {
 	var player = collision_line(startX,startY,finalX,finalY,PlayerObject,false,true)
