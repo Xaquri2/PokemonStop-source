@@ -1114,11 +1114,11 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 5, "Creeper", 23, "Male", CreeperSprite)
 			break
 		case "Team Rocket Roxanne":
+			AddPokemonTrainer(team, 5, "Pac-Man", 22, "Male", PacManWalkRight_Strip3)
 			AddPokemonTrainer(team, 1, "Zubat", 18, "Female", ZubatFlappingSprite)
 			AddPokemonTrainer(team, 2, "Porg", 20, "Male", PorgBattleSprite)
 			AddPokemonTrainer(team, 3, "Zergling", 18, "Female", ZerglingSprite)
 			AddPokemonTrainer(team, 4, "Zoombini", 20, "Female", ZoombiniHoveringSprite)
-			AddPokemonTrainer(team, 5, "Pac-Man", 22, "Male", PacManWalkRight_Strip3)
 			break
 		case "Team Rocket Spike":
 			AddPokemonTrainer(team, 1, "Tribble", 18, "Female", TribbleBattleSprite)
