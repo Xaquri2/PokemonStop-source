@@ -452,6 +452,7 @@
     {"id":{"name":"Atlas1","path":"sprites/Atlas1/Atlas1.yy",},},
     {"id":{"name":"Atlas2","path":"sprites/Atlas2/Atlas2.yy",},},
     {"id":{"name":"BabelTowerSprite","path":"sprites/BabelTowerSprite/BabelTowerSprite.yy",},},
+    {"id":{"name":"BabyBattleSprite_1","path":"sprites/BabyBattleSprite_1/BabyBattleSprite_1.yy",},},
     {"id":{"name":"BabyBattleSprite","path":"sprites/BabyBattleSprite/BabyBattleSprite.yy",},},
     {"id":{"name":"BabyOverworldSprite","path":"sprites/BabyOverworldSprite/BabyOverworldSprite.yy",},},
     {"id":{"name":"BallParticleSprite_BLACK","path":"sprites/BallParticleSprite_BLACK/BallParticleSprite_BLACK.yy",},},
