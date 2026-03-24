@@ -1371,7 +1371,7 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.textList, "That’s right!! Glad you understand.",
 			"That understanding will be nice for you to enjoy… BEFORE YOUR DOOM!!",
-			"Ready to challenge me?!")
+			"That said... Are you ready to challenge me?")
 			ds_list_add(dialogue.nameList, "The Collector","The Collector","The Collector")
 			ds_list_add(dialogue.iconList, TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP,TheCollectorSprite_CLOSEUP)
 
