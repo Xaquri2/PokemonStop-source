@@ -690,12 +690,10 @@ function GetPokemonBaseStats(name) {
         // Official Pokémon (where known)
         //--------------------------------
         case "Pikachu":
-            // As in your snippet
             ds_list_add(statList, 35, 55, 40, 50, 50, 90);
             break;
 
         case "Voltorb":
-            // Canonical Gen 1 base stats
             ds_list_add(statList, 40, 30, 50, 55, 55, 100);
             break;
 
@@ -712,7 +710,6 @@ function GetPokemonBaseStats(name) {
             break;
 
         case "Charmander":
-            // As in your snippet
             ds_list_add(statList, 39, 52, 43, 60, 50, 65);
             break;
 
@@ -729,7 +726,6 @@ function GetPokemonBaseStats(name) {
             break;
 
         case "Squirtle":
-            // As in your snippet
             ds_list_add(statList, 44, 48, 65, 50, 64, 43);
             break;
 
@@ -768,7 +764,7 @@ function GetPokemonBaseStats(name) {
             break;
 
         // “Shadow Umbreon” – slight twist on normal Umbreon’s stats
-        case "Umbreon (Shadow Version)":
+        case "Umbreon":
             ds_list_add(statList, 95, 75, 110, 60, 130, 65);
             break;
 

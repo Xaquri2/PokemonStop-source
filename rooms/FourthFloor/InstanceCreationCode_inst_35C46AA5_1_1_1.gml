@@ -2,7 +2,8 @@
 battleFlag = "Rocket_FourthFloor_inst_35C46AA5_1_1_1";
 if (HasFlag(battleFlag)) instance_destroy();
 // === BATTLE FLAG (auto) END ===
-
+else
+{
 ds_list_add(textList, "Steal Pokémon for profit.", "Exploit Pokémon for profit.", "All Pokémon exist for the glory of Team Rocket.")
 ds_list_add(nameList, name, name, name)
 ds_list_add(iconList, sprite_index,sprite_index,sprite_index,)
@@ -10,3 +11,4 @@ ds_list_add(iconList, sprite_index,sprite_index,sprite_index,)
 name = "Team Rocket Sable"
 moveType = "Horizontal"
 walkTime = 230;
+}
