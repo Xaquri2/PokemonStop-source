@@ -13,7 +13,6 @@ else
 		hspeed = lengthdir_x(spd, point_direction(x,y,player.x,player.y))
 		vspeed = lengthdir_y(spd, point_direction(x,y,player.x,player.y))
 
-		vspeed = 0
 		if (RoomHasGravity())
 		{
 			if (vspeed < 3) vspeed += 1.5
