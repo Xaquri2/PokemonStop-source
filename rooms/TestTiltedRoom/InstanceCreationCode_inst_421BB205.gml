@@ -1,3 +1,3 @@
-item = "Torch"
+
 
 itemTag = "TiltedTowerTorch"
