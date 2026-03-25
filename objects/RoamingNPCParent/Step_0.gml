@@ -7,7 +7,7 @@ if (state == "Walk")
 		walkCoords = []
 
 		speed = 0
-		image_xscale = 1
+		image_xscale = abs(image_xscale)
 		sprite_index = idleSprite
 	}
 	else
@@ -22,7 +22,7 @@ if (state == "Walk")
 			walkCoords = []
 
 			speed = 0
-			image_xscale = 1
+			image_xscale = abs(image_xscale)
 			sprite_index = idleSprite
 			alarm[0] = random_range(60*minWalkTimerValue, 60*maxWalkTimerValue)
 		}
@@ -39,8 +39,8 @@ if (speed != 0)
 	else
 	{
 		sprite_index = walkRightSprite
-		if (hspeed > 0) image_xscale = 1
-		else image_xscale = -1
+		if (hspeed > 0) image_xscale = abs(image_xscale)
+		else image_xscale = -abs(image_xscale)
 	}
 	
 	if (collision_rectangle(bbox_left+hspeed,bbox_top+vspeed,bbox_right+hspeed,bbox_bottom+vspeed,CollisionParent,false,true))
@@ -49,7 +49,7 @@ if (speed != 0)
 		walkCoords = []
 
 		speed = 0
-		image_xscale = 1
+		image_xscale = abs(image_xscale)
 		sprite_index = idleSprite
 		alarm[0] = random_range(60*3, 60*6)
 	}

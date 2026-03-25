@@ -984,6 +984,7 @@
     {"name":"inst_7048E2D1","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_19BCD6FA","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_45CF406A","path":"rooms/ShadowPath/ShadowPath.yy",},
+    {"name":"inst_64084106","path":"rooms/ShadowPath/ShadowPath.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -1973,6 +1974,7 @@
         {"$GMRInstance":"v4","%Name":"inst_26D3E288","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_26D3E288","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.04130745,"scaleX":0.40625,"scaleY":1.8691453,"x":1809.8926,"y":1090.6349,},
         {"$GMRInstance":"v4","%Name":"inst_50591929","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_50591929","objectId":{"name":"PacGhost","path":"objects/PacGhost/PacGhost.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.21875,"scaleY":1.1953468,"x":176.5,"y":1990.8745,},
         {"$GMRInstance":"v4","%Name":"inst_5113AAFD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5113AAFD","objectId":{"name":"FogControllerObject","path":"objects/FogControllerObject/FogControllerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":11.0,"scaleY":11.0,"x":384.0,"y":1056.0,},
+        {"$GMRInstance":"v4","%Name":"inst_64084106","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_64084106","objectId":{"name":"Yamask","path":"objects/Yamask/Yamask.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5596283,"scaleY":0.559,"x":320.0,"y":2432.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Houses","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_2BDCEDB9","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_2BDCEDB9","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"ShadowPthHousesSprite","path":"sprites/ShadowPthHousesSprite/ShadowPthHousesSprite.yy",},"x":1744.0,"y":1564.0,},

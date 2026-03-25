@@ -6,12 +6,9 @@ else
 	var player = instance_find(PlayerObject, 0)
 	if (instance_exists(player) and point_distance(x,y,player.x,player.y) <= detectRange)
 	{
-		move_towards_point(player.x,player.y,walkSpeed)
-		var spd = speed
 		speed = 0
-	
-		hspeed = lengthdir_x(spd, point_direction(x,y,player.x,player.y))
-		vspeed = lengthdir_y(spd, point_direction(x,y,player.x,player.y))
+		hspeed = lengthdir_x(walkSpeed, point_direction(x,y,player.x,player.y))
+		vspeed = lengthdir_y(walkSpeed, point_direction(x,y,player.x,player.y))
 
 		if (RoomHasGravity())
 		{

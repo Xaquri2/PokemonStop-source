@@ -81,5 +81,9 @@ if (cutsceneVideo != "")
 		{
 			alarm[0]++
 		}
+		else
+		{
+			if (!audio_is_playing(GetBattleTheme(enemyName))) audio_play_sound(GetBattleTheme(enemyName), 1, false)
+		}
 	}
 }

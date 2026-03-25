@@ -60,7 +60,14 @@ if (sightTrigger)
 				break
 		}
 
-		move_towards_point(targetX, targetY, 0.5)
+		speed = 0
+		hspeed = lengthdir_x(0.5, point_direction(x,y,targetX,targetY))
+		vspeed = lengthdir_y(0.5, point_direction(x,y,targetX,targetY))
+
+		if (RoomHasGravity())
+		{
+			if (vspeed < 3) vspeed += 1.5
+		}
 	}
 
 	var nextX = lengthdir_x(0.5, point_direction(x,y,targetX,targetY))
