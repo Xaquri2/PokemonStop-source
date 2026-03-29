@@ -13,8 +13,8 @@
     {"name":"inst_403C34E7","path":"rooms/GreedShop/GreedShop.yy",},
     {"name":"inst_28B20C90","path":"rooms/GreedShop/GreedShop.yy",},
     {"name":"inst_2D3DFCC","path":"rooms/GreedShop/GreedShop.yy",},
-    {"name":"inst_74BCE2E8","path":"rooms/GreedShop/GreedShop.yy",},
     {"name":"inst_7654C7A3","path":"rooms/GreedShop/GreedShop.yy",},
+    {"name":"inst_74BCE2E8","path":"rooms/GreedShop/GreedShop.yy",},
   ],
   "isDnd":false,
   "layers":[

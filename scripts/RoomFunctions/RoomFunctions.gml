@@ -137,11 +137,11 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		case "ShadowTOPToGreed":
 			targetRoom = GreedShop
-			targetWarp = "GreedTOPToShadow"
+			targetWarp = "GreedShopTOPToShadow"
 			break
 		case "ShadowBOTTOMToGreed":
 			targetRoom = GreedShop
-			targetWarp = "GreedBOTTOMToShadow"
+			targetWarp = "GreedShopBOTTOMToShadow"
 			break
 			#endregion
 

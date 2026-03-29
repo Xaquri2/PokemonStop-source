@@ -53,4 +53,6 @@ if (speed != 0)
 		sprite_index = idleSprite
 		alarm[0] = random_range(60*3, 60*6)
 	}
+	
+	CheckForInterruptions()
 }

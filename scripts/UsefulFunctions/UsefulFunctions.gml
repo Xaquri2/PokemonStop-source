@@ -125,3 +125,13 @@ function GetFollowerSprite(spriteDir)
 			return
 	}
 }
+
+function CheckForInterruptions()
+{
+	if (instance_exists(TextboxObject))
+	{
+		speed = 0
+		hspeed = 0
+		vspeed = 0
+	}
+}

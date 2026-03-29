@@ -27,7 +27,8 @@ if (!triggered)
 if (sightTrigger)
 {
 	var player = collision_line(startX,startY,finalX,finalY,PlayerObject,false,true)
-	if (!triggered and instance_exists(player) and ds_list_find_index(global.beatenTrainers, name) == -1)
+	if (!triggered and instance_exists(player) and 
+	!player.battle and ds_list_find_index(global.beatenTrainers, name) == -1)
 	{
 		triggered = true
 
@@ -94,3 +95,5 @@ if (sightTrigger)
 		}
 	}
 }
+
+CheckForInterruptions()

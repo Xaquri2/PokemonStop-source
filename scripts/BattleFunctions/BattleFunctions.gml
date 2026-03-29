@@ -1208,10 +1208,10 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Gorbertron":
 			AddPokemonTrainer(team, 1, "Zoombini", 16, "Male", ZoombiniHoveringSprite)
-			AddPokemonTrainer(team, 2, "Ewok", 17, "Male", EwokOverworldSprite)
-			AddPokemonTrainer(team, 3, "Human", 17, "Male", Human2IdleSprite)
-			AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
-			AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
+			//AddPokemonTrainer(team, 2, "Ewok", 17, "Male", EwokOverworldSprite)
+			//AddPokemonTrainer(team, 3, "Human", 17, "Male", Human2IdleSprite)
+			//AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
+			//AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
 			break
 		case "Collector":
 			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", MEGABOTSprite)

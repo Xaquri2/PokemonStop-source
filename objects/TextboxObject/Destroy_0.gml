@@ -33,7 +33,14 @@ if (instance_exists(actionNPC))
 			{
 				startBattle = false
 			}
-			if (!startBattle and ds_list_find_value(textList, ds_list_size(textList)-1) != "That said... Are you ready to challenge me?")
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "You've already earned your Mutant Badge.")
+			{
+				if (!HasFlag("MutantBadge")) 
+				{
+					ds_list_add(global.flags, "MutantBadge")
+				}
+			}
+			else if (!startBattle and ds_list_find_value(textList, ds_list_size(textList)-1) != "That said... Are you ready to challenge me?")
 			{
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
@@ -42,7 +49,7 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "What are these things on your desk?",
 				"What are the Morlocks?", "What’s an Uber-Morlock?", "What is this place?")
 			}
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "That said... Are you ready to challenge me?")
 			{
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
@@ -50,13 +57,6 @@ if (instance_exists(actionNPC))
 				optionMenu.question = "Start the Gym Battle?"
 				ds_list_add(optionMenu.optionList, "Yes")
 				ds_list_add(optionMenu.optionList, "No")
-			}
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "You've already earned your Mutant Badge.")
-			{
-				if (!HasFlag("MutantBadge")) 
-				{
-					ds_list_add(global.flags, "MutantBadge")
-				}
 			}
 			break
 		case Lilium:

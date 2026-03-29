@@ -43,3 +43,5 @@ else
 
 	if (!player.canWalk) speed = 0
 }
+
+CheckForInterruptions()

@@ -2,7 +2,10 @@ playerMoved = false
 targetRoom = noone
 if (fade) fade = false
 
-if (warp and targetWarp == "None") warp = false
+if (warp and targetWarp == "None") 
+{
+	warp = false
+}
 
 if (room != RoomBattle and GetRoomName(previousRoom) != GetRoomName(room)) instance_create_depth(0,0,depth+1000000,RoomNameObject)
 
