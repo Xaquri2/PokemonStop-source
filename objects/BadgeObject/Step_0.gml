@@ -4,6 +4,7 @@ switch (badgeType)
 {
 	case "ShadowBadge":
 		xPos += target.sprite_width/2
+		yPos -= 40
 		break
 	case "RobotBadge":
 		xPos += target.sprite_width
@@ -14,5 +15,9 @@ x = lerp(x, xPos, badgeSpeed)
 y = lerp(y, yPos, badgeSpeed)
 if (point_distance(x,y,xPos,yPos) < 2) 
 {
-	instance_destroy(id)
+	image_alpha -= 0.1
+	if (alarm[0] == -1)  // -1 means the alarm isn't running
+    {
+        alarm[0] = 12
+    }
 }

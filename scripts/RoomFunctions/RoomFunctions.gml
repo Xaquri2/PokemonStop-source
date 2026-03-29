@@ -494,6 +494,12 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FifthFloor
 			targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
+		case "MorlockToTest":
+			targetRoom = TestRoom
+			targetWarp = "TestToMutant"
+			break
+
+
 
 
 	}
