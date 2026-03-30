@@ -18,4 +18,4 @@ cutsceneVideo = ""
 cutscenePlaying = false
 cutsceneSurface = -1
 
-global.potion = true
+global.potion = false

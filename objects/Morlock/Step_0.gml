@@ -1,7 +1,12 @@
 event_inherited();
 
-if (HasFlag(battleFlag)) instance_destroy()
-else
+
+if (HasFlag(battleFlag)) && (global.potion == false) 
+{
+	instance_destroy()
+}
+
+if (global.potion == false)
 {
 	var player = instance_find(PlayerObject, 0)
 	if (instance_exists(player) and point_distance(x,y,player.x,player.y) <= detectRange)
@@ -43,5 +48,7 @@ else
 
 	if (!player.canWalk) speed = 0
 }
+
+if (distance_to_object(MorlockPowerThing) < 0.7) instance_destroy()
 
 CheckForInterruptions()
