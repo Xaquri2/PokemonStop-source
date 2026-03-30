@@ -336,7 +336,21 @@ else
 
 if (!talking and !battle and global.torch)
 {
-	if (global.torchPower > 0) global.torchPower -= 0.005
+	if (global.torchPower > 0) global.torchPower -= 0.001
 	else global.torchPower = 0
 }
+
+//if (instance_exists(DarkTower)) {
+//	var DaarkTower = instance_nearest(x,y,DarkTower)
+//
+//	if (BehindTower == true && DaarkTower.image_alpha > 0.5) {
+//	
+//		DaarkTower.image_alpha -= 0.01
+//	}
+//
+//	if (BehindTower == false && DaarkTower.image_alpha < 1) {
+//	
+//		DaarkTower.image_alpha += 0.01
+//	}
+//}
 #endregion

@@ -1,8 +1,8 @@
 draw_set_alpha(1-game.fadeAlpha)
 draw_text(20,50,string_concat("$", global.money))
 
-if (global.torch) draw_text(25,85,"Press T to enable the Torch")
-else draw_text(25,85,"Press T to disable the Torch")
+if (global.torch) draw_text(25,85,"Press T to disable the Torch")
+else draw_text(25,85,"Press T to enable the Torch")
 
 var color = c_black
 draw_rectangle(20,80+32,120,100+32,false)
