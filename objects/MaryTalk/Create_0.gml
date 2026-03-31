@@ -4,3 +4,4 @@ nameList = ds_list_create()
 
 talking = false;
 
+

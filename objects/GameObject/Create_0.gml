@@ -19,3 +19,4 @@ cutscenePlaying = false
 cutsceneSurface = -1
 
 global.potion = false
+global.MaryTalkMorlock = false

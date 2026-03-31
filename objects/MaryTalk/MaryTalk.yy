@@ -35,5 +35,5 @@
     "path":"sprites/MenuSprite/MenuSprite.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
