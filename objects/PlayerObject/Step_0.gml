@@ -7,7 +7,7 @@ hspeed = 0
 
 if (RoomHasGravity())
 {
-	if (vspeed < 3) vspeed += 1.5
+	if (vspeed < 3 and collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,LadderObject,false,true) == noone) vspeed += 1.5
 }
 else vspeed = 0
 
@@ -30,7 +30,17 @@ if (canWalk and !talking and !battle)
 	var speedValue = normalSpeed
 	if (!IsIndoors()) speedValue = overworldSpeed
 
-	if (keyboard_check(ord("W")) and !RoomHasGravity()) vspeed = -speedValue
+	if (keyboard_check(ord("W")))
+	{
+		if (!RoomHasGravity()) vspeed = -speedValue
+		else
+		{
+			if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,LadderObject,false,true) != noone)
+			{
+				vspeed = -2
+			}
+		}
+	}
 	if (keyboard_check(ord("S")) and !RoomHasGravity()) vspeed = speedValue
 	if (keyboard_check(ord("A"))) hspeed = -speedValue
 	if (keyboard_check(ord("D"))) hspeed = speedValue
