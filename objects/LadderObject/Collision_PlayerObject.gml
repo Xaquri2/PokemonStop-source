@@ -1,0 +1,1 @@
+if (!active and point_distance(x,bbox_bottom,x,other.y) < 20) active = true
