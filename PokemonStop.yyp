@@ -757,6 +757,7 @@
     {"id":{"name":"TheCollectorTable","path":"sprites/TheCollectorTable/TheCollectorTable.yy",},},
     {"id":{"name":"ThreeToFourSprite","path":"sprites/ThreeToFourSprite/ThreeToFourSprite.yy",},},
     {"id":{"name":"TikTokHeadSprite","path":"sprites/TikTokHeadSprite/TikTokHeadSprite.yy",},},
+    {"id":{"name":"TiltedDoorSprite","path":"sprites/TiltedDoorSprite/TiltedDoorSprite.yy",},},
     {"id":{"name":"TiltedShadowSprite","path":"sprites/TiltedShadowSprite/TiltedShadowSprite.yy",},},
     {"id":{"name":"TopDownHouseItemsSprite","path":"sprites/TopDownHouseItemsSprite/TopDownHouseItemsSprite.yy",},},
     {"id":{"name":"TopDownRetroInteriorSprite","path":"sprites/TopDownRetroInteriorSprite/TopDownRetroInteriorSprite.yy",},},
