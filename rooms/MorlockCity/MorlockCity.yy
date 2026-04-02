@@ -82,6 +82,7 @@
     {"name":"inst_78C3D76B","path":"rooms/MorlockCity/MorlockCity.yy",},
     {"name":"inst_2D2B6809","path":"rooms/MorlockCity/MorlockCity.yy",},
     {"name":"inst_3F46F88A","path":"rooms/MorlockCity/MorlockCity.yy",},
+    {"name":"inst_3BADE111","path":"rooms/MorlockCity/MorlockCity.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -94,6 +95,7 @@
         {"$GMRInstance":"v4","%Name":"inst_36DEC911","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_36DEC911","objectId":{"name":"Bars","path":"objects/Bars/Bars.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5859375,"scaleY":1.0,"x":63.75,"y":65.0,},
         {"$GMRInstance":"v4","%Name":"inst_24454FEC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_24454FEC","objectId":{"name":"Bars","path":"objects/Bars/Bars.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.546875,"scaleY":0.5,"x":110.5,"y":112.0,},
         {"$GMRInstance":"v4","%Name":"inst_2344520A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2344520A","objectId":{"name":"Bars","path":"objects/Bars/Bars.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.546875,"scaleY":0.5,"x":109.25,"y":20.0,},
+        {"$GMRInstance":"v4","%Name":"inst_3BADE111","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3BADE111","objectId":{"name":"Obj_Lighting","path":"objects/Obj_Lighting/Obj_Lighting.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":50.0,"y":185.0,},
       ],"layers":[],"name":"UserInterface","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Important","depth":-200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":-100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
