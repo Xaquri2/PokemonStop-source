@@ -1,0 +1,1 @@
+SetWarpDefaults("MorlockEntranceALT", "Right", false)

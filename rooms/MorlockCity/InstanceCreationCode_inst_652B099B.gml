@@ -1,1 +1,0 @@
-SetWarpDefaults("MorlockEntrance", "Right", false)

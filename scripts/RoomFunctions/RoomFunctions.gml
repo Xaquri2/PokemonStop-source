@@ -41,7 +41,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		case "SHORTCUT":
 			targetRoom = MorlockCity //FifthFloor //RobotGym  //
-			targetWarp = "MorlockEntrance" //"TowerFifthFloorElevatorDOWN" //"RobotGymDoor"////
+			targetWarp = "MorlockEntranceALT" //"TowerFifthFloorElevatorDOWN" //"RobotGymDoor"////
 			//targetRoom = MuntainPeak
 			//targetWarp = "MountainPeakBottom"
 			//targetRoom = ShadowPokecenter
@@ -224,7 +224,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = TestRoom
 			targetWarp = "TestToMutant"
 			break
-		#endregion
+		
+		case "TiltedToMorlockALT":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockEntranceALT"
+			break
+
+		case "MorlockEntranceALT":
+			targetRoom = TestTiltedRoom
+			targetWarp = "TiltedToMorlockALT"
+			break
+			#endregion
 		
 		#region TestTiltedRoom
 		case "TiltedToMutant":
@@ -510,6 +520,9 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
 			#endregion
+		
+
+
 
 
 	}
