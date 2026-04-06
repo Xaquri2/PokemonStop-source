@@ -90,7 +90,7 @@ if (global.potion == false) {
 	else {
 		if (vspeed < 0) sprite_index = GhostPlayerWalkUpSprite
 		if (vspeed > 0) sprite_index = GhostPlayerWalkDownSprite
-		if (hspeed > 0) sprite_index = GhostPlayerIdleRightSprite
+		if (hspeed > 0) sprite_index = GhostPlayerWalkRightSprite
 		if (hspeed < 0) sprite_index = GhostPlayerWalkLeftSprite
 
 		if (hspeed == 0 and vspeed == 0)
