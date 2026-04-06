@@ -31,6 +31,22 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "TestToMutant2":
 			targetRoom = TestTiltedRoom
 			targetWarp = "TiltedToMorlock"
+		case "TestToRobotCastle":
+			targetRoom = MuntainPeak
+			targetWarp = "MountainToRobotMart"
+			break
+		case "TestToDarkTower":
+			targetRoom = FirstFloor
+			targetWarp = "TowerExit"
+			break
+		case "SHORTCUT":
+			targetRoom = MorlockCity //FifthFloor //RobotGym  //
+			targetWarp = "MorlockEntrance" //"TowerFifthFloorElevatorDOWN" //"RobotGymDoor"////
+			//targetRoom = MuntainPeak
+			//targetWarp = "MountainPeakBottom"
+			//targetRoom = ShadowPokecenter
+			//targetWarp = "PokeCenterToShadow"
+			break
 			#endregion
 
 		#region Mallet Town
@@ -97,8 +113,11 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = RouteMinusOneTop
 			targetWarp = "MinusOneTopToBottom2"
 			break
+		case "MinusOneToTower":
+			targetRoom = FirstFloor
+			targetWarp = "TowerExit"
+			break
 		#endregion
-
 
 		#region RouteMinusOneTop
 		case "MinusOneTopToBottom1":
@@ -119,6 +138,102 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "MutantToBuilding":
 			targetRoom = TestTiltedRoom
 			targetWarp = "TiltedToMutant"
+			break
+		case "MorlockEntrance":
+			targetRoom = TestTiltedRoom
+			targetWarp = "TiltedToMorlock2"
+			break
+		
+			//Morlock City		
+		case "MorlockPokeCenterEntrance":
+			targetRoom = MutantPokecenter
+			targetWarp = "PokeCenterToMorlock"
+			break
+
+		case "PokeCenterToMorlock":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockPokeCenterEntrance"
+			break
+		case "MorlockSoutheastEntrance":
+			targetRoom = MorlockCity2
+			targetWarp = "Morlock2SouthwestEntrance"
+			break
+
+			//Morlock City 2
+		case "Morlock2SouthwestEntrance":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockSoutheastEntrance"
+			break
+		case "MorlockCity3Bottom":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockNorth"
+			break
+
+		case "MorlockNorth":
+			targetRoom = MorlockCity3
+			targetWarp = "MorlockCity3Bottom"
+			break
+		case "MorlockCity3BottomRight":
+			targetRoom = MorlockCity2
+			targetWarp = "Morlock2NorthwestEntrance"
+			break
+
+		case "Morlock2NorthwestEntrance":
+			targetRoom = MorlockCity3
+			targetWarp = "MorlockCity3BottomRight"
+			break
+		case "MorlockShopEntrance":
+			targetRoom = MorlockShop
+			targetWarp = "MorlockShopToMorlock"
+			break
+
+		case "MorlockShopToMorlock":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockShopEntrance"
+			break
+		case "MorlockRestaurantEntrance":
+			targetRoom = MorlockRestaurant
+			targetWarp = "MorlockRestaurantExit"
+			break
+
+		case "MorlockRestaurantExit":
+			targetRoom = MorlockCity2
+			targetWarp = "MorlockRestaurantEntrance"
+			break
+		case "MorlockToGym":
+			targetRoom = MorlockGym
+			targetWarp = "MorlockGymExit"
+			break
+
+		case "MorlockGymExit":
+			targetRoom = MorlockCity3
+			targetWarp = "MorlockToGym"
+			break
+			
+		case "NebogipfelExit":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockToNebogipfel"
+			break
+
+		case "MorlockToNebogipfel":
+			targetRoom = NebogipfelsStudy
+			targetWarp = "NebogipfelExit"
+			break
+			
+		case "MorlockToTest":
+			targetRoom = TestRoom
+			targetWarp = "TestToMutant"
+			break
+		#endregion
+		
+		#region TestTiltedRoom
+		case "TiltedToMutant":
+			targetRoom = MutantPath1
+			targetWarp = "MutantToBuilding"
+			break
+		case "TiltedToMorlock":
+			targetRoom = MorlockCity
+			targetWarp = "MorlockEntrance"
 			break
 		#endregion
 
@@ -143,6 +258,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = GreedShop
 			targetWarp = "GreedShopBOTTOMToShadow"
 			break
+		case "PokeCenterToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToPokeCenter"
+			break
 			#endregion
 
 		#region Shadow Tower
@@ -153,6 +272,14 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "ShadowTowerToTest":
 			targetRoom = TestRoom
 			targetWarp = "TestToShadowTower"
+			break
+		case "ShadowTowerToShadow2":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToShadowTower"
+			break
+		case "ShadowTowerToShadow":
+			targetRoom = ShadowPath
+			targetWarp = "ShadowToShadowTower"
 			break
 		#endregion
 
@@ -213,16 +340,6 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		#endregion
 
-		#region TiltedBuilding
-		case "TiltedToMutant":
-			targetRoom = MutantPath1
-			targetWarp = "MutantToBuilding"
-			break
-		case "TiltedToMorlock":
-			targetRoom = MorlockCity
-			targetWarp = "MorlockEntrance"
-			break
-		#endregion
 
 		#region Waterfront
 		case "WaterfrontToMallet":
@@ -275,26 +392,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		#endregion
 		
-		case "PokeCenterToShadow":
-			targetRoom = ShadowPath
-			targetWarp = "ShadowToPokeCenter"
-			break
-		case "SHORTCUT":
-			targetRoom = MorlockCity //FifthFloor //RobotGym  //
-			targetWarp = "MorlockEntrance" //"TowerFifthFloorElevatorDOWN" //"RobotGymDoor"////
-			//targetRoom = MuntainPeak
-			//targetWarp = "MountainPeakBottom"
-			//targetRoom = ShadowPokecenter
-			//targetWarp = "PokeCenterToShadow"
-			break
-		case "ShadowTowerToShadow2":
-			targetRoom = ShadowPath
-			targetWarp = "ShadowToShadowTower"
-			break
-		case "ShadowTowerToShadow":
-			targetRoom = ShadowPath
-			targetWarp = "ShadowToShadowTower"
-			break
+		#region RobotPath
 		case "RobotToMinusOne":
 			targetRoom = RouteMinusOneTop
 			targetWarp = "MinusOneTopToRobot"
@@ -321,82 +419,33 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = MuntainPeak
 			targetWarp = "CastleDoor"
 			break
-		case "MorlockEntrance":
-			targetRoom = TestTiltedRoom
-			targetWarp = "TiltedToMorlock"
-			break
-		case "MorlockPokeCenterEntrance":
-			targetRoom = MutantPokecenter
-			targetWarp = "PokeCenterToMorlock"
+			
+		case "PokeCenterEntrance":
+			targetRoom = RobotPokecenter
+			targetWarp = "RobotPokeCenterExit"
 			break
 
-		case "PokeCenterToMorlock":
-			targetRoom = MorlockCity
-			targetWarp = "MorlockPokeCenterEntrance"
+		case "RobotPokeCenterExit":
+			targetRoom = MuntainPeak
+			targetWarp = "PokeCenterEntrance"
 			break
-		case "MorlockSoutheastEntrance":
-			targetRoom = MorlockCity2
-			targetWarp = "Morlock2SouthwestEntrance"
-			break
-
-		case "Morlock2SouthwestEntrance":
-			targetRoom = MorlockCity
-			targetWarp = "MorlockSoutheastEntrance"
-			break
-		case "MorlockCity3Bottom":
-			targetRoom = MorlockCity
-			targetWarp = "MorlockNorth"
+		case "MountainToRobotMart":
+			targetRoom = RobotMart
+			targetWarp = "MartExit"
 			break
 
-		case "MorlockNorth":
-			targetRoom = MorlockCity3
-			targetWarp = "MorlockCity3Bottom"
+		case "MartExit":
+			targetRoom = MuntainPeak
+			targetWarp = "MountainToRobotMart"
 			break
-		case "MorlockCity3BottomRight":
-			targetRoom = MorlockCity2
-			targetWarp = "Morlock2NorthwestEntrance"
-			break
-
-		case "Morlock2NorthwestEntrance":
-			targetRoom = MorlockCity3
-			targetWarp = "MorlockCity3BottomRight"
-			break
-		case "MorlockShopEntrance":
-			targetRoom = MorlockShop
-			targetWarp = "MorlockShopToMorlock"
-			break
-
-		case "MorlockShopToMorlock":
-			targetRoom = MorlockCity
-			targetWarp = "MorlockShopEntrance"
-			break
-		case "MorlockRestaurantEntrance":
-			targetRoom = MorlockRestaurant
-			targetWarp = "MorlockRestaurantExit"
-			break
-
-		case "MorlockRestaurantExit":
-			targetRoom = MorlockCity2
-			targetWarp = "MorlockRestaurantEntrance"
-			break
-		case "MorlockToGym":
-			targetRoom = MorlockGym
-			targetWarp = "MorlockGymExit"
-			break
-
-		case "MorlockGymExit":
-			targetRoom = MorlockCity3
-			targetWarp = "MorlockToGym"
-			break
+			#endregion
+		
+		#region DarkTower
 		case "TowerExit":
 			targetRoom = RouteMinusOneBottom
 			targetWarp = "MinusOneToTower"
 			break
 
-		case "MinusOneToTower":
-			targetRoom = FirstFloor
-			targetWarp = "TowerExit"
-			break
 	//	case "TowerFirstFloorElevator":
 	//		targetRoom = SecondFloor
 	//		targetWarp = "TowerSecondFloorElevatorDown"
@@ -443,41 +492,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FourthFloor
 			targetWarp = "TowerFourthFloorElevatorUP"
 			break
-		case "NebogipfelExit":
-			targetRoom = MorlockCity
-			targetWarp = "MorlockToNebogipfel"
-			break
 
-		case "MorlockToNebogipfel":
-			targetRoom = NebogipfelsStudy
-			targetWarp = "NebogipfelExit"
-			break
-		case "PokeCenterEntrance":
-			targetRoom = RobotPokecenter
-			targetWarp = "RobotPokeCenterExit"
-			break
-
-		case "RobotPokeCenterExit":
-			targetRoom = MuntainPeak
-			targetWarp = "PokeCenterEntrance"
-			break
-		case "MountainToRobotMart":
-			targetRoom = RobotMart
-			targetWarp = "MartExit"
-			break
-
-		case "MartExit":
-			targetRoom = MuntainPeak
-			targetWarp = "MountainToRobotMart"
-			break
-		case "TestToRobotCastle":
-			targetRoom = MuntainPeak
-			targetWarp = "MountainToRobotMart"
-			break
-		case "TestToDarkTower":
-			targetRoom = FirstFloor
-			targetWarp = "TowerExit"
-			break
 		case "Elevator1":
 			targetRoom = SecondFloor
 			targetWarp = "TowerSecondFloorElevatorDOWN"
@@ -494,12 +509,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FifthFloor
 			targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
-		case "MorlockToTest":
-			targetRoom = TestRoom
-			targetWarp = "TestToMutant"
-			break
-
-
+			#endregion
 
 
 	}

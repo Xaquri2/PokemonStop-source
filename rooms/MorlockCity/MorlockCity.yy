@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"MorlockCity",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/MorlockCity/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
@@ -99,7 +99,7 @@
       ],"layers":[],"name":"UserInterface","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Important","depth":-200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":-100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v4","%Name":"inst_652B099B","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_652B099B","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.359375,"scaleY":3.6875,"x":1.0,"y":341.0,},
+        {"$GMRInstance":"v4","%Name":"inst_652B099B","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_652B099B","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.546875,"scaleY":3.6875,"x":1.0,"y":341.0,},
         {"$GMRInstance":"v4","%Name":"inst_3B9E483","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3B9E483","objectId":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":429.0,},
         {"$GMRInstance":"v4","%Name":"inst_2F7F01A2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2F7F01A2","objectId":{"name":"MorlockDoor_EMPTY","path":"objects/MorlockDoor_EMPTY/MorlockDoor_EMPTY.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":27.42498,"scaleX":1.0,"scaleY":1.0,"x":1049.1075,"y":429.47757,},
         {"$GMRInstance":"v4","%Name":"inst_1E5DADE7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.1,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1E5DADE7","objectId":{"name":"MorlockDoor_EMPTY","path":"objects/MorlockDoor_EMPTY/MorlockDoor_EMPTY.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-34.30954,"scaleX":-0.8897935,"scaleY":1.2902846,"x":1314.9159,"y":422.94443,},

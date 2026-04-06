@@ -15,7 +15,7 @@
   "name":"MP3_Fireball_Travel_2",
   "parent":{
     "name":"Battle Sounds",
-    "path":"folders/Sounds/Battle Sounds.yy",
+    "path":"folders/Sounds/Sound Effects/Battle Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

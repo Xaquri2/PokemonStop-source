@@ -10,8 +10,8 @@
     "path":"folders/Objects/Furniture.yy",
   },
   "parentObjectId":{
-    "name":"NPCParent",
-    "path":"objects/NPCParent/NPCParent.yy",
+    "name":"PokelootObject",
+    "path":"objects/PokelootObject/PokelootObject.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
