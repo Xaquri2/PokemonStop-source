@@ -6,8 +6,8 @@
   "name":"CloakedTrainer",
   "overriddenProperties":[],
   "parent":{
-    "name":"Trainers",
-    "path":"folders/Objects/Characters/Trainers.yy",
+    "name":"Buildings",
+    "path":"folders/Objects/Buildings.yy",
   },
   "parentObjectId":{
     "name":"TrainerParent",

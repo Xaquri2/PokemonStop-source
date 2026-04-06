@@ -73,18 +73,35 @@ if (canWalk and !talking and !battle)
 #endregion
 
 #region Animation
-if (vspeed < 0) sprite_index = PlayerWalkUpSprite
-if (vspeed > 0) sprite_index = PlayerWalkDownSprite
-if (hspeed > 0) sprite_index = PlayerWalkRightSprite
-if (hspeed < 0) sprite_index = PlayerWalkLeftSprite
+if (global.potion == false) {
+	if (vspeed < 0) sprite_index = PlayerWalkUpSprite
+	if (vspeed > 0) sprite_index = PlayerWalkDownSprite
+	if (hspeed > 0) sprite_index = PlayerWalkRightSprite
+	if (hspeed < 0) sprite_index = PlayerWalkLeftSprite
 
-if (hspeed == 0 and vspeed == 0)
-{
-	if (vspeedOld < 0) sprite_index = PlayerIdleUpSprite
-	if (vspeedOld > 0) sprite_index = PlayerIdleDownSprite
-	if (hspeedOld > 0) sprite_index = PlayerIdleRightSprite
-	if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
+	if (hspeed == 0 and vspeed == 0)
+	{
+		if (vspeedOld < 0) sprite_index = PlayerIdleUpSprite
+		if (vspeedOld > 0) sprite_index = PlayerIdleDownSprite
+		if (hspeedOld > 0) sprite_index = PlayerIdleRightSprite
+		if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
+	}
 }
+	else {
+		if (vspeed < 0) sprite_index = GhostPlayerWalkUpSprite
+		if (vspeed > 0) sprite_index = GhostPlayerWalkDownSprite
+		if (hspeed > 0) sprite_index = GhostPlayerIdleRightSprite
+		if (hspeed < 0) sprite_index = GhostPlayerWalkLeftSprite
+
+		if (hspeed == 0 and vspeed == 0)
+		{
+			if (vspeedOld < 0) sprite_index = GhostPlayerIdleUpSprite
+			if (vspeedOld > 0) sprite_index = GhostPlayerIdleDownSprite
+			if (hspeedOld > 0) sprite_index = GhostPlayerIdleRightSprite
+			if (hspeedOld < 0) sprite_index = GhostPlayerIdleLeftSprite
+		}
+	}
+
 #endregion
 
 #region Collision
