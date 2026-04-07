@@ -523,8 +523,6 @@ function SetWarpDefaults(name, spawnDir, show)
 		
 
 
-
-
 	}
 
 	warpName = name
