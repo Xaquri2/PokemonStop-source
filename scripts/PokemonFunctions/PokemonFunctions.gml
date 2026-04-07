@@ -429,11 +429,10 @@ function CanEvolve(team, index) {
         // Official Pokémon (where known)
         //--------------------------------
         case "Pikachu":
-            // As in your snippet
             break;
 
         case "Voltorb":
-            // Canonical Gen 1 base stats
+            
             break;
 
         case "Caterpie":
@@ -446,33 +445,30 @@ function CanEvolve(team, index) {
             break;
 
         case "Charmander":
-            // As in your snippet
 			if (level >= 16) return "Charmandorian"
 
         case "Charmandorian":
-            if (level >= 36) return "Charizard"
+            if (level >= 36) return "Charmandalorian"
 
-        case "Charizard":
+        case "Charmandalorian":
             break;
 
         case "Clefairy":
             break;
 
         case "Squirtle":
-            if (level >= 16) return "Wartortle"
+            if (level >= 16) return "Ninja Squirtle"
 
-        case "Wartortle":
-            if (level >= 36) return "Blastoise"
+        case "Ninja Squirtle":
+            if (level >= 36) return "Omega Squirtle"
 
-        case "Blastoise":
+        case "Omega Squirtle":
             break;
 
         case "Snorlax":
-            // As in your snippet
             break;
 
         case "MissingNo":
-            // “Glitchy” stats, just for fun
             break;
 
         case "Articuno":
@@ -487,8 +483,7 @@ function CanEvolve(team, index) {
         case "Yamask":
             break;
 
-        // “Shadow Umbreon” – slight twist on normal Umbreon’s stats
-        case "Umbreon (Shadow Version)":
+        case "Umbreon":
             break;
 
         case "Zubat":
@@ -514,19 +509,17 @@ function CanEvolve(team, index) {
             break;
 
         case "Umbrian":
-            // Shadow Pokémon, mask-bound
+            if (level >= 25) return "Caelian"
             break;
 
         case "Caelian":
-            // Light counterpart to Umbrian
             break;
 
-        case "Baby (Tutorial Bot)":
-            // Only a head, very limited physically
+        case "Baby":
+            if (level >= 12) return "Box Bot"
             break;
 
         case "Box Bot":
-            // Has arms/legs, decent at tasks
             break;
 
         case "Tutorial Bot":
@@ -554,7 +547,8 @@ function CanEvolve(team, index) {
             break;
 
         case "Ewok":
-            // Jungle-adapted, trap-setting
+            if (level >= 16) return "Human"
+			if (level >= 20) return "Morlock"
             break;
 
         case "Yodal":
@@ -574,11 +568,12 @@ function CanEvolve(team, index) {
             break;
 
         case "Human":
-            // Average all-around
+            if (level >= 16) return "Morlock"
+			if (level >= 25) return "Yodal"
             break;
 
         case "Squirrel":
-            // Fast, agile
+           if (level >= 30) return "Rancor"
             break;
 
         case "Goomba":
@@ -586,10 +581,10 @@ function CanEvolve(team, index) {
             break;
 
         case "Koopa":
-            // Turtle-like soldier
+            if (level >= 35) return "King Koopa"
             break;
 
-        case "King Koopa (Bowser’s Species)":
+        case "King Koopa":
             // Powerful, can breathe fire, leads armies
             break;
 
@@ -606,11 +601,10 @@ function CanEvolve(team, index) {
             break;
 
         case "Demo Dog":
-            // Thick skin, strong, climbs walls
+            if (level >= 20) return "Demogorgon"
             break;
 
         case "Demogorgon":
-            // Extremely strong, durable, telekinetic
             break;
 
         case "Metroid":
@@ -622,7 +616,6 @@ function CanEvolve(team, index) {
             break;
 
         case "Krypton Firefly":
-            // Incredibly fast/durable under Earth conditions
             break;
 
         case "Zoombini":
@@ -654,7 +647,7 @@ function CanEvolve(team, index) {
             break;
 
         case "Zergling":
-            // Weak individually but fast and swarm
+            if (level >= 27) return ""
             break;
 
         case "Xenomorph":
@@ -670,12 +663,13 @@ function CanEvolve(team, index) {
             break;
 
         case "Godzooky":
-            // Friendly, can fly (awkwardly), moderate
+            if (level >= 60) return "Godzilla"
             break;
 
         case "Godzilla":
             // Enormous, legendary monster
             break;
+			
     }
 	return false
 }
@@ -1957,7 +1951,7 @@ function GetSpriteByNumber(num)
 		case "010": return WoobWubBattleSprite
 		case "011": return PikachuIdleSprite
 		case "012": return SquirtleIdleSprite
-		case "013": return CharmanderIdleSprite
+		case "013": return CharmanderBattleSprite
 		case "014": return SnorlaxIdleSprite
 		case "015": return NinjaSquirtleSprite
 		//case "016": return "Omega Squirtle"
@@ -2006,7 +2000,7 @@ function GetSpriteByNumber(num)
 		case "059": return ZapdosOverworldSprite
 		case "060": return MoltresOverworldSprite
 		case "061": return GodzookyOverworldSprite
-		//case "062": return "Godzilla"
+		case "062": return GodzillaSprite
 
 		default: return CreeperSprite
 	}
