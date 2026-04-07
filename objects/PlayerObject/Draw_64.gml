@@ -14,3 +14,5 @@ if (global.torchPower > 0)
 	draw_rectangle_colour(25,85+32,25+90*global.torchPower,95+32,color,color,color,color,false)
 }
 draw_set_alpha(1)
+
+draw_text(100,100,GetName(ds_list_find_value(global.playerParty, 0)))

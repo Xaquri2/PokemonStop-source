@@ -437,7 +437,7 @@ function CanEvolve(team, index) {
             break;
 
         case "Caterpie":
-			if (level >= 10) return true
+			if (level >= 10) return "Butterfree"
 
         case "Magnemite":
             break;
@@ -447,10 +447,10 @@ function CanEvolve(team, index) {
 
         case "Charmander":
             // As in your snippet
-			if (level >= 16) return true
+			if (level >= 16) return "Charmandorian"
 
-        case "Charmeleon":
-            if (level >= 36) return true
+        case "Charmandorian":
+            if (level >= 36) return "Charizard"
 
         case "Charizard":
             break;
@@ -459,10 +459,10 @@ function CanEvolve(team, index) {
             break;
 
         case "Squirtle":
-            if (level >= 16) return true
+            if (level >= 16) return "Wartortle"
 
         case "Wartortle":
-            if (level >= 36) return true
+            if (level >= 36) return "Blastoise"
 
         case "Blastoise":
             break;
@@ -713,7 +713,7 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 39, 52, 43, 60, 50, 65);
             break;
 
-        case "Charmeleon":
+        case "Charmandorian":
             ds_list_add(statList, 58, 64, 58, 80, 65, 80);
             break;
 
@@ -1868,6 +1868,8 @@ function GetNameByNumber(num)
 		case "060": return "Moltres"
 		case "061": return "Godzooky"
 		case "062": return "Godzilla"
+		
+		default: return "Creeper"
 	}
 }
 
@@ -1935,8 +1937,7 @@ function GetNumberByName(name)
 		case "Godzooky": return "061"
 		case "Godzilla": return "062"
 
-
-		default: return -1
+		default: return "001"
 	}
 }
 
@@ -2007,7 +2008,7 @@ function GetSpriteByNumber(num)
 		case "061": return GodzookyOverworldSprite
 		//case "062": return "Godzilla"
 
-		default: return PikachuIdleSprite
+		default: return CreeperSprite
 	}
 }
 
