@@ -35,12 +35,11 @@ if (keyboard_check_pressed(vk_enter))
 		var name = GetNameByNumber(pokedexIndex+1)
 		
 		var registered = false
-		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+		for (var i = 0; i < ds_list_size(global.pokedex); i++)
 		{
-			var currentPokemon = ds_list_find_value(global.pokemonList, i)
-			var currentName = GetName(currentPokemon)
+			var attempt = ds_list_find_value(global.pokedex, i)
 			
-			if (name == currentName)
+			if (name == attempt)
 			{
 				summaryMode = true
 				break

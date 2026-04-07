@@ -1,4 +1,4 @@
-if (keyboard_check_pressed(ord("E")) and canInteract)
+if (keyboard_check_pressed(ord("E")) and instance_number(TextboxObject) == 0 and canInteract)
 {
 	if (bagMenu != noone)
 	{
@@ -34,7 +34,7 @@ if (keyboard_check_pressed(ord("E")) and canInteract)
 	}
 }
 
-if (keyboard_check_pressed(vk_enter) and canInteract)
+if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and canInteract)
 {
 	if (switchMode)
 	{
@@ -65,7 +65,8 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 
 			var pkmnInfo = GetPartyMemberInfo(global.playerParty, selectedIndex)
 			ds_list_add(options.optionList, "Summary", "Switch")
-			if (CanEvolve(global.playerParty, selectedIndex)) ds_list_add(options.optionList, "Evolve")
+			
+			if (CanEvolve(global.playerParty, selectedIndex) != "") ds_list_add(options.optionList, "Evolve")
 		}
 		else if (itemUse)
 		{
@@ -162,14 +163,14 @@ if (keyboard_check_pressed(vk_enter) and canInteract)
 	}
 }
 
-if (!summaryMode and canInteract)
+if (!summaryMode and canInteract and instance_number(TextboxObject) == 0)
 {
 	if (keyboard_check_pressed(ord("W"))) selectedIndex--
 	if (keyboard_check_pressed(ord("S"))) selectedIndex++
 	if (keyboard_check_pressed(vk_up)) selectedIndex--
 	if (keyboard_check_pressed(vk_down)) selectedIndex++
 }
-else if (summaryMode)
+else if (summaryMode and instance_number(TextboxObject) == 0)
 {
 	if (keyboard_check_pressed(ord("W"))) moveIndex -= 2
 	if (keyboard_check_pressed(ord("S"))) moveIndex += 2

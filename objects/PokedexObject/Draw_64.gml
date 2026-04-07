@@ -48,22 +48,7 @@ if (!summaryMode)
 				spriteHeight = sprite_get_height(pkmnSprite)
 			}
 
-			var registered = false
-			for (var j = 0; j < ds_list_size(global.pokemonList); j++)
-			{
-				var currentPokemon = ds_list_find_value(global.pokemonList, j)
-				var currentName = GetName(currentPokemon)
-				
-				if (name == currentName)
-				{
-					registered = true
-					break
-				}
-			}
-			
-			if (!registered) pkmnSprite = undefined
-			
-			if (pkmnSprite != undefined) draw_sprite_part_ext(pkmnSprite, 0,
+			draw_sprite_part_ext(pkmnSprite, 0,
 			spriteWidth/2-16, spriteHeight/2-16, 32, 32,
 			frameXOffset, frameYOffset, 4, 4, image_blend, image_alpha)
 		}
