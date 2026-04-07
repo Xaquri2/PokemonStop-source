@@ -1843,7 +1843,7 @@ function GetNameByNumber(num)
 		case "041": return "Pac-Ghost"
 		case "042": return "Enderman"
 		case "043": return "Pikmin"
-		//case "044": return "Zoombini"
+		case "044": return "Glyptoblock"
 		case "045": return "Kirby"
 		case "046": return "Metroid"
 		case "047": return "Demo Dog"
@@ -1912,6 +1912,7 @@ function GetNumberByName(name)
 		case "Pac-Ghost": return "041"
 		case "Enderman": return "042"
 		case "Pikmin": return "043"
+		case "Glyptoblock": return "044"
 		case "Kirby": return "045"
 		case "Metroid": return "046"
 		case "Demo Dog": return "047"
@@ -1954,7 +1955,7 @@ function GetSpriteByNumber(num)
 		case "013": return CharmanderBattleSprite
 		case "014": return SnorlaxIdleSprite
 		case "015": return NinjaSquirtleSprite
-		//case "016": return "Omega Squirtle"
+		case "016": return OmegaSquirtleSprite
 		case "017": return CharmandorianSprite
 		case "018": return CharmandalorianSprite
 		case "019": return ApeBallSprite
@@ -1974,7 +1975,7 @@ function GetSpriteByNumber(num)
 		case "033": return SquirrelOverworldSprite
 		case "034": return GoombaOverworldSprite
 		case "035": return KoopaWalkRightSprite
-		//case "036": return (KingKoopa)
+		case "036": return KingKoopaBattleSprite
 		case "037": return BooOverworldSprite
 		case "038": return YoSterOverworldSprite
 		case "039": return TektiteIdleSprite
@@ -1982,7 +1983,7 @@ function GetSpriteByNumber(num)
 		case "041": return PacGhostOverworldSprite
 		case "042": return EndermanOverworldSprite
 		case "043": return PikminIdleSprite
-		//case "044": return Zoombini (duplicate, fix)
+		case "044": return GlyptoblockSprite
 		case "045": return KirbySprite
 		case "046": return MetroidOverworldSprite
 		case "047": return DemoDogSprite
@@ -2121,6 +2122,7 @@ function GetDescriptionByNumber(num)
 		case "Pikmin": return "This plant Pokémon grows as a rooted plant; when uprooted, it becomes extremely loyal to whoever uprooted it, following them and performing tasks for them. "
 		case "Kirby": return "This single-celled Pokémon is a distant cousin of the ZooChomper. It can suck up enemies into its mouth and take on some of their characteristics. It can also fly by sucking in air, increasing his volume, and flapping his “nubblies”. "
 		case "Metroid": return "This parasitic Pokémon feeds on the life-energy of its prey. "
+		case "Glyptoblock": return "There is a pleasant warmth around Glyptoblock. Other Pokémon like lying in its warmth."
 		case "Demo Dog": return "About the size of a small dog, this Pokémon’s thick skin and strong muscles make it a serious threat. It can withstand a few gunshots and can climb walls. "
 		case "Demogorgon": return "This Pokémon is extremely strong and durable. Its two heads war to control its body, but when their gazes fall upon an enemy they can hypnotize and manipulate it. Demogorgon can smell blood from far off. It can also move objects with its mind and even travel between dimensions. Its main weakness is fire. "
 		case "Licker": return "This Pokémon’s long tongue can be used as a deadly weapon, impaling its prey. It’s also adept at climbing walls and can survive multiple gunshots. "
@@ -2246,6 +2248,7 @@ function GetGameOfOrigin(name)
 		case "Woob-Wüb":
 		case "ZooChomper":
 			return "Space-Balls"
+		case "Glyptoblock": return "Unfinished Pokémon Fangame / Fakemon Pack"
 		case "Moosephant": return "Ghosts! (You !#@&face)"
 		case "Human": return "Game Theory - 'Humans are Pokemon'"
 		case "Squirrel": return "Squirrels: The PCG"
@@ -2343,6 +2346,7 @@ function GetGameDetails(name)
 		case "ZooChomper":
 			return "Paper Computer Game • 2006(ish) • Kurt Elfman"
 		case "Moosephant": return "Paper Computer Game • 2017 • Chris"
+		case "Glyptoblock": return "Video Game • ??? • Mikitari"
 		case "Human": return "YouTube Video • 2014 • MatPat/The Game Theorists"
 		case "Squirrel": return "Paper Computer Game • 2018 • Via"
 		case "Caelian": return "Tabletop RPG • 2008(ish) • Krierre House"

@@ -44,8 +44,8 @@ global.npcFlags = ds_map_create()
 AddPokemon("Charmander", 100, GetRandomGender(50))
 AddPokemon("Ewok", 17, GetRandomGender(50))
 AddPokemon("Ewok", 20, GetRandomGender(50))
-AddPokemon("Koopa", 30, GetRandomGender(50))
-AddPokemon("Squirrel", 100, GetRandomGender(50))
+AddPokemon("Squirtle", 100, GetRandomGender(50))
+AddPokemon("Glyptoblock", 100, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
 global.standardStartRoom = TestTiltedRoom
