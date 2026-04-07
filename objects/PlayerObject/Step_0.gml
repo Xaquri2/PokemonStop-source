@@ -96,7 +96,7 @@ if (global.potion == false) {
 		if (hspeed == 0 and vspeed == 0)
 		{
 			if (vspeedOld < 0) sprite_index = GhostPlayerIdleUpSprite
-			if (vspeedOld > 0) sprite_index = GhostPlayerIdleDownSprite
+			if (vspeedOld > 0) sprite_index = PlayerMorlockIdleDownSprite
 			if (hspeedOld > 0) sprite_index = GhostPlayerIdleRightSprite
 			if (hspeedOld < 0) sprite_index = GhostPlayerIdleLeftSprite
 		}
