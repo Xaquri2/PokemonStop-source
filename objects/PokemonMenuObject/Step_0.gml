@@ -44,6 +44,20 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 
 		switchMode = false
 	}
+	else if (pcSwitchMode)
+	{
+		if (switchIndex != selectedIndex)
+		{
+			var temp = ds_list_find_value(global.pokemonList, switchIndex)
+			ds_list_replace(global.pokemonList, switchIndex, ds_list_find_value(global.pokemonList, selectedIndex))
+			ds_list_replace(global.pokemonList, selectedIndex, temp)
+			ds_list_replace(global.playerParty, selectedIndex, temp)
+		}
+		
+		var player = instance_find(PlayerObject, 0)
+		player.alarm[0] = 5
+		instance_destroy(id)
+	}
 	else if (battleSwitchMode)
 	{
 		var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)

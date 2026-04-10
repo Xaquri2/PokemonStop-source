@@ -5,6 +5,7 @@ canInteract = true
 summaryMode = false
 switchMode = false
 battleSwitchMode = false
+pcSwitchMode = false
 
 switchIndex = -1
 selectedIndex = 0

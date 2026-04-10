@@ -24,6 +24,11 @@ if (keyboard_check_pressed(vk_enter) and active)
 			bag.menu = id
 			visible = false
 			break
+		case "PC":
+			var pcObj = instance_create_layer(x,y,layer,PCMenuObject)
+			pcObj.menu = id
+			visible = false
+			break
 		case "Save Game":
 		    var saveMenu = instance_create_layer(x, y,layer, SaveMenuObject);
 			saveMenu.mode = "Save"

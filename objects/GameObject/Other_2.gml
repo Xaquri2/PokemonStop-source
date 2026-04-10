@@ -46,6 +46,8 @@ AddPokemon("Ewok", 17, GetRandomGender(50))
 AddPokemon("Ewok", 20, GetRandomGender(50))
 AddPokemon("Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 100, GetRandomGender(50))
+AddPokemon("Creeper", 100, GetRandomGender(50))
+AddPokemon("Pikachu", 100, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
 global.standardStartRoom = TestTiltedRoom
