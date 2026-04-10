@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Morlock",
-    "path":"folders/Sprites/Player/Morlock.yy",
+    "name":"Idle",
+    "path":"folders/Sprites/Player/Morlock/Idle.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

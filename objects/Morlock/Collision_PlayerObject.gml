@@ -1,5 +1,5 @@
 // Inherit the parent event
-if (global.potion == false) {
+if (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) {
 event_inherited();
 } 
 

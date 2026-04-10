@@ -73,7 +73,7 @@ if (canWalk and !talking and !battle)
 #endregion
 
 #region Animation
-if (global.potion == false) {
+if (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) {
 	if (vspeed < 0) sprite_index = PlayerWalkUpSprite
 	if (vspeed > 0) sprite_index = PlayerWalkDownSprite
 	if (hspeed > 0) sprite_index = PlayerWalkRightSprite
@@ -87,20 +87,20 @@ if (global.potion == false) {
 		if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
 	}
 }
-	else {
-		if (vspeed < 0) sprite_index = GhostPlayerWalkUpSprite
-		if (vspeed > 0) sprite_index = GhostPlayerWalkDownSprite
-		if (hspeed > 0) sprite_index = GhostPlayerWalkRightSprite
-		if (hspeed < 0) sprite_index = GhostPlayerWalkLeftSprite
+else if (HasFlag("Potion") and !HasFlag("PotionCure")) {
+	if (vspeed < 0) sprite_index = PlayerMorlockWalkUpSprite
+	if (vspeed > 0) sprite_index = PlayerMorlockWalkDownSprite
+	if (hspeed > 0) sprite_index = PlayerMorlockWalkRightSprite
+	if (hspeed < 0) sprite_index = PlayerMorlockWalkLeftSprite
 
-		if (hspeed == 0 and vspeed == 0)
-		{
-			if (vspeedOld < 0) sprite_index = GhostPlayerIdleUpSprite
-			if (vspeedOld > 0) sprite_index = PlayerMorlockIdleDownSprite
-			if (hspeedOld > 0) sprite_index = GhostPlayerIdleRightSprite
-			if (hspeedOld < 0) sprite_index = GhostPlayerIdleLeftSprite
-		}
+	if (hspeed == 0 and vspeed == 0)
+	{
+		if (vspeedOld < 0) sprite_index = PlayerMorlockIdleUpSprite
+		if (vspeedOld > 0) sprite_index = PlayerMorlockIdleDownSprite
+		if (hspeedOld > 0) sprite_index = PlayerMorlockIdleRightSprite
+		if (hspeedOld < 0) sprite_index = PlayerMorlockIdleLeftSprite
 	}
+}
 
 #endregion
 

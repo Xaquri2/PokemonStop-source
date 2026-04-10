@@ -1,4 +1,4 @@
-if (global.potion == true) {
+if (HasFlag("Potion")) {
 	ds_list_add(textList, "If only I had someone kind & caring to enjoy this human blood soda with...")
 	ds_list_add(iconList, sprite_index)
 	ds_list_add(nameList, "Morlock")

@@ -22,7 +22,7 @@ var cam_y = camera_get_view_y(cam);
 surface_set_target(light_surface);
 
 
-if (global.potion == false) {
+if (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) {
 	// FULL DARKNESS
 	draw_clear_alpha(c_black, 0.95);
 
