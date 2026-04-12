@@ -24,7 +24,6 @@
     {"name":"inst_40B422A5","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_4734F87A","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_49B2F3C1","path":"rooms/MutantPath1/MutantPath1.yy",},
-    {"name":"inst_31AA720C","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_723C2D75","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_1EFE2684","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_2DAF295C","path":"rooms/MutantPath1/MutantPath1.yy",},
@@ -109,6 +108,8 @@
     {"name":"inst_32B08FFD","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_3512A70","path":"rooms/MutantPath1/MutantPath1.yy",},
     {"name":"inst_46CD551A","path":"rooms/MutantPath1/MutantPath1.yy",},
+    {"name":"inst_7B69E9CF","path":"rooms/MutantPath1/MutantPath1.yy",},
+    {"name":"inst_31AA720C","path":"rooms/MutantPath1/MutantPath1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -116,6 +117,7 @@
         {"$GMRInstance":"v4","%Name":"inst_3288172B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3288172B","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.25,"scaleY":2.4375,"x":110.0,"y":1585.0,},
         {"$GMRInstance":"v4","%Name":"inst_694E2189","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_694E2189","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":0.609375,"x":64.0,"y":1643.5,},
         {"$GMRInstance":"v4","%Name":"inst_7D926543","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7D926543","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.25,"scaleY":2.1328125,"x":16.0,"y":1575.25,},
+        {"$GMRInstance":"v4","%Name":"inst_7B69E9CF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7B69E9CF","objectId":{"name":"Obj_Lighting_City3","path":"objects/Obj_Lighting_City3/Obj_Lighting_City3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":542.0,"y":150.0,},
       ],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"UserInterface","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_67CBDE81","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_67CBDE81","objectId":{"name":"BasicSign","path":"objects/BasicSign/BasicSign.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.625,"scaleY":0.625,"x":306.0,"y":1752.0,},
@@ -124,7 +126,6 @@
         {"$GMRInstance":"v4","%Name":"inst_353E690D","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_353E690D","objectId":{"name":"MorlockDoor","path":"objects/MorlockDoor/MorlockDoor.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-0.35953522,"scaleX":0.921875,"scaleY":0.984375,"x":262.28632,"y":215.9354,},
       ],"layers":[],"name":"Door","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v4","%Name":"inst_31AA720C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_31AA720C","objectId":{"name":"MutantTowerObject","path":"objects/MutantTowerObject/MutantTowerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.50385565,"scaleY":0.43857938,"x":-5.0992546,"y":-7.8750305,},
         {"$GMRInstance":"v4","%Name":"inst_3C63B4ED","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3C63B4ED","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":4.0,"scaleY":1.0,"x":192.0,"y":1856.0,},
         {"$GMRInstance":"v4","%Name":"inst_3510C17A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3510C17A","objectId":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":266.0,"y":1827.0,},
         {"$GMRInstance":"v4","%Name":"inst_12B47FB4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_12B47FB4","objectId":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":-176.0,"y":1330.0,},
@@ -242,7 +243,10 @@
           -5,-2147483648,-3,0,-3,-2147483648,2,0,-2147483648,-3,0,-6,-2147483648,4,8,9,8,9,-4,-2147483648,4,12,
           13,12,13,-14,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"DestroyedHousesTileset","path":"tilesets/DestroyedHousesTileset/DestroyedHousesTileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRTileLayer":"","%Name":"Floor","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Floor","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":119,"SerialiseWidth":32,"TileCompressedData":[
+    {"$GMRInstanceLayer":"","%Name":"Tower","depth":600,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v4","%Name":"inst_31AA720C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_31AA720C","objectId":{"name":"MutantTowerObject","path":"objects/MutantTowerObject/MutantTowerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.50385565,"scaleY":0.43857938,"x":-6.0,"y":-8.0,},
+      ],"layers":[],"name":"Tower","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRTileLayer":"","%Name":"Floor","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Floor","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":119,"SerialiseWidth":32,"TileCompressedData":[
           -2948,-2147483648,2,1217,1218,-27,-2147483648,-2,1266,3,-2147483648,1267,1268,-27,-2147483648,-2,1316,
           3,1218,1317,1318,-27,-2147483648,6,1366,1217,1218,1217,1218,1219,-17,-2147483648,4,1118,1119,1120,1121,
           -5,-2147483648,6,1266,1267,1217,1218,1268,1269,-17,-2147483648,4,1168,1169,1170,1171,-5,-2147483648,
@@ -252,7 +256,7 @@
           4,1316,1317,1318,1319,-5,-2147483648,10,1316,1317,1318,1317,1318,1319,-2147483648,-2147483648,333,334,
           -13,-2147483648,4,1366,1367,1368,1369,-5,-2147483648,-3,1366,3,1367,1368,1369,-569,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"DungeonTilesTileset","path":"tilesets/DungeonTilesTileset/DungeonTilesTileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRTileLayer":"","%Name":"Tiles_1","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":60,"SerialiseWidth":16,"TileSerialiseData":[
+    {"$GMRTileLayer":"","%Name":"Tiles_1","depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":60,"SerialiseWidth":16,"TileSerialiseData":[
           48,49,50,51,48,49,50,51,48,49,50,51,48,49,60,61,54,55,56,57,54,55,56,57,54,55,56,57,54,55,48,49,60,61,
           62,63,60,61,62,63,60,61,62,63,60,61,54,55,48,49,50,51,48,49,50,51,48,49,50,51,48,49,60,61,54,55,56,57,
           54,55,56,57,54,55,56,57,54,55,48,49,60,61,62,63,60,61,62,63,60,61,62,63,60,61,54,55,48,49,50,51,48,49,
@@ -283,7 +287,7 @@
           49,50,51,48,49,50,51,48,49,50,57,54,55,56,57,54,55,56,57,54,55,56,57,54,55,56,63,60,61,62,63,60,61,62,
           63,60,61,62,63,60,61,62,
         ],},"tilesetId":{"name":"Mystical_Forest_Large","path":"tilesets/Mystical_Forest_Large/Mystical_Forest_Large.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":900,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "name":"MutantPath1",
   "parent":{
