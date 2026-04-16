@@ -48,10 +48,18 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 	{
 		if (switchIndex != selectedIndex)
 		{
-			var temp = ds_list_find_value(global.pokemonList, switchIndex)
-			ds_list_replace(global.pokemonList, switchIndex, ds_list_find_value(global.pokemonList, selectedIndex))
-			ds_list_replace(global.pokemonList, selectedIndex, temp)
-			ds_list_replace(global.playerParty, selectedIndex, temp)
+			var pkmn1 = ds_list_find_value(global.pokemonList, switchIndex)
+			var pkmn2 = ds_list_find_value(global.playerParty, selectedIndex)
+			if (ds_list_find_index(global.playerParty, pkmn1) != -1)
+			{
+				var pkmn1Index = ds_list_find_index(global.playerParty, pkmn1)
+				ds_list_replace(global.playerParty, selectedIndex, pkmn1)
+				ds_list_replace(global.playerParty, pkmn1Index, pkmn2)
+			}
+			else 
+			{
+				ds_list_replace(global.playerParty, selectedIndex, pkmn1)
+			}
 		}
 		
 		var player = instance_find(PlayerObject, 0)
