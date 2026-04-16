@@ -19,3 +19,4 @@ cutscenePlaying = false
 cutsceneSurface = -1
 
 global.MaryTalkMorlock = false
+global.MaryTalkMutant = false

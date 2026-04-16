@@ -1,8 +1,9 @@
 // Collision with PlayerObject
-if (!talking) && (!global.MaryTalkMorlock)
+if (!talking) && (!HasFlag("MaryTalkMorlock"))//(!global.MaryTalkMorlock)
 {
     talking = true;
-	global.MaryTalkMorlock = true;
+	//global.MaryTalkMorlock = true;
+	ds_list_add(global.flags, "MaryTalkMorlock")
     
     var dialogue = instance_create_depth(x, 500, -9999999999999, TextboxObject);
 

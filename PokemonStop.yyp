@@ -231,6 +231,7 @@
     {"id":{"name":"MangaPoster","path":"objects/MangaPoster/MangaPoster.yy",},},
     {"id":{"name":"Mary","path":"objects/Mary/Mary.yy",},},
     {"id":{"name":"MarysMom","path":"objects/MarysMom/MarysMom.yy",},},
+    {"id":{"name":"MaryTalk_Mutant","path":"objects/MaryTalk_Mutant/MaryTalk_Mutant.yy",},},
     {"id":{"name":"MaryTalk","path":"objects/MaryTalk/MaryTalk.yy",},},
     {"id":{"name":"MenuObject","path":"objects/MenuObject/MenuObject.yy",},},
     {"id":{"name":"MerchantMenuObject","path":"objects/MerchantMenuObject/MerchantMenuObject.yy",},},
