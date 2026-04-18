@@ -732,6 +732,7 @@ function BattleHasFX()
 	switch (prevRoomName)
 	{
 		//case "ShadowPathGym":
+		case "ShadowPathGym":
 		case "RobotGym": return string_concat(prevRoomName, "FX")
 		case "MorlockGym": 
 		if (enemy == "Gorbertron") return string_concat(prevRoomName, "FX")

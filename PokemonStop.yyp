@@ -429,6 +429,7 @@
     {"id":{"name":"Ding2","path":"sounds/Ding2/Ding2.yy",},},
     {"id":{"name":"DoorOpen","path":"sounds/DoorOpen/DoorOpen.yy",},},
     {"id":{"name":"Downers3","path":"sounds/Downers3/Downers3.yy",},},
+    {"id":{"name":"FightAgainstSmithyByGaMetal","path":"sounds/FightAgainstSmithyByGaMetal/FightAgainstSmithyByGaMetal.yy",},},
     {"id":{"name":"HealPokemonJingle","path":"sounds/HealPokemonJingle/HealPokemonJingle.yy",},},
     {"id":{"name":"HyruleCastleRevision","path":"sounds/HyruleCastleRevision/HyruleCastleRevision.yy",},},
     {"id":{"name":"MalletTownMusic","path":"sounds/MalletTownMusic/MalletTownMusic.yy",},},

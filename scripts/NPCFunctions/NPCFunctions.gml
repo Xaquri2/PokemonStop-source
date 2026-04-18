@@ -46,7 +46,8 @@ function GetBattleTheme(name)
 		//case "Rival Trainer Name": return RivalTheme
 		case "Gorbertron": return MutantPathGymBattleTheme
 		case "Collector": return RobotGymBattleTheme
-		case "Lilium": return ShadowPathGymBattleTheme
+		case "Lilium": return CulexKillerbyMrVile //ShadowPathGymBattleTheme
+		case "Zoovac": return FightAgainstSmithyByGaMetal
 		default: return WildBattleTheme
 	}
 }
