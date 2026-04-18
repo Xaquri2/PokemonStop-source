@@ -1,1 +1,1 @@
-room_goto(Mallet_Town);
+room_goto(ShadowPathGym);

@@ -712,10 +712,13 @@ function BattleHasBackground()
 {
 	var battle = instance_find(BattleObject, 0)
 	var prevRoomName = string_replace(room_get_name(battle.playerRoom), "ref room ", "")
+	var enemy = battle.enemyName;
 	switch (prevRoomName)
 	{
-		case "RobotGym": 
-		case "MorlockGym": return string_concat(prevRoomName, "Background")
+		case "ShadowPathGym":
+		case "RobotGym": return string_concat(prevRoomName, "Background")
+		case "MorlockGym": 
+		if (enemy == "Gorbertron") return string_concat(prevRoomName, "Background")
 		
 		default: return ""
 	}

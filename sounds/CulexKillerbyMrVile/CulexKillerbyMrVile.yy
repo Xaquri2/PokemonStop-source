@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"CulexKillerbyMrVile",
+  "audioGroupId":{
+    "name":"BattleThemes",
+    "path":"audiogroups/BattleThemes",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":304.941,
+  "exportDir":"",
+  "name":"CulexKillerbyMrVile",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Sounds/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"CulexKillerbyMrVile.mp3",
+  "volume":1.0,
+}
