@@ -274,6 +274,7 @@
     {"id":{"name":"obj_play_button","path":"objects/obj_play_button/obj_play_button.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_quit_button","path":"objects/obj_quit_button/obj_quit_button.yy",},},
+    {"id":{"name":"Object219","path":"objects/Object219/Object219.yy",},},
     {"id":{"name":"Object66","path":"objects/Object66/Object66.yy",},},
     {"id":{"name":"OldGuy","path":"objects/OldGuy/OldGuy.yy",},},
     {"id":{"name":"OptionObject","path":"objects/OptionObject/OptionObject.yy",},},
