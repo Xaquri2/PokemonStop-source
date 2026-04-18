@@ -1,10 +1,15 @@
 if (room == RoomBattle)
 {
 	var bgLayer = BattleHasBackground()
+	var bgLayer2 = BattleHasBackground2()
 	var bgFX = BattleHasFX()
 	if (bgLayer != "")
 	{
 		layer_set_visible(layer_get_id(bgLayer), true)
+	}
+	if (bgLayer2 != "")
+	{
+		layer_set_visible(layer_get_id(bgLayer2), true)
 	}
 	if (bgFX != "")
 	{

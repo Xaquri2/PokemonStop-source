@@ -719,6 +719,20 @@ function BattleHasBackground()
 		case "RobotGym": return string_concat(prevRoomName, "Background")
 		case "MorlockGym": 
 		if (enemy == "Gorbertron") return string_concat(prevRoomName, "Background")
+		case "FifthFloor": return string_concat(prevRoomName, "Background")
+		
+		default: return ""
+	}
+}
+
+function BattleHasBackground2()
+{
+	var battle = instance_find(BattleObject, 0)
+	var prevRoomName = string_replace(room_get_name(battle.playerRoom), "ref room ", "")
+	var enemy = battle.enemyName;
+	switch (prevRoomName)
+	{
+		case "FifthFloor": return "ZoovacLandscapeBackground"
 		
 		default: return ""
 	}
