@@ -1,9 +1,15 @@
 if (room == RoomBattle)
 {
 	var bgLayer = BattleHasBackground()
+	var bgFX = BattleHasFX()
 	if (bgLayer != "")
 	{
 		layer_set_visible(layer_get_id(bgLayer), true)
+	}
+	if (bgFX != "")
+	{
+		layer_set_visible(layer_get_id(bgFX), true)
+		layer_set_visible("Background", false)
 	}
 	
 	alarm[0] = 100

@@ -723,3 +723,19 @@ function BattleHasBackground()
 		default: return ""
 	}
 }
+
+function BattleHasFX()
+{
+	var battle = instance_find(BattleObject, 0)
+	var prevRoomName = string_replace(room_get_name(battle.playerRoom), "ref room ", "")
+	var enemy = battle.enemyName;
+	switch (prevRoomName)
+	{
+		//case "ShadowPathGym":
+		case "RobotGym": return string_concat(prevRoomName, "FX")
+		case "MorlockGym": 
+		if (enemy == "Gorbertron") return string_concat(prevRoomName, "FX")
+		
+		default: return ""
+	}
+}
