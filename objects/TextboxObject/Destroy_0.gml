@@ -335,12 +335,12 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "(Next)")
 		    }
 			
-			if (ds_list_find_value(textList, 0) == "Humans.")
-				{
-					ds_list_add(global.flags, "MaryRivalBattle1")
-					instance_destroy(Mary)
-					global.followerType = "Mary"
-				}
+			//if (ds_list_find_value(textList, 0) == "Humans.")
+			//	{
+			//		ds_list_add(global.flags, "MaryRivalBattle1")
+			//		instance_destroy(Mary)
+			//		global.followerType = "Mary"
+			//	}
 			//if (ds_list_find_value(textList, ds_list_size(textList)-1) == 
 		   //    "Humans.")
 		   //{

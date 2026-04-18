@@ -1,4 +1,5 @@
 event_inherited();
+if (HasFlag("MaryRivalBattle2")) instance_destroy(self)
 if (room == Mallet_Town)
 if (!instance_exists(player)) player = instance_find(PlayerObject, 0)
 else
