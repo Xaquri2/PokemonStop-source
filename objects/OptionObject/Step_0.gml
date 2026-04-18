@@ -61,6 +61,7 @@ if (keyboard_check_pressed(vk_enter))
 		AddItem(itemName, buyQuantity)
 		instance_destroy(id)
 		menu.optionMenu = noone
+		audio_play_sound(snd_button,1,0)
 
 		global.money -= GetItemValue(buyItem)*buyQuantity
 	}

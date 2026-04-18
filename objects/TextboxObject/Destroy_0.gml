@@ -267,7 +267,7 @@ if (instance_exists(actionNPC))
 					instance_destroy(Mary)
 					global.followerType = "Mary"
 				}
-				
+				break
 		case Nebogipfel:
 			var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
 		    if (finalText == "Well, I began to question that. WHY should it be that way??")
