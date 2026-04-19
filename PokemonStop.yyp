@@ -326,6 +326,7 @@
     {"id":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},},
     {"id":{"name":"TestSwitchNPC","path":"objects/TestSwitchNPC/TestSwitchNPC.yy",},},
     {"id":{"name":"TestWildObject","path":"objects/TestWildObject/TestWildObject.yy",},},
+    {"id":{"name":"TextboxObject_GINKGO_DIALOGUE","path":"objects/TextboxObject_GINKGO_DIALOGUE/TextboxObject_GINKGO_DIALOGUE.yy",},},
     {"id":{"name":"TextboxObject","path":"objects/TextboxObject/TextboxObject.yy",},},
     {"id":{"name":"TextPopupObject","path":"objects/TextPopupObject/TextPopupObject.yy",},},
     {"id":{"name":"TextSequenceSummoner","path":"objects/TextSequenceSummoner/TextSequenceSummoner.yy",},},

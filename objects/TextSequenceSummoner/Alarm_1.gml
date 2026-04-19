@@ -7,7 +7,7 @@
 	}
 
 //Create textbox
-	var dialogue = instance_create_depth(x,300,-9999999999999,TextboxObject)
+	var dialogue = instance_create_depth(x,300,-9999999999999,TextboxObject_GINKGO_DIALOGUE)
 	
 	// screen-space offsets (pixels, before scalePerc if you want)
 		dialogue.ui_off_x = 0;
@@ -16,7 +16,7 @@
 	
 		dialogue.scalePerc = 10;
 
-	ds_list_add(dialogue.textList, "Ah, you’re awake! ","Good morning, Gash! Better eat a big breakfast – today’s the day! ",
+	ds_list_add(dialogue.textList, "Ah, you’re awake! s","Good morning, Gash! Better eat a big breakfast – today’s the day! ",
 	"You’ve come of age and that means you’re ready to set out on your journey to become a POKEMON TRAINER!",
 	"So, just to remind you of some of the basics – well, first of all, you are GASH KETCHUM, cousin of famous Pokémon trainer Ash Ketchum! ",
 	"You know, just in case you’d forgotten who you are.",
@@ -25,3 +25,4 @@
 
 // Pass the sequence id to the textbox so it can resume later
 	dialogue.seq_element_id = seq_element_id;
+	alarm[2]=50

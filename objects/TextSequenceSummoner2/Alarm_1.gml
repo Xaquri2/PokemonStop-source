@@ -7,12 +7,12 @@
 //	}
 
 //Create textbox
-	var dialogue = instance_create_depth(x,500,-9999999999999,TextboxObject)
+	var dialogue = instance_create_depth(x,500,-9999999999999,TextboxObject_GINKGO_DIALOGUE)
 	
 	dialogue.ui_off_x = 0;
 	dialogue.ui_off_y = 300; 
 	
-	TextboxObject.scalePerc = 10; 
+	TextboxObject_GINKGO_DIALOGUE.scalePerc = 10; 
 
 	ds_list_add(dialogue.textList, 
 	"I came to this island region to study the strange and, frankly, otherworldly Pokémon that live here. ",
@@ -21,7 +21,7 @@
 	"There must be some secret to this region – why are its Pokémon so different than those seen elsewhere? ",
 	"Perhaps you can help me chronicle this mysterious region of the Pokémon World with your POKEDEX!",
 	"Oh, and, uh, you can also catch Pokémon with your POKEBALLS and all that. ",
-	"I mean, frankly, I wouldn’t. ",
+	"I mean, frankly, I wouldn’t.",
 	"But hey, as long as you’re doing it, it might help us get to the bottom of this! ",
 	"Well! STOP by my lab when you’re ready to choose your first Pokémon and begin your journey!")
 

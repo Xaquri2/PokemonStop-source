@@ -9,7 +9,7 @@
 //	
 
 
-if (instance_exists(TextSequenceSummoner2) && instance_exists(TextboxObject)) {
+if (instance_exists(TextSequenceSummoner2) && instance_exists(TextboxObject_GINKGO_DIALOGUE)) {
     seen_textbox_after_set2 = true;
 }
 
