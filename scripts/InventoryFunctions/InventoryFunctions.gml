@@ -18,6 +18,7 @@ function GetItemCategory(name)
 		case "Torch Fuel":
 		case "Super Torch Fuel":
 		case "Ultra Torch Fuel":
+		case "Skyview Potion":
 			return "Items"
 		#endregion
 
@@ -180,6 +181,7 @@ function IsConsumableItem(itemName)
 		case "Torch Fuel":
 		case "Super Torch Fuel":
 		case "Ultra Torch Fuel":
+		case "Skyview Potion":
 			return true
 	}
 	return false

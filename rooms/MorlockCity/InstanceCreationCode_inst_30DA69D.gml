@@ -5,3 +5,5 @@ AddPokemonTrainer(trainerTeam, 1, "Morlock", floor(random_range(8,15)), GetRando
 battleFlag = "TiltedMorlock_MorlockCity_inst_30DA69D";
 
 name = "Morlock"
+
+ds_list_add(textList, "Hi there...")

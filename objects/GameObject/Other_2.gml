@@ -50,9 +50,13 @@ AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 100, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = TestTiltedRoom
+global.standardStartRoom = MorlockCity
 global.activatedBadges = ds_list_create()
 
 global.torch = false
 global.torchPower = 1
 global.torchRange = 60
+
+global.morlockTimer = 0
+
+AddItem("Skyview Potion", 1)

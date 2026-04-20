@@ -332,6 +332,21 @@ if (keyboard_check_pressed(vk_enter))
 						instance_destroy(menu)
 						instance_destroy(id)
 					}
+					else if (itemName == "Skyview Potion")
+					{
+						global.morlockTimer = 60*60*10
+						
+						var player = instance_find(PlayerObject, 0)
+						var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+						ds_list_add(dialogue.textList, string_concat("You used the ", itemName, "! And you transformed into a Morlock!"), "Only for 10 minutes though!")
+
+						player.talking = true
+
+						if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+							
+						instance_destroy(menu)
+						instance_destroy(id)
+					}
 					else
 					{
 						var pkmnMenu = instance_create_depth(x,y,depth-1,PokemonMenuObject)

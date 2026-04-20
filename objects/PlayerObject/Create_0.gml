@@ -35,3 +35,5 @@ alarm[3] = 2
 falling = false
 
 BehindTower = false; 
+
+if (global.morlockTimer > 0) sprite_index = PlayerMorlockIdleDownSprite

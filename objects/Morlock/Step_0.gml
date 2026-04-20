@@ -1,12 +1,12 @@
 event_inherited();
 
 
-if (HasFlag(battleFlag)) && (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) 
+if (HasFlag(battleFlag)) && ((!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) and global.morlockTimer == 0) 
 {
 	instance_destroy()
 }
 
-if (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure")))
+if ((!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) and global.morlockTimer == 0)
 {
 	var player = instance_find(PlayerObject, 0)
 	if (instance_exists(player) and point_distance(x,y,player.x,player.y) <= detectRange)

@@ -1,4 +1,4 @@
-if (instance_number(BattleObject) < 0)
+if (instance_number(BattleObject) == 0)
 {
 	var musicC = instance_find(MusicObject, 0)
 	var music = musicC.currentMusic

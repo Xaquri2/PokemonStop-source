@@ -1,4 +1,5 @@
 player = instance_find(PlayerObject, 0)
+if (global.morlockTimer > 0) global.morlockTimer--
 
 if (global.autosave and alarm[1] == -1) alarm[1] = 60*60
 else if (!global.autosave) alarm[1] = -1

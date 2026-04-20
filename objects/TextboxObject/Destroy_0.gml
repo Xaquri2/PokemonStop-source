@@ -320,6 +320,13 @@ if (instance_exists(actionNPC))
 			else if (finalText == "There we go! Your potion! Drink when ready!")
 			{
 				if (!HasFlag("HasNeboPotion")) ds_list_add(global.flags, "HasNeboPotion")
+				
+				player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			
+				ds_list_add(dialogue.textList, "You obtained the Skyview Potion!")
+				player.talking = true
+				player.alarm[1] = -1
 			}
 			else
 		    {
@@ -452,4 +459,9 @@ if (room == GinkoIntroRoom ) {
 	}
 }
 
+var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
+if (finalText == "You obtained the Skyview Potion!") AddItem("Skyview Potion", 1)
 }
+
+var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
+if (finalText == "Only for 10 minutes though!") player.menuOpen = false
