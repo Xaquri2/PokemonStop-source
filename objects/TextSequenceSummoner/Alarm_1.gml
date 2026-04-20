@@ -1,10 +1,10 @@
 // If this object is controlled by a sequence, pause that sequence
 	var seq_element_id = -1;
 
-	if (in_sequence && !is_undefined(sequence_instance)) {
-	    seq_element_id = sequence_instance.elementID;
-	    layer_sequence_pause(seq_element_id);
-	}
+	//if (in_sequence && !is_undefined(sequence_instance)) {
+	//    seq_element_id = sequence_instance.elementID;
+	//    layer_sequence_pause(seq_element_id);
+	//}
 
 //Create textbox
 	var dialogue = instance_create_depth(x,300,-9999999999999,TextboxObject_GINKGO_DIALOGUE)
