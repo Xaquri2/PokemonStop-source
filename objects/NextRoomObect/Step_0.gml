@@ -8,6 +8,15 @@
 //	}
 //	
 
+if (instance_exists(TextSequenceSummoner) && instance_exists(TextboxObject_GINKGO_DIALOGUE)) {
+    seen_textbox_after_set1 = true;
+}
+
+//if seen_textbox_after_set1 == true {
+//	if (!instance_exists(TextboxObject_GINKGO_DIALOGUE) and !instance_exists(TextSequenceSummoner2)) {
+//		instance_create_layer(300,300,"Instances",TextSequenceSummoner2)
+//	}
+//}
 
 if (instance_exists(TextSequenceSummoner2) && instance_exists(TextboxObject_GINKGO_DIALOGUE)) {
     seen_textbox_after_set2 = true;
