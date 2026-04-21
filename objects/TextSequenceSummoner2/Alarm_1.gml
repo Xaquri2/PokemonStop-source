@@ -1,5 +1,5 @@
 // If this object is controlled by a sequence, pause that sequence
-	var seq_element_id = -1;
+	//var seq_element_id = -1;
 
 //	if (in_sequence && !is_undefined(sequence_instance)) {
 //	    seq_element_id = sequence_instance.elementID;
@@ -26,4 +26,4 @@
 	"Well! STOP by my lab when you’re ready to choose your first Pokémon and begin your journey!")
 
 // Pass the sequence id to the textbox so it can resume later
-	dialogue.seq_element_id = seq_element_id;
+	//dialogue.seq_element_id = seq_element_id;

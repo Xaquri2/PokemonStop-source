@@ -418,6 +418,7 @@
     {"id":{"name":"RoomFunctions","path":"scripts/RoomFunctions/RoomFunctions.yy",},},
     {"id":{"name":"seq_spawn_textSummoner2","path":"scripts/seq_spawn_textSummoner2/seq_spawn_textSummoner2.yy",},},
     {"id":{"name":"UsefulFunctions","path":"scripts/UsefulFunctions/UsefulFunctions.yy",},},
+    {"id":{"name":"GinkgoIntro_Part2","path":"sequences/GinkgoIntro_Part2/GinkgoIntro_Part2.yy",},},
     {"id":{"name":"GinkgoIntro","path":"sequences/GinkgoIntro/GinkgoIntro.yy",},},
     {"id":{"name":"seq_menu_1","path":"sequences/seq_menu_1/seq_menu_1.yy",},},
     {"id":{"name":"seq_menu","path":"sequences/seq_menu/seq_menu.yy",},},

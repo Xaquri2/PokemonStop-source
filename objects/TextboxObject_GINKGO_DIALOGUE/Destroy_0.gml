@@ -451,8 +451,15 @@ if (room == GinkoIntroRoom ) {
 		with (NextRoomObect) alarm[0] = 1;
 	}
 }
+show_debug_message("TEXTBOX DESTROY EVENT FIRED");
+instance_create_layer(300,300,"Instances",TextSequenceSummoner2);
 
 if (ds_list_find_value(textList, 0) == "Anyway, I am PROFESSOR GINKGO; I’m a Pokémon researcher here. ") {
-	 with NextRoomObect alarm[2] = 50
+	 //with NextRoomObect alarm[2] = 50
+	 instance_create_layer(300,300,"Instances",TextSequenceSummoner2)
 } 
+}
+
+if (ds_list_find_value(textList, 0) == "I came to this island region to study the strange and, frankly, otherworldly Pokémon that live here. ") {
+	layer_sequence_create("Sequence",696,715,GinkgoIntro_Part2)
 }

@@ -20,3 +20,8 @@ if (!queued_presskey
     queued_presskey = true;
     alarm[1] = 20;
 }
+
+
+//if (!instance_exists(TextboxObject_GINKGO_DIALOGUE) and ) {
+//	dll_cdecl
+//}

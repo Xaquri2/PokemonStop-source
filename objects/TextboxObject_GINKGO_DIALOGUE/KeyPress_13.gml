@@ -7,6 +7,7 @@ else
 {
 	//Make sound when moving to next text or closing
 	audio_play_sound(Ding, 1, false)
+	
 	if (currentText+1 >= ds_list_size(textList))
 	{
 		alarm[1] = 1
