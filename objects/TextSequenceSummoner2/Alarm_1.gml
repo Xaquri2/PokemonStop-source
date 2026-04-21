@@ -20,7 +20,7 @@
 	"But where others see certain death, I see opportunity!",
 	"There must be some secret to this region – why are its Pokémon so different than those seen elsewhere? ",
 	"Perhaps you can help me chronicle this mysterious region of the Pokémon World with your POKEDEX!",
-	"Oh, and, uh, you can also catch Pokémon with your POKEBALLS and all that. ",
+	"Oh, and, uh, you can also catch Pokémon with your POKÉBALLS and all that. ",
 	"I mean, frankly, I wouldn’t.",
 	"But hey, as long as you’re doing it, it might help us get to the bottom of this! ",
 	"Well! STOP by my lab when you’re ready to choose your first Pokémon and begin your journey!")
