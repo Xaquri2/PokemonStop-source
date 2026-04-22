@@ -28,9 +28,11 @@ if seen == false {
 }
 if (seen2 == false) {
 	if (ds_list_find_value(textList, currentText) == "Oh, and, uh, you can also catch Pokémon with your POKÉBALLS and all that. ") {
-	layer_sequence_create("Sequence",696,715,GinkgoIntro_Part3);
+	seequence = layer_sequence_create("Sequence",696,715,GinkgoIntro_Part3);
+	//alarm[3] = 30
 	seen2 = true
 }
 
 }
+
 
