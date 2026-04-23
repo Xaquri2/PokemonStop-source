@@ -15,7 +15,7 @@ ds_list_add(textList, "I am imprisoned here for my crimes against Morlock kind."
 "I had grown even wearier of my fellow Morlocks showering that face with worship and adoration.",
 "Nor can I deny my inappropriate relationship with Gym Leader Gorbertron's wife! Perhaps the real reason I was imprisoned.",
 "And yet... as I sit here, receiving the scorn and mockery of every passing Morlock,",
-"I find myself unrepentant. The more I reflect, the more justified my actions seem!",
+"I find myself unrepentant. The more I reflect, the more justified I feel in my actions!",
 "Perhaps it is not I, but the system, that must change!",
 "Perhaps if I am ever made free, I shall become an advocate for prison reform.",
 "I believe this form of cruel punishment to be ineffective at rehabilitation!")
