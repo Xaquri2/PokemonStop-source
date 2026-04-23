@@ -76,7 +76,7 @@ if (!ds_list_empty(iconList) and ds_list_size(iconList) > currentText)
 		
 		// where the face should be centered
 		var cx = view_x + view_width * 0.15;
-		var cy = view_y + view_height - 44;
+		var cy = view_y + view_height - 43;
 		var bottom_y = view_y + view_height - 32; // this is the bottom line you want
 		
 		// how big the face area is (tweak these)

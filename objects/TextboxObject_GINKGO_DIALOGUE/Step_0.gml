@@ -20,6 +20,19 @@ if (face_timer >= room_speed) { // 1 FPS
     face_frame++;
 }
 
+if seen == false {
+	if (ds_list_find_value(textList, 0) == "I came to this island region to study the strange and, frankly, otherworldly Pokémon that live here. ") {
+	layer_sequence_create("Sequence",696,715,GinkgoIntro_Part2)
+	seen = true
+}
+}
+if (seen2 == false) {
+	if (ds_list_find_value(textList, currentText) == "Oh, and, uh, you can also catch Pokémon with your POKÉBALLS and all that. ") {
+	seequence = layer_sequence_create("Sequence",696,715,GinkgoIntro_Part3);
+	//alarm[3] = 30
+	seen2 = true
+}
 
+}
 
 

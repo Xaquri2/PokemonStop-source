@@ -20,3 +20,5 @@ cutsceneSurface = -1
 
 global.MaryTalkMorlock = false
 global.MaryTalkMutant = false
+
+gpu_set_texfilter(false);
