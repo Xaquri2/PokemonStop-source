@@ -11,8 +11,8 @@ else if (whoAttacked == "Enemy")
 	else damageValue = pRecoilDamage
 }
 
-var target = -1
-while (target == -1)
+var target = noone
+while (target == noone)
 {
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
 	{

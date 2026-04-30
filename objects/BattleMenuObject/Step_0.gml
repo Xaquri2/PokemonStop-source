@@ -617,6 +617,7 @@ if (keyboard_check_pressed(vk_enter))
 			{
 				//Player Move
 				var awake = true
+				var skipTurn = false
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
 				battleText.playerMoveName = moveName
@@ -624,7 +625,11 @@ if (keyboard_check_pressed(vk_enter))
 
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
-
+				
+				if (moveName == "Convince" or moveName == "Logic") global.convinceCounter++
+				else global.convinceCounter = 0
+				var convincedCheck = ConvinceCheck()
+				
 				var paralysisCheck = ParalysisCheck()
 				if ((pStatus == "Paralysis" and paralysisCheck))
 				{
@@ -684,69 +689,60 @@ if (keyboard_check_pressed(vk_enter))
 								var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
+							else
+							{
+								if (moveEff == "DoomDowngrade") 
+								{
+									skipTurn = true
+									
+									ds_list_add(battleText.textList, "Your pokémon's move failed and they fainted!")
+								}
+							}
 						}
 						else ds_list_add(battleText.textList, "But it missed!")
 					}
 				}
 
-				if (GetHealth(battle.enemyPkmn) > damage or (!awake or !paralysisCheck))
+				if (GetHealth(battle.enemyPkmn) > damage and awake and paralysisCheck and !skipTurn)
 				{
-					//Enemy Move
-					awake = true
-					moveName = enemyMoveName
-					moveEff = GetMoveEffect(moveName)
-					damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
-					battleText.enemyMoveName = moveName
-					battleText.enemyDamage = damage
-
-					superEffStr = ""
-					if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-					else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
-
-					paralysisCheck = ParalysisCheck()
-					if ((eStatus == "Paralysis" and paralysisCheck))
+					if (convincedCheck)
 					{
-						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+						moveName = enemyMoveName
+						moveEff = GetMoveEffect(moveName)
+						damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+						battleText.enemyMoveName = moveName
+						battleText.enemyDamage = damage
+						
+						ds_list_add(battleText.textList, "The opponent was convinced not to attack!")
+						
+						if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+						if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
 
-						var moveAcc = GetMoveAccurancy(moveName)
-						var effectAcc = GetMoveEffectChance(moveName)*100
-						if (floor(random_range(0,101)) <= moveAcc)
-						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-							if (floor(random_range(0,101)) <= effectAcc)
-							{
-								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-								if (effStr != "") ds_list_add(battleText.textList, effStr)
-							}
-						}
-						else ds_list_add(battleText.textList, "But it missed!")
-
-						if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
-							string_concat(GetName(battle.playerPkmn)," fainted!"))
-					}
-					else if (eStatus == "Paralysis" and !paralysisCheck)
-					{
-						ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
+						if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+						if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 					}
 					else
 					{
-						if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
-						if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
-
-						if (!awake)
+						if (moveName == "Convince" or moveName == "Logic")
 						{
-							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " is asleep..."))
-							enemyPkmn.sleepCounter++
+							ds_list_add(battleText.textList, "The foe's Pokémon was not convinced!")
 						}
-						else
-						{
-							if (eStatus == "Sleep")
-							{
-								SetStatus(enemyPkmn.pkmnInfo, "None")
-								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
-							}
+						
+						//Enemy Move
+						awake = true
+						moveName = enemyMoveName
+						moveEff = GetMoveEffect(moveName)
+						damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+						battleText.enemyMoveName = moveName
+						battleText.enemyDamage = damage
 
+						superEffStr = ""
+						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+
+						paralysisCheck = ParalysisCheck()
+						if ((eStatus == "Paralysis" and paralysisCheck))
+						{
 							ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
 							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
 
@@ -764,29 +760,76 @@ if (keyboard_check_pressed(vk_enter))
 							else ds_list_add(battleText.textList, "But it missed!")
 
 							if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
-							string_concat(GetName(battle.playerPkmn)," fainted!"))
+								string_concat(GetName(battle.playerPkmn)," fainted!"))
 						}
+						else if (eStatus == "Paralysis" and !paralysisCheck)
+						{
+							ds_list_add(battleText.textList, string_concat("The foe's ", GetName(battle.enemyPkmn), " is paralyzed! It can't move!"))
+						}
+						else
+						{
+							if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+							if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
+
+							if (!awake)
+							{
+								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " is asleep..."))
+								enemyPkmn.sleepCounter++
+							}
+							else
+							{
+								if (eStatus == "Sleep")
+								{
+									SetStatus(enemyPkmn.pkmnInfo, "None")
+									ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
+								}
+
+								ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+
+								var moveAcc = GetMoveAccurancy(moveName)
+								var effectAcc = GetMoveEffectChance(moveName)*100
+								if (floor(random_range(0,101)) <= moveAcc)
+								{
+									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+									if (floor(random_range(0,101)) <= effectAcc)
+									{
+										var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+										if (effStr != "") ds_list_add(battleText.textList, effStr)
+									}
+								}
+								else ds_list_add(battleText.textList, "But it missed!")
+
+								if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
+								string_concat(GetName(battle.playerPkmn)," fainted!"))
+							}
+						}
+					
+						if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+						if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+
+						if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+						if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 					}
-
-					if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
-					if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
-
-					if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
-					if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 				}
 			}
 			else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
 			{
 				var awake = true
+				var skipTurn = false
 				moveName = enemyMoveName
 				var moveEff = GetMoveEffect(moveName)
 				var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 				battleText.enemyMoveName = moveName
 				battleText.enemyDamage = damage
 
-				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
-
+				if (damage > 0 and IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+				
+				if (moveName == "Convince" or moveName == "Logic") global.convinceCounter++
+				else global.convinceCounter = 0
+				var convincedCheck = ConvinceCheck()
+				
 				var paralysisCheck = ParalysisCheck()
 				if ((eStatus == "Paralysis" and paralysisCheck))
 				{
@@ -840,76 +883,65 @@ if (keyboard_check_pressed(vk_enter))
 								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
+							else
+							{
+								if (moveEff == "DoomDowngrade") 
+								{
+									skipTurn = true
+									
+									ds_list_add(battleText.textList, "The opposing pokémon's move failed and they fainted!")
+								}
+							}
 						}
 						else ds_list_add(battleText.textList, "But it missed!")
 					}
 				}
 
-				if (GetHealth(battle.playerPkmn) > damage or (!awake or !paralysisCheck))
+				if (GetHealth(battle.playerPkmn) > damage and awake and paralysisCheck and !skipTurn)
 				{
-					//Player Move
-					awake = true
-					moveName = playerMoveName
-					moveEff = GetMoveEffect(moveName)
-					damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
-					battleText.moveName = moveName
-					battleText.playerMoveName = moveName
-					battleText.playerDamage = damage
-
-					superEffStr = ""
-					if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
-					else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
-
-					paralysisCheck = ParalysisCheck()
-					if ((pStatus == "Paralysis" and paralysisCheck))
+					if (convincedCheck)
 					{
-						ConsumePP(battle.playerPkmn, currentOption)
-						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
+						moveName = playerMoveName
+						moveEff = GetMoveEffect(moveName)
+						battleText.moveName = moveName
+						battleText.playerMoveName = moveName
+						battleText.playerDamage = damage
+						
+						ds_list_add(battleText.textList, "Your pokémon was convinced not to attack!")
+						
+						if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+						if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
 
-						var moveAcc = GetMoveAccurancy(moveName)
-						var effectAcc = GetMoveEffectChance(moveName)*100
-						if (floor(random_range(0,101)) <= moveAcc)
-						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-							if (floor(random_range(0,101)) <= effectAcc)
-							{
-								var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
-								if (effStr != "") ds_list_add(battleText.textList, effStr)
-							}
-						}
-						else ds_list_add(battleText.textList, "But it missed!")
-
-						if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
-						string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
-					}
-					else if (pStatus == "Paralysis" and !paralysisCheck)
-					{
-						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
+						if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
+						if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 					}
 					else
 					{
-						if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
-						if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
-
-						if (!awake)
+						if (moveName == "Convince" or moveName == "Logic")
 						{
-							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is asleep..."))
-							playerPkmn.sleepCounter++
+							ds_list_add(battleText.textList, "Your Pokémon was not convinced!")
 						}
-						else
-						{
-							if (pStatus == "Sleep")
-							{
-								var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
-								SetStatus(playerPkmn.pkmnInfo, "None")
-								ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
-								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
-							}
+						
+						//Player Move
+						awake = true
+						moveName = playerMoveName
+						moveEff = GetMoveEffect(moveName)
+						damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
+						battleText.moveName = moveName
+						battleText.playerMoveName = moveName
+						battleText.playerDamage = damage
 
+						superEffStr = ""
+						if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+
+						paralysisCheck = ParalysisCheck()
+						if ((pStatus == "Paralysis" and paralysisCheck))
+						{
 							ConsumePP(battle.playerPkmn, currentOption)
 							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
 
-						    var moveAcc = GetMoveAccurancy(moveName)
+							var moveAcc = GetMoveAccurancy(moveName)
 							var effectAcc = GetMoveEffectChance(moveName)*100
 							if (floor(random_range(0,101)) <= moveAcc)
 							{
@@ -925,13 +957,57 @@ if (keyboard_check_pressed(vk_enter))
 							if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
 							string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
 						}
+						else if (pStatus == "Paralysis" and !paralysisCheck)
+						{
+							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
+						}
+						else
+						{
+							if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
+							if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
+
+							if (!awake)
+							{
+								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is asleep..."))
+								playerPkmn.sleepCounter++
+							}
+							else
+							{
+								if (pStatus == "Sleep")
+								{
+									var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
+									SetStatus(playerPkmn.pkmnInfo, "None")
+									ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
+									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
+								}
+
+								ConsumePP(battle.playerPkmn, currentOption)
+								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
+
+							    var moveAcc = GetMoveAccurancy(moveName)
+								var effectAcc = GetMoveEffectChance(moveName)*100
+								if (floor(random_range(0,101)) <= moveAcc)
+								{
+									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+									if (floor(random_range(0,101)) <= effectAcc)
+									{
+										var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
+										if (effStr != "") ds_list_add(battleText.textList, effStr)
+									}
+								}
+								else ds_list_add(battleText.textList, "But it missed!")
+
+								if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
+								string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+							}
+						}
+
+						if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+						if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+
+						if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
+						if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 					}
-
-					if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
-					if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
-
-					if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
-					if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 				}
 			}
 			instance_destroy(id)

@@ -181,6 +181,31 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						}
 					}
 				}
+				else if (string_count("struggled and took", text) > 0 or 
+				string_count("failed and they fainted!", text) > 0)
+				{
+					moveName = "Struggle"
+					recoil = true
+
+					if (string_count("opposing", text) != 0)
+					{
+						whoAttacked = "Player"
+						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+					}
+					else
+					{
+						whoAttacked = "Enemy"
+						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+					}
+
+					alarm[1] = GetMoveAnimationTime(moveName)
+
+					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+					attackC.alarm[0] = alarm[1]
+					attackC.moveName = moveName
+					attackC.whoAttacked = whoAttacked
+					attackC.particleSpawnTime = floor(alarm[1] / 2)
+				}
 				else if (string_count("opposing", text) == 0 and string_count("fainted", text) > 0) //Player pokémon fainted
 				{
 					var playerPkmnEntity = noone
@@ -299,30 +324,6 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					plr.currentPkmn = switchIndex
 					plr.switchIndex = switchIndex
 					plr.alarm[2] = 30
-				}
-				else if (string_count("struggled and took", text) > 0)
-				{
-					moveName = "Struggle"
-					recoil = true
-
-					if (string_count("opposing", text) == 0)
-					{
-						whoAttacked = "Player"
-						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
-					}
-					else
-					{
-						whoAttacked = "Enemy"
-						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
-					}
-
-					alarm[1] = GetMoveAnimationTime(moveName)
-
-					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
-					attackC.alarm[0] = alarm[1]
-					attackC.moveName = moveName
-					attackC.whoAttacked = whoAttacked
-					attackC.particleSpawnTime = floor(alarm[1] / 2)
 				}
 				else if (string_count("You lose!", text) > 0)
 				{

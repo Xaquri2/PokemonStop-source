@@ -1224,6 +1224,19 @@ function GetMoveDetails(moveName)
         case "Lick":
             ds_list_add(moveInfo, moveName, "Ghost", "Physical", 30, 100, 30, "Paralysis", 0.3, 1, 0);
             break;
+		case "Convince":
+		case "Logic":
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Convince", 1, 1, 0);
+            break;
+		case "Hex Roulette":
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Random", 0, 1, 0);
+            break;
+		case "Doom Downgrade":
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 0, 1, 0);
+            break;
+		case "Hail Mary hit":
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 0, 1, 0);
+            break;
 
         default:
             // If a move is unrecognized, return Struggle
@@ -1273,10 +1286,10 @@ function LearnsMoveAt(name, level)
         case "Pikachu":
             if (level == 1)  return "Thunder Wave";//return "Thunder Shock";
             if (level == 4)  return "Quick Attack";
-            if (level == 8)  return "Electro Ball";
-            if (level == 12) return "Thunderbolt";
-			if (level == 16) return "Growl";
-			if (level == 17) return "Tackle";
+            if (level == 8)  return "Doom Downgrade";
+            if (level == 12) return "Hex Roulette";
+			//if (level == 16) return "Growl";
+			//if (level == 17) return "Tackle";
             break;
 
         case "Voltorb":

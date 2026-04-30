@@ -58,6 +58,10 @@ function GetRecoilDamage(pkmn, moveName)
 
 	switch (moveName)
 	{
+		case "Doom Downgrade":
+		case "Hex Roulette":
+		case "Hail Mary Hit":
+			return GetPokemonFinalHP(name, level)
 		default:
 			return GetPokemonFinalHP(name, level)/4
 	}
@@ -469,6 +473,13 @@ function DealEffect(effectName, accurancy, user, target)
 					}
 					else str = "The opponent's Speed stat couldn't go any lower!"
 					break
+				case "DoomDowngrade":
+					DealEffect("LowerAttack2",100,user,target)
+					DealEffect("LowerDefense2",100,user,target)
+					DealEffect("LowerSpAtk2",100,user,target)
+					DealEffect("LowerSpDef2",100,user,target)
+					DealEffect("LowerSpeed2",100,user,target)
+					break
 				#endregion
 
 				#region Raise 1
@@ -568,6 +579,13 @@ function DealEffect(effectName, accurancy, user, target)
 					break
 				case "Sleep":
 					str = "The opponent is now asleep"
+					break
+				case "Random":
+					var attempt = irandom(4)
+					if (attempt == 1) str = "The opponent is now paralyzed"
+					if (attempt == 2) str = "The opponent is now poisoned"
+					if (attempt == 3) str = "The opponent is now burned"
+					if (attempt == 4) str = "The opponent is now asleep"
 					break
 				#endregion
 
@@ -1277,6 +1295,28 @@ function GetStarterChoice()
 function ParalysisCheck() { return floor(random_range(0,4)) != 0 }
 
 function WakeUpCheck() { return floor(random_range(0,4)) == 0 }
+
+function ConvinceCheck() 
+{
+	var roll = irandom(100)
+	switch (global.convinceCounter)
+	{
+		case 1:
+			if (roll <= 10) return true
+			return false
+		case 2:
+			if (roll <= 25) return true
+			return false
+		case 3:
+			if (roll <= 33) return true
+			return false
+		case 4:
+			if (roll <= 50) return true
+			return false
+		case 5:
+			return true
+	}
+}
 
 function GetBattleXscale(name)
 {

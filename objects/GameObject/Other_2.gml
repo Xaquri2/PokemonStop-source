@@ -41,13 +41,13 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Charmander", 100, GetRandomGender(50))
+AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Ewok", 17, GetRandomGender(50))
 AddPokemon("Ewok", 20, GetRandomGender(50))
 AddPokemon("Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 100, GetRandomGender(50))
 AddPokemon("Creeper", 100, GetRandomGender(50))
-AddPokemon("Pikachu", 100, GetRandomGender(50))
+AddPokemon("Charmander", 100, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
 global.standardStartRoom = MorlockCity
@@ -58,5 +58,6 @@ global.torchPower = 1
 global.torchRange = 60
 
 global.morlockTimer = 0
+global.convinceCounter = 0
 
 AddItem("Skyview Potion", 1)
