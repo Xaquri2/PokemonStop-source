@@ -1229,13 +1229,13 @@ function GetMoveDetails(moveName)
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Convince", 1, 1, 0);
             break;
 		case "Hex Roulette":
-			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Random", 0, 1, 0);
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Random", 1, 1, 0);
             break;
 		case "Doom Downgrade":
-			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 0, 1, 0);
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 1, 1, 0);
             break;
 		case "Hail Mary hit":
-			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 0, 1, 0);
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 1, 1, 0);
             break;
 
         default:

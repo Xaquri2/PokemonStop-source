@@ -12,6 +12,7 @@ if (!inactive and charNumber < string_length(ds_list_find_value(textList, curren
 	}
 }
 if (instance_number(ImportantElementParent) > 0 and alarm[2] > 0) alarm[2]++
+else if (damageValue > 0 and alarm[2] > 0) alarm[2]++
 
 if (expGainValue > 0 and expGaining)
 {

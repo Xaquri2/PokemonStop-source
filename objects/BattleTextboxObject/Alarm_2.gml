@@ -184,18 +184,24 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				else if (string_count("struggled and took", text) > 0 or 
 				string_count("failed and they fainted!", text) > 0)
 				{
-					moveName = "Struggle"
+					if (string_count("failed", text) == 0) moveName = "Struggle"
+					else 
+					{
+						if (string_count("opposing", text) != 0) moveName = enemyMoveName
+						else moveName = playerMoveName
+					}
+					
 					recoil = true
 
 					if (string_count("opposing", text) != 0)
 					{
 						whoAttacked = "Player"
-						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 					else
 					{
 						whoAttacked = "Enemy"
-						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 
 					alarm[1] = GetMoveAnimationTime(moveName)
