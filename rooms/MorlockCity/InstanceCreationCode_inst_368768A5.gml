@@ -7,3 +7,7 @@ battleFlag = "TiltedMorlock_MorlockCity_inst_368768A5";
 name = Morlock;
 enemyName = "Morlock"
 enemyName = Morlock;
+
+ds_list_add(textList, "Hi there...")
+ds_list_add(nameList, "Morlock")
+ds_list_add(iconList, sprite_index)
