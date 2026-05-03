@@ -130,8 +130,18 @@ if (canCollide)
 
 #region NPC Interaction
 //Check if there are NPCs nearby to talk to
-var npc = instance_nearest(x,y,NPCParent)
+var npc1 = instance_nearest(x,y,NPCParent);
+var npc2 = instance_nearest(x, y, NPCParent_NoCollision);
+
+var npc = noone;
+
+if (npc1 == noone) npc = npc2;
+else if (npc2 == noone) npc = npc1;
+else if (point_distance(x, y, npc1.x, npc1.y) < point_distance(x, y, npc2.x, npc2.y)) npc = npc1;
+else npc = npc2;
+
 if (distance_to_object(npc) <= 32)
+//if (npc != noone && point_distance(x, y, npc.x, npc.y) <= 32)
 {
 	if (nearestNPC != npc)
 	{
