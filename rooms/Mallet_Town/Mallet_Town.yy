@@ -74,6 +74,7 @@
     {"name":"inst_1D9C563D","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_B56D8A5","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_25802060","path":"rooms/Mallet_Town/Mallet_Town.yy",},
+    {"name":"inst_460AE9E1","path":"rooms/Mallet_Town/Mallet_Town.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -176,6 +177,7 @@
         {"$GMRInstance":"v4","%Name":"inst_1D9C563D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1D9C563D","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.46275,"scaleX":0.8716313,"scaleY":1.2740581,"x":400.77448,"y":260.82678,},
         {"$GMRInstance":"v4","%Name":"inst_B56D8A5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_B56D8A5","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":90.0,"scaleX":0.5681689,"scaleY":2.4678917,"x":955.6833,"y":271.12137,},
         {"$GMRInstance":"v4","%Name":"inst_25802060","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_25802060","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.46275,"scaleX":0.8495581,"scaleY":1.1258621,"x":940.48724,"y":261.5714,},
+        {"$GMRInstance":"v4","%Name":"inst_460AE9E1","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_460AE9E1","objectId":{"name":"PokelootObject","path":"objects/PokelootObject/PokelootObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":473.59518,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_3_1","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_3_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":29,"TileCompressedData":[
           -5,-2147483648,5,370,371,372,373,374,-8,-2147483648,21,370,371,372,373,374,351,352,353,354,355,-2147483648,
