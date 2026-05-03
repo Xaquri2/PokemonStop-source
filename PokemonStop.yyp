@@ -163,7 +163,7 @@
     {"id":{"name":"BoxBot_TRAINER","path":"objects/BoxBot_TRAINER/BoxBot_TRAINER.yy",},},
     {"id":{"name":"BoxBot","path":"objects/BoxBot/BoxBot.yy",},},
     {"id":{"name":"BoxbotMerchant","path":"objects/BoxbotMerchant/BoxbotMerchant.yy",},},
-    {"id":{"name":"Bush","path":"objects/Bush/Bush.yy",},},
+    {"id":{"name":"BushDO_NOT_USE_check_TileObjejects","path":"objects/BushDO_NOT_USE_check_TileObjejects/BushDO_NOT_USE_check_TileObjejects.yy",},},
     {"id":{"name":"CaelianTestObject","path":"objects/CaelianTestObject/CaelianTestObject.yy",},},
     {"id":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},},
     {"id":{"name":"Caterpie","path":"objects/Caterpie/Caterpie.yy",},},

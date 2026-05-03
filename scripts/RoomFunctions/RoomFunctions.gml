@@ -651,7 +651,7 @@ function GetAreaEncounters(encounterType)
 			break
 		case RouteMinusOneBottom:
 		case RouteMinusOneTop:
-			ds_list_add(encounters, "Pikmin","Charmander","Pikachu","Squirtle","Bulbasaur")
+			ds_list_add(encounters, "Pikmin","Charmander","Pikachu","Squirtle","Creeper")
 			break
 		case MutantPath1:
 			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demo Dog","Demogorgon","Ewok","Koopa")
@@ -659,6 +659,9 @@ function GetAreaEncounters(encounterType)
 		case ShadowPath:
 			if (encounterType == "Fog") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
 			else if (encounterType == "Grass") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
+			break
+		case RobotPath:
+			ds_list_add(encounters, "Baby","Baby","Baby","Box Bot","Voltorb","Voltorb","Tektite","Tutorial Bot")
 			break
 			
 		default:

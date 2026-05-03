@@ -108,7 +108,18 @@ function GetWildPokemon(encounterType)
 
 	var pkmn = ds_list_create()
 	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))
-	var level = floor(random_range(10,15))
+	if room == Mallet_Town {
+		var level = floor(random_range(1,3))
+	}
+	else if room == RouteMinusOneBottom {
+		var level = floor(random_range(2,6))
+	}
+	else if room == RouteMinusOneTop {
+		var level = floor(random_range(3,7))
+	}
+	else {
+		var level = floor(random_range(7,15))
+	}
 	var gender = "Male"
 	if (floor(random_range(1,3)) > 1) gender = "Female"
 	var sprite = GetSpriteByNumber(GetNumberByName(name))
