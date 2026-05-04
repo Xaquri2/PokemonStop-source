@@ -18,7 +18,6 @@ function GetItemCategory(name)
 		case "Torch Fuel":
 		case "Super Torch Fuel":
 		case "Ultra Torch Fuel":
-		case "Skyview Potion":
 			return "Items"
 		#endregion
 
@@ -46,6 +45,7 @@ function GetItemCategory(name)
 
 		#region Key Items
 		case "Poke Flute":
+		case "Skyview Potion":
 			return "Key Items"
 		#endregion
 	}
@@ -100,6 +100,8 @@ function GetItemDescription(name)
 		#region Key Items
 		case "Poke Flute":
 			return "Can be used to wake sleeping pokemon"
+		case "Skyview Potion": 
+			return "A potion made from a Skyview Mushroom by Nebogipfel the Morlock. Turns you into a Morlock."
 		#endregion
 	}
 	return ""
