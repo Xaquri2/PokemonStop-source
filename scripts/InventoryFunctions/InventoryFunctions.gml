@@ -107,6 +107,17 @@ function GetItemDescription(name)
 	return ""
 }
 
+function GetItemSprite(name)
+{
+	switch (name)
+	{
+		#region Items
+	case "Potion": return PikachuIdleSprite
+	case "Poke Ball": return PokeballRotateSprite
+	default: return PokeDollarSprite
+	}
+}
+
 function AddItem(name, amount)
 {
 	var category = GetItemCategory(name)
