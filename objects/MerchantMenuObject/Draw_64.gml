@@ -2,6 +2,10 @@ var xPos = view_get_wport(0)*0.1
 var yPos = view_get_hport(0)*0.03
 draw_sprite_ext(MenuSprite, 0, xPos, yPos, 25, 25, image_angle, image_blend, image_alpha)
 draw_text_transformed(xPos+20, yPos+20, "Choose which item you want to buy:", 2, 2, image_angle)
+draw_set_color(c_black);
+draw_text_transformed(xPos+268, yPos+745, "Press 'E' to Exit", 2.5, 2.5, image_angle)
+draw_set_color(c_white);
+draw_text_transformed(xPos+270, yPos+745, "Press 'E' to Exit", 2.5, 2.5, image_angle)
 
 //Item Description
 var itemName = ds_list_find_value(itemList, selectedItem)
@@ -34,3 +38,11 @@ for (var i = startingItemOffset; i < clamp(startingItemOffset+itemDisplayLimit, 
 
 	displayedItems++
 }
+
+#region Draw money
+	draw_sprite_ext(PokeDollarSprite,0,820,55,2.5,2.5,0,c_white,1)	
+	draw_set_color(c_black);
+	draw_text_transformed(830,30,string_concat(global.money),2,3,0)
+	draw_set_color(c_white);
+	draw_text_transformed(833,30,string_concat(global.money),2,3,0)
+#endregion
