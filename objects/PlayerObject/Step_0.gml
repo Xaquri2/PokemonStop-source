@@ -356,3 +356,7 @@ if (!talking and !battle and global.torch)
 //	}
 //}
 #endregion
+
+if instance_exists(TextboxObject) {
+	ControlsHidden = true;
+}

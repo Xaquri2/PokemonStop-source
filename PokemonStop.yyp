@@ -707,6 +707,7 @@
     {"id":{"name":"Pokeball","path":"sprites/Pokeball/Pokeball.yy",},},
     {"id":{"name":"PokeballRotateSprite","path":"sprites/PokeballRotateSprite/PokeballRotateSprite.yy",},},
     {"id":{"name":"PokeCenterRobotPath","path":"sprites/PokeCenterRobotPath/PokeCenterRobotPath.yy",},},
+    {"id":{"name":"PokeDollarSprite","path":"sprites/PokeDollarSprite/PokeDollarSprite.yy",},},
     {"id":{"name":"PokemonCenterTableSprite_1","path":"sprites/PokemonCenterTableSprite_1/PokemonCenterTableSprite_1.yy",},},
     {"id":{"name":"PokemonCenterTableSprite","path":"sprites/PokemonCenterTableSprite/PokemonCenterTableSprite.yy",},},
     {"id":{"name":"PorgBattleSprite","path":"sprites/PorgBattleSprite/PorgBattleSprite.yy",},},

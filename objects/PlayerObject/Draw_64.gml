@@ -1,8 +1,18 @@
 draw_set_alpha(1-game.fadeAlpha)
-draw_text(820,50,string_concat("$", global.money))
 
+#region Draw money
+if (room == GinkoIntroRoom) {	
+}
+else {
+	draw_sprite_ext(PokeDollarSprite,0,820,55,2.5,2.5,0,c_white,1)	
+	draw_set_color(c_black);
+	draw_text_transformed(830,30,string_concat(global.money),2,3,0)
+	draw_set_color(c_white);
+	draw_text_transformed(833,30,string_concat(global.money),2,3,0)
+}
+#endregion
 
-  //Torch 
+#region Draw Torch 
 if HasItem("Torch Fuel") {
 	 //draw_text(725,85,"Haz Torch")
 	 ds_list_add(global.flags, "Torch")
@@ -28,7 +38,40 @@ if HasFlag("Torch") {
 	}
 	draw_set_alpha(1)
 }
+#endregion
 
-// Draw your Pokemon's name
-draw_text(850,120,GetName(ds_list_find_value(global.playerParty, 0)))
+#region Draw your Pokemon's name
+if (room == GinkoIntroRoom) {	
+}
+else draw_text(850,120,GetName(ds_list_find_value(global.playerParty, 0)))
+#endregion
 
+#region Draw controls
+if (room == GinkoIntroRoom) {	
+}
+else {
+	
+	if ControlsHidden == false {
+	//draw_sprite_ext(PokeDollarSprite,0,820,55,2.5,2.5,0,c_white,1)
+	draw_set_color(c_black);
+	draw_text_transformed(30,830,"Arrow Keys or WASD = Move",1.5,2.1,0)
+	draw_text_transformed(30,856,"E = Menu",1.5,2.1,0)
+	draw_text_transformed(30,881,"Enter = Talk (if person nearby)",1.5,2.1,0)
+	draw_text_transformed(30,910,"CTRL = 2x game speed",1.5,2.1,0)
+	draw_text_transformed(30,800,"H = Hide Controls",1.5,2,0)
+	
+	draw_set_color(c_white);
+	draw_text_transformed(33,830,"Arrow Keys or WASD = Move",1.5,2,0)
+	draw_text_transformed(33,856,"E = Menu",1.5,2,0)
+	draw_text_transformed(33,881,"Enter = Talk (if person nearby)",1.5,2,0)
+	draw_text_transformed(33,910,"CTRL = 2x game speed",1.5,2,0)
+	draw_text_transformed(33,800,"H = Hide Controls",1.5,2,0)
+	}
+	else {
+		draw_set_color(c_black);
+		draw_text_transformed(30,910,"H = Show Controls",1.5,2,0)
+		draw_set_color(c_white);
+		draw_text_transformed(33,910,"H = Show Controls",1.5,2,0)
+}
+}
+#endregion

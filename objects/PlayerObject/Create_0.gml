@@ -33,7 +33,8 @@ fogTeleportTime = 60*3
 alarm[3] = 2
 
 falling = false
-
 BehindTower = false; 
+ControlsHidden = false;
 
 if (global.morlockTimer > 0) sprite_index = PlayerMorlockIdleDownSprite
+
