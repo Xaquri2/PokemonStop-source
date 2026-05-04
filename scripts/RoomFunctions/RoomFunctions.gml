@@ -10,7 +10,7 @@ function SetWarpDefaults(name, spawnDir, show)
 		#region Test Room (Void)
 		case "TestToMalletHouse1":
 			targetRoom = Mallet_Town
-			targetWarp = "MalletHouse1ToTest"
+			targetWarp = "MalletHouse2ToTest"
 			break
 		case "TestToMutant":
 			targetRoom = MutantPath1
