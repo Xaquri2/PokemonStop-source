@@ -34,7 +34,7 @@ alarm[3] = 2
 
 falling = false
 BehindTower = false; 
-ControlsHidden = false;
+ControlsHidden = true;
 
 if (global.morlockTimer > 0) sprite_index = PlayerMorlockIdleDownSprite
 

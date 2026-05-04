@@ -68,10 +68,14 @@ else {
 	draw_text_transformed(33,800,"H = Hide Controls",1.5,2,0)
 	}
 	else {
+		if instance_exists(TextboxObject) {
+		}
+		else {
 		draw_set_color(c_black);
 		draw_text_transformed(30,910,"H = Show Controls",1.5,2,0)
 		draw_set_color(c_white);
 		draw_text_transformed(33,910,"H = Show Controls",1.5,2,0)
+		}
 }
 }
 #endregion
