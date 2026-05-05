@@ -18,7 +18,6 @@ function GetItemCategory(name)
 		case "Torch Fuel":
 		case "Super Torch Fuel":
 		case "Ultra Torch Fuel":
-		case "Skyview Potion":
 			return "Items"
 		#endregion
 
@@ -46,6 +45,8 @@ function GetItemCategory(name)
 
 		#region Key Items
 		case "Poke Flute":
+		case "Skyview Potion":
+		case "Skyview Mushroom":
 			return "Key Items"
 		#endregion
 	}
@@ -100,6 +101,10 @@ function GetItemDescription(name)
 		#region Key Items
 		case "Poke Flute":
 			return "Can be used to wake sleeping pokemon"
+		case "Skyview Mushroom":
+			return "An eerie blue mushroom, with a slight glow. Don't eat it!!"
+		case "Skyview Potion": 
+			return "A potion made from a Skyview Mushroom by Nebogipfel the Morlock. Turns you into a Morlock."
 		#endregion
 	}
 	return ""
@@ -111,8 +116,22 @@ function GetItemSprite(name)
 	{
 		//case "Potion":
 			//return PotionSprite
+
+        #region Items
+        case "Potion": return spr_potion_red
+        case "Super Potion": return spr_potion_blue
+        case "Hyper Potion": return spr_potion_pink
+        case "Max Potion": return spr_potion_purple
+        case "Full Restore": return spr_potion_green
+        case "Rare Candy": return RareCandySprite
+        case "Poke Ball": return PokeballRotateSprite
+        case "Torch Fuel": return TorchSprite
+        case "Super Torch Fuel": return TorchSprite
+        case "Ultra Torch Fuel": return TorchSprite
+        #endregion
+
+        default: return PokeDollarSprite
 	}
-	return noone
 }
 
 function AddItem(name, amount)

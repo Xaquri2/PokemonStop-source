@@ -1,0 +1,48 @@
+{
+  "$GMObject":"",
+  "%Name":"obj_invis_npc_NoCollision",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_invis_npc_NoCollision",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Level",
+    "path":"folders/Objects/Level.yy",
+  },
+  "parentObjectId":{
+    "name":"NPCParent_NoCollision",
+    "path":"objects/NPCParent_NoCollision/NPCParent_NoCollision.yy",
+  },
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"speech","filters":[],"listItems":[
+        "\"Item 0\"",
+        "\"Item 1\"",
+        "\"Item 2\"",
+      ],"multiselect":false,"name":"speech","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"[\"Hello, world\"]","varType":4,},
+    {"$GMObjectProperty":"v2","%Name":"npc_name","filters":[],"listItems":[],"multiselect":false,"name":"npc_name","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"Thing 1","varType":2,},
+  ],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_editor_wall",
+    "path":"sprites/spr_editor_wall/spr_editor_wall.yy",
+  },
+  "spriteMaskId":null,
+  "visible":false,
+}

@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"Bush",
+  "%Name":"BushDO_NOT_USE_check_TileObjejects",
   "eventList":[],
   "managed":true,
-  "name":"Bush",
+  "name":"BushDO_NOT_USE_check_TileObjejects",
   "overriddenProperties":[],
   "parent":{
     "name":"Environment",

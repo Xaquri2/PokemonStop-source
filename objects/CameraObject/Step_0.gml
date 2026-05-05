@@ -8,8 +8,14 @@ if (player != noone)
 	}
 	else
 	{
-		x = lerp(x, player.x, 0.2)
-		y = lerp(y, player.y, 0.2)
+		if (room == RobotPathShop) {
+			x = lerp(x, player.x, 0.2)
+			y = lerp(y, player.y, 0.2)
+		}
+		else {
+			x = lerp(x, player.x, 0.2)
+			y = lerp(y, player.y, 0.2)
+		}
 	}
 }
 else
