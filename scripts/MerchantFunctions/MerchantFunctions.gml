@@ -18,7 +18,7 @@ function GetMerchantItems(name)
 	switch (name)
 	{
 		case "Test Merchant 1":
-			ds_list_add(itemList, "Potion", "Super Potion", "Hyper Potion", "Max Potion")
+			ds_list_add(itemList, "Potion", "Super Potion", "Hyper Potion", "Max Potion", "Full Restore")
 			break
 		case "Test Merchant 2":
 			ds_list_add(itemList, "Poke Ball", "Great Ball", "Ultra Ball")

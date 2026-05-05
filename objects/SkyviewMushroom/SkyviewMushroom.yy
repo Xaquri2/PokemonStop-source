@@ -1,15 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"Object219",
-  "eventList":[],
+  "%Name":"SkyviewMushroom",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"Object219",
+  "name":"SkyviewMushroom",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Items",
+    "path":"folders/Objects/Items.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"PokelootObject",
+    "path":"objects/PokelootObject/PokelootObject.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"MushroomSprite",
+    "path":"sprites/MushroomSprite/MushroomSprite.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
