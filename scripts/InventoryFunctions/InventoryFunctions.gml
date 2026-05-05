@@ -120,6 +120,7 @@ function GetItemSprite(name)
 	case "Hyper Potion": return spr_potion_pink
 	case "Max Potion": return spr_potion_purple
 	case "Full Restore": return spr_potion_green
+	case "Rare Candy": return RareCandySprite
 	case "Poke Ball": return PokeballRotateSprite
 	case "Torch Fuel": return TorchSprite
 	case "Super Torch Fuel": return TorchSprite
