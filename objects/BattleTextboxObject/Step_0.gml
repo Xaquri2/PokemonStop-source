@@ -11,8 +11,9 @@ if (!inactive and charNumber < string_length(ds_list_find_value(textList, curren
 		}
 	}
 }
+
 if (instance_number(ImportantElementParent) > 0 and alarm[2] > 0) alarm[2]++
-else if (damageValue > 0 and alarm[2] > 0) alarm[2]++
+else if ((damageValue > 0 and damaging) and alarm[2] > 0) alarm[2]++
 
 if (expGainValue > 0 and expGaining)
 {
@@ -83,8 +84,8 @@ if (expGainValue > 0 and expGaining)
 
 if (damageValue > 0 and damaging)
 {
-	var target = -1
-	while (target == -1)
+	var target = noone
+	while (target == noone)
 	{
 		for (var i = 0; i < instance_number(BattleEntityObject); i++)
 		{
@@ -102,7 +103,7 @@ if (damageValue > 0 and damaging)
 	if (whoAttacked == "Player") DealDamage(1, true)
 	else if (whoAttacked == "Enemy") DealDamage(1, false)
 	damageValue -= 1
-
+	
 	if (damageValue == 0)
 	{
 		damaging = false
