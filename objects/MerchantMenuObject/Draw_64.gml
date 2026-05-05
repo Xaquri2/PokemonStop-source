@@ -18,10 +18,6 @@ draw_text_transformed(xPos+20, yPos+20, GetItemDescription(itemName), 1.5, 1.5, 
 //Item Icon box
 xPos = xPos+40+sprite_get_width(MenuSprite)*16+16
 draw_sprite_ext(MenuSprite, 0, xPos, yPos, 5, 5, image_angle, image_blend, image_alpha)
-if (GetItemSprite(itemName) != noone)
-{
-	draw_sprite_ext(GetItemSprite(itemName),0,xPos,yPos,5,5,image_angle,image_blend,image_alpha)
-}
 
 //Item icon
 IconSprite = GetItemSprite(itemName)
