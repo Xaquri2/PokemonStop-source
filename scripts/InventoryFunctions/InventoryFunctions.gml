@@ -105,6 +105,16 @@ function GetItemDescription(name)
 	return ""
 }
 
+function GetItemSprite(name)
+{
+	switch (name)
+	{
+		//case "Potion":
+			//return PotionSprite
+	}
+	return noone
+}
+
 function AddItem(name, amount)
 {
 	var category = GetItemCategory(name)

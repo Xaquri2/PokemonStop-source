@@ -3,8 +3,8 @@ particleSpawnTime = 0
 
 moveName = ""
 whoAttacked = ""
-playerPkmnEntity = -1
-enemyPkmnEntity = -1
+playerPkmnEntity = noone
+enemyPkmnEntity = noone
 
 for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 {
