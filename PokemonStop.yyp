@@ -715,6 +715,7 @@
     {"id":{"name":"PokemonCenterTableSprite","path":"sprites/PokemonCenterTableSprite/PokemonCenterTableSprite.yy",},},
     {"id":{"name":"PorgBattleSprite","path":"sprites/PorgBattleSprite/PorgBattleSprite.yy",},},
     {"id":{"name":"PorgOverworldSprite","path":"sprites/PorgOverworldSprite/PorgOverworldSprite.yy",},},
+    {"id":{"name":"PotionSellerSprite","path":"sprites/PotionSellerSprite/PotionSellerSprite.yy",},},
     {"id":{"name":"PotionSprite","path":"sprites/PotionSprite/PotionSprite.yy",},},
     {"id":{"name":"PropsSprite","path":"sprites/PropsSprite/PropsSprite.yy",},},
     {"id":{"name":"RancorOverworldSprite","path":"sprites/RancorOverworldSprite/RancorOverworldSprite.yy",},},
