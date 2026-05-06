@@ -34,6 +34,8 @@
     {"name":"inst_5D7AAE8F","path":"rooms/GashUpstairs/GashUpstairs.yy",},
     {"name":"inst_498EE72D","path":"rooms/GashUpstairs/GashUpstairs.yy",},
     {"name":"inst_7DCDEC3A","path":"rooms/GashUpstairs/GashUpstairs.yy",},
+    {"name":"inst_3EB771ED","path":"rooms/GashUpstairs/GashUpstairs.yy",},
+    {"name":"inst_76E0E7E0","path":"rooms/GashUpstairs/GashUpstairs.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -82,6 +84,8 @@
         {"$GMRInstance":"v4","%Name":"inst_7DCDEC3A","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7DCDEC3A","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"propertyId":{"name":"speech","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"[]",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.20312476,"scaleY":0.20276165,"x":120.66453,"y":105.4341,},
+        {"$GMRInstance":"v4","%Name":"inst_3EB771ED","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3EB771ED","objectId":{"name":"Coin","path":"objects/Coin/Coin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.6875,"scaleY":0.59375,"x":357.0,"y":363.0,},
+        {"$GMRInstance":"v4","%Name":"inst_76E0E7E0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_76E0E7E0","objectId":{"name":"Coin","path":"objects/Coin/Coin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.6875,"scaleY":0.59375,"x":13.0,"y":209.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_73CB0245","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_73CB0245","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"FishBowl","path":"sprites/FishBowl/FishBowl.yy",},"x":104.0,"y":61.0,},
