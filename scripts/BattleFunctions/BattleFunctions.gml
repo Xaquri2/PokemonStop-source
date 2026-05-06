@@ -578,23 +578,20 @@ function DealEffect(effectName, accurancy, user, target)
 
 				#region Statuses
 				case "Paralysis":
-					str = "The opponent is now paralyzed"
+					if (target.status == "None") str = "The opponent is now paralyzed"
+					else str = "The opponent already has a status effect!"
 					break
 				case "Poisoned":
-					str = "The opponent is now poisoned"
+					if (target.status == "None") str = "The opponent is now poisoned"
+					else str = "The opponent already has a status effect!"
 					break
 				case "Burn":
-					str = "The opponent is now burned"
+					if (target.status == "None") str = "The opponent is now burned"
+					else str = "The opponent already has a status effect!"
 					break
 				case "Sleep":
-					str = "The opponent is now asleep"
-					break
-				case "Random":
-					var attempt = irandom(4)
-					if (attempt == 1) str = "The opponent is now paralyzed"
-					if (attempt == 2) str = "The opponent is now poisoned"
-					if (attempt == 3) str = "The opponent is now burned"
-					if (attempt == 4) str = "The opponent is now asleep"
+					if (target.status == "None") str = "The opponent is now asleep"
+					else str = "The opponent already has a status effect!"
 					break
 				#endregion
 
@@ -801,16 +798,20 @@ function DealEffect(effectName, accurancy, user, target)
 
 				#region Statuses
 				case "Paralysis":
-					str = "Your pokemon is now paralyzed"
+					if (target.status == "None") str = "Your pokemon is now paralyzed"
+					else str = "The opponent already has a status effect!"
 					break
 				case "Poisoned":
-					str = "Your pokemon is now poisoned"
+					if (target.status == "None") str = "Your pokemon is now poisoned"
+					else str = "The opponent already has a status effect!"
 					break
 				case "Burn":
-					str = "Your pokemon is now burned"
+					if (target.status == "None") str = "Your pokemon is now burned"
+					else str = "The opponent already has a status effect!"
 					break
 				case "Sleep":
-					str = "Your pokemon is now asleep"
+					if (target.status == "None") str = "Your pokemon is now asleep"
+					else str = "The opponent already has a status effect!"
 					break
 				#endregion
 
@@ -826,6 +827,21 @@ function DealEffect(effectName, accurancy, user, target)
 		}
 	}
 	return str
+}
+
+function IsStatusEffect(eff)
+{
+	switch (eff)
+	{
+		case "Paralysis":
+		case "Burn":
+		case "Sleep":
+		case "Poisoned":
+		case "RandomStatus":
+			return true
+			
+		default: return false
+	}
 }
 
 function ChooseMove(pkmn, targetPkmn)

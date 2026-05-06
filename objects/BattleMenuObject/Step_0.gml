@@ -110,7 +110,19 @@ if (keyboard_check_pressed(vk_enter))
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
-										if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+										if (IsStatusEffect(moveEff)) 
+										{
+											eFutureStatus = moveEff
+											if (eFutureStatus == "RandomStatus")
+											{
+												var attempt = irandom(4)
+												if (attempt == 1) eFutureStatus = "Paralysis"
+												if (attempt == 2) eFutureStatus = "Poisoned"
+												if (attempt == 3) eFutureStatus = "Burn"
+												if (attempt == 4) eFutureStatus = "Sleep"
+												moveEff = eFutureStatus
+											}
+										}
 										var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
@@ -153,6 +165,15 @@ if (keyboard_check_pressed(vk_enter))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
 											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+											if (eFutureStatus == "RandomStatus")
+											{
+												var attempt = irandom(4)
+												if (attempt == 1) eFutureStatus = "Paralysis"
+												if (attempt == 2) eFutureStatus = "Poisoned"
+												if (attempt == 3) eFutureStatus = "Burn"
+												if (attempt == 4) eFutureStatus = "Sleep"
+												moveEff = eFutureStatus
+											}
 											var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
@@ -257,6 +278,16 @@ if (keyboard_check_pressed(vk_enter))
 											if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 											if (floor(random_range(0,101)) <= effectAcc)
 											{
+												if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+												if (pFutureStatus == "RandomStatus")
+												{
+													var attempt = irandom(4)
+													if (attempt == 1) pFutureStatus = "Paralysis"
+													if (attempt == 2) pFutureStatus = "Poisoned"
+													if (attempt == 3) pFutureStatus = "Burn"
+													if (attempt == 4) pFutureStatus = "Sleep"
+													moveEff = pFutureStatus
+												}
 												var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
@@ -331,6 +362,15 @@ if (keyboard_check_pressed(vk_enter))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
 										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+										if (pFutureStatus == "RandomStatus")
+										{
+											var attempt = irandom(4)
+											if (attempt == 1) pFutureStatus = "Paralysis"
+											if (attempt == 2) pFutureStatus = "Poisoned"
+											if (attempt == 3) pFutureStatus = "Burn"
+											if (attempt == 4) pFutureStatus = "Sleep"
+											moveEff = pFutureStatus
+										}
 										var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
@@ -369,6 +409,15 @@ if (keyboard_check_pressed(vk_enter))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
 											if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+											if (pFutureStatus == "RandomStatus")
+											{
+												var attempt = irandom(4)
+												if (attempt == 1) pFutureStatus = "Paralysis"
+												if (attempt == 2) pFutureStatus = "Poisoned"
+												if (attempt == 3) pFutureStatus = "Burn"
+												if (attempt == 4) pFutureStatus = "Sleep"
+												moveEff = pFutureStatus
+											}
 											var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
@@ -432,6 +481,16 @@ if (keyboard_check_pressed(vk_enter))
 										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
+											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+											if (pFutureStatus == "RandomStatus")
+											{
+												var attempt = irandom(4)
+												if (attempt == 1) eFutureStatus = "Paralysis"
+												if (attempt == 2) eFutureStatus = "Poisoned"
+												if (attempt == 3) eFutureStatus = "Burn"
+												if (attempt == 4) eFutureStatus = "Sleep"
+												moveEff = eFutureStatus
+											}
 											var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
@@ -477,6 +536,16 @@ if (keyboard_check_pressed(vk_enter))
 											if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 											if (floor(random_range(0,101)) <= effectAcc)
 											{
+												if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+												if (pFutureStatus == "RandomStatus")
+												{
+													var attempt = irandom(4)
+													if (attempt == 1) eFutureStatus = "Paralysis"
+													if (attempt == 2) eFutureStatus = "Poisoned"
+													if (attempt == 3) eFutureStatus = "Burn"
+													if (attempt == 4) eFutureStatus = "Sleep"
+													moveEff = eFutureStatus
+												}
 												var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
@@ -545,7 +614,7 @@ if (keyboard_check_pressed(vk_enter))
 						var eName = GetName(battle.enemyPkmn)
 						var eLevel = GetLevel(battle.enemyPkmn)
 						var enemyStats = GetPokemonFinalStats(eName, eLevel)
-
+					
 						var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
 						var moveName = enemyMoveName
 						var moveEff = GetMoveEffect(moveName)
@@ -565,6 +634,16 @@ if (keyboard_check_pressed(vk_enter))
 							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							if (floor(random_range(0,101)) <= effectAcc)
 							{
+								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+								if (pFutureStatus == "RandomStatus")
+								{
+									var attempt = irandom(3)
+									if (attempt == 0) pFutureStatus = "Paralysis"
+									if (attempt == 1) pFutureStatus = "Poisoned"
+									if (attempt == 2) pFutureStatus = "Burn"
+									if (attempt == 3) pFutureStatus = "Sleep"
+									moveEff = pFutureStatus
+								}
 								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
@@ -645,6 +724,16 @@ if (keyboard_check_pressed(vk_enter))
 						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 						if (floor(random_range(0,101)) <= effectAcc)
 						{
+							if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+							if (eFutureStatus == "RandomStatus")
+							{
+								var attempt = irandom(4)
+								if (attempt == 1) eFutureStatus = "Paralysis"
+								if (attempt == 2) eFutureStatus = "Poisoned"
+								if (attempt == 3) eFutureStatus = "Burn"
+								if (attempt == 4) eFutureStatus = "Sleep"
+								moveEff = eFutureStatus
+							}
 							var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
@@ -686,6 +775,16 @@ if (keyboard_check_pressed(vk_enter))
 							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							if (floor(random_range(0,101)) <= effectAcc)
 							{
+								if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+								if (eFutureStatus == "RandomStatus")
+								{
+									var attempt = irandom(3)
+									if (attempt == 0) eFutureStatus = "Paralysis"
+									if (attempt == 1) eFutureStatus = "Poisoned"
+									if (attempt == 2) eFutureStatus = "Burn"
+									if (attempt == 3) eFutureStatus = "Sleep"
+									moveEff = eFutureStatus
+								}
 								var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
@@ -753,6 +852,16 @@ if (keyboard_check_pressed(vk_enter))
 								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 								if (floor(random_range(0,101)) <= effectAcc)
 								{
+									if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+									if (pFutureStatus == "RandomStatus")
+									{
+										var attempt = irandom(3)
+										if (attempt == 0) pFutureStatus = "Paralysis"
+										if (attempt == 1) pFutureStatus = "Poisoned"
+										if (attempt == 2) pFutureStatus = "Burn"
+										if (attempt == 3) pFutureStatus = "Sleep"
+										moveEff = pFutureStatus
+									}
 									var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
@@ -794,6 +903,16 @@ if (keyboard_check_pressed(vk_enter))
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
+										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+										if (pFutureStatus == "RandomStatus")
+										{
+											var attempt = irandom(3)
+											if (attempt == 0) pFutureStatus = "Paralysis"
+											if (attempt == 1) pFutureStatus = "Poisoned"
+											if (attempt == 2) pFutureStatus = "Burn"
+											if (attempt == 3) pFutureStatus = "Sleep"
+											moveEff = pFutureStatus
+										}
 										var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
@@ -843,6 +962,16 @@ if (keyboard_check_pressed(vk_enter))
 						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 						if (floor(random_range(0,101)) <= effectAcc)
 						{
+							if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+							if (pFutureStatus == "RandomStatus")
+							{
+								var attempt = irandom(3)
+								if (attempt == 0) pFutureStatus = "Paralysis"
+								if (attempt == 1) pFutureStatus = "Poisoned"
+								if (attempt == 2) pFutureStatus = "Burn"
+								if (attempt == 3) pFutureStatus = "Sleep"
+								moveEff = pFutureStatus
+							}
 							var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
@@ -880,6 +1009,16 @@ if (keyboard_check_pressed(vk_enter))
 							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							if (floor(random_range(0,101)) <= effectAcc)
 							{
+								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+								if (pFutureStatus == "RandomStatus")
+								{
+									var attempt = irandom(3)
+									if (attempt == 0) pFutureStatus = "Paralysis"
+									if (attempt == 1) pFutureStatus = "Poisoned"
+									if (attempt == 2) pFutureStatus = "Burn"
+									if (attempt == 3) pFutureStatus = "Sleep"
+									moveEff = pFutureStatus
+								}
 								var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
@@ -948,6 +1087,16 @@ if (keyboard_check_pressed(vk_enter))
 								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 								if (floor(random_range(0,101)) <= effectAcc)
 								{
+									if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+									if (eFutureStatus == "RandomStatus")
+									{
+										var attempt = irandom(3)
+										if (attempt == 0) eFutureStatus = "Paralysis"
+										if (attempt == 1) eFutureStatus = "Poisoned"
+										if (attempt == 2) eFutureStatus = "Burn"
+										if (attempt == 3) eFutureStatus = "Sleep"
+										moveEff = eFutureStatus
+									}
 									var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
@@ -991,6 +1140,16 @@ if (keyboard_check_pressed(vk_enter))
 									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
+										if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+										if (eFutureStatus == "RandomStatus")
+										{
+											var attempt = irandom(3)
+											if (attempt == 0) eFutureStatus = "Paralysis"
+											if (attempt == 1) eFutureStatus = "Poisoned"
+											if (attempt == 2) eFutureStatus = "Burn"
+											if (attempt == 3) eFutureStatus = "Sleep"
+											moveEff = eFutureStatus
+										}
 										var effStr = DealEffect(moveEff, effectAcc, playerPkmn, enemyPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}

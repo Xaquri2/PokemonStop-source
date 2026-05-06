@@ -349,9 +349,19 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 					var effectName = GetMoveEffect(playerMoveName)
 					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
-
-					SetStatus(target.pkmnInfo, effectName)
-					target.status = effectName
+					
+					var status = effectName
+					if (status == "RandomStatus")
+					{
+						var attempt = irandom(3)
+						if (attempt == 0) status = "Paralysis"
+						if (attempt == 1) status = "Poisoned"
+						if (attempt == 2) status = "Burn"
+						if (attempt == 3) status = "Sleep"
+					}
+					
+					SetStatus(target.pkmnInfo, status)
+					target.status = status
 				}
 				else if (string_count("pokemon is now", text) > 0)
 				{
@@ -366,11 +376,21 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
 
 					var index = ds_list_find_index(global.playerParty, target.pkmnInfo)
-
-					SetStatus(target.pkmnInfo, effectName)
+					
+					var status = effectName
+					if (status == "RandomStatus")
+					{
+						var attempt = irandom(3)
+						if (attempt == 0) status = "Paralysis"
+						if (attempt == 1) status = "Poisoned"
+						if (attempt == 2) status = "Burn"
+						if (attempt == 3) status = "Sleep"
+					}
+					
+					SetStatus(target.pkmnInfo, status)
 					ds_list_set(global.playerParty, index, target.pkmnInfo)
 
-					target.status = effectName
+					target.status = status
 				}
 			}
 		}

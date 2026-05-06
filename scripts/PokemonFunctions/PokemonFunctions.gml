@@ -392,8 +392,8 @@ function GetStatusColor(status)
 	switch (status)
 	{
 		case "Paralysis": return c_yellow
-		case "Poisoned": return make_color_rgb(255,0,255)
-		case "Burn": return make_color_rgb(255,36,0)
+		case "Poisoned": return c_purple
+		case "Burn": return c_red
 		case "Sleep": return c_gray
 	}
 	return c_white
@@ -1240,7 +1240,7 @@ function GetMoveDetails(moveName)
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Convince", 1, 1, 0);
             break;
 		case "Hex Roulette":
-			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "Random", 1, 1, 0);
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "RandomStatus", 1, 1, 0);
             break;
 		case "Doom Downgrade":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 1, 1, 0);
