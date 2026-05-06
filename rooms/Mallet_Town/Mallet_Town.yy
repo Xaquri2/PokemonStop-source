@@ -77,6 +77,7 @@
     {"name":"inst_7901D147","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_1B674E9C","path":"rooms/Mallet_Town/Mallet_Town.yy",},
     {"name":"inst_22B8F216","path":"rooms/Mallet_Town/Mallet_Town.yy",},
+    {"name":"inst_5CA5C5A1","path":"rooms/Mallet_Town/Mallet_Town.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -181,6 +182,7 @@
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.8037491,"scaleY":1.1931822,"x":607.28,"y":341.60284,},
         {"$GMRInstance":"v4","%Name":"inst_1B674E9C","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1B674E9C","objectId":{"name":"PokelootObject","path":"objects/PokelootObject/PokelootObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1340.7014,"y":299.7847,},
         {"$GMRInstance":"v4","%Name":"inst_22B8F216","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_22B8F216","objectId":{"name":"obj_editor_wall","path":"objects/obj_editor_wall/obj_editor_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.22099304,"scaleX":2.9659727,"scaleY":0.37789202,"x":1392.3027,"y":225.50626,},
+        {"$GMRInstance":"v4","%Name":"inst_5CA5C5A1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5CA5C5A1","objectId":{"name":"Coin","path":"objects/Coin/Coin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":917.5339,"y":209.50626,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_3_1","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_3_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":29,"TileCompressedData":[
           -5,-2147483648,5,370,371,372,373,374,-8,-2147483648,21,370,371,372,373,374,351,352,353,354,355,-2147483648,
