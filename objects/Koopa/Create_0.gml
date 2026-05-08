@@ -2,3 +2,5 @@
 event_inherited();
 
 direction = 0
+
+//PlayerCollide = false
