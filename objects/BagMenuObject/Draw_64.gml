@@ -37,11 +37,15 @@ if (!ds_list_empty(categoryList))
 	yPos = yPos+sprite_get_height(MenuSprite)*18
 	draw_sprite_ext(MenuSprite, 0, xPos, yPos, 16, 5, image_angle, image_blend, image_alpha)
 	draw_text_ext_transformed(xPos+20, yPos+20, GetItemDescription(itemName), 
-	24, 100, 1.5, 1.5, image_angle)
+	24, 300, 1.5, 1.5, image_angle)
 
-	//Item Icon
+	//Item Icon box
 	xPos = xPos+40+sprite_get_width(MenuSprite)*16+16
 	draw_sprite_ext(MenuSprite, 0, xPos, yPos, 5, 5, image_angle, image_blend, image_alpha)
+	
+	//Item icon
+		IconSprite = GetItemSprite(itemName)
+		draw_sprite_ext(IconSprite, 0, xPos+80, yPos+80, 5, 5, image_angle, image_blend, image_alpha)
 
 	//Item List
 	var itemCount = ds_list_size(ds_list_find_value(global.categoryItemList, selectedCategory))
