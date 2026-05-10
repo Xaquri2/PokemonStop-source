@@ -1,5 +1,10 @@
 // Inherit the parent event
 event_inherited();
 
-direction = 21
+if (direction == 0) {
+	direction = 1
+}
+else if (direction == 180) {
+	direction = 181
+}
 
