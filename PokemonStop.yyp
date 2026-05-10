@@ -291,6 +291,7 @@
     {"id":{"name":"PCMenuObject","path":"objects/PCMenuObject/PCMenuObject.yy",},},
     {"id":{"name":"PikminBuriedLeaf","path":"objects/PikminBuriedLeaf/PikminBuriedLeaf.yy",},},
     {"id":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},},
+    {"id":{"name":"Plus100Text","path":"objects/Plus100Text/Plus100Text.yy",},},
     {"id":{"name":"Plus50Text","path":"objects/Plus50Text/Plus50Text.yy",},},
     {"id":{"name":"PokeballFloating","path":"objects/PokeballFloating/PokeballFloating.yy",},},
     {"id":{"name":"PokeballParticleObject","path":"objects/PokeballParticleObject/PokeballParticleObject.yy",},},

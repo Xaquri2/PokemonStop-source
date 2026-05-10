@@ -7,4 +7,6 @@ if (vspeed < 0) {
 }
 size += .01
 
+depth = -999999
+
 if (alpha <= 0) instance_destroy();
