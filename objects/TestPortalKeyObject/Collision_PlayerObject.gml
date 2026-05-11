@@ -1,1 +1,1 @@
-room_goto(ShadowPathGym);
+room_goto(MorlockRestaurant);

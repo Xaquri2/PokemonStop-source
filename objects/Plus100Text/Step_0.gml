@@ -9,4 +9,4 @@ size += .01
 
 if (alpha <= 0) instance_destroy();
 
-depth = -999999
+depth = -999999999

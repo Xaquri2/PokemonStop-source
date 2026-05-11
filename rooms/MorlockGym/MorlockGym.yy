@@ -35,6 +35,8 @@
     {"name":"inst_42777973","path":"rooms/MorlockGym/MorlockGym.yy",},
     {"name":"inst_751BA596","path":"rooms/MorlockGym/MorlockGym.yy",},
     {"name":"inst_4E81FD40","path":"rooms/MorlockGym/MorlockGym.yy",},
+    {"name":"inst_31B5012C","path":"rooms/MorlockGym/MorlockGym.yy",},
+    {"name":"inst_1ABD8100","path":"rooms/MorlockGym/MorlockGym.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -73,6 +75,8 @@
         {"$GMRInstance":"v4","%Name":"inst_7D2291E3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7D2291E3","objectId":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":76.0,"y":276.0,},
         {"$GMRInstance":"v4","%Name":"inst_512DBABC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_512DBABC","objectId":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":116.0,"y":279.0,},
         {"$GMRInstance":"v4","%Name":"inst_10F92A9C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_10F92A9C","objectId":{"name":"Gorbertron","path":"objects/Gorbertron/Gorbertron.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":607.0,"y":231.5,},
+        {"$GMRInstance":"v4","%Name":"inst_31B5012C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_31B5012C","objectId":{"name":"Coin","path":"objects/Coin/Coin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.75,"scaleY":0.6875,"x":124.0,"y":94.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1ABD8100","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1ABD8100","objectId":{"name":"Coin_50","path":"objects/Coin_50/Coin_50.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.8125,"scaleY":0.8941879,"x":103.0,"y":406.693,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Desk","depth":400,"effectEnabled":true,"effectType":"_filter_colourise","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Desk","properties":[
         {"name":"g_Intensity","type":0,"value":"0.65",},
