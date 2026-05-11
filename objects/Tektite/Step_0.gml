@@ -43,7 +43,11 @@ switch (state) {
         y = lerp(seg_start_y, seg_end_y, seg_t);
 
         // --- Bounce if we hit a solid mid-leap
-        if (place_meeting(x, y, obj_editor_wall)) {
+        if (place_meeting(x, y, obj_editor_wall)) or (place_meeting(x, y, WarpObject)) 
+		or (place_meeting(x, y, Metroid)) or (place_meeting(x, y, ZooChomper)) 
+		or (place_meeting(x, y, Koopa)) or (place_meeting(x, y, Ian)) or (place_meeting(x, y, Elise)) 
+		or (place_meeting(x, y, BasicSign)) or (place_meeting(x, y, Goomba)) 
+		or (place_meeting(x, y, RoamingPokemonParent)) {
 
             // Go back to previous safe position
             x = prev_x;
