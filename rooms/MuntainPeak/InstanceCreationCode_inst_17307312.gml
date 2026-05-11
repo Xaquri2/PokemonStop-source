@@ -8,6 +8,6 @@ walkUpSprite = sprite_index
 walkDownSprite = sprite_index
 walkRightSprite = sprite_index
 
-canWalk = false
+canWalk = true
 
 AddPokemonTrainer(trainerTeam, 1, "Metroid", floor(random_range(8,15)), GetRandomGender(50), MetroidOverworldSprite)
