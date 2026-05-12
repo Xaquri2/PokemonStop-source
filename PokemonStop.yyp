@@ -192,6 +192,7 @@
     {"id":{"name":"FireParticle","path":"objects/FireParticle/FireParticle.yy",},},
     {"id":{"name":"FixWarpObject","path":"objects/FixWarpObject/FixWarpObject.yy",},},
     {"id":{"name":"FogControllerObject","path":"objects/FogControllerObject/FogControllerObject.yy",},},
+    {"id":{"name":"FogDestroyer","path":"objects/FogDestroyer/FogDestroyer.yy",},},
     {"id":{"name":"FogObject","path":"objects/FogObject/FogObject.yy",},},
     {"id":{"name":"FollowerObject","path":"objects/FollowerObject/FollowerObject.yy",},},
     {"id":{"name":"FollowerPikminObject","path":"objects/FollowerPikminObject/FollowerPikminObject.yy",},},
