@@ -40,6 +40,8 @@
     {"name":"inst_16C98458","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_658BFD42","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_14CB212","path":"rooms/MorlockCity3/MorlockCity3.yy",},
+    {"name":"inst_55A01CFE","path":"rooms/MorlockCity3/MorlockCity3.yy",},
+    {"name":"inst_77AEF372","path":"rooms/MorlockCity3/MorlockCity3.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -56,6 +58,8 @@
         {"$GMRInstance":"v4","%Name":"inst_53B78CCE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_53B78CCE","objectId":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":348.0,"y":1233.0,},
         {"$GMRInstance":"v4","%Name":"inst_1F8A883E","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1F8A883E","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":17.0,"scaleY":1.0,"x":50.0,"y":1331.0,},
         {"$GMRInstance":"v4","%Name":"inst_16C98458","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_16C98458","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":4.0625,"x":1311.0,"y":960.0,},
+        {"$GMRInstance":"v4","%Name":"inst_55A01CFE","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_55A01CFE","objectId":{"name":"Morlock","path":"objects/Morlock/Morlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":967.0,"y":145.5,},
+        {"$GMRInstance":"v4","%Name":"inst_77AEF372","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_77AEF372","objectId":{"name":"PokelootObject","path":"objects/PokelootObject/PokelootObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":50.0,"y":976.0,},
       ],"layers":[],"name":"Instances","properties":[
         {"name":"g_TintCol","type":1,"value":"#FF7F7F7F",},
       ],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},

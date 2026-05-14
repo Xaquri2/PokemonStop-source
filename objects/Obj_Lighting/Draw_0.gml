@@ -240,6 +240,22 @@ else {
 	        1
 	    );
 	}
+	
+		with (Plus50Text) {
+	    gpu_set_blendmode(bm_add);
+
+	    draw_sprite_ext(
+	        TorchLightShaderTest,
+	        0,
+	        x - cam_x,
+	        y - cam_y,
+	        1,
+	        1,
+	        0,
+	        c_white,
+	        0.9
+	    );
+	}
 
 	with (MorlockPowerThing) {
 

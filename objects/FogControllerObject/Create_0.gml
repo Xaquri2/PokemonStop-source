@@ -1,9 +1,9 @@
-spawnRange = 1500
+spawnRange = 1200
 spawnOffset = 0
 spawnRangeIncrement = 0
 spawnRangeDirection = 1
 
 spawnTime = 2
-spawnAmount = 100
+spawnAmount = 60
 
 alarm[0] = 1

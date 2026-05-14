@@ -129,6 +129,11 @@ function GetItemSprite(name)
         case "Super Torch Fuel": return TorchSprite
         case "Ultra Torch Fuel": return TorchSprite
         #endregion
+		
+		#region Key Items
+		case "Poke Flute": return PokeFluteSprite
+		case "Skyview Mushroom": return MushroomSprite
+		case "Skyview Potion": return spr_potion_testtube_blue
 
         default: return PokeDollarSprite
 	}
