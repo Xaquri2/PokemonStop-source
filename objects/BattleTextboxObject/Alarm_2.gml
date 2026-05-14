@@ -184,13 +184,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				else if (string_count("struggled and took", text) > 0 or 
 				string_count("failed and they fainted!", text) > 0)
 				{
-					if (string_count("failed", text) == 0) moveName = "Struggle"
-					else 
-					{
-						if (string_count("opposing", text) != 0) moveName = enemyMoveName
-						else moveName = playerMoveName
-					}
-					
+					moveName = "Struggle"
 					recoil = true
 
 					if (string_count("opposing", text) != 0)
@@ -201,7 +195,33 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					else
 					{
 						whoAttacked = "Enemy"
-						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						pRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+					}
+
+					alarm[1] = GetMoveAnimationTime(moveName)
+
+					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+					attackC.alarm[0] = alarm[1]
+					attackC.moveName = moveName
+					attackC.whoAttacked = whoAttacked
+					attackC.particleSpawnTime = floor(alarm[1] / 2)
+				}
+				else if (string_count("took some damage", text) > 0)
+				{
+					if (string_count("opponent", text) != 0) moveName = enemyMoveName
+					else moveName = playerMoveName
+					
+					recoil = true
+
+					if (string_count("opposing", text) == 0)
+					{
+						whoAttacked = "Player"
+						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+					}
+					else
+					{
+						whoAttacked = "Enemy"
+						pRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
 					}
 
 					alarm[1] = GetMoveAnimationTime(moveName)

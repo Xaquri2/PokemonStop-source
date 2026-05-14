@@ -55,16 +55,32 @@ function GetRecoilDamage(pkmn, moveName)
 {
 	var name = GetName(pkmn)
 	var level = GetLevel(pkmn)
+	var dmg = 0
 
 	switch (moveName)
 	{
 		case "Doom Downgrade":
 		case "Hex Roulette":
 		case "Hail Mary Hit":
-			return GetPokemonFinalHP(name, level)
+			dmg += GetPokemonFinalHP(name, level)
+			break
 		default:
-			return GetPokemonFinalHP(name, level)/4
+			dmg += GetPokemonFinalHP(name, level)/4
+			break
 	}
+	
+	if (whoAttacked == "Player")
+	{
+		if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) dmg += 30
+		if (ds_list_find_index(BattleObject.playerFieldEffects, "ReversalTrap") != -1) dmg += playerDamage
+	}
+	else
+	{
+		if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) dmg += 30
+		if (ds_list_find_index(BattleObject.enemyFieldEffects, "ReversalTrap") != -1) dmg += enemyDamage
+	}
+	
+	return dmg
 }
 
 function RollCriticalChance(critMod)
@@ -594,7 +610,21 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "The opponent already has a status effect!"
 					break
 				#endregion
-
+				
+				#region Traps
+				case "SetTrap":
+					var b = instance_find(BattleObject, 0)
+					ds_list_add(b.enemyFieldEffects, "SetTrap")
+					str = "Traps were layed on the field!"
+					break
+				
+				case "WicketReversal":
+					b = instance_find(BattleObject, 0)
+					ds_list_add(b.enemyFieldEffects, "ReversalTrap")
+					str = "Reversing traps were layed on the field!"
+					break
+				#endregion
+				
 				case "Recoil":
 				case "RecoilOnMiss":
 					str = "Your pokemon took some damage!"
@@ -603,6 +633,12 @@ function DealEffect(effectName, accurancy, user, target)
 				case "StruggleRecoil":
 					str = "Your pokemon struggled and took some damage!"
 					break
+			}
+			
+			if (string_count("Recoil", str) == 0)
+			{
+				if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
+				else if (ds_list_find_index(BattleObject.playerFieldEffects, "ReversalTrap") != -1) ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
 			}
 		}
 		else
@@ -814,7 +850,21 @@ function DealEffect(effectName, accurancy, user, target)
 					else str = "The opponent already has a status effect!"
 					break
 				#endregion
-
+				
+				#region Traps
+				case "SetTrap":
+					var b = instance_find(BattleObject, 0)
+					ds_list_add(b.playerFieldEffects, "SetTrap")
+					str = "Traps were layed on the field!"
+					break
+				
+				case "WicketReversal":
+					b = instance_find(BattleObject, 0)
+					ds_list_add(b.playerFieldEffects, "ReversalTrap")
+					str = "Reversing traps were layed on the field!"
+					break
+				#endregion
+				
 				case "Recoil":
 				case "RecoilOnMiss":
 					str = "The opponent took some damage!"
@@ -823,6 +873,12 @@ function DealEffect(effectName, accurancy, user, target)
 				case "StruggleRecoil":
 					str = "The opponent struggled and took some damage!"
 					break
+			}
+			
+			if (string_count("Recoil", str) == 0)
+			{
+				if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
+				else if (ds_list_find_index(BattleObject.enemyFieldEffects, "ReversalTrap") != -1) ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
 			}
 		}
 	}

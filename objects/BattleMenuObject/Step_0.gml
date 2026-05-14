@@ -606,7 +606,10 @@ if (keyboard_check_pressed(vk_enter))
 						battleText.enemyPkmn = battle.enemyPkmn
 						battleText.whoAttacked = "Player"
 						var superEffStr = ""
-
+						
+						var pFutureStatus = "None"
+						var eFutureStatus = "None"
+						
 						var pName = GetName(battle.playerPkmn)
 						var pLevel = GetLevel(battle.playerPkmn)
 						var playerStats = GetPokemonFinalStats(pName, pLevel)
@@ -663,7 +666,10 @@ if (keyboard_check_pressed(vk_enter))
 		battleText.enemyPkmn = battle.enemyPkmn
 		battleText.whoAttacked = "Player"
 		var superEffStr = ""
-
+	
+		var pFutureStatus = "None"
+		var eFutureStatus = "None"
+						
 		var pName = GetName(battle.playerPkmn)
 		var pLevel = GetLevel(battle.playerPkmn)
 		var pStatus = GetStatus(battle.playerPkmn)

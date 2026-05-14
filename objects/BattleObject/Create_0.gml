@@ -19,6 +19,9 @@ enemySprite = noone
 enemyName = ""
 enemyObjectType = noone
 
+playerFieldEffects = ds_list_create()
+enemyFieldEffects = ds_list_create()
+
 isWild = false
 runAttempts = 0
 

@@ -108,17 +108,18 @@ function GetWildPokemon(encounterType)
 
 	var pkmn = ds_list_create()
 	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))
+	var level = 0
 	if room == Mallet_Town {
-		var level = floor(random_range(1,3))
+		level = floor(random_range(1,3))
 	}
 	else if room == RouteMinusOneBottom {
-		var level = floor(random_range(2,6))
+		level = floor(random_range(2,6))
 	}
 	else if room == RouteMinusOneTop {
-		var level = floor(random_range(3,7))
+		level = floor(random_range(3,7))
 	}
 	else {
-		var level = floor(random_range(7,15))
+		level = floor(random_range(7,15))
 	}
 	var gender = "Male"
 	if (floor(random_range(1,3)) > 1) gender = "Female"
@@ -1075,25 +1076,25 @@ function GetMoveDetails(moveName)
         //---------------------------------------
         case "Tackle":
             // [Name, Type, Category, Power, Accuracy, PP, Effect, EffectChance, CritChance, Priority]
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 1, 1, 0);
             break;
         case "Growl":
             ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 40, "LowerAttack", 1, 1, 0);
             break;
         case "Quick Attack":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 30, "None", 0, 1, 1);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 30, "None", 1, 1, 1);
             break;
         case "Scratch":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 1, 1, 0);
             break;
         case "Ember":
             ds_list_add(moveInfo, moveName, "Fire", "Special", 40, 100, 25, "Burn", 0.1, 1, 0);
             break;
         case "Water Gun":
-            ds_list_add(moveInfo, moveName, "Water", "Special", 40, 100, 25, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Water", "Special", 40, 100, 25, "None", 1, 1, 0);
             break;
         case "Vine Whip":
-            ds_list_add(moveInfo, moveName, "Grass", "Physical", 45, 100, 25, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Grass", "Physical", 45, 100, 25, "None", 1, 1, 0);
             break;
         case "Thunder Shock":
             ds_list_add(moveInfo, moveName, "Electric", "Special", 40, 100, 30, "Paralysis", 0.1, 1, 0);
@@ -1108,7 +1109,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Psychic", "Special", 50, 100, 25, "Confuse", 0.1, 1, 0);
             break;
         case "Gust":
-            ds_list_add(moveInfo, moveName, "Flying", "Special", 40, 100, 35, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Flying", "Special", 40, 100, 35, "None", 1, 1, 0);
             break;
         case "Bite":
             ds_list_add(moveInfo, moveName, "Dark", "Physical", 60, 100, 25, "Flinch", 0.3, 1, 0);
@@ -1126,10 +1127,10 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, 0);
             break;
         case "Drill Peck":
-            ds_list_add(moveInfo, moveName, "Flying", "Physical", 80, 100, 20, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Flying", "Physical", 80, 100, 20, "None", 1, 1, 0);
             break;
         case "Shadow Punch":
-            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 1000, 20, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 60, 1000, 20, "None", 1, 1, 0);
             break;
         case "Shadow Ball":
             ds_list_add(moveInfo, moveName, "Ghost", "Special", 80, 100, 15, "LowerSpDef", 0.2, 1, 0);
@@ -1179,7 +1180,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Fighting", "Physical", 60, 100, 10, "Crit", 1, 1.5, 0);
             break;
         case "Play Rough":
-            ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 1, 1, 0);
             break;
         case "Iron Defense":
             ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDef2", 1, 1, 0);
@@ -1193,7 +1194,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 0);
             break;
         case "Aura Sphere":
-            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 1000, 20, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 1000, 20, "None", 1, 1, 0);
             break;
         case "Flux":
             // MissingNo’s reality-bending move
@@ -1220,7 +1221,7 @@ function GetMoveDetails(moveName)
             break;
         case "Egg Toss":
             // Yo'Ster’s custom
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 0, 1, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 1, 1, 0);
             break;
         case "Jump Kick":
             ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 95, 10, "RecoilOnMiss", 1, 1, 0);
@@ -1247,6 +1248,12 @@ function GetMoveDetails(moveName)
             break;
 		case "Hail Mary hit":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 1, 1, 0);
+            break;
+		case "Set Trap":
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "SetTrap", 1, 1, 0);
+            break;
+		case "Wicket's Reversal":
+			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "WicketReversal", 1, 1, 0);
             break;
 
         default:
@@ -1297,8 +1304,8 @@ function LearnsMoveAt(name, level)
         case "Pikachu":
             if (level == 1)  return "Thunder Wave";//return "Thunder Shock";
             if (level == 4)  return "Quick Attack";
-            if (level == 8)  return "Doom Downgrade";
-            if (level == 12) return "Hex Roulette";
+            if (level == 8)  return "Set Trap";
+            if (level == 12) return "Wicket's Reversal";
 			//if (level == 16) return "Growl";
 			//if (level == 17) return "Tackle";
             break;

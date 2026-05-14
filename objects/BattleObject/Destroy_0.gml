@@ -27,3 +27,6 @@ if (instance_exists(player) and instance_exists(camera))
 	camera.x = player.x
 	camera.y = player.y
 }
+
+ds_list_destroy(playerFieldEffects)
+ds_list_destroy(enemyFieldEffects)
