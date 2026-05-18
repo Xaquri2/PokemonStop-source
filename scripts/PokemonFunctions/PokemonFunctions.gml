@@ -1589,10 +1589,10 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Morlock":
-            if (level == 1)  return "Tackle";
-            if (level == 4)  return "Bite";
-            if (level == 8)  return "Headbutt";
-            if (level == 12) return "Crunch";
+            //if (level == 8)  return "Tackle";
+            //if (level == 4)  return "Bite";
+            if (level == 1)  return "Headbutt";
+            //if (level == 12) return "Crunch";
             break;
 			
 		case "Rancor":

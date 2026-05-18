@@ -637,8 +637,14 @@ function DealEffect(effectName, accurancy, user, target)
 			
 			if (string_count("Recoil", str) == 0)
 			{
-				if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
-				else if (ds_list_find_index(BattleObject.playerFieldEffects, "ReversalTrap") != -1) ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
+				if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) 
+				{
+					ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
+				}
+				else if (ds_list_find_index(BattleObject.playerFieldEffects, "ReversalTrap") != -1) 
+				{
+					ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
+				}
 			}
 		}
 		else
@@ -877,8 +883,14 @@ function DealEffect(effectName, accurancy, user, target)
 			
 			if (string_count("Recoil", str) == 0)
 			{
-				if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
-				else if (ds_list_find_index(BattleObject.enemyFieldEffects, "ReversalTrap") != -1) ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
+				if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) 
+				{
+					ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
+				}
+				else if (ds_list_find_index(BattleObject.enemyFieldEffects, "ReversalTrap") != -1) 
+				{
+					ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
+				}
 			}
 		}
 	}
