@@ -399,243 +399,252 @@ function DealDamage(damage, isPlayer)
 function DealEffect(effectName, accurancy, user, target)
 {
 	var str = ""
-	if (random_range(0,101) <= accurancy)
+	if (user.playerTeam)
 	{
-		if (user.playerTeam)
+		if (random_range(0,101) <= accurancy)
 		{
 			switch (effectName)
-			{
-				#region Lower 1
-				case "LowerAttack":
-					if (target.attackModifier > -6)
-					{
-						target.attackModifier -= 1
-						str = "It lowered the foe's Attack stat!"
-					}
-					else str = "The opponent's Attack stat couldn't go any lower!"
-					break
-				case "LowerDefense":
-					if (target.defenseModifier > -6)
-					{
-						target.defenseModifier -= 1
-						str = "It lowered the foe's Defense stat!"
-					}
-					else str = "The opponent's Defense stat couldn't go any lower!"
-					break
-				case "LowerSpAtk":
-					if (target.spAtkModifier > -6)
-					{
-						target.spAtkModifier -= 1
-						str = "It lowered the foe's Special Attack stat!"
-					}
-					else str = "The opponent's Special Attack stat couldn't go any lower!"
-					break
-				case "LowerSpDef":
-					if (target.spDefModifier > -6)
-					{
-						target.spDefModifier -= 1
-						str = "It lowered the foe's Special Defense stat!"
-					}
-					else str = "The opponent's Special Defense stat couldn't go any lower!"
-					break
-				case "LowerSpeed":
-					if (target.speedModifier > -6)
-					{
-						target.speedModifier -= 1
-						str = "It lowered the foe's Speed stat!"
-					}
-					else str = "The opponent's Speed stat couldn't go any lower!"
-					break
-				#endregion
+				{
+					#region Lower 1
+					case "LowerAttack":
+						if (target.attackModifier > -6)
+						{
+							target.attackModifier -= 1
+							str = "It lowered the foe's Attack stat!"
+						}
+						else str = "The opponent's Attack stat couldn't go any lower!"
+						break
+					case "LowerDefense":
+						if (target.defenseModifier > -6)
+						{
+							target.defenseModifier -= 1
+							str = "It lowered the foe's Defense stat!"
+						}
+						else str = "The opponent's Defense stat couldn't go any lower!"
+						break
+					case "LowerSpAtk":
+						if (target.spAtkModifier > -6)
+						{
+							target.spAtkModifier -= 1
+							str = "It lowered the foe's Special Attack stat!"
+						}
+						else str = "The opponent's Special Attack stat couldn't go any lower!"
+						break
+					case "LowerSpDef":
+						if (target.spDefModifier > -6)
+						{
+							target.spDefModifier -= 1
+							str = "It lowered the foe's Special Defense stat!"
+						}
+						else str = "The opponent's Special Defense stat couldn't go any lower!"
+						break
+					case "LowerSpeed":
+						if (target.speedModifier > -6)
+						{
+							target.speedModifier -= 1
+							str = "It lowered the foe's Speed stat!"
+						}
+						else str = "The opponent's Speed stat couldn't go any lower!"
+						break
+					#endregion
 
-				#region Lower 2
-				case "LowerAttack2":
-					if (target.attackModifier > -5)
-					{
-						target.attackModifier -= 2
-						str = "It greatly lowered the foe's Attack stat!"
-					}
-					else str = "The opponent's Attack stat couldn't go any lower!"
-					break
-				case "LowerDefense2":
-					if (target.defenseModifier > -5)
-					{
-						target.defenseModifier -= 2
-						str = "It greatly lowered the foe's Defense stat!"
-					}
-					else str = "The opponent's Defense stat couldn't go any lower!"
-					break
-				case "LowerSpAtk2":
-					if (target.spAtkModifier > -5)
-					{
-						target.spAtkModifier -= 2
-						str = "It greatly lowered the foe's Special Attack stat!"
-					}
-					else str = "The opponent's Special Attack stat couldn't go any lower!"
-					break
-				case "LowerSpDef2":
-					if (target.spDefModifier > -5)
-					{
-						target.spDefModifier -= 2
-						str = "It greatly lowered the foe's Special Defense stat!"
-					}
-					else str = "The opponent's Special Defense stat couldn't go any lower!"
-					break
-				case "LowerSpeed2":
-					if (target.speedModifier > -5)
-					{
-						target.speedModifier -= 2
-						str = "It greatly lowered the foe's Speed stat!"
-					}
-					else str = "The opponent's Speed stat couldn't go any lower!"
-					break
-				case "DoomDowngrade":
-					var canLowerStatCount = 5
-					if (target.attackModifier > -5) target.attackModifier -= 2
-					else canLowerStatCount--
-					if (target.defenseModifier > -5) target.defenseModifier -= 2
-					else canLowerStatCount--
-					if (target.spAtkModifier > -5) target.spAtkModifier -= 2
-					else canLowerStatCount--
-					if (target.spDefModifier > -5) target.spDefModifier -= 2
-					else canLowerStatCount--
-					if (target.speedModifier > -5) target.speedModifier -= 2
-					else canLowerStatCount--
+					#region Lower 2
+					case "LowerAttack2":
+						if (target.attackModifier > -5)
+						{
+							target.attackModifier -= 2
+							str = "It greatly lowered the foe's Attack stat!"
+						}
+						else str = "The opponent's Attack stat couldn't go any lower!"
+						break
+					case "LowerDefense2":
+						if (target.defenseModifier > -5)
+						{
+							target.defenseModifier -= 2
+							str = "It greatly lowered the foe's Defense stat!"
+						}
+						else str = "The opponent's Defense stat couldn't go any lower!"
+						break
+					case "LowerSpAtk2":
+						if (target.spAtkModifier > -5)
+						{
+							target.spAtkModifier -= 2
+							str = "It greatly lowered the foe's Special Attack stat!"
+						}
+						else str = "The opponent's Special Attack stat couldn't go any lower!"
+						break
+					case "LowerSpDef2":
+						if (target.spDefModifier > -5)
+						{
+							target.spDefModifier -= 2
+							str = "It greatly lowered the foe's Special Defense stat!"
+						}
+						else str = "The opponent's Special Defense stat couldn't go any lower!"
+						break
+					case "LowerSpeed2":
+						if (target.speedModifier > -5)
+						{
+							target.speedModifier -= 2
+							str = "It greatly lowered the foe's Speed stat!"
+						}
+						else str = "The opponent's Speed stat couldn't go any lower!"
+						break
+					case "DoomDowngrade":
+						var canLowerStatCount = 5
+						if (target.attackModifier > -5) target.attackModifier -= 2
+						else canLowerStatCount--
+						if (target.defenseModifier > -5) target.defenseModifier -= 2
+						else canLowerStatCount--
+						if (target.spAtkModifier > -5) target.spAtkModifier -= 2
+						else canLowerStatCount--
+						if (target.spDefModifier > -5) target.spDefModifier -= 2
+						else canLowerStatCount--
+						if (target.speedModifier > -5) target.speedModifier -= 2
+						else canLowerStatCount--
 					
-					if (canLowerStatCount == 0) str = "The opponent's stats couldn't go any lower!"
-					else str = "Many of the opponent's stats were lowered!"
-					break
-				#endregion
+						if (canLowerStatCount == 0) str = "The opponent's stats couldn't go any lower!"
+						else str = "Many of the opponent's stats were lowered!"
+						break
+					#endregion
 
-				#region Raise 1
-				case "RaiseAttack":
-					if (target.attackModifier < 6)
-					{
-						user.attackModifier += 1
-						str = "It raised your pokemon's Attack stat!"
-					}
-					else str = "Its Attack stat couldn't go any higher!"
-					break
-				case "RaiseDefense":
-					if (target.defenseModifier < 6)
-					{
-						user.defenseModifier += 1
-						str = "It raised your pokemon's Defense stat!"
-					}
-					else str = "Its Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpAtk":
-					if (target.spAtkModifier < 6)
-					{
-						user.spAtkModifier += 1
-						str = "It raised your pokemon's Special Attack stat!"
-					}
-					else str = "Its Special Attack stat couldn't go any higher!"
-					break
-				case "RaiseSpDef":
-					if (target.spDefModifier < 6)
-					{
-						user.spDefModifier += 1
-						str = "It raised your pokemon's Special Defense stat!"
-					}
-					else str = "Its Special Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpeed":
-					if (target.speedModifier < 6)
-					{
-						user.speedModifier += 1
-						str = "It raised your pokemon's Speed stat!"
-					}
-					else str = "Its Speed stat couldn't go any higher!"
-					break
-				#endregion
+					#region Raise 1
+					case "RaiseAttack":
+						if (target.attackModifier < 6)
+						{
+							user.attackModifier += 1
+							str = "It raised your pokemon's Attack stat!"
+						}
+						else str = "Its Attack stat couldn't go any higher!"
+						break
+					case "RaiseDefense":
+						if (target.defenseModifier < 6)
+						{
+							user.defenseModifier += 1
+							str = "It raised your pokemon's Defense stat!"
+						}
+						else str = "Its Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpAtk":
+						if (target.spAtkModifier < 6)
+						{
+							user.spAtkModifier += 1
+							str = "It raised your pokemon's Special Attack stat!"
+						}
+						else str = "Its Special Attack stat couldn't go any higher!"
+						break
+					case "RaiseSpDef":
+						if (target.spDefModifier < 6)
+						{
+							user.spDefModifier += 1
+							str = "It raised your pokemon's Special Defense stat!"
+						}
+						else str = "Its Special Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpeed":
+						if (target.speedModifier < 6)
+						{
+							user.speedModifier += 1
+							str = "It raised your pokemon's Speed stat!"
+						}
+						else str = "Its Speed stat couldn't go any higher!"
+						break
+					#endregion
 
-				#region Raise 2
-				case "RaiseAttack2":
-					if (target.attackModifier < 5)
-					{
-						user.attackModifier += 2
-						str = "It greatly raised your pokemon's Attack stat!"
-					}
-					else str = "Its Attack stat couldn't go any higher!"
-					break
-				case "RaiseDefense2":
-					if (target.defenseModifier < 5)
-					{
-						user.defenseModifier += 2
-						str = "It greatly raised your pokemon's Defense stat!"
-					}
-					else str = "Its Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpAtk2":
-					if (target.spAtkModifier < 5)
-					{
-						user.spAtkModifier += 2
-						str = "It greatly raised your pokemon's Special Attack stat!"
-					}
-					else str = "Its Special Attack stat couldn't go any higher!"
-				case "RaiseSpDef2":
-					if (target.spDefModifier < 5)
-					{
-						user.spDefModifier += 2
-						str = "It greatly raised your pokemon's Special Defense stat!"
-					}
-					else str = "Its Special Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpeed2":
-					if (target.speedModifier < 5)
-					{
-						user.speedModifier += 2
-						str = "It greatly raised your pokemon's Speed stat!"
-					}
-					else str = "Its Speed stat couldn't go any higher!"
-					break
-				#endregion
+					#region Raise 2
+					case "RaiseAttack2":
+						if (target.attackModifier < 5)
+						{
+							user.attackModifier += 2
+							str = "It greatly raised your pokemon's Attack stat!"
+						}
+						else str = "Its Attack stat couldn't go any higher!"
+						break
+					case "RaiseDefense2":
+						if (target.defenseModifier < 5)
+						{
+							user.defenseModifier += 2
+							str = "It greatly raised your pokemon's Defense stat!"
+						}
+						else str = "Its Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpAtk2":
+						if (target.spAtkModifier < 5)
+						{
+							user.spAtkModifier += 2
+							str = "It greatly raised your pokemon's Special Attack stat!"
+						}
+						else str = "Its Special Attack stat couldn't go any higher!"
+					case "RaiseSpDef2":
+						if (target.spDefModifier < 5)
+						{
+							user.spDefModifier += 2
+							str = "It greatly raised your pokemon's Special Defense stat!"
+						}
+						else str = "Its Special Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpeed2":
+						if (target.speedModifier < 5)
+						{
+							user.speedModifier += 2
+							str = "It greatly raised your pokemon's Speed stat!"
+						}
+						else str = "Its Speed stat couldn't go any higher!"
+						break
+					#endregion
 
-				#region Statuses
-				case "Paralysis":
-					if (target.status == "None") str = "The opponent is now paralyzed"
-					else str = "The opponent already has a status effect!"
-					break
-				case "Poisoned":
-					if (target.status == "None") str = "The opponent is now poisoned"
-					else str = "The opponent already has a status effect!"
-					break
-				case "Burn":
-					if (target.status == "None") str = "The opponent is now burned"
-					else str = "The opponent already has a status effect!"
-					break
-				case "Sleep":
-					if (target.status == "None") str = "The opponent is now asleep"
-					else str = "The opponent already has a status effect!"
-					break
-				#endregion
+					#region Statuses
+					case "Paralysis":
+						if (target.status == "None") str = "The opponent is now paralyzed"
+						else str = "The opponent already has a status effect!"
+						break
+					case "Poisoned":
+						if (target.status == "None") str = "The opponent is now poisoned"
+						else str = "The opponent already has a status effect!"
+						break
+					case "Burn":
+						if (target.status == "None") str = "The opponent is now burned"
+						else str = "The opponent already has a status effect!"
+						break
+					case "Sleep":
+						if (target.status == "None") str = "The opponent is now asleep"
+						else str = "The opponent already has a status effect!"
+						break
+					#endregion
 				
-				#region Traps
-				case "SetTrap":
-					var b = instance_find(BattleObject, 0)
-					ds_list_add(b.enemyFieldEffects, "SetTrap")
-					str = "Traps were layed on the field!"
-					break
+					#region Traps
+					case "SetTrap":
+						var b = instance_find(BattleObject, 0)
+						ds_list_add(b.enemyFieldEffects, "SetTrap")
+						str = "Traps were layed on the field!"
+						break
 				
-				case "WicketReversal":
-					b = instance_find(BattleObject, 0)
-					ds_list_add(b.enemyFieldEffects, "ReversalTrap")
-					str = "Reversing traps were layed on the field!"
-					break
-				#endregion
+					case "WicketReversal":
+						b = instance_find(BattleObject, 0)
+						ds_list_add(b.enemyFieldEffects, "ReversalTrap")
+						str = "Reversing traps were layed on the field!"
+						break
+					#endregion
 				
-				case "Recoil":
-				case "RecoilOnMiss":
-					str = "Your pokemon took some damage!"
-					break
+					case "Recoil":
+					case "RecoilOnMiss":
+						str = "Your pokemon took some damage!"
+						break
 
-				case "StruggleRecoil":
-					str = "Your pokemon struggled and took some damage!"
-					break
+					case "StruggleRecoil":
+						str = "Your pokemon struggled and took some damage!"
+						break
+				}
+		}
+		else
+		{
+			if (effectName == "DoomDowngrade") 
+			{
+				skipTurn = true						
+				ds_list_add(battleText.textList, "Your pokémon's move failed and they fainted!")
 			}
-			
-			if (string_count("Recoil", str) == 0)
+		}
+	
+		if (string_count("Recoil", str) == 0)
 			{
 				if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) 
 				{
@@ -646,242 +655,253 @@ function DealEffect(effectName, accurancy, user, target)
 					ds_list_add(BattleTextboxObject.textList, "Your pokémon took some damage!")
 				}
 			}
+	}
+	else
+	{
+		if (random_range(0,101) <= accurancy)
+		{
+			switch (effectName)
+				{
+					#region Lower 1
+					case "LowerAttack":
+						if (target.attackModifier > -6)
+						{
+							target.attackModifier -= 1
+							str = "It lowered your pokemon's Attack stat!"
+						}
+						else str = "Your pokemon's Attack stat couldn't go any lower!"
+						break
+					case "LowerDefense":
+						if (target.defenseModifier > -6)
+						{
+							target.defenseModifier -= 1
+							str = "It lowered your pokemon's Defense stat!"
+						}
+						else str = "Your pokemon's Defense stat couldn't go any lower!"
+						break
+					case "LowerSpAtk":
+						if (target.spAtkModifier > -6)
+						{
+							target.spAtkModifier -= 1
+							str = "It lowered your pokemon's Special Attack stat!"
+						}
+						else str = "Your pokemon's Special Attack stat couldn't go any lower!"
+						break
+					case "LowerSpDef":
+						if (target.spDefModifier > -6)
+						{
+							target.spDefModifier -= 1
+							str = "It lowered your pokemon's Special Defense stat!"
+						}
+						else str = "Your pokemon's Special Defense stat couldn't go any lower!"
+						break
+					case "LowerSpeed":
+						if (target.speedModifier > -6)
+						{
+							target.speedModifier -= 1
+							str = "It lowered your pokemon's Speed stat!"
+						}
+						else str = "Your pokemon's Speed stat couldn't go any lower!"
+						break
+					#endregion
+
+					#region Lower 2
+					case "LowerAttack2":
+						if (target.attackModifier > -5)
+						{
+							target.attackModifier -= 2
+							str = "It greatly lowered your pokemon's Attack stat!"
+						}
+						else str = "Your pokemon's Attack stat couldn't go any lower!"
+						break
+					case "LowerDefense2":
+						if (target.defenseModifier > -5)
+						{
+							target.defenseModifier -= 2
+							str = "It greatly lowered your pokemon's Defense stat!"
+						}
+						else str = "Your pokemon's Defense stat couldn't go any lower!"
+						break
+					case "LowerSpAtk2":
+						if (target.spAtkModifier > -5)
+						{
+							target.spAtkModifier -= 2
+							str = "It greatly lowered your pokemon's Special Attack stat!"
+						}
+						else str = "Your pokemon's Special Attack stat couldn't go any lower!"
+						break
+					case "LowerSpDef2":
+						if (target.spDefModifier > -5)
+						{
+							target.spDefModifier -= 2
+							str = "It greatly lowered your pokemon's Special Defense stat!"
+						}
+						else str = "Your pokemon's Special Defense stat couldn't go any lower!"
+						break
+					case "LowerSpeed2":
+						if (target.speedModifier > -5)
+						{
+							target.speedModifier -= 2
+							str = "It greatly lowered your pokemon's Speed stat!"
+						}
+						else str = "Your pokemon's Speed stat couldn't go any lower!"
+						break
+					case "DoomDowngrade":
+						var canLowerStatCount = 5
+						if (target.attackModifier > -5) target.attackModifier -= 2
+						else canLowerStatCount--
+						if (target.defenseModifier > -5) target.defenseModifier -= 2
+						else canLowerStatCount--
+						if (target.spAtkModifier > -5) target.spAtkModifier -= 2
+						else canLowerStatCount--
+						if (target.spDefModifier > -5) target.spDefModifier -= 2
+						else canLowerStatCount--
+						if (target.speedModifier > -5) target.speedModifier -= 2
+						else canLowerStatCount--
+					
+						if (canLowerStatCount == 0) str = "Your pokemon's stats couldn't go any lower!"
+						else str = "Many of your pokemon's stats were lowered!"
+						break
+					#endregion
+
+					#region Raise 1
+					case "RaiseAttack":
+						if (target.attackModifier < 6)
+						{
+							user.attackModifier += 1
+							str = "It raised the foe's Attack stat!"
+						}
+						else str = "Its Attack stat couldn't go any higher!"
+						break
+					case "RaiseDefense":
+						if (target.defenseModifier < 6)
+						{
+							user.defenseModifier += 1
+							str = "It raised the foe's Defense stat!"
+						}
+						else str = "Its Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpAtk":
+						if (target.spAtkModifier < 6)
+						{
+							user.spAtkModifier += 1
+							str = "It raised the foe's Special Attack stat!"
+						}
+						else str = "Its Special Attack stat couldn't go any higher!"
+						break
+					case "RaiseSpDef":
+						if (target.spDefModifier < 6)
+						{
+							user.spDefModifier += 1
+							str = "It raised the foe's Special Defense stat!"
+						}
+						else str = "Its Special Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpeed":
+						if (target.speedModifier < 6)
+						{
+							user.speedModifier += 1
+							str = "It raised the foe's Speed stat!"
+						}
+						else str = "Its Speed stat couldn't go any higher!"
+						break
+					#endregion
+
+					#region Raise 2
+					case "RaiseAttack2":
+						if (target.attackModifier < 5)
+						{
+							user.attackModifier += 2
+							str = "It greatly raised the foe's Attack stat!"
+						}
+						else str = "Its Attack stat couldn't go any higher!"
+						break
+					case "RaiseDefense2":
+						if (target.defenseModifier < 5)
+						{
+							user.defenseModifier += 2
+							str = "It greatly raised the foe's Defense stat!"
+						}
+						else str = "Its Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpAtk2":
+						if (target.spAtkModifier < 5)
+						{
+							user.spAtkModifier += 2
+							str = "It greatly raised the foe's Special Attack stat!"
+						}
+						else str = "Its Special Attack stat couldn't go any higher!"
+					case "RaiseSpDef2":
+						if (target.spDefModifier < 5)
+						{
+							user.spDefModifier += 2
+							str = "It greatly raised the foe's Special Defense stat!"
+						}
+						else str = "Its Special Defense stat couldn't go any higher!"
+						break
+					case "RaiseSpeed2":
+						if (target.speedModifier < 5)
+						{
+							user.speedModifier += 2
+							str = "It greatly raised the foe's Speed stat!"
+						}
+						else str = "Its Speed stat couldn't go any higher!"
+						break
+					#endregion
+
+					#region Statuses
+					case "Paralysis":
+						if (target.status == "None") str = "Your pokemon is now paralyzed"
+						else str = "The opponent already has a status effect!"
+						break
+					case "Poisoned":
+						if (target.status == "None") str = "Your pokemon is now poisoned"
+						else str = "The opponent already has a status effect!"
+						break
+					case "Burn":
+						if (target.status == "None") str = "Your pokemon is now burned"
+						else str = "The opponent already has a status effect!"
+						break
+					case "Sleep":
+						if (target.status == "None") str = "Your pokemon is now asleep"
+						else str = "The opponent already has a status effect!"
+						break
+					#endregion
+				
+					#region Traps
+					case "SetTrap":
+						var b = instance_find(BattleObject, 0)
+						ds_list_add(b.playerFieldEffects, "SetTrap")
+						str = "Traps were layed on the field!"
+						break
+				
+					case "WicketReversal":
+						b = instance_find(BattleObject, 0)
+						ds_list_add(b.playerFieldEffects, "ReversalTrap")
+						str = "Reversing traps were layed on the field!"
+						break
+					#endregion
+				
+					case "Recoil":
+					case "RecoilOnMiss":
+						str = "The opponent took some damage!"
+						break
+
+					case "StruggleRecoil":
+						str = "The opponent struggled and took some damage!"
+						break
+				}
 		}
 		else
 		{
-			switch (effectName)
+			if (effectName == "DoomDowngrade") 
 			{
-				#region Lower 1
-				case "LowerAttack":
-					if (target.attackModifier > -6)
-					{
-						target.attackModifier -= 1
-						str = "It lowered your pokemon's Attack stat!"
-					}
-					else str = "Your pokemon's Attack stat couldn't go any lower!"
-					break
-				case "LowerDefense":
-					if (target.defenseModifier > -6)
-					{
-						target.defenseModifier -= 1
-						str = "It lowered your pokemon's Defense stat!"
-					}
-					else str = "Your pokemon's Defense stat couldn't go any lower!"
-					break
-				case "LowerSpAtk":
-					if (target.spAtkModifier > -6)
-					{
-						target.spAtkModifier -= 1
-						str = "It lowered your pokemon's Special Attack stat!"
-					}
-					else str = "Your pokemon's Special Attack stat couldn't go any lower!"
-					break
-				case "LowerSpDef":
-					if (target.spDefModifier > -6)
-					{
-						target.spDefModifier -= 1
-						str = "It lowered your pokemon's Special Defense stat!"
-					}
-					else str = "Your pokemon's Special Defense stat couldn't go any lower!"
-					break
-				case "LowerSpeed":
-					if (target.speedModifier > -6)
-					{
-						target.speedModifier -= 1
-						str = "It lowered your pokemon's Speed stat!"
-					}
-					else str = "Your pokemon's Speed stat couldn't go any lower!"
-					break
-				#endregion
-
-				#region Lower 2
-				case "LowerAttack2":
-					if (target.attackModifier > -5)
-					{
-						target.attackModifier -= 2
-						str = "It greatly lowered your pokemon's Attack stat!"
-					}
-					else str = "Your pokemon's Attack stat couldn't go any lower!"
-					break
-				case "LowerDefense2":
-					if (target.defenseModifier > -5)
-					{
-						target.defenseModifier -= 2
-						str = "It greatly lowered your pokemon's Defense stat!"
-					}
-					else str = "Your pokemon's Defense stat couldn't go any lower!"
-					break
-				case "LowerSpAtk2":
-					if (target.spAtkModifier > -5)
-					{
-						target.spAtkModifier -= 2
-						str = "It greatly lowered your pokemon's Special Attack stat!"
-					}
-					else str = "Your pokemon's Special Attack stat couldn't go any lower!"
-					break
-				case "LowerSpDef2":
-					if (target.spDefModifier > -5)
-					{
-						target.spDefModifier -= 2
-						str = "It greatly lowered your pokemon's Special Defense stat!"
-					}
-					else str = "Your pokemon's Special Defense stat couldn't go any lower!"
-					break
-				case "LowerSpeed2":
-					if (target.speedModifier > -5)
-					{
-						target.speedModifier -= 2
-						str = "It greatly lowered your pokemon's Speed stat!"
-					}
-					else str = "Your pokemon's Speed stat couldn't go any lower!"
-					break
-				case "DoomDowngrade":
-					var canLowerStatCount = 5
-					if (target.attackModifier > -5) target.attackModifier -= 2
-					else canLowerStatCount--
-					if (target.defenseModifier > -5) target.defenseModifier -= 2
-					else canLowerStatCount--
-					if (target.spAtkModifier > -5) target.spAtkModifier -= 2
-					else canLowerStatCount--
-					if (target.spDefModifier > -5) target.spDefModifier -= 2
-					else canLowerStatCount--
-					if (target.speedModifier > -5) target.speedModifier -= 2
-					else canLowerStatCount--
-					
-					if (canLowerStatCount == 0) str = "Your pokemon's stats couldn't go any lower!"
-					else str = "Many of your pokemon's stats were lowered!"
-					break
-				#endregion
-
-				#region Raise 1
-				case "RaiseAttack":
-					if (target.attackModifier < 6)
-					{
-						user.attackModifier += 1
-						str = "It raised the foe's Attack stat!"
-					}
-					else str = "Its Attack stat couldn't go any higher!"
-					break
-				case "RaiseDefense":
-					if (target.defenseModifier < 6)
-					{
-						user.defenseModifier += 1
-						str = "It raised the foe's Defense stat!"
-					}
-					else str = "Its Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpAtk":
-					if (target.spAtkModifier < 6)
-					{
-						user.spAtkModifier += 1
-						str = "It raised the foe's Special Attack stat!"
-					}
-					else str = "Its Special Attack stat couldn't go any higher!"
-					break
-				case "RaiseSpDef":
-					if (target.spDefModifier < 6)
-					{
-						user.spDefModifier += 1
-						str = "It raised the foe's Special Defense stat!"
-					}
-					else str = "Its Special Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpeed":
-					if (target.speedModifier < 6)
-					{
-						user.speedModifier += 1
-						str = "It raised the foe's Speed stat!"
-					}
-					else str = "Its Speed stat couldn't go any higher!"
-					break
-				#endregion
-
-				#region Raise 2
-				case "RaiseAttack2":
-					if (target.attackModifier < 5)
-					{
-						user.attackModifier += 2
-						str = "It greatly raised the foe's Attack stat!"
-					}
-					else str = "Its Attack stat couldn't go any higher!"
-					break
-				case "RaiseDefense2":
-					if (target.defenseModifier < 5)
-					{
-						user.defenseModifier += 2
-						str = "It greatly raised the foe's Defense stat!"
-					}
-					else str = "Its Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpAtk2":
-					if (target.spAtkModifier < 5)
-					{
-						user.spAtkModifier += 2
-						str = "It greatly raised the foe's Special Attack stat!"
-					}
-					else str = "Its Special Attack stat couldn't go any higher!"
-				case "RaiseSpDef2":
-					if (target.spDefModifier < 5)
-					{
-						user.spDefModifier += 2
-						str = "It greatly raised the foe's Special Defense stat!"
-					}
-					else str = "Its Special Defense stat couldn't go any higher!"
-					break
-				case "RaiseSpeed2":
-					if (target.speedModifier < 5)
-					{
-						user.speedModifier += 2
-						str = "It greatly raised the foe's Speed stat!"
-					}
-					else str = "Its Speed stat couldn't go any higher!"
-					break
-				#endregion
-
-				#region Statuses
-				case "Paralysis":
-					if (target.status == "None") str = "Your pokemon is now paralyzed"
-					else str = "The opponent already has a status effect!"
-					break
-				case "Poisoned":
-					if (target.status == "None") str = "Your pokemon is now poisoned"
-					else str = "The opponent already has a status effect!"
-					break
-				case "Burn":
-					if (target.status == "None") str = "Your pokemon is now burned"
-					else str = "The opponent already has a status effect!"
-					break
-				case "Sleep":
-					if (target.status == "None") str = "Your pokemon is now asleep"
-					else str = "The opponent already has a status effect!"
-					break
-				#endregion
-				
-				#region Traps
-				case "SetTrap":
-					var b = instance_find(BattleObject, 0)
-					ds_list_add(b.playerFieldEffects, "SetTrap")
-					str = "Traps were layed on the field!"
-					break
-				
-				case "WicketReversal":
-					b = instance_find(BattleObject, 0)
-					ds_list_add(b.playerFieldEffects, "ReversalTrap")
-					str = "Reversing traps were layed on the field!"
-					break
-				#endregion
-				
-				case "Recoil":
-				case "RecoilOnMiss":
-					str = "The opponent took some damage!"
-					break
-
-				case "StruggleRecoil":
-					str = "The opponent struggled and took some damage!"
-					break
+				skipTurn = true						
+				ds_list_add(battleText.textList, "Your pokémon's move failed and they fainted!")
 			}
-			
-			if (string_count("Recoil", str) == 0)
+		}
+	
+		if (string_count("Recoil", str) == 0)
 			{
 				if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) 
 				{
@@ -892,8 +912,8 @@ function DealEffect(effectName, accurancy, user, target)
 					ds_list_add(BattleTextboxObject.textList, "The opponent took some damage!")
 				}
 			}
-		}
 	}
+	
 	return str
 }
 
