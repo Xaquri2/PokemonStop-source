@@ -7,3 +7,7 @@ battleFlag = "TiltedMorlock_MorlockCity_inst_585E0540";
 name = Morlock;
 enemyName = "Morlock"
 enemyName = Morlock;
+
+ds_list_add(textList, "¡Hola! Soy un Morlockcito de otro país. Nosotros también comemos carne humano!")
+ds_list_add(nameList, "Morlock")
+ds_list_add(iconList, sprite_index)
