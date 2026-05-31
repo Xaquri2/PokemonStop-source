@@ -1,1 +1,1 @@
-room_goto(MorlockRestaurant);
+room_goto(TestRoom2);

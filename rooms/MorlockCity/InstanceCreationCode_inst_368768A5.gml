@@ -8,6 +8,6 @@ name = Morlock;
 enemyName = "Morlock"
 enemyName = Morlock;
 
-ds_list_add(textList, "Hi there...")
+ds_list_add(textList, "I'm in a hurry!")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)

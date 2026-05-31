@@ -7,3 +7,7 @@ battleFlag = "TiltedMorlock_MorlockCity_inst_595300A9";
 name = Morlock;
 enemyName = "Morlock"
 enemyName = Morlock;
+
+ds_list_add(textList, "Don't forget to thank the Sphinx every morning for this beautiful underground city we live in!")
+ds_list_add(nameList, "Morlock")
+ds_list_add(iconList, sprite_index)
