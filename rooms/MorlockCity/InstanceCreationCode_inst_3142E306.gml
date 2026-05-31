@@ -10,6 +10,6 @@ name = Morlock;
 enemyName = "Morlock"
 enemyName = Morlock;
 
-ds_list_add(textList, "I've heard Alola morlocks make the best soup")
+ds_list_add(textList, "I've heard Alola morlocks make the best soup!  Wish I could try some")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)

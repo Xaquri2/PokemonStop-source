@@ -7,3 +7,8 @@ battleFlag = "TiltedMorlock_MorlockCity_inst_56D659A9";
 name = Morlock;
 enemyName = "Morlock"
 enemyName = Morlock;
+
+ds_list_add(textList, "I know this might be blasphemous against the Sphinx but...",
+"Do you think Humans are right? That ARCEUS could've created the Universe...?")
+ds_list_add(nameList, "Morlock","Morlock")
+ds_list_add(iconList, sprite_index,sprite_index)
