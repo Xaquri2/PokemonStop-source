@@ -5,7 +5,7 @@ var view_y = camera_get_view_y(view_camera[0]);
 var view_width = camera_get_view_width(view_camera[0]);
 var view_height = camera_get_view_height(view_camera[0]);
 
-draw_sprite_ext(sprite_index, image_index, view_width/2, view_y+view_height-32, 8, 1.75, image_angle, image_blend, image_alpha)
+draw_sprite_ext(sprite_index, image_index, view_width/2, view_y+view_height-32, 8*(view_width/40), 1.75, image_angle, image_blend, image_alpha)
 
 var ogText = ds_list_find_value(textList, currentText)
 var text = string_copy(ogText, 0, charNumber)

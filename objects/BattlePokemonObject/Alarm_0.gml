@@ -15,3 +15,13 @@ if (playerTeam)
 
 image_xscale *= GetBattleXscale(name)
 if (playerTeam) image_xscale *= -1
+
+if (sprite_index == GodzillaSprite)
+{
+	sprite_index = noone
+	if (playerTeam) layer_set_visible(layer_get_id("PlayersGodzilla"), true)
+	else 
+	{
+		layer_set_visible(layer_get_id("Godzilla"), true)
+	}
+}
