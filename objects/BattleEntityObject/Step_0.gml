@@ -16,3 +16,31 @@ if (player == false) {
 	    image_yscale = 1.1;
 	}
 }
+
+if (room == RoomBattleGodzilla) sprite_index = noone
+
+if (flash)
+{
+	if (flashValue < 1) flashValue += 0.05
+	else 
+	{
+		flash = false
+		
+		#region Pokémon Spawning
+		var pk = instance_create_layer(x,y,"Instances",BattlePokemonObject)
+		if (switchIndex == -1)
+		{
+			if (player) currentPkmn = GetFirstHealthyPokemon()
+			pk.index = currentPkmn
+		}
+		else pk.index = switchIndex
+
+		pk.team = team
+		if (!player) pk.playerTeam = false
+		#endregion
+	}
+}
+else
+{
+	if (flashValue > 0) flashValue -= 0.05
+}

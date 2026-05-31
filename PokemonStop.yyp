@@ -128,6 +128,7 @@
     {"link":"io.gamemaker.gm_filter_screenshake-1.0.0","name":"io.gamemaker.gm_filter_screenshake-1.0.0","path":"io.gamemaker.gm_filter_screenshake-1.0.0.yyp",},
   ],
   "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"GodzillaCutscene.mp4","CopyToMask":-1,"filePath":"datafiles","name":"GodzillaCutscene.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"MegaBot800.mp4","CopyToMask":-1,"filePath":"datafiles","name":"MegaBot800.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"ShadowGymCutscene.mp4","CopyToMask":-1,"filePath":"datafiles","name":"ShadowGymCutscene.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
@@ -400,6 +401,7 @@
     {"id":{"name":"RobotPath","path":"rooms/RobotPath/RobotPath.yy",},},
     {"id":{"name":"RobotPokecenter","path":"rooms/RobotPokecenter/RobotPokecenter.yy",},},
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
+    {"id":{"name":"RoomBattleGodzilla","path":"rooms/RoomBattleGodzilla/RoomBattleGodzilla.yy",},},
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
     {"id":{"name":"RouteMinusOneTop","path":"rooms/RouteMinusOneTop/RouteMinusOneTop.yy",},},
     {"id":{"name":"SecondFloor","path":"rooms/SecondFloor/SecondFloor.yy",},},
@@ -955,6 +957,7 @@
     {"roomId":{"name":"Elevator4","path":"rooms/Elevator4/Elevator4.yy",},},
     {"roomId":{"name":"GodzillaBattleMockUp","path":"rooms/GodzillaBattleMockUp/GodzillaBattleMockUp.yy",},},
     {"roomId":{"name":"MaryHouseUpstairs","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},},
+    {"roomId":{"name":"RoomBattleGodzilla","path":"rooms/RoomBattleGodzilla/RoomBattleGodzilla.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

@@ -1377,12 +1377,19 @@ function GetTrainerTeam(trainerName)
 			//AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
 			break
 		case "Zoovac":
-			AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)
-			AddPokemonTrainer(team, 2, "Zergling", 22, "Male", ZerglingSprite)
-			AddPokemonTrainer(team, 3, "Demogorgon", 24, "Male", DemogorgonBattleSprite)
-			AddPokemonTrainer(team, 4, "MissingNo", 24, "Male", MissingNoIdleSprite)
-			AddPokemonTrainer(team, 5, "Rancor", 25, "Male", RancorOverworldSprite)
-			AddPokemonTrainer(team, 6, "Godzilla", 35, "Male", GodzillaPosterSprite)
+			if (!HasFlag("ZoovacFirstBattle"))
+			{
+				AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)
+				/*AddPokemonTrainer(team, 2, "Zergling", 22, "Male", ZerglingSprite)
+				AddPokemonTrainer(team, 3, "Demogorgon", 24, "Male", DemogorgonBattleSprite)
+				AddPokemonTrainer(team, 4, "MissingNo", 24, "Male", MissingNoIdleSprite)
+				AddPokemonTrainer(team, 5, "Rancor", 25, "Male", RancorOverworldSprite)
+				AddPokemonTrainer(team, 6, "Godzilla", 35, "Male", GodzillaPosterSprite)*/
+			}
+			else
+			{
+				AddPokemonTrainer(team, 1, "Godzilla", 5, "Male", GodzillaSprite)
+			}
 			break
 	}
 	return team

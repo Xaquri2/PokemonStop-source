@@ -17,3 +17,5 @@ if (!spawned)
 	entity.team = team
 	entity.isWild = isWild
 }
+
+if (room == RoomBattleGodzilla) sprite_index = false

@@ -1,4 +1,4 @@
-if (room == RoomBattle)
+if (room == RoomBattle or room == RoomBattleGodzilla)
 {
 	var bgLayer = BattleHasBackground()
 	var bgLayer2 = BattleHasBackground2()
@@ -26,8 +26,15 @@ if (room == RoomBattle)
 		
 		playCutscene = true
 		cutscenePlaying = true
-		video_open("MegaBot800.mp4")
-		audio_play_sound(MegaBot800CutsceneAudio, 1, false)
+		if (cutsceneVideo == "MegaBotCutscene")
+		{
+			video_open("MegaBot800.mp4")
+			audio_play_sound(MegaBot800CutsceneAudio, 1, false)
+		}
+		else if (cutsceneVideo == "GodzillaCutscene")
+		{
+			video_open("GodzillaCutscene.mp4")
+		}
 		alarm[1] = video_get_duration()
 	}
 	
@@ -47,23 +54,45 @@ if (room == RoomBattle)
 		ds_list_add(textList, string_concat(enemyName, " wants to battle"), string_concat(enemyName, " sent out ", enemyTeamMemberName),
 		string_concat("Go! ", playerTeamMemberName))
 	}
+	
+	if (room != RoomBattleGodzilla)
+	{
+		var floorEnemy = instance_create_layer(room_width*0.7,
+		room_height*0.3, "BattleFloor", BattleFloorObject)
 
-	var floorEnemy = instance_create_layer(room_width*0.7,
-	room_height*0.3, "BattleFloor", BattleFloorObject)
+		var floorPlayer = instance_create_layer(room_width*0.3,
+		room_height*0.7, "BattleFloor", BattleFloorObject)
+	
+		floorEnemy.team = enemyTeam
+		floorEnemy.trainer = enemySprite
+		floorEnemy.player = false
+		floorEnemy.isWild = isWild
 
-	var floorPlayer = instance_create_layer(room_width*0.3,
-	room_height*0.7, "BattleFloor", BattleFloorObject)
+		floorPlayer.team = playerTeam
+		floorPlayer.trainer = object_get_sprite(PlayerObject)
 
-	floorEnemy.team = enemyTeam
-	floorEnemy.trainer = enemySprite
-	floorEnemy.player = false
-	floorEnemy.isWild = isWild
+		floorEnemy.image_xscale = 2
+		floorPlayer.image_xscale = 2
+	}
+	else
+	{
+		var floorEnemy = instance_create_layer(150,
+		160, "BattleFloor", BattleFloorObject)
 
-	floorPlayer.team = playerTeam
-	floorPlayer.trainer = object_get_sprite(PlayerObject)
+		var floorPlayer = instance_create_layer(110,
+		170, "BattleFloor", BattleFloorObject)
+	
+		floorEnemy.team = enemyTeam
+		floorEnemy.trainer = enemySprite
+		floorEnemy.player = false
+		floorEnemy.isWild = isWild
 
-	floorEnemy.image_xscale = 2
-	floorPlayer.image_xscale = 2
+		floorPlayer.team = playerTeam
+		floorPlayer.trainer = object_get_sprite(PlayerObject)
+
+		floorEnemy.image_xscale = 2
+		floorPlayer.image_xscale = 2
+	}
 }
 else
 {

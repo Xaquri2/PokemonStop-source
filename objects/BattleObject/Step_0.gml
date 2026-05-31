@@ -1,4 +1,4 @@
-if (room != RoomBattle)
+if (room != RoomBattle and room != RoomBattleGodzilla)
 {
 	if (!spriteIntro)
 	{
@@ -12,7 +12,8 @@ if (room != RoomBattle)
 					fadeAlpha += 0.02
 					if (fadeAlpha >= 1)
 					{
-						room_goto(RoomBattle)
+						if (enemyName == "Zoovac" and HasFlag("ZoovacFirstBattle")) room_goto(RoomBattleGodzilla)
+						else room_goto(RoomBattle)
 					}
 				}
 				if (fadeAlpha >= 1 and fadeCount < 4)

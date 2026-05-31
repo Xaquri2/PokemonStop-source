@@ -1,4 +1,4 @@
-if (room != RoomBattle)
+if (room != RoomBattle and room != RoomBattleGodzilla)
 {	
 	if (importantBattle)
 	{

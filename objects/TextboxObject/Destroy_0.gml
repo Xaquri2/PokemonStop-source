@@ -221,6 +221,10 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "Yes")
 				ds_list_add(optionMenu.optionList, "No")
 			}
+			else if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!")
+			{
+				startBattle = true
+			}
 			break
 		case NurseJoy:
 			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Come see me when your Pokémon are injured!")
@@ -402,6 +406,11 @@ if (startBattle and instance_number(OptionObject) == 0)
 	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
 	{
 		battleObj.cutsceneVideo = "MegaBotCutscene"
+	}
+	
+	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!")
+	{
+		battleObj.cutsceneVideo = "GodzillaCutscene"
 	}
 	
 	if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
