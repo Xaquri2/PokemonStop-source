@@ -50,3 +50,6 @@ ZoovacSprite_CLOSEUP)
 //"Gorbertron", "Gorbertron", global.playerName, "Gorbertron", "Gorbertron", "Gorbertron", global.playerName, "Gorbertron",
 //global.playerName, "Gorbertron", "Gorbertron", "Gorbertron", "Gorbertron")
 
+zoovacGodzillaDialogueStarted = false;
+
+

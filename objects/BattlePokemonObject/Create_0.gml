@@ -36,5 +36,11 @@ catchEffectAlpha = 1
 textbox = -1
 
 alarm[0] = 1
-image_xscale = 2
-image_yscale = 2
+if room == RoomBattleGodzilla {
+	image_xscale = 0.4
+	image_yscale = 0.4
+}
+else {
+	image_xscale = 2
+	image_yscale = 2
+}

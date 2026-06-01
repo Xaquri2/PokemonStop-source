@@ -118,3 +118,10 @@ if (room == RoomBattle and instance_exists(battle))
 		}
 	}
 }
+
+//if cutsceneSurface {
+//	show_debug_message("CutsceneObject exists!" + string(date_current_time()));
+//}
+//else {
+//	show_debug_message("Nope!")
+//}

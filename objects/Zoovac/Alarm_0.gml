@@ -1,8 +1,9 @@
 event_inherited();
 player = instance_find(PlayerObject, 0)
 
-if (HasFlag("ZoovacFirstBattle"))
+if (HasFlag("ZoovacFirstBattle") && (zoovacGodzillaDialogueStarted == false))
 {
+	zoovacGodzillaDialogueStarted = true;
 	if (!HasFlag("ZoovacFinalBattle")) 
 	{
 		ds_list_empty(postBattleTextList)

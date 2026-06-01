@@ -88,3 +88,17 @@ if (cutsceneVideo != "")
 		}
 	}
 }
+
+// Clouds
+if (cloud_level > cloud_target) {
+    cloud_level -= 0.001; // about 1.7 seconds at 60 FPS
+    cloud_level = max(cloud_level, cloud_target);
+
+    var fx = layer_get_fx("Clouds");
+    if (fx != -1) {
+        fx_set_parameter(fx, "g_CloudLevel", cloud_level);
+    }
+}
+if room == RoomBattleGodzilla {
+	show_debug_message("Clouds layer:" + string(layer_get_visible("Clouds") ))
+}

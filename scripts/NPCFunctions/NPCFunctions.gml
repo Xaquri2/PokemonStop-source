@@ -57,7 +57,7 @@ function GetTrainerMoney(n)
 	switch (n)
 	{
 		//case "Name of the trainer": return [value]
-		default: return 100
+		default: return irandom_range(50,150)
 	}
 }
 

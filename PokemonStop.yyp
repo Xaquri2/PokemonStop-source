@@ -366,6 +366,7 @@
     {"id":{"name":"ZooChomper","path":"objects/ZooChomper/ZooChomper.yy",},},
     {"id":{"name":"Zoombini","path":"objects/Zoombini/Zoombini.yy",},},
     {"id":{"name":"Zoovac","path":"objects/Zoovac/Zoovac.yy",},},
+    {"id":{"name":"ZoovacHovering","path":"objects/ZoovacHovering/ZoovacHovering.yy",},},
     {"id":{"name":"Elevator1","path":"rooms/Elevator1/Elevator1.yy",},},
     {"id":{"name":"Elevator2","path":"rooms/Elevator2/Elevator2.yy",},},
     {"id":{"name":"Elevator3","path":"rooms/Elevator3/Elevator3.yy",},},
