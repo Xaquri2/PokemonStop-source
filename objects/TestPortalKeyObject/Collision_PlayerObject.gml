@@ -1,1 +1,1 @@
-room_goto(FifthFloor);
+room_goto(EndCreditsRoom);

@@ -1380,15 +1380,14 @@ function GetTrainerTeam(trainerName)
 			if (!HasFlag("ZoovacFirstBattle"))
 			{
 				AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)
-				/*AddPokemonTrainer(team, 2, "Zergling", 22, "Male", ZerglingSprite)
-				AddPokemonTrainer(team, 3, "Demogorgon", 24, "Male", DemogorgonBattleSprite)
-				AddPokemonTrainer(team, 4, "MissingNo", 24, "Male", MissingNoIdleSprite)
-				AddPokemonTrainer(team, 5, "Rancor", 25, "Male", RancorOverworldSprite)
-				AddPokemonTrainer(team, 6, "Godzilla", 35, "Male", GodzillaPosterSprite)*/
+				/*AddPokemonTrainer(team, 2, "Zergling", 38, "Male", ZerglingSprite)
+				AddPokemonTrainer(team, 3, "Demogorgon", 44, "Male", DemogorgonBattleSprite)
+				AddPokemonTrainer(team, 4, "MissingNo", 44, "Male", MissingNoIdleSprite)
+				AddPokemonTrainer(team, 5, "Rancor", 55, "Male", RancorOverworldSprite)*/
 			}
 			else
 			{
-				AddPokemonTrainer(team, 1, "Godzilla", 5, "Male", GodzillaSprite)
+				AddPokemonTrainer(team, 1, "Godzilla", 65, "Male", GodzillaSprite)
 			}
 			break
 	}
@@ -1456,13 +1455,11 @@ function ConvinceCheck()
 
 function GetBattleXscale(name)
 {
-	/*switch (name)
+	switch (name)
 	{
-		case "Name of Pokémon 1":
-		case "Name of Pokémon 2":
-		case "Name of Pokémon 3":
+		case "Silver Scorpion":
 			return -1
 		//Use this for naturally flipped pokémon
-	}*/
+	}
 	return 1
 }

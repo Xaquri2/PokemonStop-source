@@ -372,6 +372,7 @@
     {"id":{"name":"Elevator3","path":"rooms/Elevator3/Elevator3.yy",},},
     {"id":{"name":"Elevator4","path":"rooms/Elevator4/Elevator4.yy",},},
     {"id":{"name":"EmptyHouse","path":"rooms/EmptyHouse/EmptyHouse.yy",},},
+    {"id":{"name":"EndCreditsRoom","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},},
     {"id":{"name":"FifthFloor","path":"rooms/FifthFloor/FifthFloor.yy",},},
     {"id":{"name":"FirstFloor","path":"rooms/FirstFloor/FirstFloor.yy",},},
     {"id":{"name":"FourthFloor","path":"rooms/FourthFloor/FourthFloor.yy",},},
@@ -959,6 +960,7 @@
     {"roomId":{"name":"GodzillaBattleMockUp","path":"rooms/GodzillaBattleMockUp/GodzillaBattleMockUp.yy",},},
     {"roomId":{"name":"MaryHouseUpstairs","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},},
     {"roomId":{"name":"RoomBattleGodzilla","path":"rooms/RoomBattleGodzilla/RoomBattleGodzilla.yy",},},
+    {"roomId":{"name":"EndCreditsRoom","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

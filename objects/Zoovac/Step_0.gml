@@ -1,8 +1,10 @@
 // Inherit the parent event
 event_inherited();
 
-show_debug_message(
-    "Zoovac exists: " + string(instance_exists(Zoovac)) +
-    " | Room: " + room_get_name(room) +
-    " | Time: " + string(current_time)
-);
+if (HasFlag("ZoovacFirstBattle")) {
+	show_debug_message("Haz First Battle Flag!")
+}
+
+if (HasFlag("ZoovacFinalBattle")) {
+	show_debug_message("Haz FINAL Battle Flag!")
+}
