@@ -1,0 +1,1 @@
+display_text = "used in Poké Centers";
