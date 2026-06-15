@@ -18,3 +18,5 @@ triggered = false
 walk = false
 
 dialogueStart = false
+
+CurrentLayer = "Instances"

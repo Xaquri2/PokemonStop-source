@@ -68,8 +68,8 @@
   ],
   "name":"GodzillaBattleMockUp",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Dark Tower",
+    "path":"folders/Rooms/Dark Tower.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

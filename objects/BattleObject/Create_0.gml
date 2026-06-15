@@ -46,3 +46,7 @@ playCutscene = false
 cutsceneVideo = ""
 cutscenePlaying = false
 cutsceneSurface = -1
+
+
+cloud_level = 1;
+cloud_target = 0.5;

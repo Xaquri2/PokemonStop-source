@@ -47,3 +47,7 @@ else
 //    x = lerp(x, player.x, follow);
 //    y = lerp(y, player.y, follow);
 //}
+
+if (room == EndCreditsRoom) && (EndCreditsAlarm == true) {
+	y = lerp(y, y+1, 0.3)
+}

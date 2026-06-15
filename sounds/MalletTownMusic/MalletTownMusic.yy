@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"MalletTownMusic.mp3",
-  "volume":0.34,
+  "volume":0.69,
 }

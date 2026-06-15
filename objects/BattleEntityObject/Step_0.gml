@@ -27,7 +27,7 @@ if (flash)
 		flash = false
 		
 		#region Pokémon Spawning
-		var pk = instance_create_layer(x,y,"Instances",BattlePokemonObject)
+		var pk = instance_create_layer(168,161,"Instances",BattlePokemonObject)
 		if (switchIndex == -1)
 		{
 			if (player) currentPkmn = GetFirstHealthyPokemon()

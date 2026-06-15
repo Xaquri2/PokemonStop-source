@@ -408,8 +408,9 @@ if (startBattle and instance_number(OptionObject) == 0)
 		battleObj.cutsceneVideo = "MegaBotCutscene"
 	}
 	
-	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!")
+	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!") && !HasFlag("ZoovacFinalBattle")
 	{
+		show_debug_message("TRIGGERING GODZILLA CUTSCENE");
 		battleObj.cutsceneVideo = "GodzillaCutscene"
 	}
 	
