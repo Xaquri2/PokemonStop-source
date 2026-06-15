@@ -327,7 +327,7 @@ if (instance_exists(actionNPC))
 				
 				player = instance_find(PlayerObject, 0)
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-			
+				
 				ds_list_add(dialogue.textList, "You obtained the Skyview Potion!")
 				player.talking = true
 				player.alarm[1] = -1

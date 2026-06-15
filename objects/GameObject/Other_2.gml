@@ -50,7 +50,7 @@ AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = FifthFloor
+global.standardStartRoom = NebogipfelsStudy
 global.activatedBadges = ds_list_create()
 
 global.torch = false
@@ -59,5 +59,3 @@ global.torchRange = 60
 
 global.morlockTimer = 0
 global.convinceCounter = 0
-
-AddItem("Skyview Potion", 1)

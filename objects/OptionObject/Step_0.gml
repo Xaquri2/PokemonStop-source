@@ -641,7 +641,7 @@ if (keyboard_check_pressed(vk_enter))
 	
 	//Nebogipfel// 
 	
-	if (question == "Question this weird Morlock!")
+	if (question == "Question this weird Morlock!" or question == "More Questions for Nebogipfel")
 	{
 		if (ds_list_find_value(optionList, currentOption) == "Who are you?")
 		{
@@ -700,8 +700,8 @@ if (keyboard_check_pressed(vk_enter))
 			player.alarm[1] = -1
 			
 			var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
-		    optionMenu.referenceNPC = actionNPC;
 		    optionMenu.question = "More Questions for Nebogipfel";
+			optionMenu.referenceNPC = referenceNPC
 
 		    ds_list_add(optionMenu.optionList, "What is this place?")
 			ds_list_add(optionMenu.optionList, "What do you do here?")
@@ -758,13 +758,14 @@ if (keyboard_check_pressed(vk_enter))
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
+		var a = ds_list_find_value(optionList, currentOption)
 		if (ds_list_find_value(optionList, currentOption) == "(Even more questions)")
 		{
 			var player = instance_find(PlayerObject, 0)
 			player.alarm[1] = -1
 			
 			var optionMenu = instance_create_layer(20, 20, "UserInterface", OptionObject);
-		    optionMenu.referenceNPC = actionNPC;
+		    optionMenu.referenceNPC = referenceNPC
 		    optionMenu.question = "More Questions for Nebogipfel";
 
 		    ds_list_add(optionMenu.optionList, "Are you a Pokémon Trainer too?", "Can you help me find the Gym Leader here...?")
