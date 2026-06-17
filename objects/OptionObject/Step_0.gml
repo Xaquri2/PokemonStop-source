@@ -775,7 +775,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "Glagash, no!",
 			"Look, it’s not just Morlock society that I differ from…",
 			"This whole society, Morlock, Human, or otherwise…",
@@ -794,7 +795,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "Simply head North once you exit my home and follow the path, you’ll get there eventually!")
 			ds_list_add(dialogue.nameList, "Nebogipfel")
 			ds_list_add(dialogue.iconList, NebogipfelSprite)
@@ -808,7 +810,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "We Morlocks eat humans. We treat you like your lives, your thoughts, don’t matter.",
 			"Isn’t training Pokémon the same thing?",
 			"You attack these creatures, you capture them by force, and you force them to work for you.",
@@ -828,7 +831,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "Is it, though?", 
 			"We Morlocks eat humans. We treat you like your lives, your thoughts, don’t matter.",
 			"Isn’t training Pokémon the same thing?",
@@ -851,7 +855,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "That doesn’t change the fact that they don’t have a CHOICE.",
 			"I hope that, perhaps in your journeys, you’ll learn to see all sentient beings as THE SAME…",
 			"Humans, Morlocks, Pokémon, … even sentient ROBOTS…",
@@ -868,7 +873,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "Thank you.", "Sorry to rant, that’s just what I think.")
 			
 			ds_list_add(dialogue.nameList, "Nebogipfel", "Nebogipfel")
@@ -884,7 +890,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-
+			dialogue.actionNPC = referenceNPC
+			
 			ds_list_add(dialogue.textList, "Well, I learned these idea through EXPERIENCE. I think you should, too.",
 			"And I have just the thing to help!",
 			"Right now, you see us MORLOCKS only as vicious creatures. Enemies.",
@@ -917,6 +924,7 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 			
 			ds_list_add(dialogue.textList, "Ouch.",
 			"As someone who’s longed to talk to a real human for years… that hurts.",
@@ -936,8 +944,9 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 			
-			ds_list_add(dialogue.textList, "Quite understandable.", "If you change your mind, let me know.")
+			ds_list_add(dialogue.textList, "Quite understandable.", "Bring me one of those, and I’ll make the potion for you.")
 			
 			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel")
 			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite)
@@ -953,7 +962,7 @@ if (keyboard_check_pressed(vk_enter))
 			{
 				var player = instance_find(PlayerObject, 0)
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-			
+				
 				ds_list_add(dialogue.textList, "Ooh, excellent, this is exciting! What an experiment!",
 				"Okay, here goes!!",
 				"Let’s see… two tablespoons of Glaktar… one goshgash of frashgist..",

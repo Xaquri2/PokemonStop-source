@@ -317,6 +317,10 @@ if (instance_exists(actionNPC))
 				ds_list_add(optionMenu.optionList, "No way! I’m not turning into one of you disgusting creatures",
 				"Uh, no thanks… I’m not ready to change into something else", "Yes please!")
 			}
+			else if (finalText == "Bring me one of those, and I’ll make the potion for you.")
+			{
+				if (!HasFlag("ReturnToNebo")) ds_list_add(global.flags, "ReturnToNebo")
+			}
 			else if (finalText == "Go in peace. If you change your mind, you know where to find me.")
 			{
 				if (!HasFlag("ReturnToNebo")) ds_list_add(global.flags, "ReturnToNebo")

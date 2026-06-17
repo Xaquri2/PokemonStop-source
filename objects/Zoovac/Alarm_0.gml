@@ -1,13 +1,13 @@
 event_inherited();
 player = instance_find(PlayerObject, 0)
 
-if (HasFlag("ZoovacFirstBattle") && (!HasFlag("ZoovacFinalBattle")) && (zoovacGodzillaDialogueStarted == false)) {
-	zoovacGodzillaDialogueStarted = true;
-	//if (!HasFlag("ZoovacFinalBattle")) 
-	
-		ds_list_empty(postBattleTextList)
-		ds_list_empty(postBattleNameList)
-		ds_list_empty(postBattleIconList)
+if (HasFlag("ZoovacFirstBattle"))
+{
+	if (!HasFlag("ZoovacFinalBattle"))
+	{
+		ds_list_clear(postBattleTextList)
+		ds_list_clear(postBattleNameList)
+		ds_list_clear(postBattleIconList)
 		
 		ds_list_add(postBattleTextList, "You think you've won, don't you?!",
 		"Godzilla, come out!")
@@ -26,9 +26,9 @@ if (HasFlag("ZoovacFirstBattle") && (!HasFlag("ZoovacFinalBattle")) && (zoovacGo
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 	}
 	else if (HasFlag("ZoovacFinalBattle")) {
-		ds_list_empty(postBattleTextList)
-		ds_list_empty(postBattleNameList)
-		ds_list_empty(postBattleIconList)
+		ds_list_clear(postBattleTextList)
+		ds_list_clear(postBattleNameList)
+		ds_list_clear(postBattleIconList)
 		
 		ds_list_add(postBattleTextList, "Well, well, well!",
 		"The first one to beat me...",
@@ -51,3 +51,4 @@ if (HasFlag("ZoovacFirstBattle") && (!HasFlag("ZoovacFinalBattle")) && (zoovacGo
 
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 	}
+}

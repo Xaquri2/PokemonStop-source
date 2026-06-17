@@ -5,9 +5,9 @@ if (HasFlag("CollectorFirstBattle"))
 {
 	if (!HasFlag("CollectorFinalBattle")) 
 	{
-		ds_list_empty(postBattleTextList)
-		ds_list_empty(postBattleNameList)
-		ds_list_empty(postBattleIconList)
+		ds_list_clear(postBattleTextList)
+		ds_list_clear(postBattleNameList)
+		ds_list_clear(postBattleIconList)
 		
 		ds_list_add(postBattleTextList, "You think you've won, don't you?!",
 		"MEGA-BOT, Activate!!!")
@@ -27,9 +27,9 @@ if (HasFlag("CollectorFirstBattle"))
 	}
 	else
 	{
-		ds_list_empty(postBattleTextList)
-		ds_list_empty(postBattleNameList)
-		ds_list_empty(postBattleIconList)
+		ds_list_clear(postBattleTextList)
+		ds_list_clear(postBattleNameList)
+		ds_list_clear(postBattleIconList)
 		
 		ds_list_add(postBattleTextList, "Well, it seems you've earned the Robot Badge.", 
 		"Enjoy being an inferior human!")

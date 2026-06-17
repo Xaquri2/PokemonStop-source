@@ -49,8 +49,10 @@ function GetItemCategory(name)
 		case "Skyview Mushroom":
 			return "Key Items"
 		#endregion
+		
+		default:
+			return "Items"
 	}
-	return ""
 }
 
 function GetItemDescription(name)
