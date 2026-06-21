@@ -958,7 +958,7 @@ if (keyboard_check_pressed(vk_enter))
 		
 		if (ds_list_find_value(optionList, currentOption) == "Yes please!")
 		{
-			if (HasItem("Skyglow Mushroom"))
+			if (HasItem("Skyview Mushroom"))
 			{
 				var player = instance_find(PlayerObject, 0)
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)

@@ -7,7 +7,7 @@ if (!HasFlag("ReturnToNebo"))
 }
 else if (HasFlag("ReturnToNebo") and !HasFlag("HasNeboPotion"))
 {
-	if (HasItem("Skyglow Mushroom"))
+	if (HasItem("Skyview Mushroom"))
 	{
 		ds_list_add(textList, "Ooh, excellent, this is exciting! What an experiment!",
 		"Okay, here goes!!",
