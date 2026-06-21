@@ -647,6 +647,7 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 
 			ds_list_add(dialogue.textList, "Oh, uh, excuse me — I am Called Neb —",
 			"Uh, not sure you can pronounce this in your language? —","Nebogipfel.",
@@ -658,13 +659,14 @@ if (keyboard_check_pressed(vk_enter))
 
 			player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 
 		if (ds_list_find_value(optionList, currentOption) == "You sure you’re not gonna eat me?")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 
 			ds_list_add(dialogue.textList, "Oh, yes, very sure. You have nothing to fear from me. ",
 			" I’ve come to detest what the other Morlocks do to your people. ",
@@ -675,13 +677,14 @@ if (keyboard_check_pressed(vk_enter))
 
 			player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
 		if (ds_list_find_value(optionList, currentOption) == "Pleased to meet you, I’m Gash!")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 
 			ds_list_add(dialogue.textList, "Ah, I… am … (what’s the word?) pleased also! Upon meeting you. ",
 			"I’ve been curious about Humans for a long time - how you live, how you... think...",
@@ -691,7 +694,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
 		if (ds_list_find_value(optionList, currentOption) == "(Next)")
@@ -713,6 +716,7 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 
 			ds_list_add(dialogue.textList, "Well, uh, this is my home.",
 			"As you can see, it doubles as my lab.",
@@ -722,13 +726,14 @@ if (keyboard_check_pressed(vk_enter))
 
 			player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
 		if (ds_list_find_value(optionList, currentOption) == "What do you do here?")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 
 			ds_list_add(dialogue.textList, "I do all sorts of experiments here - chemistry, physics, whatever.",
 			"The others have forgotten most of the Old Knowledge, except the parts needed to keep the machines running, but I can’t get enough of it!")
@@ -737,13 +742,14 @@ if (keyboard_check_pressed(vk_enter))
 
 			player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
 		if (ds_list_find_value(optionList, currentOption) == "Why are the other Morlocks trying to eat me?")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.actionNPC = referenceNPC
 
 			ds_list_add(dialogue.textList, "You’re our primary food source. We need to eat, you know.",
 			"I know, that doesn’t make it right.",
@@ -755,7 +761,7 @@ if (keyboard_check_pressed(vk_enter))
 
 			player.talking = true
 
-			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
 		var a = ds_list_find_value(optionList, currentOption)
