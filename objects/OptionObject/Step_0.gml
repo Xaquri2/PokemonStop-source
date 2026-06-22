@@ -973,7 +973,7 @@ if (keyboard_check_pressed(vk_enter))
 				"Okay, here goes!!",
 				"Let’s see… two tablespoons of Glaktar… one goshgash of frashgist..",
 				"Some of my own blood for DNA… Ow! …",
-				"and one Skyglow Mushroom!",
+				"and one Skyview Mushroom!",
 				"There we go! Your potion! Drink when ready!")
 			
 				ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel",
@@ -991,7 +991,7 @@ if (keyboard_check_pressed(vk_enter))
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 			
 				ds_list_add(dialogue.textList, "Ooh, excellent, this is exciting! What an experiment!",
-				"Oh, one thing though, I just remembered I’m missing an important ingredient: a SKYGLOW MUSHROOM.",
+				"Oh, one thing though, I just remembered I’m missing an important ingredient: a SKYVIEW MUSHROOM.",
 				"Bring me one of those, and I’ll make the potion for you.")
 			
 				ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel")
