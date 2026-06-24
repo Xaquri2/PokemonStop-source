@@ -1,0 +1,1 @@
+SetWarpDefaults("ShadowTowerToUnderroom2", "Down", false)

@@ -520,6 +520,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
 			#endregion
+		case "ShadowTowerToUnderroom1":
+			targetRoom = Underroom1
+			targetWarp = "ShadowUnderroom1Exit"
+			break
+
+		case "ShadowUnderroom1Exit":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToUnderroom1"
+			break
+
+
 		
 
 

@@ -1,1 +1,1 @@
-room_goto(EndCreditsRoom);
+room_goto(Target);

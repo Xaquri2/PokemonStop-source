@@ -1,0 +1,1 @@
+SetWarpDefaults("ShadowUnderroom1Exit", "Down", false)
