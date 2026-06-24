@@ -421,6 +421,7 @@
     {"id":{"name":"ThirdFloor","path":"rooms/ThirdFloor/ThirdFloor.yy",},},
     {"id":{"name":"TitleScreen","path":"rooms/TitleScreen/TitleScreen.yy",},},
     {"id":{"name":"Underroom1","path":"rooms/Underroom1/Underroom1.yy",},},
+    {"id":{"name":"Underroom2","path":"rooms/Underroom2/Underroom2.yy",},},
     {"id":{"name":"Waterfront","path":"rooms/Waterfront/Waterfront.yy",},},
     {"id":{"name":"RoomUI","path":"roomui/RoomUI/RoomUI.yy",},},
     {"id":{"name":"BattleFunctions","path":"scripts/BattleFunctions/BattleFunctions.yy",},},
@@ -452,6 +453,7 @@
     {"id":{"name":"FightAgainstSmithyByGaMetal","path":"sounds/FightAgainstSmithyByGaMetal/FightAgainstSmithyByGaMetal.yy",},},
     {"id":{"name":"HealPokemonJingle","path":"sounds/HealPokemonJingle/HealPokemonJingle.yy",},},
     {"id":{"name":"HyruleCastleRevision","path":"sounds/HyruleCastleRevision/HyruleCastleRevision.yy",},},
+    {"id":{"name":"InsideTheDekuTreeOoT","path":"sounds/InsideTheDekuTreeOoT/InsideTheDekuTreeOoT.yy",},},
     {"id":{"name":"MalletTownMusic","path":"sounds/MalletTownMusic/MalletTownMusic.yy",},},
     {"id":{"name":"MegaBot800CutsceneAudio","path":"sounds/MegaBot800CutsceneAudio/MegaBot800CutsceneAudio.yy",},},
     {"id":{"name":"MP3_Bear_Roar_2","path":"sounds/MP3_Bear_Roar_2/MP3_Bear_Roar_2.yy",},},
@@ -986,6 +988,7 @@
     {"roomId":{"name":"RoomBattleGodzilla","path":"rooms/RoomBattleGodzilla/RoomBattleGodzilla.yy",},},
     {"roomId":{"name":"EndCreditsRoom","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},},
     {"roomId":{"name":"Underroom1","path":"rooms/Underroom1/Underroom1.yy",},},
+    {"roomId":{"name":"Underroom2","path":"rooms/Underroom2/Underroom2.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

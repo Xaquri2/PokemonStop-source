@@ -529,10 +529,24 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToUnderroom1"
 			break
+		case "ShadowTowerToUnderroom2":
+			targetRoom = Underroom2
+			targetWarp = "Underroom2exit"
+			break
 
+		case "Underroom2exit":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToUnderroom2"
+			break
+		case "Underroom2to1":
+			targetRoom = Underroom1
+			targetWarp = "Underroom1toUnderroom2"
+			break
 
-		
-
+		case "Underroom1toUnderroom2":
+			targetRoom = Underroom2
+			targetWarp = "Underroom2to1"
+			break
 
 	}
 
@@ -621,6 +635,9 @@ function GetRoomMusic()
 		case ShadowTower: return OathToOrder
 		case EmptyHouse: return ShadowPathAmbiance
 		case ShadowPathGym: return CreepyLullabyNoVocal
+		case Underroom1: 
+		case Underroom2:
+			return InsideTheDekuTreeOoT
 		
 		//Robot Path
 		case RobotPath: 

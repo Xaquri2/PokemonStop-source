@@ -1,0 +1,1 @@
+ds_list_add(textList, "The platforms behind the windows represent UNIVERSES.","The ones seen here are part of a SEPARATE MULTIVERSE -- a set of universes distinct from the set we live in.")

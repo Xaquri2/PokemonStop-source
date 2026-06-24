@@ -1,0 +1,1 @@
+item = "X Special Attack 2"

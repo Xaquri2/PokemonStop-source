@@ -1,0 +1,1 @@
+SetWarpDefaults("Underroom2exit", "Right", false)
