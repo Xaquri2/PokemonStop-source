@@ -1,0 +1,1 @@
+ds_list_add(textList, "This universe appears populated by a familiar Pokémon -- Human! Along with some massive creatures.")

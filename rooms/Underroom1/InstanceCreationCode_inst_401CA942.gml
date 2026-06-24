@@ -1,0 +1,1 @@
+ds_list_add(textList, "This universe, represented by a strange person holding up a staff,", "has many strange and different energies throughout it, spread across different planets.","The man with the staff appears sealed inside a stasis field... yet his energies pierce into the Multiverse.")

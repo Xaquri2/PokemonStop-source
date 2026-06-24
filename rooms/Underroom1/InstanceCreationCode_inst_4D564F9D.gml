@@ -1,0 +1,1 @@
+ds_list_add(textList, "This universe, represented by the grand pyramid,","Has powerful magical energies radiating from it...","Many of them focused in this pyramid, which resides in a great desert.")
