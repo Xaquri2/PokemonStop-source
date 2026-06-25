@@ -804,6 +804,8 @@ function GetNestRoomPokemonType(ogRoom)
 	switch (ogRoom)
 	{
 		default:
-			return "Pikachu"
+			var pool = ds_list_create()
+			ds_list_add(pool, "Pikachu", "Pikachu", "Pikachu", "Squirtle")
+			return ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
 	}
 }
