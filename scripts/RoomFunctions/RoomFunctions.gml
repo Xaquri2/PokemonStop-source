@@ -547,7 +547,11 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = Underroom2
 			targetWarp = "Underroom2to1"
 			break
-
+		
+		case "NestRoomToOrigin":
+			targetRoom = GameObject.backupRoomInfo
+			targetWarp = "Random"
+			break
 	}
 
 	warpName = name
@@ -783,5 +787,23 @@ function BattleHasFX()
 		if (enemy == "Gorbertron") return string_concat(prevRoomName, "FX")
 		
 		default: return ""
+	}
+}
+
+function GetNestRoomTileType(ogRoom)
+{
+	switch (ogRoom)
+	{
+		default:
+			return GreenTileSprite
+	}
+}
+
+function GetNestRoomPokemonType(ogRoom)
+{
+	switch (ogRoom)
+	{
+		default:
+			return "Pikachu"
 	}
 }

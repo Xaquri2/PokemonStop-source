@@ -1,1 +1,0 @@
-SetWarpDefaults("TestToShadowTower", "Up", true)

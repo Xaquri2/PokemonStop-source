@@ -479,3 +479,16 @@ if (finalText == "You obtained the Skyview Potion!") AddItem("Skyview Potion", 1
 
 var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
 if (finalText == "Only for 10 minutes though!") player.menuOpen = false
+
+if (string_count("Area Key", finalText) > 0)
+{
+	var game = instance_find(GameObject, 0)
+	audio_play_sound(DoorOpen, 1, false)
+	player.canWalk = false
+	
+	game.fade = true
+	game.warp = true
+	game.targetRoom = NestAreaRoom
+	game.targetWarp = "NestRoomToOrigin"
+	game.backupRoomInfo = room
+}

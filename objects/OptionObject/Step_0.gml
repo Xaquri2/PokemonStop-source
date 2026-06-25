@@ -332,6 +332,19 @@ if (keyboard_check_pressed(vk_enter))
 						instance_destroy(menu)
 						instance_destroy(id)
 					}
+					else if (string_count("Area Key", itemName) > 0)
+					{
+						var player = instance_find(PlayerObject, 0)
+						var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+						ds_list_add(dialogue.textList, string_concat("You used the ", itemName, "!"))
+
+						player.talking = true
+
+						if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+							
+						instance_destroy(menu)
+						instance_destroy(id)
+					}
 					else if (itemName == "Skyview Potion")
 					{
 						global.morlockTimer = 60*60*10

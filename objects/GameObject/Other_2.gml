@@ -59,3 +59,5 @@ global.torchRange = 60
 
 global.morlockTimer = 0
 global.convinceCounter = 0
+
+AddItem("Field Area Key", 1)

@@ -7,6 +7,11 @@ function DeleteItem(categoryIndex, itemIndex) { ds_list_delete(ds_list_find_valu
 
 function GetItemCategory(name)
 {
+	if (string_count("Area Key", name) > 0)
+	{
+		return "Items"
+	}
+	
 	switch (name)
 	{
 		#region Items
@@ -207,6 +212,7 @@ function ConsumeItem(categoryIndex, itemIndex, amount)
 function IsConsumableItem(itemName)
 {
 	if (IsBattleItem(itemName)) return true
+	if (string_count("Area Key", itemName) > 0) return true
 	switch (itemName)
 	{
 		case "Potion":
