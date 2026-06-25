@@ -1,19 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"NestAreaPokemon",
+  "%Name":"NestAreaPokemonObject",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"NestAreaPokemon",
+  "name":"NestAreaPokemonObject",
   "overriddenProperties":[],
   "parent":{
     "name":"Pokemon",
     "path":"folders/Objects/Pokemon.yy",
   },
   "parentObjectId":{
-    "name":"TrainerParent",
-    "path":"objects/TrainerParent/TrainerParent.yy",
+    "name":"RoamingPokemonParent",
+    "path":"objects/RoamingPokemonParent/RoamingPokemonParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

@@ -136,7 +136,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.222",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"PokemonStop",
   "resources":[
@@ -264,7 +264,7 @@
     {"id":{"name":"MutantTowerObject","path":"objects/MutantTowerObject/MutantTowerObject.yy",},},
     {"id":{"name":"Nebogipfel","path":"objects/Nebogipfel/Nebogipfel.yy",},},
     {"id":{"name":"NestAreaObject","path":"objects/NestAreaObject/NestAreaObject.yy",},},
-    {"id":{"name":"NestAreaPokemon","path":"objects/NestAreaPokemon/NestAreaPokemon.yy",},},
+    {"id":{"name":"NestAreaPokemonObject","path":"objects/NestAreaPokemonObject/NestAreaPokemonObject.yy",},},
     {"id":{"name":"NestTileObject","path":"objects/NestTileObject/NestTileObject.yy",},},
     {"id":{"name":"NextRoomObect","path":"objects/NextRoomObect/NextRoomObect.yy",},},
     {"id":{"name":"NPCParent_NoCollision","path":"objects/NPCParent_NoCollision/NPCParent_NoCollision.yy",},},
