@@ -1,0 +1,1 @@
+ds_list_add(textList, "A world much like our own Pokémon world, but somehow... DETUNED.")

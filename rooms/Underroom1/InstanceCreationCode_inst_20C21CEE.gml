@@ -1,1 +1,1 @@
-ds_list_add(textList, "")
+ds_list_add(textList, "This appears to be some sort of SHADOW REALM... with massive energies coming from some sort of SHADOW.")
