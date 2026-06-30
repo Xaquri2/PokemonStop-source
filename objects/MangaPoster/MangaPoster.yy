@@ -6,8 +6,8 @@
   "name":"MangaPoster",
   "overriddenProperties":[],
   "parent":{
-    "name":"Items",
-    "path":"folders/Objects/Items.yy",
+    "name":"Posters",
+    "path":"folders/Objects/Posters.yy",
   },
   "parentObjectId":null,
   "persistent":false,
