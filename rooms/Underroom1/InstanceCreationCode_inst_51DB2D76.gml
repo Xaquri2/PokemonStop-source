@@ -1,0 +1,1 @@
+ds_list_add(textList, "This universe is nothing but the madness of mono-yellow...","The endless noise of flourescent lights at maximum hum-buzz...","And approximately 600 million square miles of empty rooms to be trapped in.")

@@ -38,6 +38,7 @@ if (instance_exists(actionNPC))
 				if (!HasFlag("MutantBadge")) 
 				{
 					ds_list_add(global.flags, "MutantBadge")
+					AddItem("Field Area Key", 1)
 				}
 			}
 			else if (!startBattle and ds_list_find_value(textList, ds_list_size(textList)-1) != "That said... Are you ready to challenge me?")

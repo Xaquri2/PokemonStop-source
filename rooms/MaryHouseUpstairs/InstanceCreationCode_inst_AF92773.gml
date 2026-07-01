@@ -1,0 +1,1 @@
+ds_list_add(textList, "It's a dartboard.","...With an image of your face on it.","From the holes in the dartboard, It looks like she's hit multiple bulls-eyes.")

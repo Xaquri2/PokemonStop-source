@@ -78,6 +78,7 @@ function GetItemDescription(name)
 		case "Super Torch Fuel":
 		case "Ultra Torch Fuel":
 			return string_concat("Restores the torch's power by ", GetHealValue(name)*100, "%")
+		case "Field Area Key": return "lswdehcdscnlk"
 		#endregion
 
 		#region Balls

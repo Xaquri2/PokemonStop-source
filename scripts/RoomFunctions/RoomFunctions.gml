@@ -794,6 +794,7 @@ function GetNestRoomTileType(ogRoom)
 {
 	switch (ogRoom)
 	{
+		case GashUpstairs: return GreenCross
 		default:
 			return GreenTileSprite
 	}

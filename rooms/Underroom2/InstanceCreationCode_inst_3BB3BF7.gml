@@ -1,0 +1,1 @@
+ds_list_add(textList, "A world made up entirely of endless corridors, nearly each one being blocked by an impossibly large person.")
