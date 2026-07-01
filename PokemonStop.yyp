@@ -213,6 +213,7 @@
     {"id":{"name":"Goomba","path":"objects/Goomba/Goomba.yy",},},
     {"id":{"name":"Gorbertron","path":"objects/Gorbertron/Gorbertron.yy",},},
     {"id":{"name":"GrassObject","path":"objects/GrassObject/GrassObject.yy",},},
+    {"id":{"name":"GrassParticle","path":"objects/GrassParticle/GrassParticle.yy",},},
     {"id":{"name":"Greed","path":"objects/Greed/Greed.yy",},},
     {"id":{"name":"GreenBubble","path":"objects/GreenBubble/GreenBubble.yy",},},
     {"id":{"name":"GreenCrossObject","path":"objects/GreenCrossObject/GreenCrossObject.yy",},},

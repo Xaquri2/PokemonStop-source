@@ -490,5 +490,4 @@ if (string_count("Area Key", finalText) > 0)
 	game.warp = true
 	game.targetRoom = NestAreaRoom
 	game.targetWarp = "NestRoomToOrigin"
-	game.backupRoomInfo = room
 }

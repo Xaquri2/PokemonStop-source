@@ -549,7 +549,7 @@ function SetWarpDefaults(name, spawnDir, show)
 			break
 		
 		case "NestRoomToOrigin":
-			targetRoom = GameObject.backupRoomInfo
+			targetRoom = GameObject.areaKeyInfo
 			targetWarp = "Random"
 			break
 	}
@@ -813,5 +813,15 @@ function GetNestRoomPokemonType(ogRoom)
 			var pool = ds_list_create()
 			ds_list_add(pool, "Pikachu", "Pikachu", "Pikachu", "Squirtle")
 			return ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
+	}
+}
+
+function GetAreaKeyOrigin(keyName)
+{
+	switch (keyName)
+	{
+		case "Test Area Key": return TestRoom
+		
+		default: return Mallet_Town
 	}
 }

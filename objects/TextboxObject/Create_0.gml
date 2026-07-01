@@ -28,4 +28,4 @@ alarm[0] = 1
 ui_off_x = 0;
 ui_off_y = 0;
 
-backupRoomInfo = Mallet_Town
+areaKeyInfo = ""
