@@ -130,6 +130,8 @@
     {"link":"io.gamemaker.gm_filter_greyscale-1.0.0","name":"io.gamemaker.gm_filter_greyscale-1.0.0","path":"io.gamemaker.gm_filter_greyscale-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_filter_zoom_blur-1.0.0","name":"io.gamemaker.gm_filter_zoom_blur-1.0.0","path":"io.gamemaker.gm_filter_zoom_blur-1.0.0.yyp",},
     {"link":"io.gamemaker.gm_filter_screenshake-1.0.0","name":"io.gamemaker.gm_filter_screenshake-1.0.0","path":"io.gamemaker.gm_filter_screenshake-1.0.0.yyp",},
+    {"link":"io.gamemaker.gm_filter_dots-1.0.0","name":"io.gamemaker.gm_filter_dots-1.0.0","path":"io.gamemaker.gm_filter_dots-1.0.0.yyp",},
+    {"link":"io.gamemaker.gm_filter_large_blur-1.0.0","name":"io.gamemaker.gm_filter_large_blur-1.0.0","path":"io.gamemaker.gm_filter_large_blur-1.0.0.yyp",},
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"GodzillaCutscene.mp4","CopyToMask":-1,"filePath":"datafiles","name":"GodzillaCutscene.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -144,6 +146,8 @@
   "name":"PokemonStop",
   "resources":[
     {"id":{"name":"fnt_button","path":"fonts/fnt_button/fnt_button.yy",},},
+    {"id":{"name":"Font2","path":"fonts/Font2/Font2.yy",},},
+    {"id":{"name":"FontSMALL","path":"fonts/FontSMALL/FontSMALL.yy",},},
     {"id":{"name":"AngryTrainer","path":"objects/AngryTrainer/AngryTrainer.yy",},},
     {"id":{"name":"ApeBall","path":"objects/ApeBall/ApeBall.yy",},},
     {"id":{"name":"Arceus","path":"objects/Arceus/Arceus.yy",},},
