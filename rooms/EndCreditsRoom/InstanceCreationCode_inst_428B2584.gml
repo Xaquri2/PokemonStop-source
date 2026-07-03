@@ -1,1 +1,1 @@
-display_text = "Poké Gym";
+display_text = "'Poké Gym'";

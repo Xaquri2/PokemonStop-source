@@ -1,1 +1,1 @@
-display_text = "used in the Final Battle";
+display_text = "(the Final Battle)";

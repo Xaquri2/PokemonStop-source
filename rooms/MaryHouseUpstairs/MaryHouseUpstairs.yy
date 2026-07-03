@@ -21,6 +21,7 @@
     {"name":"inst_AF92773","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},
     {"name":"inst_45DAA49E","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},
     {"name":"inst_5173011D","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},
+    {"name":"inst_7A1626D2","path":"rooms/MaryHouseUpstairs/MaryHouseUpstairs.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -46,6 +47,7 @@
         {"$GMRInstance":"v4","%Name":"inst_5173011D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5173011D","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_invisible_npc","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"propertyId":{"name":"speech","path":"objects/obj_invisible_npc/obj_invisible_npc.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"[\"It's Mary's bed.\"]",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.78125,"scaleY":1.0,"x":40.0,"y":208.0,},
+        {"$GMRInstance":"v4","%Name":"inst_7A1626D2","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7A1626D2","objectId":{"name":"PikachuDoll","path":"objects/PikachuDoll/PikachuDoll.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.625,"scaleY":0.59375,"x":256.0,"y":202.5,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"House","depth":300,"effectEnabled":true,"effectType":"_filter_tintfilter","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"House","properties":[
         {"name":"g_TintCol","type":1,"value":"#FF56C1FF",},
