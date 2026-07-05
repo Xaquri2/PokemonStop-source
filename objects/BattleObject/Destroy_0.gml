@@ -1,6 +1,6 @@
 if (!isWild) ds_list_add(global.beatenTrainers, enemyName)
 
-if (postBattleTextList != noone and !ds_list_empty(postBattleTextList) and enemyName != "Collector")
+if (!defeat and postBattleTextList != noone and !ds_list_empty(postBattleTextList) and enemyName != "Collector")
 {
 	player = instance_find(PlayerObject, 0)
 	var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)

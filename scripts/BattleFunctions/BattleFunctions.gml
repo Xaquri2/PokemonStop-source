@@ -1146,7 +1146,7 @@ function GetTrainerTeam(trainerName)
 			break
 	//Mallet Town
 		case "Mary":
-			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+			AddPokemonTrainer(team, 0, GetRivalStarter(), 20, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
 			break
 			
 	//Route Minus One BOTTOM
