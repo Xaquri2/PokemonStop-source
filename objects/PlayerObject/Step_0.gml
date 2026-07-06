@@ -240,7 +240,7 @@ if (nearestNPC != noone)
 #region Wild Encounters
 var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
 var fogAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,FogObject,false,true)
-if (canEncounter)
+if (canEncounter and ds_list_size(global.playerParty) > 0)
 {
 	if (instance_exists(grassAttempt) and grassTimer == -1 and
 	(hspeed != 0 or vspeed != 0))
