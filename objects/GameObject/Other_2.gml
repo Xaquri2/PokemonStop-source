@@ -50,7 +50,7 @@ AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))*/
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = Mallet_Town
+global.standardStartRoom = RouteMinusOneBottom
 global.activatedBadges = ds_list_create()
 
 global.torch = false
