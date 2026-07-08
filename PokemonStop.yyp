@@ -33,6 +33,7 @@
     {"$GMFolder":"","%Name":"Furniture","folderPath":"folders/Objects/Furniture.yy","name":"Furniture","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Game","folderPath":"folders/Objects/Game.yy","name":"Game","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Enemies","folderPath":"folders/Objects/Game/Enemies.yy","name":"Enemies","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"EndCredits","folderPath":"folders/Objects/EndCredits.yy","name":"EndCredits","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Important","folderPath":"folders/Objects/Important.yy","name":"Important","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Items","folderPath":"folders/Objects/Items.yy","name":"Items","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Level","folderPath":"folders/Objects/Level.yy","name":"Level","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -141,7 +142,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"PokemonStop",
   "resources":[
@@ -201,6 +202,8 @@
     {"id":{"name":"Dialga","path":"objects/Dialga/Dialga.yy",},},
     {"id":{"name":"Door_to_Ginkgo","path":"objects/Door_to_Ginkgo/Door_to_Ginkgo.yy",},},
     {"id":{"name":"Elise","path":"objects/Elise/Elise.yy",},},
+    {"id":{"name":"EndCreditsGash","path":"objects/EndCreditsGash/EndCreditsGash.yy",},},
+    {"id":{"name":"EndCreditsNPC","path":"objects/EndCreditsNPC/EndCreditsNPC.yy",},},
     {"id":{"name":"EndCreditsObject","path":"objects/EndCreditsObject/EndCreditsObject.yy",},},
     {"id":{"name":"Enderman","path":"objects/Enderman/Enderman.yy",},},
     {"id":{"name":"Ewok","path":"objects/Ewok/Ewok.yy",},},
