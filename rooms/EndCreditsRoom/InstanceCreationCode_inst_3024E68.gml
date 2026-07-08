@@ -1,0 +1,1 @@
+display_text = "This end credits scene";
