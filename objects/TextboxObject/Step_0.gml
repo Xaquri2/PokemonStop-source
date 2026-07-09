@@ -20,6 +20,10 @@ if (face_timer >= room_speed) { // 1 FPS
     face_frame++;
 }
 
+//if (room == EndCreditsRoom) {
+//	y = lerp(y, y-1, 0.6)
+//}
+
 
 
 

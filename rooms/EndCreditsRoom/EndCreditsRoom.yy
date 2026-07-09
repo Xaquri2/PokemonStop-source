@@ -77,6 +77,7 @@
     {"name":"inst_4C4F46AF","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},
     {"name":"inst_7D7D38AC","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},
     {"name":"inst_3C966152","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},
+    {"name":"inst_6B16E40B","path":"rooms/EndCreditsRoom/EndCreditsRoom.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -324,6 +325,7 @@
         {"$GMRInstance":"v4","%Name":"inst_4C4F46AF","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4C4F46AF","objectId":{"name":"GeneralText","path":"objects/GeneralText/GeneralText.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":208.49176,"y":3404.0,},
         {"$GMRInstance":"v4","%Name":"inst_7D7D38AC","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7D7D38AC","objectId":{"name":"GeneralText","path":"objects/GeneralText/GeneralText.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":212.49176,"y":3420.0,},
         {"$GMRInstance":"v4","%Name":"inst_3C966152","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3C966152","objectId":{"name":"EndCreditsNPC","path":"objects/EndCreditsNPC/EndCreditsNPC.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":113.0,"y":3520.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6B16E40B","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6B16E40B","objectId":{"name":"GeneralText","path":"objects/GeneralText/GeneralText.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":19.0,"y":3488.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMREffectLayer":"","%Name":"Dots","depth":500,"effectEnabled":true,"effectType":"_filter_dots","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Dots","properties":[
         {"name":"g_DotsScale","type":0,"value":"26",},
