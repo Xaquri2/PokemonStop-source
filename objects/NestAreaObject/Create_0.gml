@@ -6,3 +6,6 @@ for (var i = -5; i < 5; i++)
 		nestTile.sprite_index = GetNestRoomTileType(GetAreaKeyOrigin(GameObject.areaKeyInfo))
 	}
 }
+
+var spawnGrass = instance_find(NestTileObject, irandom(instance_number(NestTileObject)-1))
+spawnGrass.spawn = true
