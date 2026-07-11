@@ -29,6 +29,7 @@
     {"$GMFolder":"","%Name":"Trainers","folderPath":"folders/Objects/Characters/Trainers.yy","name":"Trainers","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Doodads","folderPath":"folders/Objects/Doodads.yy","name":"Doodads","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Universes","folderPath":"folders/Objects/Doodads/Universes.yy","name":"Universes","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"EndCredits","folderPath":"folders/Objects/EndCredits.yy","name":"EndCredits","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Environment","folderPath":"folders/Objects/Environment.yy","name":"Environment","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Furniture","folderPath":"folders/Objects/Furniture.yy","name":"Furniture","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Game","folderPath":"folders/Objects/Game.yy","name":"Game","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -141,7 +142,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"PokemonStop",
   "resources":[
@@ -201,6 +202,8 @@
     {"id":{"name":"Dialga","path":"objects/Dialga/Dialga.yy",},},
     {"id":{"name":"Door_to_Ginkgo","path":"objects/Door_to_Ginkgo/Door_to_Ginkgo.yy",},},
     {"id":{"name":"Elise","path":"objects/Elise/Elise.yy",},},
+    {"id":{"name":"EndCreditsGash","path":"objects/EndCreditsGash/EndCreditsGash.yy",},},
+    {"id":{"name":"EndCreditsNPC","path":"objects/EndCreditsNPC/EndCreditsNPC.yy",},},
     {"id":{"name":"EndCreditsObject","path":"objects/EndCreditsObject/EndCreditsObject.yy",},},
     {"id":{"name":"Enderman","path":"objects/Enderman/Enderman.yy",},},
     {"id":{"name":"Ewok","path":"objects/Ewok/Ewok.yy",},},

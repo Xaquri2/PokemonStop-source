@@ -16,5 +16,7 @@ else {
 }
 draw_text(x, y, display_text);
 
+draw_set_font(fnt_button)
+
 //display_text = "TO HAMMER";
 
