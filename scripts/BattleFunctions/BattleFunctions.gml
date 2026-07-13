@@ -1431,27 +1431,27 @@ function GetTrainerTeam(trainerName)
 		
 		//Gym Leaders
 		case "Lilium":
-			//AddPokemonTrainer(team, 1, "Boo", 16, "Male", BooOverworldSprite)
-			//AddPokemonTrainer(team, 2, "Pac-Ghost", 17, "Male", PacGhostOverworldSprite)
-			//AddPokemonTrainer(team, 3, "Umbreon", 17, "Male", UmbreonOverworldSprite)
-			//AddPokemonTrainer(team, 4, "Yamask", 16, "Male", YamaskFrontSprite)
+			AddPokemonTrainer(team, 1, "Boo", 16, "Male", BooOverworldSprite)
+			AddPokemonTrainer(team, 2, "Pac-Ghost", 17, "Male", PacGhostOverworldSprite)
+			AddPokemonTrainer(team, 3, "Umbreon", 17, "Male", UmbreonOverworldSprite)
+			AddPokemonTrainer(team, 4, "Yamask", 16, "Male", YamaskFrontSprite)
 			AddPokemonTrainer(team, 5, "Umbrian", 18, "Male", UmbrianOverworldSprite)
 			break
 		case "Gorbertron":
 			AddPokemonTrainer(team, 1, "Zoombini", 16, "Male", ZoombiniHoveringSprite)
-			//AddPokemonTrainer(team, 2, "Ewok", 17, "Male", EwokOverworldSprite)
-			//AddPokemonTrainer(team, 3, "Human", 17, "Male", Human2IdleSprite)
-			//AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
-			//AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
+			AddPokemonTrainer(team, 2, "Ewok", 17, "Male", EwokOverworldSprite)
+			AddPokemonTrainer(team, 3, "Human", 17, "Male", Human2IdleSprite)
+			AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
+			AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
 			break
 		case "Collector":
 			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", MEGABOTSprite)
 			else
 			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
-			//AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
-			//AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
-			//AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
-			//AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
+			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
+			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
+			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
+			AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
 			break
 		case "Zoovac":
 			if (!HasFlag("ZoovacFirstBattle"))
