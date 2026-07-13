@@ -1,26 +1,32 @@
-if HasItem("Skyview Potion")  //HasFlag("HasNeboPotion") //(HasFlag("ReturnToNebo") and 
-{
-	ds_list_add(textList,"Good luck! I hope we meet again!")
-	
+
+if (HasFlag("Potion")) {
+	ds_list_add(textList,"Oh! I must say, you look quite good as a Morlock")
 	ds_list_add(nameList, "Nebogipfel")
 	ds_list_add(iconList, NebogipfelSprite)
 }
-
-else //if (HasFlag("ReturnToNebo") == false)
-{
-	if (HasFlag("ReturnToNebo")) {
-		ds_list_add(textList, "Ah, welcome back, Ga-hash! (Wait, is that how you pronounce it? Gyaash? Gosh?)")
+else {
+	if HasItem("Skyview Potion")  //HasFlag("HasNeboPotion") //(HasFlag("ReturnToNebo") and 
+	{
+		ds_list_add(textList,"Good luck! I hope we meet again!")
 		ds_list_add(nameList, "Nebogipfel")
 		ds_list_add(iconList, NebogipfelSprite)
 	}
-	else {
-		ds_list_add(textList, "Gah! A Human!!","Erm. I You really are one of them, aren't you?","Yes, I see, fascinating!",
-		"I am Nebogipfel.","You needn't fear me; unlike my fellow Morlocks, I have no interest in eating you.","I, uh...","(Resh gliig, what do I say here??)")
-		ds_list_add(iconList, sprite_index,  sprite_index,  sprite_index,sprite_index,sprite_index,sprite_index,sprite_index,)
-		ds_list_add(nameList, "Morlock","Morlock","Morlock","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+
+	else //if (HasFlag("ReturnToNebo") == false)
+	{
+		if (HasFlag("ReturnToNebo")) {
+			ds_list_add(textList, "Ah, welcome back, Ga-hash! (Wait, is that how you pronounce it? Gyaash? Gosh?)")
+			ds_list_add(nameList, "Nebogipfel")
+			ds_list_add(iconList, NebogipfelSprite)
+		}
+		else {
+			ds_list_add(textList, "Gah! A Human!!","Erm. I You really are one of them, aren't you?","Yes, I see, fascinating!",
+			"I am Nebogipfel.","You needn't fear me; unlike my fellow Morlocks, I have no interest in eating you.","I, uh...","(Resh gliig, what do I say here??)")
+			ds_list_add(iconList, sprite_index,  sprite_index,  sprite_index,sprite_index,sprite_index,sprite_index,sprite_index,)
+			ds_list_add(nameList, "Morlock","Morlock","Morlock","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+		}
 	}
 }
-
 //else if (HasFlag("ReturnToNebo") and (HasFlag("HasNeboPotion")) == false)
 //{
 //	if (HasItem("Skyview Mushroom"))
