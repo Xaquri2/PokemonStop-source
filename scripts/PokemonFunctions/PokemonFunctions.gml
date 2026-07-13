@@ -1269,7 +1269,7 @@ function GetMoveDetails(moveName)
 		case "Wicket's Reversal":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "WicketReversal", 1, 1, 0);
             break;
-		        case "Pound":
+		case "Pound":
             ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 1, 1, 0);
             break;
 
@@ -1477,9 +1477,10 @@ function LearnsMoveAt(name, level)
         // Story-Specific & Custom Pokémon
         //--------------------------------
 		case "Pikmin":
-			if (level == 1) return "Pound"
-			if (level == 5) return "Crunch"
+			if (level == 1) return "Pound";
+			if (level == 5) return "Crunch";
 			if (level == 13) return "Storm Throw";
+			break
 			
         case "Kirby":
             if (level == 1)  return "Inhale";
@@ -1756,7 +1757,7 @@ function LearnsMoveAt(name, level)
             if (level == 16) return "Giga Impact";
             break;
 			
-		        case "Boo":
+		case "Boo":
             if (level == 1)  return "Lick";
             if (level == 4)  return "Growl";
             if (level == 8)  return "Hypnosis";
