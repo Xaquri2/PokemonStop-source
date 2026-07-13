@@ -223,7 +223,7 @@ function GetPokemonType(name)
         case "Ape-Ball":
             ds_list_add(types, "Fighting");
             break;
-        case "Woob-Wub":
+        case "Woob-Wüb":
             ds_list_add(types, "Normal");
             break;
         case "Fig":
@@ -235,7 +235,7 @@ function GetPokemonType(name)
         case "Caelian":
             ds_list_add(types, "Ghost", "Psychic");
             break;
-        case "Baby (Tutorial Bot)":
+        case "Baby":
             ds_list_add(types, "Steel");
             break;
         case "Box Bot":
@@ -352,6 +352,9 @@ function GetPokemonType(name)
         case "Godzilla":
             ds_list_add(types, "Dragon");
             break;
+	    case "Glyptoblock":
+	        ds_list_add(types, "Rock", "Fire");
+	        break;
 
 		default:
 			ds_list_add(types, "Normal");
@@ -514,7 +517,7 @@ function CanEvolve(team, index) {
             // Extremely fast and deadly
             break;
 
-        case "Woob-Wub":
+        case "Woob-Wüb":
             // The unluckiest Pokémon, extremely fragile
             break;
 
@@ -661,7 +664,7 @@ function CanEvolve(team, index) {
             break;
 
         case "Zergling":
-            if (level >= 27) return ""
+            if (level >= 27) return "Xenomorph"
             break;
 
         case "Xenomorph":
@@ -674,6 +677,10 @@ function CanEvolve(team, index) {
 
         case "Licker":
             // Long tongue, climbs walls
+            break;
+		
+		case "Glyptoblock":
+            // Ancient, heavily armored block creature
             break;
 
         case "Godzooky":
@@ -725,7 +732,7 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 58, 64, 58, 80, 65, 80);
             break;
 
-        case "Charizard":
+        case "Charmandalorian":
             ds_list_add(statList, 78, 84, 78, 109, 85, 100);
             break;
 
@@ -737,11 +744,11 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 44, 48, 65, 50, 64, 43);
             break;
 
-        case "Wartortle":
+        case "Ninja Squirtle":
             ds_list_add(statList, 59, 63, 80, 65, 80, 58);
             break;
 
-        case "Blastoise":
+        case "Omega Squirtle":
             ds_list_add(statList, 79, 83, 100, 85, 105, 78);
             break;
 
@@ -793,7 +800,7 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 60, 110, 60, 40, 50, 120);
             break;
 
-        case "Woob-Wub":
+        case "Woob-Wüb":
             // The unluckiest Pokémon, extremely fragile
             ds_list_add(statList, 20, 5, 10, 10, 10, 5);
             break;
@@ -813,7 +820,7 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 60, 70, 65, 85, 90, 80);
             break;
 
-        case "Baby (Tutorial Bot)":
+        case "Baby":
             // Only a head, very limited physically
             ds_list_add(statList, 30, 5, 30, 20, 30, 5);
             break;
@@ -898,7 +905,7 @@ function GetPokemonBaseStats(name) {
             ds_list_add(statList, 40, 40, 60, 30, 40, 20);
             break;
 
-        case "King Koopa (Bowser’s Species)":
+        case "King Koopa":
             // Powerful, can breathe fire, leads armies
             ds_list_add(statList, 100, 100, 95, 85, 80, 50);
             break;
@@ -996,6 +1003,11 @@ function GetPokemonBaseStats(name) {
         case "Licker":
             // Long tongue, climbs walls
             ds_list_add(statList, 65, 85, 60, 25, 40, 70);
+            break;
+			
+	    case "Glyptoblock":
+            // Extremely sturdy and slow, with solid firepower
+            ds_list_add(statList, 65, 70, 100, 65, 80, 35);
             break;
 
         case "Godzooky":
@@ -1221,10 +1233,10 @@ function GetMoveDetails(moveName)
             // BB-8’s custom “hack” move
             ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 100, 10, "Interface", 1, 1, 0);
             break;
-        case "Egg Toss":
-            // Yo'Ster’s custom
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 1, 1, 0);
-            break;
+       // case "Egg Toss": 
+       //     // Yo'Ster -- DUPLICATE
+       //     ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 1, 1, 0);
+       //     break;
         case "Jump Kick":
             ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 95, 10, "RecoilOnMiss", 1, 1, 0);
             break;
@@ -1257,6 +1269,70 @@ function GetMoveDetails(moveName)
 		case "Wicket's Reversal":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "WicketReversal", 1, 1, 0);
             break;
+		        case "Pound":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 40, 100, 35, "None", 1, 1, 0);
+            break;
+
+        case "Double Kick":
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 30, 100, 30, "None", 1, 1, 0);
+            break;
+
+        case "Mega Punch":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 80, 85, 20, "None", 1, 1, 0);
+            break;
+
+        case "Body Slam":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 85, 100, 15, "Paralysis", 0.3, 1, 0);
+            break;
+
+        case "Hyper Beam":
+            ds_list_add(moveInfo, moveName, "Normal", "Special", 150, 90, 5, "Recharge", 1, 1, 0);
+            break;
+
+        case "Wing Attack":
+            ds_list_add(moveInfo, moveName, "Flying", "Physical", 60, 100, 35, "None", 1, 1, 0);
+            break;
+
+        case "Bug Bite":
+            ds_list_add(moveInfo, moveName, "Bug", "Physical", 60, 100, 20, "None", 1, 1, 0);
+            break;
+
+        case "Rollout":
+            ds_list_add(moveInfo, moveName, "Rock", "Physical", 30, 90, 20, "None", 1, 1, 0);
+            break;
+
+        case "Fire Fang":
+            ds_list_add(moveInfo, moveName, "Fire", "Physical", 65, 95, 15, "Burn", 0.1, 1, 0);
+            break;
+
+        case "Fire Blast":
+            ds_list_add(moveInfo, moveName, "Fire", "Special", 110, 85, 5, "Burn", 0.1, 1, 0);
+            break;
+
+        case "Hydro Pump":
+            ds_list_add(moveInfo, moveName, "Water", "Special", 110, 80, 5, "None", 1, 1, 0);
+            break;
+
+        case "Aqua Tail":
+            ds_list_add(moveInfo, moveName, "Water", "Physical", 90, 90, 10, "None", 1, 1, 0);
+            break;
+
+        case "Dragon Breath":
+            ds_list_add(moveInfo, moveName, "Dragon", "Special", 60, 100, 20, "Paralysis", 0.3, 1, 0);
+            break;
+
+        case "Shadow Claw":
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 70, 100, 15, "HighCrit", 1, 1.2, 0);
+            break;
+
+        case "Moonblast":
+            ds_list_add(moveInfo, moveName, "Fairy", "Special", 95, 100, 15, "LowerAttack", 0.3, 1, 0);
+            break;
+
+        case "Egg Throw":
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 60, 100, 15, "None", 1, 1, 0);
+            break;
+		
 
         default:
             // If a move is unrecognized, return Struggle
@@ -1266,6 +1342,7 @@ function GetMoveDetails(moveName)
 	return moveInfo
 }
 
+#region MoreLittleFunctions
 function GetMoveType(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 1) }
 function GetMoveCategory(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 2) }
 function GetMovePower(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 3) }
@@ -1275,6 +1352,7 @@ function GetMoveEffect(moveName) { return ds_list_find_value(GetMoveDetails(move
 function GetMoveEffectChance(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 7) }
 function GetMoveCritMultiplier(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 8) }
 function GetMovePriority(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 9) }
+#endregion
 
 function LearnMove(pkmnInfo, moveName, pos)
 {
@@ -1324,7 +1402,7 @@ function LearnsMoveAt(name, level)
             if (level == 1)  return "Tackle";
             if (level == 4)  return "String Shot";
             if (level == 8)  return "Bug Bite";
-			if (level == 8)  return "Leech Life";
+			if (level == 10)  return "Leech Life";
             if (level == 12) return "Confusion";
 			if (level == 16) return "Gust";
             break;
@@ -1427,6 +1505,7 @@ function LearnsMoveAt(name, level)
 
         case "MissingNo":
             if (level == 1)  return "Flux";
+			if (level == 5)  return "Hyper Beam";
             break;
 
         case "Creeper":
@@ -1495,9 +1574,9 @@ function LearnsMoveAt(name, level)
 			
 		   case "Woob-Wüb":
             if (level == 1)  return "Lick";
-            if (level == 4)  return "Hypnosis";
-            if (level == 8)  return "Shadow Ball";
-            if (level == 12) return "Shadow Punch";
+            if (level == 4)  return "Hail Mary hit";
+            if (level == 8)  return "Doom Downgrade";
+            if (level == 12) return "Hex Roulette";
             break;
 
         case "Envy":
@@ -1511,7 +1590,7 @@ function LearnsMoveAt(name, level)
             if (level == 1)  return "Tackle";
             if (level == 4)  return "Water Gun";
             if (level == 8)  return "Quick Attack";
-            if (level == 12) return "Bite";
+            if (level == 12) return "Jump Kick";
             if (level == 16) return "Crunch";
             break;
 
@@ -1675,6 +1754,110 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Psychic";
             if (level == 12) return "Force Lift";
             if (level == 16) return "Giga Impact";
+            break;
+			
+		        case "Boo":
+            if (level == 1)  return "Lick";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Hypnosis";
+            if (level == 12) return "Shadow Punch";
+            if (level == 16) return "Shadow Ball";
+            break;
+
+        case "Demo Dog":
+            if (level == 1)  return "Bite";
+            if (level == 4)  return "Scratch";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Crunch";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Enderman":
+            if (level == 1)  return "Scratch";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Hypnosis";
+            if (level == 12) return "Shadow Punch";
+            if (level == 16) return "Psychic";
+            break;
+
+        case "Glyptoblock":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Ember";
+            if (level == 8)  return "Rock Tomb";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Fire Blast";
+            break;
+
+        case "Goomba":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Growl";
+            if (level == 8)  return "Headbutt";
+            if (level == 12) return "Bulldoze";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "King Koopa":
+            if (level == 1)  return "Bite";
+            if (level == 4)  return "Ember";
+            if (level == 8)  return "Iron Defense";
+            if (level == 12) return "Fire Blast";
+            if (level == 16) return "Giga Impact";
+            break;
+
+        case "Koopa":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "Withdraw";
+            if (level == 8)  return "Rollout";
+            if (level == 12) return "Iron Defense";
+            if (level == 16) return "Headbutt";
+            break;
+
+        case "Krypton Firefly":
+            if (level == 1)  return "Gust";
+            if (level == 4)  return "Ember";
+            if (level == 8)  return "Quick Attack";
+            if (level == 12) return "Wing Attack";
+            if (level == 16) return "Fire Blast";
+            break;
+
+        case "Metroid":
+            if (level == 1)  return "Leech Life";
+            if (level == 4)  return "Lick";
+            if (level == 8)  return "Hypnosis";
+            if (level == 12) return "Acid Blood";
+            if (level == 16) return "Psychic";
+            break;
+
+        case "Pac-Ghost":
+            if (level == 1)  return "Lick";
+            if (level == 4)  return "Bite";
+            if (level == 8)  return "Hypnosis";
+            if (level == 12) return "Shadow Punch";
+            if (level == 16) return "Shadow Ball";
+            break;
+
+        case "Squirrel":
+            if (level == 1)  return "Scratch";
+            if (level == 4)  return "Quick Attack";
+            if (level == 8)  return "Bite";
+            if (level == 12) return "Double Kick";
+            if (level == 16) return "Body Slam";
+            break;
+
+        case "Tektite":
+            if (level == 1)  return "Tackle";
+            if (level == 4)  return "String Shot";
+            if (level == 8)  return "Poison Sting";
+            if (level == 12) return "Jump Kick";
+            if (level == 16) return "Leech Life";
+            break;
+
+        case "Yodal":
+            if (level == 1)  return "Confusion";
+            if (level == 4)  return "Hypnosis";
+            if (level == 8)  return "Force Lift";
+            if (level == 12) return "Aura Sphere";
+            if (level == 16) return "Psychic";
             break;
 
 
@@ -2127,7 +2310,7 @@ function GetDescriptionByNumber(num)
 		case "Voltorb": return "This Pokémon is the result of Poké-balls malfunctioning with a Pokémon inside. The resulting bio-technological hybrid can draw on the Poké-ball’s energy source to provide devastating shocks.  "
 		case "Caterpie": return "Its feet have suction cups designed to stick to any surface. It tenaciously climbs trees to forage. If you touch the feeler on top of its head, it will release a horrible stink to protect itself."
 		case "Butterfree": return "The Powder on its wings is both poisonous and water-resistant, allowing it to fly in the rain and also harm its enemies when it blows the dust at them. "
-		case "Woob-Wüb": return "The unluckiest Pokémon in the Universe. Woob-Wub is extremely likely to die if left to its own devices. Even the tamest environments are too dangerous for Woob-Wub. Because of this, Pokémon trainers are attracted to them due to the challenge of keeping them alive."
+		case "Woob-Wüb": return "The unluckiest Pokémon in the Universe. Woob-Wüb is extremely likely to die if left to its own devices. Even the tamest environments are too dangerous for Woob-Wüb. Because of this, Pokémon trainers are attracted to them due to the challenge of keeping them alive."
 		case "Charmander": return "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is happy, and blazes when it is enraged."
 		case "Snorlax": return "This Pokémon just eats and sleeps. As its rotund bulk builds, it becomes steadily more slothful. Will eat anything, even if the food happens to be a little moldy. It never gets an upset stomach."
 		case "Ninja Squirtle": return "This Squirtle has learned the ways of the Ninja -- and developed a taste for pizza!"
@@ -2210,7 +2393,6 @@ function GetGameOfOrigin(name)
 		case "Butterfree":
 		case "Charmander":
 		case "Charmandorian":
-		case "Charizard":
 		case "Snorlax":
 		case "MissingNo":
 		case "Voltorb":
@@ -2308,7 +2490,6 @@ function GetGameDetails(name)
 		case "Butterfree":
 		case "Charmander":
 		case "Charmandorian":
-		case "Charizard":
 		case "Snorlax":
 		case "MissingNo":
 		case "Voltorb":
