@@ -367,6 +367,7 @@ function GetPartyMemberInfo(team, index) {
 	return ds_list_find_value(team, index)
 }
 
+#region Little Functions
 function GetName(pkmnInfo) { return ds_list_find_value(pkmnInfo, 1) }
 function GetLevel(pkmnInfo) { return ds_list_find_value(pkmnInfo, 2) }
 function GetGender(pkmnInfo) { return ds_list_find_value(pkmnInfo, 3) }
@@ -381,6 +382,7 @@ function GetTypes(pkmnInfo) { return ds_list_find_value(pkmnInfo, 10)}
 function GetStatus(pkmnInfo) { return ds_list_find_value(pkmnInfo, 11)}
 function SetStatus(pkmnInfo, status) { ds_list_set(pkmnInfo, 11, status)}
 function ClearStatus(pkmnInfo) { ds_list_set(pkmnInfo, 11, "None") }
+#endregion
 
 function GetRandomGender(maleChance)
 {
@@ -1396,6 +1398,11 @@ function LearnsMoveAt(name, level)
         //--------------------------------
         // Story-Specific & Custom Pokémon
         //--------------------------------
+		case "Pikmin":
+			if (level == 1) return "Pound"
+			if (level == 5) return "Crunch"
+			if (level == 13) return "Storm Throw";
+			
         case "Kirby":
             if (level == 1)  return "Inhale";
             if (level == 5)  return "Play Rough";
