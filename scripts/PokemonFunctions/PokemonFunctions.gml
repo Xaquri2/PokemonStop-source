@@ -1260,7 +1260,7 @@ function GetMoveDetails(moveName)
 		case "Doom Downgrade":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 1, 1, 0);
             break;
-		case "Hail Mary hit":
+		case "Hail Mary Hit":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 1, 1, 0);
             break;
 		case "Set Trap":
@@ -1574,7 +1574,7 @@ function LearnsMoveAt(name, level)
 			
 		   case "Woob-Wüb":
             if (level == 1)  return "Lick";
-            if (level == 4)  return "Hail Mary hit";
+            if (level == 4)  return "Hail Mary Hit";
             if (level == 8)  return "Doom Downgrade";
             if (level == 12) return "Hex Roulette";
             break;
