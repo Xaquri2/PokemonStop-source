@@ -496,14 +496,25 @@ if (keyboard_check_pressed(vk_enter))
 
 	if (ds_list_find_value(optionList, currentOption) == "Exit" or ds_list_find_value(optionList, currentOption) == "Leave")
 	{
-		if (menu.object_index != MerchantMenuObject)
 		{
-			var player = instance_find(PlayerObject, 0)
-			player.alarm[1] = 1
-		}
-		instance_destroy(id)
-	}
+    if (instance_exists(menu))
+    {
+        var battleMenu = menu.menu;
 
+        if (instance_exists(battleMenu))
+        {
+            battleMenu.mode = "Choosing";
+            battleMenu.visible = true;
+        }
+
+        instance_destroy(menu);
+    }
+
+    instance_destroy();
+    exit;
+}
+	}
+	
 	if (string_count("replace", question) > 0)
 	{
 		if (currentOption == 0)
