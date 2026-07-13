@@ -18,7 +18,7 @@ if (!defeat)
 
 		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 	}
-}
+} //
 
 var game = instance_find(GameObject, 0)
 game.warp = false
