@@ -1,3 +1,5 @@
+
+
 // Get the camera view coordinates and dimensions
 
 var view_x = camera_get_view_x(view_camera[0]);
@@ -5,6 +7,11 @@ var view_y = camera_get_view_y(view_camera[0]);
 var view_width = camera_get_view_width(view_camera[0]);
 var view_height = camera_get_view_height(view_camera[0]);
 var scalePerc = view_width/480
+
+if (room == EndCreditsRoom) {
+    view_x = x-200;
+    view_y = y-230;
+}
 
 // Safe defaults so other rooms won't crash
 var off_x = 0;

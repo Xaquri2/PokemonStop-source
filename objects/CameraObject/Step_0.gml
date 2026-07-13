@@ -49,5 +49,5 @@ else
 //}
 
 if (room == EndCreditsRoom) && (EndCreditsAlarm == true) {
-	y = lerp(y, y+1, 0.3)
+	y = lerp(y, y+1, 0.6)
 }

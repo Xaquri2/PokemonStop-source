@@ -1,1 +1,2 @@
-display_text = "used in Poké Centers";
+display_text = "(Poké Centers)";
+xaqColor = c_yellow

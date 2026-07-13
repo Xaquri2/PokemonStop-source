@@ -249,101 +249,177 @@ function IsTypeNotVeryEffective(type, targetType)
     switch (targetType)
     {
         case "Normal":
-            // Fighting is super effective against Normal
-            if (type == "Fighting") return true;
             break;
 
         case "Fire":
-            // Water, Ground, Rock are super effective against Fire
-            if (type == "Water" or type == "Ground" or type == "Rock") return true;
+            if (type == "Fire"
+            or type == "Grass"
+            or type == "Ice"
+            or type == "Bug"
+            or type == "Steel"
+            or type == "Fairy")
+            {
+                return true;
+            }
             break;
 
         case "Water":
-            // Electric, Grass are super effective against Water
-            if (type == "Electric" or type == "Grass") return true;
+            if (type == "Fire"
+            or type == "Water"
+            or type == "Ice"
+            or type == "Steel")
+            {
+                return true;
+            }
             break;
 
         case "Electric":
-            // Ground is super effective against Electric
-            if (type == "Ground") return true;
+            if (type == "Electric"
+            or type == "Flying"
+            or type == "Steel")
+            {
+                return true;
+            }
             break;
 
         case "Grass":
-            // Fire, Ice, Poison, Flying, Bug are super effective against Grass
-            if (type == "Fire" or type == "Ice" or type == "Poison" or type == "Flying" or type == "Bug") return true;
+            if (type == "Water"
+            or type == "Electric"
+            or type == "Grass"
+            or type == "Ground")
+            {
+                return true;
+            }
             break;
 
         case "Ice":
-            // Fire, Fighting, Rock, Steel are super effective against Ice
-            if (type == "Fire" or type == "Fighting" or type == "Rock" or type == "Steel") return true;
+            if (type == "Ice") return true;
             break;
 
         case "Fighting":
-            // Flying, Psychic, Fairy are super effective against Fighting
-            if (type == "Flying" or type == "Psychic" or type == "Fairy") return true;
+            if (type == "Bug"
+            or type == "Rock"
+            or type == "Dark")
+            {
+                return true;
+            }
             break;
 
         case "Poison":
-            // Ground, Psychic are super effective against Poison
-            if (type == "Ground" or type == "Psychic") return true;
+            if (type == "Grass"
+            or type == "Fighting"
+            or type == "Poison"
+            or type == "Bug"
+            or type == "Fairy")
+            {
+                return true;
+            }
             break;
 
         case "Ground":
-            // Water, Grass, Ice are super effective against Ground
-            if (type == "Water" or type == "Grass" or type == "Ice") return true;
+            if (type == "Poison"
+            or type == "Rock")
+            {
+                return true;
+            }
             break;
 
         case "Flying":
-            // Electric, Ice, Rock are super effective against Flying
-            if (type == "Electric" or type == "Ice" or type == "Rock") return true;
+            if (type == "Grass"
+            or type == "Fighting"
+            or type == "Bug")
+            {
+                return true;
+            }
             break;
 
         case "Psychic":
-            // Bug, Ghost, Dark are super effective against Psychic
-            if (type == "Bug" or type == "Ghost" or type == "Dark") return true;
+            if (type == "Fighting"
+            or type == "Psychic")
+            {
+                return true;
+            }
             break;
 
         case "Bug":
-            // Fire, Flying, Rock are super effective against Bug
-            if (type == "Fire" or type == "Flying" or type == "Rock") return true;
+            if (type == "Grass"
+            or type == "Fighting"
+            or type == "Ground")
+            {
+                return true;
+            }
             break;
 
         case "Rock":
-            // Water, Grass, Fighting, Ground, Steel are super effective against Rock
-            if (type == "Water" or type == "Grass" or type == "Fighting" or type == "Ground" or type == "Steel") return true;
+            if (type == "Normal"
+            or type == "Fire"
+            or type == "Poison"
+            or type == "Flying")
+            {
+                return true;
+            }
             break;
 
         case "Ghost":
-            // Ghost, Dark are super effective against Ghost
-            if (type == "Ghost" or type == "Dark") return true;
+            if (type == "Poison"
+            or type == "Bug")
+            {
+                return true;
+            }
             break;
 
         case "Dragon":
-            // Ice, Dragon, Fairy are super effective against Dragon
-            if (type == "Ice" or type == "Dragon" or type == "Fairy") return true;
+            if (type == "Fire"
+            or type == "Water"
+            or type == "Electric"
+            or type == "Grass")
+            {
+                return true;
+            }
             break;
 
         case "Dark":
-            // Fighting, Bug, Fairy are super effective against Dark
-            if (type == "Fighting" or type == "Bug" or type == "Fairy") return true;
+            if (type == "Ghost"
+            or type == "Dark")
+            {
+                return true;
+            }
             break;
 
         case "Steel":
-            // Fire, Fighting, Ground are super effective against Steel
-            if (type == "Fire" or type == "Fighting" or type == "Ground") return true;
+            if (type == "Normal"
+            or type == "Grass"
+            or type == "Ice"
+            or type == "Flying"
+            or type == "Psychic"
+            or type == "Bug"
+            or type == "Rock"
+            or type == "Dragon"
+            or type == "Steel"
+            or type == "Fairy")
+            {
+                return true;
+            }
             break;
 
         case "Fairy":
-            // Poison, Steel are super effective against Fairy
-            if (type == "Poison" or type == "Steel") return true;
+            if (type == "Fighting"
+            or type == "Bug"
+            or type == "Dark")
+            {
+                return true;
+            }
             break;
-
-        case "???":
+			
+		case "???":
             // Typically ??? has no weaknesses, but feel free to customize
             break;
     }
+
     return false;
 }
+
+
 
 function GetMoveAnimationTime(moveName)
 {
@@ -1146,7 +1222,7 @@ function GetTrainerTeam(trainerName)
 			break
 	//Mallet Town
 		case "Mary":
-			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+			AddPokemonTrainer(team, 0, GetRivalStarter(), 5, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
 			break
 			
 	//Route Minus One BOTTOM
@@ -1158,12 +1234,13 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Pikachu":
 			AddPokemonTrainer(team, 0, "Pikmin", 3, "Male", PikminIdleSprite)
-			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 1, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
 		case "KcoKt":
 			AddPokemonTrainer(team, 1, "Squirtle", 7, "Male", SquirtleIdleSprite)
 			AddPokemonTrainer(team, 2, "Pikachu", 10, "Female", PikachuIdleSprite)
 			AddPokemonTrainer(team, 3, "Tektite", 10, "Female", TektiteIdleSprite)
+			break
 		case "Mary2":
 			AddPokemonTrainer(team, 1, "Tektite", 2, "Male", TektiteIdleSprite)
 			AddPokemonTrainer(team, 2, GetRivalStarter(), 5, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
@@ -1172,7 +1249,7 @@ function GetTrainerTeam(trainerName)
 
 	//Route Minus One TOP
 		case "Ultiron":
-			AddPokemonTrainer(team, 0, "Pikachu", 1, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 1, "Pikachu", 1, "Female", PikachuIdleSprite)
 			AddPokemonTrainer(team, 2, "Caterpie", 4, "Female", CaterpieIdleSprite)
 			AddPokemonTrainer(team, 3, "Pikmin", 4, "Female", PikminIdleSprite)
 			break
@@ -1241,7 +1318,7 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Elise":
 			AddPokemonTrainer(team, 0, "Ewok", 15, "Female", KirbySprite)
-			AddPokemonTrainer(team, 0, "Kirby", 15, "Female", KirbySprite)
+			AddPokemonTrainer(team, 1, "Kirby", 15, "Female", KirbySprite)
 			break
 			
 			
@@ -1282,7 +1359,7 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 5, "ZooChomper", 23, "Male", ZoochomperBattleSprite)
 			break
 	    case "Team Rocket Marnie":
-	        AddPokemonTrainer(team, 1, "Woob-Wub", 18, "Female", WoobWubBattleSprite)
+	        AddPokemonTrainer(team, 1, "Woob-Wüb", 18, "Female", WoobWubBattleSprite)
 	        AddPokemonTrainer(team, 2, "Pac-Ghost", 20, "Female", PacGhostOverworldSprite)
 	        AddPokemonTrainer(team, 3, "Butterfree", 18, "Male", ButterfreeFlyLeftSprite)
 	        AddPokemonTrainer(team, 4, "Umbrian", 20, "Male", UmbrianOverworldSprite)
@@ -1354,27 +1431,27 @@ function GetTrainerTeam(trainerName)
 		
 		//Gym Leaders
 		case "Lilium":
-			//AddPokemonTrainer(team, 1, "Boo", 16, "Male", BooOverworldSprite)
-			//AddPokemonTrainer(team, 2, "Pac-Ghost", 17, "Male", PacGhostOverworldSprite)
-			//AddPokemonTrainer(team, 3, "Umbreon", 17, "Male", UmbreonOverworldSprite)
-			//AddPokemonTrainer(team, 4, "Yamask", 16, "Male", YamaskFrontSprite)
+			AddPokemonTrainer(team, 1, "Boo", 16, "Male", BooOverworldSprite)
+			AddPokemonTrainer(team, 2, "Pac-Ghost", 17, "Male", PacGhostOverworldSprite)
+			AddPokemonTrainer(team, 3, "Umbreon", 17, "Male", UmbreonOverworldSprite)
+			AddPokemonTrainer(team, 4, "Yamask", 16, "Male", YamaskFrontSprite)
 			AddPokemonTrainer(team, 5, "Umbrian", 18, "Male", UmbrianOverworldSprite)
 			break
 		case "Gorbertron":
 			AddPokemonTrainer(team, 1, "Zoombini", 16, "Male", ZoombiniHoveringSprite)
-			//AddPokemonTrainer(team, 2, "Ewok", 17, "Male", EwokOverworldSprite)
-			//AddPokemonTrainer(team, 3, "Human", 17, "Male", Human2IdleSprite)
-			//AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
-			//AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
+			AddPokemonTrainer(team, 2, "Ewok", 17, "Male", EwokOverworldSprite)
+			AddPokemonTrainer(team, 3, "Human", 17, "Male", Human2IdleSprite)
+			AddPokemonTrainer(team, 4, "Morlock", 17, "Male", MorlockBattleSprite)
+			AddPokemonTrainer(team, 5, "Demogorgon", 18, "Male", DemogorgonBattleSprite)
 			break
 		case "Collector":
 			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", MEGABOTSprite)
 			else
 			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
-			//AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
-			//AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
-			//AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
-			//AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
+			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
+			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
+			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
+			AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
 			break
 		case "Zoovac":
 			if (!HasFlag("ZoovacFirstBattle"))

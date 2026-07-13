@@ -1,1 +1,1 @@
-display_text = "Xaq";
+display_text = "Xaq Rzetelny";

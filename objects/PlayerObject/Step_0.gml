@@ -112,6 +112,37 @@ if (canCollide)
 
 	if (instance_exists(collidedTile))
 	{
+		if (collidedTile.object_index == RoamingPokemonParent or collidedTile.object_index == NestAreaPokemon)
+		{
+			with (collidedTile)
+			{
+				if (instance_number(BattleObject) == 0)
+				{
+					var musicC = instance_find(MusicObject, 0)
+					var music = musicC.currentMusic
+					audio_stop_sound(music)
+					audio_play_sound(GetBattleTheme(name), 1, false)
+					musicC.currentMusic = GetBattleTheme(name)
+	
+					battle = true
+					other.talking = false
+					other.canWalk = false
+					other.battle = true
+
+					var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+					battleObj.enemyTeam = trainerTeam
+					battleObj.enemySprite = trainerSprite
+					battleObj.enemyName = name
+					battleObj.isWild = true
+					battleObj.playerX = other.x
+					battleObj.playerY = other.y
+					battleObj.playerRoom = room
+
+					if (battleFlag != "") battleObj.battleFlag = battleFlag
+				}
+			}
+		}
+		
 		if (collidedTile.object_index == TiltedFloor)
 		{
 			if (hspeed != 0) y -= 1
@@ -240,7 +271,7 @@ if (nearestNPC != noone)
 #region Wild Encounters
 var grassAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,GrassObject,false,true)
 var fogAttempt = collision_line(bbox_left,bbox_bottom,bbox_right,bbox_bottom,FogObject,false,true)
-if (canEncounter)
+if (canEncounter and ds_list_size(global.playerParty) > 0)
 {
 	if (instance_exists(grassAttempt) and grassTimer == -1 and
 	(hspeed != 0 or vspeed != 0))

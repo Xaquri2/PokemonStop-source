@@ -43,7 +43,10 @@ if HasFlag("Torch") {
 #region Draw your Pokemon's name
 if (room == GinkoIntroRoom) {	
 }
-else draw_text(850,120,GetName(ds_list_find_value(global.playerParty, 0)))
+else if (ds_list_size(global.playerParty) > 0)
+{
+	draw_text(850,120,GetName(ds_list_find_value(global.playerParty, 0)))
+}
 #endregion
 
 #region Draw controls

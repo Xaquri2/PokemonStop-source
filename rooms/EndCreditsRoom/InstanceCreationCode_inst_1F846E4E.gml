@@ -1,0 +1,1 @@
+display_text = "The Ape-Ball suddenly jumping you";

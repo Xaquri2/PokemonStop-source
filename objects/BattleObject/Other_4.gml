@@ -123,7 +123,6 @@ else
 				}
 			}
 		}
-		else SaveStateAction(global.latestSaveState, "Load")
 
 		audio_group_stop_all(BattleThemes)
 		instance_destroy(id)

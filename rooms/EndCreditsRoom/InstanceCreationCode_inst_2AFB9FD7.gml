@@ -1,0 +1,1 @@
+display_text = "'Mutant Gym Battle'";

@@ -1,1 +1,1 @@
-display_text = "Fight Against Smithy";
+display_text = "'Fight Against Smithy'";

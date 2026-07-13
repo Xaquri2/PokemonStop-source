@@ -40,17 +40,32 @@ if (alarm[1] > 0 and !keyboard_check(ord("A"))) alarm[1] = -1
 
 if (keyboard_check_pressed(ord("E")))
 {
-	if (menu.object_index == BattleTextboxObject)
+	if (instance_exists(menu))
 	{
-		menu.visible = true
-		menu.inactive = false
+		if (menu.object_index == BattleTextboxObject)
+		{
+			menu.visible = true
+			menu.inactive = false
+		}
+		else
+		{
+			menu.optionMenu = noone
+			menu.hasSelected = false
+		}
 	}
 	else
 	{
-		menu.optionMenu = noone
-		menu.hasSelected = false
-		instance_destroy(id)
+		var player = instance_find(PlayerObject, 0)
+
+		if (instance_exists(player))
+		{
+			//player.talking = false
+			//player.canWalk = true
+			player.alarm[1] = 1
+		}
 	}
+
+	instance_destroy(id)
 }
 
 if (keyboard_check_pressed(vk_enter))
@@ -496,14 +511,25 @@ if (keyboard_check_pressed(vk_enter))
 
 	if (ds_list_find_value(optionList, currentOption) == "Exit" or ds_list_find_value(optionList, currentOption) == "Leave")
 	{
-		if (menu.object_index != MerchantMenuObject)
 		{
-			var player = instance_find(PlayerObject, 0)
-			player.alarm[1] = 1
-		}
-		instance_destroy(id)
-	}
+    if (instance_exists(menu))
+    {
+        var battleMenu = menu.menu;
 
+        if (instance_exists(battleMenu))
+        {
+            battleMenu.mode = "Choosing";
+            battleMenu.visible = true;
+        }
+
+        instance_destroy(menu);
+    }
+
+    instance_destroy();
+    exit;
+}
+	}
+	
 	if (string_count("replace", question) > 0)
 	{
 		if (currentOption == 0)
@@ -713,6 +739,8 @@ if (keyboard_check_pressed(vk_enter))
 			//if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
+		
+		
 		if (ds_list_find_value(optionList, currentOption) == "(Next)")
 		{
 			var player = instance_find(PlayerObject, 0)
@@ -849,7 +877,7 @@ if (keyboard_check_pressed(vk_enter))
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
-		if (ds_list_find_value(optionList, currentOption) == "Cuz it's great!")
+		if (ds_list_find_value(optionList, currentOption) == "Cuz it’s great!")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -908,7 +936,7 @@ if (keyboard_check_pressed(vk_enter))
 		}
 		
 		if (ds_list_find_value(optionList, currentOption) == "Interesting perspective — I’d like to learn more about it!"
-		or ds_list_find_value(optionList, currentOption) == "I dunno man, i don't buy it")
+		or ds_list_find_value(optionList, currentOption) == "I dunno man, I don’t buy it")
 		{
 			var player = instance_find(PlayerObject, 0)
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -978,12 +1006,16 @@ if (keyboard_check_pressed(vk_enter))
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 		
-		if (ds_list_find_value(optionList, currentOption) == "Yes please!")
+		if (ds_list_find_value(optionList, currentOption) == "Yes please!") or (ds_list_find_value(optionList, currentOption) == "I got the Skyview Mushroom. Make me a POTION!!")
 		{
 			if (HasItem("Skyview Mushroom"))
 			{
 				var player = instance_find(PlayerObject, 0)
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				dialogue.actionNPC = referenceNPC
+				
+				AddItem("Skyview Potion", 1)
+				RemoveItem("Skyview Mushroom", 1)
 				
 				ds_list_add(dialogue.textList, "Ooh, excellent, this is exciting! What an experiment!",
 				"Okay, here goes!!",
@@ -1005,6 +1037,7 @@ if (keyboard_check_pressed(vk_enter))
 			{
 				var player = instance_find(PlayerObject, 0)
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				dialogue.actionNPC = referenceNPC
 			
 				ds_list_add(dialogue.textList, "Ooh, excellent, this is exciting! What an experiment!",
 				"Oh, one thing though, I just remembered I’m missing an important ingredient: a SKYVIEW MUSHROOM.",

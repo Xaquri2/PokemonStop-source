@@ -1,1 +1,0 @@
-display_text = "(Animated by Xaq to make these:)";

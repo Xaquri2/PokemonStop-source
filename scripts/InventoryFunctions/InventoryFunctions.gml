@@ -78,7 +78,7 @@ function GetItemDescription(name)
 		case "Super Torch Fuel":
 		case "Ultra Torch Fuel":
 			return string_concat("Restores the torch's power by ", GetHealValue(name)*100, "%")
-		case "Field Area Key": return "lswdehcdscnlk"
+		case "Field Area Key": return "A mysterious key. It glows with a strange energy. (Use it at any time; see what happens!)"
 		#endregion
 
 		#region Balls
@@ -180,6 +180,46 @@ function AddItem(name, amount)
 			added = true
 		}
 	}
+}
+
+function RemoveItem(name, amount)
+{
+    var category = GetItemCategory(name)
+
+    if (category == "")
+        return false
+
+    var catIndex = ds_list_find_index(global.categoryNameList, category)
+
+    if (catIndex < 0)
+        return false
+
+    var catList = ds_list_find_value(global.categoryItemList, catIndex)
+
+    for (var i = 0; i < ds_list_size(catList); i++)
+    {
+        var itemInfo = ds_list_find_value(catList, i)
+
+        if (GetItemName(itemInfo) == name)
+        {
+            var newAmount = GetItemAmount(itemInfo) - amount
+
+            if (newAmount <= 0)
+            {
+                ds_list_delete(catList, i)
+            }
+            else
+            {
+                UpdateItemAmount(itemInfo, newAmount)
+                ds_list_set(catList, i, itemInfo)
+            }
+
+            ds_list_set(global.categoryItemList, catIndex, catList)
+            return true
+        }
+    }
+
+    return false
 }
 
 function HasItem(itemName)

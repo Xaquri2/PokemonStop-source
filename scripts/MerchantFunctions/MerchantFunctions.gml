@@ -31,6 +31,9 @@ function GetMerchantItems(name)
 			break
 		case "Morlockcita":
 			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy", "Torch Fuel", "Super Torch Fuel", "Ultra Torch Fuel")
+			if HasFlag("GotMushroom") {
+				ds_list_add(itemList, "Skyview Mushroom")
+			}
 			break
 		case "BoxBotMerchant":
 			ds_list_add(itemList, "Poke Ball", "Potion", "Rare Candy", "Great Ball", "Ultra Ball")
@@ -41,5 +44,10 @@ function GetMerchantItems(name)
 
 function GetItemValue(name)
 {
-	return 100 //To be done
+	switch (name)
+	{
+		case "Skyview Mushroom": return 500
+			break
+		default: return 100 //To be done
+	}
 }

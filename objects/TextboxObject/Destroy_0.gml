@@ -187,7 +187,7 @@ if (instance_exists(actionNPC))
 				optionMenu.question = "React to Zoovac's plan."
 				ds_list_add(optionMenu.optionList, "And what plan is that…?", "What’s your favorite color?")
 			}
-			else if (lastText = "You... of course are a Pokémon trainer, are you not?")
+			else if (lastText == "You... of course are a Pokémon trainer, are you not?")
 			{
 				player.alarm[1] = -1
 				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
@@ -320,15 +320,18 @@ if (instance_exists(actionNPC))
 			}
 			else if (finalText == "Bring me one of those, and I’ll make the potion for you.")
 			{
-				if (!HasFlag("ReturnToNebo")) ds_list_add(global.flags, "ReturnToNebo")
+				ds_list_add(global.flags, "ReturnToNebo") //if (!HasFlag("ReturnToNebo")) 
 			}
 			else if (finalText == "Go in peace. If you change your mind, you know where to find me.")
 			{
-				if (!HasFlag("ReturnToNebo")) ds_list_add(global.flags, "ReturnToNebo")
+				ds_list_add(global.flags, "ReturnToNebo") //if (!HasFlag("ReturnToNebo")) 
 			}
 			else if (finalText == "There we go! Your potion! Drink when ready!")
 			{
-				if (!HasFlag("HasNeboPotion")) ds_list_add(global.flags, "HasNeboPotion")
+				ds_list_add(global.flags, "HasNeboPotion") //if (!HasFlag("HasNeboPotion")) 
+				
+				//AddItem("Skyview Potion", 1)
+				//RemoveItem("Skyview Mushroom", 1)
 				
 				player = instance_find(PlayerObject, 0)
 				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
@@ -347,7 +350,12 @@ if (instance_exists(actionNPC))
 
 		        ds_list_add(optionMenu.optionList, "Who are you?")
 				ds_list_add(optionMenu.optionList, "You sure you’re not gonna eat me?")
-				ds_list_add(optionMenu.optionList, "Pleased to meet you, I’m Gash!")
+				if (HasFlag("ReturnToNebo")) {
+					ds_list_add(optionMenu.optionList, "I got the Skyview Mushroom. Make me a POTION!!")
+				}
+				else {
+					ds_list_add(optionMenu.optionList, "Pleased to meet you, I’m Gash!")
+				}
 				ds_list_add(optionMenu.optionList, "(Next)")
 		    }
 			
@@ -475,7 +483,9 @@ if (room == GinkoIntroRoom ) {
 }
 
 var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
-if (finalText == "You obtained the Skyview Potion!") AddItem("Skyview Potion", 1)
+if (finalText == "You obtained the Skyview Potion!") {
+	AddItem("Skyview Potion", 1)
+	RemoveItem("Skyview Mushroom", 1)
 }
 
 var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
@@ -491,4 +501,4 @@ if (string_count("Area Key", finalText) > 0)
 	game.warp = true
 	game.targetRoom = NestAreaRoom
 	game.targetWarp = "NestRoomToOrigin"
-}
+}}

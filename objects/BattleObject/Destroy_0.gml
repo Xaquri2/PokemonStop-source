@@ -1,21 +1,24 @@
-if (!isWild) ds_list_add(global.beatenTrainers, enemyName)
-
-if (postBattleTextList != noone and !ds_list_empty(postBattleTextList) and enemyName != "Collector")
+if (!defeat)
 {
-	player = instance_find(PlayerObject, 0)
-	var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-	dialogue.isDefeatDialogue = true
-	if (instance_number(enemyObjectType) > 0) dialogue.actionNPC = instance_find(enemyObjectType, 0)
+	if (!isWild) ds_list_add(global.beatenTrainers, enemyName)
 
-	dialogue.textList = postBattleTextList
-	dialogue.iconList = postBattleIconList
-	dialogue.nameList = postBattleNameList
+	if (postBattleTextList != noone and !ds_list_empty(postBattleTextList) and enemyName != "Collector")
+	{
+		player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.isDefeatDialogue = true
+		if (instance_number(enemyObjectType) > 0) dialogue.actionNPC = instance_find(enemyObjectType, 0)
 
-	dialogue.name = enemyName
-	player.talking = true
+		dialogue.textList = postBattleTextList
+		dialogue.iconList = postBattleIconList
+		dialogue.nameList = postBattleNameList
 
-	if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
-}
+		dialogue.name = enemyName
+		if (instance_exists(player)) player.talking = true
+
+		if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+	}
+} //
 
 var game = instance_find(GameObject, 0)
 game.warp = false

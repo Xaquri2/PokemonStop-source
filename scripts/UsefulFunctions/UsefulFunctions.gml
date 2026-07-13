@@ -135,3 +135,25 @@ function CheckForInterruptions()
 		vspeed = 0
 	}
 }
+
+function GetNextNearestGrass()
+{
+	var closest = noone
+	var currentGrass = collision_point(x,y,GrassObject,false,true)
+	
+	for (var i = 0; i < instance_number(GrassObject); i++)
+	{
+		var attempt = instance_find(GrassObject, i)
+		if (closest == noone or point_distance(x,y,closest.x,closest.y) > point_distance(x,y,attempt.x,attempt.y))
+		{
+			if (attempt != currentGrass and ds_list_find_index(grassList, attempt) == -1) 
+			{
+				closest = attempt
+				ds_list_add(grassList, attempt)
+			}
+		}
+	}
+	
+	if (closest == noone and instance_exists(currentGrass)) closest = currentGrass
+	return closest
+}

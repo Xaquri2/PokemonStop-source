@@ -1,0 +1,1 @@
+display_text = "The Noble Demon";
