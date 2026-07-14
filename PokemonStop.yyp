@@ -540,6 +540,7 @@
     {"id":{"name":"BeachGirlSprite_CLOSEUP","path":"sprites/BeachGirlSprite_CLOSEUP/BeachGirlSprite_CLOSEUP.yy",},},
     {"id":{"name":"BeachGirlSprite","path":"sprites/BeachGirlSprite/BeachGirlSprite.yy",},},
     {"id":{"name":"BlackBox","path":"sprites/BlackBox/BlackBox.yy",},},
+    {"id":{"name":"BlenderSprite","path":"sprites/BlenderSprite/BlenderSprite.yy",},},
     {"id":{"name":"BlueMarbleSprite_GodPlatform_TOP","path":"sprites/BlueMarbleSprite_GodPlatform_TOP/BlueMarbleSprite_GodPlatform_TOP.yy",},},
     {"id":{"name":"BlueMarbleSprite_GodPlatform","path":"sprites/BlueMarbleSprite_GodPlatform/BlueMarbleSprite_GodPlatform.yy",},},
     {"id":{"name":"BlueMarbleSprite","path":"sprites/BlueMarbleSprite/BlueMarbleSprite.yy",},},
