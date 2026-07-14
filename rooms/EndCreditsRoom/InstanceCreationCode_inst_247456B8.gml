@@ -1,0 +1,1 @@
+display_text = "Pkmn Stats, Leveling, etc";
