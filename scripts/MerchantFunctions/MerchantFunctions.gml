@@ -47,7 +47,6 @@ function GetItemValue(name)
 	switch (name)
 	{
 		case "Skyview Mushroom": return 500
-			break
 		default: return 100 //To be done
 	}
 }

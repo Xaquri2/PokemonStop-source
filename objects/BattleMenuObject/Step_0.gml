@@ -698,6 +698,13 @@ if (keyboard_check_pressed(vk_enter))
 			var eSpeedStat = GetSpeedStat(enemyStats)
 			if (eStatus == "Paralysis") eSpeedStat /= 2
 
+			if (pSpeedStat == eSpeedStat)
+			{
+				var tieBreaker = irandom(1)
+				if (tieBreaker > 0) pSpeedStat++
+				else eSpeedStat++
+			}
+			
 			if (pSpeedStat > eSpeedStat or pPriority > ePriority)
 			{
 				//Player Move
@@ -1141,6 +1148,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 			}
+			
 			instance_destroy(id)
 		}
 	}
