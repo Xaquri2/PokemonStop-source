@@ -49,5 +49,9 @@ else
 //}
 
 if (room == EndCreditsRoom) && (EndCreditsAlarm == true) {
-	y = lerp(y, y+1, 0.6)
+	if (TheEndTrigger == true) {
+	}
+	else {
+		y = lerp(y, y+1, 0.6)
+	}
 }

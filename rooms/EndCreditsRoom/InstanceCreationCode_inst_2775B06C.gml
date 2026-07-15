@@ -1,0 +1,1 @@
+display_text = "(The Pic You're About To See...)";
