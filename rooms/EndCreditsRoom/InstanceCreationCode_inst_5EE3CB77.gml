@@ -1,2 +1,2 @@
-display_text = "PAPER COMPUTER GAMES created by Chris Deluca";
+display_text = "PAPER COMPUTER GAMES";
 xaqsetfont = 1
