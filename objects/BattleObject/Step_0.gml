@@ -60,6 +60,7 @@ else
 		{
 			global.money += GetTrainerMoney(enemyName)
 			if (defeat) SaveStateAction(global.latestSaveState, "Load")
+			else room_goto(playerRoom)
 		}
 	}
 	
