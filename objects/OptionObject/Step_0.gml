@@ -1070,13 +1070,19 @@ if (keyboard_check_pressed(vk_enter))
 		
 		switch (currentOption)
 		{
-			case 0:
+			case 0: // yes
 				global.pikminCount++
+				instance_destroy(referenceNPC)
+				instance_destroy(id)
+				
+				break
+				
+			case 1: // No
+				instance_destroy(id)
 				break
 		}
 
-		instance_destroy(referenceNPC)
-		instance_destroy(id)
+		
 	}
 	
 	if (question == "Start the Gym Battle?" or question == "Start the Battle?")
