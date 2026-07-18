@@ -83,3 +83,12 @@ else {
 }
 #endregion
 
+#region Draw Pikmin Count
+if (instance_number(FollowerPikminObject) > 0) {
+	draw_set_color(c_black);
+	draw_text_transformed(800,900,instance_number(FollowerPikminObject),5,6,0)
+	draw_set_color(c_white);
+	draw_text_transformed(803,900,instance_number(FollowerPikminObject),5,6,0)
+}
+
+#endregion
