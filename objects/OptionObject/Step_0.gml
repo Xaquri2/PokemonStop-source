@@ -610,7 +610,7 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.nameList, "Mary")
 
 			player.talking = true
-
+			ds_list_add(global.flags, "MaryRejected")
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
 		}
 

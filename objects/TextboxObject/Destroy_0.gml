@@ -33,6 +33,10 @@ if (instance_exists(actionNPC))
 				startBattle = false
 				player.alarm[1] = 1
 			}
+			if (HasFlag("MaryRejected")) {
+				startBattle = false
+				player.alarm[1] = 1
+			}
 			break
 		case Gorbertron:
 			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")

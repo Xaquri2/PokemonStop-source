@@ -20,21 +20,34 @@ else
 	}
 }
 
-if (instance_exists(player) and room == Mallet_Town and
-player.hspeed != 0 and (player.x >= 540 and player.x <= 800))
-{
-	sprite_index = MaryWalkRightSprite
-	image_speed = 1//sprite_get_speed(MaryWalkRightSprite)
-
-	if (player.hspeed < 0) image_xscale = -1.7
-	else image_xscale = 1.7
+if (HasFlag("MaryRejected")) {
+	if (x > 575) {
+		x = lerp(x,540,0.2)
+		sprite_index = MaryWalkRightSprite
+		image_xscale = -1.2
+	}
+	else {
+		x = 574
+		speed = 0
+		sprite_index = MaryWalkDownSprite
+	}
 }
-else
-{
-	sprite_index = MaryWalkDownSprite
-	image_index = 0
-	image_speed = 0
-	image_xscale = 1
-}
+else {
+	if (instance_exists(player) and room == Mallet_Town and
+	player.hspeed != 0 and (player.x >= 540 and player.x <= 800))
+	{
+		sprite_index = MaryWalkRightSprite
+		image_speed = 1//sprite_get_speed(MaryWalkRightSprite)
 
+		if (player.hspeed < 0) image_xscale = -1.7
+		else image_xscale = 1.7
+	}
+	else
+	{
+		sprite_index = MaryWalkDownSprite
+		image_index = 0
+		image_speed = 0
+		image_xscale = 1
+	}
+}
 if (keyboard_check(vk_shift)) speed = 0
