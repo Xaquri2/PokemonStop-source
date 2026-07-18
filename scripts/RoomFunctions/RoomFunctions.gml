@@ -753,7 +753,8 @@ function BattleHasBackground()
 		case "ShadowPathGym":
 		case "RobotGym": return string_concat(prevRoomName, "Background")
 		case "MorlockGym": 
-		if (enemy == "Gorbertron") return string_concat(prevRoomName, "Background")
+			if (enemy == "Gorbertron") return string_concat(prevRoomName, "Background");
+			else return "";
 		case "FifthFloor": return string_concat(prevRoomName, "Background")
 		
 		default: return ""
