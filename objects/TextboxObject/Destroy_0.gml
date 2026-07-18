@@ -28,6 +28,12 @@ if (instance_exists(actionNPC))
 					break
 			}
 			break
+		case Mary:
+			if (HasFlag("StarterChosen") = false) {
+				startBattle = false
+				player.alarm[1] = 1
+			}
+			break
 		case Gorbertron:
 			if (ds_list_find_value(textList, 0) != "Alright, let's begin!")
 			{
@@ -268,9 +274,7 @@ if (instance_exists(actionNPC))
 			
 			if (ds_list_find_value(textList, 0) == "Humans.")
 				{
-					ds_list_add(global.flags, "MaryRivalBattle1")
-					instance_destroy(Mary)
-					global.followerType = "Mary"
+
 				}
 				break
 		case Nebogipfel:
@@ -462,6 +466,7 @@ if (ds_list_find_value(textList, 0) == "Fine! Whatever...")
 	ds_list_add(global.flags, "MaryRivalBattle1")
 	instance_destroy(Mary)
 	global.followerType = "Mary"
+	
 }
 
 if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the ground.")

@@ -622,10 +622,16 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.textList, "Fine! Whatever...")
 			ds_list_add(dialogue.nameList, "Mary")
 			ds_list_add(dialogue.iconList, MaryWalkDownSprite)
+			
+			ds_list_add(global.flags, "MaryRivalBattle1")
+		    global.followerType = "Mary"
+		    instance_destroy(Mary)
 
 			player.talking = true
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			
+			
 		}
 
 		instance_destroy(id)

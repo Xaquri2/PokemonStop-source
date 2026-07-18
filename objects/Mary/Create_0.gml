@@ -11,7 +11,7 @@ if (HasFlag("StarterChosen"))
 }
 else
 {
-	ds_list_add(textList, "Oh, you don't have a Pokémon yet huh? Go get one!")
+	ds_list_add(textList, "Oh, you don't have a Pokémon yet huh? Go get one, dweeb!")
 	ds_list_add(nameList, name)
 	ds_list_add(iconList, MaryFaceSprite)
 }
