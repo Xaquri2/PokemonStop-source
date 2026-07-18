@@ -1,1 +1,7 @@
 ds_list_add(textList, "It's a weird leaf, sticking up from the ground.")
+
+PikminName = "Trini"
+
+if HasFlag("PikminTrini") {
+	instance_destroy(self)
+}
