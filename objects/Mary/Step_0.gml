@@ -8,28 +8,32 @@ if (HasFlag("MaryRivalBattle2")) instance_destroy(self)
 if (room == Mallet_Town)
 if (!instance_exists(player)) player = instance_find(PlayerObject, 0)
 else
-{
-	if (room == Mallet_Town)
-	{
-		if (player.x >= 540 and player.x <= 800)
+{	if (HasFlag("MaryRejected")) {}
+	else {
+		if (room == Mallet_Town)
 		{
-			if (point_distance(x,y,player.x,y) < 5) speed = 0
-			else move_towards_point(player.x, y, 4)
+			if (player.x >= 540 and player.x <= 800)
+			{
+				if (point_distance(x,y,player.x,y) < 5) speed = 0
+				else move_towards_point(player.x, y, 4)
+			}
+			else speed = 0
 		}
-		else speed = 0
 	}
 }
 
 if (HasFlag("MaryRejected")) {
 	if (x > 575) {
-		x = lerp(x,540,0.2)
+		x = lerp(x,540,0.01)
 		sprite_index = MaryWalkRightSprite
+		image_speed = 2
 		image_xscale = -1.2
 	}
 	else {
 		x = 574
 		speed = 0
 		sprite_index = MaryWalkDownSprite
+		image_speed = 0.5
 	}
 }
 else {
