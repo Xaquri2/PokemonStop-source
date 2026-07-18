@@ -759,6 +759,7 @@
     {"id":{"name":"PikachuIdleSprite","path":"sprites/PikachuIdleSprite/PikachuIdleSprite.yy",},},
     {"id":{"name":"PikachuMockupBox","path":"sprites/PikachuMockupBox/PikachuMockupBox.yy",},},
     {"id":{"name":"PikminBuriedLeafSprite","path":"sprites/PikminBuriedLeafSprite/PikminBuriedLeafSprite.yy",},},
+    {"id":{"name":"PikminFaceSprite","path":"sprites/PikminFaceSprite/PikminFaceSprite.yy",},},
     {"id":{"name":"PikminIdleSprite","path":"sprites/PikminIdleSprite/PikminIdleSprite.yy",},},
     {"id":{"name":"PikminWalkDownSprite","path":"sprites/PikminWalkDownSprite/PikminWalkDownSprite.yy",},},
     {"id":{"name":"PikminWalkRightSprite","path":"sprites/PikminWalkRightSprite/PikminWalkRightSprite.yy",},},

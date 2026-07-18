@@ -85,10 +85,20 @@ else {
 
 #region Draw Pikmin Count
 if (instance_number(FollowerPikminObject) > 0) {
+	
+	draw_sprite_ext(PikminFaceSprite, 0, 770, 867, 1.4, 1.4, 0, c_white, 1);
+	
 	draw_set_color(c_black);
-	draw_text_transformed(800,900,instance_number(FollowerPikminObject),5,6,0)
+	draw_text_transformed(800,870,instance_number(FollowerPikminObject),5,6,0)
 	draw_set_color(c_white);
-	draw_text_transformed(803,900,instance_number(FollowerPikminObject),5,6,0)
+	draw_text_transformed(803,870,instance_number(FollowerPikminObject),5,6,0)
+	
+	if (HasFlag("StarterChosen")) {
+		draw_set_color(c_black);
+		draw_text_transformed(790,850,"Alt = Catch",1,1,0)
+		draw_set_color(c_white);
+		draw_text_transformed(793,850,"Alt = Catch",1,1,0)
+	}
 }
 
 #endregion

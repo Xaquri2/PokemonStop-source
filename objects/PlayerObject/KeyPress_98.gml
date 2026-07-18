@@ -1,0 +1,1 @@
+//global.pikminCount += 10
