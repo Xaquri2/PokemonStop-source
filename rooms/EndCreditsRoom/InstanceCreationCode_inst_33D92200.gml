@@ -1,1 +1,1 @@
-display_text = "Detuned Paper";
+display_text = "Detuned Paper:";

@@ -1,1 +1,1 @@
-display_text = "Keith";
+display_text = "Keith:";

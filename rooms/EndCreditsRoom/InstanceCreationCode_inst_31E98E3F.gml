@@ -1,1 +1,1 @@
-display_text = "Miles";
+display_text = "Miles:";

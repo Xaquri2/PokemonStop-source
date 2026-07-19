@@ -7,4 +7,4 @@ idleSprite = sprite_index
 
 canWalk = true
 
-AddPokemonTrainer(trainerTeam, 1, "MissingNo", floor(random_range(8,15)), GetRandomGender(50), MissingNoIdleSprite)
+AddPokemonTrainer(trainerTeam, 1, "MissingNo", floor(random_range(8,15)), GetRandomGender(50), MissingNoBattleSprite)

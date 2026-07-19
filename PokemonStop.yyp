@@ -702,6 +702,7 @@
     {"id":{"name":"MetalGrateSprite","path":"sprites/MetalGrateSprite/MetalGrateSprite.yy",},},
     {"id":{"name":"MetroidOverworldSprite","path":"sprites/MetroidOverworldSprite/MetroidOverworldSprite.yy",},},
     {"id":{"name":"MewTruckSprite","path":"sprites/MewTruckSprite/MewTruckSprite.yy",},},
+    {"id":{"name":"MissingNoBattleSprite","path":"sprites/MissingNoBattleSprite/MissingNoBattleSprite.yy",},},
     {"id":{"name":"MissingNoIdleSprite","path":"sprites/MissingNoIdleSprite/MissingNoIdleSprite.yy",},},
     {"id":{"name":"MistyMalletSprite","path":"sprites/MistyMalletSprite/MistyMalletSprite.yy",},},
     {"id":{"name":"MoltresOverworldSprite","path":"sprites/MoltresOverworldSprite/MoltresOverworldSprite.yy",},},

@@ -1,1 +1,1 @@
-display_text = "Krierre House";
+display_text = "Krierre House:";

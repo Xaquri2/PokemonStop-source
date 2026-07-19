@@ -1,0 +1,7 @@
+AddPokemon("Ewok", 100, GetRandomGender(50))
+AddPokemon("Godzilla", 95, GetRandomGender(50))
+AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
+AddPokemon("Glyptoblock", 15, GetRandomGender(50))
+AddPokemon("Creeper", 100, GetRandomGender(50))
+AddPokemon("Charmander", 100, GetRandomGender(50))
+//AddPokemon("Pikachu", 10, GetRandomGender(50))

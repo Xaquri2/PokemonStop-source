@@ -1,1 +1,1 @@
-display_text = "Iazurinex";
+display_text = "Iazurinex:";

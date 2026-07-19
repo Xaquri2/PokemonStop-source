@@ -1,1 +1,1 @@
-display_text = "Dioga Beta";
+display_text = "Dioga Beta:";

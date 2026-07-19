@@ -1,1 +1,1 @@
-display_text = "KcoKt";
+display_text = "KcoKt:";
