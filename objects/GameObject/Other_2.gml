@@ -41,7 +41,7 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Pikachu", 15, GetRandomGender(50))
 /*AddPokemon("Ewok", 100, GetRandomGender(50))
 AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
