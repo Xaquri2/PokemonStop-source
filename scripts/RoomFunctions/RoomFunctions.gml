@@ -256,6 +256,10 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = ShadowTower
 			targetWarp = "ShadowTowerToShadow"
 			break
+		case "ShadowToShadowTower2":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToShadow"
+			break
 		case "ShadowToEmptyHouse":
 			targetRoom = EmptyHouse
 			targetWarp = "EmptyHouseToShadow"
@@ -290,6 +294,35 @@ function SetWarpDefaults(name, spawnDir, show)
 		case "ShadowTowerToShadow":
 			targetRoom = ShadowPath
 			targetWarp = "ShadowToShadowTower"
+			break
+		case "ShadowTowerToUnderroom1":
+			targetRoom = Underroom1
+			targetWarp = "ShadowUnderroom1Exit"
+			break
+		case "ShadowTowerToUnderroom2":
+			targetRoom = Underroom2
+			targetWarp = "Underroom2exit"
+			break
+
+		#endregion
+
+		#region Underrooms
+		case "ShadowUnderroom1Exit":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToUnderroom1"
+			break
+		case "Underroom2exit":
+			targetRoom = ShadowTower
+			targetWarp = "ShadowTowerToUnderroom2"
+			break
+		case "Underroom2to1":
+			targetRoom = Underroom1
+			targetWarp = "Underroom1toUnderroom2"
+			break
+
+		case "Underroom1toUnderroom2":
+			targetRoom = Underroom2
+			targetWarp = "Underroom2to1"
 			break
 		#endregion
 
@@ -520,38 +553,17 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
 			#endregion
-		case "ShadowTowerToUnderroom1":
-			targetRoom = Underroom1
-			targetWarp = "ShadowUnderroom1Exit"
-			break
 
-		case "ShadowUnderroom1Exit":
-			targetRoom = ShadowTower
-			targetWarp = "ShadowTowerToUnderroom1"
-			break
-		case "ShadowTowerToUnderroom2":
-			targetRoom = Underroom2
-			targetWarp = "Underroom2exit"
-			break
+		#region Misc. 
 
-		case "Underroom2exit":
-			targetRoom = ShadowTower
-			targetWarp = "ShadowTowerToUnderroom2"
-			break
-		case "Underroom2to1":
-			targetRoom = Underroom1
-			targetWarp = "Underroom1toUnderroom2"
-			break
 
-		case "Underroom1toUnderroom2":
-			targetRoom = Underroom2
-			targetWarp = "Underroom2to1"
-			break
-		
 		case "NestRoomToOrigin":
 			targetRoom = GameObject.areaKeyInfo
 			targetWarp = "Random"
 			break
+
+
+		#endregion
 	}
 
 	warpName = name
