@@ -1,0 +1,1 @@
+ds_list_add(textList, "Mallet Museum of Mallet Town!","Come see how these incredible instruments have shaped our PokéSociety throughout history!")

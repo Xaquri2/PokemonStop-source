@@ -25,3 +25,5 @@ for (var i = 0; i < ds_list_size(global.flags); i++)
 }
 
 show_debug_message("=================");
+
+ds_list_add(global.flags,"GameBeaten")

@@ -39,6 +39,7 @@
     {"name":"inst_2BB89589","path":"rooms/GashUpstairs/GashUpstairs.yy",},
     {"name":"inst_1462F09B","path":"rooms/GashUpstairs/GashUpstairs.yy",},
     {"name":"inst_14AC8469","path":"rooms/GashUpstairs/GashUpstairs.yy",},
+    {"name":"inst_6909127E","path":"rooms/GashUpstairs/GashUpstairs.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -92,6 +93,7 @@
         {"$GMRInstance":"v4","%Name":"inst_2BB89589","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2BB89589","objectId":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":188.0,"y":211.5,},
         {"$GMRInstance":"v4","%Name":"inst_1462F09B","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1462F09B","objectId":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":187.95944,"y":111.92247,},
         {"$GMRInstance":"v4","%Name":"inst_14AC8469","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_14AC8469","objectId":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":245.0,"y":216.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6909127E","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6909127E","objectId":{"name":"TestPortalKeyObject","path":"objects/TestPortalKeyObject/TestPortalKeyObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":48.5,"y":91.4341,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_73CB0245","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_73CB0245","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"FishBowl","path":"sprites/FishBowl/FishBowl.yy",},"x":104.0,"y":61.0,},

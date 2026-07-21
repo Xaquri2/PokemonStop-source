@@ -1,3 +1,3 @@
 if (HasFlag("GameBeaten")) {
-	room_goto(Mallet_Town)
+	room_goto(Mallet_East_ENDCREDITS)
 }
