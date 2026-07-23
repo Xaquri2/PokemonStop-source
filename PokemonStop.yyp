@@ -590,6 +590,7 @@
     {"id":{"name":"CylonHeadSprite","path":"sprites/CylonHeadSprite/CylonHeadSprite.yy",},},
     {"id":{"name":"DarkTowerEndCreditsPic","path":"sprites/DarkTowerEndCreditsPic/DarkTowerEndCreditsPic.yy",},},
     {"id":{"name":"DarkTowerGodzillaBattleSprite","path":"sprites/DarkTowerGodzillaBattleSprite/DarkTowerGodzillaBattleSprite.yy",},},
+    {"id":{"name":"DarkTowerSmashedSpireSprite","path":"sprites/DarkTowerSmashedSpireSprite/DarkTowerSmashedSpireSprite.yy",},},
     {"id":{"name":"DarkTowerSprite_SMASHED","path":"sprites/DarkTowerSprite_SMASHED/DarkTowerSprite_SMASHED.yy",},},
     {"id":{"name":"DarkTowerSprite","path":"sprites/DarkTowerSprite/DarkTowerSprite.yy",},},
     {"id":{"name":"DartBoardSprite","path":"sprites/DartBoardSprite/DartBoardSprite.yy",},},
