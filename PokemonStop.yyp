@@ -208,6 +208,7 @@
     {"id":{"name":"DreamTent","path":"objects/DreamTent/DreamTent.yy",},},
     {"id":{"name":"DreamTentAFTERCREDITSCENE","path":"objects/DreamTentAFTERCREDITSCENE/DreamTentAFTERCREDITSCENE.yy",},},
     {"id":{"name":"Elise","path":"objects/Elise/Elise.yy",},},
+    {"id":{"name":"EndCreditsGash_asleep","path":"objects/EndCreditsGash_asleep/EndCreditsGash_asleep.yy",},},
     {"id":{"name":"EndCreditsGash","path":"objects/EndCreditsGash/EndCreditsGash.yy",},},
     {"id":{"name":"EndCreditsNPC","path":"objects/EndCreditsNPC/EndCreditsNPC.yy",},},
     {"id":{"name":"EndCreditsObject","path":"objects/EndCreditsObject/EndCreditsObject.yy",},},
@@ -409,6 +410,7 @@
     {"id":{"name":"Zoombini","path":"objects/Zoombini/Zoombini.yy",},},
     {"id":{"name":"Zoovac","path":"objects/Zoovac/Zoovac.yy",},},
     {"id":{"name":"ZoovacHovering","path":"objects/ZoovacHovering/ZoovacHovering.yy",},},
+    {"id":{"name":"Asleep","path":"rooms/Asleep/Asleep.yy",},},
     {"id":{"name":"Elevator1","path":"rooms/Elevator1/Elevator1.yy",},},
     {"id":{"name":"Elevator2","path":"rooms/Elevator2/Elevator2.yy",},},
     {"id":{"name":"Elevator3","path":"rooms/Elevator3/Elevator3.yy",},},
@@ -1064,6 +1066,7 @@
     {"roomId":{"name":"Underroom2","path":"rooms/Underroom2/Underroom2.yy",},},
     {"roomId":{"name":"NestAreaRoom","path":"rooms/NestAreaRoom/NestAreaRoom.yy",},},
     {"roomId":{"name":"Mallet_East_ENDCREDITS","path":"rooms/Mallet_East_ENDCREDITS/Mallet_East_ENDCREDITS.yy",},},
+    {"roomId":{"name":"Asleep","path":"rooms/Asleep/Asleep.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

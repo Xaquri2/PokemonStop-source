@@ -9,8 +9,8 @@
   "name":"EndCreditsObject",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"EndCredits",
+    "path":"folders/Objects/EndCredits.yy",
   },
   "parentObjectId":null,
   "persistent":false,
