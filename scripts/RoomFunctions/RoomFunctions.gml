@@ -617,6 +617,7 @@ function GetRoomMusic()
 		case RouteMinusOneBottom:
 		case RouteMinusOneTop:
 			return RouteMinusOneTheme
+		case EndCreditsRoom: return RouteMinusOneTheme
 			
 		// Mutant Path 
 		case MutantPath1: return MutantPathAmbiance
@@ -644,6 +645,7 @@ function GetRoomMusic()
 			return PokeGymLofi
 		case GashHouse: return SacredBeasts
 		case GashUpstairs: return SacredBeasts
+		case Mallet_East_ENDCREDITS: return SwordDescends
 		
 		//Shadow Path
 		case ShadowPath: return OathToOrder

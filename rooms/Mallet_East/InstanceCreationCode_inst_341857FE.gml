@@ -3,3 +3,5 @@ if HasFlag("GameBeaten") == false {
 }
 
 image_alpha = 0
+
+Target = Asleep

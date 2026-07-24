@@ -23,6 +23,7 @@ if cameraArrived == true {
 if pauseOver == true {
 	with (DreamTentAFTERCREDITSCENE) {
 		image_alpha += 0.05
+		WarpSoundStart = true
 	}
 }
 
