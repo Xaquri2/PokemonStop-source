@@ -390,97 +390,97 @@ if (instance_exists(actionNPC))
 
 	}
 
-
-if (isDefeatDialogue)
-{
-	switch(name)
+	if (isDefeatDialogue)
 	{
-		case "Mary":
-			if (ds_list_find_value(textList, 0) == "How? I can't believe i lost!") //Mary's defeat dialogue
-			{
-				player.alarm[1] = -1
-				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
-				optionMenu.question = "Pick an option."
-				ds_list_add(optionMenu.optionList, "Get lost, loser!")
-				ds_list_add(optionMenu.optionList, "Why don't you join me?")
-			}
-			break
-	}
-}
-
-if (startBattle and instance_number(OptionObject) == 0)
-{
-	player.talking = false
-	player.canWalk = false
-	player.battle = true
-
-	var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
-	battleObj.enemyTeam = actionNPC.trainerTeam
-	battleObj.enemySprite = actionNPC.trainerSprite
-	battleObj.enemyName = name
-	battleObj.enemyObjectType = actionNPC.object_index
-	battleObj.isWild = isWild
-	battleObj.playerX = player.x
-	battleObj.playerY = player.y
-	battleObj.playerRoom = room
-	
-	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
-	{
-		battleObj.cutsceneVideo = "MegaBotCutscene"
-	}
-	
-	if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!") && !HasFlag("ZoovacFinalBattle")
-	{
-		show_debug_message("TRIGGERING GODZILLA CUTSCENE");
-		battleObj.cutsceneVideo = "GodzillaCutscene"
-	}
-	
-	if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
-	{
-		battleObj.importantBattle = true
-		battleObj.spriteIntro = true
-	}
-	
-	battleObj.trainerX = actionNPC.x
-	battleObj.trainerY = actionNPC.y
-
-	if ((object_get_parent(actionNPC.object_index) == TrainerParent 
-	or object_get_parent(actionNPC.object_index) == GymLeaderParent)
-	and !ds_list_empty(actionNPC.postBattleTextList))
-	{
-		battleObj.postBattleTextList = actionNPC.postBattleTextList
-		battleObj.postBattleIconList = actionNPC.postBattleIconList
-		battleObj.postBattleNameList = actionNPC.postBattleNameList
+		switch(name)
+		{
+			case "Mary":
+				if (ds_list_find_value(textList, 0) == "How? I can't believe i lost!") //Mary's defeat dialogue
+				{
+					player.alarm[1] = -1
+					var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+					optionMenu.question = "Pick an option."
+					ds_list_add(optionMenu.optionList, "Get lost, loser!")
+					ds_list_add(optionMenu.optionList, "Why don't you join me?")
+				}
+				break
+		}
 	}
 
-	if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
-	
-	if (battleObj.cutsceneVideo == "")
+	if (startBattle and instance_number(OptionObject) == 0)
 	{
-		var musicC = instance_find(MusicObject, 0)
-		var music = musicC.currentMusic
-		audio_stop_sound(music)
-		audio_play_sound(GetBattleTheme(name), 1, false)
-		musicC.currentMusic = GetBattleTheme(name)
-	}
-}
+		player.talking = false
+		player.canWalk = false
+		player.battle = true
 
-if (ds_list_find_value(textList, 0) == "Fine! Whatever...")
-{
-	ds_list_add(global.flags, "MaryRivalBattle1")
-	instance_destroy(Mary)
-	global.followerType = "Mary"
+		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
+		battleObj.enemyTeam = actionNPC.trainerTeam
+		battleObj.enemySprite = actionNPC.trainerSprite
+		battleObj.enemyName = name
+		battleObj.enemyObjectType = actionNPC.object_index
+		battleObj.isWild = isWild
+		battleObj.playerX = player.x
+		battleObj.playerY = player.y
+		battleObj.playerRoom = room
 	
-}
+		if (ds_list_find_value(textList, ds_list_size(textList)-1) == "MEGA-BOT, Activate!!!")
+		{
+			battleObj.cutsceneVideo = "MegaBotCutscene"
+		}
+	
+		if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!") && !HasFlag("ZoovacFinalBattle")
+		{
+			show_debug_message("TRIGGERING GODZILLA CUTSCENE");
+			battleObj.cutsceneVideo = "GodzillaCutscene"
+		}
+	
+		if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
+		{
+			battleObj.importantBattle = true
+			battleObj.spriteIntro = true
+		}
+	
+		battleObj.trainerX = actionNPC.x
+		battleObj.trainerY = actionNPC.y
 
-if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the ground.")
-{
-	player.alarm[1] = -1
-	var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
-	optionMenu.question = "Pull it?"
-	ds_list_add(optionMenu.optionList, "Yes")
-	ds_list_add(optionMenu.optionList, "No")
-	optionMenu.referenceNPC = actionNPC
+		if ((object_get_parent(actionNPC.object_index) == TrainerParent 
+		or object_get_parent(actionNPC.object_index) == GymLeaderParent)
+		and !ds_list_empty(actionNPC.postBattleTextList))
+		{
+			battleObj.postBattleTextList = actionNPC.postBattleTextList
+			battleObj.postBattleIconList = actionNPC.postBattleIconList
+			battleObj.postBattleNameList = actionNPC.postBattleNameList
+		}
+
+		if (actionNPC.battleFlag != "") battleObj.battleFlag = actionNPC.battleFlag
+	
+		if (battleObj.cutsceneVideo == "")
+		{
+			var musicC = instance_find(MusicObject, 0)
+			var music = musicC.currentMusic
+			audio_stop_sound(music)
+			audio_play_sound(GetBattleTheme(name), 1, false)
+			musicC.currentMusic = GetBattleTheme(name)
+		}
+	}
+
+	if (ds_list_find_value(textList, 0) == "Fine! Whatever...")
+	{
+		ds_list_add(global.flags, "MaryRivalBattle1")
+		instance_destroy(Mary)
+		global.followerType = "Mary"
+	
+	}
+
+	if (ds_list_find_value(textList, 0) == "It's a weird leaf, sticking up from the ground.")
+	{
+		player.alarm[1] = -1
+		var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+		optionMenu.question = "Pull it?"
+		ds_list_add(optionMenu.optionList, "Yes")
+		ds_list_add(optionMenu.optionList, "No")
+		optionMenu.referenceNPC = actionNPC
+	}
 }
 
 // Resume the controlling sequence (if we were given one)
@@ -497,17 +497,16 @@ if (finalText == "You obtained the Skyview Potion!") {
 	RemoveItem("Skyview Mushroom", 1)
 }
 
-var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
-if (finalText == "Only for 10 minutes though!") player.menuOpen = false
-
-if (string_count("Area Key", finalText) > 0)
+finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
+if (finalText == "Only for 10 minutes though!") 
 {
 	var game = instance_find(GameObject, 0)
 	audio_play_sound(DoorOpen, 1, false)
 	player.canWalk = false
+	player.menuOpen = false
 	
 	game.fade = true
 	game.warp = true
 	game.targetRoom = NestAreaRoom
 	game.targetWarp = "NestRoomToOrigin"
-}}
+}

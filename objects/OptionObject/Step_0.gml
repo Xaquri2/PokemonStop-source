@@ -354,7 +354,8 @@ if (keyboard_check_pressed(vk_enter))
 						
 						var player = instance_find(PlayerObject, 0)
 						var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
-						ds_list_add(dialogue.textList, string_concat("You used the ", itemName, "!"))
+						ds_list_add(dialogue.textList, string_concat("You used the ", itemName, "!"), 
+						string_concat("Only for 10 minutes though!"))
 
 						player.talking = true
 
@@ -420,7 +421,7 @@ if (keyboard_check_pressed(vk_enter))
 			battleMenu.mode = "Choosing"
 
 			var enemyPkmn = -1
-			for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+			for (var i = 0; i < instance_number(BattlePokemonObject); i++) //Find enemy pokémon
 
 			{
 				var attempt = instance_find(BattlePokemonObject, i)
@@ -430,66 +431,75 @@ if (keyboard_check_pressed(vk_enter))
 					break
 				}
 			}
+			
 			var battle = instance_find(BattleObject, 0)
-			var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
-			var pNameOld = GetName(battle.playerPkmn)
-
-			battle.playerPkmn = ds_list_find_value(battle.playerTeam, menu.selectedIndex)
-			battleText.switchIndex = menu.selectedIndex
-			battleText.playerPkmn = battle.playerPkmn
-			battleText.enemyPkmn = battle.enemyPkmn
-
-			var superEffStr = ""
-			var pName = GetName(battle.playerPkmn)
-			var pLevel = GetLevel(battle.playerPkmn)
-			var playerStats = GetPokemonFinalStats(pName, pLevel)
-			var eName = GetName(battle.enemyPkmn)
-			var eLevel = GetLevel(battle.enemyPkmn)
-			var enemyStats = GetPokemonFinalStats(eName, eLevel)
-
-			var playerMoveName = "Switch"
-			var moveName = playerMoveName
-			var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
-
-			var pPriority = 100 //Item usage needs to happen first
-			var ePriority = GetMovePriority(enemyMoveName)
-
-			if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
+			if (playerPkmn.pkmnInfo != ds_list_find_value(battle.playerTeam, menu.selectedIndex))
 			{
-				battleText.playerMoveName = moveName
-				ds_list_add(battleText.textList, string_concat(pNameOld, ", come back!"), string_concat(pName, ", you're up!"))
+				var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+				var pNameOld = GetName(battle.playerPkmn)
+			
+				battle.playerPkmn = ds_list_find_value(battle.playerTeam, menu.selectedIndex)
+				battleText.switchIndex = menu.selectedIndex
+				battleText.playerPkmn = battle.playerPkmn
+				battleText.enemyPkmn = battle.enemyPkmn
 
-				//Enemy Move
-				moveName = enemyMoveName
-				var moveEff = GetMoveEffect(moveName)
-				var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
-				battleText.enemyMoveName = moveName
-				battleText.enemyDamage = damage
+				var superEffStr = ""
+				var pName = GetName(battle.playerPkmn)
+				var pLevel = GetLevel(battle.playerPkmn)
+				var playerStats = GetPokemonFinalStats(pName, pLevel)
+				var eName = GetName(battle.enemyPkmn)
+				var eLevel = GetLevel(battle.enemyPkmn)
+				var enemyStats = GetPokemonFinalStats(eName, eLevel)
 
-				superEffStr = ""
-				if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-				else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+				var playerMoveName = "Switch"
+				var moveName = playerMoveName
+				var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
 
-				ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+				var pPriority = 100 //Item usage needs to happen first
+				var ePriority = GetMovePriority(enemyMoveName)
 
-				var moveAcc = GetMoveAccurancy(moveName)
-				var effectAcc = GetMoveEffectChance(moveName)*100
-				if (floor(random_range(0,101)) <= moveAcc)
+				if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 				{
-					if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-					if (floor(random_range(0,101)) <= effectAcc)
+					battleText.playerMoveName = moveName
+					ds_list_add(battleText.textList, string_concat(pNameOld, ", come back!"), string_concat(pName, ", you're up!"))
+
+					//Enemy Move
+					moveName = enemyMoveName
+					var moveEff = GetMoveEffect(moveName)
+					var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+					battleText.enemyMoveName = moveName
+					battleText.enemyDamage = damage
+
+					superEffStr = ""
+					if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
+					else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+
+					ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
+
+					var moveAcc = GetMoveAccurancy(moveName)
+					var effectAcc = GetMoveEffectChance(moveName)*100
+					if (floor(random_range(0,101)) <= moveAcc)
 					{
-						var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
-						if (effStr != "") ds_list_add(battleText.textList, effStr)
+						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+						if (floor(random_range(0,101)) <= effectAcc)
+						{
+							var effStr = DealEffect(moveEff, effectAcc, enemyPkmn, playerPkmn)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
+						}
 					}
+					else ds_list_add(battleText.textList, "But it missed!")
+
+					if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
+					string_concat(GetName(battle.playerPkmn)," fainted!"))
 				}
-				else ds_list_add(battleText.textList, "But it missed!")
-
-				if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
-				string_concat(GetName(battle.playerPkmn)," fainted!"))
+				instance_destroy(battleMenu)
 			}
-
-			instance_destroy(battleMenu)
+			else
+			{
+				instance_destroy(battleMenu)
+				instance_create_layer(x,y,"UIElements",BattleMenuObject)
+			}
+			
 			instance_destroy(menu)
 			instance_destroy(id)
 		}
