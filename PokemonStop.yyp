@@ -355,6 +355,7 @@
     {"id":{"name":"SaveFileControllerObject","path":"objects/SaveFileControllerObject/SaveFileControllerObject.yy",},},
     {"id":{"name":"SaveMenuObject","path":"objects/SaveMenuObject/SaveMenuObject.yy",},},
     {"id":{"name":"Screen","path":"objects/Screen/Screen.yy",},},
+    {"id":{"name":"SettingsMenuObject","path":"objects/SettingsMenuObject/SettingsMenuObject.yy",},},
     {"id":{"name":"ShaderTestObect","path":"objects/ShaderTestObect/ShaderTestObect.yy",},},
     {"id":{"name":"ShadowParticle","path":"objects/ShadowParticle/ShadowParticle.yy",},},
     {"id":{"name":"Skull","path":"objects/Skull/Skull.yy",},},

@@ -29,6 +29,11 @@ if (keyboard_check_pressed(vk_enter) and active)
 			pcObj.menu = id
 			visible = false
 			break
+		case "Settings":
+		    var settingsMenu = instance_create_layer(x, y,layer, SettingsMenuObject);
+			settingsMenu.menu = id
+			visible = false
+			break
 		case "Save Game":
 		    var saveMenu = instance_create_layer(x, y,layer, SaveMenuObject);
 			saveMenu.mode = "Save"

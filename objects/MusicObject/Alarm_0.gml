@@ -13,3 +13,4 @@ if (room != RoomBattle and instance_number(BattleObject) == 0)
 		currentMusic = music
 	}
 }
+
