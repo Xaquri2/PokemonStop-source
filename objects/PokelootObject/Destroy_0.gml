@@ -4,3 +4,7 @@ if (string_count("Starter", itemTag) > 0 and ds_list_find_index(global.flags, "S
 	ds_list_add(global.flags, "StarterChosen")
 	SetNPCFlag("Ginkgo", "StarterChosen")
 }
+else
+{
+	ds_list_add(global.collectedPokeloot, itemTag)
+}
