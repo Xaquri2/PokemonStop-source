@@ -32,32 +32,48 @@ if (expGainValue > 0 and expGaining)
 
 	var newMoveName = LearnsMoveAt(GetName(playerPkmn), levelNew)
 	if (leveledUp and ds_list_find_index(listLevelUpMoves, newMoveName) == -1)
-	{
-		var moveList = GetMoves(playerPkmn)
-		if (newMoveName != "")
 		{
-			var youWinText = ""
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "You win!")
-			{
-				ds_list_delete(textList, ds_list_size(textList)-1)
-				youWinText = "You win!"
-			}
+		    var moveList = GetMoves(playerPkmn);
 
-			if (ds_list_size(moveList) < 4)
-			{
-				ds_list_add(textList, string_concat("Your Pokemon learned ", newMoveName, "!"))
-				LearnMove(playerPkmn, newMoveName, ds_list_size(moveList)-1)
-			}
-			else
-			{
-				ds_list_add(listLevelUpMoves, newMoveName)
-				ds_list_add(textList, string_concat("Your Pokemon wants to learn ", newMoveName, "."),
-				"However, it already knows four moves", "Would you like to replace one?")
-			}
+		    if (newMoveName != "")
+		    {
+		        var youWinText = "";
 
-			if (youWinText != "") ds_list_add(textList, youWinText)
+		        if (ds_list_find_value(textList, ds_list_size(textList) - 1) == "You win!")
+		        {
+		            ds_list_delete(textList, ds_list_size(textList) - 1);
+		            youWinText = "You win!";
+		        }
+
+		        if (ds_list_size(moveList) < 4)
+		        {
+		            ds_list_add(
+		                textList,
+		                string_concat("Your Pokemon learned ", newMoveName, "!")
+		            );
+
+		            LearnMove(playerPkmn, newMoveName, -1);
+		        }
+		        else
+		        {
+		            ds_list_add(listLevelUpMoves, newMoveName);
+
+		            ds_list_add(
+		                textList,
+		                string_concat("Your Pokemon wants to learn ", newMoveName, "."),
+		                "However, it already knows four moves",
+		                "Would you like to replace one?"
+		            );
+		        }
+
+		        if (youWinText != "")
+		        {
+		            ds_list_add(textList, youWinText);
+		        }
+		    }
+
+		    leveledUp = false;
 		}
-	}
 
 	var entity = -1
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)

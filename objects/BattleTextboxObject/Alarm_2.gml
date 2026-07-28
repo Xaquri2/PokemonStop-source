@@ -14,10 +14,18 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 			if (!endBattle) var battleMenu = instance_create_layer(x,y,"UIElements",BattleMenuObject)
 			instance_destroy(id)
 		}
-		else if (string_count("learned", text) > 0 and string_count("forgot", text) == 0)
+		else if (string_count("learned", text) > 0
+		&& string_count("forgot", text) == 0)
 		{
-			var newMove = ds_list_find_value(listLevelUpMoves, 0)
-			LearnMove(battle.playerPkmn, newMove, -1)
+		    if (ds_list_size(listLevelUpMoves) > 0)
+		    {
+		        var newMove = ds_list_find_value(listLevelUpMoves, 0);
+
+		        if (ds_list_find_index(GetMoves(battle.playerPkmn), newMove) == -1)
+		        {
+		            LearnMove(battle.playerPkmn, newMove, -1);
+		        }
+		    }
 		}
 		else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
 		{

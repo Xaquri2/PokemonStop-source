@@ -1356,18 +1356,40 @@ function GetMovePriority(moveName) { return ds_list_find_value(GetMoveDetails(mo
 
 function LearnMove(pkmnInfo, moveName, pos)
 {
-	var movesList = GetMoves(pkmnInfo)
-	var movesPPList = GetMovePPList(pkmnInfo)
-	if (ds_list_size(movesList) < 4)
-	{
-		ds_list_add(movesList, moveName)
-		ds_list_add(movesPPList, GetMovePP(moveName))
-	}
-	else
-	{
-		ds_list_replace(movesList, pos, moveName)
-		ds_list_replace(movesPPList, pos, GetMovePP(moveName))
-	}
+    var movesList = GetMoves(pkmnInfo);
+    var movesPPList = GetMovePPList(pkmnInfo);
+
+    // Prevent learning the same move more than once
+    if (ds_list_find_index(movesList, moveName) != -1)
+    {
+        show_debug_message("Already knows move: " + moveName);
+        return;
+    }
+
+    // There is an empty move slot
+    if (ds_list_size(movesList) < 4)
+    {
+        ds_list_add(movesList, moveName);
+        ds_list_add(movesPPList, GetMovePP(moveName));
+        return;
+    }
+
+    // Replace a selected move
+    if (pos >= 0
+    && pos < ds_list_size(movesList)
+    && pos < ds_list_size(movesPPList))
+    {
+        ds_list_replace(movesList, pos, moveName);
+        ds_list_replace(movesPPList, pos, GetMovePP(moveName));
+        return;
+    }
+
+    show_debug_message(
+        "LearnMove received invalid position: "
+        + string(pos)
+        + " for move "
+        + moveName
+    );
 }
 
 /// @param {string}   name    The name of the Pokémon to search the learnset of

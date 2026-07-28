@@ -43,6 +43,7 @@ global.npcFlags = ds_map_create()
 
 AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Ewok", 100, GetRandomGender(50))
+AddPokemon("Krypton Firefly", 7, GetRandomGender(50))
 /*AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 15, GetRandomGender(50))
