@@ -105,6 +105,55 @@ else if (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) {
 #endregion
 
 #region Collision
+var collidedPokemon = instance_place(
+	x + hspeed,
+	y + vspeed,
+	RoamingPokemonParent
+);
+
+if (instance_exists(collidedPokemon))
+{
+	if (instance_number(BattleObject) == 0)
+	{
+		var musicC = instance_find(MusicObject, 0);
+		var battleTheme = GetBattleTheme(collidedPokemon.name);
+
+		if (instance_exists(musicC))
+		{
+			audio_stop_sound(musicC.currentMusic);
+			audio_play_sound(battleTheme, 1, false);
+			musicC.currentMusic = battleTheme;
+		}
+
+		collidedPokemon.battle = true;
+
+		talking = false;
+		canWalk = false;
+		battle = true;
+
+		var battleObj = instance_create_layer(
+			collidedPokemon.x,
+			collidedPokemon.y,
+			"Instances",
+			BattleObject
+		);
+
+		battleObj.enemyTeam = collidedPokemon.trainerTeam;
+		battleObj.enemySprite = collidedPokemon.trainerSprite;
+		battleObj.enemyName = collidedPokemon.name;
+		battleObj.isWild = true;
+
+		battleObj.playerX = x;
+		battleObj.playerY = y;
+		battleObj.playerRoom = room;
+
+		if (collidedPokemon.battleFlag != "")
+		{
+			battleObj.battleFlag = collidedPokemon.battleFlag;
+		}
+	}
+}
+
 if (canCollide)
 {
 	var collidedTile = collision_rectangle(bbox_left+hspeed, bbox_bottom+vspeed,
@@ -112,7 +161,7 @@ if (canCollide)
 
 	if (instance_exists(collidedTile))
 	{
-		if (collidedTile.object_index == RoamingPokemonParent or collidedTile.object_index == NestAreaPokemon)
+		if ((collidedTile.object_index == RoamingPokemonParent) or (collidedTile.object_index == NestAreaPokemon))
 		{
 			with (collidedTile)
 			{
