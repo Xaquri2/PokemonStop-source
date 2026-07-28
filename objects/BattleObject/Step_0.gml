@@ -59,7 +59,7 @@ else
 		else 
 		{
 			global.money += GetTrainerMoney(enemyName)
-			if (defeat) SaveStateAction(global.latestSaveState, "Load")
+			if (defeat) room_goto(GinkgoLab) //SaveStateAction(global.latestSaveState, "Load")
 			else room_goto(playerRoom)
 		}
 	}
