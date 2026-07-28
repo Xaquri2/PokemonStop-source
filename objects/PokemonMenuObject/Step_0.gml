@@ -22,7 +22,10 @@ if (keyboard_check_pressed(ord("E")) and instance_number(TextboxObject) == 0 and
 		{
 			if (!switchMode)
 			{
-				menu.active = true
+				if (instance_exists(menu)) {
+					menu.active = true
+				}
+
 				instance_destroy(id)
 			}
 			else

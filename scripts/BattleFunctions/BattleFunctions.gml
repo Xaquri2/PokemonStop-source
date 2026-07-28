@@ -1222,24 +1222,24 @@ function GetTrainerTeam(trainerName)
 			break
 	//Mallet Town
 		case "Mary":
-			AddPokemonTrainer(team, 0, GetRivalStarter(), 5, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+			AddPokemonTrainer(team, 0, GetRivalStarter(), 1, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
 			break
 			
 	//Route Minus One BOTTOM
 		case "Hat Kid":
-			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 0, "Pikachu", 2, "Female", PikachuIdleSprite)
 			break
 		case "Kidd Funkadelic, Jr.":
-			AddPokemonTrainer(team, 0, "Ape-Ball", 5, "Male", ApeBallSprite)
+			AddPokemonTrainer(team, 0, "Ape-Ball", 2, "Male", ApeBallSprite)
 			break
 		case "Pikachu":
 			AddPokemonTrainer(team, 0, "Pikmin", 3, "Male", PikminIdleSprite)
 			AddPokemonTrainer(team, 1, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
 		case "KcoKt":
-			AddPokemonTrainer(team, 1, "Squirtle", 7, "Male", SquirtleIdleSprite)
-			AddPokemonTrainer(team, 2, "Pikachu", 10, "Female", PikachuIdleSprite)
-			AddPokemonTrainer(team, 3, "Tektite", 10, "Female", TektiteIdleSprite)
+			AddPokemonTrainer(team, 1, "Squirtle", 5, "Male", SquirtleIdleSprite)
+			AddPokemonTrainer(team, 2, "Pikachu", 7, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 3, "Tektite", 7, "Female", TektiteIdleSprite)
 			break
 		case "Mary2":
 			AddPokemonTrainer(team, 1, "Tektite", 2, "Male", TektiteIdleSprite)

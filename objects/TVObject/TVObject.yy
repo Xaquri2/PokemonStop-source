@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"TVObject",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":99,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"TVObject",
   "overriddenProperties":[],
