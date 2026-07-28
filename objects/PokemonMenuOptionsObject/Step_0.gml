@@ -1,6 +1,10 @@
 if (keyboard_check_pressed(ord("E")))
 {
-	menu.canInteract = true
+	MenuObject.canInteract = true
+	//PlayerObject.canWalk = true
+	//PlayerObject.menuOpen = false
+	//instance_destroy(MenuObject)
+	instance_destroy(self)
 	instance_destroy(id)
 }
 
