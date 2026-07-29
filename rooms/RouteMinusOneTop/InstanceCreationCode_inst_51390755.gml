@@ -11,3 +11,5 @@ walkDownSprite = sprite_index
 walkRightSprite = sprite_index
 
 canWalk = false
+
+name = "Tektite"

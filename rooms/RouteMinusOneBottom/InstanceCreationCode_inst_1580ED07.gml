@@ -5,6 +5,8 @@ if (HasFlag(battleFlag)) instance_destroy();
 
 canWalk = true
 
+name = "Caterpie"
+
 idleSprite = sprite_index
 walkRightSprite = sprite_index
 walkUpSprite = sprite_index

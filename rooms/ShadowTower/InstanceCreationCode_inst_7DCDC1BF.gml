@@ -11,3 +11,4 @@ walkDownSprite = UmbrianOverworldSprite
 walkRightSprite = UmbrianOverworldSprite
 
 AddPokemonTrainer(trainerTeam, 1, "Umbrian", floor(random_range(8,15)), GetRandomGender(50), UmbrianOverworldSprite)
+name = "Umbrian";

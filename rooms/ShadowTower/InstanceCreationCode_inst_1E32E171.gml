@@ -11,3 +11,4 @@ idleSprite = BooOverworldSprite
 walkUpSprite = BooOverworldSprite
 walkDownSprite = BooOverworldSprite
 walkRightSprite = BooOverworldSprite 
+name = "Boo";

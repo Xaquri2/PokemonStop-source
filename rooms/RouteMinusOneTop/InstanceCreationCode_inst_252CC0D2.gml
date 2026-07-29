@@ -3,6 +3,7 @@ battleFlag = "Koopa_inst_252CC0D2";
 if (HasFlag(battleFlag)) instance_destroy();
 // === BATTLE FLAG (auto) END ===
 
+name = "Koopa"
 
 AddPokemonTrainer(trainerTeam, 1, "Koopa", floor(random_range(8,15)), GetRandomGender(50), KoopaWalkRightSprite)
 

@@ -13,3 +13,4 @@ walkUpSprite = sprite_index
 walkDownSprite = sprite_index
 walkRightSprite = sprite_index
 
+name = "DemoDog";

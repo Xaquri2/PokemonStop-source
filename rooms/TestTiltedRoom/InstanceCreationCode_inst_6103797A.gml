@@ -5,3 +5,4 @@ AddPokemonTrainer(trainerTeam, 1, "Morlock", floor(random_range(8,15)), GetRando
 
 
 canWalk = false
+name = "Morlock";

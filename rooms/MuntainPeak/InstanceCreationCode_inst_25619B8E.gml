@@ -11,3 +11,4 @@ walkRightSprite = sprite_index
 canWalk = true
 
 AddPokemonTrainer(trainerTeam, 1, "ZooChomper", floor(random_range(8,15)), GetRandomGender(50), ZoochomperBattleSprite)
+name = "ZooChomper";

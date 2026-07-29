@@ -10,3 +10,4 @@ idleSprite = sprite_index
 walkUpSprite = sprite_index
 walkDownSprite = sprite_index
 walkRightSprite = sprite_index
+name = "Baby";
