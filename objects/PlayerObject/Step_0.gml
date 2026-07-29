@@ -111,7 +111,7 @@ var collidedPokemon = instance_place(
 	RoamingPokemonParent
 );
 
-if (instance_exists(collidedPokemon))
+if (instance_exists(collidedPokemon) && collidedPokemon.name != "Morlock")
 {
 	if (instance_number(BattleObject) == 0)
 	{
