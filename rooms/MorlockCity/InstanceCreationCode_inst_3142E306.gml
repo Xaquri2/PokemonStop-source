@@ -6,7 +6,7 @@ battleFlag = "TiltedMorlock_MorlockCity_inst_3142E306";
 
 
 
-name = Morlock;
+name = "Morlock";
 enemyName = "Morlock"
 enemyName = Morlock;
 

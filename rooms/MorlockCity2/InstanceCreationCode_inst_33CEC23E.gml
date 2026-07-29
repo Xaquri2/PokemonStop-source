@@ -9,3 +9,4 @@ enemyName = Morlock;
 ds_list_add(textList, "Our technology could be so much more advanced if anyone just took the time to figure out how the machines work")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)
+name = "Morlock";

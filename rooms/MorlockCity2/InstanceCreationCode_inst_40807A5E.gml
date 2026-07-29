@@ -11,3 +11,4 @@ ds_list_add(textList, "I heard the humans believe in something called 'Outer Spa
 "I mean, I get so tired of eating only human meat; sometimes I want variety, ya know?")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)
+name = "Morlock";

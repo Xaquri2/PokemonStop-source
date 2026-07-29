@@ -9,3 +9,4 @@ enemyName = Morlock;
 ds_list_add(textList, "One day I'll defeat the gym leader and become the first Morlock Pokémon master!!")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)
+name = "Morlock";

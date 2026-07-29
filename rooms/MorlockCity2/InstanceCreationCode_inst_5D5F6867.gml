@@ -10,3 +10,4 @@ ds_list_add(textList, "Um. Asking for a friend. Do you think the Sphinx has a pr
 "I, uh, heard of some people doing that. They're called Translocks. I... uh, ...",)
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)
+name = "Morlock";

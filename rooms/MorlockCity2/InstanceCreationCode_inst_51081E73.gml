@@ -10,3 +10,4 @@ ds_list_add(textList, "I hid some coins around here! In plain sight, where human
 "...Eh? You say most people around here are MORLOCKS so they can see them? ... EYAAAAH")
 ds_list_add(nameList, "Morlock","Morlock")
 ds_list_add(iconList, sprite_index,sprite_index)
+name = "Morlock";

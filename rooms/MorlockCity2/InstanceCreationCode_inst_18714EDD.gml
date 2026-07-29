@@ -9,3 +9,4 @@ enemyName = Morlock;
 ds_list_add(textList, "I'm the garbage-lock. It's my job to collect everyone's trash. Ugh")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)
+name = "Morlock";

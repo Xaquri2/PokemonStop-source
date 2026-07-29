@@ -10,3 +10,4 @@ ds_list_add(textList, "Hearing those humans scream and wail for help makes me fe
 "...But they're so delicious, ya know?")
 ds_list_add(nameList, "Morlock","Morlock")
 ds_list_add(iconList, sprite_index,sprite_index)
+name = "Morlock";

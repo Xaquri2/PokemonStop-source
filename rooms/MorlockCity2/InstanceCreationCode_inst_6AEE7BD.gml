@@ -9,3 +9,4 @@ enemyName = Morlock;
 ds_list_add(textList, "*sniffs* Mmm... I smell humans nearby! Smell's makin' me hungry!!")
 ds_list_add(nameList, "Morlock")
 ds_list_add(iconList, sprite_index)
+name = "Morlock";
