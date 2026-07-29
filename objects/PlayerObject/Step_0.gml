@@ -111,9 +111,12 @@ var collidedPokemon = instance_place(
 	RoamingPokemonParent
 );
 
-if (instance_exists(collidedPokemon) && collidedPokemon.name != "Morlock")
+
+if (instance_exists(collidedPokemon))
 {
-	if (instance_number(BattleObject) == 0)
+	if collidedPokemon.name == "Morlock" {
+	}
+	else if (instance_number(BattleObject) == 0)
 	{
 		var musicC = instance_find(MusicObject, 0);
 		var battleTheme = GetBattleTheme(collidedPokemon.name);
@@ -161,7 +164,8 @@ if (canCollide)
 
 	if (instance_exists(collidedTile))
 	{
-		if ((collidedTile.object_index == RoamingPokemonParent) or (collidedTile.object_index == NestAreaPokemon))
+		if (collidedTile.object_index == Morlock) {}
+		else if ((collidedTile.object_index == RoamingPokemonParent) or (collidedTile.object_index == NestAreaPokemon))
 		{
 			with (collidedTile)
 			{
