@@ -1535,18 +1535,15 @@ function GetBattleXscale(name)
 	switch (name)
 	{
 		case "Silver Scorpion":
-			return -1
+		case "Envy":
+		case "Pikmin":
+			return -1;
 			break
+		//Use this for naturally flipped pokémon
 			
 		case "MissingNo": 
 			return 0.5;
 			break
-		case "Envy":
-		case "Pikmin":
-		
-			return -1;
-			break
-		//Use this for naturally flipped pokémon
 	}
 	return 1
 }
