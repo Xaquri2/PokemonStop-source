@@ -1541,6 +1541,11 @@ function GetBattleXscale(name)
 		case "MissingNo": 
 			return 0.5;
 			break
+		case "Envy":
+		case "Pikmin":
+		
+			return -1;
+			break
 		//Use this for naturally flipped pokémon
 	}
 	return 1
