@@ -1536,6 +1536,23 @@ function GetBattleXscale(name)
 	{
 		case "Silver Scorpion":
 			return -1
+			break
+			
+		case "MissingNo": 
+			return 0.5;
+			break
+		//Use this for naturally flipped pokémon
+	}
+	return 1
+}
+
+function GetBattleYscale(name)
+{
+	switch (name)
+	{
+		case "MissingNo": 
+			return 0.5;
+			break
 		//Use this for naturally flipped pokémon
 	}
 	return 1

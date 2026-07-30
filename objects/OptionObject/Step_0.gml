@@ -363,6 +363,7 @@ if (keyboard_check_pressed(vk_enter))
 							
 						instance_destroy(menu)
 						instance_destroy(id)
+						
 					}
 					else if (itemName == "Skyview Potion")
 					{

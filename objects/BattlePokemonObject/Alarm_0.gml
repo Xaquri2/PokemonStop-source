@@ -14,6 +14,7 @@ if (playerTeam)
 }
 
 image_xscale *= GetBattleXscale(name)
+image_yscale *= GetBattleYscale(name)
 if (playerTeam) image_xscale *= -1
 
 if (sprite_index == GodzillaSprite)

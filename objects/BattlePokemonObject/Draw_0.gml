@@ -14,3 +14,10 @@ else
 	}
 	else draw_self()
 }
+
+
+//Setting scale by Pokemon
+	if GetName(pkmnInfo) == MissingNo {
+		image_xscale = 0.5
+		image_yscale = 0.5
+	}

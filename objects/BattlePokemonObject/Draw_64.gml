@@ -67,4 +67,7 @@ if (enableDrawing)
 		draw_text_transformed(xPos, yPos, status, 1.5, 1.5, image_angle)
 		ResetTextPosition()
 	}
+	
+	
 }
+
