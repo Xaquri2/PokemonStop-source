@@ -12,7 +12,8 @@ else {
 if flying == true {
 	x = lerp(x, PlayerObject.x, 0.05)
 	y = lerp(y, PlayerObject.y, 0.05)
-	image_index = ZubatFlappingSprite
+	//image_index = ZubatFlappingSprite
+	
 }
 else {
 	if x > xstart {
@@ -28,7 +29,7 @@ else {
 		y = lerp(y, ystart, 0.05)
 	}
 	if (x == xstart) && (y == ystart) {
-		image_index = ZubatIdleSprite
+		//image_index = ZubatIdleSprite
 	}
 }
 	
