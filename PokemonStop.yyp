@@ -411,6 +411,7 @@
     {"id":{"name":"Zoombini","path":"objects/Zoombini/Zoombini.yy",},},
     {"id":{"name":"Zoovac","path":"objects/Zoovac/Zoovac.yy",},},
     {"id":{"name":"ZoovacHovering","path":"objects/ZoovacHovering/ZoovacHovering.yy",},},
+    {"id":{"name":"Zubat","path":"objects/Zubat/Zubat.yy",},},
     {"id":{"name":"Asleep","path":"rooms/Asleep/Asleep.yy",},},
     {"id":{"name":"Elevator1","path":"rooms/Elevator1/Elevator1.yy",},},
     {"id":{"name":"Elevator2","path":"rooms/Elevator2/Elevator2.yy",},},

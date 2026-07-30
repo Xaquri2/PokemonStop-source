@@ -86,6 +86,7 @@
     {"name":"inst_78E230D5","path":"rooms/MorlockCity/MorlockCity.yy",},
     {"name":"inst_476F2EC4","path":"rooms/MorlockCity/MorlockCity.yy",},
     {"name":"inst_A8E3025","path":"rooms/MorlockCity/MorlockCity.yy",},
+    {"name":"inst_20C13238","path":"rooms/MorlockCity/MorlockCity.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -160,6 +161,7 @@
         {"$GMRInstance":"v4","%Name":"inst_78E230D5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_78E230D5","objectId":{"name":"Coin_50","path":"objects/Coin_50/Coin_50.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.71875,"scaleY":0.59375,"x":813.5,"y":242.5,},
         {"$GMRInstance":"v4","%Name":"inst_476F2EC4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_476F2EC4","objectId":{"name":"Coin","path":"objects/Coin/Coin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.78864264,"scaleY":0.6875,"x":13.381718,"y":30.0,},
         {"$GMRInstance":"v4","%Name":"inst_A8E3025","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_A8E3025","objectId":{"name":"PokelootObject","path":"objects/PokelootObject/PokelootObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.8125,"scaleY":0.7772293,"x":608.0,"y":741.56433,},
+        {"$GMRInstance":"v4","%Name":"inst_20C13238","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_20C13238","objectId":{"name":"Zubat","path":"objects/Zubat/Zubat.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":824.0,"y":142.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Gash","depth":-100,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_1A27F4A3","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1A27F4A3","objectId":{"name":"PlayerObject","path":"objects/PlayerObject/PlayerObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":50.0,"y":384.0,},
