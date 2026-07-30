@@ -1237,13 +1237,13 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
 		case "KcoKt":
-			AddPokemonTrainer(team, 1, "Squirtle", 5, "Male", SquirtleIdleSprite)
-			AddPokemonTrainer(team, 2, "Pikachu", 7, "Female", PikachuIdleSprite)
-			AddPokemonTrainer(team, 3, "Tektite", 7, "Female", TektiteIdleSprite)
+			AddPokemonTrainer(team, 1, "Squirtle", 3, "Male", SquirtleIdleSprite)
+			AddPokemonTrainer(team, 2, "Pikachu", 5, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 3, "Tektite", 5, "Female", TektiteIdleSprite)
 			break
 		case "Mary2":
 			AddPokemonTrainer(team, 1, "Tektite", 2, "Male", TektiteIdleSprite)
-			AddPokemonTrainer(team, 2, GetRivalStarter(), 5, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
+			AddPokemonTrainer(team, 2, GetRivalStarter(), 3, GetRandomGender(50), GetSpriteByNumber(GetNumberByName(GetRivalStarter())))
 			break
 
 

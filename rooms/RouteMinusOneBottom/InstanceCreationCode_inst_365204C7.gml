@@ -1,2 +1,2 @@
 lineSightDir = "Down"
-lineSight = 300
+lineSight = 100

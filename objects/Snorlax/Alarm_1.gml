@@ -4,7 +4,7 @@ var player = instance_find(PlayerObject, 0)
 ds_list_clear(textList)
 ds_list_add(textList, "The waking pokemon attacked!")
 
-AddPokemonTrainer(trainerTeam, 1, "Snorlax", 5, "Male", SnorlaxIdleSprite)
+AddPokemonTrainer(trainerTeam, 1, "Snorlax", 3, "Male", SnorlaxIdleSprite)
 
 dialogue.textList = textList
 dialogue.iconList = iconList
