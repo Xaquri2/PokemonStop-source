@@ -13,7 +13,7 @@ global.originalSpeed = game_get_speed(gamespeed_fps)
 global.speedUpMultiplier = 1
 
 global.followerType = ""
-global.pikminCount = 0
+global.pikminCount = 3
 
 var itemsList = ds_list_create()
 var ballsList = ds_list_create()
@@ -41,17 +41,16 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 100, GetRandomGender(50))
-AddPokemon("Ewok", 100, GetRandomGender(50))
-AddPokemon("Krypton Firefly", 7, GetRandomGender(50))
-/*AddPokemon("Godzilla", 95, GetRandomGender(50))
+AddPokemon("Pikachu", 5, GetRandomGender(50))
+/*AddPokemon("Ewok", 100, GetRandomGender(50))
+AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 15, GetRandomGender(50))
 AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))*/
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = RouteMinusOneBottom
+global.standardStartRoom = Mallet_Town
 global.activatedBadges = ds_list_create()
 
 global.torch = false

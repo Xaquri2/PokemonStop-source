@@ -1227,7 +1227,7 @@ function GetTrainerTeam(trainerName)
 			
 	//Route Minus One BOTTOM
 		case "Hat Kid":
-			AddPokemonTrainer(team, 0, "Pikachu", 2, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 0, "Pikachu", 50, "Female", PikachuIdleSprite)
 			break
 		case "Kidd Funkadelic, Jr.":
 			AddPokemonTrainer(team, 0, "Ape-Ball", 2, "Male", ApeBallSprite)

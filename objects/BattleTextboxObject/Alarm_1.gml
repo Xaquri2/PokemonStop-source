@@ -84,10 +84,23 @@ if (!recoil)
 		battle.playerPkmn = nextPkmn
 		if (target.currentPkmn+1 >= ds_list_size(target.team))
 		{
-			endBattle = true
-			defeat = true
-			target.currentPkmn = noone
-			ds_list_add(textList, "You lose!")
+			if (global.pikminCount > 0)
+			{
+				nextPkmn = ds_list_find_value(battle.pikminList, 0)
+				ds_list_delete(battle.pikminList, 0)
+				AddPokemon(GetName(nextPkmn), GetLevel(nextPkmn), GetGender(nextPkmn))
+				global.pikminCount--
+				
+				name = GetName(nextPkmn)
+				ds_list_add(textList, string_concat("Go! ", name, "!"))
+			}
+			else
+			{
+				endBattle = true
+				defeat = true
+				target.currentPkmn = noone
+				ds_list_add(textList, "You lose!")
+			}
 		}
 		else
 		{
@@ -139,10 +152,23 @@ else
 		battle.playerPkmn = nextPkmn
 		if (target.currentPkmn+1 >= ds_list_size(target.team))
 		{
-			endBattle = true
-			defeat = true
-			target.currentPkmn = noone
-			ds_list_add(textList, "You lose!")
+			if (global.pikminCount > 0)
+			{
+				nextPkmn = ds_list_find_value(battle.pikminList, 0)
+				ds_list_delete(battle.pikminList, 0)
+				AddPokemon(GetName(nextPkmn), GetLevel(nextPkmn), GetGender(nextPkmn))
+				global.pikminCount--
+				
+				name = GetName(nextPkmn)
+				ds_list_add(textList, string_concat("Go! ", name, "!"))
+			}
+			else
+			{
+				endBattle = true
+				defeat = true
+				target.currentPkmn = noone
+				ds_list_add(textList, "You lose!")
+			}
 		}
 		else
 		{
