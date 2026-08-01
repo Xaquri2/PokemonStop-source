@@ -16,7 +16,7 @@ if (instance_exists(actionNPC))
 			{
 				if (player.alarm[1] > -1) player.alarm[1] = -1
 
-				actionNPC.alarm[0] = 5
+				actionNPC.alarm[10] = 5
 			}
 			break
 		case Ginkgo:
@@ -497,8 +497,8 @@ if (finalText == "You obtained the Skyview Potion!") {
 	RemoveItem("Skyview Mushroom", 1)
 }
 
-finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
-if (finalText == "Only for 10 minutes though!") 
+firstText = ds_list_find_value(textList, 0)
+if (string_count("Area Key", firstText) > 0 and string_count("You used", firstText) > 0) 
 {
 	var game = instance_find(GameObject, 0)
 	audio_play_sound(DoorOpen, 1, false)

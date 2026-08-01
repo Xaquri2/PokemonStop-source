@@ -516,29 +516,29 @@ if (keyboard_check_pressed(vk_enter))
 
 	if (ds_list_find_value(optionList, currentOption) == "Wake it up")
 	{
-		target.alarm[1] = 100
+		target.alarm[11] = 100
 		instance_destroy(id)
 	}
 
 	if (ds_list_find_value(optionList, currentOption) == "Exit" or ds_list_find_value(optionList, currentOption) == "Leave")
 	{
 		{
-    if (instance_exists(menu))
-    {
-        var battleMenu = menu.menu;
+		    if (instance_exists(menu))
+		    {
+		        var battleMenu = menu.menu;
 
-        if (instance_exists(battleMenu))
-        {
-            battleMenu.mode = "Choosing";
-            battleMenu.visible = true;
-        }
+		        if (instance_exists(battleMenu))
+		        {
+		            battleMenu.mode = "Choosing";
+		            battleMenu.visible = true;
+		        }
 
-        instance_destroy(menu);
-    }
+		        instance_destroy(menu);
+		    }
 
-    instance_destroy();
-    exit;
-}
+	    instance_destroy();
+	    exit;
+		}
 	}
 	
 	if (string_count("replace", question) > 0)

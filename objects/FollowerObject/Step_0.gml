@@ -1,5 +1,6 @@
 if (instance_exists(player))
 {
+	depth = player.depth
 	var followerPos = []
 	switch (player.sprite_index)
 	{
