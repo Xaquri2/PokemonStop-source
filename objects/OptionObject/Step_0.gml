@@ -351,6 +351,7 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						var game = instance_find(GameObject, 0)
 						game.areaKeyInfo = itemName
+						game.previousRoom = room
 						
 						var player = instance_find(PlayerObject, 0)
 						var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)

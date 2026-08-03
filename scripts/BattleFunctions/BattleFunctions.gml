@@ -1155,25 +1155,17 @@ function GetPokeballChance(type)
 		case "Ultra Ball":
 			return 0.9
 	}
-	return 0
+	return 0.75
 }
 
 function TryCatching(ballName)
 {
 	var chance = GetPokeballChance(ballName)
-	if (random_range(0,100) <= 100*chance)
+	if (random_range(0,100) <= 100*(chance))
 	{
-		if (random_range(0,100) <= 100*chance)
-		{
-			if (random_range(0,100) <= 100*chance)
-			{
-				return 3
-			}
-			return 2
-		}
-		return 1
+		return 3
 	}
-	return 0
+	return irandom(2)
 }
 
 function GetCatchingString(timesBobbed, pkmnName)
