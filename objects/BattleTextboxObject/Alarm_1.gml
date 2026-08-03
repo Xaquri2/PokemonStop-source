@@ -17,7 +17,6 @@ while (target == noone)
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
 	{
 		var attempt = instance_find(BattleEntityObject, i)
-		var a = whoAttacked
 		if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player"))
 		{
 			target = attempt
