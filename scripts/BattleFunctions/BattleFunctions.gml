@@ -419,8 +419,6 @@ function IsTypeNotVeryEffective(type, targetType)
     return false;
 }
 
-
-
 function GetMoveAnimationTime(moveName)
 {
 	switch (moveName)
