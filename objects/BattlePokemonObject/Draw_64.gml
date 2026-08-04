@@ -7,7 +7,7 @@ if (enableDrawing)
 		xOffset = view_get_wport(0)*0.4
 		yOffset = view_get_hport(0)*0.45
 	}
-
+	
 	draw_sprite_ext(MenuSprite, 0, xOffset+view_get_wport(0)*0.12, yOffset+view_get_hport(0)*0.1,
 	12.5, 5, image_angle, c_grey, image_alpha)
 

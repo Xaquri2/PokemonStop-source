@@ -419,8 +419,6 @@ function IsTypeNotVeryEffective(type, targetType)
     return false;
 }
 
-
-
 function GetMoveAnimationTime(moveName)
 {
 	switch (moveName)
@@ -1155,25 +1153,17 @@ function GetPokeballChance(type)
 		case "Ultra Ball":
 			return 0.9
 	}
-	return 0
+	return 0.75
 }
 
 function TryCatching(ballName)
 {
 	var chance = GetPokeballChance(ballName)
-	if (random_range(0,100) <= 100*chance)
+	if (random_range(0,100) <= 100*(chance))
 	{
-		if (random_range(0,100) <= 100*chance)
-		{
-			if (random_range(0,100) <= 100*chance)
-			{
-				return 3
-			}
-			return 2
-		}
-		return 1
+		return 3
 	}
-	return 0
+	return irandom(2)
 }
 
 function GetCatchingString(timesBobbed, pkmnName)
@@ -1227,7 +1217,7 @@ function GetTrainerTeam(trainerName)
 			
 	//Route Minus One BOTTOM
 		case "Hat Kid":
-			AddPokemonTrainer(team, 0, "Pikachu", 2, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 0, "Pikachu", 50, "Female", PikachuIdleSprite)
 			break
 		case "Kidd Funkadelic, Jr.":
 			AddPokemonTrainer(team, 0, "Ape-Ball", 2, "Male", ApeBallSprite)

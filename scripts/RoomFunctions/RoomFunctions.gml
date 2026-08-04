@@ -558,7 +558,7 @@ function SetWarpDefaults(name, spawnDir, show)
 
 
 		case "NestRoomToOrigin":
-			targetRoom = GameObject.areaKeyInfo
+			targetRoom = GameObject.previousRoom
 			targetWarp = "Random"
 			break
 

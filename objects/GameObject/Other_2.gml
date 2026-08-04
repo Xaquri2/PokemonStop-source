@@ -41,17 +41,16 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 100, GetRandomGender(50))
-AddPokemon("Ewok", 100, GetRandomGender(50))
-AddPokemon("Krypton Firefly", 7, GetRandomGender(50))
-/*AddPokemon("Godzilla", 95, GetRandomGender(50))
+AddPokemon("Pikachu", 5, GetRandomGender(50))
+/*AddPokemon("Ewok", 100, GetRandomGender(50))
+AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 15, GetRandomGender(50))
 AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))*/
 //AddPokemon("Pikachu", 10, GetRandomGender(50))
 
-global.standardStartRoom = RouteMinusOneBottom
+global.standardStartRoom = TestRoom
 global.activatedBadges = ds_list_create()
 
 global.torch = false
@@ -62,3 +61,5 @@ global.morlockTimer = 0
 global.convinceCounter = 0
 
 AddItem("Field Area Key", 1)
+AddItem("Skyview Potion", 1)
+AddItem("Poke Flute", 1)

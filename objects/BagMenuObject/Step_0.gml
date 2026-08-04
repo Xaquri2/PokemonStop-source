@@ -20,8 +20,9 @@ if (keyboard_check_pressed(vk_enter) and !hasSelected)
 {
 	var itemList = ds_list_find_value(global.categoryItemList, selectedCategory)
 	var itemCount = ds_list_size(itemList)
+	var itemInfo = ds_list_find_value(itemList, selectedItem)
 	
-	if (itemCount > 0)
+	if (itemCount > 0 and IsConsumableItem(GetItemName(itemInfo)))
 	{
 		hasSelected = true
 		optionMenu = instance_create_depth(20,20,depth-1,OptionObject)

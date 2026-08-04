@@ -18,6 +18,8 @@ cutsceneVideo = ""
 cutscenePlaying = false
 cutsceneSurface = -1
 
+areaKeyInfo = ""
+
 global.MaryTalkMorlock = false
 global.MaryTalkMutant = false
 
