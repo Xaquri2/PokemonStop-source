@@ -24,6 +24,7 @@ var game = instance_find(GameObject, 0)
 game.warp = false
 
 player = instance_find(PlayerObject, 0)
+player.battle = false
 var camera = instance_find(CameraObject, 0)
 if (instance_exists(player) and instance_exists(camera))
 {
