@@ -64,6 +64,9 @@ function GetRecoilDamage(pkmn, moveName)
 		case "Hail Mary Hit":
 			dmg += GetPokemonFinalHP(name, level)
 			break
+		case "Self Destruct":
+			dmg += GetPokemonFinalHP(name, level)/2
+			break
 		default:
 			dmg += GetPokemonFinalHP(name, level)/4
 			break

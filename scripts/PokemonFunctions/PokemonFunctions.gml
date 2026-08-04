@@ -116,7 +116,13 @@ function GetWildPokemon(encounterType)
 		level = floor(random_range(1,3))
 	}
 	else if room == RouteMinusOneTop {
-		level = floor(random_range(3,7))
+		level = floor(random_range(2,5))
+	}
+	else if room == MutantPath1 {
+		level = floor(random_range(2,5))
+	}
+	else if room == RobotPath {
+		level = floor(random_range(3,6))
 	}
 	else {
 		level = floor(random_range(7,15))
