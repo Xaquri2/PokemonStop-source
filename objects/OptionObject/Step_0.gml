@@ -1147,6 +1147,22 @@ if (keyboard_check_pressed(vk_enter))
 			
 			instance_destroy(id)
 		}
+		else { //if (currentOption == 1) {
+			var player = instance_find(PlayerObject, 0)
+			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+			dialogue.name = referenceNPC.name
+			dialogue.actionNPC = referenceNPC
+			
+			ds_list_add(dialogue.textList, "Very well, come back any time!")
+			ds_list_add(dialogue.nameList, "Nurse Joy")
+			ds_list_add(dialogue.iconList, NurseJoySprite_CLOSEUP)
+			
+			player.talking = true
+
+			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+			
+			instance_destroy(id)
+		}
 	}
 	
 	if (string_count("Gorbertron", question) > 0)
