@@ -1603,8 +1603,8 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Envy":
-            if (level == 1)  return "Growl";
-            if (level == 4)  return "Water Gun";
+            if (level == 1)  return "Water Gun";
+			if (level == 2)  return "Growl";
             if (level == 8)  return "Crunch";
             if (level == 12) return "Shadow Ball";
             break;
