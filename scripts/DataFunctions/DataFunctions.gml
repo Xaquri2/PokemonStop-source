@@ -151,7 +151,41 @@ function LoadData()
 	    file_text_close(file);
 
 	    var data = json_parse(json);
-		var saveState = data.saveState1 //Always loads first save state slot
+		var saveState = noone
+
+switch (global.currentSaveState)
+{
+	case 1:
+		if (variable_struct_exists(data, "saveState1"))
+			saveState = data.saveState1
+		break
+
+	case 2:
+		if (variable_struct_exists(data, "saveState2"))
+			saveState = data.saveState2
+		break
+
+	case 3:
+		if (variable_struct_exists(data, "saveState3"))
+			saveState = data.saveState3
+		break
+
+	case 4:
+		if (variable_struct_exists(data, "saveState4"))
+			saveState = data.saveState4
+		break
+
+	case 5:
+		if (variable_struct_exists(data, "saveState5"))
+			saveState = data.saveState5
+		break
+}
+
+if (saveState == noone)
+{
+	show_debug_message("Save state does not exist: " + string(global.currentSaveState))
+	return
+}
 
 		for (var i = 0; i < array_length(saveState.beatenTrainers); i++)
 		{
