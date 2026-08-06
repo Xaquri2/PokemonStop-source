@@ -63,3 +63,5 @@ global.convinceCounter = 0
 AddItem("Field Area Key", 1)
 AddItem("Skyview Potion", 1)
 AddItem("Poke Flute", 1)
+
+ds_list_add(global.flags, "ZoovacFirstBattle")
