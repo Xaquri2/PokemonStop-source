@@ -451,6 +451,7 @@
     {"id":{"name":"RobotMart","path":"rooms/RobotMart/RobotMart.yy",},},
     {"id":{"name":"RobotPath","path":"rooms/RobotPath/RobotPath.yy",},},
     {"id":{"name":"RobotPokecenter","path":"rooms/RobotPokecenter/RobotPokecenter.yy",},},
+    {"id":{"name":"Room57","path":"rooms/Room57/Room57.yy",},},
     {"id":{"name":"RoomBattle","path":"rooms/RoomBattle/RoomBattle.yy",},},
     {"id":{"name":"RoomBattleGodzilla","path":"rooms/RoomBattleGodzilla/RoomBattleGodzilla.yy",},},
     {"id":{"name":"RouteMinusOneBottom","path":"rooms/RouteMinusOneBottom/RouteMinusOneBottom.yy",},},
@@ -1073,6 +1074,7 @@
     {"roomId":{"name":"NestAreaRoom","path":"rooms/NestAreaRoom/NestAreaRoom.yy",},},
     {"roomId":{"name":"Mallet_East_ENDCREDITS","path":"rooms/Mallet_East_ENDCREDITS/Mallet_East_ENDCREDITS.yy",},},
     {"roomId":{"name":"Asleep","path":"rooms/Asleep/Asleep.yy",},},
+    {"roomId":{"name":"Room57","path":"rooms/Room57/Room57.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
