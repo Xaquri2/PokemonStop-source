@@ -53,6 +53,8 @@ if (room != RoomBattle and room != RoomBattleGodzilla)
 }
 else
 {
+	if (room == RoomBattleGodzilla) depth = 1000000
+	
 	if (ending)
 	{
 		if (fadeAlpha < 1) fadeAlpha += 0.05

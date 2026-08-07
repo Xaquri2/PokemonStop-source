@@ -1,3 +1,5 @@
+if (room == RoomBattleGodzilla) depth = 1000000
+
 if (dying) //Move down and fade away
 {
 	vspeed = 1

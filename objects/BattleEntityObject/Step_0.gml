@@ -1,3 +1,5 @@
+if (room == RoomBattleGodzilla) depth = 1000000
+
 if (isWild and visible)
 {
 	var pk = instance_create_layer(x,y,"EnemyPokemon",BattlePokemonObject)
