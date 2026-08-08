@@ -53,6 +53,8 @@ if (room != RoomBattle and room != RoomBattleGodzilla)
 }
 else
 {
+	if (room == RoomBattleGodzilla) depth = 1000000
+	
 	if (ending)
 	{
 		if (fadeAlpha < 1) fadeAlpha += 0.05
@@ -90,7 +92,7 @@ if (cutsceneVideo != "")
 	}
 }
 
-// Clouds
+/* Clouds
 if (cloud_level > cloud_target) {
     cloud_level -= 0.001; // about 1.7 seconds at 60 FPS
     cloud_level = max(cloud_level, cloud_target);

@@ -64,6 +64,9 @@ function GetRecoilDamage(pkmn, moveName)
 		case "Hail Mary Hit":
 			dmg += GetPokemonFinalHP(name, level)
 			break
+		case "Self Destruct":
+			dmg += GetPokemonFinalHP(name, level)/2
+			break
 		default:
 			dmg += GetPokemonFinalHP(name, level)/4
 			break
@@ -470,7 +473,7 @@ function DealDamage(damage, isPlayer)
 	}
 }
 
-function DealEffect(effectName, accurancy, user, target)
+function DealEffect(effectName, accurancy, damage, user, target)
 {
 	var str = ""
 	if (user.playerTeam)
@@ -668,20 +671,36 @@ function DealEffect(effectName, accurancy, user, target)
 
 					#region Statuses
 					case "Paralysis":
-						if (target.status == "None") str = "The opponent is now paralyzed"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now paralyzed"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					case "Poisoned":
-						if (target.status == "None") str = "The opponent is now poisoned"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now poisoned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					case "Burn":
-						if (target.status == "None") str = "The opponent is now burned"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now burned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					case "Sleep":
-						if (target.status == "None") str = "The opponent is now asleep"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now asleep"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					#endregion
 				
@@ -925,20 +944,36 @@ function DealEffect(effectName, accurancy, user, target)
 
 					#region Statuses
 					case "Paralysis":
-						if (target.status == "None") str = "Your pokemon is now paralyzed"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "Your pokemon is now paralyzed"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					case "Poisoned":
-						if (target.status == "None") str = "Your pokemon is now poisoned"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "Your pokemon is now poisoned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					case "Burn":
-						if (target.status == "None") str = "Your pokemon is now burned"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "Your pokemon is now burned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					case "Sleep":
-						if (target.status == "None") str = "Your pokemon is now asleep"
-						else str = "The opponent already has a status effect!"
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "Your pokemon is now asleep"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
 						break
 					#endregion
 				
