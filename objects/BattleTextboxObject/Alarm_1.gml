@@ -80,9 +80,9 @@ if (!recoil)
 		ds_list_add(textList, string_concat(name, " fainted"))
 
 		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-		battle.playerPkmn = nextPkmn
 		if (target.currentPkmn+1 >= ds_list_size(target.team))
 		{
+			battle.playerPkmn = nextPkmn
 			if (global.pikminCount > 0)
 			{
 				nextPkmn = ds_list_find_value(battle.pikminList, 0)
@@ -148,9 +148,9 @@ else
 		ds_list_add(textList, string_concat(name, " fainted"))
 
 		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-		battle.playerPkmn = nextPkmn
 		if (target.currentPkmn+1 >= ds_list_size(target.team))
 		{
+			battle.playerPkmn = nextPkmn
 			if (global.pikminCount > 0)
 			{
 				nextPkmn = ds_list_find_value(battle.pikminList, 0)

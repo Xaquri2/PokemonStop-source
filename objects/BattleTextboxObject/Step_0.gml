@@ -134,7 +134,7 @@ if (damageValue > 0 and damaging)
 		alarm[4] = 30
 
 		target.currentPkmn++
-		enemyPkmn = nextPkmn
+		//enemyPkmn = nextPkmn
 		nextPkmn = -1
 	}
 	else if (whoAttacked == "Enemy" and GetHealth(playerPkmn) <= 0)
@@ -144,7 +144,7 @@ if (damageValue > 0 and damaging)
 		alarm[4] = 30
 
 		target.currentPkmn++
-		playerPkmn = nextPkmn
+		//playerPkmn = nextPkmn
 		nextPkmn = -1
 	}
 }
