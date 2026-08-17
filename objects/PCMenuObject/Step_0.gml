@@ -29,7 +29,8 @@ else pokemonNumber = -1
 
 if (keyboard_check_pressed(vk_enter))
 {
-	if (!switching)
+	var menuIndex = currentOption+pageAmount*page
+	if (!switching and ds_list_size(global.pokemonList) > menuIndex)
 	{
 		var pkmnMenu = instance_create_depth(x,y,depth-1,PokemonMenuObject)
 		pkmnMenu.pcSwitchMode = true
