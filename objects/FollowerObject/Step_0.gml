@@ -59,12 +59,12 @@ if (instance_exists(player))
 if (global.followerType == "Mary")
 {
 	if (sprite_index == MaryWalkDownSprite) or (sprite_index == MaryWalkUpSprite) {
-		xscaleOffset = 1
-		image_yscale = 1.5
+		xscaleOffset = 0.75 * player.image_xscale
+		image_yscale = player.image_yscale
 	}
 	else {
-		xscaleOffset = 1.4
-		image_yscale = 1.5
+		xscaleOffset = 0.9 * player.image_xscale
+		image_yscale = player.image_yscale
 	}
 }
 image_xscale = xscaleDir*xscaleOffset
