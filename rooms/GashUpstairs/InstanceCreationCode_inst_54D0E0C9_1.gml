@@ -1,1 +1,1 @@
-SetWarpDefaults("UpstairsToGash", "Down", false)
+SetWarpDefaults("UpstairsToGash", "Up", false)
