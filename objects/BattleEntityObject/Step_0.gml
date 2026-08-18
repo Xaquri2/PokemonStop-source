@@ -29,16 +29,51 @@ if (flash)
 		flash = false
 		
 		#region Pokémon Spawning
-		var pk = instance_create_layer(168,161,"Instances",BattlePokemonObject)
+		//var pk = instance_create_layer(168,161,"Instances",BattlePokemonObject)
+		//if (switchIndex == -1)
+		//{
+		//	if (player) currentPkmn = GetFirstHealthyPokemon()
+		//	pk.index = currentPkmn
+		//}
+		//else pk.index = switchIndex
+		//
+		//pk.team = team
+		//if (!player) pk.playerTeam = false
+		//#endregion
+		var spawnIndex;
+
 		if (switchIndex == -1)
 		{
-			if (player) currentPkmn = GetFirstHealthyPokemon()
-			pk.index = currentPkmn
-		}
-		else pk.index = switchIndex
+		    if (player)
+		    {
+		        spawnIndex = GetFirstHealthyPokemon();
 
-		pk.team = team
-		if (!player) pk.playerTeam = false
+		        if (spawnIndex != -1)
+		        {
+		            currentPkmn = spawnIndex;
+		        }
+		    }
+		    else
+		    {
+		        spawnIndex = currentPkmn;
+		    }
+		}
+		else
+		{
+		    spawnIndex = switchIndex;
+		}
+
+		if (spawnIndex != -1 && spawnIndex != noone)
+		{
+		    var pk = instance_create_layer(168, 161, "Instances", BattlePokemonObject);
+		    pk.index = spawnIndex;
+		    pk.team = team;
+
+		    if (!player)
+		    {
+		        pk.playerTeam = false;
+		    }
+		}
 		#endregion
 	}
 }

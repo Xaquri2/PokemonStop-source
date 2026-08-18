@@ -1168,7 +1168,8 @@ function GetAttackParticle(moveName)
 
 function GetFirstHealthyPokemon()
 {
-	for (var i = 0; i < 6; i++)
+	//for (var i = 0; i < 6; i++)
+	for (var i = 0; i < ds_list_size(global.playerParty); i++)
 	{
 		var attempt = ds_list_find_value(global.playerParty, i)
 		if (GetHealth(attempt) > 0)

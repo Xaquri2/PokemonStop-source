@@ -458,7 +458,12 @@ if (instance_exists(actionNPC))
 			var musicC = instance_find(MusicObject, 0)
 			var music = musicC.currentMusic
 			audio_stop_sound(music)
-			audio_play_sound(GetBattleTheme(name), 1, false)
+			if ((GetBattleTheme(name)) == WildBattleTheme) {
+				audio_play_sound(GetBattleTheme(name), 1, false)
+			}
+			else {
+				audio_play_sound(GetBattleTheme(name), 1, true)
+			}
 			musicC.currentMusic = GetBattleTheme(name)
 		}
 	}

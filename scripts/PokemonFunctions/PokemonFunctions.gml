@@ -1203,7 +1203,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 1, 1, 0);
             break;
         case "Iron Defense":
-            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDef2", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDefense2", 1, 1, 0);
             break;
 
         //---------------------------------------

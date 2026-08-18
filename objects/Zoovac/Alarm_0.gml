@@ -38,7 +38,7 @@ if (HasFlag("ZoovacFirstBattle"))
 		"If you’d ever like to betray your species and help me finish my quest, I might have a place for you.",
 		"In the meantime, much as I hate to admit it, you've earned… THE ULTIMATE BADGE!")
 		ds_list_add(postBattleNameList, "Zoovac", "Zoovac", "Zoovac", "Zoovac", "Zoovac", "Zoovac", "Zoovac")
-		ds_list_add(postBattleIconList, Zoovac, Zoovac, Zoovac, Zoovac, Zoovac, Zoovac, Zoovac)
+		ds_list_add(postBattleIconList, ZoovacSprite_CLOSEUP, ZoovacSprite_CLOSEUP, ZoovacSprite_CLOSEUP, ZoovacSprite_CLOSEUP, ZoovacSprite_CLOSEUP, ZoovacSprite_CLOSEUP, ZoovacSprite_CLOSEUP)
 		
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 		dialogue.textList = postBattleTextList
