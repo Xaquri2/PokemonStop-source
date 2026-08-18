@@ -112,7 +112,7 @@ if (room == RoomBattle and instance_exists(battle))
 		{
 			audio_play_sound(WildBattleThemeNO_INTRO, 1, false)
 		}
-		else if (!audio_is_playing(targetBattleTheme))
+		else if (!audio_is_playing(targetBattleTheme) and !audio_is_playing(WildBattleThemeNO_INTRO))
 		{
 			audio_play_sound(targetBattleTheme, 1, false)
 		}

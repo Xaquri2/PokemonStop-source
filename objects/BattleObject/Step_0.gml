@@ -60,7 +60,9 @@ else
 		if (fadeAlpha < 1) fadeAlpha += 0.05
 		else 
 		{
-			global.money += GetTrainerMoney(enemyName)
+			if (defeat == false) {
+				global.money += GetTrainerMoney(enemyName)
+			}
 			if (defeat) room_goto(GinkgoLab) //SaveStateAction(global.latestSaveState, "Load")
 			else room_goto(playerRoom)
 		}

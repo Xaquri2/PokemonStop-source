@@ -60,7 +60,7 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
-	if (ds_list_find_index(global.pokedex, name) != -1) ds_list_add(global.pokedex, name)
+	if (ds_list_find_index(global.pokedex, name) == -1) ds_list_add(global.pokedex, name)
 }
 
 function AddPokemonTrainer(team, index, name, level, gender, sprite) {
@@ -1162,7 +1162,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 60, 20, "Sleep", 1, 1, 0);
             break;
         case "Poison Sting":
-            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poison", 0.3, 1, 0);
+            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poisoned", 0.3, 1, 0);
             break;
         case "Sing":
             ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 55, 15, "Sleep", 1, 1, 0);
