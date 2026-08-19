@@ -50,3 +50,5 @@ battleFlag = ""
 alarm[5] = 1
 
 audio_play_sound(Ding2, 1, false)
+
+GodzillaFainting = false

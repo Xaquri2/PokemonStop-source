@@ -272,6 +272,10 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 							break
 						}
 					}
+					
+					if (room == RoomBattleGodzilla) {
+						GodzillaFainting = true
+					}
 
 					if (enemyPkmnEntity != noone)
 					{

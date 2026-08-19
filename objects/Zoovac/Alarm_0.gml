@@ -12,7 +12,7 @@ if (HasFlag("ZoovacFirstBattle"))
 		ds_list_add(postBattleTextList, "You think you've won, don't you?!",
 		"Godzilla, come out!")
 		ds_list_add(postBattleNameList, "Zoovac","Zoovac")
-		ds_list_add(postBattleIconList, Zoovac,Zoovac)
+		ds_list_add(postBattleIconList, ZoovacSprite_CLOSEUP,ZoovacSprite_CLOSEUP)
 		
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 		dialogue.textList = postBattleTextList

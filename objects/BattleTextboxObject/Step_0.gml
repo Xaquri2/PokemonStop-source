@@ -148,3 +148,12 @@ if (damageValue > 0 and damaging)
 		nextPkmn = -1
 	}
 }
+
+if (GodzillaFainting == true) {
+	var ZillaChance = irandom_range(0,1)
+	if (ZillaChance > 0) {
+		instance_create_layer(random_range(140,320),random_range(0,288),"Explosions",FireParticle)
+	}
+	
+	sprite_set_offset(GodzillaSprite,sprite_get_xoffset(sprite_index),sprite_get_yoffset(sprite_index) + 0.5)
+}
