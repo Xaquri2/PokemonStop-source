@@ -263,8 +263,8 @@ if (nearestNPC != noone)
 	{
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 
-		if (nearestNPC.object_index == PokelootObject and nearestNPC.obtainable)
-		or (object_get_parent(nearestNPC.object_index) == PokelootObject and nearestNPC.obtainable)
+		if ((nearestNPC.object_index == PokelootObject or object_get_parent(nearestNPC.object_index) == PokelootObject)
+		and nearestNPC.obtainable)
 		{
 			dialogue.item = nearestNPC.item
 			dialogue.itemCount = nearestNPC.itemCount
@@ -312,7 +312,7 @@ if (nearestNPC != noone)
 			instance_destroy(dialogue)
 		}
 
-		if (nearestNPC.object_index == PokelootObject and
+		if ((nearestNPC.object_index == PokelootObject or object_get_parent(nearestNPC.object_index) == PokelootObject) and
 		nearestNPC.obtainable and string_count("Pokemon", nearestNPC.itemTag) != 1)
 		{
 			instance_destroy(nearestNPC)

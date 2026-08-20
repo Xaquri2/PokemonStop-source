@@ -1,3 +1,1 @@
-
-
 itemTag = "TiltedTowerTorch"
