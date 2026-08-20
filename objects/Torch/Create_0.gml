@@ -2,4 +2,3 @@
 event_inherited();
 
 item = "Torch Fuel"
-
