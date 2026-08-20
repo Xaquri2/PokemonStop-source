@@ -701,7 +701,9 @@ function GetAreaEncounters(encounterType)
 			break
 		case MutantPath1:
 			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demo Dog","Demogorgon","Ewok","Koopa")
-			if HasFlag()
+			if HasFlag("SkullBattle") {
+				ds_list_add(encounters, "Silver Scorpion","Silver Scorpion","Silver Scorpion","Silver Scorpion","Silver Scorpion",)
+			}
 			break
 		case ShadowPath:
 			if (encounterType == "Fog") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
@@ -709,6 +711,9 @@ function GetAreaEncounters(encounterType)
 			break
 		case RobotPath:
 			ds_list_add(encounters, "Baby","Baby","Baby","Box Bot","Voltorb","Voltorb","Tektite","Tutorial Bot")
+			if HasFlag("SkullBattle") {
+				ds_list_add(encounters, "Silver Scorpion")
+			}
 			break
 			
 		default:

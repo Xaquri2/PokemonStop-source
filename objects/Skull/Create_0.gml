@@ -1,7 +1,10 @@
 // Inherit the parent event
 event_inherited();
 
-AddPokemonTrainer(trainerTeam, 1, "Silver Scorpion", 10, "Male", SIlverScorpionOverworldSprite)
+if HasFlag("SkullBattle") {}
+else {
+	AddPokemonTrainer(trainerTeam, 1, "Silver Scorpion", 10, "Male", SIlverScorpionOverworldSprite)
+}
 
 name = "Skull"
 //ds_list_add(textList, "Hi", "How are you?", "Die.")
