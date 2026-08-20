@@ -60,7 +60,7 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	{
 		ds_list_add(global.playerParty, pokemon)
 	}
-	if (ds_list_find_index(global.pokedex, name) != -1) ds_list_add(global.pokedex, name)
+	if (ds_list_find_index(global.pokedex, name) == -1) ds_list_add(global.pokedex, name)
 }
 
 function AddPokemonTrainer(team, index, name, level, gender, sprite) {
@@ -1162,7 +1162,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Psychic", "Status", 0, 60, 20, "Sleep", 1, 1, 0);
             break;
         case "Poison Sting":
-            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poison", 0.3, 1, 0);
+            ds_list_add(moveInfo, moveName, "Poison", "Physical", 15, 100, 35, "Poisoned", 0.3, 1, 0);
             break;
         case "Sing":
             ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 55, 15, "Sleep", 1, 1, 0);
@@ -1203,7 +1203,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Fairy", "Physical", 90, 90, 10, "None", 1, 1, 0);
             break;
         case "Iron Defense":
-            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDef2", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Steel", "Status", 0, 100, 15, "RaiseDefense2", 1, 1, 0);
             break;
 
         //---------------------------------------
@@ -2053,18 +2053,19 @@ function GetNameByNumber(num)
 	{
 		case "001": return "Creeper"
 		case "002": return "Krypton Firefly"
+		case "003": return "Envy"
 		case "004": return "Baby"
 		case "005": return "Zoombini"
 		case "006": return "Voltorb"
 		case "007": return "Caterpie"
 		case "008": return "Butterfree"
 		//case "009": return "Clefairy"
+		case "009": return "Magnemite"
 		case "010": return "Woob-Wüb"
 		case "011": return "Pikachu"
 		case "012": return "Squirtle"
 		case "013": return "Charmander"
 		case "014": return "Snorlax"
-		case "003": return "Envy"
 		case "015": return "Ninja Squirtle"
 		case "016": return "Omega Squirtle"
 		case "017": return "Charmandorian"
@@ -2073,6 +2074,7 @@ function GetNameByNumber(num)
 		case "020": return "Fig"
 		case "021": return "Umbrian"
 		//case "022": return "Baby"
+		case "022": return "Green Bubble"
 		case "023": return "Box Bot"
 		case "024": return "Tutorial Bot"
 		case "025": return "BB-8"
@@ -2134,6 +2136,7 @@ function GetNumberByName(name)
 		case "Voltorb": return "006"
 		case "Caterpie": return "007"
 		case "Butterfree": return "008"
+		case "Magnemite": return "009"
 		case "Woob-Wüb": return "010"
 		case "Ninja Squirtle": return "015"
 		case "Omega Squirtle": return "016"
@@ -2142,6 +2145,7 @@ function GetNumberByName(name)
 		case "Ape-Ball": return "019"
 		case "Fig": return "020"
 		case "Umbrian": return "021"
+		case "Green Bubble": return "022"
 		case "Box Bot": return "023"
 		case "Tutorial Bot": return "024"
 		case "BB-8": return "025"

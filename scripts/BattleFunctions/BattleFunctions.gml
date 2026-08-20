@@ -720,6 +720,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 				
 					case "Recoil":
 					case "RecoilOnMiss":
+					case "FaintUser":
 						str = "Your pokemon took some damage!"
 						break
 
@@ -737,7 +738,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 			}
 		}
 	
-		if (string_count("Recoil", str) == 0)
+		if (string_count("Recoil", str) == 0 and string_count("Faint", str) == 0)
 			{
 				if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) 
 				{
@@ -993,12 +994,13 @@ function DealEffect(effectName, accurancy, damage, user, target)
 				
 					case "Recoil":
 					case "RecoilOnMiss":
+					case "FaintUser":
 						str = "The opponent took some damage!"
 						break
 
 					case "StruggleRecoil":
 						str = "The opponent struggled and took some damage!"
-						break
+						break						
 				}
 		}
 		else
@@ -1010,7 +1012,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 			}
 		}
 	
-		if (string_count("Recoil", str) == 0)
+		if (string_count("Recoil", str) == 0 and string_count("Faint", str) == 0)
 			{
 				if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) 
 				{
@@ -1166,7 +1168,8 @@ function GetAttackParticle(moveName)
 
 function GetFirstHealthyPokemon()
 {
-	for (var i = 0; i < 6; i++)
+	//for (var i = 0; i < 6; i++)
+	for (var i = 0; i < ds_list_size(global.playerParty); i++)
 	{
 		var attempt = ds_list_find_value(global.playerParty, i)
 		if (GetHealth(attempt) > 0)

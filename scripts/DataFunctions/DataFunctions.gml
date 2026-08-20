@@ -152,7 +152,12 @@ function LoadData()
 
 	    var data = json_parse(json);
 		var saveState = noone
-
+		
+		ds_list_clear(global.collectedPokeloot)
+		ds_list_clear(global.activatedBadges)
+		ds_list_clear(global.beatenTrainers)
+		ds_list_clear(global.flags)
+		
 		switch (global.currentSaveState)
 		{
 			case 1:

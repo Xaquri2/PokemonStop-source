@@ -60,7 +60,9 @@ else
 		if (fadeAlpha < 1) fadeAlpha += 0.05
 		else 
 		{
-			global.money += GetTrainerMoney(enemyName)
+			if (defeat == false) {
+				global.money += GetTrainerMoney(enemyName)
+			}
 			if (defeat) room_goto(GinkgoLab) //SaveStateAction(global.latestSaveState, "Load")
 			else room_goto(playerRoom)
 		}
@@ -92,6 +94,12 @@ if (cutsceneVideo != "")
 	}
 }
 
+if (room == RoomBattleGodzilla && postBattleTextList != noone)
+{
+    postBattleTextList = noone;
+    postBattleIconList = noone;
+    postBattleNameList = noone;
+}
 /* Clouds
 if (cloud_level > cloud_target) {
     cloud_level -= 0.001; // about 1.7 seconds at 60 FPS
@@ -105,3 +113,4 @@ if (cloud_level > cloud_target) {
 if room == RoomBattleGodzilla {
 	show_debug_message("Clouds layer:" + string(layer_get_visible("Clouds") ))
 }
+

@@ -227,5 +227,5 @@ else if (summaryMode and instance_number(TextboxObject) == 0)
 if (moveIndex < 0) moveIndex += 4
 if (moveIndex > 3) moveIndex -= 4
 
-if (selectedIndex == ds_list_size(global.playerParty)) selectedIndex = 0
+if (selectedIndex >= ds_list_size(global.playerParty)) selectedIndex = 0
 if (selectedIndex < 0) selectedIndex = ds_list_size(global.playerParty)-1

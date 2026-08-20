@@ -458,7 +458,12 @@ if (instance_exists(actionNPC))
 			var musicC = instance_find(MusicObject, 0)
 			var music = musicC.currentMusic
 			audio_stop_sound(music)
-			audio_play_sound(GetBattleTheme(name), 1, false)
+			if ((GetBattleTheme(name)) == WildBattleTheme) {
+				audio_play_sound(GetBattleTheme(name), 1, false)
+			}
+			else {
+				audio_play_sound(GetBattleTheme(name), 1, true)
+			}
 			musicC.currentMusic = GetBattleTheme(name)
 		}
 	}
@@ -491,6 +496,11 @@ if (room == GinkoIntroRoom ) {
 }
 
 var finalText = ds_list_find_value(textList, ds_list_size(textList)-1)
+
+if (finalText == "In the meantime, much as I hate to admit it, you've earned… THE ULTIMATE BADGE!") {
+	room_goto(EndCreditsRoom)
+}
+
 if (finalText == "You obtained the Skyview Potion!") {
 	AddItem("Skyview Potion", 1)
 	RemoveItem("Skyview Mushroom", 1)
