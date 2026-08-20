@@ -701,6 +701,7 @@ function GetAreaEncounters(encounterType)
 			break
 		case MutantPath1:
 			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demo Dog","Demogorgon","Ewok","Koopa")
+			if HasFlag()
 			break
 		case ShadowPath:
 			if (encounterType == "Fog") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
