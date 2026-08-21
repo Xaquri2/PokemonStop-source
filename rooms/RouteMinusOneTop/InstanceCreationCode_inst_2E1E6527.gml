@@ -1,6 +1,8 @@
 battleFlag = "WoobWubFlag"
 
-if HasFlag(battleFlag) {instance_destroy(self)}
+if HasFlag(battleFlag) {
+	instance_destroy(self)
+	}
 
 canWalk = true;
 name = "Woob-Wüb"

@@ -2119,7 +2119,7 @@ function GetNameByNumber(num)
 		case "064": return "Godzooky"
 		case "065": return "Godzilla"
 		
-		default: return "Creeper"
+		default: return ""//"Creeper"
 	}
 }
 
