@@ -2108,15 +2108,18 @@ function GetNameByNumber(num)
 		case "053": return "Morlock"
 		case "054": return "Rancor"
 		case "055": return "Porg"
-		case "056": return "Caelian"
-		case "057": return "MissingNo"
-		case "058": return "Articuno"
-		case "059": return "Zapdos"
-		case "060": return "Moltres"
-		case "061": return "Godzooky"
-		case "062": return "Godzilla"
+		case "056": return "Yamask"
+		case "057": return "Umbreon"
+		case "058": return "Zubat"
+		case "059": return "Caelian"
+		case "060": return "MissingNo"
+		case "061": return "Articuno"
+		case "062": return "Zapdos"
+		case "063": return "Moltres"
+		case "064": return "Godzooky"
+		case "065": return "Godzilla"
 		
-		default: return "Creeper"
+		default: return ""//"Creeper"
 	}
 }
 
@@ -2179,13 +2182,16 @@ function GetNumberByName(name)
 		case "Morlock": return "053"
 		case "Rancor": return "054"
 		case "Porg": return "055"
-		case "Caelian": return "056"
-		case "MissingNo": return "057"
-		case "Articuno": return "058"
-		case "Zapdos": return "059"
-		case "Moltres": return "060"
-		case "Godzooky": return "061"
-		case "Godzilla": return "062"
+		case "Yamask": return "056"
+		case "Umbreon": return "057"
+		case "Zubat": return "058"
+		case "Caelian": return "059"
+		case "MissingNo": return "060"
+		case "Articuno": return "061"
+		case "Zapdos": return "062"
+		case "Moltres": return "063"
+		case "Godzooky": return "064"
+		case "Godzilla": return "065"
 
 		default: return "001"
 	}
@@ -2250,13 +2256,16 @@ function GetSpriteByNumber(num)
 		case "053": return MorlockBattleSprite
 		case "054": return RancorOverworldSprite
 		case "055": return PorgBattleSprite
-		case "056": return CaelianBattleSprite
-		case "057": return MissingNoIdleSprite
-		case "058": return ArticunoSprite
-		case "059": return ZapdosOverworldSprite
-		case "060": return MoltresOverworldSprite
-		case "061": return GodzookyOverworldSprite
-		case "062": return GodzillaSprite
+		case "056": return YamaskFrontSprite
+		case "057": return UmbreonOverworldSprite
+		case "058": return ZubatFlappingSprite
+		case "059": return CaelianBattleSprite
+		case "060": return MissingNoIdleSprite
+		case "061": return ArticunoSprite
+		case "062": return ZapdosOverworldSprite
+		case "063": return MoltresOverworldSprite
+		case "064": return GodzookyOverworldSprite
+		case "065": return GodzillaSprite
 
 		default: return CreeperSprite
 	}

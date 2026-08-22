@@ -1,7 +1,7 @@
 if (catching and !activated and !other.playerTeam)
 {
 	var battle = instance_find(BattleObject, 0)
-	if (battle.isWild)
+	if (battle.isWild or battle.enemyName == "Skull")
 	{
 		hspeed = 0
 		vspeed = 0

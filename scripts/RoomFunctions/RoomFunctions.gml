@@ -696,18 +696,38 @@ function GetAreaEncounters(encounterType)
 			ds_list_add(encounters, "Pikmin","Pikmin","Pikachu")
 			break
 		case RouteMinusOneBottom:
+			ds_list_add(encounters, "Pikmin","Squirrel","Squirrel","Charmander","Pikachu","Squirtle","Creeper")
+			break
 		case RouteMinusOneTop:
-			ds_list_add(encounters, "Pikmin","Charmander","Pikachu","Squirtle","Creeper")
+			ds_list_add(encounters, "Pikmin","Squirrel","Squirrel","Charmander","Pikachu","Squirtle","Creeper")
+			if HasFlag("Apeball_RouteMinusOneTop_inst_68D486B8") {
+				ds_list_add(encounters,"Ape-Ball")
+			}
+			if HasFlag("WoobWubFlag") {
+				ds_list_add(encounters,"Woob-Wüb")
+			}
 			break
 		case MutantPath1:
 			ds_list_add(encounters, "Morlock","Morlock","Demo Dog","Demo Dog","Demogorgon","Ewok","Koopa")
+			if HasFlag("SkullBattle") {
+				ds_list_add(encounters, "Silver Scorpion","Silver Scorpion",)
+			}
+			if HasFlag("EndermanFlag") {
+				ds_list_add(encounters, "Enderman","Enderman",)
+			}
 			break
 		case ShadowPath:
 			if (encounterType == "Fog") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
 			else if (encounterType == "Grass") ds_list_add(encounters, "Umbrian","Umbreon","Boo","Pac-Ghost")
+			if HasFlag("EndermanFlag") {
+				ds_list_add(encounters, "Enderman")
+			}
 			break
 		case RobotPath:
 			ds_list_add(encounters, "Baby","Baby","Baby","Box Bot","Voltorb","Voltorb","Tektite","Tutorial Bot")
+			if HasFlag("SkullBattle") {
+				ds_list_add(encounters, "Silver Scorpion")
+			}
 			break
 			
 		default:
