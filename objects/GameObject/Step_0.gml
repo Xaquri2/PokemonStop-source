@@ -70,7 +70,10 @@ if (fade)
 					if (video_get_status() == video_status_playing) cutsceneSurface = video_draw()[1]
 				}
 			}
-			else room_goto(targetRoom)
+			else 
+			{
+				room_goto(targetRoom)
+			}
 		}
 		else if (warp and room == targetRoom)
 		{
@@ -97,7 +100,10 @@ if (fade)
 }
 else
 {
-	if (fadeAlpha > 0) fadeAlpha -= 0.05
+	if (fadeAlpha > 0) 
+	{
+		fadeAlpha -= 0.05
+	}
 }
 
 var battle = instance_find(BattleObject, 0)

@@ -723,10 +723,10 @@ function GetRoomCutscene(n)
 		case ShadowPathGym:
 			if (!HasFlag("HasVisitedShadowGym")) return "ShadowGymCutscene.mp4"
 			else return ""
-		case SecondFloor: return "Elevator1To2.mp4"
-		case ThirdFloor: return "Elevator2To3.mp4"
-		case FourthFloor: return "Elevator3To4.mp4"
-		case FifthFloor: return "Elevator4To5.mp4"
+		case Elevator1: return "Elevator1To2.mp4"
+		case Elevator2: return "Elevator2To3.mp4"
+		case Elevator3: return "Elevator3To4.mp4"
+		case Elevator4: return "Elevator4To5.mp4"
 		default:
 			return ""
 	}

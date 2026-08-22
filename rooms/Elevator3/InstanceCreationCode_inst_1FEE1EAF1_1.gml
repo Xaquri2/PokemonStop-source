@@ -1,3 +1,3 @@
 SetWarpDefaults("Elevator3", "Up", false)
 
-alarm[1] = 560
+alarm[1] = 60
