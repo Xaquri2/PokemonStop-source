@@ -41,6 +41,7 @@ flash = false
 flashMode = 1
 
 switchIndex = -1
+nextPkmnIndex = -1
 switching = false
 catching = false
 timesBobbed = 0

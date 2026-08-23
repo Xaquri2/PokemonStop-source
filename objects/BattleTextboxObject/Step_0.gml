@@ -75,25 +75,31 @@ if (expGainValue > 0 and expGaining)
 		    leveledUp = false;
 		}
 
-	var entity = -1
-	for (var i = 0; i < instance_number(BattleEntityObject); i++)
-	{
-		var attempt = instance_find(BattleEntityObject, i)
-		if (attempt.player)
-		{
-			entity = attempt
-			ds_list_set(attempt.team, attempt.currentPkmn, playerPkmn)
-			ds_list_set(global.playerParty, attempt.currentPkmn, playerPkmn)
-		}
-	}
-
+	var activePkmnEntity = noone
 	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
 		var attempt = instance_find(BattlePokemonObject, i)
 		if (attempt.playerTeam)
 		{
-			attempt.pkmnInfo = playerPkmn
-			ds_list_set(attempt.team, entity.currentPkmn, playerPkmn)
+			activePkmnEntity = attempt
+			break
+		}
+	}
+
+	if (activePkmnEntity != noone)
+	{
+		var activeIndex = activePkmnEntity.index
+		activePkmnEntity.pkmnInfo = playerPkmn
+		if (activeIndex >= 0 and activeIndex < ds_list_size(activePkmnEntity.team))
+		{
+			ds_list_set(activePkmnEntity.team, activeIndex, playerPkmn)
+			ds_list_set(global.playerParty, activeIndex, playerPkmn)
+		}
+
+		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+		{
+			var attempt = instance_find(BattleEntityObject, i)
+			if (attempt.player) attempt.currentPkmn = activeIndex
 		}
 	}
 }
@@ -101,17 +107,20 @@ if (expGainValue > 0 and expGaining)
 if (damageValue > 0 and damaging)
 {
 	var target = noone
-	while (target == noone)
+	for (var i = 0; i < instance_number(BattleEntityObject); i++)
 	{
-		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+		var attempt = instance_find(BattleEntityObject, i)
+		if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player"))
 		{
-			var attempt = instance_find(BattleEntityObject, i)
-			if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player"))
-			{
-				target = attempt
-				break
-			}
+			target = attempt
+			break
 		}
+	}
+	if (target == noone)
+	{
+		damaging = false
+		whoAttacked = ""
+		exit
 	}
 
 	alarm[3] = 5
@@ -143,7 +152,8 @@ if (damageValue > 0 and damaging)
 		whoAttacked = ""
 		alarm[4] = 30
 
-		target.currentPkmn++
+		target.currentPkmn = nextPkmnIndex
+		target.switchIndex = -1
 		//playerPkmn = nextPkmn
 		nextPkmn = -1
 	}

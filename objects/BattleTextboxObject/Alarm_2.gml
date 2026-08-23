@@ -360,7 +360,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						var attempt = instance_find(BattleEntityObject, i)
 						if (attempt.player) plr = attempt
 					}
-					plr.currentPkmn = switchIndex
+					// Keep currentPkmn on the Pokemon that is actually on the field.
+					// The spawn event commits the new index after validating it.
 					plr.switchIndex = switchIndex
 					plr.alarm[2] = 30
 				}
@@ -408,8 +409,6 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					var effectName = GetMoveEffect(playerMoveName)
 					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
 
-					var index = ds_list_find_index(global.playerParty, target.pkmnInfo)
-					
 					var status = effectName
 					if (status == "RandomStatus")
 					{
@@ -421,7 +420,6 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					}
 					
 					SetStatus(target.pkmnInfo, status)
-					ds_list_set(global.playerParty, index, target.pkmnInfo)
 
 					target.status = status
 				}
