@@ -54,6 +54,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 			break
 		case "Exit":
 			player.alarm[0] = 5
+			game_end()
 			break
 	}
 }
