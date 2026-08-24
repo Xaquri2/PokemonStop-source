@@ -697,6 +697,9 @@ function GetAreaEncounters(encounterType)
 			break
 		case RouteMinusOneBottom:
 			ds_list_add(encounters, "Pikmin","Squirrel","Squirrel","Charmander","Pikachu","Squirtle","Creeper")
+			if HasFlag("RouteOneSnorlax") {
+				ds_list_add(encounters, "Snorlax", "Snorlax")
+			}
 			break
 		case RouteMinusOneTop:
 			ds_list_add(encounters, "Pikmin","Squirrel","Squirrel","Charmander","Pikachu","Squirtle","Creeper")
