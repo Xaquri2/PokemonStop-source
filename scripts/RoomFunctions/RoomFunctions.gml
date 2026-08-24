@@ -707,7 +707,7 @@ function GetAreaEncounters(encounterType)
 				ds_list_add(encounters,"Ape-Ball")
 			}
 			if HasFlag("WoobWubFlag") {
-				ds_list_add(encounters,"Woob-Wüb")
+				ds_list_add(encounters,"Woob-Wüb","Woob-Wüb")
 			}
 			break
 		case MutantPath1:
