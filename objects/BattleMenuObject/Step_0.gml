@@ -83,7 +83,7 @@ if (keyboard_check_pressed(vk_enter))
 							//Player Move
 							var moveEff = GetMoveEffect(moveName)
 							var damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
-							var isCrit = RollCriticalChance(playerPkmn)
+							var isCrit = RollCriticalChance(playerPkmn.critModifier)
 							if (isCrit) damage *= 1.5
 							battleText.playerMoveName = moveName
 							battleText.playerDamage = damage
@@ -208,7 +208,7 @@ if (keyboard_check_pressed(vk_enter))
 
 								moveEff = GetMoveEffect(moveName)
 								damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
-								isCrit = RollCriticalChance(enemyPkmn)
+								isCrit = RollCriticalChance(enemyPkmn.critModifier)
 								if (isCrit) damage *= 1.5
 								battleText.enemyMoveName = moveName
 								battleText.enemyDamage = damage
@@ -336,7 +336,7 @@ if (keyboard_check_pressed(vk_enter))
 
 							var moveEff = GetMoveEffect(moveName)
 							var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
-							var isCrit = RollCriticalChance(enemyPkmn)
+							var isCrit = RollCriticalChance(enemyPkmn.critModifier)
 							if (isCrit) damage *= 1.5
 							battleText.enemyMoveName = moveName
 							battleText.enemyDamage = damage
@@ -453,7 +453,7 @@ if (keyboard_check_pressed(vk_enter))
 
 								moveEff = GetMoveEffect(moveName)
 								damage = GetDamage(battle.playerPkmn, battle.enemyPkmn, moveName)
-								isCrit = RollCriticalChance(playerPkmn)
+								isCrit = RollCriticalChance(playerPkmn.critModifier)
 								if (isCrit) damage *= 1.5
 								battleText.moveName = moveName
 								battleText.playerMoveName = moveName

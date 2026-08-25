@@ -32,7 +32,7 @@ if (keyboard_check_pressed(vk_enter))
 	if (!summaryMode) 
 	{
 		var pokedexIndex = currentOption+pageAmount*page
-		var name = GetNameByNumber(pokedexIndex+1)
+		var name = GetNameByNumber(string(pokedexIndex+1))
 		
 		var registered = false
 		for (var i = 0; i < ds_list_size(global.pokedex); i++)

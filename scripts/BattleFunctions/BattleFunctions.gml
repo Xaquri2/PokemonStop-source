@@ -2,12 +2,10 @@ function GetDamage(pkmn, targetPkmn, moveName)
 {
 	var pName = GetName(pkmn)
 	var pLevel = GetLevel(pkmn)
-	var pStats = GetPokemonFinalStats(pName, pLevel)
 	var pType = GetTypes(pkmn)
 
 	var eName = GetName(targetPkmn)
 	var eLevel = GetLevel(targetPkmn)
-	var eStats = GetPokemonFinalStats(eName, eLevel)
 
 	var moveType = GetMoveType(moveName)
 	var movePower = GetMovePower(moveName)
@@ -22,13 +20,13 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	{
 		if (moveCat == "Physical")
 		{
-			atkStat = GetAtkStat(pStats)
-			defStat = GetDefStat(eStats)
+			atkStat = pkmn.atk
+			defStat = targetPkmn.def
 		}
 		else
 		{
-			atkStat = GetSpAtkStat(pStats)
-			defStat = GetSpDefStat(eStats)
+			atkStat = pkmn.spatk
+			defStat = targetPkmn.spdef
 		}
 
 		if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)
