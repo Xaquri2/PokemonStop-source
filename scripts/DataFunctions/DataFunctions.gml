@@ -157,6 +157,7 @@ function LoadData()
 		ds_list_clear(global.activatedBadges)
 		ds_list_clear(global.beatenTrainers)
 		ds_list_clear(global.flags)
+		ds_map_clear(global.npcFlags)
 		
 		switch (global.currentSaveState)
 		{

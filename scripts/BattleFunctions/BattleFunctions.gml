@@ -434,7 +434,7 @@ function GetMoveAnimationTime(moveName)
 
 function DealDamage(damage, isPlayer)
 {
-	var entity = -1
+	var entity = noone
 	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
 		var attempt = instance_find(BattlePokemonObject, i)
@@ -444,30 +444,35 @@ function DealDamage(damage, isPlayer)
 			break
 		}
 	}
+	if (entity == noone)
+	{
+		return;
+	}
 
 	entity.hp -= damage
 	entity.hp = clamp(entity.hp, 0, 9999)
+	var damagedPkmn = entity.pkmnInfo
+	ds_list_set(damagedPkmn, 5, entity.hp)
 
 	if (isPlayer)
 	{
-		ds_list_set(enemyPkmn, 5, entity.hp)
-		ds_list_set(entity.pkmnInfo, 5, entity.hp)
-		ds_list_set(entity.team, entity.index, enemyPkmn)
+		enemyPkmn = damagedPkmn
 	}
 	else
 	{
-		ds_list_set(playerPkmn, 5, entity.hp)
-		ds_list_set(entity.team, entity.index, playerPkmn)
-		ds_list_set(global.playerParty, entity.index, playerPkmn)
+		playerPkmn = damagedPkmn
 	}
 
-	for (var i = 0; i < instance_number(BattleEntityObject); i++)
+	// The on-field Pokemon is authoritative. Never write it to currentPkmn as
+	// well as entity.index: those values can temporarily differ during a switch,
+	// which used to copy one Pokemon over another party slot.
+	if (entity.index >= 0 and entity.index < ds_list_size(entity.team))
 	{
-		var attempt = instance_find(BattleEntityObject, i)
-		if (attempt.player)
-		{
-			ds_list_set(attempt.team, attempt.currentPkmn, playerPkmn)
-		}
+		ds_list_set(entity.team, entity.index, damagedPkmn)
+	}
+	if (entity.playerTeam and entity.index >= 0 and entity.index < ds_list_size(global.playerParty))
+	{
+		ds_list_set(global.playerParty, entity.index, damagedPkmn)
 	}
 }
 
@@ -1178,6 +1183,27 @@ function GetFirstHealthyPokemon()
 	return -1
 }
 
+function GetFirstHealthyPokemonExcept(excludedIndex)
+{
+	var excludedPkmn = noone
+	if (excludedIndex >= 0 and excludedIndex < ds_list_size(global.playerParty))
+	{
+		excludedPkmn = ds_list_find_value(global.playerParty, excludedIndex)
+	}
+
+	for (var i = 0; i < ds_list_size(global.playerParty); i++)
+	{
+		var attempt = ds_list_find_value(global.playerParty, i)
+		// Also reject the same DS-list reference in another slot. That makes an
+		// already-corrupted duplicated party fail safely instead of sending it out.
+		if (i != excludedIndex and attempt != excludedPkmn and GetHealth(attempt) > 0)
+		{
+			return i
+		}
+	}
+	return -1
+}
+
 function GetPokeballChance(type)
 {
 	switch (type)
@@ -1254,6 +1280,7 @@ function GetTrainerTeam(trainerName)
 	//Route Minus One BOTTOM
 		case "Hat Kid":
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 0, "Zubat", 5, "Female", ZubatFlappingSprite)
 			break
 		case "Kidd Funkadelic, Jr.":
 			AddPokemonTrainer(team, 0, "Ape-Ball", 5, "Male", ApeBallSprite)
@@ -1275,62 +1302,62 @@ function GetTrainerTeam(trainerName)
 
 	//Route Minus One TOP
 		case "Ultiron":
-			AddPokemonTrainer(team, 1, "Pikachu", 1, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 1, "Pikachu", 2, "Female", PikachuIdleSprite)
 			AddPokemonTrainer(team, 2, "Caterpie", 4, "Female", CaterpieIdleSprite)
-			AddPokemonTrainer(team, 3, "Pikmin", 4, "Female", PikminIdleSprite)
+			AddPokemonTrainer(team, 3, "Pikmin", 7, "Female", PikminIdleSprite)
 			break
 		case "Bestie":
-			AddPokemonTrainer(team, 1, "Squirtle", 1, "Female", SquirtleIdleSprite)
-			AddPokemonTrainer(team, 2, "Caterpie", 2, "Female", CaterpieIdleSprite)
+			AddPokemonTrainer(team, 1, "Squirtle", 3, "Female", SquirtleIdleSprite)
+			AddPokemonTrainer(team, 2, "Caterpie", 5, "Female", CaterpieIdleSprite)
 			break
 			
 	//Mutant Path
 		case "Morlock":
-			AddPokemonTrainer(team, 1, "Human", 1, "Male", Human2IdleSprite)
-			AddPokemonTrainer(team, 2, "Demo Dog", 1, "Female", DemoDogSprite)
+			AddPokemonTrainer(team, 1, "Human", 7, "Male", Human2IdleSprite)
+			AddPokemonTrainer(team, 2, "Demo Dog", 8, "Female", DemoDogSprite)
 			break
 		case "Team Rocket Hexagonni":
-			AddPokemonTrainer(team, 1, "Zubat", 1, "Male", ZubatFlappingSprite)
-			AddPokemonTrainer(team, 2, "Morlock", 1, "Male", MorlockBattleSprite)
-			AddPokemonTrainer(team, 3, "Demo Dog", 1, "Male", DemoDogSprite)
+			AddPokemonTrainer(team, 1, "Zubat", 3, "Male", ZubatFlappingSprite)
+			AddPokemonTrainer(team, 2, "Morlock", 5, "Male", MorlockBattleSprite)
+			AddPokemonTrainer(team, 3, "Demo Dog", 7, "Male", DemoDogSprite)
 			break
 		case "Skull":
 			AddPokemonTrainer(team, 3, "Silver Scorpion", 10, "Male", SIlverScorpionOverworldSprite)
 			break
 		case "BridgeMorlock":
-			AddPokemonTrainer(team, 1, "Zubat", 1, "Female", ZubatFlappingSprite)
-			AddPokemonTrainer(team, 2, "Morlock", 1, "Male", MorlockcitaSprite)
+			AddPokemonTrainer(team, 1, "Zubat", 10, "Female", ZubatFlappingSprite)
+			AddPokemonTrainer(team, 2, "Morlock", 10, "Male", MorlockcitaSprite)
 			break
 			
 	//Robot Path
 		case "BoxBotH":
-			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)
-			AddPokemonTrainer(team, 2, "Voltorb", 5, "Male", VoltorbOverworldSprite)
+			AddPokemonTrainer(team, 1, "Magnemite", 4, "Male", MagnemiteOverworldSprite)
+			AddPokemonTrainer(team, 2, "Voltorb", 6, "Male", VoltorbOverworldSprite)
 			break
 		case "BoxBotI":
 			AddPokemonTrainer(team, 1, "Magnemite", 3, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 2, "Voltorb", 5, "Male", VoltorbOverworldSprite)
 			break
 		case "Greg":
-			AddPokemonTrainer(team, 1, "BB-8", 3, "Male", BB8BattleSprite)
-			AddPokemonTrainer(team, 2, "Caterpie", 5, "Male", CaterpieIdleSprite)
+			AddPokemonTrainer(team, 1, "BB-8", 4, "Male", BB8BattleSprite)
+			AddPokemonTrainer(team, 2, "Caterpie", 6, "Male", CaterpieIdleSprite)
 			break
 		case "Bottrick Notthuman":
 			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
-			AddPokemonTrainer(team, 2, "BB-8", 5, "Male", BB8BattleSprite)
+			AddPokemonTrainer(team, 2, "BB-8", 8, "Male", BB8BattleSprite)
 			break
 		case "Cloaked Trainer":
-			AddPokemonTrainer(team, 1, "Caterpie", 3, "Male", CaterpieIdleSprite)
-			AddPokemonTrainer(team, 2, "Pikachu", 5, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 1, "Caterpie", 4, "Male", CaterpieIdleSprite)
+			AddPokemonTrainer(team, 2, "Pikachu", 9, "Female", PikachuIdleSprite)
 			break
 		case "Ephemelia":
 			AddPokemonTrainer(team, 1, "Box Bot", 3, "Male", BoxBotIdleSprite)
-			AddPokemonTrainer(team, 2, "Squirrel", 5, "Female", SquirrelOverworldSprite)
+			AddPokemonTrainer(team, 2, "Squirrel", 10, "Female", SquirrelOverworldSprite)
 			break
 		case "Box Bot O":
 			AddPokemonTrainer(team, 1, "Box Bot", 4, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 2, "BB-8", 5, "Male", BB8BattleSprite)
-			AddPokemonTrainer(team, 3, "Box Bot", 6, "Male", BoxBotIdleSprite)
+			AddPokemonTrainer(team, 3, "Box Bot", 8, "Male", BoxBotIdleSprite)
 			break
 			
 			
@@ -1339,11 +1366,11 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 0, "Pikachu", 5, "Female", PikachuIdleSprite)
 			break
 		case "Ian":
-			AddPokemonTrainer(team, 1, "Clefairy", 15, "Female", ClefairySprite)
+			AddPokemonTrainer(team, 1, "Clefairy", 12, "Female", ClefairySprite)
 			AddPokemonTrainer(team, 2, "Kirby", 16, "Female", KirbySprite)
 			break
 		case "Elise":
-			AddPokemonTrainer(team, 0, "Ewok", 15, "Female", KirbySprite)
+			AddPokemonTrainer(team, 0, "Ewok", 13, "Female", KirbySprite)
 			AddPokemonTrainer(team, 1, "Kirby", 15, "Female", KirbySprite)
 			break
 			
@@ -1563,6 +1590,7 @@ function GetBattleXscale(name)
 		case "Silver Scorpion":
 		case "Envy":
 		case "Pikmin":
+		case "Koopa":
 			return -1;
 			break
 		//Use this for naturally flipped pokémon

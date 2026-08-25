@@ -146,9 +146,7 @@ if (keyboard_check_pressed(vk_enter))
 								{
 									if (pStatus == "Sleep")
 									{
-										var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
 										SetStatus(playerPkmn.pkmnInfo, "None")
-										ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
 										ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
 									}
 
@@ -520,9 +518,7 @@ if (keyboard_check_pressed(vk_enter))
 									{
 										if (pStatus == "Sleep" or pFutureStatus == "Sleep")
 										{
-											var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
 											SetStatus(playerPkmn.pkmnInfo, "None")
-											ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
 											ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
 										}
 
@@ -768,9 +764,7 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						if (pStatus == "Sleep")
 						{
-							var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
 							SetStatus(playerPkmn.pkmnInfo, "None")
-							ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
 							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
 						}
 
@@ -1105,9 +1099,7 @@ if (keyboard_check_pressed(vk_enter))
 							{
 								if (pStatus == "Sleep")
 								{
-									var index = ds_list_find_index(global.playerParty, playerPkmn.pkmnInfo)
 									SetStatus(playerPkmn.pkmnInfo, "None")
-									ds_list_set(global.playerParty, index, playerPkmn.pkmnInfo)
 									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
 								}
 

@@ -697,6 +697,9 @@ function GetAreaEncounters(encounterType)
 			break
 		case RouteMinusOneBottom:
 			ds_list_add(encounters, "Pikmin","Squirrel","Squirrel","Charmander","Pikachu","Squirtle","Creeper")
+			if HasFlag("RouteOneSnorlax") {
+				ds_list_add(encounters, "Snorlax", "Snorlax")
+			}
 			break
 		case RouteMinusOneTop:
 			ds_list_add(encounters, "Pikmin","Squirrel","Squirrel","Charmander","Pikachu","Squirtle","Creeper")
@@ -704,7 +707,7 @@ function GetAreaEncounters(encounterType)
 				ds_list_add(encounters,"Ape-Ball")
 			}
 			if HasFlag("WoobWubFlag") {
-				ds_list_add(encounters,"Woob-Wüb")
+				ds_list_add(encounters,"Woob-Wüb","Woob-Wüb")
 			}
 			break
 		case MutantPath1:

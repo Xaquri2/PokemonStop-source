@@ -62,6 +62,11 @@ if (flash)
 		{
 		    spawnIndex = switchIndex;
 		}
+		if (player and (spawnIndex < 0 or spawnIndex >= ds_list_size(team)
+			or GetHealth(ds_list_find_value(team, spawnIndex)) <= 0))
+		{
+			spawnIndex = GetFirstHealthyPokemon();
+		}
 
 		if (spawnIndex != -1 && spawnIndex != noone)
 		{
@@ -70,10 +75,12 @@ if (flash)
 		    pk.team = team;
 
 		    if (!player)
-		    {
-		        pk.playerTeam = false;
-		    }
+			{
+				pk.playerTeam = false;
+			}
+			currentPkmn = spawnIndex;
 		}
+		switchIndex = -1;
 		#endregion
 	}
 }

@@ -12,17 +12,20 @@ else if (whoAttacked == "Enemy")
 }
 
 var target = noone
-while (target == noone)
+for (var i = 0; i < instance_number(BattleEntityObject); i++)
 {
-	for (var i = 0; i < instance_number(BattleEntityObject); i++)
+	var attempt = instance_find(BattleEntityObject, i)
+	if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player"))
 	{
-		var attempt = instance_find(BattleEntityObject, i)
-		if ((attempt.player and whoAttacked == "Enemy") or (!attempt.player and whoAttacked == "Player"))
-		{
-			target = attempt
-			break
-		}
+		target = attempt
+		break
 	}
+}
+if (target == noone)
+{
+	damaging = false
+	alarm[0] = 1
+	exit
 }
 
 if (GetMoveCategory(moveName) != "Status")
@@ -79,10 +82,10 @@ if (!recoil)
 		var battle = instance_find(BattleObject, 0)
 		ds_list_add(textList, string_concat(name, " fainted"))
 
-		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-		if (target.currentPkmn+1 >= ds_list_size(target.team))
+		nextPkmnIndex = GetFirstHealthyPokemonExcept(target.currentPkmn)
+		target.switchIndex = -1
+		if (nextPkmnIndex == -1)
 		{
-			battle.playerPkmn = nextPkmn
 			if (global.pikminCount > 0)
 			{
 				nextPkmn = ds_list_find_value(battle.pikminList, 0)
@@ -103,6 +106,8 @@ if (!recoil)
 		}
 		else
 		{
+			nextPkmn = ds_list_find_value(target.team, nextPkmnIndex)
+			battle.playerPkmn = nextPkmn
 			name = GetName(nextPkmn)
 			ds_list_add(textList, string_concat("Go! ", name, "!"))
 		}
@@ -147,10 +152,10 @@ else
 		var battle = instance_find(BattleObject, 0)
 		ds_list_add(textList, string_concat(name, " fainted"))
 
-		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-		if (target.currentPkmn+1 >= ds_list_size(target.team))
+		nextPkmnIndex = GetFirstHealthyPokemonExcept(target.currentPkmn)
+		target.switchIndex = -1
+		if (nextPkmnIndex == -1)
 		{
-			battle.playerPkmn = nextPkmn
 			if (global.pikminCount > 0)
 			{
 				nextPkmn = ds_list_find_value(battle.pikminList, 0)
@@ -171,6 +176,8 @@ else
 		}
 		else
 		{
+			nextPkmn = ds_list_find_value(target.team, nextPkmnIndex)
+			battle.playerPkmn = nextPkmn
 			name = GetName(nextPkmn)
 			ds_list_add(textList, string_concat("Go! ", name, "!"))
 		}
