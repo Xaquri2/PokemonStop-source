@@ -1,11 +1,27 @@
+function FindBattlePokemonEntity(pkmnInfo)
+{
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	{
+		var entity = instance_find(BattlePokemonObject, i)
+		if (entity.pkmnInfo == pkmnInfo) return entity
+	}
+
+	return noone
+}
+
 function GetDamage(pkmn, targetPkmn, moveName)
 {
 	var pName = GetName(pkmn)
 	var pLevel = GetLevel(pkmn)
+	var pStats = GetPokemonFinalStats(pName, pLevel)
 	var pType = GetTypes(pkmn)
 
 	var eName = GetName(targetPkmn)
 	var eLevel = GetLevel(targetPkmn)
+	var eStats = GetPokemonFinalStats(eName, eLevel)
+
+	var pEntity = FindBattlePokemonEntity(pkmn)
+	var eEntity = FindBattlePokemonEntity(targetPkmn)
 
 	var moveType = GetMoveType(moveName)
 	var movePower = GetMovePower(moveName)
@@ -20,13 +36,19 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	{
 		if (moveCat == "Physical")
 		{
-			atkStat = pkmn.atk
-			defStat = targetPkmn.def
+			if (pEntity != noone) atkStat = pEntity.atk
+			else atkStat = GetAtkStat(pStats)
+
+			if (eEntity != noone) defStat = eEntity.def
+			else defStat = GetDefStat(eStats)
 		}
 		else
 		{
-			atkStat = pkmn.spatk
-			defStat = targetPkmn.spdef
+			if (pEntity != noone) atkStat = pEntity.spatk
+			else atkStat = GetSpAtkStat(pStats)
+
+			if (eEntity != noone) defStat = eEntity.spdef
+			else defStat = GetSpDefStat(eStats)
 		}
 
 		if (ds_list_find_value(pType, 0) == moveType or ds_list_find_value(pType, 1) == moveType)
@@ -1052,12 +1074,14 @@ function ChooseMove(pkmn, targetPkmn)
 	var level = GetLevel(pkmn)
 
 	var stats = GetPokemonFinalStats(name, level)
-	var enemyStats = GetPokemonFinalStats(name, level)
+	var targetName = GetName(targetPkmn)
+	var targetLevel = GetLevel(targetPkmn)
+	var targetStats = GetPokemonFinalStats(targetName, targetLevel)
 
 	var type = GetTypes(pkmn)
 	var moves = GetMoves(pkmn)
 
-	if (GetSpeedStat(stats) <= GetSpeedStat(enemyStats)) //If user speed is lower
+	if (GetSpeedStat(stats) <= GetSpeedStat(targetStats)) //If user speed is lower
 	{
 		var hasSpeedControl = false
 		for (var i = 0; i < ds_list_size(moves); i++)

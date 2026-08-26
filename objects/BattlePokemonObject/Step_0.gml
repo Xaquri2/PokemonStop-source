@@ -24,10 +24,10 @@ if (enableDrawing) //Get final stats
 {
 	//Need this check cuz Step was running before Alarm 0
 	atk = SetFinalStat(GetAtkStat(statList), attackModifier)
-	def = SetFinalStat(GetDefStat(statList), attackModifier)
-	spatk = SetFinalStat(GetSpAtkStat(statList), attackModifier)
-	spdef = SetFinalStat(GetSpDefStat(statList), attackModifier)
-	spd = SetFinalStat(GetSpeedStat(statList), attackModifier)
+	def = SetFinalStat(GetDefStat(statList), defenseModifier)
+	spatk = SetFinalStat(GetSpAtkStat(statList), spAtkModifier)
+	spdef = SetFinalStat(GetSpDefStat(statList), spDefModifier)
+	spd = SetFinalStat(GetSpeedStat(statList), speedModifier)
 }
 
 //Flashing
