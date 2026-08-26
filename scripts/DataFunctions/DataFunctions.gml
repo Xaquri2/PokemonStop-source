@@ -2,7 +2,7 @@ function SaveData()
 {
 	var player = instance_find(PlayerObject, 0)
 
-	var partyArray = []
+	var pokemonCollectionArray = []
 	for (var i = 0; i < ds_list_size(global.pokemonList); i++)
 	{
 		var pkmnArray = []
@@ -23,7 +23,7 @@ function SaveData()
 			}
 			else pkmnArray[j] = ds_list_find_value(pkmn, j)
 		}
-		partyArray[i] = pkmnArray
+		pokemonCollectionArray[i] = pkmnArray
 	}
 
 	var beatenTrainerArray = ConvertListToArray(global.beatenTrainers)
@@ -51,7 +51,16 @@ function SaveData()
 
 		array_set(inventoryArray, i, categoryArray)
 	}
-
+	
+	var partyCatchIndexList = ds_list_create()
+	for (var i = 0; i < ds_list_size(global.playerParty); i++)
+	{
+		var pkmnInfo = ds_list_find_value(global.playerParty, i)
+		ds_list_add(partyCatchIndexList, GetCatchIndex(pkmnInfo))
+	}
+	var partyCatchIndexArray = ConvertListToArray(partyCatchIndexList)
+	ds_list_destroy(partyCatchIndexList)
+	
 	var timestampString = ""
 	var currentTime = date_current_datetime()
 	var hour = date_get_hour(currentTime)
@@ -66,7 +75,8 @@ function SaveData()
 		playerX: player.x,
 		playerY: player.y,
 		roomInfo: room,
-		party: partyArray,
+		partyIndexes: partyCatchIndexArray,
+		pokemonCollection: pokemonCollectionArray,
 		inventory: inventoryArray,
 		beatenTrainers: beatenTrainerArray,
 		npcFlags: npcFlagsMatrix,
@@ -236,15 +246,14 @@ function LoadData()
 
 			ds_list_set(global.categoryItemList, i, categoryList)
 		}
-
+		
 		ds_list_clear(global.pokemonList)
-		ds_list_clear(global.playerParty)
-		for (var i = 0; i < array_length(saveState.party); i++)
+		for (var i = 0; i < array_length(saveState.pokemonCollection); i++)
 		{
 			var pkmnInfo = ds_list_create()
-			var pkmnArray = saveState.party[i]
+			var pkmnArray = saveState.pokemonCollection[i]
 
-			for (var j = 0; j < array_length(saveState.party[i]); j++)
+			for (var j = 0; j < array_length(saveState.pokemonCollection[i]); j++)
 			{
 				if (j == 6 or j == 7 or j == 10)
 				{
@@ -263,7 +272,20 @@ function LoadData()
 
 			AddPokemonSpecific(pkmnInfo)
 		}
-
+		
+		ds_list_clear(global.playerParty)
+		for (var i = 0; i < array_length(saveState.partyIndexes); i++)
+		{
+			for (var j = 0; j < ds_list_size(global.pokemonList); j++)
+			{
+				var pkmnInfo = ds_list_find_value(global.pokemonList, j)
+				if (GetCatchIndex(pkmnInfo) == saveState.partyIndexes[i])
+				{
+					ds_list_add(global.playerParty, pkmnInfo)
+				}
+			}
+		}
+		
 		loadRoom = saveState.roomInfo
 		loadX = saveState.playerX
 		loadY = saveState.playerY

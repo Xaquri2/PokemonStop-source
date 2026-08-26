@@ -377,6 +377,7 @@ function GetPartyMemberInfo(team, index) {
 }
 
 #region Little Functions
+function GetCatchIndex(pkmnInfo) { return ds_list_find_value(pkmnInfo, 0) }
 function GetName(pkmnInfo) { return ds_list_find_value(pkmnInfo, 1) }
 function GetLevel(pkmnInfo) { return ds_list_find_value(pkmnInfo, 2) }
 function GetGender(pkmnInfo) { return ds_list_find_value(pkmnInfo, 3) }
