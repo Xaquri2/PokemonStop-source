@@ -107,7 +107,7 @@ function GetWildPokemon(encounterType)
 	var encounters = GetAreaEncounters(encounterType)
 
 	var pkmn = ds_list_create()
-	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)))
+	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)-1))
 	var level = 0
 	if room == Mallet_Town {
 		level = floor(random_range(1,2))
@@ -1055,7 +1055,8 @@ function GetPokemonFinalStats(name, level)
 			ds_list_add(finalStats, stat)
 		}
 	}
-
+	
+	ds_list_destroy(baseStats)
 	return finalStats
 }
 
@@ -1350,15 +1351,77 @@ function GetMoveDetails(moveName)
 }
 
 #region MoreLittleFunctions
-function GetMoveType(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 1) }
-function GetMoveCategory(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 2) }
-function GetMovePower(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 3) }
-function GetMoveAccurancy(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 4) }
-function GetMovePP(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 5) }
-function GetMoveEffect(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 6) }
-function GetMoveEffectChance(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 7) }
-function GetMoveCritMultiplier(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 8) }
-function GetMovePriority(moveName) { return ds_list_find_value(GetMoveDetails(moveName), 9) }
+function GetMoveType(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 1);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMoveCategory(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 2);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMovePower(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 3);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMoveAccurancy(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 4);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMovePP(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 5);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMoveEffect(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 6);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMoveEffectChance(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 7);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMoveCritMultiplier(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 8);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
+
+function GetMovePriority(moveName)
+{
+	var moveDetails = GetMoveDetails(moveName);
+	var returnValue = ds_list_find_value(moveDetails, 9);
+	ds_list_destroy(moveDetails);
+	return returnValue;
+}
 #endregion
 
 function LearnMove(pkmnInfo, moveName, pos)
