@@ -49,10 +49,11 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 	}
 	else if (pcSwitchMode)
 	{
-		if (switchIndex != selectedIndex)
+		var pkmn1 = ds_list_find_value(global.pokemonList, switchIndex)
+		var pkmn2 = ds_list_find_value(global.playerParty, selectedIndex)
+		
+		if (GetCatchIndex(pkmn1) != GetCatchIndex(pkmn2))
 		{
-			var pkmn1 = ds_list_find_value(global.pokemonList, switchIndex)
-			var pkmn2 = ds_list_find_value(global.playerParty, selectedIndex)
 			if (ds_list_find_index(global.playerParty, pkmn1) != -1)
 			{
 				var pkmn1Index = ds_list_find_index(global.playerParty, pkmn1)
