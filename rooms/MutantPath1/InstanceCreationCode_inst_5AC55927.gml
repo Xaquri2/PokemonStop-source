@@ -4,7 +4,7 @@ if (HasFlag(battleFlag)) instance_destroy();
 // === BATTLE FLAG (auto) END ===
 
 
-AddPokemonTrainer(trainerTeam, 1, "Koopa", floor(random_range(8,15)), GetRandomGender(50), KoopaWalkRightSprite)
+AddPokemonTrainer(trainerTeam, 1, "Koopa", 6, GetRandomGender(50), KoopaWalkRightSprite)
 
 canWalk = false
 

@@ -5,5 +5,7 @@ if (!fading && (HasFlag("KiddFunk_inst_1")) && !instance_exists(TextboxObject)) 
 
 if (fading) {
     image_alpha = max(0, image_alpha - fade_spd);
+	ds_list_add(global.flags, "FadedOut");
     if (image_alpha == 0) instance_destroy();
 }
+
