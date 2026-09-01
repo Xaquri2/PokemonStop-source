@@ -12,7 +12,7 @@ global.latestSaveState = 1
 global.originalSpeed = game_get_speed(gamespeed_fps)
 global.speedUpMultiplier = 1
 
-global.followerType = ""
+global.followerType = "Mary"
 global.pikminCount = 0
 
 var itemsList = ds_list_create()
@@ -50,7 +50,7 @@ AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))
 //AddPokemon("Pikachu", 10, GetRandomGender(50))*/
 
-global.standardStartRoom = RobotGym
+global.standardStartRoom = TestTiltedRoom
 global.activatedBadges = ds_list_create()
 
 global.torch = false
