@@ -58,9 +58,12 @@ else if (mode == "Moves")
 	var movePPString = string_concat(moveCurrentPP, " / ", moveTotalPP)
 
 	draw_sprite_ext(sprite_index, image_index, view_width/2, view_y+view_height-36, 8, 2, image_angle, image_blend, image_alpha)
-	draw_text_transformed(view_width-32-string_width(moveType), view_y+view_height-60, moveType, 0.75, 0.75, image_angle)
-	draw_text_transformed(view_width-32-string_width(movePPString), view_y+view_height-40, movePPString, 0.75, 0.75, image_angle)
-
+	if (moveName != undefined)
+	{
+		draw_text_transformed(view_width-32-string_width(moveType), view_y+view_height-60, moveType, 0.75, 0.75, image_angle)
+		draw_text_transformed(view_width-32-string_width(movePPString), view_y+view_height-40, movePPString, 0.75, 0.75, image_angle)
+	}
+	
 	var xOffset = 4.75
 	var yOffset = 48
 	for (var i = 0; i < ds_list_size(optionsList); i++)

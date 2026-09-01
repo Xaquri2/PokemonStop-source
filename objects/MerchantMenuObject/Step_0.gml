@@ -13,6 +13,7 @@ and GetItemValue(ds_list_find_value(itemList, selectedItem)) <= global.money)
 	ds_list_add(optionMenu.optionList, "Buy")
 	ds_list_add(optionMenu.optionList, "Exit")
 	optionMenu.buying = true
+	optionMenu.buyItem = ds_list_find_value(itemList, selectedItem)
 }
 
 #region Item Controls

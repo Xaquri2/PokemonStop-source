@@ -664,7 +664,7 @@ if (keyboard_check_pressed(vk_enter))
 				instance_destroy(id)
 		}
 	}
-	else if (mode == "Moves")
+	else if (mode == "Moves" and ds_list_find_value(GetMoves(BattleObject.playerPkmn), currentOption) != undefined)
 	{
 		var battle = instance_find(BattleObject, 0)
 		var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)

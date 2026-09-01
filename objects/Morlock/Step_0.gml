@@ -49,6 +49,21 @@ if ((!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) and gl
 	if (!player.canWalk) speed = 0
 }
 
+if (global.morlockTimer > 0)
+{
+	if (collision_rectangle(bbox_left+hspeed,bbox_top+vspeed,
+	bbox_right+hspeed,bbox_bottom+vspeed,PlayerObject,false,true))
+	{
+		speed = 0
+		state = "Idle"
+		walkCoords = []
+
+		image_xscale = abs(image_xscale)
+		sprite_index = idleSprite
+		alarm[0] = random_range(60*minWalkTimerValue, 60*maxWalkTimerValue)
+	}
+}
+
 if (distance_to_object(MorlockPowerThing) < 0.7) instance_destroy()
 
 CheckForInterruptions()
