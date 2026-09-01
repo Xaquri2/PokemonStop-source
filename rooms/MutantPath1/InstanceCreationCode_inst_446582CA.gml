@@ -4,7 +4,7 @@ if (HasFlag(battleFlag)) instance_destroy();
 // === BATTLE FLAG (auto) END ===
 
 
-AddPokemonTrainer(trainerTeam, 1, "Demo Dog", floor(random_range(8,15)), GetRandomGender(50), DemoDogSprite)
+AddPokemonTrainer(trainerTeam, 1, "Demo Dog", floor(random_range(8,9)), GetRandomGender(50), DemoDogSprite)
 
 canWalk = true
 

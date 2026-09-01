@@ -1,4 +1,4 @@
-AddPokemonTrainer(trainerTeam, 1, "Licker", floor(random_range(8,15)), GetRandomGender(50), LickerOverworldSprite)
+AddPokemonTrainer(trainerTeam, 1, "Licker", 9, GetRandomGender(50), LickerOverworldSprite)
 
 battleFlag = "TiltedLicker"
 if (HasFlag("TiltedLicker")) instance_destroy(id)

@@ -16,5 +16,9 @@ fading = false;
 
 battleFlag = "KiddFunk_inst_1";
 
+if HasFlag("FadedOut") {
+	instance_destroy(self)
+}
+
 
 
