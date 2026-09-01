@@ -49,7 +49,9 @@ if (instance_exists(player))
 			break
 	}
 
-	if (array_length(followerPos) != 0)
+	if (array_length(followerPos) != 0 and collision_rectangle(followerPos[0]-sprite_width/2,
+	followerPos[1]-sprite_height/2,followerPos[0]+sprite_width/2,followerPos[1]+sprite_height/2,
+	CollisionParent,false,true) == noone)
 	{
 		x = lerp(x+xOffset*0.03, followerPos[0], 0.1)
 		y = lerp(y+yOffset*0.03, followerPos[1], 0.1)
