@@ -730,7 +730,7 @@ if (keyboard_check_pressed(vk_enter))
 				
 				var paralysisCheck = true
 
-				if (eStatus == "Paralysis")
+				if (pStatus == "Paralysis")
 					{
 					    paralysisCheck = ParalysisCheck()
 					}
@@ -954,7 +954,12 @@ if (keyboard_check_pressed(vk_enter))
 				else global.convinceCounter = 0
 				var convincedCheck = ConvinceCheck()
 				
-				var paralysisCheck = ParalysisCheck()
+				var paralysisCheck = true
+
+				if (eStatus == "Paralysis")
+					{
+					    paralysisCheck = ParalysisCheck()
+					}
 				if ((eStatus == "Paralysis" and paralysisCheck))
 				{
 					ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
@@ -1028,7 +1033,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				if (GetHealth(battle.playerPkmn) > damage and awake and paralysisCheck and !skipTurn)
+				if (GetHealth(battle.playerPkmn) > damage and !skipTurn) //and paralysisCheck and awake
 				{
 					if (convincedCheck)
 					{

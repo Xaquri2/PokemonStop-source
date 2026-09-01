@@ -343,15 +343,33 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					}
 				}
 				else if (string_count("caught", text) > 0)
-				{
-					endBattle = true
-					var name = GetName(enemyPkmn)
-					var level = GetLevel(enemyPkmn)
-					var gender = GetGender(enemyPkmn)
-					var sprite = GetSprite(enemyPkmn)
-					var hp = GetHealth(enemyPkmn)
-					AddPokemonWithHP(name, level, gender, sprite, hp)
-				}
+					{
+					    var name = GetName(enemyPkmn)
+					    var level = GetLevel(enemyPkmn)
+					    var gender = GetGender(enemyPkmn)
+					    var sprite = GetSprite(enemyPkmn)
+					    var hp = GetHealth(enemyPkmn)
+
+					    AddPokemonWithHP(name, level, gender, sprite, hp)
+
+					    var experience = GetEXPYield(name, level, 1, false, false)
+					    expGainValue = experience
+					    ds_list_add(textList, string_concat(
+					        "Your Pokemon gained ", experience, " EXP"
+					    ))
+
+					    var hasGainedItems = GetTrainerLoot(
+					        GetTrainerRank(battle.enemyName)
+					    )
+
+					    if (hasGainedItems)
+					    {
+					        ds_list_add(textList, "You earned some items!")
+					    }
+
+					    ds_list_add(textList, "You win!")
+					    endBattle = true
+					}
 				else if (string_count("you're up!", text) > 0)
 				{
 					var plr = -1
