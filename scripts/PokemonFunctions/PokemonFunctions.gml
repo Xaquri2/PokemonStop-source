@@ -10,10 +10,9 @@ function AddPokemon(name, level, gender) {
 	var hp =  GetPokemonFinalHP(name, level)
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
-	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, 0, growthRate, types, "None")
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 
@@ -49,10 +48,9 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 	var growthRate = "Very Fast"
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
-	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, 0, growthRate, types, "None")
 	ds_list_add(global.pokemonList, pokemon)
 	global.catchIndex++
 
@@ -69,10 +67,9 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
-	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 
-	ds_list_add(pokemon, index, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
+	ds_list_add(pokemon, index, name, level, gender, sprite, hp, learnset, learnsetPP, 0, growthRate, types, "None")
 
 	if (ds_list_size(team) < 6)
 	{
@@ -92,10 +89,9 @@ function CreatePokemonInfo(name, level, gender, moveset)
 	var learnset = GetLevelUpMoveset(name, level)
 	if (moveset != noone) ds_list_copy(learnset, moveset)
 	var learnsetPP = GetLearnsetPP(learnset)
-	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 
-	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
+	ds_list_add(pokemon, global.catchIndex, name, level, gender, sprite, hp, learnset, learnsetPP, 0, growthRate, types, "None")
 
 	instance_destroy(moveset)
 
@@ -135,10 +131,9 @@ function GetWildPokemon(encounterType)
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var learnset = GetLevelUpMoveset(name, level)
 	var learnsetPP = GetLearnsetPP(learnset)
-	var expLevelFloor = GetExpLevelFloor(level, growthRate)
 	var types = GetPokemonType(name)
 
-	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, expLevelFloor+20, growthRate, types, "None")
+	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, 0, growthRate, types, "None")
 
 	return pkmn
 }
@@ -433,7 +428,8 @@ function AddExp(pkmnInfo, expValue)
 
 	if (pkmnExp+expValue >= GetExpLevelFloor(level, growthRate))
 	{
-		ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
+		if (levelsGained > 0) ds_list_set(pkmnInfo, 8, 0)
+		else ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
 		ds_list_set(pkmnInfo, 2, level+levelsGained)
 	}
 	else ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
@@ -2003,15 +1999,11 @@ function GetExpPercentage(pkmn)
 {
 	var level = GetLevel(pkmn)
 	var growthRate = GetGrowth(pkmn)
+	var expValue = GetExp(pkmn)
 
-	var expFloor = GetExpLevelFloor(level, growthRate)
 	var expCeiling = GetExpLevelFloor(level+1, growthRate)
-
-	var currentExp = GetExp(pkmn)
-	if (level > 1) currentExp -= expFloor
-	var expToNext = expCeiling-expFloor
-
-	var perc = currentExp/expToNext*100
+	
+	var perc = expValue/expCeiling*100
 	return perc
 }
 
