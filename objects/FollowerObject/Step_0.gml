@@ -10,6 +10,9 @@ if (instance_exists(player))
 		case PlayerMorlockWalkDownSprite:
 		case GhostPlayerIdleDownSprite:
 		case GhostPlayerWalkDownSprite:
+
+			if (room == TestTiltedRoom) break
+			
 			followerPos = [player.x, player.y-40]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Down"))
 			{
@@ -39,7 +42,7 @@ if (instance_exists(player))
 		case PlayerMorlockIdleLeftSprite:
 		case PlayerMorlockWalkLeftSprite:
 		case GhostPlayerIdleLeftSprite:
-		case GhostPlayerIdleRightSprite:
+		case GhostPlayerWalkLeftSprite:
 			followerPos = [player.x+40, player.y]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Left"))
 			{
@@ -67,8 +70,21 @@ if (instance_exists(player))
 
 	if (array_length(followerPos) != 0)
 	{
-		x = lerp(x+xOffset*0.03, followerPos[0], 0.1)
-		y = lerp(y+yOffset*0.03, followerPos[1], 0.1)
+		if (room == TestTiltedRoom)
+		{
+			x = lerp(x+xOffset*0.03, followerPos[0], 0.1)
+			y = lerp(y+yOffset*0.03, followerPos[1], 0.1)
+		}
+		else
+		{
+			if (collision_rectangle(followerPos[0]-sprite_width/2,
+			followerPos[1]-sprite_height/2,followerPos[0]+sprite_width/2,
+			followerPos[1]+sprite_height/2,CollisionParent,false,true) == noone)
+			{
+				x = lerp(x+xOffset*0.03, followerPos[0], 0.1)
+				y = lerp(y+yOffset*0.03, followerPos[1], 0.1)
+			}
+		}
 	}
 }
 
