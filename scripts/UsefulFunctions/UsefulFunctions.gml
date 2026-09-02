@@ -129,11 +129,29 @@ function GetFollowerSprite(spriteDir)
 function CheckForInterruptions()
 {
 	if (instance_exists(TextboxObject))
-	{
-		speed = 0
-		hspeed = 0
-		vspeed = 0
-	}
+		{
+			speed = 0
+			hspeed = 0
+			vspeed = 0
+		}
+	if (instance_exists(OptionObject))
+		{
+			speed = 0
+			hspeed = 0
+			vspeed = 0
+		}
+	if (instance_exists(MenuObject))
+		{
+			speed = 0
+			hspeed = 0
+			vspeed = 0
+		}
+	if (instance_exists(PlayerObject) && (PlayerObject.menuOpen))
+		{
+		    speed = 0
+		    hspeed = 0
+		    vspeed = 0
+		}
 }
 
 function GetNextNearestGrass()

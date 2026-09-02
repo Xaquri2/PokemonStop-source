@@ -15,13 +15,19 @@ else {
 #region Draw Torch 
 if HasItem("Torch Fuel") {
 	 //draw_text(725,85,"Haz Torch")
-	 ds_list_add(global.flags, "Torch")
+	 if !HasFlag("Torch") {
+		ds_list_add(global.flags, "Torch")
+	 }
  }
 if HasItem("Super Torch Fuel") {
-	 ds_list_add(global.flags, "Torch")
+	if !HasFlag("Torch") {
+		ds_list_add(global.flags, "Torch")
+	}
  }
 if HasItem("Ultra Torch Fuel") {
-	 ds_list_add(global.flags, "Torch")
+	if !HasFlag("Torch") {
+		ds_list_add(global.flags, "Torch")
+	}
  }
 if HasFlag("Torch") {
 	if (global.torch) draw_text(725,85,"Press T to disable the Torch")

@@ -1,10 +1,9 @@
 // Inherit the parent event
 event_inherited();
 
-event_inherited();
-name = "Morlock"
+
 lineSightDir = "Right"
-lineSight = 64
+lineSight = 5
 
 ds_list_add(textList, "Hsssss!!")
 ds_list_add(nameList, name)

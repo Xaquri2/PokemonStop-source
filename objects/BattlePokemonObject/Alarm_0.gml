@@ -17,12 +17,14 @@ image_xscale *= GetBattleXscale(name)
 image_yscale *= GetBattleYscale(name)
 if (playerTeam) image_xscale *= -1
 
-if (sprite_index == GodzillaSprite)
-{
-	sprite_index = noone
-	if (playerTeam) layer_set_visible(layer_get_id("PlayersGodzilla"), true)
-	else 
+if (room == RoomBattleGodzilla) {
+	if (sprite_index == GodzillaSprite)
 	{
-		layer_set_visible(layer_get_id("Godzilla"), true)
+		sprite_index = noone
+		if (playerTeam) layer_set_visible(layer_get_id("PlayersGodzilla"), true)
+		else 
+		{
+			layer_set_visible(layer_get_id("Godzilla"), true)
+		}
 	}
 }

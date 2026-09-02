@@ -6,6 +6,11 @@ if (instance_exists(player))
 	{
 		case PlayerIdleDownSprite:
 		case PlayerWalkDownSprite:
+		case PlayerMorlockIdleDownSprite:
+		case PlayerMorlockWalkDownSprite:
+		case GhostPlayerIdleDownSprite:
+		case GhostPlayerWalkDownSprite:
+
 			if (room == TestTiltedRoom) break
 			
 			followerPos = [player.x, player.y-40]
@@ -19,6 +24,10 @@ if (instance_exists(player))
 
 		case PlayerIdleUpSprite:
 		case PlayerWalkUpSprite:
+		case PlayerMorlockIdleUpSprite:
+		case PlayerMorlockWalkUpSprite:
+		case GhostPlayerIdleUpSprite:
+		case GhostPlayerWalkUpSprite:
 			followerPos = [player.x, player.y+40]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Up"))
 			{
@@ -30,6 +39,10 @@ if (instance_exists(player))
 
 		case PlayerIdleLeftSprite:
 		case PlayerWalkLeftSprite:
+		case PlayerMorlockIdleLeftSprite:
+		case PlayerMorlockWalkLeftSprite:
+		case GhostPlayerIdleLeftSprite:
+		case GhostPlayerWalkLeftSprite:
 			followerPos = [player.x+40, player.y]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Left"))
 			{
@@ -41,6 +54,10 @@ if (instance_exists(player))
 
 		case PlayerIdleRightSprite:
 		case PlayerWalkRightSprite:
+		case PlayerMorlockIdleRightSprite:
+		case PlayerMorlockWalkRightSprite:
+		case GhostPlayerIdleRightSprite:
+		case GhostPlayerWalkRightSprite:
 			followerPos = [player.x-40, player.y]
 			if (randomizePosition and sprite_index != GetFollowerSprite("Right"))
 			{
