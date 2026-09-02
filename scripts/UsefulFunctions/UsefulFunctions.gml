@@ -146,7 +146,7 @@ function CheckForInterruptions()
 			hspeed = 0
 			vspeed = 0
 		}
-	if (instance_exists(player) && player.menuOpen))
+	if (instance_exists(PlayerObject) && (PlayerObject.menuOpen))
 		{
 		    speed = 0
 		    hspeed = 0

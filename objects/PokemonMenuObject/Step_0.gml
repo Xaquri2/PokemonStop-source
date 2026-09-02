@@ -72,11 +72,15 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 	}
 	else if (battleSwitchMode)
 	{
-		var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
-		optionMenu.menu = id
-		optionMenu.question = "Do you want to switch to this?"
-		ds_list_add(optionMenu.optionList, "Switch")
-		ds_list_add(optionMenu.optionList, "Exit")
+		var selectedPkmn = ds_list_find_value(global.playerParty, selectedIndex)
+		if (GetHealth(selectedPkmn) > 0)
+		{
+			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
+			optionMenu.menu = id
+			optionMenu.question = "Do you want to switch to this?"
+			ds_list_add(optionMenu.optionList, "Switch")
+			ds_list_add(optionMenu.optionList, "Exit")
+		}
 	}
 	else
 	{
@@ -176,10 +180,11 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 						string_concat(GetName(battle.playerPkmn)," fainted!"))
 					}
 
-					HealPokemon(global.playerParty, selectedIndex, 20, true, false, false)
+					HealPokemon(global.playerParty, selectedIndex, healValue, true, false, false) //20
 					instance_destroy(battleMenu)
 				}
-
+				
+				audio_play_sound(FairyPotionSound, 1, false)
 				instance_destroy(id)
 
 				ConsumeItem(bagMenu.selectedCategory, bagMenu.selectedItem, 1)
