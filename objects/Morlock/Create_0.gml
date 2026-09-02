@@ -14,3 +14,5 @@ maxWalkTimerValue = 3
 startTimerExtra = 0 //Time to start moving
 
 detectRange = 20*8
+
+GrateFalling = false

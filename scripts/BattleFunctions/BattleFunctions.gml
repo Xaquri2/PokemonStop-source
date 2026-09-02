@@ -1336,7 +1336,7 @@ function GetTrainerTeam(trainerName)
 			break
 			
 	//Mutant Path
-		case "Morlock":
+		case "Morlock Trainer":
 			AddPokemonTrainer(team, 1, "Human", 7, "Male", Human2IdleSprite)
 			AddPokemonTrainer(team, 2, "Demo Dog", 8, "Female", DemoDogSprite)
 			break

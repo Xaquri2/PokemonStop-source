@@ -67,3 +67,16 @@ if (global.morlockTimer > 0)
 if (distance_to_object(MorlockPowerThing) < 0.7) instance_destroy()
 
 CheckForInterruptions()
+
+if ((id == inst_1AA0B45B) && (GrateFalling == false)) { 
+	if HasFlag("TiltedGrateOpen") {
+		x = lerp(x, 745.5417,.1)
+		y = lerp(y, 882.417,.1)
+		image_angle = lerp(image_angle, 90, .1)
+		if ((x == 745.5417) && (y == 882.417) && (image_angle == 90))
+		if (point_distance(x, y, 745.5417, 882.417) < 1
+        && abs(image_angle - 90) < 1){
+			GrateFalling = true
+		}
+	}
+}
