@@ -89,6 +89,41 @@ else {
 }
 #endregion
 
+#region Draw Morlock timer
+if (global.morlockTimer > 0)
+{
+    draw_sprite_ext(
+        PlayerMorlockFACESPRITE,
+        0,
+        310,
+        877,
+        2,
+        2,
+        0,
+        c_white,
+        1
+    );
+
+    var totalSeconds = ceil(global.morlockTimer / 60);
+    var minutes = floor(totalSeconds / 60);
+    var seconds = totalSeconds mod 60;
+
+    var secondsText = string(seconds);
+    if (seconds < 10)
+    {
+        secondsText = "0" + secondsText;
+    }
+
+    var timerText = string(minutes) + ":" + secondsText;
+
+    draw_set_color(c_black);
+    draw_text_transformed(400, 870, timerText, 5, 6, 0);
+
+    draw_set_color(c_white);
+    draw_text_transformed(403, 870, timerText, 5, 6, 0);
+}
+#endregion
+
 #region Draw Pikmin Count
 if (instance_exists(TextboxObject)) {}
 else {

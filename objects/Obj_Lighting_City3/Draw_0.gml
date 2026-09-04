@@ -20,7 +20,7 @@ var offset_y = 0;
 surface_set_target(light_surface);
 
 
-if (HasFlag("Potion") and !(HasFlag("PotionCure"))) {
+if ((HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0) {
 	// BRIGHT WHITE LIGHT
 	if room != MutantPath1 {
 	draw_clear_alpha(c_white, 0.98);

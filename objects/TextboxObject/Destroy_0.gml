@@ -19,6 +19,14 @@ if (instance_exists(actionNPC))
 				actionNPC.alarm[10] = 5
 			}
 			break
+		case DeskObject:
+		    if (!HasFlag("TiltedDeskRareCandy"))
+			    {
+			        AddItem("Rare Candy", 1)
+			        ds_list_add(global.flags, "TiltedDeskRareCandy")
+					DeskObject.alarm[1] = 60
+			    }
+		    break
 		case Ginkgo:
 			switch (GetNPCFlag("Ginkgo"))
 			{
@@ -43,7 +51,7 @@ if (instance_exists(actionNPC))
 			{
 				startBattle = false
 			}
-			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "You've already earned your Mutant Badge.")
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Lest my Morlocks eat you.") //"You've already earned your Mutant Badge."
 			{
 				if (!HasFlag("MutantBadge")) 
 				{

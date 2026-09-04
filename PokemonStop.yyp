@@ -791,6 +791,7 @@
     {"id":{"name":"PlayerIdleLeftSprite","path":"sprites/PlayerIdleLeftSprite/PlayerIdleLeftSprite.yy",},},
     {"id":{"name":"PlayerIdleRightSprite","path":"sprites/PlayerIdleRightSprite/PlayerIdleRightSprite.yy",},},
     {"id":{"name":"PlayerIdleUpSprite","path":"sprites/PlayerIdleUpSprite/PlayerIdleUpSprite.yy",},},
+    {"id":{"name":"PlayerMorlockFACESPRITE","path":"sprites/PlayerMorlockFACESPRITE/PlayerMorlockFACESPRITE.yy",},},
     {"id":{"name":"PlayerMorlockIdleDownSprite","path":"sprites/PlayerMorlockIdleDownSprite/PlayerMorlockIdleDownSprite.yy",},},
     {"id":{"name":"PlayerMorlockIdleLeftSprite","path":"sprites/PlayerMorlockIdleLeftSprite/PlayerMorlockIdleLeftSprite.yy",},},
     {"id":{"name":"PlayerMorlockIdleRightSprite","path":"sprites/PlayerMorlockIdleRightSprite/PlayerMorlockIdleRightSprite.yy",},},

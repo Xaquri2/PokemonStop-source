@@ -36,12 +36,22 @@ if (keyboard_check_pressed(vk_enter) and !hasSelected)
 #region Category Controls
 if (!hasSelected)
 {
+		var changeCategory =
+	    keyboard_check_pressed(ord("A"))
+	    or keyboard_check_pressed(ord("D"))
+	    or keyboard_check_pressed(vk_left)
+	    or keyboard_check_pressed(vk_right)
+
 	if (keyboard_check_pressed(ord("A"))) selectedCategory--
 	if (keyboard_check_pressed(ord("D"))) selectedCategory++
-	if (keyboard_check_pressed(ord("A")) or keyboard_check_pressed(ord("D"))) selectedItem = 0
-	
 	if (keyboard_check_pressed(vk_left)) selectedCategory--
 	if (keyboard_check_pressed(vk_right)) selectedCategory++
+
+	if (changeCategory)
+	{
+	    selectedItem = 0
+	    startingItemOffset = 0
+	}
 
 	if (selectedCategory == ds_list_size(global.categoryNameList)) selectedCategory = 0
 	if (selectedCategory < 0) selectedCategory = ds_list_size(global.categoryNameList)-1

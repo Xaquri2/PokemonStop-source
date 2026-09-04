@@ -343,6 +343,9 @@ if (keyboard_check_pressed(vk_enter))
 						player.talking = true
 
 						if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+						
+						ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
+						player.alarm[0] = 5
 							
 						instance_destroy(menu)
 						instance_destroy(id)
@@ -377,6 +380,9 @@ if (keyboard_check_pressed(vk_enter))
 						player.talking = true
 
 						if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+						
+						ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
+						player.alarm[0] = 5
 							
 						instance_destroy(menu)
 						instance_destroy(id)

@@ -1,7 +1,14 @@
 //var layer_id = layer_get_id("Gash");
 layer_enable_fx("Gash", true);
 
-if (HasFlag("Potion")) {
-	if (!HasFlag("PotionCure")) ds_list_add(global.flags, "PotionCure")
+//if (HasFlag("Potion")) {
+//	if (!HasFlag("PotionCure")) ds_list_add(global.flags, "PotionCure")
+//}
+//else ds_list_add(global.flags, "Potion")
+
+if (global.morlockTimer > 0) {
+	global.morlockTimer = 0
 }
-else ds_list_add(global.flags, "Potion")
+else {
+	global.morlockTimer = 60 * 60 * 10
+}
