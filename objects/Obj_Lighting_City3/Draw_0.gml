@@ -22,7 +22,7 @@ surface_set_target(light_surface);
 
 if ((HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0) {
 	// BRIGHT WHITE LIGHT
-	if room != MutantPath1 {
+	if (room != MutantPath1) and (room != EmptyHouse) and (room != ShadowPathGym) {
 	draw_clear_alpha(c_white, 0.98);
 	}
 	else {
@@ -96,6 +96,7 @@ if ((HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0) {
 	    }
 
 else {
+	draw_clear_alpha(c_black, 0);
 //	var t = instance_nearest(PlayerObject.x, PlayerObject.y, Torch);
 //	if (instance_exists(Torch) && (point_distance(PlayerObject.x, PlayerObject.y, t.x, t.y) < 50)) {
 //				draw_clear_alpha(c_white, 0.95);

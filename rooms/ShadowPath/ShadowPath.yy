@@ -171,11 +171,13 @@
     {"name":"inst_66A43A28","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_70C0AEA7","path":"rooms/ShadowPath/ShadowPath.yy",},
     {"name":"inst_309D48F1","path":"rooms/ShadowPath/ShadowPath.yy",},
+    {"name":"inst_3F9D0341","path":"rooms/ShadowPath/ShadowPath.yy",},
   ],
   "isDnd":false,
   "layers":[
     {"$GMRInstanceLayer":"","%Name":"UserInterface","depth":-100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_76EAEE61","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_76EAEE61","objectId":{"name":"MaryTalk_Shadow","path":"objects/MaryTalk_Shadow/MaryTalk_Shadow.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":21.6875,"scaleY":1.0,"x":122.0,"y":2473.0,},
+        {"$GMRInstance":"v4","%Name":"inst_3F9D0341","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3F9D0341","objectId":{"name":"Obj_Lighting_City3","path":"objects/Obj_Lighting_City3/Obj_Lighting_City3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1440.0,"y":1152.0,},
       ],"layers":[],"name":"UserInterface","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Grass","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Grass","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Pillars","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
