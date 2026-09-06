@@ -26,8 +26,16 @@ if (!summaryMode)
 			}
 
 			var sprite = GetSprite(pkmnInfo)
+			var pkmnScale = 2
+			//CHANGE THIS TO CHANGE PKMN SPRITE SCALE IN PKMN MENU
+			switch (GetName(pkmnInfo))
+				{
+				    case "MissingNo":
+				        pkmnScale = 1
+				        break
+				} 
 			draw_sprite_ext(sprite, 0, view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)),
-			2, 2, image_angle, pkmnColor, image_alpha) //col:  image_blend
+			pkmnScale, pkmnScale, image_angle, pkmnColor, image_alpha) //col:  image_blend
 			if (GetHealth(pkmnInfo) <= 0) {
 				draw_sprite_ext(BigRedXSprite,0,view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)),1,1,image_angle,c_white,image_alpha)
 			}
@@ -62,8 +70,17 @@ if (!summaryMode)
 		draw_set_alpha(1)
 
 		var sprite = GetSprite(pkmnInfo)
+		
+		var sprite = GetSprite(pkmnInfo)
+		var switchPkmnScale = 2
+
+		switch (GetName(pkmnInfo)) {
+			    case "MissingNo":
+			        switchPkmnScale = 1
+			        break
+			}
 		draw_sprite_ext(sprite, 0, view_get_wport(0)*0.2, view_get_hport(0)*0.15+128*selectedIndex,
-		2, 2, image_angle, image_blend, image_alpha)
+		switchPkmnScale, switchPkmnScale, image_angle, image_blend, image_alpha)
 
 		var name = GetName(pkmnInfo)
 		draw_text_transformed(view_get_wport(0)*0.26, view_get_hport(0)*0.11+128*selectedIndex, name, 2, 2, image_angle)
