@@ -17,9 +17,7 @@ if (keyboard_check_pressed(vk_enter))
 				}
 
 				var pkmnInfo = ds_list_find_value(pkmn.team, pkmn.index)
-				var pkmnLevel = GetLevel(pkmnInfo)
-				var pkmnName = GetName(pkmnInfo)
-				optionsList = GetLevelUpMoveset(pkmnName, pkmnLevel)
+				optionsList = GetMoves(pkmnInfo)
 
 				var struggle = true
 
@@ -30,7 +28,7 @@ if (keyboard_check_pressed(vk_enter))
 					for (var i = 0; i < ds_list_size(pMoves); i++)
 					{
 						var moveName = ds_list_find_value(pMoves, i)
-						var moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.playerPkmn), currentOption))
+						var moveCurrentPP = ds_list_find_value(GetMovePPList(battle.playerPkmn), i)
 						if (moveCurrentPP != 0)
 						{
 							struggle = false
@@ -196,7 +194,7 @@ if (keyboard_check_pressed(vk_enter))
 									for (var i = 0; i < ds_list_size(eMoves); i++)
 									{
 										moveName = ds_list_find_value(eMoves, i)
-										moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.enemyPkmn), currentOption))
+										moveCurrentPP = ds_list_find_value(GetMovePPList(battle.enemyPkmn), i)
 										if (moveCurrentPP != 0)
 										{
 											struggle = false
@@ -325,7 +323,7 @@ if (keyboard_check_pressed(vk_enter))
 								for (var i = 0; i < ds_list_size(eMoves); i++)
 								{
 									moveName = ds_list_find_value(eMoves, i)
-									moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.enemyPkmn), currentOption))
+									moveCurrentPP = ds_list_find_value(GetMovePPList(battle.enemyPkmn), i)
 									if (moveCurrentPP != 0)
 									{
 										struggle = false
@@ -446,7 +444,7 @@ if (keyboard_check_pressed(vk_enter))
 									for (var i = 0; i < ds_list_size(pMoves); i++)
 									{
 										moveName = ds_list_find_value(pMoves, i)
-										moveCurrentPP = (ds_list_find_value(GetMovePPList(battle.playerPkmn), currentOption))
+										moveCurrentPP = ds_list_find_value(GetMovePPList(battle.playerPkmn), i)
 										if (moveCurrentPP != 0)
 										{
 											struggle = false

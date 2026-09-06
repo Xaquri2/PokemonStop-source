@@ -8,6 +8,11 @@ if (!summaryMode)
 		if ((i != switchIndex and switchMode) or !switchMode)
 		{
 			var pkmnInfo = GetPartyMemberInfo(global.playerParty, i)
+			var pkmnColor = c_white
+
+			if (GetHealth(pkmnInfo) <= 0) {
+				    pkmnColor = c_gray
+				}
 			draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.12, view_get_hport(0)*(0.1+(0.13*i)),
 			12.5, 3, image_angle, c_grey, image_alpha)
 
@@ -22,13 +27,18 @@ if (!summaryMode)
 
 			var sprite = GetSprite(pkmnInfo)
 			draw_sprite_ext(sprite, 0, view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)),
-			2, 2, image_angle, image_blend, image_alpha)
+			2, 2, image_angle, pkmnColor, image_alpha) //col:  image_blend
+			if (GetHealth(pkmnInfo) <= 0) {
+				draw_sprite_ext(BigRedXSprite,0,view_get_wport(0)*0.18, view_get_hport(0)*(0.15+(0.13*i)),1,1,image_angle,c_white,image_alpha)
+			}
+			draw_set_color(pkmnColor)
 
 			var name = GetName(pkmnInfo)
 			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.11+(0.13*i)), name, 2, 2, image_angle)
 
 			var level = GetLevel(pkmnInfo)
 			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
+			draw_set_color(c_white)
 
 			var gender = GetGender(pkmnInfo)
 			var genderFrame = 0

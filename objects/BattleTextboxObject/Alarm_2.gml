@@ -196,15 +196,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					moveName = "Struggle"
 					recoil = true
 
-					if (string_count("opposing", text) != 0)
+					if (string_count("opponent", text) != 0)
 					{
 						whoAttacked = "Player"
-						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						eRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
 					}
 					else
 					{
 						whoAttacked = "Enemy"
-						pRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 
 					alarm[1] = GetMoveAnimationTime(moveName)
@@ -222,15 +222,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					
 					recoil = true
 
-					if (string_count("opposing", text) == 0)
+					if (string_count("opponent", text) == 0)
 					{
-						whoAttacked = "Player"
-						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						whoAttacked = "Enemy"
+						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 					else
 					{
-						whoAttacked = "Enemy"
-						pRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+						whoAttacked = "Player"
+						eRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
 					}
 
 					alarm[1] = GetMoveAnimationTime(moveName)

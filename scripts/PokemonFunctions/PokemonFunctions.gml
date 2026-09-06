@@ -2026,6 +2026,8 @@ function GetLearnsetPP(learnset)
 function ConsumePP(pkmnInfo, index)
 {
 	var movePPList = ds_list_find_value(pkmnInfo, 7)
+	if (index < 0 or index >= ds_list_size(movePPList)) return
+
 	var ppValue = ds_list_find_value(movePPList, index)
 
 	if (ppValue-1 >= 0)

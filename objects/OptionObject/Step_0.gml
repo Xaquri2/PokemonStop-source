@@ -680,6 +680,7 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.iconList, SphinxSprite)
 
 			Sphinx.RiddleSolved = true 
+			ds_list_add(global.flags,"RiddleSolved")
 			player.talking = true
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)

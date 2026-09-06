@@ -1079,7 +1079,23 @@ function ChooseMove(pkmn, targetPkmn)
 	var targetStats = GetPokemonFinalStats(targetName, targetLevel)
 
 	var type = GetTypes(pkmn)
-	var moves = GetMoves(pkmn)
+	var knownMoves = GetMoves(pkmn)
+	var movePP = GetMovePPList(pkmn)
+	var moves = ds_list_create()
+
+	for (var i = 0; i < ds_list_size(knownMoves); i++)
+	{
+		if (i < ds_list_size(movePP) and ds_list_find_value(movePP, i) > 0)
+		{
+			ds_list_add(moves, ds_list_find_value(knownMoves, i))
+		}
+	}
+
+	if (ds_list_empty(moves))
+	{
+		ds_list_destroy(moves)
+		return "Struggle"
+	}
 
 	if (GetSpeedStat(stats) <= GetSpeedStat(targetStats)) //If user speed is lower
 	{
@@ -1116,13 +1132,16 @@ function ChooseMove(pkmn, targetPkmn)
 					chosenMoveDmg = dmg
 				}
 			}
+			ds_list_destroy(speedLoweringMoves)
+			ds_list_destroy(moves)
 			return chosenMove
 		}
 		else
 		{
 			if (floor(random_range(0,3)) == 0) //33% chance to use a random move
 			{
-				var moveName = ds_list_find_value(moves, floor(random_range(0,ds_list_size(moves))))
+				var moveName = ds_list_find_value(moves, irandom(ds_list_size(moves)-1))
+				ds_list_destroy(moves)
 				return moveName
 			}
 			else
@@ -1139,6 +1158,8 @@ function ChooseMove(pkmn, targetPkmn)
 					if (attempt > biggerDamage) biggerDamage = attempt
 				}
 				var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+				ds_list_destroy(damageList)
+				ds_list_destroy(moves)
 				return moveName
 			}
 		}
@@ -1147,7 +1168,8 @@ function ChooseMove(pkmn, targetPkmn)
 	{
 		if (floor(random_range(0,3)) == 0) //33% chance to use a status move
 		{
-			var moveName = ds_list_find_value(moves, floor(random_range(0,ds_list_size(moves))))
+			var moveName = ds_list_find_value(moves, irandom(ds_list_size(moves)-1))
+			ds_list_destroy(moves)
 			return moveName
 		}
 		else
@@ -1164,6 +1186,8 @@ function ChooseMove(pkmn, targetPkmn)
 				if (attempt > biggerDamage) biggerDamage = attempt
 			}
 			var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+			ds_list_destroy(damageList)
+			ds_list_destroy(moves)
 			return moveName
 		}
 	}

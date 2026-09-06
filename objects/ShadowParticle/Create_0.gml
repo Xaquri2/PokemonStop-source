@@ -11,3 +11,7 @@ pull_strength = 0.02;  // how strongly it drifts back toward start
 randomize(); // optional, only once globally usually
 
 looped = false;
+
+if HasFlag("RiddleSolved") {
+	instance_destroy(self)
+}
