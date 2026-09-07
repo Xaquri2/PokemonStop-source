@@ -84,8 +84,11 @@ function GetRecoilDamage(pkmn, moveName)
 		case "Hail Mary Hit":
 			dmg += GetPokemonFinalHP(name, level)
 			break
-		case "Self Destruct":
-			dmg += GetPokemonFinalHP(name, level)/2
+		case "Self-Destruct":
+		case "Explosion":
+			// These moves use the FaintUser effect, so their recoil must always
+			// finish the user instead of falling through to generic recoil.
+			dmg += GetHealth(pkmn)
 			break
 		default:
 			dmg += GetPokemonFinalHP(name, level)/4

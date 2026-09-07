@@ -172,6 +172,11 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				}
 				else if (string_count("Go!", text) > 0) //Player pokémon released
 				{
+					// A replacement can be sent out before this textbox finishes
+					// processing recoil and EXP. Follow the battle's newly active
+					// Pokemon so later EXP updates cannot restore the fainted one.
+					playerPkmn = battle.playerPkmn
+
 					var player = noone
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
 					{

@@ -86,6 +86,19 @@ if (!recoil)
 	{
 		var name = GetName(playerPkmn)
 		var battle = instance_find(BattleObject, 0)
+		var delayEnemyFaintUser = GetMoveEffect(enemyMoveName) == "FaintUser"
+
+		// Voltorb's self-damage text is normally already next in the queue.
+		// If its attack also KOs the player, resolve the player's faint and
+		// replacement first so the old on-field entity is actually removed.
+		if (delayEnemyFaintUser)
+		{
+			for (var i = ds_list_size(textList)-1; i > currentText; i--)
+			{
+				ds_list_delete(textList, i)
+			}
+		}
+
 		ds_list_add(textList, string_concat(name, " fainted"))
 
 		nextPkmnIndex = GetFirstHealthyPokemonExcept(target.currentPkmn)
@@ -107,7 +120,7 @@ if (!recoil)
 				endBattle = true
 				defeat = true
 				target.currentPkmn = noone
-				ds_list_add(textList, "You lose!")
+				if (!delayEnemyFaintUser) ds_list_add(textList, "You lose!")
 			}
 		}
 		else
@@ -116,6 +129,12 @@ if (!recoil)
 			battle.playerPkmn = nextPkmn
 			name = GetName(nextPkmn)
 			ds_list_add(textList, string_concat("Go! ", name, "!"))
+		}
+
+		if (delayEnemyFaintUser)
+		{
+			ds_list_add(textList, "The opponent took some damage!")
+			if (endBattle and defeat) ds_list_add(textList, "You lose!")
 		}
 	}
 }
