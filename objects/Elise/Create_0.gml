@@ -2,7 +2,7 @@
 event_inherited();
 
 name = "Elise";
-lineSight = 64;
+lineSight = 200;
 lineSightDir = "Down";
 
 

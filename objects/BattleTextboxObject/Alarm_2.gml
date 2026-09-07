@@ -11,7 +11,10 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 		if (currentText > ds_list_size(textList))
 		{
-			if (!endBattle) var battleMenu = instance_create_layer(x,y,"UIElements",BattleMenuObject)
+			if (!endBattle and instance_number(BattleMenuObject) == 0)
+			{
+				instance_create_layer(x,y,"UIElements",BattleMenuObject)
+			}
 			instance_destroy(id)
 		}
 		else if (string_count("learned", text) > 0

@@ -1,3 +1,28 @@
+// BattlePokemonObject instances are temporarily absent while a switch animation
+// replaces the outgoing Pokemon. Refresh these references instead of keeping the
+// one-time values captured by the Create event.
+var activeBattle = instance_find(BattleObject, 0)
+if (activeBattle == noone)
+{
+	exit
+}
+
+playerPkmn = FindBattlePokemonEntity(activeBattle.playerPkmn)
+enemyPkmn = FindBattlePokemonEntity(activeBattle.enemyPkmn)
+
+// Do not accept a menu choice until both on-field Pokemon have spawned.
+if (playerPkmn == noone or enemyPkmn == noone)
+{
+	exit
+}
+
+// A textbox owns battle input while a turn is being presented. This also
+// prevents a stale textbox from allowing two menus to process the same key.
+if (instance_number(BattleTextboxObject) > 0)
+{
+	exit
+}
+
 if (keyboard_check_pressed(vk_enter))
 {
 	if (mode == "Choosing")
@@ -665,25 +690,6 @@ if (keyboard_check_pressed(vk_enter))
 	else if (mode == "Moves" and ds_list_find_value(GetMoves(BattleObject.playerPkmn), currentOption) != undefined)
 	{
 		var battle = instance_find(BattleObject, 0)
-		var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
-		battleText.playerPkmn = battle.playerPkmn
-		battleText.enemyPkmn = battle.enemyPkmn
-		battleText.whoAttacked = "Player"
-		var superEffStr = ""
-	
-		var pFutureStatus = "None"
-		var eFutureStatus = "None"
-						
-		var pName = GetName(battle.playerPkmn)
-		var pLevel = GetLevel(battle.playerPkmn)
-		var pStatus = GetStatus(battle.playerPkmn)
-		var playerStats = GetPokemonFinalStats(pName, pLevel)
-
-		var eName = GetName(battle.enemyPkmn)
-		var eLevel = GetLevel(battle.enemyPkmn)
-		var eStatus = GetStatus(battle.enemyPkmn)
-		var enemyStats = GetPokemonFinalStats(eName, eLevel)
-
 		var playerMoveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
 		var moveName = playerMoveName
 		var moveTotalPP = GetMovePP(moveName)
@@ -691,6 +697,25 @@ if (keyboard_check_pressed(vk_enter))
 
 		if (moveCurrentPP > 0)
 		{
+			var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
+			battleText.playerPkmn = battle.playerPkmn
+			battleText.enemyPkmn = battle.enemyPkmn
+			battleText.whoAttacked = "Player"
+			var superEffStr = ""
+
+			var pFutureStatus = "None"
+			var eFutureStatus = "None"
+
+			var pName = GetName(battle.playerPkmn)
+			var pLevel = GetLevel(battle.playerPkmn)
+			var pStatus = GetStatus(battle.playerPkmn)
+			var playerStats = GetPokemonFinalStats(pName, pLevel)
+
+			var eName = GetName(battle.enemyPkmn)
+			var eLevel = GetLevel(battle.enemyPkmn)
+			var eStatus = GetStatus(battle.enemyPkmn)
+			var enemyStats = GetPokemonFinalStats(eName, eLevel)
+
 			var enemyMoveName = ChooseMove(battle.enemyPkmn, battle.playerPkmn)
 
 			var pPriority = GetMovePriority(playerMoveName)

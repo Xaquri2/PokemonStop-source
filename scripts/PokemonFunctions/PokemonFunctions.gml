@@ -2291,7 +2291,7 @@ function GetSpriteByNumber(num)
 		case "030": return EwokOverworldSprite
 		case "031": return YodalBattleSprite
 		case "032": return Human2IdleSprite
-		case "033": return SquirrelOverworldSprite
+		case "033": return SquirrelBattleSprite
 		case "034": return GoombaOverworldSprite
 		case "035": return KoopaWalkRightSprite
 		case "036": return KingKoopaBattleSprite

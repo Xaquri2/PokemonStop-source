@@ -4,7 +4,7 @@ event_inherited();
 event_inherited();
 name = "Bestie"
 lineSightDir = "Down"
-lineSight = 64
+lineSight = 124
 
 ds_list_add(textList, "I have all the best Pokemon!")
 ds_list_add(nameList, name)

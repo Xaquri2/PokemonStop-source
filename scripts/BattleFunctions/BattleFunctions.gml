@@ -752,6 +752,12 @@ function DealEffect(effectName, accurancy, damage, user, target)
 					case "StruggleRecoil":
 						str = "Your pokemon struggled and took some damage!"
 						break
+						
+					#region Other
+					case "Flux":
+						str = "MissingNo set the battle into a state of FLUX!"
+						BattleObject.Fluxxed = true
+						break
 				}
 		}
 		else
@@ -1358,7 +1364,10 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Squirtle", 3, "Female", SquirtleIdleSprite)
 			AddPokemonTrainer(team, 2, "Caterpie", 5, "Female", CaterpieIdleSprite)
 			break
-			
+		case "Shocker":
+			AddPokemonTrainer(team, 1, "Pikachu", 3, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 2, "Voltorb", 5, "Female", VoltorbOverworldSprite)
+			break
 	//Mutant Path
 		case "Morlock Trainer":
 			AddPokemonTrainer(team, 1, "Human", 7, "Male", Human2IdleSprite)
@@ -1418,7 +1427,7 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 2, "Kirby", 16, "Female", KirbySprite)
 			break
 		case "Elise":
-			AddPokemonTrainer(team, 0, "Ewok", 13, "Female", KirbySprite)
+			AddPokemonTrainer(team, 0, "Ewok", 13, "Female", EwokOverworldSprite)
 			AddPokemonTrainer(team, 1, "Kirby", 15, "Female", KirbySprite)
 			break
 			
@@ -1547,12 +1556,13 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Collector":
 			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", MEGABOTSprite)
-			else
+			else {
 			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
 			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
 			AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
+			}
 			break
 		case "Zoovac":
 			if (!HasFlag("ZoovacFirstBattle"))

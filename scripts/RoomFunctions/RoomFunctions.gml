@@ -664,7 +664,7 @@ function GetRoomMusic()
 		case RobotPathShop:
 		case RobotGym: 
 			return WeaponsFactoryTheme
-		case PokeCenterRobotPath:
+		case RobotPokecenter:
 			return PokeGymLofi
 		
 		//Dark Tower

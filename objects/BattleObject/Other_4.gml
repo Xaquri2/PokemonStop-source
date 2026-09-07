@@ -18,7 +18,7 @@ if (room == RoomBattle or room == RoomBattleGodzilla)
 	}
 	
 	alarm[0] = 100
-	/*if (cutsceneVideo != "")
+	if (cutsceneVideo != "")
 	{
 		var musicObj = instance_find(MusicObject, 0)
 		audio_stop_sound(musicObj.currentMusic)
@@ -36,7 +36,7 @@ if (room == RoomBattle or room == RoomBattleGodzilla)
 			video_open("GodzillaCutscene.mp4")
 		}
 		alarm[1] = video_get_duration()
-	}*/
+	}
 	
 	playerPkmn = ds_list_find_value(playerTeam, GetFirstHealthyPokemon())
 	var playerTeamMemberName = GetName(playerPkmn)

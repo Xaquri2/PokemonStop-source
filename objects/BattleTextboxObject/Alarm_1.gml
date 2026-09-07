@@ -59,10 +59,15 @@ if (!recoil)
 		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
 		ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 
-		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-		battle.enemyPkmn = nextPkmn
+		var nextEnemyIndex = target.currentPkmn+1
+		var hasNextEnemy = nextEnemyIndex >= 0 and nextEnemyIndex < ds_list_size(target.team)
+		if (hasNextEnemy)
+		{
+			nextPkmn = ds_list_find_value(target.team, nextEnemyIndex)
+			hasNextEnemy = nextPkmn != undefined
+		}
 
-		if (target.currentPkmn+1 >= ds_list_size(target.team))
+		if (!hasNextEnemy)
 		{
 			endBattle = true
 			target.currentPkmn = noone
@@ -72,6 +77,7 @@ if (!recoil)
 		}
 		else
 		{
+			battle.enemyPkmn = nextPkmn
 			name = GetName(nextPkmn)
 			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 		}
@@ -131,10 +137,15 @@ else
 		ds_list_add(textList, string_concat("The opposing ", name, " fainted"))
 		ds_list_add(textList, string_concat("Your Pokemon gained ", experience, " EXP"))
 
-		nextPkmn = ds_list_find_value(target.team, target.currentPkmn+1)
-		battle.enemyPkmn = nextPkmn
+		var nextEnemyIndex = target.currentPkmn+1
+		var hasNextEnemy = nextEnemyIndex >= 0 and nextEnemyIndex < ds_list_size(target.team)
+		if (hasNextEnemy)
+		{
+			nextPkmn = ds_list_find_value(target.team, nextEnemyIndex)
+			hasNextEnemy = nextPkmn != undefined
+		}
 
-		if (target.currentPkmn+1 >= ds_list_size(target.team))
+		if (!hasNextEnemy)
 		{
 			endBattle = true
 			target.currentPkmn = noone
@@ -142,6 +153,7 @@ else
 		}
 		else
 		{
+			battle.enemyPkmn = nextPkmn
 			name = GetName(nextPkmn)
 			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
 		}
