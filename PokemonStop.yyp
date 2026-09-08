@@ -528,6 +528,7 @@
     {"id":{"name":"StairsSound","path":"sounds/StairsSound/StairsSound.yy",},},
     {"id":{"name":"SwordDescends","path":"sounds/SwordDescends/SwordDescends.yy",},},
     {"id":{"name":"TitleTheme","path":"sounds/TitleTheme/TitleTheme.yy",},},
+    {"id":{"name":"TowerDoor","path":"sounds/TowerDoor/TowerDoor.yy",},},
     {"id":{"name":"Warp","path":"sounds/Warp/Warp.yy",},},
     {"id":{"name":"WeaponsFactoryTheme","path":"sounds/WeaponsFactoryTheme/WeaponsFactoryTheme.yy",},},
     {"id":{"name":"WildBattleTheme","path":"sounds/WildBattleTheme/WildBattleTheme.yy",},},
