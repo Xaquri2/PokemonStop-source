@@ -12,7 +12,7 @@ global.latestSaveState = 1
 global.originalSpeed = game_get_speed(gamespeed_fps)
 global.speedUpMultiplier = 1
 
-global.expAll = true
+global.expAll = false
 
 global.followerType = "Mary"
 global.pikminCount = 0
@@ -43,8 +43,9 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 8, GetRandomGender(50))
-AddPokemon("Silver Scorpion", 5, GetRandomGender(50))
+AddPokemon("Pikachu", 100, GetRandomGender(50))
+AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
+AddPokemon("Charmander", 100, GetRandomGender(50))
 /*AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 15, GetRandomGender(50))

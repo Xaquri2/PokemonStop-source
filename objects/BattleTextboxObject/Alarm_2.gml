@@ -288,9 +288,10 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					for (var i = 0; i < ds_list_size(global.playerParty); i++)
 					{
 						var partyMemberInfo = ds_list_find_value(global.playerParty, i)
-						if (partyMemberInfo != playerPkmn and global.expAll)
+						if (partyMemberInfo != playerPkmn)
 						{
-							AddExp(partyMemberInfo, expGainValue)
+							if (global.expAll) AddExp(partyMemberInfo, floor(expGainValue/2))
+							else if (ds_list_find_index(battle.battleParticipants, partyMemberInfo) != undefined) AddExp(partyMemberInfo, floor(expGainValue/2))
 						}
 					}
 					expGaining = true

@@ -6,10 +6,10 @@ statList = GetPokemonFinalStats(name, level)
 
 enableDrawing = true
 SetPokemonDefaults(ds_list_find_value(team, index))
+var battle = instance_find(BattleObject, 0)
 
 if (playerTeam)
 {
-	var battle = instance_find(BattleObject, 0)
 	battle.playerPkmn = pkmnInfo
 }
 
@@ -28,3 +28,5 @@ if (room == RoomBattleGodzilla) {
 		}
 	}
 }
+
+if (ds_list_find_index(battle.battleParticipants, pkmnInfo) != undefined) ds_list_add(battle.battleParticipants, pkmnInfo)

@@ -96,6 +96,7 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 			var pkmnInfo = GetPartyMemberInfo(global.playerParty, selectedIndex)
 			ds_list_add(options.optionList, "Summary", "Switch")
 			
+			var a = CanEvolve(global.playerParty, selectedIndex)
 			if (CanEvolve(global.playerParty, selectedIndex) != "") ds_list_add(options.optionList, "Evolve")
 		}
 		else if (itemUse)

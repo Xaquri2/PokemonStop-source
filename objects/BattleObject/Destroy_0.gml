@@ -34,3 +34,5 @@ if (instance_exists(player) and instance_exists(camera))
 
 ds_list_destroy(playerFieldEffects)
 ds_list_destroy(enemyFieldEffects)
+ds_list_destroy(battleParticipants)
+ds_list_destroy(pikminList)

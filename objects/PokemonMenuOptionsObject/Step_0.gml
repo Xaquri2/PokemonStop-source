@@ -24,26 +24,29 @@ if (keyboard_check_pressed(vk_enter))
 			instance_destroy(id)
 			break
 		case 2:
-			var pkmnInfo = ds_list_find_value(global.playerParty, menu.selectedIndex)
+			if (CanEvolve(global.playerParty, menu.selectedIndex) != "")
+			{
+				var pkmnInfo = ds_list_find_value(global.playerParty, menu.selectedIndex)
 
-			var player = instance_find(PlayerObject, 0)
-			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+				var player = instance_find(PlayerObject, 0)
+				var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 			
-			ds_list_add(dialogue.textList, string_concat("Your ", GetName(pkmnInfo), " evolved into a ", CanEvolve(global.playerParty, menu.selectedIndex)))
+				ds_list_add(dialogue.textList, string_concat("Your ", GetName(pkmnInfo), " evolved into a ", CanEvolve(global.playerParty, menu.selectedIndex)))
 			
-			player.talking = true
+				player.talking = true
 			
-			var evolutionDexNumber = GetNumberByName(CanEvolve(global.playerParty, menu.selectedIndex))
-			ds_list_replace(pkmnInfo, 4, GetSpriteByNumber(evolutionDexNumber))
-			ds_list_replace(pkmnInfo, 1, CanEvolve(global.playerParty, menu.selectedIndex))
-			ds_list_replace(pkmnInfo, 0, evolutionDexNumber)
+				var evolutionDexNumber = GetNumberByName(CanEvolve(global.playerParty, menu.selectedIndex))
+				ds_list_replace(pkmnInfo, 4, GetSpriteByNumber(evolutionDexNumber))
+				ds_list_replace(pkmnInfo, 1, CanEvolve(global.playerParty, menu.selectedIndex))
+				ds_list_replace(pkmnInfo, 0, evolutionDexNumber)
 			
-			ds_list_add(global.pokedex, GetNameByNumber(evolutionDexNumber))
+				ds_list_add(global.pokedex, GetNameByNumber(evolutionDexNumber))
 			
-			menu.menu.player.menuOpen = false
-			instance_destroy(menu.menu)
-			instance_destroy(menu)
-			instance_destroy(id)
+				menu.menu.player.menuOpen = false
+				instance_destroy(menu.menu)
+				instance_destroy(menu)
+				instance_destroy(id)
+			}
 			break
 	}
 }

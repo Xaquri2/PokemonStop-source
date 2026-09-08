@@ -693,9 +693,8 @@ function CanEvolve(team, index) {
         case "Godzilla":
             // Enormous, legendary monster
             break;
-			
     }
-	return false
+	return ""
 }
 
 /// @param {string}   name    The name of the Pokémon to retreive base stats of

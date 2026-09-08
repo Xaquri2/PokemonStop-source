@@ -69,6 +69,12 @@ if (state == "Walk")
 
 if (speed != 0)
 {
+	if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,GrassObject,false,true))
+	{
+		image_alpha = 0.05
+	}
+	else image_alpha = 1
+
 	if (abs(vspeed) > abs(hspeed))
 	{
 		if (vspeed > 0) sprite_index = walkDownSprite

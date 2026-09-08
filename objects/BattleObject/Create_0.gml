@@ -51,4 +51,5 @@ cloud_level = 1;
 cloud_target = 0.5;
 
 pikminList = ds_list_create()
+battleParticipants = ds_list_create()
 repeat (global.pikminCount) AddPokemonTrainer(pikminList, ds_list_size(pikminList), "Pikmin", 10, GetRandomGender(50), PikminIdleSprite)
