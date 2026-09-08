@@ -343,6 +343,9 @@ if (keyboard_check_pressed(vk_enter))
 						player.talking = true
 
 						if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+						
+						ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
+						player.alarm[0] = 5
 							
 						instance_destroy(menu)
 						instance_destroy(id)
@@ -370,13 +373,21 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						global.morlockTimer = 60*60*10
 						
+						if (!instance_exists(Obj_Lighting_City3))
+							{
+							    instance_create_depth(0, 0, -1000000, Obj_Lighting_City3);
+							}
+						
 						var player = instance_find(PlayerObject, 0)
-						var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+						var dialogue = instance_create_depth(x,y,-9999,TextboxObject)
 						ds_list_add(dialogue.textList, string_concat("You used the ", itemName, "! And you transformed into a Morlock!"), "Only for 10 minutes though!")
 
 						player.talking = true
 
 						if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)
+						
+						ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
+						player.alarm[0] = 5
 							
 						instance_destroy(menu)
 						instance_destroy(id)
@@ -669,6 +680,7 @@ if (keyboard_check_pressed(vk_enter))
 			ds_list_add(dialogue.iconList, SphinxSprite)
 
 			Sphinx.RiddleSolved = true 
+			ds_list_add(global.flags,"RiddleSolved")
 			player.talking = true
 
 			if (ds_list_empty(dialogue.textList)) instance_destroy(dialogue)

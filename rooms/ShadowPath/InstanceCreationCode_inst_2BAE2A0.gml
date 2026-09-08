@@ -4,6 +4,9 @@ if (HasFlag(battleFlag)) instance_destroy();
 // === BATTLE FLAG (auto) END ===
 
 idleSprite = sprite_index
+walkRightSprite = sprite_index
+walkDownSprite = sprite_index
+walkUpSprite = sprite_index
 
 canWalk = true
 

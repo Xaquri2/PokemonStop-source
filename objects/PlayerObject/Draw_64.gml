@@ -29,21 +29,24 @@ if HasItem("Ultra Torch Fuel") {
 		ds_list_add(global.flags, "Torch")
 	}
  }
-if HasFlag("Torch") {
-	if (global.torch) draw_text(725,85,"Press T to disable the Torch")
-	else draw_text(725,85,"Press T to enable the Torch")
+ if instance_exists(MenuObject) {}
+ else {
+	if HasFlag("Torch") {
+		if (global.torch) draw_text(725,85,"Press T to disable the Torch")
+		else draw_text(725,85,"Press T to enable the Torch")
 
-	var color = c_black
-	draw_rectangle(720,80+32,820,100+32,false)
-	draw_rectangle_colour(725,85+32,725+90,95+32,color,color,color,color,false)
+		var color = c_black
+		draw_rectangle(720,80+32,820,100+32,false)
+		draw_rectangle_colour(725,85+32,725+90,95+32,color,color,color,color,false)
 
-	if (global.torchPower > 0)
-	{
-		color = c_orange
-		draw_rectangle_colour(725,85+32,725+90*global.torchPower,95+32,color,color,color,color,false)
+		if (global.torchPower > 0)
+		{
+			color = c_orange
+			draw_rectangle_colour(725,85+32,725+90*global.torchPower,95+32,color,color,color,color,false)
+		}
+		draw_set_alpha(1)
 	}
-	draw_set_alpha(1)
-}
+ }
 #endregion
 
 #region Draw your Pokemon's name
@@ -86,6 +89,41 @@ else {
 		draw_text_transformed(33,910,"H = Show Controls",1.5,2,0)
 		}
 }
+}
+#endregion
+
+#region Draw Morlock timer
+if (global.morlockTimer > 0)
+{
+    draw_sprite_ext(
+        PlayerMorlockFACESPRITE,
+        0,
+        310,
+        877,
+        2,
+        2,
+        0,
+        c_white,
+        1
+    );
+
+    var totalSeconds = ceil(global.morlockTimer / 60);
+    var minutes = floor(totalSeconds / 60);
+    var seconds = totalSeconds mod 60;
+
+    var secondsText = string(seconds);
+    if (seconds < 10)
+    {
+        secondsText = "0" + secondsText;
+    }
+
+    var timerText = string(minutes) + ":" + secondsText;
+
+    draw_set_color(c_black);
+    draw_text_transformed(400, 870, timerText, 5, 6, 0);
+
+    draw_set_color(c_white);
+    draw_text_transformed(403, 870, timerText, 5, 6, 0);
 }
 #endregion
 

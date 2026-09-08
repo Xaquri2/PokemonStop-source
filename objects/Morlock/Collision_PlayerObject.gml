@@ -2,3 +2,4 @@
 if ((!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) and global.morlockTimer == 0) {
 event_inherited();
 } 
+else x += 1

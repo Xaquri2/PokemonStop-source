@@ -84,8 +84,11 @@ function GetRecoilDamage(pkmn, moveName)
 		case "Hail Mary Hit":
 			dmg += GetPokemonFinalHP(name, level)
 			break
-		case "Self Destruct":
-			dmg += GetPokemonFinalHP(name, level)/2
+		case "Self-Destruct":
+		case "Explosion":
+			// These moves use the FaintUser effect, so their recoil must always
+			// finish the user instead of falling through to generic recoil.
+			dmg += GetHealth(pkmn)
 			break
 		default:
 			dmg += GetPokemonFinalHP(name, level)/4
@@ -752,6 +755,12 @@ function DealEffect(effectName, accurancy, damage, user, target)
 					case "StruggleRecoil":
 						str = "Your pokemon struggled and took some damage!"
 						break
+						
+					#region Other
+					case "Flux":
+						str = "MissingNo set the battle into a state of FLUX!"
+						BattleObject.Fluxxed = true
+						break
 				}
 		}
 		else
@@ -1079,7 +1088,23 @@ function ChooseMove(pkmn, targetPkmn)
 	var targetStats = GetPokemonFinalStats(targetName, targetLevel)
 
 	var type = GetTypes(pkmn)
-	var moves = GetMoves(pkmn)
+	var knownMoves = GetMoves(pkmn)
+	var movePP = GetMovePPList(pkmn)
+	var moves = ds_list_create()
+
+	for (var i = 0; i < ds_list_size(knownMoves); i++)
+	{
+		if (i < ds_list_size(movePP) and ds_list_find_value(movePP, i) > 0)
+		{
+			ds_list_add(moves, ds_list_find_value(knownMoves, i))
+		}
+	}
+
+	if (ds_list_empty(moves))
+	{
+		ds_list_destroy(moves)
+		return "Struggle"
+	}
 
 	if (GetSpeedStat(stats) <= GetSpeedStat(targetStats)) //If user speed is lower
 	{
@@ -1116,13 +1141,16 @@ function ChooseMove(pkmn, targetPkmn)
 					chosenMoveDmg = dmg
 				}
 			}
+			ds_list_destroy(speedLoweringMoves)
+			ds_list_destroy(moves)
 			return chosenMove
 		}
 		else
 		{
 			if (floor(random_range(0,3)) == 0) //33% chance to use a random move
 			{
-				var moveName = ds_list_find_value(moves, floor(random_range(0,ds_list_size(moves))))
+				var moveName = ds_list_find_value(moves, irandom(ds_list_size(moves)-1))
+				ds_list_destroy(moves)
 				return moveName
 			}
 			else
@@ -1139,6 +1167,8 @@ function ChooseMove(pkmn, targetPkmn)
 					if (attempt > biggerDamage) biggerDamage = attempt
 				}
 				var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+				ds_list_destroy(damageList)
+				ds_list_destroy(moves)
 				return moveName
 			}
 		}
@@ -1147,7 +1177,8 @@ function ChooseMove(pkmn, targetPkmn)
 	{
 		if (floor(random_range(0,3)) == 0) //33% chance to use a status move
 		{
-			var moveName = ds_list_find_value(moves, floor(random_range(0,ds_list_size(moves))))
+			var moveName = ds_list_find_value(moves, irandom(ds_list_size(moves)-1))
+			ds_list_destroy(moves)
 			return moveName
 		}
 		else
@@ -1164,6 +1195,8 @@ function ChooseMove(pkmn, targetPkmn)
 				if (attempt > biggerDamage) biggerDamage = attempt
 			}
 			var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
+			ds_list_destroy(damageList)
+			ds_list_destroy(moves)
 			return moveName
 		}
 	}
@@ -1334,7 +1367,10 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 1, "Squirtle", 3, "Female", SquirtleIdleSprite)
 			AddPokemonTrainer(team, 2, "Caterpie", 5, "Female", CaterpieIdleSprite)
 			break
-			
+		case "Shocker":
+			AddPokemonTrainer(team, 1, "Pikachu", 3, "Female", PikachuIdleSprite)
+			AddPokemonTrainer(team, 2, "Voltorb", 5, "Female", VoltorbOverworldSprite)
+			break
 	//Mutant Path
 		case "Morlock Trainer":
 			AddPokemonTrainer(team, 1, "Human", 7, "Male", Human2IdleSprite)
@@ -1394,7 +1430,7 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 2, "Kirby", 16, "Female", KirbySprite)
 			break
 		case "Elise":
-			AddPokemonTrainer(team, 0, "Ewok", 13, "Female", KirbySprite)
+			AddPokemonTrainer(team, 0, "Ewok", 13, "Female", EwokOverworldSprite)
 			AddPokemonTrainer(team, 1, "Kirby", 15, "Female", KirbySprite)
 			break
 			
@@ -1523,12 +1559,13 @@ function GetTrainerTeam(trainerName)
 			break
 		case "Collector":
 			if (HasFlag("CollectorFirstBattle"))  AddPokemonTrainer(team, 5, "MEGA BOT", 25, "Male", MEGABOTSprite)
-			else
+			else {
 			AddPokemonTrainer(team, 1, "Voltorb", 16, "Male", VoltorbOverworldSprite)
 			AddPokemonTrainer(team, 2, "Magnemite", 17, "Male", MagnemiteOverworldSprite)
 			AddPokemonTrainer(team, 3, "Box Bot", 17, "Male", BoxBotIdleSprite)
 			AddPokemonTrainer(team, 4, "BB-8", 17, "Male", BB8BattleSprite)
 			AddPokemonTrainer(team, 5, "Tutorial Bot", 20, "Male", TutorialBotSprite)
+			}
 			break
 		case "Zoovac":
 			if (!HasFlag("ZoovacFirstBattle"))

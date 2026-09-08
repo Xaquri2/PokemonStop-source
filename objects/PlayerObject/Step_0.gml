@@ -30,7 +30,7 @@ if (canWalk and !talking and !battle)
 	var speedValue = normalSpeed
 	if (!IsIndoors()) speedValue = overworldSpeed
 
-	if (keyboard_check(ord("W")))
+	if (keyboard_check(ord("W"))) or (keyboard_check(vk_up))
 	{
 		if (!RoomHasGravity()) vspeed = -speedValue
 		else

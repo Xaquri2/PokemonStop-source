@@ -11,7 +11,10 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 		if (currentText > ds_list_size(textList))
 		{
-			if (!endBattle) var battleMenu = instance_create_layer(x,y,"UIElements",BattleMenuObject)
+			if (!endBattle and instance_number(BattleMenuObject) == 0)
+			{
+				instance_create_layer(x,y,"UIElements",BattleMenuObject)
+			}
 			instance_destroy(id)
 		}
 		else if (string_count("learned", text) > 0
@@ -169,6 +172,11 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 				}
 				else if (string_count("Go!", text) > 0) //Player pokémon released
 				{
+					// A replacement can be sent out before this textbox finishes
+					// processing recoil and EXP. Follow the battle's newly active
+					// Pokemon so later EXP updates cannot restore the fainted one.
+					playerPkmn = battle.playerPkmn
+
 					var player = noone
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
 					{
@@ -196,15 +204,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					moveName = "Struggle"
 					recoil = true
 
-					if (string_count("opposing", text) != 0)
+					if (string_count("opponent", text) != 0)
 					{
 						whoAttacked = "Player"
-						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						eRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
 					}
 					else
 					{
 						whoAttacked = "Enemy"
-						pRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 
 					alarm[1] = GetMoveAnimationTime(moveName)
@@ -222,15 +230,15 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					
 					recoil = true
 
-					if (string_count("opposing", text) == 0)
+					if (string_count("opponent", text) == 0)
 					{
-						whoAttacked = "Player"
-						eRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						whoAttacked = "Enemy"
+						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
 					}
 					else
 					{
-						whoAttacked = "Enemy"
-						pRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+						whoAttacked = "Player"
+						eRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
 					}
 
 					alarm[1] = GetMoveAnimationTime(moveName)

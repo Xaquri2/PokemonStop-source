@@ -106,6 +106,9 @@ if (expGainValue > 0 and expGaining)
 
 if (damageValue > 0 and damaging)
 {
+	// Keep the source for this damage tick even if the attack finishes exactly
+	// when HP reaches zero and the live whoAttacked value is cleared below.
+	var damageSource = whoAttacked
 	var target = noone
 	for (var i = 0; i < instance_number(BattleEntityObject); i++)
 	{
@@ -136,7 +139,7 @@ if (damageValue > 0 and damaging)
 		alarm[4] = 30
 	}
 
-	if (whoAttacked == "Player" and GetHealth(enemyPkmn) <= 0)
+	if (damageSource == "Player" and GetHealth(enemyPkmn) <= 0)
 	{
 		damaging = false
 		whoAttacked = ""
@@ -146,7 +149,7 @@ if (damageValue > 0 and damaging)
 		//enemyPkmn = nextPkmn
 		nextPkmn = -1
 	}
-	else if (whoAttacked == "Enemy" and GetHealth(playerPkmn) <= 0)
+	else if (damageSource == "Enemy" and GetHealth(playerPkmn) <= 0)
 	{
 		damaging = false
 		whoAttacked = ""

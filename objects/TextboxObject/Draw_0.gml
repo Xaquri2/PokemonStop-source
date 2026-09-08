@@ -7,6 +7,8 @@ var view_y = camera_get_view_y(view_camera[0]);
 var view_width = camera_get_view_width(view_camera[0]);
 var view_height = camera_get_view_height(view_camera[0]);
 var scalePerc = view_width/480
+var smallRoomFactor = max(0, 1-scalePerc);
+var textYOffset = 70-4*smallRoomFactor;
 
 if (room == EndCreditsRoom) {
     view_x = x-200;
@@ -56,25 +58,27 @@ if (!ds_list_empty(nameList))
 		{
 			for (var k = -1; k < 2; k++)
 			{
-				draw_text_transformed(view_x+view_width*0.15+j, view_y+view_height-85-10*(ds_list_size(nameList2)-i-1)+k, name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
+				draw_text_transformed(view_x+view_width*0.15+j*scalePerc, view_y+view_height-(85*scalePerc)-(10*scalePerc)*(ds_list_size(nameList2)-i-1)+k*scalePerc, name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
 			}
 		}
 
 		// Draw text
 		draw_set_color(c_white);
-		draw_text_transformed(view_x+view_width*0.15, view_y+view_height-85-10*(ds_list_size(nameList2)-i-1), name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
+		draw_text_transformed(view_x+view_width*0.15, view_y+view_height-(85*scalePerc)-(10*scalePerc)*(ds_list_size(nameList2)-i-1), name2, 0.75*scalePerc, 0.75*scalePerc, image_angle)
 	}
+	
+	ds_list_destroy(nameList2)
 
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 }
 
 	//Text box sprite: 
-draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.58, view_y+view_height-42, 8.9*scalePerc, 2.2, image_angle, image_blend, image_alpha)
+draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.58, view_y+view_height-42*scalePerc, 8.9*scalePerc, 2.2*scalePerc, image_angle, image_blend, image_alpha)
 if (!ds_list_empty(iconList) and ds_list_size(iconList) > currentText) 
 {
 		//Box that the character's face goes in: 
-	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-42, 2.2*scalePerc, 2.2*scalePerc, image_angle, image_blend, image_alpha)
+	draw_sprite_ext(sprite_index, image_index, view_x+view_width*0.15, view_y+view_height-42*scalePerc, 2.2*scalePerc, 2.2*scalePerc, image_angle, image_blend, image_alpha)
 
 		// Character face sprite (auto-fit)
 		var spr = ds_list_find_value(iconList, currentText);
@@ -83,7 +87,7 @@ if (!ds_list_empty(iconList) and ds_list_size(iconList) > currentText)
 		
 		// where the face should be centered
 		var cx = view_x + view_width * 0.15;
-		var cy = view_y + view_height - 43;
+		var cy = view_y + view_height - 43*scalePerc;
 		var bottom_y = view_y + view_height - 32; // this is the bottom line you want
 		
 		// how big the face area is (tweak these)
@@ -95,10 +99,12 @@ if (!ds_list_empty(iconList) and ds_list_size(iconList) > currentText)
 		var sh = sprite_get_height(spr);
 		
 		// scale to FIT (keeps aspect ratio)
-		var s = max(box_w / sw, box_h / sh);
+		var s = min(box_w / sw, box_h / sh);
 		
 		// draw centered, with origin centered (see note below)
-		draw_sprite_ext(spr, face_frame, cx, cy, s, s, 0, c_white, 1);
+		var face_x = cx + (sprite_get_xoffset(spr) - sw*0.5)*s;
+		var face_y = cy + (sprite_get_yoffset(spr) - sh*0.5)*s;
+		draw_sprite_ext(spr, face_frame, face_x, face_y, s, s, 0, c_white, 1);
 
 
 }
@@ -118,4 +124,4 @@ var text = string_copy(ogText, 0, charNumber)
 
 // Draw text
 draw_set_color(c_white);
-draw_text_ext_transformed(view_x+view_width*0.333, view_y+view_height-70, text, 16, 320, 0.8*scalePerc, 0.8*scalePerc, image_angle)
+draw_text_ext_transformed(view_x+view_width*0.333, view_y+view_height-textYOffset*scalePerc, text, 16, 320, 0.8*scalePerc, 0.8*scalePerc, image_angle)

@@ -17,6 +17,18 @@ else if (spawnIndex == -1)
 
 if (spawnIndex >= 0 and spawnIndex < ds_list_size(entity.team))
 {
+	// A skipped faint event can leave the previous on-field object behind.
+	// Remove only stale Pokemon from the side this ball is about to replace so
+	// its sprite and status panel cannot overlap the newly spawned Pokemon.
+	for (var i = instance_number(BattlePokemonObject)-1; i >= 0; i--)
+	{
+		var existingPkmn = instance_find(BattlePokemonObject, i)
+		if (existingPkmn.playerTeam == entity.player)
+		{
+			instance_destroy(existingPkmn)
+		}
+	}
+
 	var pk = instance_create_layer(x,y,pkmnLayer,BattlePokemonObject)
 	pk.index = spawnIndex
 	pk.team = entity.team

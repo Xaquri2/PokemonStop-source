@@ -2025,6 +2025,8 @@ function GetLearnsetPP(learnset)
 function ConsumePP(pkmnInfo, index)
 {
 	var movePPList = ds_list_find_value(pkmnInfo, 7)
+	if (index < 0 or index >= ds_list_size(movePPList)) return
+
 	var ppValue = ds_list_find_value(movePPList, index)
 
 	if (ppValue-1 >= 0)
@@ -2288,7 +2290,7 @@ function GetSpriteByNumber(num)
 		case "030": return EwokOverworldSprite
 		case "031": return YodalBattleSprite
 		case "032": return Human2IdleSprite
-		case "033": return SquirrelOverworldSprite
+		case "033": return SquirrelBattleSprite
 		case "034": return GoombaOverworldSprite
 		case "035": return KoopaWalkRightSprite
 		case "036": return KingKoopaBattleSprite

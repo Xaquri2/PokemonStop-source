@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"MissingNoIdleSprite",
-    "path":"sprites/MissingNoIdleSprite/MissingNoIdleSprite.yy",
+    "name":"MissingNoBattleSprite",
+    "path":"sprites/MissingNoBattleSprite/MissingNoBattleSprite.yy",
   },
   "spriteMaskId":null,
   "visible":true,

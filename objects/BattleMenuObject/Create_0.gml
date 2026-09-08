@@ -1,8 +1,8 @@
 mode = "Choosing"
 currentOption = 0
 
-playerPkmn = -1
-enemyPkmn = -1
+playerPkmn = noone
+enemyPkmn = noone
 for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 {
 	var attempt = instance_find(BattlePokemonObject, i)

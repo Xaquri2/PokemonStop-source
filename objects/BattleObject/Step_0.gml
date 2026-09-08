@@ -100,6 +100,13 @@ if (room == RoomBattleGodzilla && postBattleTextList != noone)
     postBattleIconList = noone;
     postBattleNameList = noone;
 }
+
+
+if (Fluxxed == true) && (Fluxxed2 == false) {
+	alarm[2] = 320
+	Fluxxed2 = true
+}
+
 /* Clouds
 if (cloud_level > cloud_target) {
     cloud_level -= 0.001; // about 1.7 seconds at 60 FPS
@@ -113,4 +120,5 @@ if (cloud_level > cloud_target) {
 if room == RoomBattleGodzilla {
 	show_debug_message("Clouds layer:" + string(layer_get_visible("Clouds") ))
 }
+
 
