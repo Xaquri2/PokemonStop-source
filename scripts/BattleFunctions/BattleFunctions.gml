@@ -1608,14 +1608,14 @@ function GetTrainerTeam(trainerName)
 			if (!HasFlag("ZoovacFirstBattle"))
 			{
 				AddPokemonTrainer(team, 1, "Silver Scorpion", 22, "Male", SIlverScorpionOverworldSprite)
-				/*AddPokemonTrainer(team, 2, "Zergling", 38, "Male", ZerglingSprite)
-				AddPokemonTrainer(team, 3, "Demogorgon", 44, "Male", DemogorgonBattleSprite)
-				AddPokemonTrainer(team, 4, "MissingNo", 44, "Male", MissingNoIdleSprite)
-				AddPokemonTrainer(team, 5, "Rancor", 55, "Male", RancorOverworldSprite)*/
+				AddPokemonTrainer(team, 2, "Zergling", 28, "Male", ZerglingSprite)
+				AddPokemonTrainer(team, 3, "Demogorgon", 30, "Male", DemogorgonBattleSprite)
+				AddPokemonTrainer(team, 4, "MissingNo", 33, "Male", MissingNoIdleSprite)
+				AddPokemonTrainer(team, 5, "Rancor", 34, "Male", RancorOverworldSprite)
 			}
 			else
 			{
-				AddPokemonTrainer(team, 1, "Godzilla", 65, "Male", GodzillaSprite)
+				AddPokemonTrainer(team, 1, "Godzilla", 40, "Male", GodzillaSprite)
 			}
 			break
 	}
