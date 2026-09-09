@@ -478,16 +478,19 @@ function DealDamage(damage, isPlayer)
 	entity.hp = clamp(entity.hp, 0, 9999)
 	var damagedPkmn = entity.pkmnInfo
 	ds_list_set(damagedPkmn, 5, entity.hp)
-
-	if (isPlayer)
+	
+	if (object_index == BattleTextboxObject)
 	{
-		enemyPkmn = damagedPkmn
+		if (isPlayer)
+		{
+			enemyPkmn = damagedPkmn
+		}
+		else
+		{
+			playerPkmn = damagedPkmn
+		}
 	}
-	else
-	{
-		playerPkmn = damagedPkmn
-	}
-
+	
 	// The on-field Pokemon is authoritative. Never write it to currentPkmn as
 	// well as entity.index: those values can temporarily differ during a switch,
 	// which used to copy one Pokemon over another party slot.
@@ -506,6 +509,23 @@ function DealEffect(effectName, accurancy, damage, user, target)
 	var str = ""
 	if (user.playerTeam)
 	{
+		if (BattleObject.Fluxxed2)
+		{
+			ds_list_add(BattleTextboxObject.textList, "FlUx hAs cH4nGed +he Rh7th_ 0f the ba/tle!", "Health and damage have been tampered with!")
+			
+			var name = GetName(target.pkmnInfo)
+			var level = GetLevel(target.pkmnInfo)
+			var maxHealth = GetHPStat(GetPokemonFinalStats(name, level))
+			var offset = floor(random_range(-maxHealth/4, maxHealth/4))
+			DealDamage(offset, false)
+			
+			name = GetName(user.pkmnInfo)
+			level = GetLevel(user.pkmnInfo)
+			maxHealth = GetHPStat(GetPokemonFinalStats(name, level))
+			var offset = floor(random_range(-maxHealth/4, maxHealth/4))
+			DealDamage(offset, true)
+		}
+		
 		if (random_range(0,101) <= accurancy)
 		{
 			switch (effectName)
@@ -771,7 +791,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 				ds_list_add(battleText.textList, "Your pokémon's move failed and they fainted!")
 			}
 		}
-	
+		
 		if (string_count("Recoil", str) == 0 and string_count("Faint", str) == 0)
 			{
 				if (ds_list_find_index(BattleObject.playerFieldEffects, "SetTrap") != -1) 
@@ -786,6 +806,23 @@ function DealEffect(effectName, accurancy, damage, user, target)
 	}
 	else
 	{
+		if (BattleObject.Fluxxed2)
+		{
+			ds_list_add(BattleTextboxObject.textList, "FlUx hAs cH4nGed +he Rh7th_ 0f the ba/tle!", "Health and damage have been tampered with!")
+			
+			var name = GetName(target.pkmnInfo)
+			var level = GetLevel(target.pkmnInfo)
+			var maxHealth = GetHPStat(GetPokemonFinalStats(name, level))
+			var offset = floor(random_range(-maxHealth/4, maxHealth/4))
+			DealDamage(offset, false)
+			
+			name = GetName(user.pkmnInfo)
+			level = GetLevel(user.pkmnInfo)
+			maxHealth = GetHPStat(GetPokemonFinalStats(name, level))
+			var offset = floor(random_range(-maxHealth/4, maxHealth/4))
+			DealDamage(offset, true)
+		}
+		
 		if (random_range(0,101) <= accurancy)
 		{
 			switch (effectName)
