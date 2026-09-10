@@ -14,3 +14,7 @@ for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 }
 
 alarm[1] = 1
+
+FirePlaying = false
+ElectricPlaying = false
+WaterPlaying = false

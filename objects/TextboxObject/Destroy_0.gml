@@ -438,7 +438,7 @@ if (instance_exists(actionNPC))
 	
 		if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Godzilla, come out!") && !HasFlag("ZoovacFinalBattle")
 		{
-			//battleObj.cutsceneVideo = "GodzillaCutscene"
+			battleObj.cutsceneVideo = "GodzillaCutscene"
 		}
 	
 		if (object_get_parent(actionNPC.object_index) == GymLeaderParent) 
