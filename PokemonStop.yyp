@@ -595,6 +595,7 @@
     {"id":{"name":"CoinRotateSprite","path":"sprites/CoinRotateSprite/CoinRotateSprite.yy",},},
     {"id":{"name":"CollectorCastleSprite","path":"sprites/CollectorCastleSprite/CollectorCastleSprite.yy",},},
     {"id":{"name":"CollectorCutsceneEndCreditsSprite_1","path":"sprites/CollectorCutsceneEndCreditsSprite_1/CollectorCutsceneEndCreditsSprite_1.yy",},},
+    {"id":{"name":"CollisionSprite_CENTERED","path":"sprites/CollisionSprite_CENTERED/CollisionSprite_CENTERED.yy",},},
     {"id":{"name":"CollisionSprite","path":"sprites/CollisionSprite/CollisionSprite.yy",},},
     {"id":{"name":"ConejitoSprite","path":"sprites/ConejitoSprite/ConejitoSprite.yy",},},
     {"id":{"name":"CrabverseSprite","path":"sprites/CrabverseSprite/CrabverseSprite.yy",},},

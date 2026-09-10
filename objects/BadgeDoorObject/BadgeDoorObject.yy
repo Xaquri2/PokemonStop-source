@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"CollisionSprite",
-    "path":"sprites/CollisionSprite/CollisionSprite.yy",
+    "name":"CollisionSprite_CENTERED",
+    "path":"sprites/CollisionSprite_CENTERED/CollisionSprite_CENTERED.yy",
   },
   "spriteMaskId":null,
   "visible":false,

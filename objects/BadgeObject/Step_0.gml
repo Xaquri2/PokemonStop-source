@@ -1,5 +1,7 @@
-var xPos = target.x
-var yPos = target.y+target.sprite_height/2
+// Preserve the badge landing positions from before the centered door target
+// moved 33 pixels right and 32 pixels down.
+var xPos = target.x-33
+var yPos = target.y+target.sprite_height/2-32
 switch (badgeType)
 {
 	case "ShadowBadge":
