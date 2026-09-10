@@ -82,6 +82,18 @@ else if (mode == "Moves")
 		draw_text_transformed(view_width/xOffset, view_y+view_height-yOffset-2,ds_list_find_value(optionsList, i), 0.4, 0.4, image_angle)
 		draw_set_halign(fa_left)
 		draw_set_valign(fa_top)
+		
+		var MovePP = ds_list_find_value(GetMovePPList(pkmnInfo), i);
+		
+		if (MovePP <= 0) {
+		draw_sprite_ext(
+        BigRedXSprite, 0,
+        view_width / xOffset,
+        view_y + view_height - yOffset - 2,
+        0.5, 0.5,
+        image_angle, c_white, image_alpha
+			);
+		}
 
 		xOffset -= 2.2
 		draw_set_color(c_white)
