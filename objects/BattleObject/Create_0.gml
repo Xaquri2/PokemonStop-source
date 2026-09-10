@@ -27,6 +27,7 @@ runAttempts = 0
 
 ending = false
 defeat = false
+escaped = false
 battleFlag = ""
 
 importantBattle = false

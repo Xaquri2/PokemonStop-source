@@ -6,7 +6,7 @@ if (endBattle)
 		battle.ending = true
 		battle.fadeAlpha = 0
 
-		if (battle.battleFlag != "" and PostBattleFlagActivation(battle.battleFlag)
+		if (!battle.escaped and battle.battleFlag != "" and PostBattleFlagActivation(battle.battleFlag)
 		and ds_list_find_index(global.flags, battle.battleFlag) == -1)
 		{
 			ds_list_add(global.flags, battle.battleFlag)

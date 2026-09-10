@@ -14,7 +14,9 @@ if (instance_number(BadgeDoorObject) == 0)
     }
 }
 
-if (TowerdoorOpened == false) && (instance_number(BadgeDoorObject) == 0) {
+if (TowerdoorOpened == false) && (instance_number(BadgeDoorObject) == 0) && (!HasFlag("TowerDoorHasOpened")) {
 	audio_play_sound(TowerDoor,1,0)
 	TowerdoorOpened = true
+	ds_list_add(global.flags,"TowerDoorHasOpened")
 }
+

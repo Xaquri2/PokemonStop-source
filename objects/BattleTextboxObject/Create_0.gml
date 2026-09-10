@@ -26,6 +26,7 @@ eRecoilDamage = 0
 whoAttacked = ""
 endBattle = false
 defeat = false
+escaped = false
 
 expGaining = false
 expGainValue = 0
