@@ -4,11 +4,13 @@ if (whoAttacked == "Player")
 {
 	if (!recoil) damageValue = playerDamage
 	else damageValue = eRecoilDamage
+	if (BattleObject.Fluxxed2) damageValue *= random_range(0.8,1.2)
 }
 else if (whoAttacked == "Enemy")
 {
 	if (!recoil) damageValue = enemyDamage
 	else damageValue = pRecoilDamage
+	if (BattleObject.Fluxxed2) damageValue *= random_range(0.8,1.2)
 }
 
 var target = noone
