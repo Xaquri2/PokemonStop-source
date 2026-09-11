@@ -33,3 +33,9 @@ else
 	with (warp) SetWarpDefaults("MinusOneToTower", "Down", false)
 	instance_destroy(id)
 }
+
+if HasFlag("TowerDoorHasOpened") {
+		var warp = instance_create_layer(x,y,"Instances",WarpObject)
+		with (warp) SetWarpDefaults("MinusOneToTower", "Down", false)
+		instance_destroy(id)
+}
