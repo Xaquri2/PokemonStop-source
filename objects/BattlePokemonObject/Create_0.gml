@@ -22,6 +22,7 @@ spDefModifier = 0
 speedModifier = 0
 critModifier = 0
 
+confusion = false
 status = ""
 sleepCounter = 0
 

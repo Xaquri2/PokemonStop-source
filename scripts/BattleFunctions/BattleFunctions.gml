@@ -754,6 +754,16 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Confuse":
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							target.confusion = true
+							if (!target.confusion) str = "The opponent is now confused"
+							else str = "The opponent is already confused!"
+						}
+						else str = ""
+						break
+						
 					#endregion
 				
 					#region Traps
@@ -1055,6 +1065,14 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Confuse":
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (!target.confusion) str = "The opponent is now confused"
+							else str = "The opponent is already confused!"
+						}
+						else str = ""
+						break
 					#endregion
 				
 					#region Traps
@@ -1120,6 +1138,25 @@ function IsStatusEffect(eff)
 			
 		default: return false
 	}
+}
+
+function IsNotConfused(moveUser)
+{
+	if (moveUser.confusion)
+	{
+		var willNotAct = irandom(2)
+		if (willNotAct == 0) 
+		{
+			if (instance_exists(BattleTextboxObject)) 
+			{
+				if (moveUser.playerTeam) ds_list_add(BattleTextboxObject.textList, "Your pokémon hit itself!")
+				else ds_list_add(BattleTextboxObject.textList, "The foe's pokémon hit itself!")
+			}
+			return false
+		}
+		else return true
+	}
+	else return true
 }
 
 function ChooseMove(pkmn, targetPkmn)

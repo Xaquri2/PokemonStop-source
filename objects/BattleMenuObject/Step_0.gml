@@ -690,6 +690,16 @@ if (keyboard_check_pressed(vk_enter))
 	}
 	else if (mode == "Moves" and ds_list_find_value(GetMoves(BattleObject.playerPkmn), currentOption) != undefined)
 	{
+		var playerPkmnBattle = -4
+		var enemyPkmnBattle = -4
+		
+		for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+		{
+			var pkmn = instance_find(BattlePokemonObject, i)
+			if (pkmn.playerTeam) playerPkmnBattle = pkmn
+			else enemyPkmnBattle = pkmn
+		}
+		
 		var battle = instance_find(BattleObject, 0)
 		var playerMoveName = ds_list_find_value(GetMoves(battle.playerPkmn), currentOption)
 		var moveName = playerMoveName
@@ -755,36 +765,39 @@ if (keyboard_check_pressed(vk_enter))
 				var paralysisCheck = true
 
 				if (pStatus == "Paralysis")
-					{
-					    paralysisCheck = ParalysisCheck()
-					}
+				{
+				    paralysisCheck = ParalysisCheck()
+				}
 				if ((pStatus == "Paralysis" and paralysisCheck))
 				{
-					ConsumePP(battle.playerPkmn, currentOption)
-					ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
-
-					var moveAcc = GetMoveAccurancy(moveName)
-					var effectAcc = GetMoveEffectChance(moveName)*100
-
-					var accRoll = floor(random_range(0,101))
-					if (accRoll <= moveAcc)
+					if (IsNotConfused(playerPkmnBattle))
 					{
-						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-						
-						if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
-						if (eFutureStatus == "RandomStatus")
+						ConsumePP(battle.playerPkmn, currentOption)
+						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
+
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
+
+						var accRoll = floor(random_range(0,101))
+						if (accRoll <= moveAcc)
 						{
-							var attempt = irandom(3)
-							if (attempt == 0) eFutureStatus = "Paralysis"
-							if (attempt == 1) eFutureStatus = "Poisoned"
-							if (attempt == 2) eFutureStatus = "Burn"
-							if (attempt == 3) eFutureStatus = "Sleep"
-							moveEff = eFutureStatus
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+						
+							if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+							if (eFutureStatus == "RandomStatus")
+							{
+								var attempt = irandom(3)
+								if (attempt == 0) eFutureStatus = "Paralysis"
+								if (attempt == 1) eFutureStatus = "Poisoned"
+								if (attempt == 2) eFutureStatus = "Burn"
+								if (attempt == 3) eFutureStatus = "Sleep"
+								moveEff = eFutureStatus
+							}
+							var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
-						var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
-						if (effStr != "") ds_list_add(battleText.textList, effStr)
+						else ds_list_add(battleText.textList, "But it missed!")
 					}
-					else ds_list_add(battleText.textList, "But it missed!")
 				}
 				else if (pStatus == "Paralysis" and !paralysisCheck)
 				{
@@ -806,32 +819,35 @@ if (keyboard_check_pressed(vk_enter))
 							SetStatus(playerPkmn.pkmnInfo, "None")
 							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
 						}
-
-						ConsumePP(battle.playerPkmn, currentOption)
-						ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
-
-						var moveAcc = GetMoveAccurancy(moveName)
-						var effectAcc = GetMoveEffectChance(moveName)*100
-
-						var accRoll = floor(random_range(0,101))
-						if (accRoll <= moveAcc)
+						
+						if (IsNotConfused(playerPkmnBattle))
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-							
-							if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
-							if (eFutureStatus == "RandomStatus")
+							ConsumePP(battle.playerPkmn, currentOption)
+							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."))
+
+							var moveAcc = GetMoveAccurancy(moveName)
+							var effectAcc = GetMoveEffectChance(moveName)*100
+
+							var accRoll = floor(random_range(0,101))
+							if (accRoll <= moveAcc)
 							{
-								var attempt = irandom(3)
-								if (attempt == 0) eFutureStatus = "Paralysis"
-								if (attempt == 1) eFutureStatus = "Poisoned"
-								if (attempt == 2) eFutureStatus = "Burn"
-								if (attempt == 3) eFutureStatus = "Sleep"
-								moveEff = eFutureStatus
+								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							
+								if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+								if (eFutureStatus == "RandomStatus")
+								{
+									var attempt = irandom(3)
+									if (attempt == 0) eFutureStatus = "Paralysis"
+									if (attempt == 1) eFutureStatus = "Poisoned"
+									if (attempt == 2) eFutureStatus = "Burn"
+									if (attempt == 3) eFutureStatus = "Sleep"
+									moveEff = eFutureStatus
+								}
+								var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
-							var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
-							if (effStr != "") ds_list_add(battleText.textList, effStr)
+							else ds_list_add(battleText.textList, "But it missed!")
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
 					}
 				}
 
@@ -875,32 +891,35 @@ if (keyboard_check_pressed(vk_enter))
 						paralysisCheck = ParalysisCheck()
 						if ((eStatus == "Paralysis" and paralysisCheck))
 						{
-							ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
-
-							var moveAcc = GetMoveAccurancy(moveName)
-							var effectAcc = GetMoveEffectChance(moveName)*100
-							if (floor(random_range(0,101)) <= moveAcc)
+							if (IsNotConfused(enemyPkmnBattle))
 							{
-								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
 
-								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
-								if (pFutureStatus == "RandomStatus")
+								var moveAcc = GetMoveAccurancy(moveName)
+								var effectAcc = GetMoveEffectChance(moveName)*100
+								if (floor(random_range(0,101)) <= moveAcc)
 								{
-									var attempt = irandom(3)
-									if (attempt == 0) pFutureStatus = "Paralysis"
-									if (attempt == 1) pFutureStatus = "Poisoned"
-									if (attempt == 2) pFutureStatus = "Burn"
-									if (attempt == 3) pFutureStatus = "Sleep"
-									moveEff = pFutureStatus
-								}
-								var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
-								if (effStr != "") ds_list_add(battleText.textList, effStr)
-							}
-							else ds_list_add(battleText.textList, "But it missed!")
+									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 
-							if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
-								string_concat(GetName(battle.playerPkmn)," fainted!"))
+									if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+									if (pFutureStatus == "RandomStatus")
+									{
+										var attempt = irandom(3)
+										if (attempt == 0) pFutureStatus = "Paralysis"
+										if (attempt == 1) pFutureStatus = "Poisoned"
+										if (attempt == 2) pFutureStatus = "Burn"
+										if (attempt == 3) pFutureStatus = "Sleep"
+										moveEff = pFutureStatus
+									}
+									var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+									if (effStr != "") ds_list_add(battleText.textList, effStr)
+								}
+								else ds_list_add(battleText.textList, "But it missed!")
+
+								if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
+									string_concat(GetName(battle.playerPkmn)," fainted!"))
+							}
 						}
 						else if (eStatus == "Paralysis" and !paralysisCheck)
 						{
@@ -923,33 +942,36 @@ if (keyboard_check_pressed(vk_enter))
 									SetStatus(enemyPkmn.pkmnInfo, "None")
 									ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
 								}
-
-								ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-								ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
-
-								var moveAcc = GetMoveAccurancy(moveName)
-								var effectAcc = GetMoveEffectChance(moveName)*100
-								if (floor(random_range(0,101)) <= moveAcc)
+								
+								if (IsNotConfused(enemyPkmnBattle))
 								{
-									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-									
-									if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
-									if (pFutureStatus == "RandomStatus")
-									{
-										var attempt = irandom(3)
-										if (attempt == 0) pFutureStatus = "Paralysis"
-										if (attempt == 1) pFutureStatus = "Poisoned"
-										if (attempt == 2) pFutureStatus = "Burn"
-										if (attempt == 3) pFutureStatus = "Sleep"
-										moveEff = pFutureStatus
-									}
-									var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
-									if (effStr != "") ds_list_add(battleText.textList, effStr)
-								}
-								else ds_list_add(battleText.textList, "But it missed!")
+									ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+									ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
 
-								if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
-								string_concat(GetName(battle.playerPkmn)," fainted!"))
+									var moveAcc = GetMoveAccurancy(moveName)
+									var effectAcc = GetMoveEffectChance(moveName)*100
+									if (floor(random_range(0,101)) <= moveAcc)
+									{
+										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+									
+										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+										if (pFutureStatus == "RandomStatus")
+										{
+											var attempt = irandom(3)
+											if (attempt == 0) pFutureStatus = "Paralysis"
+											if (attempt == 1) pFutureStatus = "Poisoned"
+											if (attempt == 2) pFutureStatus = "Burn"
+											if (attempt == 3) pFutureStatus = "Sleep"
+											moveEff = pFutureStatus
+										}
+										var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+										if (effStr != "") ds_list_add(battleText.textList, effStr)
+									}
+									else ds_list_add(battleText.textList, "But it missed!")
+
+									if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
+									string_concat(GetName(battle.playerPkmn)," fainted!"))
+								}
 							}
 						}
 					
@@ -986,29 +1008,32 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				if ((eStatus == "Paralysis" and paralysisCheck))
 				{
-					ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-					ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
-
-					var moveAcc = GetMoveAccurancy(moveName)
-					var effectAcc = GetMoveEffectChance(moveName)*100
-					if (floor(random_range(0,101)) <= moveAcc)
+					if (IsNotConfused(enemyPkmnBattle))
 					{
-						if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
 
-						if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
-						if (pFutureStatus == "RandomStatus")
+						var moveAcc = GetMoveAccurancy(moveName)
+						var effectAcc = GetMoveEffectChance(moveName)*100
+						if (floor(random_range(0,101)) <= moveAcc)
 						{
-							var attempt = irandom(3)
-							if (attempt == 0) pFutureStatus = "Paralysis"
-							if (attempt == 1) pFutureStatus = "Poisoned"
-							if (attempt == 2) pFutureStatus = "Burn"
-							if (attempt == 3) pFutureStatus = "Sleep"
-							moveEff = pFutureStatus
+							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+
+							if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+							if (pFutureStatus == "RandomStatus")
+							{
+								var attempt = irandom(3)
+								if (attempt == 0) pFutureStatus = "Paralysis"
+								if (attempt == 1) pFutureStatus = "Poisoned"
+								if (attempt == 2) pFutureStatus = "Burn"
+								if (attempt == 3) pFutureStatus = "Sleep"
+								moveEff = pFutureStatus
+							}
+							var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
-						var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
-						if (effStr != "") ds_list_add(battleText.textList, effStr)
+						else ds_list_add(battleText.textList, "But it missed!")
 					}
-					else ds_list_add(battleText.textList, "But it missed!")
 				}
 				else if (eStatus == "Paralysis" and !paralysisCheck)
 				{
@@ -1030,30 +1055,33 @@ if (keyboard_check_pressed(vk_enter))
 							SetStatus(enemyPkmn.pkmnInfo, "None")
 							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " woke up!"))
 						}
-
-						ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
-						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
-
-						var moveAcc = GetMoveAccurancy(moveName)
-						var effectAcc = GetMoveEffectChance(moveName)*100
-						if (floor(random_range(0,101)) <= moveAcc)
+						
+						if (IsNotConfused(enemyPkmnBattle))
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-							
-							if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
-							if (pFutureStatus == "RandomStatus")
+							ConsumePP(battle.enemyPkmn, ds_list_find_index(GetMoves(battle.enemyPkmn), moveName))
+							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
+
+							var moveAcc = GetMoveAccurancy(moveName)
+							var effectAcc = GetMoveEffectChance(moveName)*100
+							if (floor(random_range(0,101)) <= moveAcc)
 							{
-								var attempt = irandom(3)
-								if (attempt == 0) pFutureStatus = "Paralysis"
-								if (attempt == 1) pFutureStatus = "Poisoned"
-								if (attempt == 2) pFutureStatus = "Burn"
-								if (attempt == 3) pFutureStatus = "Sleep"
-								moveEff = pFutureStatus
+								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							
+								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
+								if (pFutureStatus == "RandomStatus")
+								{
+									var attempt = irandom(3)
+									if (attempt == 0) pFutureStatus = "Paralysis"
+									if (attempt == 1) pFutureStatus = "Poisoned"
+									if (attempt == 2) pFutureStatus = "Burn"
+									if (attempt == 3) pFutureStatus = "Sleep"
+									moveEff = pFutureStatus
+								}
+								var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
-							var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
-							if (effStr != "") ds_list_add(battleText.textList, effStr)
+							else ds_list_add(battleText.textList, "But it missed!")
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
 					}
 				}
 
@@ -1098,59 +1126,12 @@ if (keyboard_check_pressed(vk_enter))
 						paralysisCheck = ParalysisCheck()
 						if ((pStatus == "Paralysis" and paralysisCheck))
 						{
-							ConsumePP(battle.playerPkmn, currentOption)
-							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
-
-							var moveAcc = GetMoveAccurancy(moveName)
-							var effectAcc = GetMoveEffectChance(moveName)*100
-							if (floor(random_range(0,101)) <= moveAcc)
+							if (IsNotConfused(playerPkmnBattle))
 							{
-								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
-
-								if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
-								if (eFutureStatus == "RandomStatus")
-								{
-									var attempt = irandom(3)
-									if (attempt == 0) eFutureStatus = "Paralysis"
-									if (attempt == 1) eFutureStatus = "Poisoned"
-									if (attempt == 2) eFutureStatus = "Burn"
-									if (attempt == 3) eFutureStatus = "Sleep"
-									moveEff = eFutureStatus
-								}
-								var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
-								if (effStr != "") ds_list_add(battleText.textList, effStr)
-							}
-							else ds_list_add(battleText.textList, "But it missed!")
-
-							if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
-							string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
-						}
-						else if (pStatus == "Paralysis" and !paralysisCheck)
-						{
-							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
-						}
-						else
-						{
-							if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
-							if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
-
-							if (!awake)
-							{
-								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is asleep..."))
-								playerPkmn.sleepCounter++
-							}
-							else
-							{
-								if (pStatus == "Sleep")
-								{
-									SetStatus(playerPkmn.pkmnInfo, "None")
-									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
-								}
-
 								ConsumePP(battle.playerPkmn, currentOption)
 								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
 
-							    var moveAcc = GetMoveAccurancy(moveName)
+								var moveAcc = GetMoveAccurancy(moveName)
 								var effectAcc = GetMoveEffectChance(moveName)*100
 								if (floor(random_range(0,101)) <= moveAcc)
 								{
@@ -1173,6 +1154,59 @@ if (keyboard_check_pressed(vk_enter))
 
 								if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
 								string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+							}
+						}
+						else if (pStatus == "Paralysis" and !paralysisCheck)
+						{
+							ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is paralyzed! It can't move!"))
+						}
+						else
+						{
+							if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
+							if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
+
+							if (!awake)
+							{
+								ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " is asleep..."))
+								playerPkmn.sleepCounter++
+							}
+							else
+							{
+								if (pStatus == "Sleep")
+								{
+									SetStatus(playerPkmn.pkmnInfo, "None")
+									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " woke up!"))
+								}
+								
+								if (IsNotConfused(playerPkmnBattle))
+								{
+									ConsumePP(battle.playerPkmn, currentOption)
+									ds_list_add(battleText.textList, string_concat(GetName(battle.playerPkmn), " used ", moveName, "."),)
+
+								    var moveAcc = GetMoveAccurancy(moveName)
+									var effectAcc = GetMoveEffectChance(moveName)*100
+									if (floor(random_range(0,101)) <= moveAcc)
+									{
+										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+
+										if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
+										if (eFutureStatus == "RandomStatus")
+										{
+											var attempt = irandom(3)
+											if (attempt == 0) eFutureStatus = "Paralysis"
+											if (attempt == 1) eFutureStatus = "Poisoned"
+											if (attempt == 2) eFutureStatus = "Burn"
+											if (attempt == 3) eFutureStatus = "Sleep"
+											moveEff = eFutureStatus
+										}
+										var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+										if (effStr != "") ds_list_add(battleText.textList, effStr)
+									}
+									else ds_list_add(battleText.textList, "But it missed!")
+
+									if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
+									string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
+								}
 							}
 						}
 

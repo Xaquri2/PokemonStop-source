@@ -407,7 +407,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						HealPokemon(battle.playerTeam, i, 1000000, true, true, true)
 					}
 				}
-				else if (string_count("opponent is now", text) > 0)
+				else if (string_count("opponent is now", text) > 0 and string_count("confused", text) == 0)
 				{
 					var target = noone
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
@@ -432,7 +432,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					SetStatus(target.pkmnInfo, status)
 					target.status = status
 				}
-				else if (string_count("pokemon is now", text) > 0)
+				else if (string_count("pokemon is now", text) > 0 and string_count("confused", text) == 0)
 				{
 					var target = noone
 					for (var i = 0; i < instance_number(BattlePokemonObject); i++)
