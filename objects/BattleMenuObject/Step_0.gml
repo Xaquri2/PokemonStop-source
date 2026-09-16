@@ -41,7 +41,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				var pkmnInfo = ds_list_find_value(pkmn.team, pkmn.index)
+				var pkmnInfo = pkmn.pkmnInfo
 				optionsList = GetMoves(pkmnInfo)
 
 				var struggle = true

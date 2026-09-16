@@ -229,17 +229,41 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					else moveName = playerMoveName
 					
 					recoil = true
-
-					if (string_count("opponent", text) == 0)
+					
+					if (string_count("hit itself in confusion", text) > 0)
 					{
-						whoAttacked = "Enemy"
-						pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						if (string_count("opponent", text) == 0)
+						{
+							var name = GetName(enemyPkmn)
+							var level = GetLevel(enemyPkmn)
+							var maxHP = GetPokemonFinalHP(name, level)
+							whoAttacked = "Player"
+							eRecoilDamage = maxHP/8
+						}
+						else
+						{
+							var name = GetName(playerPkmn)
+							var level = GetLevel(playerPkmn)
+							var maxHP = GetPokemonFinalHP(name, level)
+							whoAttacked = "Enemy"
+							pRecoilDamage = maxHP/8
+						}
 					}
 					else
 					{
-						whoAttacked = "Player"
-						eRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+						if (string_count("opponent", text) == 0)
+						{
+							whoAttacked = "Enemy"
+							pRecoilDamage = GetRecoilDamage(playerPkmn, moveName)
+						}
+						else
+						{
+							whoAttacked = "Player"
+							eRecoilDamage = GetRecoilDamage(enemyPkmn, moveName)
+						}
 					}
+					
+					
 
 					alarm[1] = GetMoveAnimationTime(moveName)
 

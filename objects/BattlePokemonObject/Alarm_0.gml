@@ -1,12 +1,15 @@
+var battle = instance_find(BattleObject, 0)
+
 pkmnInfo = ds_list_find_value(team, index)
+if (battle.currentPikmin != noone) pkmnInfo = battle.currentPikmin
+
 name = GetName(pkmnInfo)
 level = GetLevel(pkmnInfo)
 status = GetStatus(pkmnInfo)
 statList = GetPokemonFinalStats(name, level)
 
 enableDrawing = true
-SetPokemonDefaults(ds_list_find_value(team, index))
-var battle = instance_find(BattleObject, 0)
+SetPokemonDefaults(pkmnInfo)
 
 if (playerTeam)
 {

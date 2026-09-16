@@ -6,7 +6,7 @@ else if (!global.autosave) alarm[1] = -1
 
 if (keyboard_check_pressed(vk_control))
 {
-	if (global.speedUpMultiplier*2 <= 2)
+	if (global.speedUpMultiplier*2 <= 4)
 	{
 		global.speedUpMultiplier *= 2
 	}

@@ -111,6 +111,7 @@ if (!recoil)
 			{
 				nextPkmn = ds_list_find_value(battle.pikminList, 0)
 				ds_list_delete(battle.pikminList, 0)
+				if (ds_list_size(global.playerParty) == 6) battle.currentPikmin = nextPkmn
 				AddPokemon(GetName(nextPkmn), GetLevel(nextPkmn), GetGender(nextPkmn))
 				global.pikminCount--
 				

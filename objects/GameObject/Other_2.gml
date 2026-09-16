@@ -15,7 +15,7 @@ global.speedUpMultiplier = 1
 global.expAll = false
 
 global.followerType = "Mary"
-global.pikminCount = 0
+global.pikminCount = 2
 
 var itemsList = ds_list_create()
 var ballsList = ds_list_create()
@@ -43,9 +43,9 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 10, GetRandomGender(50))
-AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
-AddPokemon("Charmander", 100, GetRandomGender(50))
+repeat (6) AddPokemon("Pikachu", 1, GetRandomGender(50))
+//AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
+//AddPokemon("Charmander", 100, GetRandomGender(50))
 /*AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 15, GetRandomGender(50))

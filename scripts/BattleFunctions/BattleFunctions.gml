@@ -105,7 +105,7 @@ function GetRecoilDamage(pkmn, moveName)
 		if (ds_list_find_index(BattleObject.enemyFieldEffects, "SetTrap") != -1) dmg += 30
 		if (ds_list_find_index(BattleObject.enemyFieldEffects, "ReversalTrap") != -1) dmg += enemyDamage
 	}
-	
+
 	return dmg
 }
 
@@ -1149,8 +1149,8 @@ function IsNotConfused(moveUser)
 		{
 			if (instance_exists(BattleTextboxObject)) 
 			{
-				if (moveUser.playerTeam) ds_list_add(BattleTextboxObject.textList, "Your pokémon hit itself!")
-				else ds_list_add(BattleTextboxObject.textList, "The foe's pokémon hit itself!")
+				if (moveUser.playerTeam) ds_list_add(BattleTextboxObject.textList, "Your pokémon hit itself in confusion and took some damage!")
+				else ds_list_add(BattleTextboxObject.textList, "The foe's pokémon hit itself in confusion and took some damage!")
 			}
 			return false
 		}

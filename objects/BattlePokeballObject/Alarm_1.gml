@@ -35,6 +35,14 @@ if (spawnIndex >= 0 and spawnIndex < ds_list_size(entity.team))
 	if (!entity.player) pk.playerTeam = false
 	entity.currentPkmn = spawnIndex
 }
+if (spawnIndex == -1 and BattleObject.currentPikmin != noone)
+{
+	var pk = instance_create_layer(x,y,pkmnLayer,BattlePokemonObject)
+	pk.index = spawnIndex
+	pk.team = entity.team
+	if (!entity.player) pk.playerTeam = false
+	entity.currentPkmn = spawnIndex
+}
 
 // switchIndex is only a pending manual-switch request, not persistent state.
 entity.switchIndex = -1
