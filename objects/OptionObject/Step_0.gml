@@ -196,7 +196,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
 							}
-							else ds_list_add(battleText.textList, "But it missed!")
+							else CauseAMiss(false)
 
 							if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 							string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -285,7 +285,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(false)
 
 									if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 									string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -317,7 +317,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
 								}
-								else ds_list_add(battleText.textList, "But it missed!")
+								else CauseAMiss(false)
 
 								if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 								string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -506,7 +506,7 @@ if (keyboard_check_pressed(vk_enter))
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
 					}
-					else ds_list_add(battleText.textList, "But it missed!")
+					else CauseAMiss(false)
 
 					if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 					string_concat(GetName(battle.playerPkmn)," fainted!"))

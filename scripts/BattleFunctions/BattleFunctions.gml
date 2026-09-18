@@ -65,7 +65,6 @@ function GetDamage(pkmn, targetPkmn, moveName)
 		var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 		damage = clamp(damage, 0, 1000000)
 
-		if (random_range(0,101) > moveAcc) return 0
 		return damage
 	}
 	else return 0
@@ -1157,6 +1156,13 @@ function IsNotConfused(moveUser)
 		else return true
 	}
 	else return true
+}
+
+function CauseAMiss(isPlayer)
+{
+	ds_list_add(BattleTextboxObject.textList, "But it missed!")
+	if (isPlayer) BattleTextboxObject.playerDamage = 0
+	else BattleTextboxObject.enemyDamage = 0
 }
 
 function ChooseMove(pkmn, targetPkmn)

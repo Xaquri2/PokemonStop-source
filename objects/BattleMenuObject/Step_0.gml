@@ -155,7 +155,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
 								}
-								else ds_list_add(battleText.textList, "But it missed!")
+								else CauseAMiss(true)
 							}
 							else if (pStatus == "Paralysis" and !paralysisCheck)
 							{
@@ -204,7 +204,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(true)
 								}
 							}
 
@@ -265,7 +265,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(false)
 
 									if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 										string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -318,7 +318,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
 										}
-										else ds_list_add(battleText.textList, "But it missed!")
+										else CauseAMiss(false)
 
 										if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 										string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -406,7 +406,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
 								}
-								else ds_list_add(battleText.textList, "But it missed!")
+								else CauseAMiss(false)
 							}
 							else if (eStatus == "Paralysis" and !paralysisCheck)
 							{
@@ -453,7 +453,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(false)
 								}
 							}
 
@@ -526,7 +526,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(true)
 
 									if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
 									string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
@@ -579,7 +579,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
 										}
-										else ds_list_add(battleText.textList, "But it missed!")
+										else CauseAMiss(true)
 
 										if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
 										string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
@@ -681,7 +681,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
+						else CauseAMiss(false)
 					}
 				}
 				else ds_list_add(battleText.textList, "You can't run away from a trainer battle!")
@@ -796,7 +796,7 @@ if (keyboard_check_pressed(vk_enter))
 							var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
+						else CauseAMiss(true)
 					}
 				}
 				else if (pStatus == "Paralysis" and !paralysisCheck)
@@ -846,7 +846,7 @@ if (keyboard_check_pressed(vk_enter))
 								var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
-							else ds_list_add(battleText.textList, "But it missed!")
+							else CauseAMiss(true)
 						}
 					}
 				}
@@ -915,7 +915,7 @@ if (keyboard_check_pressed(vk_enter))
 									var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
-								else ds_list_add(battleText.textList, "But it missed!")
+								else CauseAMiss(false)
 
 								if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 									string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -967,7 +967,7 @@ if (keyboard_check_pressed(vk_enter))
 										var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(false)
 
 									if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 									string_concat(GetName(battle.playerPkmn)," fainted!"))
@@ -1032,7 +1032,7 @@ if (keyboard_check_pressed(vk_enter))
 							var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
-						else ds_list_add(battleText.textList, "But it missed!")
+						else CauseAMiss(false)
 					}
 				}
 				else if (eStatus == "Paralysis" and !paralysisCheck)
@@ -1080,7 +1080,7 @@ if (keyboard_check_pressed(vk_enter))
 								var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
-							else ds_list_add(battleText.textList, "But it missed!")
+							else CauseAMiss(false)
 						}
 					}
 				}
@@ -1150,7 +1150,7 @@ if (keyboard_check_pressed(vk_enter))
 									var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
-								else ds_list_add(battleText.textList, "But it missed!")
+								else CauseAMiss(true)
 
 								if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
 								string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
@@ -1202,7 +1202,7 @@ if (keyboard_check_pressed(vk_enter))
 										var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
-									else ds_list_add(battleText.textList, "But it missed!")
+									else CauseAMiss(true)
 
 									if (GetHealth(battle.enemyPkmn) <= 0) ds_list_add(battleText.textList,
 									string_concat("The opposing ", GetName(battle.enemyPkmn)," fainted!"))
