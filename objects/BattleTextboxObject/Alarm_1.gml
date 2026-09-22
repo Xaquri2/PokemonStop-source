@@ -35,12 +35,12 @@ if (GetMoveCategory(moveName) != "Status")
 	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 	{
 		var attempt = instance_find(BattlePokemonObject, i)
-		if (attempt.playerTeam and whoAttacked == "Enemy")
+		if (attempt.playerTeam and whoAttacked == "Enemy" and playerDamage > 0)
 		{
 			attempt.flash = true
 			attempt.alarm[3] = 20
 		}
-		else if (!attempt.playerTeam and whoAttacked == "Player")
+		else if (!attempt.playerTeam and whoAttacked == "Player" and enemyDamage > 0)
 		{
 			attempt.flash = true
 			attempt.alarm[3] = 20

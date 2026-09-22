@@ -81,12 +81,14 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 							moveName = enemyMoveName
 						}
 						alarm[1] = GetMoveAnimationTime(moveName)
-
-						var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
-						attackC.alarm[0] = alarm[1]
-						attackC.moveName = moveName
-						attackC.whoAttacked = whoAttacked
-						attackC.particleSpawnTime = floor(alarm[1] / 2)
+						if (ds_list_find_value(textList, currentText+1) != "But it missed!")
+						{
+							var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
+							attackC.alarm[0] = alarm[1]
+							attackC.moveName = moveName
+							attackC.whoAttacked = whoAttacked
+							attackC.particleSpawnTime = floor(alarm[1] / 2)
+						}
 					}
 				}
 				if (string_count("poison damage", text) > 0) //Poison damage
@@ -110,7 +112,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 					whoAttacked = otherEntity
 					alarm[1] = GetMoveAnimationTime(moveName)
-
+					
 					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
 					attackC.alarm[0] = alarm[1]
 					attackC.moveName = "Poison"

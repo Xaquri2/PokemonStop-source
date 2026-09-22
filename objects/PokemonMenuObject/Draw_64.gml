@@ -47,7 +47,19 @@ if (!summaryMode)
 			var level = GetLevel(pkmnInfo)
 			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
 			draw_set_color(c_white)
-
+			
+			if (CanEvolve(global.playerParty, selectedIndex))
+			{
+				var notifyAnchorX = view_get_wport(0)*0.42-16
+				var notifyAnchorY = view_get_hport(0)*(0.145+(0.13*i))+24
+		
+				draw_set_colour(c_red)
+				draw_circle(notifyAnchorX, notifyAnchorY, 12, false)
+				draw_set_colour(c_white)
+				draw_circle(notifyAnchorX, notifyAnchorY+8, 4, false)
+				draw_ellipse(notifyAnchorX-5, notifyAnchorY+2, notifyAnchorX+5, notifyAnchorY-16, false)
+			}
+	
 			var gender = GetGender(pkmnInfo)
 			var genderFrame = 0
 			if (gender == "Female") genderFrame = 1
@@ -117,7 +129,18 @@ else
 	//Level
 	var level = GetLevel(pkmnInfo)
 	draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*0.15, string_concat("Level: ", level), 2, 2, image_angle)
-
+	if (CanEvolve(global.playerParty, selectedIndex))
+	{
+		var notifyAnchorX = view_get_wport(0)*0.42-16
+		var notifyAnchorY = view_get_hport(0)*0.145+24
+		
+		draw_set_colour(c_red)
+		draw_circle(notifyAnchorX, notifyAnchorY, 12, false)
+		draw_set_colour(c_white)
+		draw_circle(notifyAnchorX, notifyAnchorY+8, 4, false)
+		draw_ellipse(notifyAnchorX-5, notifyAnchorY+2, notifyAnchorX+5, notifyAnchorY-16, false)
+	}
+	
 	//Gender
 	var gender = GetGender(pkmnInfo)
 	var genderFrame = 0
