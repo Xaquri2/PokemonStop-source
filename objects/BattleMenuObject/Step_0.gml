@@ -70,7 +70,7 @@ if (keyboard_check_pressed(vk_enter))
 					battleText.enemyPkmn = battle.enemyPkmn
 					battleText.whoAttacked = "Player"
 					var superEffStr = ""
-
+					
 					var pName = GetName(battle.playerPkmn)
 					var pLevel = GetLevel(battle.playerPkmn)
 					var pStatus = GetStatus(battle.playerPkmn)
@@ -208,7 +208,7 @@ if (keyboard_check_pressed(vk_enter))
 								}
 							}
 
-							if ((GetHealth(battle.enemyPkmn) > damage or
+							if (((moveMissed or GetHealth(battle.enemyPkmn) > damage) or
 							pStatus == "Paralysis" and !paralysisCheck) and awake)
 							{
 								struggle = true
@@ -457,7 +457,7 @@ if (keyboard_check_pressed(vk_enter))
 								}
 							}
 
-							if ((GetHealth(battle.playerPkmn) > damage or
+							if (((moveMissed or GetHealth(battle.playerPkmn) > damage) or
 							eStatus == "Paralysis" and !paralysisCheck) and awake)
 							{
 								struggle = true
@@ -636,7 +636,7 @@ if (keyboard_check_pressed(vk_enter))
 						battleText.enemyPkmn = battle.enemyPkmn
 						battleText.whoAttacked = "Player"
 						var superEffStr = ""
-						
+
 						var pFutureStatus = "None"
 						var eFutureStatus = "None"
 						
@@ -713,7 +713,7 @@ if (keyboard_check_pressed(vk_enter))
 			battleText.enemyPkmn = battle.enemyPkmn
 			battleText.whoAttacked = "Player"
 			var superEffStr = ""
-
+			
 			var pFutureStatus = "None"
 			var eFutureStatus = "None"
 
@@ -851,7 +851,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				if (GetHealth(battle.enemyPkmn) > damage and awake and paralysisCheck and !skipTurn)
+				if ((moveMissed or GetHealth(battle.enemyPkmn) > damage) and awake and paralysisCheck and !skipTurn)
 				{
 					if (convincedCheck)
 					{
@@ -1085,7 +1085,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				if (GetHealth(battle.playerPkmn) > damage and !skipTurn) //and paralysisCheck and awake
+				if ((moveMissed or GetHealth(battle.playerPkmn) > damage) and !skipTurn) //and paralysisCheck and awake
 				{
 					if (convincedCheck)
 					{

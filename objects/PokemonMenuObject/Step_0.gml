@@ -129,7 +129,7 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 					battleText.playerPkmn = battle.playerPkmn
 					battleText.enemyPkmn = battle.enemyPkmn
 					var superEffStr = ""
-
+					
 					var pName = GetName(battle.playerPkmn)
 					var pLevel = GetLevel(battle.playerPkmn)
 					var playerStats = GetPokemonFinalStats(pName, pLevel)
