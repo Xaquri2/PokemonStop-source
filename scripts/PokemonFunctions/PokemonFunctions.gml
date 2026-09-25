@@ -134,7 +134,8 @@ function GetWildPokemon(encounterType)
 	var types = GetPokemonType(name)
 
 	ds_list_add(pkmn, 0, name, level, gender, sprite, hp, learnset, learnsetPP, 0, growthRate, types, "None")
-
+	
+	ds_list_destroy(encounters)
 	return pkmn
 }
 

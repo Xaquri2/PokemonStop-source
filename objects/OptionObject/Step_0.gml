@@ -352,6 +352,8 @@ if (keyboard_check_pressed(vk_enter))
 					}
 					else if (string_count("Area Key", itemName) > 0)
 					{
+						global.lastKeyUsed = itemName
+						
 						var game = instance_find(GameObject, 0)
 						game.areaKeyInfo = itemName
 						game.previousRoom = room

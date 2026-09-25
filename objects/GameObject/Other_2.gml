@@ -62,7 +62,8 @@ global.torchRange = 60
 
 global.morlockTimer = 0
 global.convinceCounter = 0
+global.lastKeyUsed = ""
 
-AddItem("Field Area Key", 1)
+AddItem("Moltres Area Key", 1)
 //AddItem("Skyview Potion", 1)
 //AddItem("Poke Flute", 1)
