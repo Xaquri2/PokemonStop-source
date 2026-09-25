@@ -1138,7 +1138,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, 0);
             break;
         case "Thunder Wave":
-            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Confuse", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Sleep", 1, 1, 0);
             break;
         case "Ice Beam":
             ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, 0);
@@ -1485,11 +1485,12 @@ function LearnsMoveAt(name, level)
         // Official Pokémon
         //--------------------------------
         case "Pikachu":
-            if (level == 1)  return "Dynamic Punch";
-            if (level == 4)  return "Quick Attack";
-            if (level == 8)  return "Thunder Wave";
+            //if (level == 1)  return "Dynamic Punch";
+            if (level == 4)  return "Thunder Wave";
+            if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";
+			if (level == 20) return "Growl";
             break;
 
         case "Voltorb":

@@ -850,8 +850,8 @@ if (keyboard_check_pressed(vk_enter))
 						}
 					}
 				}
-
-				if ((moveMissed or GetHealth(battle.enemyPkmn) > damage) and awake and paralysisCheck and !skipTurn)
+				
+				if ((moveMissed or ((GetHealth(battle.enemyPkmn) > damage and awake and paralysisCheck and !skipTurn) or !awake)))
 				{
 					if (convincedCheck)
 					{
@@ -927,7 +927,7 @@ if (keyboard_check_pressed(vk_enter))
 						}
 						else
 						{
-							if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+							if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
 							if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
 
 							if (!awake)
@@ -1085,7 +1085,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 
-				if ((moveMissed or GetHealth(battle.playerPkmn) > damage) and !skipTurn) //and paralysisCheck and awake
+				if (moveMissed or ((GetHealth(battle.playerPkmn) > damage and awake and paralysisCheck and !skipTurn) or !awake)) //and paralysisCheck and awake
 				{
 					if (convincedCheck)
 					{
