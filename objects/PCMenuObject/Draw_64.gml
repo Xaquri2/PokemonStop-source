@@ -18,9 +18,9 @@ if (!summaryMode)
 	{
 		var menuIndex = i+pageAmount*page
 		
-		if (ds_list_size(global.pokemonList) > menuIndex)
+		if (ds_list_size(global.pcPokemonList) > menuIndex)
 		{
-			var pkmnData = ds_list_find_value(global.pokemonList, menuIndex)
+			var pkmnData = ds_list_find_value(global.pcPokemonList, menuIndex)
 
 			var frameScaledWidth = sprite_get_width(MenuSprite)*4
 			var frameScaledHeight = sprite_get_height(MenuSprite)*4

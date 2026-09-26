@@ -25,8 +25,6 @@ if (showNPCText != "" and !talking and canWalk and instance_exists(nearestNPC)) 
 	}
 }
 
-draw_text(x,y-24,menuOpen)
-
 //draw_set_color(c_white);
 //draw_text(x + 32, y - 64,
 //    "player layer id: " + string(layer) + "\n" +

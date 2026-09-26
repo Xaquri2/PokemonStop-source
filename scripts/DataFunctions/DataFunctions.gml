@@ -296,6 +296,15 @@ function LoadData()
 		global.followerType = saveState.followerType
 		global.pikminCount = saveState.pikminCount
 	}
+	
+	if (ds_list_empty(global.pcPokemonList) and !ds_list_empty(global.pokemonList))
+	{
+		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+		{
+			var attempt = ds_list_find_value(global.pokemonList, i)
+			if (ds_list_find_index(global.playerParty, attempt) == -1) ds_list_add(global.pcPokemonList, attempt)
+		}
+	}
 }
 
 function SaveStateAction(stateNumber, actionMode)

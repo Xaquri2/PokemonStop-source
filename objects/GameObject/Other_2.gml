@@ -31,6 +31,7 @@ ds_list_add(global.categoryItemList, itemsList, ballsList, battleList, berryList
 
 global.catchIndex = 0 //The index of every new Pokémon caught
 global.pokemonList = ds_list_create() //The list containing all Pokémon caught
+global.pcPokemonList = ds_list_create() //The list containing all Pokémon in the PC
 
 global.partySize = 36 //The maximum size of the player party
 global.playerParty = ds_list_create() //The player party list
@@ -43,15 +44,18 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
+/*AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 100, GetRandomGender(50))
-//AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
-//AddPokemon("Charmander", 100, GetRandomGender(50))
-/*AddPokemon("Godzilla", 95, GetRandomGender(50))
+AddPokemon("Pikachu", 100, GetRandomGender(50))
+AddPokemon("Pikachu", 100, GetRandomGender(50))
+AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
+AddPokemon("Charmander", 100, GetRandomGender(50))
+AddPokemon("Godzilla", 95, GetRandomGender(50))
 AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
 AddPokemon("Glyptoblock", 15, GetRandomGender(50))
 AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))
-//AddPokemon("Pikachu", 10, GetRandomGender(50))*/
+AddPokemon("Pikachu", 10, GetRandomGender(50))*/
 
 global.standardStartRoom = Mallet_Town
 global.activatedBadges = ds_list_create()
@@ -64,6 +68,6 @@ global.morlockTimer = 0
 global.convinceCounter = 0
 global.lastKeyUsed = ""
 
-AddItem("Moltres Area Key", 1)
+//AddItem("Moltres Area Key", 1)
 //AddItem("Skyview Potion", 1)
 //AddItem("Poke Flute", 1)

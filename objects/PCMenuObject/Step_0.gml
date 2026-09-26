@@ -30,10 +30,11 @@ else pokemonNumber = -1
 if (keyboard_check_pressed(vk_enter))
 {
 	var menuIndex = currentOption+pageAmount*page
-	if (!switching and ds_list_size(global.pokemonList) > menuIndex)
+	if (!switching and ds_list_size(global.pcPokemonList) > menuIndex)
 	{
 		var pkmnMenu = instance_create_depth(x,y,depth-1,PokemonMenuObject)
 		pkmnMenu.pcSwitchMode = true
+		var test = GetName(ds_list_find_value(global.pcPokemonList, currentOption+pageAmount*page))
 		pkmnMenu.switchIndex = currentOption+pageAmount*page
 		menu.optionMenu = noone
 		instance_destroy(id)

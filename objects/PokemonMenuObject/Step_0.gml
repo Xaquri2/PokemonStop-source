@@ -49,7 +49,7 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 	}
 	else if (pcSwitchMode)
 	{
-		var pkmn1 = ds_list_find_value(global.pokemonList, switchIndex)
+		var pkmn1 = ds_list_find_value(global.pcPokemonList, switchIndex)
 		var pkmn2 = ds_list_find_value(global.playerParty, selectedIndex)
 		
 		if (GetCatchIndex(pkmn1) != GetCatchIndex(pkmn2))
@@ -63,6 +63,13 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 			else 
 			{
 				ds_list_replace(global.playerParty, selectedIndex, pkmn1)
+				
+				ds_list_clear(global.pcPokemonList)
+				for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+				{
+					var attempt = ds_list_find_value(global.pokemonList, i)
+					if (ds_list_find_index(global.playerParty, attempt) == -1) ds_list_add(global.pcPokemonList, attempt)
+				}
 			}
 		}
 		
