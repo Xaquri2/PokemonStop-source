@@ -14,8 +14,8 @@ global.speedUpMultiplier = 1
 
 global.expAll = false
 
-global.followerType = "Mary"
-global.pikminCount = 2
+global.followerType = ""
+global.pikminCount = 0
 
 var itemsList = ds_list_create()
 var ballsList = ds_list_create()
