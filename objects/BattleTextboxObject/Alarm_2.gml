@@ -188,8 +188,9 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 					if (player != noone)
 					{
-						if (player.currentPkmn == 0)
+						if (player.initialSendOut)
 						{
+							player.initialSendOut = false
 							player.hspeed = player.moveSpeed
 							player.alarm[0] = 100
 							player.alarm[1] = 1

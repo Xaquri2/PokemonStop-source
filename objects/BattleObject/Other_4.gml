@@ -1,5 +1,45 @@
 if (room == RoomBattle or room == RoomBattleGodzilla)
 {
+	var playerPkmnIndex = GetFirstHealthyPokemon()
+	if (playerPkmnIndex != -1)
+	{
+		playerPkmn = ds_list_find_value(playerTeam, playerPkmnIndex)
+	}
+	else if (!ds_list_empty(pikminList))
+	{
+		var reservePikmin = ds_list_find_value(pikminList, 0)
+		ds_list_delete(pikminList, 0)
+
+		if (ds_list_size(playerTeam) < 6)
+		{
+			AddPokemon(GetName(reservePikmin), GetLevel(reservePikmin), GetGender(reservePikmin))
+			playerPkmnIndex = ds_list_size(playerTeam)-1
+			playerPkmn = ds_list_find_value(playerTeam, playerPkmnIndex)
+		}
+		else
+		{
+			currentPikmin = reservePikmin
+			playerPkmn = reservePikmin
+		}
+
+		global.pikminCount = max(0, global.pikminCount-1)
+	}
+	else
+	{
+		// A battle cannot start without a usable combatant. Resolve it through
+		// the normal defeat destination and restore the party for the next try.
+		for (var i = 0; i < ds_list_size(playerTeam); i++)
+		{
+			HealPokemon(playerTeam, i, 1000000, true, true, true)
+		}
+
+		ending = true
+		defeat = true
+		fadeAlpha = 0
+		alarm[0] = -1
+		exit
+	}
+
 	var bgLayer = BattleHasBackground()
 	var bgLayer2 = BattleHasBackground2()
 	var bgFX = BattleHasFX()
@@ -38,7 +78,6 @@ if (room == RoomBattle or room == RoomBattleGodzilla)
 		alarm[1] = video_get_duration()
 	}
 	
-	playerPkmn = ds_list_find_value(playerTeam, GetFirstHealthyPokemon())
 	var playerTeamMemberName = GetName(playerPkmn)
 
 	enemyPkmn =  ds_list_find_value(enemyTeam, 0)
@@ -128,4 +167,3 @@ else
 		instance_destroy(id)
 	}
 }
-

@@ -11,7 +11,15 @@ for (var i = 0; i < instance_number(BattlePokemonObject); i++)
 }
 
 mainOptionsList = ds_list_create()
-ds_list_add(mainOptionsList, "Fight", "Bag", "Team", "Run")
+var battle = instance_find(BattleObject, 0)
+if (battle != noone and !battle.isWild)
+{
+	ds_list_add(mainOptionsList, "Fight", "Bag", "Team", "Give Up")
+}
+else
+{
+	ds_list_add(mainOptionsList, "Fight", "Bag", "Team", "Run")
+}
 
 optionsList = mainOptionsList
 moveMissed = false

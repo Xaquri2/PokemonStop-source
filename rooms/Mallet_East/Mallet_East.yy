@@ -72,13 +72,13 @@
   ],
   "isDnd":false,
   "layers":[
-    {"$GMRTileLayer":"","%Name":"HouseTops","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"HouseTops","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":17,"TileCompressedData":[
+    {"$GMRTileLayer":"","%Name":"HouseTops","depth":-1000,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"HouseTops","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":16,"SerialiseWidth":17,"TileCompressedData":[
           -44,-2147483648,3,706,707,708,-4,-2147483648,6,241,242,-2147483648,-2147483648,237,238,-4,-2147483648,
           3,725,726,727,-4,-2147483648,6,260,261,-2147483648,-2147483648,256,257,-56,-2147483648,2,239,240,-8,
           -2147483648,3,485,486,487,-4,-2147483648,2,258,259,-8,-2147483648,3,504,505,506,-72,-2147483648,2,237,
           238,-5,-2147483648,5,356,357,358,359,360,-5,-2147483648,2,256,257,-5,-2147483648,5,375,376,377,378,379,
           -5,-2147483648,2,275,276,-4,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"Serene_Village3","path":"tilesets/Serene_Village3/Serene_Village3.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"Serene_Village3","path":"tilesets/Serene_Village3/Serene_Village3.yy",},"userdefinedDepth":true,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"Important","depth":9903,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"UserInterface","depth":10003,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"UserInterface","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Doodads","assets":[

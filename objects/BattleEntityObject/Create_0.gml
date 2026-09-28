@@ -9,6 +9,7 @@ isWild = false
 moveSpeed = 0
 currentPkmn = 0
 switchIndex = -1
+initialSendOut = true
 
 flash = false
 flashValue = 0
