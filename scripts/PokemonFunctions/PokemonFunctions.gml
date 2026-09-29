@@ -1652,11 +1652,11 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Creeper":
-            if (level == 1)  return "Self-Destruct";
-            if (level == 4)  return "Tackle";
-            if (level == 8)  return "Grassy Surge";
-            if (level == 12) return "Explosion";
-            if (level == 16) return "Giga Impact";
+            if (level == 1)  return "Tackle";
+            if (level == 6)  return "Grassy Surge";
+			if (level == 12)  return "Self-Destruct";
+            if (level == 16) return "Explosion";
+            if (level == 20) return "Giga Impact";
             break;
 
         case "Ewok":
@@ -1732,9 +1732,10 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Envy":
-            if (level == 1)  return "Water Gun";
+            if (level == 1)  return "Tackle";
 			if (level == 4)  return "Growl";
-            if (level == 8)  return "Hypnosis";
+            if (level == 6)  return "Hypnosis";
+			if (level == 9) return "Water Gun"
             if (level == 12) return "Crunch";
             if (level == 16) return "Shadow Ball";
             break;
@@ -1980,8 +1981,8 @@ function LearnsMoveAt(name, level)
 
         case "Krypton Firefly":
             if (level == 1)  return "Gust";
-            if (level == 4)  return "Ember";
-            if (level == 8)  return "Quick Attack";
+			if (level == 4)  return "Quick Attack";
+            if (level == 8)  return "Ember";
             if (level == 12) return "Wing Attack";
             if (level == 16) return "Fire Blast";
             break;
