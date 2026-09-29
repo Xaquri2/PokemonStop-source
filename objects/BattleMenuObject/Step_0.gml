@@ -279,7 +279,7 @@ if (keyboard_check_pressed(vk_enter))
 								{
 									if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) or
 									(eFutureStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
-									if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
+									if (GetMoveEffect(playerMoveName) == "Sleep" and (!moveMissed and pStatus != "Sleep") and eStatus == "None") awake = false
 
 									if (!awake)
 									{
@@ -359,7 +359,7 @@ if (keyboard_check_pressed(vk_enter))
 
 							if (!struggle) moveName = enemyMoveName
 							else moveName = "Struggle"
-
+							
 							var moveEff = GetMoveEffect(moveName)
 							var damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
 							var isCrit = RollCriticalChance(enemyPkmn.critModifier)
@@ -947,7 +947,7 @@ if (keyboard_check_pressed(vk_enter))
 						else
 						{
 							if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
-							if (GetMoveEffect(playerMoveName) == "Sleep" and eStatus == "None") awake = false
+							if (GetMoveEffect(playerMoveName) == "Sleep" and (!moveMissed and pStatus != "Sleep") and eStatus == "None") awake = false
 
 							if (!awake)
 							{
@@ -1060,7 +1060,7 @@ if (keyboard_check_pressed(vk_enter))
 				}
 				else
 				{
-					if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+					if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
 
 					if (!awake)
 					{
@@ -1182,7 +1182,7 @@ if (keyboard_check_pressed(vk_enter))
 						else
 						{
 							if (pStatus == "Sleep" and playerPkmn.sleepCounter < 4) awake = WakeUpCheck()
-							if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
+							if (GetMoveEffect(enemyMoveName) == "Sleep" and (!moveMissed and eStatus != "Sleep") and pStatus == "None") awake = false
 
 							if (!awake)
 							{

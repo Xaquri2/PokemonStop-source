@@ -1035,7 +1035,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now paralyzed"
-							else str = "The opponent already has a status effect!"
+							else str = "Your pokemon already has a status effect!"
 						}
 						else str = ""
 						break
@@ -1043,7 +1043,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now poisoned"
-							else str = "The opponent already has a status effect!"
+							else str = "Your pokemon already has a status effect!"
 						}
 						else str = ""
 						break
@@ -1051,7 +1051,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now burned"
-							else str = "The opponent already has a status effect!"
+							else str = "Your pokemon already has a status effect!"
 						}
 						else str = ""
 						break
@@ -1059,7 +1059,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now asleep"
-							else str = "The opponent already has a status effect!"
+							else str = "Your pokemon already has a status effect!"
 						}
 						else str = ""
 						break
@@ -1067,7 +1067,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (!target.confusion) str = "The opponent is now confused"
-							else str = "The opponent is already confused!"
+							else str = "Your pokemon already has a status effect!"
 						}
 						else str = ""
 						break

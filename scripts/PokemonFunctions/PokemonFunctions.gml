@@ -25,6 +25,15 @@ function AddPokemon(name, level, gender) {
 	{
 		ds_list_add(global.pokedex, name)
 	}
+	
+	if (ds_list_empty(global.pcPokemonList) and !ds_list_empty(global.pokemonList))
+	{
+		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+		{
+			var attempt = ds_list_find_value(global.pokemonList, i)
+			if (ds_list_find_index(global.playerParty, attempt) == -1) ds_list_add(global.pcPokemonList, attempt)
+		}
+	}
 }
 
 function AddPokemonSpecific(pokemon) {
@@ -40,6 +49,15 @@ function AddPokemonSpecific(pokemon) {
 	if (ds_list_find_index(global.pokedex, name) == -1)
 	{
 		ds_list_add(global.pokedex, name)
+	}
+	
+	if (ds_list_empty(global.pcPokemonList) and !ds_list_empty(global.pokemonList))
+	{
+		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+		{
+			var attempt = ds_list_find_value(global.pokemonList, i)
+			if (ds_list_find_index(global.playerParty, attempt) == -1) ds_list_add(global.pcPokemonList, attempt)
+		}
 	}
 }
 
@@ -59,6 +77,15 @@ function AddPokemonWithHP(name, level, gender, sprite, hp) {
 		ds_list_add(global.playerParty, pokemon)
 	}
 	if (ds_list_find_index(global.pokedex, name) == -1) ds_list_add(global.pokedex, name)
+	
+	if (ds_list_empty(global.pcPokemonList) and !ds_list_empty(global.pokemonList))
+	{
+		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
+		{
+			var attempt = ds_list_find_value(global.pokemonList, i)
+			if (ds_list_find_index(global.playerParty, attempt) == -1) ds_list_add(global.pcPokemonList, attempt)
+		}
+	}
 }
 
 function AddPokemonTrainer(team, index, name, level, gender, sprite) {
@@ -1487,9 +1514,9 @@ function LearnsMoveAt(name, level)
         //--------------------------------
         case "Pikachu":
             //if (level == 1)  return "Dynamic Punch";
-			if (level == 1)  return "Tackle";
-			if (level == 3) return "Growl";
-            if (level == 6)  return "Thunder Wave";
+			//if (level == 1)  return "Tackle";
+			if (level == 6) return "Growl";
+            if (level == 3)  return "Thunder Wave";
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";
