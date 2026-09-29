@@ -540,7 +540,7 @@ if (keyboard_check_pressed(vk_enter))
 								{
 									if ((pStatus == "Sleep" and playerPkmn.sleepCounter < 4) or
 									(pFutureStatus == "Sleep" and playerPkmn.sleepCounter < 4)) awake = WakeUpCheck()
-									if (GetMoveEffect(enemyMoveName) == "Sleep" and pStatus == "None") awake = false
+									if (GetMoveEffect(enemyMoveName) == "Sleep" and (!moveMissed and eStatus != "Sleep") and pStatus == "None") awake = false
 
 									if (!awake)
 									{
