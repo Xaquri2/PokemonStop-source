@@ -25,7 +25,6 @@ if (showNPCText != "" and !talking and canWalk and instance_exists(nearestNPC)) 
 	}
 }
 
-draw_text(x,y-32,ds_list_size(global.pokemonList))
 //draw_set_color(c_white);
 //draw_text(x + 32, y - 64,
 //    "player layer id: " + string(layer) + "\n" +

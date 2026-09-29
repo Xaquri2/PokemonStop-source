@@ -7,9 +7,12 @@ if (keyboard_check_pressed(ord("E")) and active)
 
 if (keyboard_check_pressed(vk_enter) and active)
 {
-	var fileName = string_concat("savefile", 1, ".json")
+	var fileName = string_concat("savefile", selectedIndex+1, ".json")
 	var option = ds_list_find_value(optionsList, selectedIndex)
 	if (option != "Exit") active = false
+	
+	global.saveFile = selectedIndex+1
+	global.currentSaveState = selectedIndex+1
 	
 	if (mode == "Save")
 	{
