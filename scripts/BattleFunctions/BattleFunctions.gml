@@ -1747,6 +1747,11 @@ function GetBattleXscale(name)
 		case "MissingNo": 
 			return 0.5;
 			break
+			
+		case "Charmander": 
+		case "Squirrel":
+			return 0.6;
+			break
 	}
 	return 1
 }
@@ -1755,6 +1760,10 @@ function GetBattleYscale(name)
 {
 	switch (name)
 	{
+		case "Charmander": 
+		case "Squirrel":
+			return 0.6;
+			break
 		case "MissingNo": 
 			return 0.5;
 			break

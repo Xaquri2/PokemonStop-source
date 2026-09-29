@@ -1185,7 +1185,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Psychic", "Special", 90, 100, 10, "LowerSpDef", 0.1, 1, 0);
             break;
         case "Dynamic Punch":
-            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 7, 5, "Confuse", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Fighting", "Physical", 100, 50, 5, "Confuse", 1, 1, 0);
             break;
         case "Bulldoze":
             ds_list_add(moveInfo, moveName, "Ground", "Physical", 60, 100, 20, "LowerSpeed", 1, 1, 0);
@@ -1635,9 +1635,9 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Demogorgon":
-            if (level == 1)  return "Hypnosis";
-			if (level == 1)  return "Scratch";
-            if (level == 5)  return "Psychic";
+            if (level == 1)  return "Scratch";
+			if (level == 2)  return "Hypnosis";
+			if (level == 5)  return "Psychic";
             if (level == 10) return "Dual Strike";
             if (level == 15) return "Giga Impact";
             if (level == 20) return "Force Lift";

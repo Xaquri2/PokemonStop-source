@@ -140,7 +140,8 @@ else
 		if (!defeat)
 		{
 			if (instance_number(PlayerObject) == 0)
-			{
+			{	
+				//var collisionFix = 
 				var player = instance_create_layer(playerX, playerY, "Instances", PlayerObject)
 				player.x = playerX
 				player.y = playerY
