@@ -1,4 +1,4 @@
-if (instance_number(FogObject) < 8000)
+if (instance_number(FogObject) < 4000)
 {
 	repeat (spawnAmount) 
 	{

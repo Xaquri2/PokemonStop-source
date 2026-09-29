@@ -2145,7 +2145,7 @@ function ConsumePP(pkmnInfo, index)
 /// @description               Gets the defeated Pokémon's base EXP yield value
 function GetBaseYield(name)
 {
-	return 100
+	return 250
 }
 
 /// @param       name          The fainted Pokémon's name
