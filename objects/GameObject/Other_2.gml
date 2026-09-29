@@ -44,8 +44,8 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
+repeat (6) AddPokemon("Pikachu", 100, GetRandomGender(50))
 /*AddPokemon("Pikachu", 100, GetRandomGender(50))
-AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
@@ -68,6 +68,7 @@ global.morlockTimer = 0
 global.convinceCounter = 0
 global.lastKeyUsed = ""
 
+AddItem("Poke Ball", 10)
 //AddItem("Moltres Area Key", 1)
 //AddItem("Skyview Potion", 1)
 //AddItem("Poke Flute", 1)

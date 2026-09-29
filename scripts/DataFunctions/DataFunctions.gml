@@ -297,6 +297,7 @@ function LoadData()
 		global.pikminCount = saveState.pikminCount
 	}
 	
+	ds_list_clear(global.pcPokemonList)
 	if (ds_list_empty(global.pcPokemonList) and !ds_list_empty(global.pokemonList))
 	{
 		for (var i = 0; i < ds_list_size(global.pokemonList); i++)
