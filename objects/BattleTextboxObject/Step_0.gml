@@ -155,8 +155,9 @@ if (damageValue > 0 and damaging)
 		whoAttacked = ""
 		alarm[4] = 30
 
-		target.currentPkmn = nextPkmnIndex
-		target.switchIndex = -1
+		// Keep currentPkmn on the fainted Pokemon until the replacement is
+		// actually spawned. The Pokeball event commits this pending index.
+		target.switchIndex = nextPkmnIndex
 		//playerPkmn = nextPkmn
 		nextPkmn = -1
 	}

@@ -618,7 +618,26 @@ if (keyboard_check_pressed(vk_enter))
 			case 3:
 				var battleText = instance_create_layer(0,0,"UIElements",BattleTextboxObject)
 				var battle = instance_find(BattleObject, 0)
-				if (battle.isWild)
+				if (!battle.isWild)
+				{
+					for (var i = 0; i < ds_list_size(battle.playerTeam); i++)
+					{
+						var pkmnInfo = ds_list_find_value(battle.playerTeam, i)
+						if (GetHealth(pkmnInfo) > 0) ds_list_set(pkmnInfo, 5, 0)
+					}
+
+					var activePkmn = FindBattlePokemonEntity(battle.playerPkmn)
+					if (activePkmn != noone)
+					{
+						activePkmn.hp = 0
+						ds_list_set(activePkmn.pkmnInfo, 5, 0)
+					}
+
+					ds_list_add(battleText.textList, "You gave up!", "You lose!")
+					battleText.endBattle = true
+					battleText.defeat = true
+				}
+				else
 				{
 					var canRun = TryToRun(battle.playerPkmn, battle.enemyPkmn, battle.runAttempts)
 					if (canRun)
@@ -684,8 +703,8 @@ if (keyboard_check_pressed(vk_enter))
 						else CauseAMiss(false)
 					}
 				}
-				else ds_list_add(battleText.textList, "You can't run away from a trainer battle!")
 				instance_destroy(id)
+				break
 		}
 	}
 	else if (mode == "Moves" and ds_list_find_value(GetMoves(BattleObject.playerPkmn), currentOption) != undefined)
