@@ -140,7 +140,8 @@ else
 		if (!defeat)
 		{
 			if (instance_number(PlayerObject) == 0)
-			{
+			{	
+				//var collisionFix = 
 				var player = instance_create_layer(playerX, playerY, "Instances", PlayerObject)
 				player.x = playerX
 				player.y = playerY
@@ -150,6 +151,68 @@ else
 				var player = instance_find(PlayerObject, 0)
 				player.x = playerX
 				player.y = playerY
+			}
+
+			// Returning to the exact pre-battle position can overlap a roaming
+			// Pokemon after the overworld room recreates its instances. Separate
+			// the player during Room Start, before Step and Collision events can
+			// immediately trigger the same battle again.
+			var returnedPlayer = instance_find(PlayerObject, 0)
+			if (escaped and isWild and instance_exists(returnedPlayer))
+			{
+				with (returnedPlayer)
+				{
+					var overlappingPokemon = instance_place(x, y, RoamingPokemonParent)
+					if (instance_exists(overlappingPokemon))
+					{
+						var returnX = x
+						var returnY = y
+						var leftOffset = bbox_left-x
+						var rightOffset = bbox_right-x
+						var topOffset = bbox_top-y
+						var bottomOffset = bbox_bottom-y
+						var escapeDirection = point_direction(overlappingPokemon.x, overlappingPokemon.y, returnX, returnY)
+						var blockedDirections = array_create(8, false)
+						var foundSafePosition = false
+
+						// Search away from the encountered Pokemon first. Once a ray hits
+						// another object or the room boundary, do not teleport through it.
+						for (var radius = 8; radius <= 128 and !foundSafePosition; radius += 8)
+						{
+							for (var directionIndex = 0; directionIndex < 8; directionIndex++)
+							{
+								if (blockedDirections[directionIndex]) continue
+
+								var checkDirection = escapeDirection+directionIndex*45
+								var candidateX = returnX+lengthdir_x(radius, checkDirection)
+								var candidateY = returnY+lengthdir_y(radius, checkDirection)
+								var insideRoom = candidateX+leftOffset >= 0
+								and candidateX+rightOffset < room_width
+								and candidateY+topOffset >= 0
+								and candidateY+bottomOffset < room_height
+
+								if (!insideRoom)
+								{
+									blockedDirections[directionIndex] = true
+									continue
+								}
+
+								var candidateCollision = instance_place(candidateX, candidateY, CollisionParent)
+								if (candidateCollision == noone)
+								{
+									x = candidateX
+									y = candidateY
+									foundSafePosition = true
+									break
+								}
+								else if (candidateCollision != overlappingPokemon)
+								{
+									blockedDirections[directionIndex] = true
+								}
+							}
+						}
+					}
+				}
 			}
 
 			for (var i = 0; i < instance_number(TrainerParent); i++)
