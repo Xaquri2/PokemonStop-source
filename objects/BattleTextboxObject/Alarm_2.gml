@@ -494,7 +494,10 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						var index = attempt.currentPkmn
 						var pkmnData = ds_list_find_value(team, index)
 						var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
-						HealPokemon(team, index, healValue, attempt.player, false, false)
+						if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
+						{
+							HealPokemon(team, index, healValue, attempt.player, false, false)
+						}
 					}
 				}
 			}
