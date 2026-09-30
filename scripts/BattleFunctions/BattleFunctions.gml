@@ -1120,7 +1120,17 @@ function DealEffect(effectName, accurancy, damage, user, target)
 			}
 	}
 	
+	if (effectName == "GrassyTerrain") 
+	{
+		BattleObject.currentField = "GrassyTerrain"
+		str = "The field has become grassy!"
+	}
 	return str
+}
+
+function CheckForFieldEffect(effString, tList)
+{
+	if (BattleObject.currentField == "GrassyTerrain") ds_list_add(tList, "All pokémon on the field have been healed!")
 }
 
 function IsStatusEffect(eff)

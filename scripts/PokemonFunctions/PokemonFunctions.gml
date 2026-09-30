@@ -1514,9 +1514,9 @@ function LearnsMoveAt(name, level)
         //--------------------------------
         case "Pikachu":
             //if (level == 1)  return "Dynamic Punch";
-			//if (level == 1)  return "Tackle";
+			if (level == 1)  return "Tackle";
 			if (level == 6) return "Growl";
-            if (level == 3)  return "Thunder Wave";
+            if (level == 3)  return "Grassy Surge"//"Thunder Wave";
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";

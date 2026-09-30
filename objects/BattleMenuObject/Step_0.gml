@@ -598,6 +598,8 @@ if (keyboard_check_pressed(vk_enter))
 								if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and eStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 							}
 						}
+						
+						CheckForFieldEffect(effStr, battleText.textList)
 						instance_destroy(id)
 					}
 				}
@@ -1237,6 +1239,8 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 			}
+			
+			CheckForFieldEffect(effStr, battleText.textList)
 			
 			instance_destroy(id)
 		}

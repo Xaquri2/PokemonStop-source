@@ -19,6 +19,7 @@ enemySprite = noone
 enemyName = ""
 enemyObjectType = noone
 
+currentField = ""
 playerFieldEffects = ds_list_create()
 enemyFieldEffects = ds_list_create()
 

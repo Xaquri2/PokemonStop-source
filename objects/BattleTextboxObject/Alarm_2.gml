@@ -485,6 +485,18 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 					target.status = status
 				}
+				else if (text == "All pokémon on the field have been healed!")
+				{
+					for (var i = 0; i < instance_number(BattleEntityObject); i++)
+					{
+						var attempt = instance_find(BattleEntityObject, i)
+						var team = attempt.team
+						var index = attempt.currentPkmn
+						var pkmnData = ds_list_find_value(team, index)
+						var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
+						HealPokemon(team, index, healValue, attempt.player, false, false)
+					}
+				}
 			}
 		}
 	}
