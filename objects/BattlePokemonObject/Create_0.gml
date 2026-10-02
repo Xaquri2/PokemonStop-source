@@ -35,6 +35,7 @@ catchEffect = false
 catchEffectAlpha = 1
 
 textbox = -1
+inhaled = false
 
 alarm[0] = 1
 if room == RoomBattleGodzilla {

@@ -926,6 +926,24 @@ if (keyboard_check_pressed(vk_enter))
 						if (pStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
 						if (eStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and eStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 					}
+					else if (moveEff == "Redirect" and !battle.protectFail)
+					{
+						moveName = enemyMoveName
+						moveEff = GetMoveEffect(moveName)
+						damage = GetDamage(battle.enemyPkmn, battle.playerPkmn, moveName)
+						battleText.enemyMoveName = moveName
+						battleText.enemyDamage = damage
+						
+						ds_list_add(battleText.textList, "The opponent's attack hit... the ground???")
+						
+						if (pStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+						if (eStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and eStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+
+						if (pStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+						if (eStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and eStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
+						
+						battle.protectFail = true
+					}
 					else
 					{
 						if (moveName == "Convince" or moveName == "Logic")
@@ -1250,6 +1268,24 @@ if (keyboard_check_pressed(vk_enter))
 
 						if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
 						if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and eStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+					}
+					else if (moveEff == "Redirect" and !battle.protectFail)
+					{
+						moveName = playerMoveName
+						moveEff = GetMoveEffect(moveName)
+						battleText.moveName = moveName
+						battleText.playerMoveName = moveName
+						battleText.playerDamage = damage
+						
+						ds_list_add(battleText.textList, "Your pokémon's attack hit... the ground???")
+						
+						if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
+						if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and eStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
+						
+						if (eStatus == "Burn" or (GetMoveEffect(enemyMoveName) == "Burn" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took burn damage")
+						if (pStatus == "Burn" or (GetMoveEffect(playerMoveName) == "Burn" and eStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took burn damage")
+						
+						battle.protectFail = true
 					}
 					else
 					{

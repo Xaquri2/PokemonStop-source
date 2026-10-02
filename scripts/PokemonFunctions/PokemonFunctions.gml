@@ -1252,7 +1252,7 @@ function GetMoveDetails(moveName)
             break;
         case "Inhale":
             // Kirby's special
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 4);
             break;
         case "Aura Sphere":
             ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 1000, 20, "None", 1, 1, 0);
@@ -1515,8 +1515,8 @@ function LearnsMoveAt(name, level)
         case "Pikachu":
             //if (level == 1)  return "Dynamic Punch";
 			if (level == 1)  return "Tackle";
-			//if (level == 6) return "Growl";
-            if (level == 3)  return "Protect"//"Thunder Wave";
+			//if (level == 3) return "Growl";
+            if (level == 6)  return "Redirect"//"Thunder Wave";
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";

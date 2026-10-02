@@ -842,6 +842,10 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						str = "MissingNo set the battle into a state of FLUX!"
 						BattleObject.Fluxxed = true
 						break
+					case "Inhale":
+						str = string_concat("The attacked was inhaled by ", GetName(user.pkmnInfo), "!")
+						user.inhaled = true
+						break
 				}
 		}
 		else
@@ -1174,6 +1178,14 @@ function DealEffect(effectName, accurancy, damage, user, target)
 		BattleObject.currentField = "GrassyTerrain"
 		str = "The field has become grassy!"
 	}
+	
+	if (target.inhaled and damage > 0)
+	{
+		if (user.playerTeam) ds_list_add(BattleTextboxObject.textList, "The opponent's pokémon spat out an attack!")
+		else ds_list_add(BattleTextboxObject.textList, "Your pokémon spat out an attack!")
+		target.inhaled = false
+	}
+	
 	return str
 }
 

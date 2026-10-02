@@ -500,6 +500,23 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						}
 					}
 				}
+				else if (string_count("spat out", text) > 0)
+				{
+					if (string_count("opponent", text) > 0)
+					{
+						enemyDamage = 20
+						damaging = true
+						whoAttacked = "Enemy"
+						alarm[1] = 30
+					}
+					else
+					{
+						playerDamage = 20
+						damaging = true
+						whoAttacked = "Player"
+						alarm[1] = 30
+					}
+				}
 			}
 		}
 	}
