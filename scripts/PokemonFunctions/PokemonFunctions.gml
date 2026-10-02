@@ -1292,7 +1292,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Poison", "Special", 60, 100, 15, "Corrode", 0.3, 1, 0);
             break;
         case "Slash":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.2, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.4, 0);
             break;
         case "Lick":
             ds_list_add(moveInfo, moveName, "Ghost", "Physical", 30, 100, 30, "Paralysis", 0.3, 1, 0);
@@ -1308,7 +1308,7 @@ function GetMoveDetails(moveName)
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 1, 1, 0);
             break;
 		case "Hail Mary Hit":
-			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 1, 1, 0);
+			ds_list_add(moveInfo, moveName, "Normal", "Physical", 5, 100, 15, "HailMaryHit", 1, 1, 0);
             break;
 		case "Set Trap":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "SetTrap", 1, 1, 0);
@@ -1369,7 +1369,7 @@ function GetMoveDetails(moveName)
             break;
 
         case "Shadow Claw":
-            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 70, 100, 15, "HighCrit", 1, 1.2, 0);
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 70, 100, 15, "HighCrit", 1, 1.4, 0);
             break;
 
         case "Moonblast":
@@ -1515,8 +1515,8 @@ function LearnsMoveAt(name, level)
         case "Pikachu":
             //if (level == 1)  return "Dynamic Punch";
 			if (level == 1)  return "Tackle";
-			if (level == 6) return "Growl";
-            if (level == 3)  return "Grassy Surge"//"Thunder Wave";
+			//if (level == 6) return "Growl";
+            if (level == 3)  return "Protect"//"Thunder Wave";
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";

@@ -61,9 +61,15 @@ function GetDamage(pkmn, targetPkmn, moveName)
 
 		if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
 		if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
-
+		
 		var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 		damage = clamp(damage, 0, 1000000)
+		
+		if (moveEffect == "HailMaryHit")
+		{
+			damage = 5
+			if (irandom(9) == 1) damage += 50
+		}
 		return damage
 	}
 	else return 0
@@ -80,7 +86,7 @@ function GetRecoilDamage(pkmn, moveName)
 		case "Doom Downgrade":
 		case "Hex Roulette":
 		case "Hail Mary Hit":
-			dmg += GetPokemonFinalHP(name, level)
+			if (irandom(9) < 5) dmg += GetHealth(pkmn)*0.6
 			break
 		case "Self-Destruct":
 		case "Explosion":
@@ -477,6 +483,41 @@ function DealDamage(damage, isPlayer)
 	var damagedPkmn = entity.pkmnInfo
 	ds_list_set(damagedPkmn, 5, entity.hp)
 	
+	var entity2 = noone
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	{
+		var attempt = instance_find(BattlePokemonObject, i)
+		if ((!attempt.playerTeam and !isPlayer) or (attempt.playerTeam and isPlayer))
+		{
+			entity2 = attempt
+			break
+		}
+	}
+	
+	if (GetMoveEffect(moveName) == "Drain") 
+	{
+		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+		{
+			var attempt2 = instance_find(BattleEntityObject, i)
+			if (attempt2.player == isPlayer and GetMoveEffect(moveName) == "Drain")
+			{
+				var teamV = attempt2.team
+				var indexV = attempt2.currentPkmn
+				HealPokemon(teamV, indexV, clamp(floor(damage/2),1,10000000), isPlayer, false, false)
+				entity2.hp = GetHealth(entity2.pkmnInfo)
+			}
+		}
+	}
+	else if (isPlayer and GetMoveEffect(enemyMoveName) == "MagicCoat")
+	or (!isPlayer and GetMoveEffect(playerMoveName) == "MagicCoat")
+	{
+		if (isPlayer and GetMoveCategory(playerMoveName) == "Special")
+		or (!isPlayer and GetMoveCategory(enemyMoveName) == "Special")
+		{
+			DealDamage(damage, !isPlayer)
+		}
+	}
+	
 	if (object_index == BattleTextboxObject)
 	{
 		if (isPlayer)
@@ -740,6 +781,14 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now burned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
+						break
+					case "Freeze":
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now frozen!"
 							else str = "The opponent already has a status effect!"
 						}
 						else str = ""
@@ -1165,6 +1214,11 @@ function IsNotConfused(moveUser)
 		else return true
 	}
 	else return true
+}
+
+function WillFlinch()
+{
+	return irandom(3) == 3
 }
 
 function CauseAMiss(isPlayer)

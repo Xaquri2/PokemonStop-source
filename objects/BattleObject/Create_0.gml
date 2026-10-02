@@ -59,3 +59,4 @@ repeat (global.pikminCount) AddPokemonTrainer(pikminList, ds_list_size(pikminLis
 
 Fluxxed = false
 Fluxxed2 = false
+protectFail = false
