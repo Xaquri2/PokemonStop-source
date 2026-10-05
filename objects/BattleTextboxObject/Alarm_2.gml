@@ -106,8 +106,31 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						level = GetLevel(enemyPkmn)
 						otherEntity = "Player"
 
-						rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
-						playerDamage = clamp(floor(rawDamage), 1, 1000000)
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (!attempt.playerTeam and attempt.toxic) 
+							{
+								rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/attempt.toxicCount
+								playerDamage = clamp(floor(rawDamage), 1, 1000000)
+								attempt.toxicCount -= 4
+								attempt.toxicCount = clamp(attempt.toxicCount, 4, 16)
+							}
+						}
+					}
+					else
+					{
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (attempt.playerTeam and attempt.toxic) 
+							{
+								rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/attempt.toxicCount
+								enemyDamage = clamp(floor(rawDamage), 1, 1000000)
+								attempt.toxicCount -= 4
+								attempt.toxicCount = clamp(attempt.toxicCount, 4, 16)
+							}
+						}
 					}
 
 					whoAttacked = otherEntity
@@ -455,6 +478,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						if (attempt == 2) status = "Burn"
 						if (attempt == 3) status = "Sleep"
 					}
+					if (status == "Corrode") status = "Poisoned"
 					
 					SetStatus(target.pkmnInfo, status)
 					target.status = status

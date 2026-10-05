@@ -37,6 +37,9 @@ catchEffectAlpha = 1
 textbox = -1
 inhaled = false
 
+toxic = false
+toxicCount = 16
+
 alarm[0] = 1
 if room == RoomBattleGodzilla {
 	image_xscale = 0.4

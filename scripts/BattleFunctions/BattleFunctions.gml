@@ -769,6 +769,15 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Corrode":
+						target.toxic = true
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now badly poisoned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
+						break
 					case "Poisoned":
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
@@ -826,7 +835,15 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						str = "Reversing traps were layed on the field!"
 						break
 					#endregion
-				
+					
+					case "Interface":
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerAttack", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerDefense", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerSpAtk", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerSpDef", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerSpeed", 100, 0, user, target))
+						break
+					
 					case "Recoil":
 					case "RecoilOnMiss":
 					case "FaintUser":
