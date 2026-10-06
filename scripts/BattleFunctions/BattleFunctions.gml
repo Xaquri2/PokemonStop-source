@@ -1825,6 +1825,48 @@ function ConvinceCheck()
 	}
 }
 
+function GetConvincedMessage(isP, succeeds)
+{
+	if (succeeds)
+	{
+		if (isP) return "Your pokémon was convinced to not attack!"
+		else return "The foe's pokémon was convinced to not attack!"
+	}
+	else
+	{
+		if (isP)
+		{
+			switch (global.convinceCounter)
+			{
+				case 0:
+				case 1:
+					return "Your pokémon brushed the idea off"
+				case 2:
+					return "Your pokémon stopped for a split second... then came back to the battle!"
+				case 3:
+					return "Your pokémon gave it some thought, but eventually brushed it off"
+				case 4:
+					return "Your pokémon almost gave up on the attack, but it came back to its senses!"
+			}
+		}
+		else
+		{
+			switch (global.convinceCounter)
+			{
+				case 0:
+				case 1:
+					return "The foe's pokémon brushed the idea off"
+				case 2:
+					return "The foe's pokémon stopped for a split second... then came back to the battle!"
+				case 3:
+					return "The foe's pokémon gave it some thought, but eventually brushed it off"
+				case 4:
+					return "The foe's pokémon almost gave up on the attack, but it came back to its senses!"
+			}
+		}
+	}
+}
+
 function GetBattleXscale(name)
 {
 	switch (name)

@@ -977,7 +977,7 @@ function GetPokemonBaseStats(name) {
 
         case "Krypton Firefly":
             // Incredibly fast/durable under Earth conditions
-            ds_list_add(statList, 60, 75, 70, 65, 65, 125);
+            ds_list_add(statList, 60, 15, 50, 45, 55, 75);
             break;
 
         case "Zoombini":
@@ -2007,9 +2007,9 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Krypton Firefly":
-            if (level == 1)  return "Gust";
-			if (level == 4)  return "Quick Attack";
-            if (level == 8)  return "Ember";
+			if (level == 1)  return "Quick Attack";
+			if (level == 6)  return "Gust";
+            if (level == 9)  return "Ember";
             if (level == 12) return "Wing Attack";
             if (level == 16) return "Fire Blast";
             break;
@@ -2145,7 +2145,7 @@ function ConsumePP(pkmnInfo, index)
 /// @description               Gets the defeated Pokémon's base EXP yield value
 function GetBaseYield(name)
 {
-	return 250
+	return 500
 }
 
 /// @param       name          The fainted Pokémon's name

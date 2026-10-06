@@ -44,7 +44,7 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-AddPokemon("Pikachu", 6, GetRandomGender(50))
+//AddPokemon("Pikachu", 6, GetRandomGender(50))
 /*AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 100, GetRandomGender(50))
@@ -57,7 +57,7 @@ AddPokemon("Creeper", 100, GetRandomGender(50))
 AddPokemon("Charmander", 100, GetRandomGender(50))
 AddPokemon("Pikachu", 10, GetRandomGender(50))*/
 
-global.standardStartRoom = TestRoom
+global.standardStartRoom = Mallet_Town
 global.activatedBadges = ds_list_create()
 
 global.torch = false
@@ -68,7 +68,7 @@ global.morlockTimer = 0
 global.convinceCounter = 0
 global.lastKeyUsed = ""
 
-AddItem("Poke Ball", 10)
+//AddItem("Poke Ball", 10)
 //AddItem("Moltres Area Key", 1)
 //AddItem("Skyview Potion", 1)
 //AddItem("Poke Flute", 1)

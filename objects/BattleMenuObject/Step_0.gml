@@ -918,7 +918,7 @@ if (keyboard_check_pressed(vk_enter))
 						battleText.enemyMoveName = moveName
 						battleText.enemyDamage = damage
 						
-						ds_list_add(battleText.textList, "The opponent was convinced not to attack!")
+						ds_list_add(battleText.textList, GetConvincedMessage(false, true))
 						
 						if (pStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
 						if (eStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and eStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
@@ -948,7 +948,7 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						if (moveName == "Convince" or moveName == "Logic")
 						{
-							ds_list_add(battleText.textList, "The foe's Pokémon was not convinced!")
+							ds_list_add(battleText.textList, GetConvincedMessage(false, false))
 						}
 						
 						//Enemy Move
@@ -1261,7 +1261,7 @@ if (keyboard_check_pressed(vk_enter))
 						battleText.playerMoveName = moveName
 						battleText.playerDamage = damage
 						
-						ds_list_add(battleText.textList, "Your pokémon was convinced not to attack!")
+						ds_list_add(battleText.textList, GetConvincedMessage(true, true))
 						
 						if (eStatus == "Poisoned" or (GetMoveEffect(enemyMoveName) == "Poisoned" and pStatus == "None")) ds_list_add(battleText.textList, "The opponent's pokemon took poison damage")
 						if (pStatus == "Poisoned" or (GetMoveEffect(playerMoveName) == "Poisoned" and eStatus == "None")) ds_list_add(battleText.textList, "Your pokemon took poison damage")
@@ -1291,7 +1291,7 @@ if (keyboard_check_pressed(vk_enter))
 					{
 						if (moveName == "Convince" or moveName == "Logic")
 						{
-							ds_list_add(battleText.textList, "Your Pokémon was not convinced!")
+							ds_list_add(battleText.textList, GetConvincedMessage(true, false))
 						}
 						
 						//Player Move
