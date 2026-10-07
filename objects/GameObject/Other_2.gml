@@ -44,19 +44,6 @@ global.collectedPokeloot = ds_list_create()
 global.flags = ds_list_create()
 global.npcFlags = ds_map_create()
 
-//AddPokemon("Pikachu", 6, GetRandomGender(50))
-/*AddPokemon("Pikachu", 100, GetRandomGender(50))
-AddPokemon("Pikachu", 100, GetRandomGender(50))
-AddPokemon("Pikachu", 100, GetRandomGender(50))
-AddPokemon("Silver Scorpion", 100, GetRandomGender(50))
-AddPokemon("Charmander", 100, GetRandomGender(50))
-AddPokemon("Godzilla", 95, GetRandomGender(50))
-AddPokemon("Omega Squirtle", 100, GetRandomGender(50))
-AddPokemon("Glyptoblock", 15, GetRandomGender(50))
-AddPokemon("Creeper", 100, GetRandomGender(50))
-AddPokemon("Charmander", 100, GetRandomGender(50))
-AddPokemon("Pikachu", 10, GetRandomGender(50))*/
-
 global.standardStartRoom = Mallet_Town
 global.activatedBadges = ds_list_create()
 
@@ -67,6 +54,18 @@ global.torchRange = 60
 global.morlockTimer = 0
 global.convinceCounter = 0
 global.lastKeyUsed = ""
+
+var count = 1
+while (count <= 5)
+{
+	var fileName = string_concat("savefile", count, ".json")
+	if (file_exists(fileName)) 
+	{
+		global.saveFile = count
+		count = 5
+	}
+	else count++
+}
 
 //AddItem("Poke Ball", 10)
 //AddItem("Moltres Area Key", 1)
