@@ -67,7 +67,11 @@ while (count <= 5)
 	else count++
 }
 
-//AddItem("Poke Ball", 10)
+repeat (5) AddPokemon("Pikachu", 10, GetRandomGender(50))
+AddPokemon("Caterpie", 10, GetRandomGender(50))
+
+
+AddItem("Poke Ball", 10)
 //AddItem("Moltres Area Key", 1)
 //AddItem("Skyview Potion", 1)
 //AddItem("Poke Flute", 1)

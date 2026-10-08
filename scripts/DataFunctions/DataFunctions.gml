@@ -87,6 +87,7 @@ function SaveData()
 		saveSlotTimestamp: timestampString,
 		followerType: global.followerType,
 		pikminCount: global.pikminCount
+		catchIndex = global.catchIndex
 	}
 
 	var fileName = string_concat("savefile", global.saveFile, ".json")
@@ -279,9 +280,11 @@ function LoadData()
 			for (var j = 0; j < ds_list_size(global.pokemonList); j++)
 			{
 				var pkmnInfo = ds_list_find_value(global.pokemonList, j)
-				if (GetCatchIndex(pkmnInfo) == saveState.partyIndexes[i])
+				var catchIndex = GetCatchIndex(pkmnInfo)
+				if (catchIndex == saveState.partyIndexes[i])
 				{
 					ds_list_add(global.playerParty, pkmnInfo)
+					break
 				}
 			}
 		}
@@ -295,6 +298,7 @@ function LoadData()
 		
 		global.followerType = saveState.followerType
 		global.pikminCount = saveState.pikminCount
+		global.catchIndex = saveState.catchIndex
 	}
 	
 	ds_list_clear(global.pcPokemonList)
