@@ -24,11 +24,6 @@ if (face_timer >= room_speed) { // 1 FPS
 //	y = lerp(y, y-1, 0.6)
 //}
 
-show_debug_message("Textbox exists!")
-if actionNPC == true {
-	show_debug_message("ActionNPC ")
-}
-
 
 
 
