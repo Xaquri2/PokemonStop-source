@@ -54,9 +54,8 @@ if (enableDrawing)
 	12.5*(percentage/100), 1.2, image_angle, image_blend, image_alpha)
 
 	//Status
-	if (GetStatus(pkmnInfo) != "None")
+	if (status != "None")
 	{
-		var status = GetStatus(pkmnInfo)
 		var color = GetStatusColor(status)
 		var xPos = xOffset+view_get_wport(0)*0.48
 		var yPos = yOffset+view_get_hport(0)*0.225

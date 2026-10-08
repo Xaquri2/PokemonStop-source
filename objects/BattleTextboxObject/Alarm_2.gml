@@ -514,13 +514,16 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					for (var i = 0; i < instance_number(BattleEntityObject); i++)
 					{
 						var attempt = instance_find(BattleEntityObject, i)
-						var team = attempt.team
-						var index = attempt.currentPkmn
-						var pkmnData = ds_list_find_value(team, index)
-						var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
-						if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
+						if (instance_exists(attempt) and attempt.hp > 0)
 						{
-							HealPokemon(team, index, healValue, attempt.player, false, false)
+							var team = attempt.team
+							var index = attempt.currentPkmn
+							var pkmnData = ds_list_find_value(team, index)
+							var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
+							if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
+							{
+								HealPokemon(team, index, healValue, attempt.player, false, false)
+							}
 						}
 					}
 				}

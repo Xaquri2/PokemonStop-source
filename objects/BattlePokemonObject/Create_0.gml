@@ -23,7 +23,7 @@ speedModifier = 0
 critModifier = 0
 
 confusion = false
-status = ""
+status = "None"
 sleepCounter = 0
 
 flash = false

@@ -762,6 +762,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 
 					#region Statuses
 					case "Paralysis":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now paralyzed"
@@ -770,6 +771,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Corrode":
+						SetStatus(target.pkmnInfo, "Poisoned")
 						target.toxic = true
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
@@ -779,6 +781,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Poisoned":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now poisoned"
@@ -787,6 +790,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Burn":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now burned"
@@ -795,6 +799,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Freeze":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now frozen!"
@@ -803,6 +808,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Sleep":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now asleep"
@@ -1102,6 +1108,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 
 					#region Statuses
 					case "Paralysis":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now paralyzed"
@@ -1109,7 +1116,18 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Corrode":
+						SetStatus(target.pkmnInfo, "Poisoned")
+						target.toxic = true
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "Your pokémon is now badly poisoned"
+							else str = "Your pokémon already has a status effect!"
+						}
+						else str = ""
+						break
 					case "Poisoned":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now poisoned"
@@ -1118,6 +1136,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Burn":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now burned"
@@ -1126,6 +1145,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Sleep":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now asleep"
@@ -1134,6 +1154,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Confuse":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (!target.confusion) str = "The opponent is now confused"
