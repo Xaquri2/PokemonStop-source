@@ -86,8 +86,8 @@ function SaveData()
 		latestSaveState: global.latestSaveState,
 		saveSlotTimestamp: timestampString,
 		followerType: global.followerType,
-		pikminCount: global.pikminCount
-		catchIndex = global.catchIndex
+		pikminCount: global.pikminCount,
+		catchIndex: global.catchIndex
 	}
 
 	var fileName = string_concat("savefile", global.saveFile, ".json")
