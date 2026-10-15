@@ -492,7 +492,13 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						var attempt = instance_find(BattleEntityObject, i)
 						var team = attempt.team
 						var index = attempt.currentPkmn
+						// A defeated side advances currentPkmn before this queued message
+						// is processed. Do not read past the team or revive a fainted Pokemon.
+						if (index < 0 or index >= ds_list_size(team)) continue
+
 						var pkmnData = ds_list_find_value(team, index)
+						if (GetHealth(pkmnData) <= 0) continue
+
 						var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
 						if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
 						{
