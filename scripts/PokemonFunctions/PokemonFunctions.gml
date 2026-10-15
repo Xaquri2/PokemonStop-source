@@ -435,7 +435,7 @@ function GetStatusColor(status)
 	return c_white
 }
 
-function AddExp(pkmnInfo, expValue)
+function AddExp(pkmnInfo, expValue, learnMove)
 {
 	var pkmnExp = GetExp(pkmnInfo)
 	var expPerc = GetExpPercentage(pkmnInfo)
@@ -452,6 +452,17 @@ function AddExp(pkmnInfo, expValue)
 			levelsGained++
 		}
 		else break
+	}
+	
+	for (var i = level+1; i <= level+levelsGained; i++)
+	{
+		var learnedMove = LearnsMoveAt(GetName(pkmnInfo), i)
+		if (learnedMove != "")
+		{
+			if (ds_list_size(GetMoves(pkmnInfo)) < 4) LearnMove(pkmnInfo, learnedMove, ds_list_size(GetMoves(pkmnInfo)))
+			else ds_list_insert(BattleTextboxObject.textList, BattleTextboxObject.currentText+1, 
+			string_concat(GetName(pkmnInfo), " can now learn ", learnedMove, "!"))
+		}
 	}
 
 	if (pkmnExp+expValue >= GetExpLevelFloor(level, growthRate))
@@ -977,7 +988,7 @@ function GetPokemonBaseStats(name) {
 
         case "Krypton Firefly":
             // Incredibly fast/durable under Earth conditions
-            ds_list_add(statList, 60, 75, 70, 65, 65, 125);
+            ds_list_add(statList, 60, 15, 50, 45, 55, 75);
             break;
 
         case "Zoombini":
@@ -1252,7 +1263,7 @@ function GetMoveDetails(moveName)
             break;
         case "Inhale":
             // Kirby's special
-            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 10, "Inhale", 1, 1, 4);
             break;
         case "Aura Sphere":
             ds_list_add(moveInfo, moveName, "Fighting", "Special", 80, 1000, 20, "None", 1, 1, 0);
@@ -1289,10 +1300,10 @@ function GetMoveDetails(moveName)
             break;
         case "Acid Blood":
             // Xenomorph’s signature
-            ds_list_add(moveInfo, moveName, "Poison", "Special", 60, 100, 15, "Corrode", 0.3, 1, 0);
+            ds_list_add(moveInfo, moveName, "Poison", "Special", /*6*/0, 100, 15, "Corrode", /*0.3*/1, 1, 0);
             break;
         case "Slash":
-            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.2, 0);
+            ds_list_add(moveInfo, moveName, "Normal", "Physical", 70, 100, 20, "HighCrit", 1, 1.4, 0);
             break;
         case "Lick":
             ds_list_add(moveInfo, moveName, "Ghost", "Physical", 30, 100, 30, "Paralysis", 0.3, 1, 0);
@@ -1308,7 +1319,7 @@ function GetMoveDetails(moveName)
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "DoomDowngrade", 1, 1, 0);
             break;
 		case "Hail Mary Hit":
-			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "HailMaryHit", 1, 1, 0);
+			ds_list_add(moveInfo, moveName, "Normal", "Physical", 5, 100, 15, "HailMaryHit", 1, 1, 0);
             break;
 		case "Set Trap":
 			ds_list_add(moveInfo, moveName, "Normal", "Status", 0, 100, 15, "SetTrap", 1, 1, 0);
@@ -1369,7 +1380,7 @@ function GetMoveDetails(moveName)
             break;
 
         case "Shadow Claw":
-            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 70, 100, 15, "HighCrit", 1, 1.2, 0);
+            ds_list_add(moveInfo, moveName, "Ghost", "Physical", 70, 100, 15, "HighCrit", 1, 1.4, 0);
             break;
 
         case "Moonblast":
@@ -1515,11 +1526,14 @@ function LearnsMoveAt(name, level)
         case "Pikachu":
             //if (level == 1)  return "Dynamic Punch";
 			if (level == 1)  return "Tackle";
-			if (level == 6) return "Growl";
-            if (level == 3)  return "Grassy Surge"//"Thunder Wave";
+			//if (level == 3) return "Growl";
+            if (level == 6)  return "Interface"//"Thunder Wave";
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";
+			if (level == 18) return "Ember";
+			if (level == 19) return "Explosion";
+			if (level == 20) return "Dynamic Punch";
             break;
 
         case "Voltorb":
@@ -2007,9 +2021,9 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Krypton Firefly":
-            if (level == 1)  return "Gust";
-			if (level == 4)  return "Quick Attack";
-            if (level == 8)  return "Ember";
+			if (level == 1)  return "Quick Attack";
+			if (level == 6)  return "Gust";
+            if (level == 9)  return "Ember";
             if (level == 12) return "Wing Attack";
             if (level == 16) return "Fire Blast";
             break;
@@ -2055,9 +2069,9 @@ function LearnsMoveAt(name, level)
             break;
 
 
-		default:
+		/*default:
 			if (level == 1) return "Scratch"
-			break
+			break*/
     }
 	return ""
 }
@@ -2145,7 +2159,7 @@ function ConsumePP(pkmnInfo, index)
 /// @description               Gets the defeated Pokémon's base EXP yield value
 function GetBaseYield(name)
 {
-	return 250
+	return 1000
 }
 
 /// @param       name          The fainted Pokémon's name

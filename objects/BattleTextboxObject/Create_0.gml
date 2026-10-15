@@ -34,6 +34,7 @@ expGainValue = 0
 newMoveTrigger = false
 leveledUp = false
 listLevelUpMoves = ds_list_create()
+levelUpBlacklist = ds_list_create()
 
 damaging = false
 damageValue = 0

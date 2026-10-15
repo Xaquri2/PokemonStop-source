@@ -23,7 +23,7 @@ if (expGainValue > 0 and expGaining)
 	var level = GetLevel(playerPkmn)
 	if (expGainValue == 1 or GetExp(playerPkmn)+1 >= GetExpLevelFloor(101, GetGrowth(playerPkmn))) expGaining = false
 
-	AddExp(playerPkmn, 1)
+	AddExp(playerPkmn, 1, false)
 	expGainValue--
 
 	var levelNew = GetLevel(playerPkmn)

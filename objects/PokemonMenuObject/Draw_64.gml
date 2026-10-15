@@ -48,7 +48,7 @@ if (!summaryMode)
 			draw_text_transformed(view_get_wport(0)*0.24, view_get_hport(0)*(0.15+(0.13*i)), string_concat("Level: ", level), 2, 2, image_angle)
 			draw_set_color(c_white)
 			
-			if (CanEvolve(global.playerParty, selectedIndex) != "")
+			if (CanEvolve(global.playerParty, i) != "")
 			{
 				var notifyAnchorX = view_get_wport(0)*0.42-16
 				var notifyAnchorY = view_get_hport(0)*(0.145+(0.13*i))+24

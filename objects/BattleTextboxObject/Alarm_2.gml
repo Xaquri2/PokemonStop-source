@@ -106,8 +106,31 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						level = GetLevel(enemyPkmn)
 						otherEntity = "Player"
 
-						rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
-						playerDamage = clamp(floor(rawDamage), 1, 1000000)
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (!attempt.playerTeam and attempt.toxic) 
+							{
+								rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/attempt.toxicCount
+								playerDamage = clamp(floor(rawDamage), 1, 1000000)
+								attempt.toxicCount -= 4
+								attempt.toxicCount = clamp(attempt.toxicCount, 4, 16)
+							}
+						}
+					}
+					else
+					{
+						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+						{
+							var attempt = instance_find(BattlePokemonObject, i)
+							if (attempt.playerTeam and attempt.toxic) 
+							{
+								rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/attempt.toxicCount
+								enemyDamage = clamp(floor(rawDamage), 1, 1000000)
+								attempt.toxicCount -= 4
+								attempt.toxicCount = clamp(attempt.toxicCount, 4, 16)
+							}
+						}
 					}
 
 					whoAttacked = otherEntity
@@ -325,8 +348,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						var partyMemberInfo = ds_list_find_value(global.playerParty, i)
 						if (partyMemberInfo != playerPkmn)
 						{
-							if (global.expAll) AddExp(partyMemberInfo, floor(expGainValue/2))
-							else if (ds_list_find_index(battle.battleParticipants, partyMemberInfo) != undefined) AddExp(partyMemberInfo, floor(expGainValue/2))
+							if (global.expAll) AddExp(partyMemberInfo, floor(expGainValue/2), true)
+							else if (ds_list_find_index(battle.battleParticipants, partyMemberInfo) != undefined) AddExp(partyMemberInfo, floor(expGainValue/2), true)
 						}
 					}
 					expGaining = true
@@ -455,6 +478,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						if (attempt == 2) status = "Burn"
 						if (attempt == 3) status = "Sleep"
 					}
+					if (status == "Corrode") status = "Poisoned"
 					
 					SetStatus(target.pkmnInfo, status)
 					target.status = status
@@ -486,24 +510,45 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					target.status = status
 				}
 				else if (text == "All pokémon on the field have been healed!")
+{
+    for (var i = 0; i < instance_number(BattleEntityObject); i++)
+    {
+        var attempt = instance_find(BattleEntityObject, i)
+
+        if (instance_exists(attempt) and attempt.hp > 0)
+        {
+            var team = attempt.team
+            var index = attempt.currentPkmn
+
+            if (index < 0 or index >= ds_list_size(team)) continue
+
+            var pkmnData = ds_list_find_value(team, index)
+            var healValue = floor(
+                GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData)) / 16
+            )
+
+            if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
+            {
+                HealPokemon(team, index, healValue, attempt.player, false, false)
+            }
+        }
+    }
+}
+				else if (string_count("spat out", text) > 0)
 				{
-					for (var i = 0; i < instance_number(BattleEntityObject); i++)
+					if (string_count("opponent", text) > 0)
 					{
-						var attempt = instance_find(BattleEntityObject, i)
-						var team = attempt.team
-						var index = attempt.currentPkmn
-						// A defeated side advances currentPkmn before this queued message
-						// is processed. Do not read past the team or revive a fainted Pokemon.
-						if (index < 0 or index >= ds_list_size(team)) continue
-
-						var pkmnData = ds_list_find_value(team, index)
-						if (GetHealth(pkmnData) <= 0) continue
-
-						var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
-						if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
-						{
-							HealPokemon(team, index, healValue, attempt.player, false, false)
-						}
+						enemyDamage = 20
+						damaging = true
+						whoAttacked = "Enemy"
+						alarm[1] = 30
+					}
+					else
+					{
+						playerDamage = 20
+						damaging = true
+						whoAttacked = "Player"
+						alarm[1] = 30
 					}
 				}
 			}

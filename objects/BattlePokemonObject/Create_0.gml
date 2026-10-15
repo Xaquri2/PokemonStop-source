@@ -23,7 +23,7 @@ speedModifier = 0
 critModifier = 0
 
 confusion = false
-status = ""
+status = "None"
 sleepCounter = 0
 
 flash = false
@@ -35,6 +35,10 @@ catchEffect = false
 catchEffectAlpha = 1
 
 textbox = -1
+inhaled = false
+
+toxic = false
+toxicCount = 16
 
 alarm[0] = 1
 if room == RoomBattleGodzilla {

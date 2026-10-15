@@ -72,6 +72,11 @@ if (keyboard_check_pressed(vk_enter) && canInteract)
 		case "Fullscreen":
 			window_set_fullscreen(!window_get_fullscreen())
 			break
+		
+		case "Exp All":
+			if (global.expAll) global.expAll = false
+			else global.expAll = true
+			break
 
 		case "Exit":
 			if (instance_exists(menu))

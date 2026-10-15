@@ -11,5 +11,6 @@ ds_list_add(
 	optionsList,
 	"Volume",
 	"Fullscreen",
+	"Exp All",
 	"Exit"
 )

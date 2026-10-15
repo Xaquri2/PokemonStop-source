@@ -61,9 +61,15 @@ function GetDamage(pkmn, targetPkmn, moveName)
 
 		if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
 		if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
-
+		
 		var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 		damage = clamp(damage, 0, 1000000)
+		
+		if (moveEffect == "HailMaryHit")
+		{
+			damage = 5
+			if (irandom(9) == 1) damage += 50
+		}
 		return damage
 	}
 	else return 0
@@ -80,7 +86,7 @@ function GetRecoilDamage(pkmn, moveName)
 		case "Doom Downgrade":
 		case "Hex Roulette":
 		case "Hail Mary Hit":
-			dmg += GetPokemonFinalHP(name, level)
+			if (irandom(9) < 5) dmg += GetHealth(pkmn)*0.6
 			break
 		case "Self-Destruct":
 		case "Explosion":
@@ -477,6 +483,41 @@ function DealDamage(damage, isPlayer)
 	var damagedPkmn = entity.pkmnInfo
 	ds_list_set(damagedPkmn, 5, entity.hp)
 	
+	var entity2 = noone
+	for (var i = 0; i < instance_number(BattlePokemonObject); i++)
+	{
+		var attempt = instance_find(BattlePokemonObject, i)
+		if ((!attempt.playerTeam and !isPlayer) or (attempt.playerTeam and isPlayer))
+		{
+			entity2 = attempt
+			break
+		}
+	}
+	
+	if (GetMoveEffect(moveName) == "Drain") 
+	{
+		for (var i = 0; i < instance_number(BattleEntityObject); i++)
+		{
+			var attempt2 = instance_find(BattleEntityObject, i)
+			if (attempt2.player == isPlayer and GetMoveEffect(moveName) == "Drain")
+			{
+				var teamV = attempt2.team
+				var indexV = attempt2.currentPkmn
+				HealPokemon(teamV, indexV, clamp(floor(damage/2),1,10000000), isPlayer, false, false)
+				entity2.hp = GetHealth(entity2.pkmnInfo)
+			}
+		}
+	}
+	else if (isPlayer and GetMoveEffect(enemyMoveName) == "MagicCoat")
+	or (!isPlayer and GetMoveEffect(playerMoveName) == "MagicCoat")
+	{
+		if (isPlayer and GetMoveCategory(playerMoveName) == "Special")
+		or (!isPlayer and GetMoveCategory(enemyMoveName) == "Special")
+		{
+			DealDamage(damage, !isPlayer)
+		}
+	}
+	
 	if (object_index == BattleTextboxObject)
 	{
 		if (isPlayer)
@@ -721,6 +762,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 
 					#region Statuses
 					case "Paralysis":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now paralyzed"
@@ -728,7 +770,18 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Corrode":
+						SetStatus(target.pkmnInfo, "Poisoned")
+						target.toxic = true
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now badly poisoned"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
+						break
 					case "Poisoned":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now poisoned"
@@ -737,6 +790,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Burn":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now burned"
@@ -744,7 +798,17 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Freeze":
+						SetStatus(target.pkmnInfo, effectName)
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "The opponent is now frozen!"
+							else str = "The opponent already has a status effect!"
+						}
+						else str = ""
+						break
 					case "Sleep":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "The opponent is now asleep"
@@ -777,7 +841,15 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						str = "Reversing traps were layed on the field!"
 						break
 					#endregion
-				
+					
+					case "Interface":
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerAttack", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerDefense", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerSpAtk", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerSpDef", 100, 0, user, target))
+						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerSpeed", 100, 0, user, target))
+						break
+					
 					case "Recoil":
 					case "RecoilOnMiss":
 					case "FaintUser":
@@ -792,6 +864,10 @@ function DealEffect(effectName, accurancy, damage, user, target)
 					case "Flux":
 						str = "MissingNo set the battle into a state of FLUX!"
 						BattleObject.Fluxxed = true
+						break
+					case "Inhale":
+						str = string_concat("The attacked was inhaled by ", GetName(user.pkmnInfo), "!")
+						user.inhaled = true
 						break
 				}
 		}
@@ -1032,6 +1108,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 
 					#region Statuses
 					case "Paralysis":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now paralyzed"
@@ -1039,7 +1116,18 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						}
 						else str = ""
 						break
+					case "Corrode":
+						SetStatus(target.pkmnInfo, "Poisoned")
+						target.toxic = true
+						if (GetHealth(target.pkmnInfo)-damage > 0)
+						{
+							if (target.status == "None") str = "Your pokémon is now badly poisoned"
+							else str = "Your pokémon already has a status effect!"
+						}
+						else str = ""
+						break
 					case "Poisoned":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now poisoned"
@@ -1048,6 +1136,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Burn":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now burned"
@@ -1056,6 +1145,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Sleep":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (target.status == "None") str = "Your pokemon is now asleep"
@@ -1064,6 +1154,7 @@ function DealEffect(effectName, accurancy, damage, user, target)
 						else str = ""
 						break
 					case "Confuse":
+						SetStatus(target.pkmnInfo, effectName)
 						if (GetHealth(target.pkmnInfo)-damage > 0)
 						{
 							if (!target.confusion) str = "The opponent is now confused"
@@ -1125,6 +1216,14 @@ function DealEffect(effectName, accurancy, damage, user, target)
 		BattleObject.currentField = "GrassyTerrain"
 		str = "The field has become grassy!"
 	}
+	
+	if (target.inhaled and damage > 0)
+	{
+		if (user.playerTeam) ds_list_add(BattleTextboxObject.textList, "The opponent's pokémon spat out an attack!")
+		else ds_list_add(BattleTextboxObject.textList, "Your pokémon spat out an attack!")
+		target.inhaled = false
+	}
+	
 	return str
 }
 
@@ -1165,6 +1264,11 @@ function IsNotConfused(moveUser)
 		else return true
 	}
 	else return true
+}
+
+function WillFlinch()
+{
+	return irandom(3) == 3
 }
 
 function CauseAMiss(isPlayer)
@@ -1739,6 +1843,48 @@ function ConvinceCheck()
 			return false
 		case 5:
 			return true
+	}
+}
+
+function GetConvincedMessage(isP, succeeds)
+{
+	if (succeeds)
+	{
+		if (isP) return "Your pokémon was convinced to not attack!"
+		else return "The foe's pokémon was convinced to not attack!"
+	}
+	else
+	{
+		if (isP)
+		{
+			switch (global.convinceCounter)
+			{
+				case 0:
+				case 1:
+					return "Your pokémon brushed the idea off"
+				case 2:
+					return "Your pokémon stopped for a split second... then came back to the battle!"
+				case 3:
+					return "Your pokémon gave it some thought, but eventually brushed it off"
+				case 4:
+					return "Your pokémon almost gave up on the attack, but it came back to its senses!"
+			}
+		}
+		else
+		{
+			switch (global.convinceCounter)
+			{
+				case 0:
+				case 1:
+					return "The foe's pokémon brushed the idea off"
+				case 2:
+					return "The foe's pokémon stopped for a split second... then came back to the battle!"
+				case 3:
+					return "The foe's pokémon gave it some thought, but eventually brushed it off"
+				case 4:
+					return "The foe's pokémon almost gave up on the attack, but it came back to its senses!"
+			}
+		}
 	}
 }
 

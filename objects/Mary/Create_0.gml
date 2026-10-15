@@ -2,6 +2,7 @@ event_inherited();
 merchant = true
 name = "Mary"
 player = instance_find(PlayerObject, 0)
+sightTrigger = false
 
 if (HasFlag("MaryRejected")) {
 	ds_list_add(defeatTextList, "Laugh while you can, Gash Ketchum! I'll beat you next time!!")

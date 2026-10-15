@@ -5,11 +5,13 @@ for (var i = 0; i < ds_list_size(optionsList); i++)
 {
 	draw_sprite_ext(MenuSprite, 0, view_get_wport(0)*0.42, view_get_hport(0)*0.1+56*i, 8, 1.5, image_angle, image_blend, image_alpha)
 	
-
+	var displayText = ds_list_find_value(optionsList, i)
+	if (displayText == "Exp All") displayText = string_concat(displayText, ": ", global.expAll)
+	
 	var color = c_black
 	if (selectedIndex == i) color = c_yellow
 	draw_text_transformed_color(view_get_wport(0)*0.45, view_get_hport(0)*yOffset+10,
-	ds_list_find_value(optionsList, i), 2, 2, image_angle, color, color, color, color, image_alpha)
+	displayText, 2, 2, image_angle, color, color, color, color, image_alpha)
 	yOffset += 0.06
 	
 	if (i == 0 && selectedIndex == 0)

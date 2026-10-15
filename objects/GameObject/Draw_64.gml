@@ -1,6 +1,6 @@
-draw_set_alpha(1-fadeAlpha)
+/*draw_set_alpha(1-fadeAlpha)
 draw_text(20,20,string_concat("Speed: ", global.speedUpMultiplier, "x"))
-draw_set_alpha(1)
+draw_set_alpha(1)*/
 
 if (!cutscenePlaying)
 {

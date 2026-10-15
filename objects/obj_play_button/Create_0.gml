@@ -1,11 +1,4 @@
-/// @DnDAction : YoYo Games.Instances.Inherit_Event
-/// @DnDVersion : 1
-/// @DnDHash : 5787C19F
-event_inherited();
-
-/// @DnDAction : YoYo Games.Common.Variable
-/// @DnDVersion : 1
-/// @DnDHash : 1564DCAC
-/// @DnDArgument : "expr" ""Continue""
-/// @DnDArgument : "var" "text"
-text = "Continue";
+event_inherited()
+text = "Continue"
+var fileName = string_concat("savefile", global.saveFile, ".json")
+if (!file_exists(fileName) or instance_number(object_index) > 1) instance_destroy(id)
