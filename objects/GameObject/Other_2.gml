@@ -67,6 +67,8 @@ while (count <= 5)
 	else count++
 }
 
+AddPokemon("Pikachu", 100, "Male")
+
 AddItem("Poke Ball", 10)
 //AddItem("Moltres Area Key", 1)
 //AddItem("Skyview Potion", 1)

@@ -20,3 +20,6 @@ if (endBattle)
 		battle.fadeAlpha = 0
 	}
 }
+
+ds_list_destroy(listLevelUpMoves)
+ds_list_destroy(levelUpBlacklist)

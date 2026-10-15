@@ -435,7 +435,7 @@ function GetStatusColor(status)
 	return c_white
 }
 
-function AddExp(pkmnInfo, expValue)
+function AddExp(pkmnInfo, expValue, learnMove)
 {
 	var pkmnExp = GetExp(pkmnInfo)
 	var expPerc = GetExpPercentage(pkmnInfo)
@@ -452,6 +452,17 @@ function AddExp(pkmnInfo, expValue)
 			levelsGained++
 		}
 		else break
+	}
+	
+	for (var i = level+1; i <= level+levelsGained; i++)
+	{
+		var learnedMove = LearnsMoveAt(GetName(pkmnInfo), i)
+		if (learnedMove != "")
+		{
+			if (ds_list_size(GetMoves(pkmnInfo)) < 4) LearnMove(pkmnInfo, learnedMove, ds_list_size(GetMoves(pkmnInfo)))
+			else ds_list_insert(BattleTextboxObject.textList, BattleTextboxObject.currentText+1, 
+			string_concat(GetName(pkmnInfo), " can now learn ", learnedMove, "!"))
+		}
 	}
 
 	if (pkmnExp+expValue >= GetExpLevelFloor(level, growthRate))
@@ -1520,6 +1531,9 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";
+			if (level == 18) return "Ember";
+			if (level == 19) return "Explosion";
+			if (level == 20) return "Dynamic Punch";
             break;
 
         case "Voltorb":
@@ -2055,9 +2069,9 @@ function LearnsMoveAt(name, level)
             break;
 
 
-		default:
+		/*default:
 			if (level == 1) return "Scratch"
-			break
+			break*/
     }
 	return ""
 }

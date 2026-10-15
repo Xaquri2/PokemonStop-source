@@ -286,6 +286,7 @@
     {"id":{"name":"MorlockNPC","path":"objects/MorlockNPC/MorlockNPC.yy",},},
     {"id":{"name":"MorlockPowerThing","path":"objects/MorlockPowerThing/MorlockPowerThing.yy",},},
     {"id":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},},
+    {"id":{"name":"MoveRelearnMenuObject","path":"objects/MoveRelearnMenuObject/MoveRelearnMenuObject.yy",},},
     {"id":{"name":"MoveReplaceObject","path":"objects/MoveReplaceObject/MoveReplaceObject.yy",},},
     {"id":{"name":"MrBanana","path":"objects/MrBanana/MrBanana.yy",},},
     {"id":{"name":"MusicObject","path":"objects/MusicObject/MusicObject.yy",},},
