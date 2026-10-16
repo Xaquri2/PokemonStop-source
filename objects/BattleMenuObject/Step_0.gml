@@ -1469,9 +1469,9 @@ if (keyboard_check_pressed(vk_enter))
 						}
 					}
 				}
+				
+				CheckForFieldEffect(effStr, battleText.textList)
 			}
-			
-			CheckForFieldEffect(effStr, battleText.textList)
 			
 			instance_destroy(id)
 		}

@@ -175,3 +175,13 @@ function GetNextNearestGrass()
 	if (closest == noone and instance_exists(currentGrass)) closest = currentGrass
 	return closest
 }
+
+function GetGravityFollowerOffset(xAnchor, yAnchor)
+{
+	for (var i = 16; i > -16; i--)
+	{
+		var attempt = collision_point(xAnchor, yAnchor+i, CollisionObject, false, true)
+		if (attempt == noone) return i
+	}
+	return 0
+}
