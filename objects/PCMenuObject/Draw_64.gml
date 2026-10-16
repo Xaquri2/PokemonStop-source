@@ -31,12 +31,45 @@ if (!summaryMode)
 			draw_sprite_ext(MenuSprite, 0, frameXOffset, frameYOffset, 4, 4, image_angle, image_blend, image_alpha)
 		
 			var pkmnSprite = GetSprite(pkmnData)
-			var spriteWidth = sprite_get_width(pkmnSprite)
-			var spriteHeight = sprite_get_height(pkmnSprite)
+			if (pkmnSprite != undefined)
+			{
+				var padding = 8
+				var availableWidth = frameScaledWidth-padding*2
+				var availableHeight = frameScaledHeight-padding*2
 
-			draw_sprite_part_ext(pkmnSprite, 0,
-			spriteWidth/2-16, spriteHeight/2-16, 32, 32,
-			frameXOffset, frameYOffset, 4, 4, image_blend, image_alpha)
+				// Fit the visible artwork rather than cropping a fixed 32x32 area.
+				var sourceLeft = sprite_get_bbox_left(pkmnSprite)
+				var sourceTop = sprite_get_bbox_top(pkmnSprite)
+				var sourceWidth = sprite_get_bbox_right(pkmnSprite)-sourceLeft+1
+				var sourceHeight = sprite_get_bbox_bottom(pkmnSprite)-sourceTop+1
+
+				var fitScale = min(
+					availableWidth/sourceWidth,
+					availableHeight/sourceHeight
+				)
+
+				var scaleAdjustment = 1
+				switch (GetName(pkmnData))
+				{
+					case "Godzilla":
+						scaleAdjustment = 1.1
+						break
+				}
+				fitScale *= scaleAdjustment
+
+				var drawnWidth = sourceWidth*fitScale
+				var drawnHeight = sourceHeight*fitScale
+
+				draw_sprite_part_ext(
+					pkmnSprite, 0,
+					sourceLeft, sourceTop,
+					sourceWidth, sourceHeight,
+					frameXOffset+(frameScaledWidth-drawnWidth)/2,
+					frameYOffset+(frameScaledHeight-drawnHeight)/2,
+					fitScale, fitScale,
+					image_blend, image_alpha
+				)
+			}
 
 			draw_set_alpha(0.5)
 			if (currentOption == i) draw_rectangle(frameXOffset, frameYOffset,
@@ -104,17 +137,39 @@ else
 	draw_sprite_ext(MenuSprite, 0, xOrigin+64, yOrigin+64, 4, 4, image_angle, image_blend, image_alpha)
 	var pkmnSprite = GetSpriteByNumber(pokemonNumber)
 
-	var spriteWidth = -1
-	var spriteHeight = -1
 	if (pkmnSprite != undefined)
 	{
-		spriteWidth = sprite_get_width(pkmnSprite)
-		spriteHeight = sprite_get_height(pkmnSprite)
-	}
+		var slotX = xOrigin+64
+		var slotY = yOrigin+64
+		var slotWidth = sprite_get_width(MenuSprite)*4
+		var slotHeight = sprite_get_height(MenuSprite)*4
+		var padding = 8
 
-	if (pkmnSprite != undefined) draw_sprite_part_ext(pkmnSprite, 0,
-	spriteWidth/2-16, spriteHeight/2-16, 32, 32,
-	xOrigin+64, yOrigin+64, 4, 4, image_blend, image_alpha)
+		var sourceLeft = sprite_get_bbox_left(pkmnSprite)
+		var sourceTop = sprite_get_bbox_top(pkmnSprite)
+		var sourceWidth = sprite_get_bbox_right(pkmnSprite)-sourceLeft+1
+		var sourceHeight = sprite_get_bbox_bottom(pkmnSprite)-sourceTop+1
+
+		var availableWidth = slotWidth-padding*2
+		var availableHeight = slotHeight-padding*2
+		var fitScale = min(
+			availableWidth/sourceWidth,
+			availableHeight/sourceHeight
+		)
+
+		var drawnWidth = sourceWidth*fitScale
+		var drawnHeight = sourceHeight*fitScale
+
+		draw_sprite_part_ext(
+			pkmnSprite, 0,
+			sourceLeft, sourceTop,
+			sourceWidth, sourceHeight,
+			slotX+(slotWidth-drawnWidth)/2,
+			slotY+(slotHeight-drawnHeight)/2,
+			fitScale, fitScale,
+			image_blend, image_alpha
+		)
+	}
 	#endregion
 
 	#region Draw Pokémon Number, Name, Title and Description

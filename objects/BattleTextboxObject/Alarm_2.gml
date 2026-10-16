@@ -510,23 +510,30 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					target.status = status
 				}
 				else if (text == "All pokémon on the field have been healed!")
-				{
-					for (var i = 0; i < instance_number(BattleEntityObject); i++)
-					{
-						var attempt = instance_find(BattleEntityObject, i)
-						if (instance_exists(attempt) and attempt.hp > 0)
-						{
-							var team = attempt.team
-							var index = attempt.currentPkmn
-							var pkmnData = ds_list_find_value(team, index)
-							var healValue = floor(GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData))/16)
-							if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
-							{
-								HealPokemon(team, index, healValue, attempt.player, false, false)
-							}
-						}
-					}
-				}
+{
+    for (var i = 0; i < instance_number(BattleEntityObject); i++)
+    {
+        var attempt = instance_find(BattleEntityObject, i)
+
+        if (instance_exists(attempt) and attempt.hp > 0)
+        {
+            var team = attempt.team
+            var index = attempt.currentPkmn
+
+            if (index < 0 or index >= ds_list_size(team)) continue
+
+            var pkmnData = ds_list_find_value(team, index)
+            var healValue = floor(
+                GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData)) / 16
+            )
+
+            if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
+            {
+                HealPokemon(team, index, healValue, attempt.player, false, false)
+            }
+        }
+    }
+}
 				else if (string_count("spat out", text) > 0)
 				{
 					if (string_count("opponent", text) > 0)
