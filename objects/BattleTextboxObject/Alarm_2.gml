@@ -346,7 +346,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 					for (var i = 0; i < ds_list_size(global.playerParty); i++)
 					{
 						var partyMemberInfo = ds_list_find_value(global.playerParty, i)
-						if (partyMemberInfo != playerPkmn)
+						if (partyMemberInfo != playerPkmn and GetHealth(partyMemberInfo) > 0)
 						{
 							if (global.expAll) AddExp(partyMemberInfo, floor(expGainValue/2), true)
 							else if (ds_list_find_index(battle.battleParticipants, partyMemberInfo) != undefined) AddExp(partyMemberInfo, floor(expGainValue/2), true)

@@ -170,6 +170,11 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 							superEffStr = ""
 							if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 							else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+							else if (damage == -1)
+							{
+								damage = 0
+								superEffStr = "But the target was immune!"
+							}
 
 							ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName))
 
@@ -177,10 +182,10 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 							var effectAcc = GetMoveEffectChance(moveName)*100
 							if (floor(random_range(0,101)) <= moveAcc)
 							{
-								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 								if (floor(random_range(0,101)) <= effectAcc)
 								{
-									var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+									var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
 							}
@@ -215,11 +220,8 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 				for (var i = 1; i < 101; i++)
 				{
 					var mv = LearnsMoveAt(GetName(pkmnInfo), i)
-					if (mv != "" and ds_list_find_index(GetMoves(pkmnInfo), mv) == -1) 
-					{
-						var a = 1
-						ds_list_add(m.moveList, mv)
-					}
+					if (mv != "" and GetLevel(pkmnInfo) <= i 
+					and ds_list_find_index(GetMoves(pkmnInfo), mv) == -1) ds_list_add(m.moveList, mv)
 				}
 			}
 		}
