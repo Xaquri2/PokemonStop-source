@@ -289,8 +289,8 @@ if (keyboard_check_pressed(vk_enter))
 								}
 								else
 								{
-									if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) or
-									(eFutureStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+									if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4 and enemyPkmn.sleepCounter > 1) or
+									(eFutureStatus == "Sleep" and enemyPkmn.sleepCounter < 4 and enemyPkmn.sleepCounter > 1) awake = WakeUpCheck()
 									if (GetMoveEffect(playerMoveName) == "Sleep" and (!moveMissed and pStatus != "Sleep") and eStatus == "None") awake = false
 
 									if (!awake)
@@ -431,7 +431,7 @@ if (keyboard_check_pressed(vk_enter))
 							}
 							else
 							{
-								if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+								if (pStatus == "Sleep" and enemyPkmn.sleepCounter < 4 and enemyPkmn.sleepCounter > 1) awake = WakeUpCheck()
 
 								if (!awake)
 								{
@@ -1092,7 +1092,7 @@ if (keyboard_check_pressed(vk_enter))
 									}
 								else
 									{
-										if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+										if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4 and enemyPkmn.sleepCounter > 1) awake = WakeUpCheck()
 										if (GetMoveEffect(playerMoveName) == "Sleep" and (!moveMissed and pStatus != "Sleep") and eStatus == "None") awake = false
 
 										if (!awake)
@@ -1255,7 +1255,7 @@ if (keyboard_check_pressed(vk_enter))
 				}
 				else
 				{
-					if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4) awake = WakeUpCheck()
+					if (eStatus == "Sleep" and enemyPkmn.sleepCounter < 4 and enemyPkmn.sleepCounter > 1) awake = WakeUpCheck()
 
 					if (!awake)
 					{
