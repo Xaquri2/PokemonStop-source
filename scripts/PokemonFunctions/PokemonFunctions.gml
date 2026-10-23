@@ -459,9 +459,11 @@ function AddExp(pkmnInfo, expValue, learnMove)
 		var learnedMove = LearnsMoveAt(GetName(pkmnInfo), i)
 		if (learnedMove != "")
 		{
-			if (ds_list_size(GetMoves(pkmnInfo)) < 4) LearnMove(pkmnInfo, learnedMove, ds_list_size(GetMoves(pkmnInfo)))
-			else ds_list_insert(BattleTextboxObject.textList, BattleTextboxObject.currentText+1, 
-			string_concat(GetName(pkmnInfo), " can now learn ", learnedMove, "!"))
+			if (ds_list_size(GetMoves(pkmnInfo)) >= 4)
+			{
+				ds_list_insert(BattleTextboxObject.textList, BattleTextboxObject.currentText+1, 
+				string_concat(GetName(pkmnInfo), " can now learn ", learnedMove, "!"))
+			}
 		}
 	}
 
@@ -1177,7 +1179,7 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Bug", "Status", 0, 95, 40, "LowerSpeed", 1, 1, 0);
             break;
         case "Thunder Wave":
-            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Sleep", 1, 1, 0);
+            ds_list_add(moveInfo, moveName, "Electric", "Status", 0, 90, 20, "Paralysis", 1, 1, 0);
             break;
         case "Ice Beam":
             ds_list_add(moveInfo, moveName, "Ice", "Special", 90, 100, 10, "Freeze", 0.1, 1, 0);

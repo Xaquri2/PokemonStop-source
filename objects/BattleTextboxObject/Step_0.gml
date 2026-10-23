@@ -54,7 +54,7 @@ if (expGainValue > 0 and expGaining)
 
 		            LearnMove(playerPkmn, newMoveName, -1);
 		        }
-		        else
+		        /*else
 		        {
 		            ds_list_add(listLevelUpMoves, newMoveName);
 
@@ -64,7 +64,7 @@ if (expGainValue > 0 and expGaining)
 		                "However, it already knows four moves",
 		                "Would you like to replace one?"
 		            );
-		        }
+		        }*/
 
 		        if (youWinText != "")
 		        {
