@@ -1,4 +1,5 @@
 ToBeContinued = false
+FadingOut = false
 
 if room == Asleep {
 	visible = true;
