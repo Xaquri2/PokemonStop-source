@@ -19,10 +19,11 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	var eName = GetName(targetPkmn)
 	var eLevel = GetLevel(targetPkmn)
 	var eStats = GetPokemonFinalStats(eName, eLevel)
+	var eType = GetTypes(targetPkmn)
 
 	var pEntity = FindBattlePokemonEntity(pkmn)
 	var eEntity = FindBattlePokemonEntity(targetPkmn)
-
+	
 	var moveType = GetMoveType(moveName)
 	var movePower = GetMovePower(moveName)
 	var moveAcc = GetMoveAccurancy(moveName)
@@ -31,7 +32,13 @@ function GetDamage(pkmn, targetPkmn, moveName)
 
 	var atkStat = 0
 	var defStat = 0
-
+	
+	for (var i = 0; i < ds_list_size(eType); i++)
+	{
+		var currentType = ds_list_find_value(pType, i)
+		if (IsImmune(moveType, currentType)) return -1
+	}
+	
 	if (moveCat != "Status")
 	{
 		if (moveCat == "Physical")
@@ -449,6 +456,17 @@ function IsTypeNotVeryEffective(type, targetType)
     return false;
 }
 
+function IsImmune(type, targetType)
+{
+	if (type == "Electric" and targetType == "Ground") return true
+	if (type == "Normal" and targetType == "Ghost") return true
+	if (type == "Ghost" and targetType == "Normal") return true
+	if (type == "Fighting" and targetType == "Ghost") return true
+	if (type == "Poison" and targetType == "Steel") return true
+	if (type == "Dragon" and targetType == "Fairy") return true
+	return false
+}
+
 function GetMoveAnimationTime(moveName)
 {
 	switch (moveName)
@@ -543,8 +561,15 @@ function DealDamage(damage, isPlayer)
 	}
 }
 
-function DealEffect(effectName, accurancy, damage, user, target)
+function DealEffect(moveName, effectName, accurancy, damage, user, target)
 {
+	var types = GetTypes(target.pkmnInfo)
+	for (var i = 0; i < ds_list_size(types); i++)
+	{
+		var currentType = ds_list_find_value(types, i)
+		if (IsImmune(GetMoveType(moveName), currentType)) return ""
+	}
+	
 	var str = ""
 	if (user.playerTeam)
 	{

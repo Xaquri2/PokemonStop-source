@@ -1524,16 +1524,11 @@ function LearnsMoveAt(name, level)
         // Official Pokémon
         //--------------------------------
         case "Pikachu":
-            //if (level == 1)  return "Dynamic Punch";
 			if (level == 1)  return "Tackle";
-			//if (level == 3) return "Growl";
-            if (level == 6)  return "Interface"//"Thunder Wave";
+            if (level == 6)  return "Thunder Wave";
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";
-			if (level == 18) return "Ember";
-			if (level == 19) return "Explosion";
-			if (level == 20) return "Dynamic Punch";
             break;
 
         case "Voltorb":

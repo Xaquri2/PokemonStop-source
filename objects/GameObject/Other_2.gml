@@ -15,7 +15,7 @@ global.speedUpMultiplier = 1
 global.expAll = false
 
 global.followerType = ""
-global.pikminCount = 0
+global.pikminCount = 2
 
 var itemsList = ds_list_create()
 var ballsList = ds_list_create()
@@ -67,6 +67,8 @@ while (count <= 5)
 	else count++
 }
 
+
+//Testing
 //AddPokemon("Pikachu", 100, "Male")
 
 //AddItem("Poke Ball", 10)

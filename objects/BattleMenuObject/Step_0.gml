@@ -113,7 +113,12 @@ if (keyboard_check_pressed(vk_enter))
 
 							if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 							else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
-
+							else if (damage == -1)
+							{
+								damage = 0
+								superEffStr = "But the target was immune!"
+							}
+							
 							var awake = true
 							var paralysisCheck = true
 
@@ -135,7 +140,7 @@ if (keyboard_check_pressed(vk_enter))
 								var accRoll = floor(random_range(0,101))
 								if (accRoll <= moveAcc*0.95)
 								{
-									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+									if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
 										if (IsStatusEffect(moveEff)) 
@@ -151,7 +156,7 @@ if (keyboard_check_pressed(vk_enter))
 												moveEff = eFutureStatus
 											}
 										}
-										var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+										var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
 								}
@@ -187,7 +192,7 @@ if (keyboard_check_pressed(vk_enter))
 									var accRoll = floor(random_range(0,101))
 									if (accRoll <= moveAcc)
 									{
-										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+										if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
 											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
@@ -200,7 +205,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (attempt == 4) eFutureStatus = "Sleep"
 												moveEff = eFutureStatus
 											}
-											var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
@@ -244,7 +249,12 @@ if (keyboard_check_pressed(vk_enter))
 								superEffStr = ""
 								if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 								else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
-
+								else if (damage == -1)
+								{
+									damage = 0
+									superEffStr = "But the target was immune!"
+								}
+							
 								awake = true
 								paralysisCheck = ParalysisCheck()
 								if ((eStatus == "Paralysis" and paralysisCheck) or
@@ -260,10 +270,10 @@ if (keyboard_check_pressed(vk_enter))
 									var effectAcc = GetMoveEffectChance(moveName)*100
 									if (floor(random_range(0,101)) <= moveAcc*0.95)
 									{
-										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+										if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
-											var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
@@ -303,7 +313,7 @@ if (keyboard_check_pressed(vk_enter))
 										var effectAcc = GetMoveEffectChance(moveName)*100
 										if (floor(random_range(0,101)) <= moveAcc)
 										{
-											if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+											if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 											if (floor(random_range(0,101)) <= effectAcc)
 											{
 												if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
@@ -316,7 +326,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (attempt == 4) pFutureStatus = "Sleep"
 													moveEff = pFutureStatus
 												}
-												var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
 										}
@@ -371,7 +381,12 @@ if (keyboard_check_pressed(vk_enter))
 
 							if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 							else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
-
+							else if (damage == -1)
+							{
+								damage = 0
+								superEffStr = "But the target was immune!"
+							}
+							
 							var awake = true
 							var paralysisCheck = true
 
@@ -391,7 +406,7 @@ if (keyboard_check_pressed(vk_enter))
 								var effectAcc = GetMoveEffectChance(moveName)*100
 								if (floor(random_range(0,101)) <= moveAcc*0.95)
 								{
-									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+									if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									if (floor(random_range(0,101)) <= effectAcc)
 									{
 										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
@@ -404,7 +419,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (attempt == 4) pFutureStatus = "Sleep"
 											moveEff = pFutureStatus
 										}
-										var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+										var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 										if (effStr != "") ds_list_add(battleText.textList, effStr)
 									}
 								}
@@ -438,7 +453,7 @@ if (keyboard_check_pressed(vk_enter))
 									var effectAcc = GetMoveEffectChance(moveName)*100
 									if (floor(random_range(0,101)) <= moveAcc)
 									{
-										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+										if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
 											if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
@@ -451,7 +466,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (attempt == 4) pFutureStatus = "Sleep"
 												moveEff = pFutureStatus
 											}
-											var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
@@ -497,7 +512,12 @@ if (keyboard_check_pressed(vk_enter))
 								superEffStr = ""
 								if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 								else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
-
+								else if (damage == -1)
+								{
+									damage = 0
+									superEffStr = "But the target was immune!"
+								}
+							
 								awake = true
 								paralysisCheck = ParalysisCheck()
 								if ((pStatus == "Paralysis" and paralysisCheck) or
@@ -513,7 +533,7 @@ if (keyboard_check_pressed(vk_enter))
 									var effectAcc = GetMoveEffectChance(moveName)*100
 									if (floor(random_range(0,101)) <= moveAcc*0.95)
 									{
-										if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+										if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 										if (floor(random_range(0,101)) <= effectAcc)
 										{
 											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
@@ -526,7 +546,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (attempt == 4) eFutureStatus = "Sleep"
 												moveEff = eFutureStatus
 											}
-											var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
 										}
 									}
@@ -566,7 +586,7 @@ if (keyboard_check_pressed(vk_enter))
 										var effectAcc = GetMoveEffectChance(moveName)*100
 										if (floor(random_range(0,101)) <= moveAcc)
 										{
-											if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+											if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 											if (floor(random_range(0,101)) <= effectAcc)
 											{
 												if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
@@ -579,7 +599,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (attempt == 4) eFutureStatus = "Sleep"
 													moveEff = eFutureStatus
 												}
-												var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
 										}
@@ -682,14 +702,19 @@ if (keyboard_check_pressed(vk_enter))
 
 						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
-
+						else if (damage == -1)
+						{
+							damage = 0
+							superEffStr = "But the target was immune!"
+						}
+						
 						ds_list_add(battleText.textList, string_concat("The opposing ", GetName(battle.enemyPkmn), " used ", moveName, "."))
 
 						var moveAcc = GetMoveAccurancy(moveName)
 						var effectAcc = GetMoveEffectChance(moveName)*100
 						if (floor(random_range(0,101)) <= moveAcc)
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							if (floor(random_range(0,101)) <= effectAcc)
 							{
 								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
@@ -702,7 +727,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (attempt == 3) pFutureStatus = "Sleep"
 									moveEff = pFutureStatus
 								}
-								var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
 						}
@@ -782,6 +807,11 @@ if (keyboard_check_pressed(vk_enter))
 
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+				else if (damage == -1)
+				{
+					damage = 0
+					superEffStr = "But the target was immune!"
+				}
 				
 				if (moveName == "Convince" or moveName == "Logic") global.convinceCounter++
 				else global.convinceCounter = 0
@@ -806,7 +836,7 @@ if (keyboard_check_pressed(vk_enter))
 						var accRoll = floor(random_range(0,101))
 						if (accRoll <= moveAcc)
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 						
 							if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 							if (eFutureStatus == "RandomStatus")
@@ -818,7 +848,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (attempt == 3) eFutureStatus = "Sleep"
 								moveEff = eFutureStatus
 							}
-							var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+							var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
 						else CauseAMiss(true)
@@ -844,7 +874,7 @@ if (keyboard_check_pressed(vk_enter))
 								var accRoll = floor(random_range(0,101))
 								if (accRoll <= moveAcc)
 								{
-									if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+									if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							
 									if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 									if (eFutureStatus == "RandomStatus")
@@ -856,7 +886,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (attempt == 3) eFutureStatus = "Sleep"
 										moveEff = eFutureStatus
 									}
-									var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+									var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 									if (effStr != "") ds_list_add(battleText.textList, effStr)
 								}
 								else CauseAMiss(true)
@@ -892,7 +922,7 @@ if (keyboard_check_pressed(vk_enter))
 							var accRoll = floor(random_range(0,101))
 							if (accRoll <= moveAcc)
 							{
-								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							
 								if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 								if (eFutureStatus == "RandomStatus")
@@ -904,7 +934,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (attempt == 3) eFutureStatus = "Sleep"
 									moveEff = eFutureStatus
 								}
-								var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
 							else CauseAMiss(true)
@@ -968,6 +998,11 @@ if (keyboard_check_pressed(vk_enter))
 						superEffStr = ""
 						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+						else if (damage == -1)
+						{
+							damage = 0
+							superEffStr = "But the target was immune!"
+						}
 						
 						var willFlinch = WillFlinch()
 						
@@ -993,7 +1028,7 @@ if (keyboard_check_pressed(vk_enter))
 											var effectAcc = GetMoveEffectChance(moveName)*100
 											if (floor(random_range(0,101)) <= moveAcc)
 											{
-												if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+												if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 
 												if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 												if (pFutureStatus == "RandomStatus")
@@ -1005,7 +1040,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (attempt == 3) pFutureStatus = "Sleep"
 													moveEff = pFutureStatus
 												}
-												var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
 											else CauseAMiss(false)
@@ -1032,7 +1067,7 @@ if (keyboard_check_pressed(vk_enter))
 												var effectAcc = GetMoveEffectChance(moveName)*100
 												if (floor(random_range(0,101)) <= moveAcc)
 												{
-													if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+													if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									
 													if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 													if (pFutureStatus == "RandomStatus")
@@ -1044,7 +1079,7 @@ if (keyboard_check_pressed(vk_enter))
 														if (attempt == 3) pFutureStatus = "Sleep"
 														moveEff = pFutureStatus
 													}
-													var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 													if (effStr != "") ds_list_add(battleText.textList, effStr)
 												}
 												else CauseAMiss(false)
@@ -1082,7 +1117,7 @@ if (keyboard_check_pressed(vk_enter))
 												var effectAcc = GetMoveEffectChance(moveName)*100
 												if (floor(random_range(0,101)) <= moveAcc)
 												{
-													if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+													if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 									
 													if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 													if (pFutureStatus == "RandomStatus")
@@ -1094,7 +1129,7 @@ if (keyboard_check_pressed(vk_enter))
 														if (attempt == 3) pFutureStatus = "Sleep"
 														moveEff = pFutureStatus
 													}
-													var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 													if (effStr != "") ds_list_add(battleText.textList, effStr)
 												}
 												else CauseAMiss(false)
@@ -1135,6 +1170,11 @@ if (keyboard_check_pressed(vk_enter))
 
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
 				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+				else if (damage == -1)
+				{
+					damage = 0
+					superEffStr = "But the target was immune!"
+				}
 				
 				if (moveName == "Convince" or moveName == "Logic") global.convinceCounter++
 				else global.convinceCounter = 0
@@ -1157,7 +1197,7 @@ if (keyboard_check_pressed(vk_enter))
 						var effectAcc = GetMoveEffectChance(moveName)*100
 						if (floor(random_range(0,101)) <= moveAcc)
 						{
-							if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+							if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 
 							if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 							if (pFutureStatus == "RandomStatus")
@@ -1169,7 +1209,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (attempt == 3) pFutureStatus = "Sleep"
 								moveEff = pFutureStatus
 							}
-							var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+							var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 							if (effStr != "") ds_list_add(battleText.textList, effStr)
 						}
 						else CauseAMiss(false)
@@ -1193,7 +1233,7 @@ if (keyboard_check_pressed(vk_enter))
 							var effectAcc = GetMoveEffectChance(moveName)*100
 							if (floor(random_range(0,101)) <= moveAcc)
 							{
-								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							
 								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 								if (pFutureStatus == "RandomStatus")
@@ -1205,7 +1245,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (attempt == 3) pFutureStatus = "Sleep"
 									moveEff = pFutureStatus
 								}
-								var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
 							else CauseAMiss(false)
@@ -1239,7 +1279,7 @@ if (keyboard_check_pressed(vk_enter))
 							var effectAcc = GetMoveEffectChance(moveName)*100
 							if (floor(random_range(0,101)) <= moveAcc)
 							{
-								if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+								if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 							
 								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 								if (pFutureStatus == "RandomStatus")
@@ -1251,7 +1291,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (attempt == 3) pFutureStatus = "Sleep"
 									moveEff = pFutureStatus
 								}
-								var effStr = DealEffect(moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
+								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
 								if (effStr != "") ds_list_add(battleText.textList, effStr)
 							}
 							else CauseAMiss(false)
@@ -1316,6 +1356,11 @@ if (keyboard_check_pressed(vk_enter))
 						superEffStr = ""
 						if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
 						else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+						else if (damage == -1)
+						{
+							damage = 0
+							superEffStr = "But the target was immune!"
+						}
 						
 						var willFlinch = WillFlinch()
 						if (moveEff != "Protect" or battle.protectFail)
@@ -1340,7 +1385,7 @@ if (keyboard_check_pressed(vk_enter))
 											var effectAcc = GetMoveEffectChance(moveName)*100
 											if (floor(random_range(0,101)) <= moveAcc)
 											{
-												if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+												if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 
 												if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 												if (eFutureStatus == "RandomStatus")
@@ -1352,7 +1397,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (attempt == 3) eFutureStatus = "Sleep"
 													moveEff = eFutureStatus
 												}
-												var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
 											}
 											else CauseAMiss(true)
@@ -1379,7 +1424,7 @@ if (keyboard_check_pressed(vk_enter))
 												var effectAcc = GetMoveEffectChance(moveName)*100
 												if (floor(random_range(0,101)) <= moveAcc)
 												{
-													if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+													if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 
 													if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 													if (eFutureStatus == "RandomStatus")
@@ -1391,7 +1436,7 @@ if (keyboard_check_pressed(vk_enter))
 														if (attempt == 3) eFutureStatus = "Sleep"
 														moveEff = eFutureStatus
 													}
-													var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 													if (effStr != "") ds_list_add(battleText.textList, effStr)
 												}
 												else CauseAMiss(true)
@@ -1429,7 +1474,7 @@ if (keyboard_check_pressed(vk_enter))
 												var effectAcc = GetMoveEffectChance(moveName)*100
 												if (floor(random_range(0,101)) <= moveAcc)
 												{
-													if (damage > 0) ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
+													if (damage > 0 or superEffStr == "But the target was immune!") ds_list_add(battleText.textList, string_concat(superEffStr, "It deals ", damage, " damage!"))
 
 													if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 													if (eFutureStatus == "RandomStatus")
@@ -1441,7 +1486,7 @@ if (keyboard_check_pressed(vk_enter))
 														if (attempt == 3) eFutureStatus = "Sleep"
 														moveEff = eFutureStatus
 													}
-													var effStr = DealEffect(moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
+													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 													if (effStr != "") ds_list_add(battleText.textList, effStr)
 												}
 												else CauseAMiss(true)
@@ -1469,9 +1514,9 @@ if (keyboard_check_pressed(vk_enter))
 						}
 					}
 				}
+				
+				CheckForFieldEffect(effStr, battleText.textList)
 			}
-			
-			CheckForFieldEffect(effStr, battleText.textList)
 			
 			instance_destroy(id)
 		}
