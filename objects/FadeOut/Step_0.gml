@@ -5,5 +5,6 @@ if (image_alpha >= 1) && (room == Asleep) {
 }
 
 //if (room == TitleScreen) {
+	//ds_list_add(global.flags, "GameBeaten")
 //	instance_destroy(self)
 //}

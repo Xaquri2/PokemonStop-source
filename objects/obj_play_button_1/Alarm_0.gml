@@ -1,0 +1,1 @@
+SaveStateAction(global.latestSaveState, "Load")
