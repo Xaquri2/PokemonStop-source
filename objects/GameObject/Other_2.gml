@@ -67,6 +67,7 @@ while (count <= 5)
 	else count++
 }
 
+
 //Testing
 //AddPokemon("Pikachu", 100, "Male")
 

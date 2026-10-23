@@ -618,6 +618,7 @@ function GetRoomMusic()
 		case RouteMinusOneTop:
 			return RouteMinusOneTheme
 		case EndCreditsRoom: return RouteMinusOneTheme
+		case Asleep: return ToBeContinuedMusic
 			
 		// Mutant Path 
 		case MutantPath1: return MutantPathAmbiance
