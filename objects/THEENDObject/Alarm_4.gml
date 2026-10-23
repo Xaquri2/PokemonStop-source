@@ -1,0 +1,1 @@
+audio_play_sound(EpiloguePokemonTheme,1,0)

@@ -3,3 +3,4 @@ Endfadein = false
 DrawPokemonStopText = false
 DrawTheEndText = false
 DrawPressEnterText = false
+FinalMusicPlayed = false

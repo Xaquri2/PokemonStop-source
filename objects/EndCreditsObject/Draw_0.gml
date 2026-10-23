@@ -1,2 +1,2 @@
-image_alpha = 0.1
+image_alpha = 0
 draw_self()
