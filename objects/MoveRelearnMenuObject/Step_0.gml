@@ -16,9 +16,12 @@ if (keyboard_check_pressed(vk_enter))
 }
 else
 {
-	if (keyboard_check_pressed(ord("W"))) currentMove--
-	if (keyboard_check_pressed(ord("S"))) currentMove++
+	if (moveList != noone and !ds_list_empty(moveList))
+	{
+		if (keyboard_check_pressed(ord("W"))) currentMove--
+		if (keyboard_check_pressed(ord("S"))) currentMove++
 
-	if (currentMove < 0) currentMove = ds_list_size(moveList)-1
-	if (currentMove >= ds_list_size(moveList)) currentMove = 0
+		if (currentMove < 0) currentMove = ds_list_size(moveList)-1
+		if (currentMove >= ds_list_size(moveList)) currentMove = 0
+	}
 }

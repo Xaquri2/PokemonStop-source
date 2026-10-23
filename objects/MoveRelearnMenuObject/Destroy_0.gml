@@ -1,1 +1,1 @@
-ds_list_destroy(moveList)
+if (moveList != noone) ds_list_destroy(moveList)

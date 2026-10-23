@@ -212,17 +212,24 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 			var pkmnInfo = GetPartyMemberInfo(global.playerParty, selectedIndex)
 			if (ds_list_size(GetMoves(pkmnInfo)) == 4)
 			{
-				instance_destroy(id)
 				var m = instance_create_depth(x,y,depth,MoveRelearnMenuObject)
 				m.pkmnInfo = pkmnInfo
 				m.moveList = ds_list_create()
-				m.replaceIndex = selectedIndex
+				m.replaceIndex = moveIndex
 				for (var i = 1; i < 101; i++)
 				{
 					var mv = LearnsMoveAt(GetName(pkmnInfo), i)
-					if (mv != "" and GetLevel(pkmnInfo) <= i 
+					if (mv != "" and GetLevel(pkmnInfo) >= i 
 					and ds_list_find_index(GetMoves(pkmnInfo), mv) == -1) ds_list_add(m.moveList, mv)
 				}
+				
+				if ds_list_empty(m.moveList) 
+				{
+					ds_list_destroy(m.moveList)
+					m.moveList = noone
+					instance_destroy(m)
+				}
+				else instance_destroy(id)
 			}
 		}
 	}
