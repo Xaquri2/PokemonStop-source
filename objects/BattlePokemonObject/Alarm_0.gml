@@ -32,4 +32,10 @@ if (room == RoomBattleGodzilla) {
 	}
 }
 
+if (!playerTeam && name == "Koopa")
+{
+    x += 50;
+    y -= 10;
+}
+
 if (ds_list_find_index(battle.battleParticipants, pkmnInfo) != undefined) ds_list_add(battle.battleParticipants, pkmnInfo)
