@@ -8,8 +8,6 @@ ds_list_add(nameList, "Gorbertron", "Gorbertron", "Gorbertron", "Gorbertron", "G
 ds_list_add(iconList, GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,GorbertronSprite_CLOSEUP,)
 
 ds_list_add(defeatTextList, "You've already earned your Mutant Badge.")
-ds_list_add(defeatNameList, "Gorbertron")
-ds_list_add(defeatIconList, GorbertronSprite_CLOSEUP)
 
 ds_list_add(postBattleTextList, "Very well. You've earned the Mutant Badge. Take it and begone!", "Lest my Morlocks eat you.")
 ds_list_add(postBattleNameList, "Gorbertron","Gorbertron")

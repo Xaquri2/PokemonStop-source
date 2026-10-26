@@ -177,7 +177,7 @@ else {
 		var flicker = .8 + random_range(-0.05, 0.05);
 
 	// cut out light
-	if (global.torch) {
+	if (global.torch and global.torchPower > 0) {
 	    gpu_set_blendmode(bm_add);
 
 	    draw_sprite_ext(

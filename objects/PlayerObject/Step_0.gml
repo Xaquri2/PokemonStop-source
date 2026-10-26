@@ -422,7 +422,7 @@ else
 
 if (!talking and !battle and global.torch)
 {
-	if (global.torchPower > 0) global.torchPower -= 0.001
+	if (global.torchPower > 0) global.torchPower -= 0.0005
 	else global.torchPower = 0
 }
 
