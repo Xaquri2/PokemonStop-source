@@ -133,6 +133,7 @@ function GetItemSprite(name)
         case "Full Restore": return spr_potion_green
         case "Rare Candy": return RareCandySprite
         case "Poke Ball": return PokeballRotateSprite
+		case "Great Ball": return GreatBallSprite
         case "Torch Fuel": return TorchSprite
         case "Super Torch Fuel": return TorchSprite
         case "Ultra Torch Fuel": return TorchSprite

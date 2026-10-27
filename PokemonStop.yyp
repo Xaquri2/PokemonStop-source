@@ -677,6 +677,7 @@
     {"id":{"name":"GoombaOverworldSprite","path":"sprites/GoombaOverworldSprite/GoombaOverworldSprite.yy",},},
     {"id":{"name":"GorbertronSprite_CLOSEUP","path":"sprites/GorbertronSprite_CLOSEUP/GorbertronSprite_CLOSEUP.yy",},},
     {"id":{"name":"GorbertronSprite","path":"sprites/GorbertronSprite/GorbertronSprite.yy",},},
+    {"id":{"name":"GreatBallSprite","path":"sprites/GreatBallSprite/GreatBallSprite.yy",},},
     {"id":{"name":"GreedSprite","path":"sprites/GreedSprite/GreedSprite.yy",},},
     {"id":{"name":"GreenBubbleBattleSprite","path":"sprites/GreenBubbleBattleSprite/GreenBubbleBattleSprite.yy",},},
     {"id":{"name":"GreenBubbleOverworldSprite","path":"sprites/GreenBubbleOverworldSprite/GreenBubbleOverworldSprite.yy",},},
