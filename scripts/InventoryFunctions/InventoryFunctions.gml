@@ -134,6 +134,7 @@ function GetItemSprite(name)
         case "Rare Candy": return RareCandySprite
         case "Poke Ball": return PokeballRotateSprite
 		case "Great Ball": return GreatBallSprite
+		case "Ultra Ball": return UltraBallSprite
         case "Torch Fuel": return TorchSprite
         case "Super Torch Fuel": return TorchSprite
         case "Ultra Torch Fuel": return TorchSprite
