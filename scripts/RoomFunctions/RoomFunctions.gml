@@ -552,6 +552,14 @@ function SetWarpDefaults(name, spawnDir, show)
 			targetRoom = FifthFloor
 			targetWarp = "TowerFifthFloorElevatorDOWN"
 			break
+		case "DarkTowerBossWarp":
+			targetRoom = FifthFloor
+			targetWarp = "DarkTowerBossWarp2"
+			break
+		case "DarkTowerBossWarp2":
+			targetRoom = FirstFloor
+			targetWarp = "DarkTowerBossWarp"
+			break
 			#endregion
 
 		#region Misc. 

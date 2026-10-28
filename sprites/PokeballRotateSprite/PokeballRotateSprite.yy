@@ -124,8 +124,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Items",
-    "path":"folders/Sprites/Items.yy",
+    "name":"Balls",
+    "path":"folders/Sprites/Items/Balls.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -92,7 +92,6 @@ if (keyboard_check_pressed(vk_enter))
 			{
 				if (IsBattleItem(itemName) and instance_number(BattleObject) > 0)
 				{
-					ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 					var statChange = GetStatItemChange(itemName)
 					if (statChange != -1) var modifier = ds_list_find_value(statChange, 1)
 					var itemCat = GetItemCategory(itemName)
@@ -110,24 +109,51 @@ if (keyboard_check_pressed(vk_enter))
 							}
 						}
 
-						switch (ds_list_find_value(statChange, 0)) //Add stat modifier
+						var stageVariable = ""
+						var statVariable = ""
+						var baseStat = 0
+						switch (ds_list_find_value(statChange, 0))
 						{
 							case "Attack":
-								playerPkmn.atk += modifier
+								stageVariable = "attackModifier"
+								statVariable = "atk"
+								baseStat = GetAtkStat(playerPkmn.statList)
 								break
 							case "Defense":
-								playerPkmn.def += modifier
+								stageVariable = "defenseModifier"
+								statVariable = "def"
+								baseStat = GetDefStat(playerPkmn.statList)
 								break
 							case "Special Attack":
-								playerPkmn.spatk += modifier
+								stageVariable = "spAtkModifier"
+								statVariable = "spatk"
+								baseStat = GetSpAtkStat(playerPkmn.statList)
 								break
 							case "Special Defense":
-								playerPkmn.spdef += modifier
+								stageVariable = "spDefModifier"
+								statVariable = "spdef"
+								baseStat = GetSpDefStat(playerPkmn.statList)
 								break
 							case "Speed":
-								playerPkmn.spd += modifier
+								stageVariable = "speedModifier"
+								statVariable = "spd"
+								baseStat = GetSpeedStat(playerPkmn.statList)
 								break
 						}
+
+						var oldStage = variable_instance_get(playerPkmn, stageVariable)
+						if (oldStage >= 6)
+						{
+							question = "It won't go any higher!"
+							ds_list_destroy(statChange)
+							exit
+						}
+
+						var newStage = min(6, oldStage + modifier)
+						variable_instance_set(playerPkmn, stageVariable, newStage)
+						// Apply now, before calculating the enemy's response this turn.
+						variable_instance_set(playerPkmn, statVariable, SetFinalStat(baseStat, newStage))
+						ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 
 						var battleMenu = instance_find(BattleMenuObject, 0)
 						battleMenu.mode = "Choosing"
@@ -164,7 +190,7 @@ if (keyboard_check_pressed(vk_enter))
 						var ePriority = GetMovePriority(enemyMoveName)
 
 						var strongEffectStr = ""
-						if (string_count("2", itemName) > 0) strongEffectStr = "greatly "
+						if (newStage - oldStage == 2) strongEffectStr = "greatly "
 
 						if (GetSpeedStat(playerStats) > GetSpeedStat(enemyStats) or pPriority > ePriority)
 						{
@@ -206,12 +232,14 @@ if (keyboard_check_pressed(vk_enter))
 							if (GetHealth(battle.playerPkmn) <= 0) ds_list_add(battleText.textList,
 							string_concat(GetName(battle.playerPkmn)," fainted!"))
 						}
+						ds_list_destroy(statChange)
 						instance_destroy(battleMenu)
 						instance_destroy(menu)
 						instance_destroy(id)
 					}
 					else if (itemCat == "Balls")
 					{
+						ConsumeItem(menu.selectedCategory, menu.selectedItem, 1)
 						var playerPkmn = -1
 						for (var i = 0; i < instance_number(BattlePokemonObject); i++) //Find player pokémon
 						{

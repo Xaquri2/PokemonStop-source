@@ -1,1 +1,1 @@
-Target = EndCreditsRoom
+Target = FifthFloor
