@@ -1616,6 +1616,16 @@ function GetTrainerTeam(trainerName)
 			AddPokemonTrainer(team, 2, "Morlock", 10, "Male", MorlockcitaSprite)
 			break
 			
+		// Morlock City 3: independent trainers using the shared Morlock object.
+		case "Morlock Tunnel Scout":
+			AddPokemonTrainer(team, 1, "Zubat", 10, "Female", ZubatFlappingSprite)
+			AddPokemonTrainer(team, 2, "Demo Dog", 11, "Male", DemoDogSprite)
+			break
+		case "Morlock Bridge Sentry":
+			AddPokemonTrainer(team, 1, "Human", 12, "Male", Human2IdleSprite)
+			AddPokemonTrainer(team, 2, "Morlock", 13, "Female", MorlockcitaSprite)
+			break
+
 	//Robot Path
 		case "BoxBotH":
 			AddPokemonTrainer(team, 1, "Magnemite", 4, "Male", MagnemiteOverworldSprite)

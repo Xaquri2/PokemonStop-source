@@ -46,7 +46,48 @@ function GetItemValue(name)
 {
 	switch (name)
 	{
-		case "Skyview Mushroom": return 500
-		default: return 100 //To be done
+		case "Potion":
+		case "Poke Ball":
+		case "Torch Fuel":
+			return 100
+		case "Super Potion":
+		case "Great Ball":
+		case "Ultra Torch Fuel":
+			return 300
+		case "Hyper Potion":
+			return 700
+		case "Max Potion":
+			return 1200
+		case "Full Restore":
+		case "Rare Candy":
+			return 1500
+		case "Ultra Ball":
+			return 600
+		case "Super Torch Fuel":
+			return 180
+		case "X Attack":
+		case "X Defense":
+		case "X Special Attack":
+		case "X Special Defense":
+		case "X Speed":
+			return 200
+		case "X Attack 2":
+		case "X Defense 2":
+		case "X Special Attack 2":
+		case "X Special Defense 2":
+		case "X Speed 2":
+		case "Skyview Mushroom":
+			return 500
+		case "Poke Flute":
+		case "Skyview Potion":
+			return 1000
+		case "Test Area Key":
+		case "Field Area Key":
+			return 2000
+		case "Moltres Area Key":
+		case "Zapdos Area Key":
+		case "Rancor Area Key":
+			return 5000
+		default: return 100
 	}
 }

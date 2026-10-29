@@ -54,22 +54,92 @@ function GetBattleTheme(name)
 
 function GetTrainerMoney(n)
 {
+	// Leaders pay a fixed bonus; other known trainers scale with progression.
 	switch (n)
 	{
-		//case "Name of the trainer": return [value]
-		default: return irandom_range(50,150)
+		case "Lilium": return 1800
+		case "Gorbertron": return 1800
+		case "Collector": return 2000
+		case "Zoovac": return 4000
 	}
+
+	switch (GetTrainerRank(n))
+	{
+		case 0: return irandom_range(50, 150)
+		case 1: return irandom_range(150, 250)
+		case 2: return irandom_range(300, 500)
+		case 3: return irandom_range(600, 900)
+		case 4: return irandom_range(1000, 1400)
+	}
+	return irandom_range(50, 150)
 }
 
 function GetTrainerRank(n)
 {
 	switch (n)
 	{
-		//case "Name of trainer":
-		//	return 1
-		
-		default:
+		// Opening battle and lower Route Minus One.
+		case "GodzillaTestTrainer":
+		case "Gym Leader Test":
+		case "Mary":
+		case "Hat Kid":
+		case "Kidd Funkadelic, Jr.":
+		case "Pikachu":
+		case "KcoKt":
 			return 0
+
+		// Upper Route Minus One and the early branch trainers.
+		case "Mary2":
+		case "Ultiron":
+		case "Bestie":
+		case "Shocker":
+		case "Team Rocket Hexagonni":
+		case "BoxBotH":
+		case "BoxBotI":
+		case "Greg":
+			return 1
+
+		// Deeper branch areas, Morlock City, and Mountain Peak.
+		case "Morlock Trainer":
+		case "Skull":
+		case "BridgeMorlock":
+		case "Morlock Tunnel Scout":
+		case "Morlock Bridge Sentry":
+		case "Bottrick Notthuman":
+		case "Cloaked Trainer":
+		case "Ephemelia":
+		case "Box Bot O":
+		case "Ian":
+		case "Elise":
+			return 2
+
+		// Gym leaders and the first three tower floors.
+		case "Sphinx":
+		case "Lilium":
+		case "Gorbertron":
+		case "Collector":
+		case "Team Rocket Mildred":
+		case "Team Rocket Bonnie":
+		case "Team Rocket Gladys":
+		case "Team Rocket Roxanne":
+		case "Team Rocket Spike":
+		case "Team Rocket Marnie":
+		case "Team Rocket Jett":
+			return 3
+
+		// Fourth-floor gauntlet and the final boss.
+		case "Team Rocket Sable":
+		case "Team Rocket Cruz":
+		case "Team Rocket Nyx":
+		case "Team Rocket Harlow":
+		case "Team Rocket Gage":
+		case "Team Rocket Vesper":
+		case "Team Rocket Dante":
+		case "Team Rocket Kira":
+		case "Zoovac":
+			return 4
+
+		default: return 0
 	}
 }
 

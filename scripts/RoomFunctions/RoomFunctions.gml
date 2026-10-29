@@ -854,13 +854,76 @@ function BattleHasFX()
 	}
 }
 
+// Returns [sprite, source x, source y, source width, source height].
+// NestTileObject draws these existing floor tiles on a fixed 32-pixel grid.
 function GetNestRoomTileType(ogRoom)
 {
 	switch (ogRoom)
 	{
-		case GashUpstairs: return GreenCross
-		default:
-			return GreenTileSprite
+		case GashUpstairs:
+			return [GreenCross, 0, 0, 64, 64]
+
+		// Grassland nests retain their original floor and grass cover.
+		case TestRoom:
+		case TestPath:
+		case Mallet_Town:
+		case Mallet_East:
+		case RouteMinusOneBottom:
+		case RouteMinusOneTop:
+		case RobotPath:
+		case Waterfront:
+			return [GreenTileSprite, 0, 0, 32, 32]
+
+		// The ochre cave floor used in Morlock City 3.
+		case MutantPath1:
+		case MorlockCity:
+		case MorlockCity2:
+		case MorlockCity3:
+		case MorlockGym:
+		case MorlockShop:
+		case MorlockRestaurant:
+		case MutantPokecenter:
+		case NebogipfelsStudy:
+		case TestTiltedRoom:
+			return [GoldRush, 160, 720, 16, 16]
+
+		// Metal flooring from the robot gym.
+		case RobotGym:
+		case RobotMart:
+		case RobotPokecenter:
+		case FirstFloor:
+		case SecondFloor:
+		case ThirdFloor:
+		case FourthFloor:
+		case FifthFloor:
+		case Elevator1:
+		case Elevator2:
+		case Elevator3:
+		case Elevator4:
+			return [SciFi2Sprite, 560, 544, 16, 16]
+
+		case MuntainPeak:
+			return [Mountains1, 768, 273, 32, 32]
+
+		case ShadowPath:
+		case ShadowPathGym:
+		case ShadowTower:
+		case ShadowPokecenter:
+			return [Atlas2, 176, 80, 16, 16]
+
+		case GashHouse:
+		case GinkgoLab:
+		case MaryHouse:
+		case MaryHouseUpstairs:
+		case MalletMuseum:
+		case EmptyHouse:
+		case GreedShop:
+		case RegionCenter:
+		case Underroom1:
+		case Underroom2:
+			return [spr_tileset_floor, 64, 0, 64, 64]
+
+		default: return [GreenTileSprite, 0, 0, 32, 32]
 	}
 }
 
@@ -910,6 +973,11 @@ function GetAreaKeyOrigin(keyName)
 	switch (keyName)
 	{
 		case "Test Area Key": return TestRoom
+		case "Field Area Key": return Mallet_Town
+		case "Moltres Area Key": return MuntainPeak
+		// These origins select nest scenery; key-specific encounter pools stay separate.
+		case "Zapdos Area Key": return RobotGym
+		case "Rancor Area Key": return MorlockCity3
 		
 		default: return Mallet_Town
 	}
