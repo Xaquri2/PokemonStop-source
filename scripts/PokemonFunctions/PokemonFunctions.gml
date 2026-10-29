@@ -125,31 +125,41 @@ function CreatePokemonInfo(name, level, gender, moveset)
 	return pokemon
 }
 
+function GetWildEncounterLevel(area)
+{
+	var badges = 0
+	if (HasFlag("MutantBadge")) badges++
+	if (HasFlag("ShadowBadge")) badges++
+	if (HasFlag("RobotBadge")) badges++
+
+	var minLevel = 3
+	var maxLevel = 5
+	switch (area)
+	{
+		case Mallet_Town: return irandom_range(1, 2)
+		case RouteMinusOneBottom: return irandom_range(2, 4)
+		case RouteMinusOneTop:
+			minLevel = 4; maxLevel = 7
+			break
+		case MutantPath1:
+		case ShadowPath:
+		case RobotPath:
+			minLevel = 7; maxLevel = 10
+			break
+		default: return irandom_range(minLevel, maxLevel)
+	}
+
+	// One badge: 10-13, two: 13-16, three: 16-19 on branch routes.
+	return irandom_range(minLevel + badges * 3, maxLevel + badges * 3)
+}
+
 function GetWildPokemon(encounterType)
 {
 	var encounters = GetAreaEncounters(encounterType)
 
 	var pkmn = ds_list_create()
 	var name = ds_list_find_value(encounters, random_range(0,ds_list_size(encounters)-1))
-	var level = 0
-	if room == Mallet_Town {
-		level = floor(random_range(1,2))
-	}
-	else if room == RouteMinusOneBottom {
-		level = floor(random_range(2,3))
-	}
-	else if room == RouteMinusOneTop {
-		level = floor(random_range(2,5))
-	}
-	else if room == MutantPath1 {
-		level = floor(random_range(2,5))
-	}
-	else if room == RobotPath {
-		level = floor(random_range(3,6))
-	}
-	else {
-		level = floor(random_range(3,5))
-	}
+	var level = GetWildEncounterLevel(room)
 	var gender = "Male"
 	if (floor(random_range(1,3)) > 1) gender = "Female"
 	var sprite = GetSpriteByNumber(GetNumberByName(name))
@@ -437,43 +447,41 @@ function GetStatusColor(status)
 
 function AddExp(pkmnInfo, expValue, learnMove)
 {
-	var pkmnExp = GetExp(pkmnInfo)
-	var expPerc = GetExpPercentage(pkmnInfo)
-
-	var level = GetLevel(pkmnInfo)
+	// Stored EXP is progress within this level, not lifetime EXP.
+	var remainingExp = GetExp(pkmnInfo) + max(0, floor(expValue))
+	var oldLevel = GetLevel(pkmnInfo)
+	var level = oldLevel
 	var growthRate = GetGrowth(pkmnInfo)
 
-	var levelsGained = 0
-	for (var i = 1; i < 100; i++)
+	while (level < 100)
 	{
-		var levelFloorCheck = GetExpLevelFloor(level+i, growthRate)
-		if (pkmnExp+expValue >= levelFloorCheck and level < 100)
-		{
-			levelsGained++
-		}
-		else break
+		var levelCost = GetExpLevelFloor(level + 1, growthRate)
+		if (remainingExp < levelCost) break
+		remainingExp -= levelCost
+		level++
 	}
-	
-	for (var i = level+1; i <= level+levelsGained; i++)
+
+	ds_list_set(pkmnInfo, 2, min(level, 100))
+	ds_list_set(pkmnInfo, 8, (level >= 100) ? 0 : remainingExp)
+
+	// The active Pokemon's animation handles its learning prompts. Benched
+	// Pokemon keep the existing notification/relearner path.
+	if (learnMove)
 	{
-		var learnedMove = LearnsMoveAt(GetName(pkmnInfo), i)
-		if (learnedMove != "")
+		for (var i = oldLevel + 1; i <= level; i++)
 		{
-			if (ds_list_size(GetMoves(pkmnInfo)) >= 4)
+			var learnedMove = LearnsMoveAt(GetName(pkmnInfo), i)
+			if (learnedMove != "" and ds_list_find_index(GetMoves(pkmnInfo), learnedMove) == -1)
 			{
-				ds_list_insert(BattleTextboxObject.textList, BattleTextboxObject.currentText+1, 
-				string_concat(GetName(pkmnInfo), " can now learn ", learnedMove, "!"))
+				if (ds_list_size(GetMoves(pkmnInfo)) < 4) LearnMove(pkmnInfo, learnedMove, -1)
+				else if (instance_exists(BattleTextboxObject))
+				{
+					ds_list_insert(BattleTextboxObject.textList, BattleTextboxObject.currentText + 1,
+					string_concat(GetName(pkmnInfo), " can now learn ", learnedMove, "!"))
+				}
 			}
 		}
 	}
-
-	if (pkmnExp+expValue >= GetExpLevelFloor(level, growthRate))
-	{
-		if (levelsGained > 0) ds_list_set(pkmnInfo, 8, 0)
-		else ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
-		ds_list_set(pkmnInfo, 2, level+levelsGained)
-	}
-	else ds_list_set(pkmnInfo, 8, pkmnExp+expValue)
 }
 
 /// @param            team    The team to search for the Pokémon you want to retreive info about
@@ -1519,7 +1527,6 @@ function LearnMove(pkmnInfo, moveName, pos)
 /// @description              Returns the name of any move the Pokémon might learn at the given level.
 function LearnsMoveAt(name, level)
 {
-	var moveInfo = ds_list_create()
 	switch (name)
     {
         //--------------------------------
@@ -1531,6 +1538,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Electro Ball";
             if (level == 16) return "Thunderbolt";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Voltorb":
@@ -1539,6 +1548,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Self-Destruct";
 			if (level == 9)  return "Thunder Wave";
             if (level == 12) return "Explosion";
+            if (level == 24) return "Thunderbolt";
+            if (level == 32) return "Electro Ball";
             break;
 
         case "Caterpie":
@@ -1548,6 +1559,8 @@ function LearnsMoveAt(name, level)
 			if (level == 10)  return "Leech Life";
             if (level == 12) return "Confusion";
 			if (level == 16) return "Gust";
+            if (level == 24) return "Poison Sting";
+            if (level == 32) return "Body Slam";
             break;
 
         case "Magnemite":
@@ -1556,6 +1569,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Thunderbolt";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Electro Ball";
+            if (level == 24) return "Thunder Wave";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Butterfree":
@@ -1564,6 +1579,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Psychic";
             if (level == 12) return "Play Rough";
 			if (level == 16) return "Shadow Ball";
+            if (level == 24) return "Hypnosis";
+            if (level == 32) return "Moonblast";
             break;
 
         case "Charmander":
@@ -1572,6 +1589,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Fire Fang";
             if (level == 12) return "Slash";
 			if (level == 16) return "Giga Impact";
+            if (level == 24) return "Dragon Breath";
+            if (level == 32) return "Fire Blast";
             break;
 
         case "Charmandorian":
@@ -1580,6 +1599,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Slash";
             if (level == 12) return "Fire Blast";
             if (level == 16) return "Ice Beam";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Giga Impact";
             break;
 
         case "Charmandalorian":
@@ -1588,6 +1609,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Fire Blast";
             if (level == 12) return "Giga Impact";
             if (level == 16) return "Iron Defense";
+            if (level == 24) return "Ice Beam";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Clefairy":
@@ -1596,6 +1619,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Play Rough";
             if (level == 12) return "Moonblast";
             if (level == 16) return "Psychic";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Aura Sphere";
             break;
 
         case "Squirtle":
@@ -1604,6 +1629,8 @@ function LearnsMoveAt(name, level)
             if (level == 6)  return "Withdraw";
             if (level == 8)  return "Aqua Tail";
             if (level == 12) return "Hydro Pump";
+            if (level == 24) return "Ice Beam";
+            if (level == 32) return "Iron Defense";
             break;
 
       // case "Blastoise":
@@ -1619,6 +1646,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Body Slam";
 			if (level == 12) return "Crunch";
             if (level == 15) return "Giga Impact";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Yamask":
@@ -1627,6 +1656,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Hypnosis";
             if (level == 12) return "Shadow Punch";
             if (level == 16) return "Shadow Ball";
+            if (level == 24) return "Hex Roulette";
+            if (level == 32) return "Psychic";
             break;
 
         case "Umbreon":
@@ -1635,6 +1666,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Bite";
             if (level == 12) return "Shadow Ball";
             if (level == 16) return "Crunch";
+            if (level == 24) return "Hypnosis";
+            if (level == 32) return "Psychic";
             break;
 
         case "Zubat":
@@ -1643,6 +1676,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Bite";
             if (level == 12) return "Wing Attack";
             if (level == 16) return "Leech Life";
+            if (level == 24) return "Shadow Claw";
+            if (level == 32) return "Hypnosis";
             break;
 
         //--------------------------------
@@ -1654,7 +1689,9 @@ function LearnsMoveAt(name, level)
 			if (level == 8) return "Crunch";
 			if (level == 12) return "Grassy Surge";
 			if (level == 16) return "Storm Throw";
-			break
+			if (level == 24) return "Leech Life";
+            if (level == 32) return "Body Slam";
+            break
 			
         case "Kirby":
             if (level == 1)  return "Inhale";
@@ -1662,6 +1699,8 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Aura Sphere";
             if (level == 15) return "Iron Defense";
             if (level == 20) return "Moonblast";
+            if (level == 24) return "Psychic";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Ape-Ball":
@@ -1670,6 +1709,8 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Rock Tomb";
             if (level == 13) return "Storm Throw";
 			if (level == 16) return "Giga Impact";
+            if (level == 24) return "Slash";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Demogorgon":
@@ -1679,6 +1720,8 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Dual Strike";
             if (level == 15) return "Giga Impact";
             if (level == 20) return "Force Lift";
+            if (level == 24) return "Shadow Ball";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "MissingNo":
@@ -1687,6 +1730,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Gust";
             if (level == 12) return "Hex Roulette";
             if (level == 16) return "Hyper Beam";
+            if (level == 24) return "Shadow Ball";
+            if (level == 32) return "Psychic";
             break;
 
         case "Creeper":
@@ -1695,6 +1740,8 @@ function LearnsMoveAt(name, level)
 			if (level == 12)  return "Self-Destruct";
             if (level == 16) return "Explosion";
             if (level == 20) return "Giga Impact";
+            if (level == 24) return "Rock Tomb";
+            if (level == 32) return "Body Slam";
             break;
 
         case "Ewok":
@@ -1703,6 +1750,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Set Trap";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Wicket's Reversal";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Storm Throw";
             break;
 
         case "Xenomorph":
@@ -1711,6 +1760,8 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Bite";
             if (level == 15) return "Shadow Claw";
             if (level == 20) return "Leech Life";
+            if (level == 24) return "Slash";
+            if (level == 32) return "Giga Impact";
             break;
 
         case "Yo’ster":
@@ -1719,6 +1770,8 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Double Kick";
             if (level == 15) return "Mega Punch";
             if (level == 20) return "Body Slam";
+            if (level == 24) return "Rock Tomb";
+            if (level == 32) return "Giga Impact";
             break;
 
         case "Pac-Man":
@@ -1727,6 +1780,8 @@ function LearnsMoveAt(name, level)
             if (level == 10) return "Crunch";
             if (level == 15) return "Hyper Beam";
             if (level == 20) return "Giga Impact";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Iron Defense";
             break;
 
 		case "Human":
@@ -1735,7 +1790,9 @@ function LearnsMoveAt(name, level)
 		    if (level == 8)  return "Headbutt";
 		    if (level == 12) return "Bite";
 			if (level == 16) return "Set Trap";
-			break
+			if (level == 24) return "Iron Defense";
+            if (level == 32) return "Storm Throw";
+            break
 			
         case "Fig":
             if (level == 1)  return "Vine Whip";
@@ -1743,6 +1800,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Leech Life";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Rock Tomb";
             break;
 			
 		case "Baby":
@@ -1751,6 +1810,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Headbutt";
             if (level == 10) return "Iron Defense";
             if (level == 12) return "Bite";
+            if (level == 24) return "Thunderbolt";
+            if (level == 32) return "Body Slam";
             break;
 			
 		case "Zoombini":
@@ -1759,6 +1820,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Confusion";
             if (level == 12) return "Psychic";
             if (level == 16) return "Moonblast";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Aura Sphere";
             break;
 			
 		case "Woob-Wüb":
@@ -1767,6 +1830,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Doom Downgrade";
             if (level == 12) return "Hex Roulette";
             if (level == 16) return "Tackle";
+            if (level == 24) return "Sing";
+            if (level == 32) return "Body Slam";
             break;
 
         case "Envy":
@@ -1776,6 +1841,8 @@ function LearnsMoveAt(name, level)
 			if (level == 9) return "Water Gun"
             if (level == 12) return "Crunch";
             if (level == 16) return "Shadow Ball";
+            if (level == 24) return "Aqua Tail";
+            if (level == 32) return "Hydro Pump";
             break;
 
         case "Ninja Squirtle":
@@ -1784,6 +1851,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Jump Kick";
             if (level == 16) return "Crunch";
+            if (level == 24) return "Aqua Tail";
+            if (level == 32) return "Ice Beam";
             break;
 
         case "Omega Squirtle":
@@ -1792,6 +1861,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Iron Defense";
             if (level == 12) return "Ice Beam";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Hydro Pump";
+            if (level == 32) return "Aura Sphere";
             break;
 
         case "Umbrian":
@@ -1800,6 +1871,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Bite";
             if (level == 12) return "Crunch";
             if (level == 16) return "Shadow Ball";
+            if (level == 24) return "Hypnosis";
+            if (level == 32) return "Psychic";
             break;
 
         case "Box Bot":
@@ -1808,6 +1881,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Iron Defense";
             if (level == 12) return "Thunderbolt";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Tutorial Bot":
@@ -1816,6 +1891,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Quick Attack";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Thunderbolt";
+            if (level == 32) return "Hyper Beam";
             break;
 			
         case "BB-8":
@@ -1824,6 +1901,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Thunderbolt";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Quick Attack";
+            if (level == 24) return "Electro Ball";
+            if (level == 32) return "Body Slam";
             break;
 
         case "Moosephant":
@@ -1832,6 +1911,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Headbutt";
             if (level == 12) return "Rock Tomb";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Iron Defense";
             break;
 
         case "ZooChomper":
@@ -1840,6 +1921,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Crunch";
             if (level == 12) return "Shadow Ball";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Aura Sphere";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Green Bubble":
@@ -1856,6 +1939,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Bite";
             if (level == 12) return "Acid Blood";
             if (level == 16) return "Crunch";
+            if (level == 24) return "Slash";
+            if (level == 32) return "Iron Defense";
             break;
 
         case "Tribble":
@@ -1864,6 +1949,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Headbutt";
             if (level == 12) return "Bite";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Sing";
+            if (level == 32) return "Body Slam";
             break;
 			
 		case "Zergling":
@@ -1872,6 +1959,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Dual Strike";
             if (level == 12) return "Crunch";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Slash";
+            if (level == 32) return "Shadow Claw";
             break;
 
         case "Morlock":
@@ -1880,6 +1969,8 @@ function LearnsMoveAt(name, level)
 			if (level == 8)  return "Tackle";
             if (level == 12) return "Crunch";
             if (level == 16) return "Slash";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Storm Throw";
             break;
 			
 		case "Rancor":
@@ -1888,6 +1979,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Crunch";
             if (level == 12) return "Bulldoze";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Rock Tomb";
+            if (level == 32) return "Body Slam";
             break;
 
         case "Porg":
@@ -1896,6 +1989,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Drill Peck";
             if (level == 12) return "Bite";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Hyper Beam";
             break;
 		case "Caelian":
             if (level == 1)  return "Play Rough";
@@ -1903,6 +1998,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Psychic";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Aura Sphere";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Articuno":
@@ -1911,6 +2008,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Drill Peck";
             if (level == 12) return "Psychic";
             if (level == 16) return "Hyper Beam";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Moonblast";
             break;
 
         case "Zapdos":
@@ -1919,6 +2018,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Thunderbolt";
             if (level == 12) return "Drill Peck";
             if (level == 16) return "Electro Ball";
+            if (level == 24) return "Thunder Wave";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Moltres":
@@ -1927,6 +2028,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Drill Peck";
             if (level == 12) return "Crunch";
             if (level == 16) return "Fire Blast";
+            if (level == 24) return "Dragon Breath";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Godzooky":
@@ -1935,6 +2038,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Headbutt";
             if (level == 12) return "Bulldoze";
             if (level == 16) return "Wing Attack";
+            if (level == 24) return "Dragon Breath";
+            if (level == 32) return "Fire Blast";
             break;
 
         case "Godzilla":
@@ -1951,6 +2056,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Bite";
             if (level == 12) return "Shadow Ball";
             if (level == 16) return "Crunch";
+            if (level == 24) return "Shadow Claw";
+            if (level == 32) return "Leech Life";
             break;
 			
 		case "Andalite":
@@ -1959,6 +2066,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Psychic";
             if (level == 12) return "Force Lift";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Ice Beam";
+            if (level == 32) return "Hyper Beam";
             break;
 			
 		case "Boo":
@@ -1967,6 +2076,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Hypnosis";
             if (level == 12) return "Shadow Punch";
             if (level == 16) return "Shadow Ball";
+            if (level == 24) return "Hex Roulette";
+            if (level == 32) return "Psychic";
             break;
 
         case "Demo Dog":
@@ -1975,6 +2086,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Headbutt";
             if (level == 12) return "Crunch";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Slash";
+            if (level == 32) return "Shadow Claw";
             break;
 
         case "Enderman":
@@ -1983,6 +2096,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Hypnosis";
             if (level == 12) return "Shadow Punch";
             if (level == 16) return "Psychic";
+            if (level == 24) return "Crunch";
+            if (level == 32) return "Shadow Ball";
             break;
 
         case "Glyptoblock":
@@ -1991,6 +2106,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Rock Tomb";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Fire Blast";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Goomba":
@@ -1999,6 +2116,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Headbutt";
             if (level == 12) return "Bulldoze";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Rock Tomb";
+            if (level == 32) return "Body Slam";
             break;
 
         case "King Koopa":
@@ -2007,6 +2126,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Iron Defense";
             if (level == 12) return "Fire Blast";
             if (level == 16) return "Giga Impact";
+            if (level == 24) return "Dragon Breath";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Koopa":
@@ -2015,6 +2136,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Rollout";
             if (level == 12) return "Iron Defense";
             if (level == 16) return "Headbutt";
+            if (level == 24) return "Body Slam";
+            if (level == 32) return "Rock Tomb";
             break;
 
         case "Krypton Firefly":
@@ -2023,6 +2146,8 @@ function LearnsMoveAt(name, level)
             if (level == 9)  return "Ember";
             if (level == 12) return "Wing Attack";
             if (level == 16) return "Fire Blast";
+            if (level == 24) return "Dragon Breath";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Metroid":
@@ -2031,6 +2156,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Hypnosis";
             if (level == 12) return "Acid Blood";
             if (level == 16) return "Psychic";
+            if (level == 24) return "Shadow Ball";
+            if (level == 32) return "Hyper Beam";
             break;
 
         case "Pac-Ghost":
@@ -2039,6 +2166,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Hypnosis";
             if (level == 12) return "Shadow Punch";
             if (level == 16) return "Shadow Ball";
+            if (level == 24) return "Hex Roulette";
+            if (level == 32) return "Psychic";
             break;
 
         case "Squirrel":
@@ -2047,6 +2176,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Bite";
             if (level == 12) return "Double Kick";
             if (level == 16) return "Body Slam";
+            if (level == 24) return "Slash";
+            if (level == 32) return "Storm Throw";
             break;
 
         case "Tektite":
@@ -2055,6 +2186,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Poison Sting";
             if (level == 12) return "Jump Kick";
             if (level == 16) return "Leech Life";
+            if (level == 24) return "Rock Tomb";
+            if (level == 32) return "Shadow Claw";
             break;
 
         case "Yodal":
@@ -2063,6 +2196,8 @@ function LearnsMoveAt(name, level)
             if (level == 8)  return "Force Lift";
             if (level == 12) return "Aura Sphere";
             if (level == 16) return "Psychic";
+            if (level == 24) return "Iron Defense";
+            if (level == 32) return "Moonblast";
             break;
 
 

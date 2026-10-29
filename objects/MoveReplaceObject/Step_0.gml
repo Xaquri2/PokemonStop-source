@@ -27,7 +27,8 @@ if (keyboard_check_pressed(ord("E")))
 	menu.inactive = false
 	menu.visible = true
 	instance_destroy(id)
-	ds_list_insert(menu.textList, menu.currentText, "Do you want to stop learning a new move?")
+	ds_list_insert(menu.textList, menu.currentText + 1, string_concat("Your Pokemon did not learn ", newMove, "."))
+	ds_list_delete(menu.listLevelUpMoves, 0)
 }
 
 if (keyboard_check_pressed(vk_enter))
@@ -38,8 +39,8 @@ if (keyboard_check_pressed(vk_enter))
 	menu.visible = true
 
 	instance_destroy(id)
-	ds_list_insert(menu.textList, menu.currentText, string_concat("Your pokémon forgot ", forgottenMove, " to learn ", newMove, "!"))
+	ds_list_insert(menu.textList, menu.currentText + 1, string_concat("Your pokémon forgot ", forgottenMove, " to learn ", newMove, "!"))
 
-	LearnMove(battle.playerPkmn, newMove, currentOption)
+	LearnMove(menu.playerPkmn, newMove, currentOption)
 	ds_list_delete(menu.listLevelUpMoves, 0)
 }

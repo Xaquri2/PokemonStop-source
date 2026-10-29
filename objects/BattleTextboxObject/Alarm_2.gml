@@ -30,7 +30,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 		        }
 		    }
 		}
-		else if (currentText > 0 and string_count("like to replace", ds_list_find_value(textList, currentText-1)) > 0)
+		else if (string_count("like to replace", text) > 0)
 		{
 			var optionMenu = instance_create_depth(20,20,depth-1,OptionObject)
 			optionMenu.menu = id

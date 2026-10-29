@@ -622,6 +622,8 @@ if (keyboard_check_pressed(vk_enter))
 		{
 			menu.inactive = false
 			menu.visible = true
+			ds_list_insert(menu.textList, menu.currentText + 1, string_concat("Your Pokemon did not learn ", newMove, "."))
+			ds_list_delete(menu.listLevelUpMoves, 0)
 		}
 
 		instance_destroy(id)

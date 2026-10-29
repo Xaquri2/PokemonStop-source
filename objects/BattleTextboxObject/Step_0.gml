@@ -21,7 +21,6 @@ if (expGainValue > 0 and expGaining)
 	
 	alarm[3] = 5
 	var level = GetLevel(playerPkmn)
-	if (expGainValue == 1 or GetExp(playerPkmn)+1 >= GetExpLevelFloor(101, GetGrowth(playerPkmn))) expGaining = false
 
 	var am = 1
 	if (expGainValue <= 200) am = 1
@@ -29,8 +28,11 @@ if (expGainValue > 0 and expGaining)
 	else if (expGainValue <= 1000) am = 10
 	else am = 20
 	
+	am = min(am, expGainValue)
 	AddExp(playerPkmn, am, false)
 	expGainValue -= am
+	if (GetLevel(playerPkmn) >= 100) expGainValue = 0
+	if (expGainValue <= 0) expGaining = false
 
 	var levelNew = GetLevel(playerPkmn)
 	if (levelNew > level and !leveledUp) leveledUp = true
@@ -41,7 +43,7 @@ if (expGainValue > 0 and expGaining)
 		{
 		    var moveList = GetMoves(playerPkmn);
 
-		    if (newMoveName != "")
+		    if (newMoveName != "" and ds_list_find_index(moveList, newMoveName) == -1)
 		    {
 		        var youWinText = "";
 
@@ -60,7 +62,7 @@ if (expGainValue > 0 and expGaining)
 
 		            LearnMove(playerPkmn, newMoveName, -1);
 		        }
-		        /*else
+		        else
 		        {
 		            ds_list_add(listLevelUpMoves, newMoveName);
 
@@ -70,7 +72,7 @@ if (expGainValue > 0 and expGaining)
 		                "However, it already knows four moves",
 		                "Would you like to replace one?"
 		            );
-		        }*/
+		        }
 
 		        if (youWinText != "")
 		        {
