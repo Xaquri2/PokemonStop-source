@@ -1,0 +1,13 @@
+ds_list_add(textList, "(It looks like an old journal.)","Day 3. I still haven't found a way back up.",
+"After that thing bit me yesterday, it's itchy all around the wound.",
+"I can't go back up where I came from, and the only way forward is into that dark cavern...",
+"Day 4. Yesterday I tried pushing through the cavern ahead.",
+"There's so many Morlocks there, in the dark... clawing and scratching at me. Too many of them. Overwhelmed.",
+"The only thing that repels them is the light of my torch... but that won't last forever. I'll conserve what little torch fuel I have.",
+"I'm starting to feel itchy all over...",
+"Day 5. I heard rumors that, within that cavern ahead, to the south, there's a scientist who could help...",
+"So itchy, though. And so hungry.",
+"Maybe I'll explore further down in this tower first... I have my torch...",
+"Maybe there's food down there.",
+"So hungry...",
+"I just want to go home.....")

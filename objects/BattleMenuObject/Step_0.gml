@@ -101,7 +101,7 @@ if (keyboard_check_pressed(vk_enter))
 						var eSpeedStat = GetSpeedStat(enemyStats)
 						if (eStatus == "Paralysis") eSpeedStat /= 2
 
-						if (pSpeedStat > eSpeedStat or pPriority > ePriority)
+						if (PlayerMovesFirst(pPriority, ePriority, pSpeedStat, eSpeedStat))
 						{
 							//Player Move
 							var moveEff = GetMoveEffect(moveName)
@@ -349,7 +349,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (pStatus == "Burn") ds_list_add(battleText.textList, "Your pokemon took burn damage")
 							}
 						}
-						else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
+						else
 						{
 							struggle = true
 
@@ -788,14 +788,8 @@ if (keyboard_check_pressed(vk_enter))
 			var eSpeedStat = GetSpeedStat(enemyStats)
 			if (eStatus == "Paralysis") eSpeedStat /= 2
 
-			if (pSpeedStat == eSpeedStat)
-			{
-				var tieBreaker = irandom(1)
-				if (tieBreaker > 0) pSpeedStat++
-				else eSpeedStat++
-			}
 			
-			if (pSpeedStat > eSpeedStat or pPriority > ePriority)
+			if (PlayerMovesFirst(pPriority, ePriority, pSpeedStat, eSpeedStat))
 			{
 				//Player Move
 				var awake = true
@@ -1158,7 +1152,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 			}
-			else if (eSpeedStat > pSpeedStat or ePriority > pPriority)
+			else
 			{
 				var awake = true
 				var skipTurn = false

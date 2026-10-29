@@ -9,6 +9,13 @@ function FindBattlePokemonEntity(pkmnInfo)
 	return noone
 }
 
+function PlayerMovesFirst(playerPriority, enemyPriority, playerSpeed, enemySpeed)
+{
+	if (playerPriority != enemyPriority) return playerPriority > enemyPriority
+	if (playerSpeed != enemySpeed) return playerSpeed > enemySpeed
+	return irandom(1) == 1
+}
+
 function GetDamage(pkmn, targetPkmn, moveName)
 {
 	var pName = GetName(pkmn)
@@ -35,7 +42,7 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	
 	for (var i = 0; i < ds_list_size(eType); i++)
 	{
-		var currentType = ds_list_find_value(pType, i)
+		var currentType = ds_list_find_value(eType, i)
 		if (IsImmune(moveType, currentType)) return -1
 	}
 	

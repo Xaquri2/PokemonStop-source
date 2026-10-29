@@ -1366,8 +1366,8 @@ if (keyboard_check_pressed(vk_enter))
 		else
 		{
 			ds_list_add(dialogue.textList, "They’re two Pokémon seen in other regions… which were gods of sorts.", "Gods of Time and Space, respectively.")
-			ds_list_add(nameList, "Lilium","Lilium")
-			ds_list_add(iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP)
+			ds_list_add(dialogue.nameList, "Lilium","Lilium")
+			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP,LilySprite_CLOSEUP)
 		}
 
 		player.talking = true

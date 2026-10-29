@@ -50,7 +50,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 					SaveStateAction(1, mode)
 					instance_destroy(id)
 				}
-				else active = false
+				else active = true
 				break
 			case "2":
 				fileName = string_concat("savefile", 2, ".json")
@@ -59,7 +59,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 					SaveStateAction(2, mode)
 					instance_destroy(id)
 				}
-				else active = false
+				else active = true
 				break
 			case "3":
 				fileName = string_concat("savefile", 3, ".json")
@@ -68,7 +68,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 					SaveStateAction(3, mode)
 					instance_destroy(id)
 				}
-				else active = false
+				else active = true
 				break
 			case "4":
 				fileName = string_concat("savefile", 4, ".json")
@@ -77,7 +77,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 					SaveStateAction(4, mode)
 					instance_destroy(id)
 				}
-				else active = false
+				else active = true
 				break
 			case "5":
 				fileName = string_concat("savefile", 5, ".json")
@@ -86,7 +86,7 @@ if (keyboard_check_pressed(vk_enter) and active)
 					SaveStateAction(5, mode)
 					instance_destroy(id)
 				}
-				else active = false
+				else active = true
 				break
 		}
 	}
