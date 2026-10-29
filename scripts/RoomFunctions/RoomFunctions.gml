@@ -746,15 +746,16 @@ function GetAreaEncounters(encounterType)
 			switch (global.lastKeyUsed)
 			{
 				case "Moltres Area Key":
-					ds_list_add(encounters, "Godzooky", "Godzooky", "Godzooky", "Andalite", "Andalite", "Andalite")
+					ds_list_add(encounters, "Godzooky", "Godzooky", "Godzooky", "Andalite", "Andalite", "Andalite", "Moltres")
 					break
 				case "Zapdos Area Key":
-					ds_list_add(encounters, "Pac-Man", "Pac-Man", "Pac-Man", "Zergling", "Zergling", "Zergling")
+					ds_list_add(encounters, "Pac-Man", "Pac-Man", "Pac-Man", "Zergling", "Zergling", "Zergling", "Zapdos")
 					break
 				case "Rancor Area Key":
-					ds_list_add(encounters, "Moosephant", "Moosephant", "Moosephant", "Xenomorph", "Xenomorph", "Xenomorph")
+					ds_list_add(encounters, "Moosephant", "Moosephant", "Moosephant", "Xenomorph", "Xenomorph", "Xenomorph", "Rancor")
 					break
 			}
+			break
 		default:
 			ds_list_add(encounters, "Pikachu")
 	}
