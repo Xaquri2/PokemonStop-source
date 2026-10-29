@@ -7,7 +7,17 @@ if (!defeat)
 		player = instance_find(PlayerObject, 0)
 		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 		dialogue.isDefeatDialogue = true
-		if (instance_number(enemyObjectType) > 0) dialogue.actionNPC = instance_find(enemyObjectType, 0)
+		// Several independent trainers can share an object type. Bind the
+		// dialogue to the trainer that actually fought, not its first sibling.
+		for (var i = 0; i < instance_number(enemyObjectType); i++)
+		{
+			var trainer = instance_find(enemyObjectType, i)
+			if (trainer.name == enemyName)
+			{
+				dialogue.actionNPC = trainer
+				break
+			}
+		}
 
 		dialogue.textList = postBattleTextList
 		dialogue.iconList = postBattleIconList

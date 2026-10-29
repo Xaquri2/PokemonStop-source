@@ -2,7 +2,7 @@
 name = "Morlock Bridge Sentry"
 battleFlag = "MorlockCity3_inst_6D3A9102"
 lineSightDir = "Right"
-lineSight = 144
+lineSight = 400
 
 // Replace the shared object's greeting after its Create event has run.
 ds_list_clear(textList)

@@ -8,7 +8,7 @@ lineSight = 400
 ds_list_clear(textList)
 ds_list_clear(nameList)
 ds_list_clear(iconList)
-if HasFlag("Potion") {
+if (HasFlag("Potion") and !HasFlag("PotionCure")) {
 	ds_list_add(textList, "Hey buddy, I'm practicing with my Pokémon so I can become the Pokémon Master!! Wanna spar?")
 	ds_list_add(nameList, "Morlock trainer")
 	ds_list_add(iconList, sprite_index)
@@ -17,7 +17,7 @@ if HasFlag("Potion") {
 	ds_list_add(postBattleIconList,sprite_index,sprite_index)
 	ds_list_add(postBattleNameList, "Morlock trainer", "Morlock trainer")
 }
-else if (HasFlag("Potion") == false) or (HasFlag("PotionCure") == true) {
+else {
 
 	ds_list_add(textList, "Ack!! A Human!!")
 	ds_list_add(nameList, "Morlock trainer")
