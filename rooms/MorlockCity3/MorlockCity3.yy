@@ -6,8 +6,6 @@
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_6D3A9101","path":"rooms/MorlockCity3/MorlockCity3.yy",},
-    {"name":"inst_6D3A9102","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_1C103F13","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_75464B24","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_1BE2519","path":"rooms/MorlockCity3/MorlockCity3.yy",},
@@ -40,18 +38,17 @@
     {"name":"inst_53B78CCE","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_1F8A883E","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_16C98458","path":"rooms/MorlockCity3/MorlockCity3.yy",},
-    {"name":"inst_658BFD42","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_14CB212","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_55A01CFE","path":"rooms/MorlockCity3/MorlockCity3.yy",},
     {"name":"inst_77AEF372","path":"rooms/MorlockCity3/MorlockCity3.yy",},
+    {"name":"inst_658BFD42","path":"rooms/MorlockCity3/MorlockCity3.yy",},
+    {"name":"inst_6D3A9101","path":"rooms/MorlockCity3/MorlockCity3.yy",},
+    {"name":"inst_6D3A9102","path":"rooms/MorlockCity3/MorlockCity3.yy",},
   ],
   "isDnd":false,
   "layers":[
     {"$GMRInstanceLayer":"","%Name":"Important","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_1C103F13","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1C103F13","objectId":{"name":"CameraObject","path":"objects/CameraObject/CameraObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":409.0,"y":1177.0,},
-        {"$GMRInstance":"v4","%Name":"inst_658BFD42","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_658BFD42","objectId":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":524.0,"y":104.0,},
-        {"$GMRInstance":"v4","%Name":"inst_6D3A9101","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6D3A9101","objectId":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":960.0,},
-        {"$GMRInstance":"v4","%Name":"inst_6D3A9102","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6D3A9102","objectId":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":352.0,},
         {"$GMRInstance":"v4","%Name":"inst_14CB212","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_14CB212","objectId":{"name":"SkyviewMushroom","path":"objects/SkyviewMushroom/SkyviewMushroom.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.75,"scaleY":1.8947369,"x":994.5,"y":1108.0526,},
       ],"layers":[],"name":"Important","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":100,"effectEnabled":true,"effectType":"_filter_tintfilter","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
@@ -64,6 +61,9 @@
         {"$GMRInstance":"v4","%Name":"inst_16C98458","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_16C98458","objectId":{"name":"WarpObject","path":"objects/WarpObject/WarpObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":4.0625,"x":1311.0,"y":960.0,},
         {"$GMRInstance":"v4","%Name":"inst_55A01CFE","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_55A01CFE","objectId":{"name":"Morlock","path":"objects/Morlock/Morlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":967.0,"y":145.5,},
         {"$GMRInstance":"v4","%Name":"inst_77AEF372","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_77AEF372","objectId":{"name":"PokelootObject","path":"objects/PokelootObject/PokelootObject.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":50.0,"y":976.0,},
+        {"$GMRInstance":"v4","%Name":"inst_658BFD42","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_658BFD42","objectId":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"x":524.0,"y":104.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6D3A9101","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6D3A9101","objectId":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":50.0,"y":748.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6D3A9102","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6D3A9102","objectId":{"name":"MorlockTrainer","path":"objects/MorlockTrainer/MorlockTrainer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":226.0,"y":289.0,},
       ],"layers":[],"name":"Instances","properties":[
         {"name":"g_TintCol","type":1,"value":"#FF7F7F7F",},
       ],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},

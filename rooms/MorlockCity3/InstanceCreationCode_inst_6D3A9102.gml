@@ -8,10 +8,10 @@ lineSight = 144
 ds_list_clear(textList)
 ds_list_clear(nameList)
 ds_list_clear(iconList)
-ds_list_add(textList, "The bridge is just ahead. First, a little battle practice!")
+ds_list_add(textList, "Halt! You're not getting past me!")
 ds_list_add(nameList, name)
 ds_list_add(iconList, sprite_index)
-ds_list_add(postBattleTextList, "Well fought! The bridge guard will want to meet you.")
+ds_list_add(postBattleTextList, "Gahhh!!")
 ds_list_add(postBattleNameList, name)
 ds_list_add(postBattleIconList, sprite_index)
 // NPCParent's first alarm builds this instance's team from its unique name.
