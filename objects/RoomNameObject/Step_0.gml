@@ -1,7 +1,5 @@
 if (!returning)
 {
-	var a = name
-	var b = yPos
 	if (yPos < 80) yPos += 2
 	else
 	{
