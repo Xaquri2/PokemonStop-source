@@ -214,7 +214,10 @@ function LoadData()
 			ds_list_add(global.flags, saveState.flags[i])
 		}
 		
-		for (var i = 0; i < array_length(saveState.activatedBadges); i++)
+		global.playerGhost = HasFlag("PlayerGhost")
+        with (PlayerObject) UpdatePlayerAppearance()
+
+        for (var i = 0; i < array_length(saveState.activatedBadges); i++)
 		{
 			ds_list_add(global.activatedBadges, saveState.activatedBadges[i])
 		}

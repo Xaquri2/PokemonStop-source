@@ -73,34 +73,7 @@ if (canWalk and !talking and !battle)
 #endregion
 
 #region Animation
-if (HasFlag("Potion") and !HasFlag("PotionCure") or global.morlockTimer > 0) {
-	if (vspeed < 0) sprite_index = PlayerMorlockWalkUpSprite
-	if (vspeed > 0) sprite_index = PlayerMorlockWalkDownSprite
-	if (hspeed > 0) sprite_index = PlayerMorlockWalkRightSprite
-	if (hspeed < 0) sprite_index = PlayerMorlockWalkLeftSprite
-
-	if (hspeed == 0 and vspeed == 0)
-	{
-		if (vspeedOld < 0) sprite_index = PlayerMorlockIdleUpSprite
-		if (vspeedOld > 0) sprite_index = PlayerMorlockIdleDownSprite
-		if (hspeedOld > 0) sprite_index = PlayerMorlockIdleRightSprite
-		if (hspeedOld < 0) sprite_index = PlayerMorlockIdleLeftSprite
-	}
-}
-else if (!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) {
-	if (vspeed < 0) sprite_index = PlayerWalkUpSprite
-	if (vspeed > 0) sprite_index = PlayerWalkDownSprite
-	if (hspeed > 0) sprite_index = PlayerWalkRightSprite
-	if (hspeed < 0) sprite_index = PlayerWalkLeftSprite
-
-	if (hspeed == 0 and vspeed == 0)
-	{
-		if (vspeedOld < 0) sprite_index = PlayerIdleUpSprite
-		if (vspeedOld > 0) sprite_index = PlayerIdleDownSprite
-		if (hspeedOld > 0) sprite_index = PlayerIdleRightSprite
-		if (hspeedOld < 0) sprite_index = PlayerIdleLeftSprite
-	}
-}
+UpdatePlayerAppearance()
 
 #endregion
 

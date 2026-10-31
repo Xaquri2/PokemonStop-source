@@ -185,3 +185,76 @@ function GetGravityFollowerOffset(xAnchor, yAnchor)
 	}
 	return 0
 }
+// Keep the saved flag and live state together for transformations and future cures.
+function SetPlayerGhost(enabled)
+{
+    var flagIndex = ds_list_find_index(global.flags, "PlayerGhost")
+    if (enabled) {
+        if (flagIndex == -1) ds_list_add(global.flags, "PlayerGhost")
+    }
+    else {
+        while (flagIndex != -1) {
+            ds_list_delete(global.flags, flagIndex)
+            flagIndex = ds_list_find_index(global.flags, "PlayerGhost")
+        }
+    }
+    global.playerGhost = enabled
+    with (PlayerObject) UpdatePlayerAppearance()
+}
+
+// Call in player context; preserve facing when changing form while standing still.
+function UpdatePlayerAppearance()
+{
+    global.playerGhost = HasFlag("PlayerGhost")
+    var direction = 0
+    switch (sprite_index) {
+        case PlayerIdleDownSprite:
+        case PlayerWalkDownSprite:
+        case PlayerMorlockIdleDownSprite:
+        case PlayerMorlockWalkDownSprite:
+        case GhostPlayerIdleDownSprite:
+        case GhostPlayerWalkDownSprite:
+            direction = 0; break
+        case PlayerIdleUpSprite:
+        case PlayerWalkUpSprite:
+        case PlayerMorlockIdleUpSprite:
+        case PlayerMorlockWalkUpSprite:
+        case GhostPlayerIdleUpSprite:
+        case GhostPlayerWalkUpSprite:
+            direction = 1; break
+        case PlayerIdleRightSprite:
+        case PlayerWalkRightSprite:
+        case PlayerMorlockIdleRightSprite:
+        case PlayerMorlockWalkRightSprite:
+        case GhostPlayerIdleRightSprite:
+        case GhostPlayerWalkRightSprite:
+            direction = 2; break
+        case PlayerIdleLeftSprite:
+        case PlayerWalkLeftSprite:
+        case PlayerMorlockIdleLeftSprite:
+        case PlayerMorlockWalkLeftSprite:
+        case GhostPlayerIdleLeftSprite:
+        case GhostPlayerWalkLeftSprite:
+            direction = 3; break
+    }
+    if (vspeed < 0) direction = 1
+    if (vspeed > 0) direction = 0
+    if (hspeed > 0) direction = 2
+    if (hspeed < 0) direction = 3
+    var moving = hspeed != 0 or vspeed != 0
+    var sprites
+    // Ghost appearance wins while existing Morlock effects continue normally.
+    if (global.playerGhost) {
+        if (moving) sprites = [GhostPlayerWalkDownSprite, GhostPlayerWalkUpSprite, GhostPlayerWalkRightSprite, GhostPlayerWalkLeftSprite]
+        else sprites = [GhostPlayerIdleDownSprite, GhostPlayerIdleUpSprite, GhostPlayerIdleRightSprite, GhostPlayerIdleLeftSprite]
+    }
+    else if ((HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0) {
+        if (moving) sprites = [PlayerMorlockWalkDownSprite, PlayerMorlockWalkUpSprite, PlayerMorlockWalkRightSprite, PlayerMorlockWalkLeftSprite]
+        else sprites = [PlayerMorlockIdleDownSprite, PlayerMorlockIdleUpSprite, PlayerMorlockIdleRightSprite, PlayerMorlockIdleLeftSprite]
+    }
+    else {
+        if (moving) sprites = [PlayerWalkDownSprite, PlayerWalkUpSprite, PlayerWalkRightSprite, PlayerWalkLeftSprite]
+        else sprites = [PlayerIdleDownSprite, PlayerIdleUpSprite, PlayerIdleRightSprite, PlayerIdleLeftSprite]
+    }
+    sprite_index = sprites[direction]
+}

@@ -1439,7 +1439,8 @@ if (keyboard_check_pressed(vk_enter))
 			var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
 			dialogue.name = referenceNPC.name
 			dialogue.actionNPC = referenceNPC
-			ds_list_add(dialogue.textList, "Done.")
+			SetPlayerGhost(true)
+            ds_list_add(dialogue.textList, "Done.")
 			ds_list_add(dialogue.nameList, "Lilium")
 			ds_list_add(dialogue.iconList, LilySprite_CLOSEUP)
 

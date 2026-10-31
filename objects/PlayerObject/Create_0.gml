@@ -36,5 +36,5 @@ falling = false
 BehindTower = false; 
 ControlsHidden = true;
 
-if (global.morlockTimer > 0) sprite_index = PlayerMorlockIdleDownSprite
+UpdatePlayerAppearance()
 

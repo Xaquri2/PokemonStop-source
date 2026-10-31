@@ -9,6 +9,8 @@ if (instance_exists(player))
 		{
 			case PlayerIdleLeftSprite:
 			case PlayerWalkLeftSprite:
+            case GhostPlayerIdleLeftSprite:
+            case GhostPlayerWalkLeftSprite:
 				followerPos = [player.x+6+CountPlace*8, player.y]
 				if (randomizePosition and sprite_index != GetFollowerSprite("Left"))
 				{
@@ -20,6 +22,8 @@ if (instance_exists(player))
 
 			case PlayerIdleRightSprite:
 			case PlayerWalkRightSprite:
+            case GhostPlayerIdleRightSprite:
+            case GhostPlayerWalkRightSprite:
 				followerPos = [player.x-6-CountPlace*8, player.y]
 				if (randomizePosition and sprite_index != GetFollowerSprite("Right"))
 				{
@@ -46,6 +50,8 @@ if (instance_exists(player))
 		{
 			case PlayerIdleDownSprite:
 			case PlayerWalkDownSprite:
+            case GhostPlayerIdleDownSprite:
+            case GhostPlayerWalkDownSprite:
 				followerPos = [player.x, player.y-40-CountPlace*8]
 				if (randomizePosition and sprite_index != GetFollowerSprite("Down"))
 				{
@@ -57,6 +63,8 @@ if (instance_exists(player))
 
 			case PlayerIdleUpSprite:
 			case PlayerWalkUpSprite:
+            case GhostPlayerIdleUpSprite:
+            case GhostPlayerWalkUpSprite:
 				followerPos = [player.x, player.y+40+CountPlace*8]
 				if (randomizePosition and sprite_index != GetFollowerSprite("Up"))
 				{
@@ -68,6 +76,8 @@ if (instance_exists(player))
 
 			case PlayerIdleLeftSprite:
 			case PlayerWalkLeftSprite:
+            case GhostPlayerIdleLeftSprite:
+            case GhostPlayerWalkLeftSprite:
 				followerPos = [player.x+40+CountPlace*8, player.y]
 				if (randomizePosition and sprite_index != GetFollowerSprite("Left"))
 				{
@@ -79,6 +89,8 @@ if (instance_exists(player))
 
 			case PlayerIdleRightSprite:
 			case PlayerWalkRightSprite:
+            case GhostPlayerIdleRightSprite:
+            case GhostPlayerWalkRightSprite:
 				followerPos = [player.x-40-CountPlace*8, player.y]
 				if (randomizePosition and sprite_index != GetFollowerSprite("Right"))
 				{

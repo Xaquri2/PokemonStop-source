@@ -42,6 +42,7 @@ global.beatenTrainers = ds_list_create()
 global.collectedPokeloot = ds_list_create()
 
 global.flags = ds_list_create()
+global.playerGhost = false
 global.npcFlags = ds_map_create()
 
 global.standardStartRoom = Mallet_Town

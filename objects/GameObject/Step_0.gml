@@ -88,6 +88,7 @@ if (fade)
 				player.busy = false
 				player.canWalk = true
 				player.sprite_index = PlayerIdleDownSprite
+                with (player) UpdatePlayerAppearance()
 			}
 
 			for (var i = 0; i < instance_number(NPCParent); i++)
