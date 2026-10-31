@@ -64,6 +64,7 @@ function GetItemDescription(name)
 {
 	switch (name)
 	{
+		case "Rare Candy": return "Raises a Pokemon by one level, up to level 100"
 		#region Items
 		case "Potion":
 		case "Super Potion":
@@ -258,6 +259,7 @@ function IsConsumableItem(itemName)
 	if (string_count("Area Key", itemName) > 0) return true
 	switch (itemName)
 	{
+		case "Rare Candy":
 		case "Potion":
 		case "Super Potion":
 		case "Hyper Potion":
@@ -294,6 +296,64 @@ function IsBattleItem(itemName)
 			return true
 	}
 	return false
+}
+
+// Apply party-targeted items before the opponent chooses its response.
+function ApplyPokemonItem(team, index, itemName)
+{
+	var pkmn = ds_list_find_value(team, index)
+	if (itemName == "Rare Candy")
+	{
+		var level = GetLevel(pkmn)
+		if (level >= 100)
+		{
+			GenerateTextPopup(20, 20, "This Pokemon is already level 100.")
+			return false
+		}
+		var name = GetName(pkmn)
+		var oldMaxHP = GetPokemonFinalHP(name, level)
+		var hp = GetHealth(pkmn)
+		AddExp(pkmn, max(0, GetExpLevelFloor(level + 1, GetGrowth(pkmn)) - GetExp(pkmn)), true)
+		// Preserve damage taken, while keeping fainted Pokemon fainted.
+		if (hp > 0) ds_list_set(pkmn, 5, hp + GetPokemonFinalHP(name, GetLevel(pkmn)) - oldMaxHP)
+		var message = string_concat(name, " grew to level ", GetLevel(pkmn), "!")
+		var move = LearnsMoveAt(name, GetLevel(pkmn))
+		if (move != "" and ds_list_find_index(GetMoves(pkmn), move) == -1)
+			message = string_concat(message, " Relearn ", move, " from the Summary menu.")
+		GenerateTextPopup(20, 20, message)
+	}
+	else
+	{
+		var amount = GetHealValue(itemName)
+		if (amount == -1) return false
+		HealPokemon(team, index, amount, true, itemName == "Full Restore", false)
+	}
+
+	// Only update the selected Pokemon's on-field entity, never a teammate.
+	var entity = FindBattlePokemonEntity(pkmn)
+	if (entity != noone)
+	{
+		entity.hp = GetHealth(pkmn)
+		entity.status = GetStatus(pkmn)
+		if (itemName == "Full Restore")
+		{
+			entity.toxic = false
+			entity.toxicCount = 16
+			entity.sleepCounter = 0
+		}
+		if (itemName == "Rare Candy")
+		{
+			entity.level = GetLevel(pkmn)
+			ds_list_destroy(entity.statList)
+			entity.statList = GetPokemonFinalStats(GetName(pkmn), entity.level)
+			entity.atk = SetFinalStat(GetAtkStat(entity.statList), entity.attackModifier)
+			entity.def = SetFinalStat(GetDefStat(entity.statList), entity.defenseModifier)
+			entity.spatk = SetFinalStat(GetSpAtkStat(entity.statList), entity.spAtkModifier)
+			entity.spdef = SetFinalStat(GetSpDefStat(entity.statList), entity.spDefModifier)
+			entity.spd = SetFinalStat(GetSpeedStat(entity.statList), entity.speedModifier)
+		}
+	}
+	return true
 }
 
 function GetHealValue(itemName)

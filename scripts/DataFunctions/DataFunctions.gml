@@ -87,7 +87,10 @@ function SaveData()
 		saveSlotTimestamp: timestampString,
 		followerType: global.followerType,
 		pikminCount: global.pikminCount,
-		catchIndex: global.catchIndex
+		catchIndex: global.catchIndex,
+		lastKeyUsed: global.lastKeyUsed,
+		nestReturnRoom: nestReturnRoom,
+		morlockTimer: global.morlockTimer
 	}
 
 	var fileName = string_concat("savefile", global.saveFile, ".json")
@@ -214,6 +217,12 @@ function LoadData()
 			ds_list_add(global.flags, saveState.flags[i])
 		}
 		
+		// Older saves have no temporary-effect fields. Reset them rather than
+		// inheriting a key or potion countdown from the previously loaded game.
+		global.lastKeyUsed = variable_struct_exists(saveState, "lastKeyUsed") ? saveState.lastKeyUsed : ""
+		areaKeyInfo = global.lastKeyUsed
+		nestReturnRoom = variable_struct_exists(saveState, "nestReturnRoom") ? saveState.nestReturnRoom : global.standardStartRoom
+		global.morlockTimer = variable_struct_exists(saveState, "morlockTimer") ? max(0, floor(saveState.morlockTimer)) : 0
 		global.playerGhost = HasFlag("PlayerGhost")
         with (PlayerObject) UpdatePlayerAppearance()
 
@@ -330,6 +339,7 @@ function SaveStateAction(stateNumber, actionMode)
 	{
 		var game = instance_find(GameObject, 0)
 		if (instance_exists(game)) with (game) LoadData()
+		game.targetWarp = "None"
 		game.warp = true
 		game.fade = true
 

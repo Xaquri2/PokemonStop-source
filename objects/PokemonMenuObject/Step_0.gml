@@ -110,12 +110,10 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 			}
 			else if (itemUse)
 			{
-				var healValue = GetHealValue(itemName)
-				if (healValue != -1)
+				if (ApplyPokemonItem(global.playerParty, selectedIndex, itemName))
 				{
 					if (instance_number(PlayerObject) > 0)
 					{
-						HealPokemon(global.playerParty, selectedIndex, healValue, true, false, false)
 						var player = instance_find(PlayerObject, 0)
 						player.alarm[0] = 5
 					}
@@ -195,7 +193,6 @@ if (keyboard_check_pressed(vk_enter) and instance_number(TextboxObject) == 0 and
 							string_concat(GetName(battle.playerPkmn)," fainted!"))
 						}
 
-						HealPokemon(global.playerParty, selectedIndex, healValue, true, false, false) //20
 						instance_destroy(battleMenu)
 					}
 				

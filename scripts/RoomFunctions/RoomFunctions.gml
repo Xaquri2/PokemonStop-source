@@ -566,7 +566,8 @@ function SetWarpDefaults(name, spawnDir, show)
 
 
 		case "NestRoomToOrigin":
-			targetRoom = GameObject.previousRoom
+			targetRoom = GameObject.nestReturnRoom
+			if (targetRoom == noone or targetRoom == NestAreaRoom) targetRoom = global.standardStartRoom
 			targetWarp = "Random"
 			break
 

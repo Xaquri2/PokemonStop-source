@@ -78,6 +78,9 @@ if (fade)
 		}
 		else if (warp and room == targetRoom)
 		{
+			// A different nest save can use a different key. Rebuild its scenery,
+			// encounters and exit even when the player is already in the nest room.
+			var reloadNest = room == NestAreaRoom and targetRoom == loadRoom
 			if (targetRoom == loadRoom) alarm[0] = 1
 
 			warp = false
@@ -97,6 +100,7 @@ if (fade)
 				npc.x = npc.originX
 				npc.y = npc.originY
 			}
+			if (reloadNest) room_restart()
 		}
 	}
 }

@@ -19,6 +19,7 @@ cutscenePlaying = false
 cutsceneSurface = -1
 
 areaKeyInfo = ""
+nestReturnRoom = noone
 
 global.MaryTalkMorlock = false
 global.MaryTalkMutant = false

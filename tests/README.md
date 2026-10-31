@@ -2,7 +2,16 @@ Run the progression regression checks from the repository root:
 
 ```sh
 node tests/progression.cjs
+node tests/party-items.cjs
+node tests/save-effects.cjs
 ```
+
+The party-item checks cover Rare Candy's one-level gain, move learning, level-100
+limit, fainted targets, battle stat updates, Full Restore status recovery, and
+healing benched Pokemon without changing the active Pokemon's HP.
+
+The save-effect checks round-trip area keys, nest return rooms, and Morlock
+potion countdowns through all five slots, and check defaults for older saves.
 
 The checks execute selected GML functions through JavaScript adapters and inspect
 the encounter and trainer tables. They cover XP overflow, bulk/animated award

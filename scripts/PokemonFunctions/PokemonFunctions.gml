@@ -2359,7 +2359,7 @@ function HealPokemon(team, index, amount, isPlayer, healStatus, recoverPP)
 			else if (!isPlayer and !attempt.playerTeam) pkmnEntity = attempt
 		}
 
-		if (pkmnEntity != noone) pkmnEntity.hp = GetHealth(pkmnInfo)
+		if (pkmnEntity != noone and pkmnEntity.pkmnInfo == pkmnInfo) pkmnEntity.hp = GetHealth(pkmnInfo)
 	}
 }
 
