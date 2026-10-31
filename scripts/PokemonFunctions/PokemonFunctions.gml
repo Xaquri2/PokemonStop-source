@@ -93,6 +93,14 @@ function AddPokemonTrainer(team, index, name, level, gender, sprite) {
 	var growthRate = "Very Fast"
 	var hp = ds_list_find_value(GetPokemonFinalStats(name, level), 0)
 	var learnset = GetLevelUpMoveset(name, level)
+	if (name == "Krypton Firefly" and level == 5)
+	{
+		for (var i = 0; i < ds_list_size(learnset); i++)
+		{
+			var currMove = ds_list_find_value(learnset, i)
+			if (currMove == "Gust") ds_list_replace(learnset, i, "Quick Attack")
+		}
+	}
 	var learnsetPP = GetLearnsetPP(learnset)
 	var types = GetPokemonType(name)
 
@@ -2141,8 +2149,8 @@ function LearnsMoveAt(name, level)
             break;
 
         case "Krypton Firefly":
-			if (level == 1)  return "Quick Attack";
-			if (level == 6)  return "Gust";
+			if (level == 1)  return "Gust";
+			if (level == 5)  return "Quick Attack";
             if (level == 9)  return "Ember";
             if (level == 12) return "Wing Attack";
             if (level == 16) return "Fire Blast";
@@ -2291,7 +2299,7 @@ function ConsumePP(pkmnInfo, index)
 /// @description               Gets the defeated Pokémon's base EXP yield value
 function GetBaseYield(name)
 {
-	return 250
+	return 350
 }
 
 /// @param       name          The fainted Pokémon's name
