@@ -275,6 +275,25 @@ if (nearestNPC != noone)
 		dialogue.actionNPC = nearestNPC
 		if (nearestNPC.object_index != PokelootObject or nearestNPC.obtainable) talking = true
 
+		// Use separate lists so Ginkgo's normal dialogue and starter flags stay intact.
+		if (nearestNPC.object_index == Ginkgo and HasFlag("PlayerGhost"))
+		{
+			dialogue.textList = ds_list_create()
+			dialogue.nameList = ds_list_create()
+			dialogue.iconList = ds_list_create()
+			ds_list_add(dialogue.textList,
+				"Oh dear. Lilium’s gone and turned you into a ghost, hasn’t she?",
+				"She’s always doing that! I’ll have to have a chat with her later…",
+				"Look, Gash, this is no good. Sure, you may look cool as a ghost, but you can’t grow up to be a Pokémon Master that way!",
+				"Just think: you can never eat delicious Goomba Gumbo again!",
+				"Shall I change you back?")
+			repeat (5)
+			{
+				ds_list_add(dialogue.nameList, "Ginkgo")
+				ds_list_add(dialogue.iconList, GinkgoSprite_CLOSE)
+			}
+		}
+
 		if (ds_list_empty(dialogue.textList))
 		{
 			if !(nearestNPC.object_index == PokelootObject and

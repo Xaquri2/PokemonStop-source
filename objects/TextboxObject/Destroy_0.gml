@@ -28,6 +28,18 @@ if (instance_exists(actionNPC))
 			    }
 		    break
 		case Ginkgo:
+			if (ds_list_find_value(textList, ds_list_size(textList)-1) == "Shall I change you back?")
+			{
+				player.alarm[1] = -1
+				var optionMenu = instance_create_layer(20,20,"UserInterface",OptionObject)
+				optionMenu.referenceNPC = actionNPC
+				optionMenu.question = "Shall I change you back?"
+				ds_list_add(optionMenu.optionList, "Yes", "No")
+				break
+			}
+			// Ghost conversations must not advance the starter dialogue.
+			if (ds_list_find_value(textList, 0) == "There, good as new!"
+			or ds_list_find_value(textList, 0) == "Sigh. Well, come back if you change your mind.") break
 			switch (GetNPCFlag("Ginkgo"))
 			{
 				case undefined:

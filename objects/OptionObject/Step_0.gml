@@ -1431,6 +1431,27 @@ if (keyboard_check_pressed(vk_enter))
 		instance_destroy(id)
 	}
 	
+	if (question == "Shall I change you back?")
+	{
+		var player = instance_find(PlayerObject, 0)
+		var dialogue = instance_create_depth(x,y,-9999999999999,TextboxObject)
+		dialogue.name = referenceNPC.name
+		dialogue.actionNPC = referenceNPC
+		ds_list_add(dialogue.nameList, "Ginkgo")
+		ds_list_add(dialogue.iconList, GinkgoSprite_CLOSE)
+		if (currentOption == 0)
+		{
+			SetPlayerGhost(false)
+			ds_list_add(dialogue.textList, "There, good as new!")
+		}
+		else
+		{
+			ds_list_add(dialogue.textList, "Sigh. Well, come back if you change your mind.")
+		}
+		player.talking = true
+		instance_destroy(id)
+	}
+
 	if (question == "React to Lilium's offer.")
 	{
 		if (currentOption == 0)
