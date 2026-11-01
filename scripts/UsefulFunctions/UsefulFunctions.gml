@@ -206,7 +206,7 @@ function SetPlayerGhost(enabled)
 function UpdatePlayerAppearance()
 {
     global.playerGhost = HasFlag("PlayerGhost")
-    var direction = 0
+    var facingIndex = 0
     switch (sprite_index) {
         case PlayerIdleDownSprite:
         case PlayerWalkDownSprite:
@@ -214,33 +214,33 @@ function UpdatePlayerAppearance()
         case PlayerMorlockWalkDownSprite:
         case GhostPlayerIdleDownSprite:
         case GhostPlayerWalkDownSprite:
-            direction = 0; break
+            facingIndex = 0; break
         case PlayerIdleUpSprite:
         case PlayerWalkUpSprite:
         case PlayerMorlockIdleUpSprite:
         case PlayerMorlockWalkUpSprite:
         case GhostPlayerIdleUpSprite:
         case GhostPlayerWalkUpSprite:
-            direction = 1; break
+            facingIndex = 1; break
         case PlayerIdleRightSprite:
         case PlayerWalkRightSprite:
         case PlayerMorlockIdleRightSprite:
         case PlayerMorlockWalkRightSprite:
         case GhostPlayerIdleRightSprite:
         case GhostPlayerWalkRightSprite:
-            direction = 2; break
+            facingIndex = 2; break
         case PlayerIdleLeftSprite:
         case PlayerWalkLeftSprite:
         case PlayerMorlockIdleLeftSprite:
         case PlayerMorlockWalkLeftSprite:
         case GhostPlayerIdleLeftSprite:
         case GhostPlayerWalkLeftSprite:
-            direction = 3; break
+            facingIndex = 3; break
     }
-    if (vspeed < 0) direction = 1
-    if (vspeed > 0) direction = 0
-    if (hspeed > 0) direction = 2
-    if (hspeed < 0) direction = 3
+    if (vspeed < 0) facingIndex = 1
+    if (vspeed > 0) facingIndex = 0
+    if (hspeed > 0) facingIndex = 2
+    if (hspeed < 0) facingIndex = 3
     var moving = hspeed != 0 or vspeed != 0
     var sprites
     // Ghost appearance wins while existing Morlock effects continue normally.
@@ -256,5 +256,5 @@ function UpdatePlayerAppearance()
         if (moving) sprites = [PlayerWalkDownSprite, PlayerWalkUpSprite, PlayerWalkRightSprite, PlayerWalkLeftSprite]
         else sprites = [PlayerIdleDownSprite, PlayerIdleUpSprite, PlayerIdleRightSprite, PlayerIdleLeftSprite]
     }
-    sprite_index = sprites[direction]
+    sprite_index = sprites[facingIndex]
 }
