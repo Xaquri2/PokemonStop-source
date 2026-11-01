@@ -3,6 +3,6 @@ ds_list_add(iconList, RegionDude1FaceSprite,RegionDude1FaceSprite,RegionDude1Fac
 ds_list_add(nameList, name, name, name)
 
 idleSprite = RegionDude1Sprite
-WalkDownSprite = RegionDudeWalkDownSprite
-WalkUpSprite = RegionDudeWalkUpSprite
+walkDownSprite = RegionDudeWalkDownSprite
+walkUpSprite = RegionDudeWalkUpSprite
 walkRightSprite = RegionDudeWalkRightSprite

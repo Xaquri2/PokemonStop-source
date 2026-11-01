@@ -285,7 +285,7 @@ if (nearestNPC != noone)
 				"Oh dear. Lilium’s gone and turned you into a ghost, hasn’t she?",
 				"She’s always doing that! I’ll have to have a chat with her later…",
 				"Look, Gash, this is no good. Sure, you may look cool as a ghost, but you can’t grow up to be a Pokémon Master that way!",
-				"Just think: you can never eat delicious Goomba Gumbo again!",
+				"Just think: you can never eat delicious Beako Speako again!",
 				"Shall I change you back?")
 			repeat (5)
 			{

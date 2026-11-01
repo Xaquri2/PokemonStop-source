@@ -43,7 +43,9 @@ function GetDamage(pkmn, targetPkmn, moveName)
 	for (var i = 0; i < ds_list_size(eType); i++)
 	{
 		var currentType = ds_list_find_value(eType, i)
-		if (IsImmune(moveType, currentType)) return -1
+		// Field traps do not target the opposing Pokemon directly.
+		if (GetMoveEffect(moveName) != "SetTrap" and GetMoveEffect(moveName) != "WicketReversal"
+		and IsImmune(moveType, currentType)) return -1
 	}
 	
 	if (moveCat != "Status")
@@ -574,7 +576,8 @@ function DealEffect(moveName, effectName, accurancy, damage, user, target)
 	for (var i = 0; i < ds_list_size(types); i++)
 	{
 		var currentType = ds_list_find_value(types, i)
-		if (IsImmune(GetMoveType(moveName), currentType)) return ""
+		if (effectName != "SetTrap" and effectName != "WicketReversal"
+		and IsImmune(GetMoveType(moveName), currentType)) return ""
 	}
 	
 	var str = ""

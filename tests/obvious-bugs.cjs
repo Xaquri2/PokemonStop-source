@@ -46,6 +46,40 @@ assert.equal(context.GetDamage(mon(['Electric']), mon(['Ground']), 'Test'), -1);
 assert.equal(context.GetDamage(mon(['Electric']), mon(['Water', 'Ground']), 'Test'), -1);
 assert(context.GetDamage(mon(['Ground']), mon(['Water']), 'Test') > 0);
 
+// Ewok's field traps bypass Ghost immunity; direct attacks still obey it.
+const pokemonSource = read('scripts/PokemonFunctions/PokemonFunctions.gml');
+context.ds_list_create = () => [];
+context.ds_list_destroy = () => {};
+context.ds_list_add = (list, ...values) => list.push(...values);
+for (const name of ['GetMoveDetails', 'GetMoveType', 'GetMovePower', 'GetMoveAccurancy',
+  'GetMoveCategory', 'GetMoveCritMultiplier', 'GetMoveEffect'])
+  vm.runInContext(adapt(extract(pokemonSource, name)), context);
+vm.runInContext(adapt(extract(battle, 'DealEffect')).replace(/^\s*#(?:end)?region.*$/gm, ''), context);
+const field = {enemyFieldEffects: [], playerFieldEffects: []};
+context.BattleObject = {Fluxxed2: false, playerFieldEffects: [], enemyFieldEffects: []};
+context.string_count = (needle, value) => value.split(needle).length - 1;
+context.ds_list_find_index = (list, value) => list.indexOf(value);
+context.instance_find = () => field;
+context.random_range = () => 0;
+context.GetAtkStat = s => s[1];
+context.GetDefStat = s => s[2];
+const ghost = mon(['Ghost']);
+for (const playerTeam of [true, false]) {
+  for (const move of ['Set Trap', "Wicket's Reversal"]) {
+    const effect = context.GetMoveEffect(move);
+    assert.equal(context.GetDamage(mon(['Grass', 'Fighting']), ghost, move), 0);
+    assert(context.DealEffect(move, effect, 100, 0, {playerTeam}, {pkmnInfo: ghost}));
+    assert((playerTeam ? field.enemyFieldEffects : field.playerFieldEffects).includes(
+      effect === 'SetTrap' ? 'SetTrap' : 'ReversalTrap'));
+  }
+}
+for (const move of ['Body Slam', 'Storm Throw', 'Giga Impact']) {
+  assert.equal(context.GetDamage(mon(['Normal']), ghost, move), -1, move);
+  assert.equal(context.DealEffect(move, context.GetMoveEffect(move), 100, 0,
+    {playerTeam: true}, {pkmnInfo: ghost}), '', move);
+}
+assert(context.GetDamage(mon(['Grass', 'Fighting']), ghost, 'Vine Whip') > 0);
+
 // Execute the menu event for each missing slot, then verify navigation and close.
 const saveStep = adapt(read('objects/SaveMenuObject/Step_0.gml'));
 for (let slot = 0; slot < 5; slot++) {
