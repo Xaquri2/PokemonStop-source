@@ -744,19 +744,9 @@ function GetAreaEncounters(encounterType)
 			}
 			break
 		case NestAreaRoom:
-			switch (global.lastKeyUsed)
-			{
-				case "Moltres Area Key":
-					ds_list_add(encounters, "Godzooky", "Godzooky", "Godzooky", "Andalite", "Andalite", "Andalite", "Moltres")
-					break
-				case "Zapdos Area Key":
-					ds_list_add(encounters, "Pac-Man", "Pac-Man", "Pac-Man", "Zergling", "Zergling", "Zergling", "Zapdos")
-					break
-				case "Rancor Area Key":
-					ds_list_add(encounters, "Moosephant", "Moosephant", "Moosephant", "Xenomorph", "Xenomorph", "Xenomorph", "Rancor")
-					break
-			}
-			break
+			ds_list_destroy(encounters)
+			return GetNestEncounterPool(global.lastKeyUsed)
+
 		default:
 			ds_list_add(encounters, "Pikachu")
 	}
@@ -929,45 +919,33 @@ function GetNestRoomTileType(ogRoom)
 	}
 }
 
-function GetNestRoomPokemonType(ogRoom, keyName)
+// Weighted encounter data shared by roaming spawns, grass encounters and signs.
+function GetNestEncounterPool(keyName)
 {
-	switch (global.lastKeyUsed)
-	{
-		case "Moltres Area Key":
-			var pool = ds_list_create()
-			ds_list_add(pool, "Godzooky", "Godzooky", "Godzooky", "Andalite", "Andalite", "Andalite", "Moltres")
-			var v = ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
-			ds_list_destroy(pool)
-			return v
-		case "Zapdos Area Key":
-			var pool = ds_list_create()
-			ds_list_add(pool, "Pac-Man", "Pac-Man", "Pac-Man", "Zergling", "Zergling", "Zergling", "Zapdos")
-			var v = ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
-			ds_list_destroy(pool)
-			return v
-		case "Rancor Area Key":
-			var pool = ds_list_create()
-			ds_list_add(pool, "Moosephant", "Moosephant", "Moosephant", "Xenomorph", "Xenomorph", "Xenomorph", "Rancor")
-			var v = ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
-			ds_list_destroy(pool)
-			return v
-	}
-	
-	switch (ogRoom)
-	{
-		/*case TestRoom:
-			var pool = ds_list_create()
-			ds_list_add(pool, "Pikachu", "Pikachu", "Pikachu", "Squirtle")
-			return ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
-		*/
-		
-		default:
-			var pool = ds_list_create()
-			ds_list_add(pool, "Pikachu", "Pikachu", "Pikachu", "Squirtle")
-			var v = ds_list_find_value(pool, irandom(ds_list_size(pool)-1))
-			ds_list_destroy(pool)
-			return v
-	}
+    var pool = ds_list_create()
+    switch (keyName)
+    {
+        case "Moltres Area Key":
+            ds_list_add(pool, "Godzooky", "Godzooky", "Godzooky", "Andalite", "Andalite", "Andalite", "Moltres")
+            break
+        case "Zapdos Area Key":
+            ds_list_add(pool, "Pac-Man", "Pac-Man", "Pac-Man", "Zergling", "Zergling", "Zergling", "Zapdos")
+            break
+        case "Rancor Area Key":
+            ds_list_add(pool, "Moosephant", "Moosephant", "Moosephant", "Xenomorph", "Xenomorph", "Xenomorph", "Rancor", "Articuno")
+            break
+        default:
+            ds_list_add(pool, "Pikachu", "Pikachu", "Pikachu", "Squirtle")
+    }
+    return pool
+}
+
+function GetNestRoomPokemonType(keyName)
+{
+    var pool = GetNestEncounterPool(keyName)
+    var species = ds_list_find_value(pool, irandom(ds_list_size(pool) - 1))
+    ds_list_destroy(pool)
+    return species
 }
 
 function GetAreaKeyOrigin(keyName)

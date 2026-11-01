@@ -4,6 +4,7 @@ Run the progression regression checks from the repository root:
 node tests/progression.cjs
 node tests/party-items.cjs
 node tests/save-effects.cjs
+node tests/nest-sign.cjs
 ```
 
 The party-item checks cover Rare Candy's one-level gain, move learning, level-100
