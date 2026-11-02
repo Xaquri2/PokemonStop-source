@@ -44,5 +44,5 @@
     "path":"sprites/BookSprite/BookSprite.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

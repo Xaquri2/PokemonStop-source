@@ -5,7 +5,8 @@ const assert = require('node:assert/strict');
 const path = require('node:path');
 process.chdir(path.join(__dirname, '..'));
 const source = fs.readFileSync('scripts/DataFunctions/DataFunctions.gml', 'utf8');
-function extract(name) {
+function extract(name, sourceText = source) {
+  const source = sourceText;
   const start = source.indexOf('function ' + name + '(');
   assert(start >= 0);
   let depth = 0;
@@ -34,7 +35,8 @@ const c = {
   array_create:n=>Array(n), array_set:(a,i,v)=>a[i]=v, array_length:a=>a.length,
   date_current_datetime:()=>0, date_get_hour:()=>1, date_get_minute:()=>2,
   date_get_day:()=>3, date_get_month:()=>4, date_get_year:()=>2026,
-  string_concat:(...s)=>s.join(''), file_exists:p=>files.has(p),
+  string_concat:(...s)=>s.join(''), string_split:(s, delimiter)=>s.split(delimiter),
+  string_length:s=>s.length, file_exists:p=>files.has(p),
   file_text_open_read:p=>p, file_text_open_write:p=>p, file_text_close:()=>{},
   file_text_read_string:p=>files.get(p), file_text_write_string:(p,v)=>files.set(p,v),
   json_parse:JSON.parse, json_stringify:JSON.stringify,
@@ -52,6 +54,7 @@ for (let slot=1; slot<=5; slot++) {
   c.global.morlockTimer=12345+slot; c.nestReturnRoom=300+slot;
   c.SaveData();
   const saved=JSON.parse(files.get(`savefile${slot}.json`))[`saveState${slot}`];
+  assert.equal(saved.saveSlotTimestamp, '2026-04-03 01:02');
   assert.equal(saved.lastKeyUsed, c.global.lastKeyUsed);
   assert.equal(saved.morlockTimer, 12345+slot);
   c.global.lastKeyUsed='Rancor Area Key'; c.areaKeyInfo='Rancor Area Key';
@@ -83,3 +86,107 @@ assert.equal(c.targetRoom,301); assert.equal(c.targetWarp,'Random');
 c.nestReturnRoom=-4; vm.runInContext(exit.replace(/\bor\b/g,'||'),c);
 assert.equal(c.targetRoom,100);
 console.log('Passed all five save slots, key/return-room/timer round trips, restored appearance ordering, inactive effects, legacy defaults, and nest exit destination.');
+
+// Each row must inspect its own file, regardless of the last selected slot.
+vm.runInContext(extract('GetSaveSlotTimestamp').replace(/\band\b/g, '&&'), c);
+for (let slot = 1; slot <= 5; slot++) {
+  const data = JSON.parse(files.get(`savefile${slot}.json`));
+  data[`saveState${slot}`].saveSlotTimestamp = `Slot ${slot} timestamp`;
+  files.set(`savefile${slot}.json`, JSON.stringify(data));
+}
+c.global.saveFile = 5;
+for (let slot = 1; slot <= 5; slot++)
+  assert.equal(c.GetSaveSlotTimestamp(slot), `Slot ${slot} timestamp`);
+const oldDate = JSON.parse(files.get('savefile1.json'));
+oldDate.saveState1.saveSlotTimestamp = '9:5 1/11/2026';
+files.set('savefile1.json', JSON.stringify(oldDate));
+assert.equal(c.GetSaveSlotTimestamp(1), '2026-11-01 09:05');
+oldDate.saveState1.saveSlotTimestamp = '2026-11-01 09:05';
+files.set('savefile1.json', JSON.stringify(oldDate));
+assert.equal(c.GetSaveSlotTimestamp(1), '2026-11-01 09:05');
+
+// A missing state inside an existing file must preserve the current progress.
+c.show_debug_message = () => {};
+c.string = String;
+c.global.flags = ['KeepFlag'];
+c.global.beatenTrainers = ['Mary'];
+c.global.activatedBadges = ['Badge'];
+c.global.collectedPokeloot = ['Loot'];
+c.global.npcFlags = {Mary: true};
+const beforeMissing = JSON.stringify(c.global);
+files.set('savefile5.json', '{}');
+c.LoadData();
+assert.equal(JSON.stringify(c.global), beforeMissing);
+
+// Startup must terminate even when slot 5 exists, and select the first save.
+const startup = fs.readFileSync('objects/GameObject/Other_2.gml', 'utf8');
+const scan = startup.slice(startup.indexOf('var count = 1'), startup.indexOf('//Testing'));
+for (const slots of [[], [1], [5], [1, 5], [2, 3, 4, 5]]) {
+  const boot = {global: {saveFile: 1}, string_concat: (...s) => s.join(''),
+    file_exists: filename => slots.some(slot => filename === `savefile${slot}.json`)};
+  vm.runInNewContext(scan, boot, {timeout: 1000});
+  assert.equal(boot.global.saveFile, slots[0] || 1);
+}
+console.log('Passed per-slot timestamps, missing-state progress preservation, and startup with slot 5 present.');
+
+// Round-trip real Pokemon records, party order, PC membership and inventory.
+const pokemonSource = fs.readFileSync('scripts/PokemonFunctions/PokemonFunctions.gml', 'utf8');
+c.global.pokedex = [];
+c.GetName = p => p[1];
+c.GetCatchIndex = p => p[0];
+c.GetPartyMemberInfo = (team, index) => team[index];
+vm.runInContext(extract('AddPokemonSpecific', pokemonSource).replace(/\band\b/g, '&&').replace(/\bor\b/g, '||'), c);
+for (let slot = 1; slot <= 5; slot++) {
+  const records = Array.from({length: 8}, (_, i) =>
+    [slot * 100 + i, i % 2 ? 'Envy' : 'Creeper', 5 + i, 'Female', 0,
+      10 + i, ['Tackle', 'Growl'], [20, 30], 123 + i, 'Average',
+      i % 2 ? ['Water', 'Ghost', 'Dark'] : ['Grass'], 'Poisoned']);
+  c.global.saveFile = slot;
+  c.global.currentSaveState = slot;
+  c.global.pokemonList = records;
+  c.global.playerParty = [records[7], records[1], records[3]];
+  c.global.categoryItemList = [[['Potion', slot]], [['Poke Ball', 12]], [], [], [['Moltres Area Key', 1]]];
+  c.global.money = 1000 + slot;
+  player.x = slot * 10;
+  player.y = slot * 20;
+  const expected = JSON.stringify({records, party: c.global.playerParty,
+    inventory: c.global.categoryItemList, money: c.global.money});
+  c.SaveData();
+  c.global.pokemonList = [];
+  c.global.playerParty = [];
+  c.global.pcPokemonList = [];
+  c.global.money = 0;
+  c.LoadData();
+  assert.equal(JSON.stringify({records: c.global.pokemonList, party: c.global.playerParty,
+    inventory: c.global.categoryItemList, money: c.global.money}), expected);
+  assert.deepEqual(Array.from(c.global.pcPokemonList, p => p[0]),
+    records.filter((_, i) => ![7, 1, 3].includes(i)).map(p => p[0]));
+  assert.equal(c.loadX, slot * 10);
+  assert.equal(c.loadY, slot * 20);
+  assert.equal(c.loadRoom, c.room);
+}
+console.log('Passed populated collection, HP/status/PP/XP, party ordering, PC membership, inventory, money and saved coordinates in all five slots.');
+
+// Repair the formerly blank Shadow Tower reward exactly once per saved game.
+c.AddItem = (name, amount) => {
+  assert.equal(name, 'X Defense');
+  const items = c.global.categoryItemList[2];
+  const existing = items.find(item => item[0] === name);
+  if (existing) existing[1] += amount;
+  else items.push([name, amount]);
+};
+c.global.collectedPokeloot = ['ShadowTowreXDefense'];
+c.global.categoryItemList[2] = [];
+c.SaveData();
+c.LoadData();
+assert.deepEqual(Array.from(c.global.categoryItemList[2], item => Array.from(item)), [['X Defense', 1]]);
+assert(c.global.collectedPokeloot.includes('ShadowTowerXDefense'));
+c.SaveData();
+c.LoadData();
+assert.equal(c.global.categoryItemList[2][0][1], 1, 'saved repair must not grant duplicates');
+const towerPickup = fs.readFileSync('rooms/ShadowTower/InstanceCreationCode_inst_66B0799E.gml', 'utf8');
+const pickup = {};
+vm.runInNewContext(towerPickup, pickup);
+assert.equal(pickup.item, 'X Defense');
+assert.equal(pickup.itemTag, 'ShadowTowerXDefense');
+console.log('Passed Shadow Tower X Defense assignment and one-time missing-reward repair.');

@@ -10,6 +10,9 @@ if (instance_number(BattleObject) == 0)
 	other.talking = false
 	other.canWalk = false
 	other.battle = true
+	
+	global.speedUpMultiplier = 1
+	game_set_speed(global.originalSpeed, gamespeed_fps);
 
 	var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 	battleObj.enemyTeam = trainerTeam

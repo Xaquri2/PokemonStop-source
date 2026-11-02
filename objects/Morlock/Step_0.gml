@@ -64,6 +64,16 @@ if (global.morlockTimer > 0)
 	}
 }
 
+// Chasing and torch avoidance override the parent's movement after its wall check.
+// Validate the final velocity so neither behavior can move through an enclosure.
+if (hspeed != 0 and collision_rectangle(bbox_left+hspeed, bbox_top,
+bbox_right+hspeed, bbox_bottom, CollisionParent, false, true)) hspeed = 0
+if (vspeed != 0 and collision_rectangle(bbox_left, bbox_top+vspeed,
+bbox_right, bbox_bottom+vspeed, CollisionParent, false, true)) vspeed = 0
+// Also block diagonal corner clipping when each separate axis is clear.
+if (collision_rectangle(bbox_left+hspeed, bbox_top+vspeed,
+bbox_right+hspeed, bbox_bottom+vspeed, CollisionParent, false, true)) speed = 0
+
 if (distance_to_object(MorlockPowerThing) < 0.7) instance_destroy()
 
 CheckForInterruptions()

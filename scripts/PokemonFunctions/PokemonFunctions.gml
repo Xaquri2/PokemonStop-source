@@ -817,8 +817,8 @@ function GetPokemonBaseStats(name) {
             break;
 
         case "MissingNo":
-            // “Glitchy” stats, just for fun
-            ds_list_add(statList, 33, 136, 0, 6, 0, 29);
+            // Keep the glitchy physical offense, with enough bulk to survive a hit.
+            ds_list_add(statList, 75, 136, 60, 6, 60, 29);
             break;
 
         case "Articuno":

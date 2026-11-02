@@ -1,2 +1,2 @@
-Item = "X Defense"
-itemTag = "ShadowTowreXDefense"
+item = "X Defense"
+itemTag = "ShadowTowerXDefense"

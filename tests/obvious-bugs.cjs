@@ -29,7 +29,7 @@ const context = {
   GetMoveEffect: () => '', GetEffectPower: () => 0,
   IsMoveSuperEffective: () => false, IsMoveNotVeryEffective: () => false,
   ds_list_size: a => a.length, ds_list_find_value: (a, i) => a[i],
-  floor: Math.floor, clamp: (v, lo, hi) => Math.max(lo, Math.min(hi, v))
+  floor: Math.floor, max: Math.max, clamp: (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 };
 vm.createContext(context);
 for (const name of ['PlayerMovesFirst', 'IsImmune', 'GetDamage'])
@@ -73,12 +73,87 @@ for (const playerTeam of [true, false]) {
       effect === 'SetTrap' ? 'SetTrap' : 'ReversalTrap'));
   }
 }
-for (const move of ['Body Slam', 'Storm Throw', 'Giga Impact']) {
+for (const move of ['Storm Throw']) {
   assert.equal(context.GetDamage(mon(['Normal']), ghost, move), -1, move);
   assert.equal(context.DealEffect(move, context.GetMoveEffect(move), 100, 0,
     {playerTeam: true}, {pkmnInfo: ghost}), '', move);
 }
+for (const move of ['Body Slam', 'Giga Impact']) {
+  const normal = context.GetDamage(mon(['Normal']), mon(['Water']), move);
+  assert.equal(context.GetDamage(mon(['Normal']), ghost, move), Math.floor(normal / 2));
+}
+for (const playerTeam of [true, false]) {
+  const target = {pkmnInfo: ghost, attackModifier: 0};
+  assert(context.DealEffect('Growl', 'LowerAttack', 100, 0, {playerTeam}, target));
+  assert.equal(target.attackModifier, -1);
+}
 assert(context.GetDamage(mon(['Grass', 'Fighting']), ghost, 'Vine Whip') > 0);
+
+// Mary's level-5 Creeper only knows Tackle, now resisted by Envy's Ghost type.
+// Exercise both speed branches, random selection, depleted PP, and mixed moves.
+const ai = {
+  ...context,
+  GetLevel: p => p.level,
+  GetMoves: p => p.moves,
+  GetMovePPList: p => p.pp,
+  GetPokemonFinalStats: name => ({speed: name === 'Creeper' ? 50 : 55}),
+  GetSpeedStat: stats => stats.speed,
+  ds_list_empty: list => list.length === 0,
+  random_range: () => 1,
+  irandom: () => 0
+};
+vm.createContext(ai);
+for (const name of ['LearnsMoveAt', 'GetLevelUpMoveset'])
+  vm.runInContext(adapt(extract(pokemonSource, name)), ai);
+vm.runInContext(adapt(extract(battle, 'ChooseMove')), ai);
+const creeper = {name: 'Creeper', level: 5, types: ['Grass'],
+  moves: ai.GetLevelUpMoveset('Creeper', 5), pp: [35]};
+const envy = {name: 'Envy', level: 5, types: ['Water', 'Ghost', 'Dark']};
+assert.deepEqual(Array.from(creeper.moves), ['Tackle']);
+assert(ai.GetDamage(creeper, envy, 'Tackle') > 0);
+for (const speed of [40, 55, 60]) {
+  ai.GetDamage = context.GetDamage;
+  // Give Envy its own speed so both the slower/tied and faster paths run.
+  ai.GetPokemonFinalStats = name => ({speed: name === 'Creeper' ? speed : 55});
+  for (const roll of [0, 1]) {
+    ai.random_range = () => roll;
+    assert.equal(ai.ChooseMove(creeper, envy), 'Tackle');
+  }
+  creeper.pp = [0];
+  assert.equal(ai.ChooseMove(creeper, envy), 'Struggle');
+  creeper.pp = [35];
+  ai.GetDamage = (_user, _target, move) => move === 'Tackle' ? -1 : 0;
+  ai.random_range = () => 1;
+  creeper.moves = ['Tackle', 'Grassy Surge'];
+  creeper.pp = [35, 20];
+  assert.equal(ai.ChooseMove(creeper, envy), 'Grassy Surge');
+  creeper.moves = ['Tackle'];
+  creeper.pp = [35];
+}
+
+// Zoombini's early Normal status moves bypass Ghost damage immunity.
+// Check every early level, either speed ordering, and every random move slot.
+ai.GetDamage = context.GetDamage;
+for (let level = 1; level <= 7; level++) {
+  const moves = ai.GetLevelUpMoveset('Zoombini', level);
+  const zoombini = {name: 'Zoombini', level, types: ['Fairy'],
+    moves, pp: Array(moves.length).fill(15)};
+  for (const move of moves) assert.equal(ai.GetDamage(zoombini, envy, move), 0);
+  for (const speed of [40, 55, 60]) {
+    ai.GetPokemonFinalStats = name => ({speed: name === 'Zoombini' ? speed : 55});
+    for (const roll of [0, 1, 2]) {
+      ai.random_range = () => roll;
+      for (let slot = 0; slot < moves.length; slot++) {
+        ai.irandom = () => slot;
+        assert(moves.includes(ai.ChooseMove(zoombini, envy)),
+          `Zoombini level ${level}, speed ${speed}, roll ${roll}, slot ${slot}`);
+      }
+    }
+    zoombini.pp.fill(0);
+    assert.equal(ai.ChooseMove(zoombini, envy), 'Struggle');
+    zoombini.pp.fill(15);
+  }
+}
 
 // Execute the menu event for each missing slot, then verify navigation and close.
 const saveStep = adapt(read('objects/SaveMenuObject/Step_0.gml'));
@@ -92,6 +167,7 @@ for (let slot = 0; slot < 5; slot++) {
     string_concat: (...a) => a.join(''), file_exists: () => false,
     ds_list_find_value: (a, i) => a[i], ds_list_size: a => a.length,
     instance_destroy: () => { destroyed = true; },
+    instance_exists: value => value === menu.player,
     SaveStateAction: () => { throw Error('Loaded missing slot'); }
   };
   vm.createContext(menu);
@@ -104,4 +180,4 @@ for (let slot = 0; slot < 5; slot++) {
   vm.runInContext(saveStep, menu);
   assert.equal(destroyed, true);
 }
-console.log('Passed move priority/speed/ties, target immunity, and all five empty-slot navigation/close cases.');
+console.log('Passed move priority/speed/ties, target immunity, Creeper and Zoombini vs Envy move selection, and all five empty-slot navigation/close cases.');

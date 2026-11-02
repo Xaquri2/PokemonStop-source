@@ -1,0 +1,1 @@
+ds_list_add(textList, "This way: Shadow Path!")

@@ -432,6 +432,9 @@ if (instance_exists(actionNPC))
 		player.talking = false
 		player.canWalk = false
 		player.battle = true
+		
+		global.speedUpMultiplier = 1
+		game_set_speed(global.originalSpeed, gamespeed_fps);
 
 		var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 		battleObj.enemyTeam = actionNPC.trainerTeam

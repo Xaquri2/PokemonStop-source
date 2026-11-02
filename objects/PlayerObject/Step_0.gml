@@ -50,7 +50,9 @@ if (canWalk and !talking and !battle)
 	if (keyboard_check(vk_left)) hspeed = -speedValue
 	if (keyboard_check(vk_right)) hspeed = speedValue
 	
-	if (keyboard_check_pressed(ord("T")))
+	if (keyboard_check_pressed(ord("T")) and
+		(HasFlag("Torch") or HasItem("Torch Fuel") or
+		HasItem("Super Torch Fuel") or HasItem("Ultra Torch Fuel")))
 	{
 		if (!global.torch) global.torch = true
 		else global.torch = false
@@ -337,6 +339,10 @@ if (canEncounter and ds_list_size(global.playerParty) > 0)
 			talking = false
 			canWalk = false
 			battle = true
+			
+			global.speedUpMultiplier = 1
+			game_set_speed(global.originalSpeed, gamespeed_fps);
+		
 			var battleObj = instance_create_layer(x,y,"Instances",BattleObject)
 			battleObj.enemyTeam = wildPokemonList
 			battleObj.enemySprite = GetSprite(wildPkmn)

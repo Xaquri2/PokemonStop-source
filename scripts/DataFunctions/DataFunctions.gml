@@ -68,7 +68,7 @@ function SaveData()
 	var day = date_get_day(currentTime)
 	var month = date_get_month(currentTime)
 	var year = date_get_year(currentTime)
-	timestampString = string_concat(hour, ":", minute, " ", day, "/", month, "/", year)
+	timestampString = string_concat(year, "-", month < 10 ? "0" : "", month, "-", day < 10 ? "0" : "", day, " ", hour < 10 ? "0" : "", hour, ":", minute < 10 ? "0" : "", minute)
 
 	var saveState = {
 		money: global.money,
@@ -167,11 +167,6 @@ function LoadData()
 	    var data = json_parse(json);
 		var saveState = noone
 		
-		ds_list_clear(global.collectedPokeloot)
-		ds_list_clear(global.activatedBadges)
-		ds_list_clear(global.beatenTrainers)
-		ds_list_clear(global.flags)
-		ds_map_clear(global.npcFlags)
 		
 		switch (global.currentSaveState)
 		{
@@ -206,6 +201,12 @@ function LoadData()
 			show_debug_message("Save state does not exist: " + string(global.currentSaveState))
 			return
 		}
+
+		ds_list_clear(global.collectedPokeloot)
+		ds_list_clear(global.activatedBadges)
+		ds_list_clear(global.beatenTrainers)
+		ds_list_clear(global.flags)
+		ds_map_clear(global.npcFlags)
 
 		for (var i = 0; i < array_length(saveState.beatenTrainers); i++)
 		{
@@ -252,6 +253,7 @@ function LoadData()
 			{
 				var itemArray = categoryArray[j]
 				var itemList = ds_list_create()
+				if (itemArray[0] == "Potion") show_debug_message("[Inventory] Loading Potion stock from save: " + string(itemArray[1]))
 
 				ds_list_add(itemList, itemArray[0], itemArray[1])
 				ds_list_add(categoryList, itemList)
@@ -311,6 +313,15 @@ function LoadData()
 		global.followerType = saveState.followerType
 		global.pikminCount = saveState.pikminCount
 		global.catchIndex = saveState.catchIndex
+
+		// The original Shadow Tower pickup set "Item", leaving "item" blank.
+		// Its old tag proves it was collected without awarding the X Defense.
+		if (ds_list_find_index(global.collectedPokeloot, "ShadowTowreXDefense") != -1
+		and ds_list_find_index(global.collectedPokeloot, "ShadowTowerXDefense") == -1)
+		{
+			AddItem("X Defense", 1)
+			ds_list_add(global.collectedPokeloot, "ShadowTowerXDefense")
+		}
 	}
 	
 	ds_list_clear(global.pcPokemonList)
@@ -339,6 +350,7 @@ function SaveStateAction(stateNumber, actionMode)
 	{
 		var game = instance_find(GameObject, 0)
 		if (instance_exists(game)) with (game) LoadData()
+		if (room == TitleScreen) audio_stop_sound(TitleTheme)
 		game.targetWarp = "None"
 		game.warp = true
 		game.fade = true
@@ -355,7 +367,7 @@ function SaveStateAction(stateNumber, actionMode)
 
 function GetSaveSlotTimestamp(slot)
 {
-	var fileName = string_concat("savefile", global.saveFile, ".json")
+	var fileName = string_concat("savefile", slot, ".json")
 	if (file_exists(fileName))
 	{
 	    var file = file_text_open_read(fileName);
@@ -383,7 +395,26 @@ function GetSaveSlotTimestamp(slot)
 				break
 		}
 
-		if (saveState != noone) return saveState.saveSlotTimestamp
+		if (saveState != noone)
+		{
+			var timestamp = saveState.saveSlotTimestamp
+			// Older saves stored H:M D/M/YYYY. Display those in ISO order too.
+			var parts = string_split(timestamp, " ")
+			if (array_length(parts) == 2)
+			{
+				var dateParts = string_split(parts[1], "/")
+				var timeParts = string_split(parts[0], ":")
+				if (array_length(dateParts) == 3 and array_length(timeParts) == 2)
+				{
+					return string_concat(dateParts[2], "-",
+						string_length(dateParts[1]) == 1 ? "0" : "", dateParts[1], "-",
+						string_length(dateParts[0]) == 1 ? "0" : "", dateParts[0], " ",
+						string_length(timeParts[0]) == 1 ? "0" : "", timeParts[0], ":",
+						string_length(timeParts[1]) == 1 ? "0" : "", timeParts[1])
+				}
+			}
+			return timestamp
+		}
 		else return undefined
 	}
 }

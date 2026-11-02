@@ -91,84 +91,9 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						}
 					}
 				}
-				if (string_count("poison damage", text) > 0) //Poison damage
+				if (string_count("poison damage", text) > 0 or string_count("burn damage", text) > 0)
 				{
-					var otherEntity = "Enemy"
-					var name = GetName(playerPkmn)
-					var level = GetLevel(playerPkmn)
-
-					var rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
-					enemyDamage = clamp(floor(rawDamage), 1, 1000000)
-
-					if (string_count("opponent", text) > 0)
-					{
-						name = GetName(enemyPkmn)
-						level = GetLevel(enemyPkmn)
-						otherEntity = "Player"
-
-						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
-						{
-							var attempt = instance_find(BattlePokemonObject, i)
-							if (!attempt.playerTeam and attempt.toxic) 
-							{
-								rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/attempt.toxicCount
-								playerDamage = clamp(floor(rawDamage), 1, 1000000)
-								attempt.toxicCount -= 4
-								attempt.toxicCount = clamp(attempt.toxicCount, 4, 16)
-							}
-						}
-					}
-					else
-					{
-						for (var i = 0; i < instance_number(BattlePokemonObject); i++)
-						{
-							var attempt = instance_find(BattlePokemonObject, i)
-							if (attempt.playerTeam and attempt.toxic) 
-							{
-								rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/attempt.toxicCount
-								enemyDamage = clamp(floor(rawDamage), 1, 1000000)
-								attempt.toxicCount -= 4
-								attempt.toxicCount = clamp(attempt.toxicCount, 4, 16)
-							}
-						}
-					}
-
-					whoAttacked = otherEntity
-					alarm[1] = GetMoveAnimationTime(moveName)
-					
-					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
-					attackC.alarm[0] = alarm[1]
-					attackC.moveName = "Poison"
-					attackC.whoAttacked = otherEntity
-					attackC.particleSpawnTime = floor(alarm[1] / 2)
-				}
-				if (string_count("burn damage", text) > 0) //Burn damage
-				{
-					var otherEntity = "Enemy"
-					var name = GetName(playerPkmn)
-					var level = GetLevel(playerPkmn)
-
-					var rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
-					enemyDamage = clamp(floor(rawDamage), 1, 1000000)
-
-					if (string_count("opponent", text) > 0)
-					{
-						name = GetName(enemyPkmn)
-						level = GetLevel(enemyPkmn)
-						otherEntity = "Player"
-
-						rawDamage = GetHPStat(GetPokemonFinalStats(name, level))/16
-						playerDamage = clamp(floor(rawDamage), 1, 1000000)
-					}
-
-					whoAttacked = otherEntity
-					alarm[1] = GetMoveAnimationTime(moveName)
-
-					var attackC = instance_create_layer(0,0,"Particles",AttackControllerObject)
-					attackC.alarm[0] = alarm[1]
-					attackC.moveName = "Burn"
-					attackC.whoAttacked = otherEntity
-					attackC.particleSpawnTime = floor(alarm[1] / 2)
+					ScheduleBattleStatusDamage(id, text)
 				}
 
 				if (string_count(" sent out ", text) > 0) //Enemy pokémon released
@@ -183,6 +108,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 
 					if (enemy != noone)
 					{
+						enemyPkmn = ds_list_find_value(enemy.team, enemy.currentPkmn)
+						battle.enemyPkmn = enemyPkmn
 						if (enemy.currentPkmn == 0)
 						{
 							enemy.hspeed = enemy.moveSpeed
@@ -466,19 +393,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						if (!target.playerTeam) break
 					}
 
-					var effectName = GetMoveEffect(playerMoveName)
-					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
-					
-					var status = effectName
-					if (status == "RandomStatus")
-					{
-						var attempt = irandom(3)
-						if (attempt == 0) status = "Paralysis"
-						if (attempt == 1) status = "Poisoned"
-						if (attempt == 2) status = "Burn"
-						if (attempt == 3) status = "Sleep"
-					}
-					if (status == "Corrode") status = "Poisoned"
+					var status = GetBattleStatusFromText(text)
 					
 					SetStatus(target.pkmnInfo, status)
 					target.status = status
@@ -492,19 +407,8 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
 						if (target.playerTeam) break
 					}
 
-					var effectName = GetMoveEffect(playerMoveName)
-					if (whoAttacked == "Enemy") effectName = GetMoveEffect(enemyMoveName)
+					var status = GetBattleStatusFromText(text)
 
-					var status = effectName
-					if (status == "RandomStatus")
-					{
-						var attempt = irandom(3)
-						if (attempt == 0) status = "Paralysis"
-						if (attempt == 1) status = "Poisoned"
-						if (attempt == 2) status = "Burn"
-						if (attempt == 3) status = "Sleep"
-					}
-					
 					SetStatus(target.pkmnInfo, status)
 
 					target.status = status
@@ -515,7 +419,7 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
     {
         var attempt = instance_find(BattleEntityObject, i)
 
-        if (instance_exists(attempt) and attempt.hp > 0)
+        if (instance_exists(attempt))
         {
             var team = attempt.team
             var index = attempt.currentPkmn
@@ -523,11 +427,12 @@ if (ds_list_find_value(textList, currentText+1) != undefined and !catching and !
             if (index < 0 or index >= ds_list_size(team)) continue
 
             var pkmnData = ds_list_find_value(team, index)
+            if (GetHealth(pkmnData) <= 0) continue
             var healValue = floor(
                 GetPokemonFinalHP(GetName(pkmnData), GetLevel(pkmnData)) / 16
             )
 
-            if (ds_list_find_index(GetTypes(pkmnData), "Flying") != -1)
+            if (ds_list_find_index(GetTypes(pkmnData), "Flying") == -1)
             {
                 HealPokemon(team, index, healValue, attempt.player, false, false)
             }

@@ -63,7 +63,7 @@ while (count <= 5)
 	if (file_exists(fileName)) 
 	{
 		global.saveFile = count
-		count = 5
+		break
 	}
 	else count++
 }

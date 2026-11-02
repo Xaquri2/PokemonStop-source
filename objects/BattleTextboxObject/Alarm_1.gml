@@ -1,3 +1,12 @@
+// Later messages can still refer to the Pokemon that fainted earlier this turn.
+var damagedPokemon = whoAttacked == "Player" ? enemyPkmn : playerPkmn
+if (GetHealth(damagedPokemon) <= 0)
+{
+	damaging = false
+	damageValue = 0
+	exit
+}
+
 alarm[3] = 5
 damaging = true
 if (whoAttacked == "Player")
@@ -79,9 +88,8 @@ if (!recoil)
 		}
 		else
 		{
-			battle.enemyPkmn = nextPkmn
 			name = GetName(nextPkmn)
-			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
+			ds_list_add(textList, string_concat(battle.enemyName == "Mary2" ? "Mary" : battle.enemyName, " sent out ", name))
 		}
 	}
 	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
@@ -175,9 +183,8 @@ else
 		}
 		else
 		{
-			battle.enemyPkmn = nextPkmn
 			name = GetName(nextPkmn)
-			ds_list_add(textList, string_concat(battle.enemyName, " sent out ", name))
+			ds_list_add(textList, string_concat(battle.enemyName == "Mary2" ? "Mary" : battle.enemyName, " sent out ", name))
 		}
 	}
 	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-pRecoilDamage <= 0)

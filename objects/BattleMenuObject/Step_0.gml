@@ -112,7 +112,7 @@ if (keyboard_check_pressed(vk_enter))
 							battleText.playerDamage = damage
 
 							if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
-							else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+							else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = GetResistanceMessage(moveName, battle.enemyPkmn)
 							else if (damage == -1)
 							{
 								damage = 0
@@ -148,11 +148,7 @@ if (keyboard_check_pressed(vk_enter))
 											eFutureStatus = moveEff
 											if (eFutureStatus == "RandomStatus")
 											{
-												var attempt = irandom(4)
-												if (attempt == 1) eFutureStatus = "Paralysis"
-												if (attempt == 2) eFutureStatus = "Poisoned"
-												if (attempt == 3) eFutureStatus = "Burn"
-												if (attempt == 4) eFutureStatus = "Sleep"
+												eFutureStatus = RollBattleStatus()
 												moveEff = eFutureStatus
 											}
 										}
@@ -198,11 +194,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 											if (eFutureStatus == "RandomStatus")
 											{
-												var attempt = irandom(4)
-												if (attempt == 1) eFutureStatus = "Paralysis"
-												if (attempt == 2) eFutureStatus = "Poisoned"
-												if (attempt == 3) eFutureStatus = "Burn"
-												if (attempt == 4) eFutureStatus = "Sleep"
+												eFutureStatus = RollBattleStatus()
 												moveEff = eFutureStatus
 											}
 											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
@@ -248,7 +240,7 @@ if (keyboard_check_pressed(vk_enter))
 
 								superEffStr = ""
 								if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-								else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+								else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = GetResistanceMessage(moveName, battle.playerPkmn)
 								else if (damage == -1)
 								{
 									damage = 0
@@ -319,11 +311,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 												if (pFutureStatus == "RandomStatus")
 												{
-													var attempt = irandom(4)
-													if (attempt == 1) pFutureStatus = "Paralysis"
-													if (attempt == 2) pFutureStatus = "Poisoned"
-													if (attempt == 3) pFutureStatus = "Burn"
-													if (attempt == 4) pFutureStatus = "Sleep"
+													pFutureStatus = RollBattleStatus()
 													moveEff = pFutureStatus
 												}
 												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -380,7 +368,7 @@ if (keyboard_check_pressed(vk_enter))
 							battleText.enemyDamage = damage
 
 							if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-							else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+							else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = GetResistanceMessage(moveName, battle.playerPkmn)
 							else if (damage == -1)
 							{
 								damage = 0
@@ -412,11 +400,7 @@ if (keyboard_check_pressed(vk_enter))
 										if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 										if (pFutureStatus == "RandomStatus")
 										{
-											var attempt = irandom(4)
-											if (attempt == 1) pFutureStatus = "Paralysis"
-											if (attempt == 2) pFutureStatus = "Poisoned"
-											if (attempt == 3) pFutureStatus = "Burn"
-											if (attempt == 4) pFutureStatus = "Sleep"
+											pFutureStatus = RollBattleStatus()
 											moveEff = pFutureStatus
 										}
 										var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -459,11 +443,7 @@ if (keyboard_check_pressed(vk_enter))
 											if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 											if (pFutureStatus == "RandomStatus")
 											{
-												var attempt = irandom(4)
-												if (attempt == 1) pFutureStatus = "Paralysis"
-												if (attempt == 2) pFutureStatus = "Poisoned"
-												if (attempt == 3) pFutureStatus = "Burn"
-												if (attempt == 4) pFutureStatus = "Sleep"
+												pFutureStatus = RollBattleStatus()
 												moveEff = pFutureStatus
 											}
 											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -511,7 +491,7 @@ if (keyboard_check_pressed(vk_enter))
 
 								superEffStr = ""
 								if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
-								else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+								else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = GetResistanceMessage(moveName, battle.enemyPkmn)
 								else if (damage == -1)
 								{
 									damage = 0
@@ -539,12 +519,8 @@ if (keyboard_check_pressed(vk_enter))
 											if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 											if (pFutureStatus == "RandomStatus")
 											{
-												var attempt = irandom(4)
-												if (attempt == 1) eFutureStatus = "Paralysis"
-												if (attempt == 2) eFutureStatus = "Poisoned"
-												if (attempt == 3) eFutureStatus = "Burn"
-												if (attempt == 4) eFutureStatus = "Sleep"
-												moveEff = eFutureStatus
+												pFutureStatus = RollBattleStatus()
+												moveEff = pFutureStatus
 											}
 											var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 											if (effStr != "") ds_list_add(battleText.textList, effStr)
@@ -592,12 +568,8 @@ if (keyboard_check_pressed(vk_enter))
 												if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 												if (pFutureStatus == "RandomStatus")
 												{
-													var attempt = irandom(4)
-													if (attempt == 1) eFutureStatus = "Paralysis"
-													if (attempt == 2) eFutureStatus = "Poisoned"
-													if (attempt == 3) eFutureStatus = "Burn"
-													if (attempt == 4) eFutureStatus = "Sleep"
-													moveEff = eFutureStatus
+													pFutureStatus = RollBattleStatus()
+													moveEff = pFutureStatus
 												}
 												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
 												if (effStr != "") ds_list_add(battleText.textList, effStr)
@@ -701,7 +673,7 @@ if (keyboard_check_pressed(vk_enter))
 						battleText.enemyDamage = damage
 
 						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = GetResistanceMessage(moveName, battle.playerPkmn)
 						else if (damage == -1)
 						{
 							damage = 0
@@ -720,11 +692,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 								if (pFutureStatus == "RandomStatus")
 								{
-									var attempt = irandom(3)
-									if (attempt == 0) pFutureStatus = "Paralysis"
-									if (attempt == 1) pFutureStatus = "Poisoned"
-									if (attempt == 2) pFutureStatus = "Burn"
-									if (attempt == 3) pFutureStatus = "Sleep"
+									pFutureStatus = RollBattleStatus()
 									moveEff = pFutureStatus
 								}
 								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -800,7 +768,7 @@ if (keyboard_check_pressed(vk_enter))
 				battleText.playerDamage = damage
 
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
-				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = GetResistanceMessage(moveName, battle.enemyPkmn)
 				else if (damage == -1)
 				{
 					damage = 0
@@ -835,11 +803,7 @@ if (keyboard_check_pressed(vk_enter))
 							if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 							if (eFutureStatus == "RandomStatus")
 							{
-								var attempt = irandom(3)
-								if (attempt == 0) eFutureStatus = "Paralysis"
-								if (attempt == 1) eFutureStatus = "Poisoned"
-								if (attempt == 2) eFutureStatus = "Burn"
-								if (attempt == 3) eFutureStatus = "Sleep"
+								eFutureStatus = RollBattleStatus()
 								moveEff = eFutureStatus
 							}
 							var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
@@ -873,11 +837,7 @@ if (keyboard_check_pressed(vk_enter))
 									if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 									if (eFutureStatus == "RandomStatus")
 									{
-										var attempt = irandom(3)
-										if (attempt == 0) eFutureStatus = "Paralysis"
-										if (attempt == 1) eFutureStatus = "Poisoned"
-										if (attempt == 2) eFutureStatus = "Burn"
-										if (attempt == 3) eFutureStatus = "Sleep"
+										eFutureStatus = RollBattleStatus()
 										moveEff = eFutureStatus
 									}
 									var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
@@ -921,11 +881,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 								if (eFutureStatus == "RandomStatus")
 								{
-									var attempt = irandom(3)
-									if (attempt == 0) eFutureStatus = "Paralysis"
-									if (attempt == 1) eFutureStatus = "Poisoned"
-									if (attempt == 2) eFutureStatus = "Burn"
-									if (attempt == 3) eFutureStatus = "Sleep"
+									eFutureStatus = RollBattleStatus()
 									moveEff = eFutureStatus
 								}
 								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
@@ -991,7 +947,7 @@ if (keyboard_check_pressed(vk_enter))
 
 						superEffStr = ""
 						if (IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = GetResistanceMessage(moveName, battle.playerPkmn)
 						else if (damage == -1)
 						{
 							damage = 0
@@ -1027,11 +983,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 												if (pFutureStatus == "RandomStatus")
 												{
-													var attempt = irandom(3)
-													if (attempt == 0) pFutureStatus = "Paralysis"
-													if (attempt == 1) pFutureStatus = "Poisoned"
-													if (attempt == 2) pFutureStatus = "Burn"
-													if (attempt == 3) pFutureStatus = "Sleep"
+													pFutureStatus = RollBattleStatus()
 													moveEff = pFutureStatus
 												}
 												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -1066,11 +1018,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 													if (pFutureStatus == "RandomStatus")
 													{
-														var attempt = irandom(3)
-														if (attempt == 0) pFutureStatus = "Paralysis"
-														if (attempt == 1) pFutureStatus = "Poisoned"
-														if (attempt == 2) pFutureStatus = "Burn"
-														if (attempt == 3) pFutureStatus = "Sleep"
+														pFutureStatus = RollBattleStatus()
 														moveEff = pFutureStatus
 													}
 													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -1116,11 +1064,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 													if (pFutureStatus == "RandomStatus")
 													{
-														var attempt = irandom(3)
-														if (attempt == 0) pFutureStatus = "Paralysis"
-														if (attempt == 1) pFutureStatus = "Poisoned"
-														if (attempt == 2) pFutureStatus = "Burn"
-														if (attempt == 3) pFutureStatus = "Sleep"
+														pFutureStatus = RollBattleStatus()
 														moveEff = pFutureStatus
 													}
 													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -1163,7 +1107,7 @@ if (keyboard_check_pressed(vk_enter))
 				battleText.enemyDamage = damage
 
 				if (damage > 0 and IsMoveSuperEffective(moveName, battle.playerPkmn)) superEffStr = "It was super effective! "
-				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = "It was not very effective! "
+				else if (damage > 0 and IsMoveNotVeryEffective(moveName, battle.playerPkmn)) superEffStr = GetResistanceMessage(moveName, battle.playerPkmn)
 				else if (damage == -1)
 				{
 					damage = 0
@@ -1196,11 +1140,7 @@ if (keyboard_check_pressed(vk_enter))
 							if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 							if (pFutureStatus == "RandomStatus")
 							{
-								var attempt = irandom(3)
-								if (attempt == 0) pFutureStatus = "Paralysis"
-								if (attempt == 1) pFutureStatus = "Poisoned"
-								if (attempt == 2) pFutureStatus = "Burn"
-								if (attempt == 3) pFutureStatus = "Sleep"
+								pFutureStatus = RollBattleStatus()
 								moveEff = pFutureStatus
 							}
 							var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -1232,11 +1172,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 								if (pFutureStatus == "RandomStatus")
 								{
-									var attempt = irandom(3)
-									if (attempt == 0) pFutureStatus = "Paralysis"
-									if (attempt == 1) pFutureStatus = "Poisoned"
-									if (attempt == 2) pFutureStatus = "Burn"
-									if (attempt == 3) pFutureStatus = "Sleep"
+									pFutureStatus = RollBattleStatus()
 									moveEff = pFutureStatus
 								}
 								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -1278,11 +1214,7 @@ if (keyboard_check_pressed(vk_enter))
 								if (IsStatusEffect(moveEff)) pFutureStatus = moveEff
 								if (pFutureStatus == "RandomStatus")
 								{
-									var attempt = irandom(3)
-									if (attempt == 0) pFutureStatus = "Paralysis"
-									if (attempt == 1) pFutureStatus = "Poisoned"
-									if (attempt == 2) pFutureStatus = "Burn"
-									if (attempt == 3) pFutureStatus = "Sleep"
+									pFutureStatus = RollBattleStatus()
 									moveEff = pFutureStatus
 								}
 								var effStr = DealEffect(moveName, moveEff, effectAcc, damage, enemyPkmn, playerPkmn)
@@ -1349,7 +1281,7 @@ if (keyboard_check_pressed(vk_enter))
 
 						superEffStr = ""
 						if (IsMoveSuperEffective(moveName, battle.enemyPkmn)) superEffStr = "It was super effective! "
-						else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = "It was not very effective! "
+						else if (IsMoveNotVeryEffective(moveName, battle.enemyPkmn)) superEffStr = GetResistanceMessage(moveName, battle.enemyPkmn)
 						else if (damage == -1)
 						{
 							damage = 0
@@ -1384,11 +1316,7 @@ if (keyboard_check_pressed(vk_enter))
 												if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 												if (eFutureStatus == "RandomStatus")
 												{
-													var attempt = irandom(3)
-													if (attempt == 0) eFutureStatus = "Paralysis"
-													if (attempt == 1) eFutureStatus = "Poisoned"
-													if (attempt == 2) eFutureStatus = "Burn"
-													if (attempt == 3) eFutureStatus = "Sleep"
+													eFutureStatus = RollBattleStatus()
 													moveEff = eFutureStatus
 												}
 												var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
@@ -1423,11 +1351,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 													if (eFutureStatus == "RandomStatus")
 													{
-														var attempt = irandom(3)
-														if (attempt == 0) eFutureStatus = "Paralysis"
-														if (attempt == 1) eFutureStatus = "Poisoned"
-														if (attempt == 2) eFutureStatus = "Burn"
-														if (attempt == 3) eFutureStatus = "Sleep"
+														eFutureStatus = RollBattleStatus()
 														moveEff = eFutureStatus
 													}
 													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)
@@ -1473,11 +1397,7 @@ if (keyboard_check_pressed(vk_enter))
 													if (IsStatusEffect(moveEff)) eFutureStatus = moveEff
 													if (eFutureStatus == "RandomStatus")
 													{
-														var attempt = irandom(3)
-														if (attempt == 0) eFutureStatus = "Paralysis"
-														if (attempt == 1) eFutureStatus = "Poisoned"
-														if (attempt == 2) eFutureStatus = "Burn"
-														if (attempt == 3) eFutureStatus = "Sleep"
+														eFutureStatus = RollBattleStatus()
 														moveEff = eFutureStatus
 													}
 													var effStr = DealEffect(moveName, moveEff, effectAcc, damage, playerPkmn, enemyPkmn)

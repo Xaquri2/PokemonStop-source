@@ -1,3 +1,4 @@
+if (instance_exists(SaveMenuObject) or instance_exists(obj_about_dialog)) exit;
 /// @DnDAction : YoYo Games.Instances.Inherit_Event
 /// @DnDVersion : 1
 /// @DnDHash : 6CBB9609

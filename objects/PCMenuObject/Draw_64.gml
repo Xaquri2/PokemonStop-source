@@ -35,7 +35,7 @@ if (!summaryMode)
 			{
 				var padding = 8
 				var availableWidth = frameScaledWidth-padding*2
-				var availableHeight = frameScaledHeight-padding*2
+				var availableHeight = frameScaledHeight-padding*2-28
 
 				// Fit the visible artwork rather than cropping a fixed 32x32 area.
 				var sourceLeft = sprite_get_bbox_left(pkmnSprite)
@@ -65,7 +65,7 @@ if (!summaryMode)
 					sourceLeft, sourceTop,
 					sourceWidth, sourceHeight,
 					frameXOffset+(frameScaledWidth-drawnWidth)/2,
-					frameYOffset+(frameScaledHeight-drawnHeight)/2,
+					frameYOffset+padding+(availableHeight-drawnHeight)/2,
 					fitScale, fitScale,
 					image_blend, image_alpha
 				)
@@ -75,6 +75,12 @@ if (!summaryMode)
 			if (currentOption == i) draw_rectangle(frameXOffset, frameYOffset,
 			frameXOffset+frameScaledWidth, frameYOffset+frameScaledHeight, false)
 			draw_set_alpha(1)
+
+			CenterTextPosition()
+			draw_text_transformed(frameXOffset+frameScaledWidth/2,
+			frameYOffset+frameScaledHeight-18,
+			string_concat("lvl ", GetLevel(pkmnData)), 1.2, 1.2, image_angle)
+			ResetTextPosition()
 
 			counter++
 			xOffset++

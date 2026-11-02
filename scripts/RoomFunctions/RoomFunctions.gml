@@ -660,6 +660,7 @@ function GetRoomMusic()
 		//Shadow Path
 		case ShadowPath: return OathToOrder
 		case ShadowPokecenter: return PokeGymLofi
+		case GreedShop: return ShopOOT
 		case ShadowTower: return OathToOrder
 		case EmptyHouse: return ShadowPathAmbiance
 		case ShadowPathGym: return CreepyLullabyNoVocal

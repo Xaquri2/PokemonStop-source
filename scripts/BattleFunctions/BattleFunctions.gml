@@ -39,12 +39,14 @@ function GetDamage(pkmn, targetPkmn, moveName)
 
 	var atkStat = 0
 	var defStat = 0
+	var normalGhostResistance = false
 	
 	for (var i = 0; i < ds_list_size(eType); i++)
 	{
 		var currentType = ds_list_find_value(eType, i)
-		// Field traps do not target the opposing Pokemon directly.
-		if (GetMoveEffect(moveName) != "SetTrap" and GetMoveEffect(moveName) != "WicketReversal"
+		// Status moves and Struggle bypass damage-type immunity.
+		if (moveName != "Struggle" and moveCat != "Status" and moveType == "Normal" and currentType == "Ghost") normalGhostResistance = true
+		if (moveName != "Struggle" and moveCat != "Status"
 		and IsImmune(moveType, currentType)) return -1
 	}
 	
@@ -76,7 +78,7 @@ function GetDamage(pkmn, targetPkmn, moveName)
 		movePower += GetEffectPower(pkmn, targetPkmn, GetMoveEffect(moveName))
 
 		if (IsMoveSuperEffective(moveName, targetPkmn)) movePower *= 1.5
-		if (IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
+		if (!normalGhostResistance and IsMoveNotVeryEffective(moveName, targetPkmn)) movePower *= 0.5
 		
 		var damage = floor((((2 * pLevel / 5) + 2) * movePower * atkStat / defStat) / 50 + 2)
 		damage = clamp(damage, 0, 1000000)
@@ -86,6 +88,8 @@ function GetDamage(pkmn, targetPkmn, moveName)
 			damage = 5
 			if (irandom(9) == 1) damage += 50
 		}
+		// Apply after fixed-damage effects too; keep a successful attack at 1 HP minimum.
+		if (normalGhostResistance) damage = max(1, floor(damage * 0.5))
 		return damage
 	}
 	else return 0
@@ -166,6 +170,7 @@ function GetEffectPower(pkmn, targetPkmn, effectName)
 
 function IsMoveSuperEffective(moveName, targetPkmn)
 {
+	if (moveName == "Struggle" or GetMoveCategory(moveName) == "Status") return false
 	var moveType = GetMoveType(moveName)
 	var enemyTypes = GetTypes(targetPkmn)
 	for (var i = 0; i < ds_list_size(enemyTypes); i++)
@@ -281,6 +286,7 @@ function IsTypeSuperEffective(type, targetType)
 
 function IsMoveNotVeryEffective(moveName, targetPkmn)
 {
+	if (moveName == "Struggle" or GetMoveCategory(moveName) == "Status") return false
 	var moveType = GetMoveType(moveName)
 	var enemyTypes = GetTypes(targetPkmn)
 	for (var i = 0; i < ds_list_size(enemyTypes); i++)
@@ -288,6 +294,21 @@ function IsMoveNotVeryEffective(moveName, targetPkmn)
 		if (IsTypeNotVeryEffective(moveType, ds_list_find_value(enemyTypes, i))) return true
 	}
 	return false
+}
+
+function GetResistanceMessage(moveName, targetPkmn)
+{
+	if (moveName != "Struggle" and GetMoveCategory(moveName) != "Status"
+	and GetMoveType(moveName) == "Normal")
+	{
+		var types = GetTypes(targetPkmn)
+		for (var i = 0; i < ds_list_size(types); i++)
+		{
+			if (ds_list_find_value(types, i) == "Ghost")
+				return string_concat(GetName(targetPkmn), " was partly immune! Damage was reduced by half. ")
+		}
+	}
+	return "It was not very effective! "
 }
 
 function IsTypeNotVeryEffective(type, targetType)
@@ -407,7 +428,8 @@ function IsTypeNotVeryEffective(type, targetType)
             break;
 
         case "Ghost":
-            if (type == "Poison"
+            if (type == "Normal"
+            or type == "Poison"
             or type == "Bug")
             {
                 return true;
@@ -468,7 +490,6 @@ function IsTypeNotVeryEffective(type, targetType)
 function IsImmune(type, targetType)
 {
 	if (type == "Electric" and targetType == "Ground") return true
-	if (type == "Normal" and targetType == "Ghost") return true
 	if (type == "Ghost" and targetType == "Normal") return true
 	if (type == "Fighting" and targetType == "Ghost") return true
 	if (type == "Poison" and targetType == "Steel") return true
@@ -576,7 +597,7 @@ function DealEffect(moveName, effectName, accurancy, damage, user, target)
 	for (var i = 0; i < ds_list_size(types); i++)
 	{
 		var currentType = ds_list_find_value(types, i)
-		if (effectName != "SetTrap" and effectName != "WicketReversal"
+		if (moveName != "Struggle" and GetMoveCategory(moveName) != "Status"
 		and IsImmune(GetMoveType(moveName), currentType)) return ""
 	}
 	
@@ -1267,6 +1288,52 @@ function CheckForFieldEffect(effString, tList)
 	if (BattleObject.currentField == "GrassyTerrain") ds_list_add(tList, "All pokémon on the field have been healed!")
 }
 
+function RollBattleStatus()
+{
+	var statuses = ["Paralysis", "Poisoned", "Burn", "Sleep"]
+	return statuses[irandom(3)]
+}
+
+function GetBattleStatusFromText(text)
+{
+	if (string_count("paralyzed", text) > 0) return "Paralysis"
+	if (string_count("poisoned", text) > 0) return "Poisoned"
+	if (string_count("burned", text) > 0) return "Burn"
+	if (string_count("asleep", text) > 0) return "Sleep"
+	if (string_count("frozen", text) > 0) return "Freeze"
+	return "None"
+}
+
+function ScheduleBattleStatusDamage(textbox, statusText)
+{
+	var enemyTarget = string_count("opponent", statusText) > 0
+	var pkmn = enemyTarget ? textbox.enemyPkmn : textbox.playerPkmn
+	var expectedStatus = string_count("poison damage", statusText) > 0 ? "Poisoned" : "Burn"
+	// Messages were queued before attacks resolved. A fainted or replaced
+	// Pokemon must never pass its old status tick to the next team member.
+	if (GetHealth(pkmn) <= 0 or GetStatus(pkmn) != expectedStatus) return false
+	var entity = FindBattlePokemonEntity(pkmn)
+	if (entity == noone or entity.dying) return false
+	var divisor = 16
+	if (expectedStatus == "Poisoned" and entity.toxic)
+	{
+		divisor = clamp(entity.toxicCount, 4, 16)
+		entity.toxicCount = max(4, divisor-4)
+	}
+	var amount = max(1, floor(GetPokemonFinalHP(GetName(pkmn), GetLevel(pkmn))/divisor))
+	if (enemyTarget) textbox.playerDamage = amount
+	else textbox.enemyDamage = amount
+	textbox.whoAttacked = enemyTarget ? "Player" : "Enemy"
+	textbox.moveName = expectedStatus == "Poisoned" ? "Poison" : "Burn"
+	textbox.alarm[1] = GetMoveAnimationTime(textbox.moveName)
+	var attack = instance_create_layer(0, 0, "Particles", AttackControllerObject)
+	attack.alarm[0] = textbox.alarm[1]
+	attack.moveName = textbox.moveName
+	attack.whoAttacked = textbox.whoAttacked
+	attack.particleSpawnTime = floor(textbox.alarm[1]/2)
+	return true
+}
+
 function IsStatusEffect(eff)
 {
 	switch (eff)
@@ -1401,7 +1468,8 @@ function ChooseMove(pkmn, targetPkmn)
 				for (var i = 0; i < ds_list_size(damageList); i++)
 				{
 					var attempt = ds_list_find_value(damageList, i)
-					if (attempt > biggerDamage) biggerDamage = attempt
+					// Seed from a real move even when every attack is immune (-1).
+					if (i == 0 or attempt > biggerDamage) biggerDamage = attempt
 				}
 				var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
 				ds_list_destroy(damageList)
@@ -1429,7 +1497,8 @@ function ChooseMove(pkmn, targetPkmn)
 			for (var i = 0; i < ds_list_size(damageList); i++)
 			{
 				var attempt = ds_list_find_value(damageList, i)
-				if (attempt > biggerDamage) biggerDamage = attempt
+				// Seed from a real move even when every attack is immune (-1).
+				if (i == 0 or attempt > biggerDamage) biggerDamage = attempt
 			}
 			var moveName = ds_list_find_value(moves, ds_list_find_index(damageList, biggerDamage))
 			ds_list_destroy(damageList)

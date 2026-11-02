@@ -1,7 +1,11 @@
 draw_set_alpha(1-game.fadeAlpha)
 
+var hideStatusHud = room == GinkoIntroRoom or room == EndCreditsRoom or game.cutscenePlaying
+var hudBattle = instance_find(BattleObject, 0)
+if (instance_exists(hudBattle) and hudBattle.cutscenePlaying) hideStatusHud = true
+
 #region Draw money
-if (room == GinkoIntroRoom) {	
+if (hideStatusHud) {
 }
 else {
 	draw_sprite_ext(PokeDollarSprite,0,820,55,2.5,2.5,0,c_white,1)	
@@ -50,7 +54,7 @@ if HasItem("Ultra Torch Fuel") {
 #endregion
 
 #region Draw your Pokemon's name
-if (room == GinkoIntroRoom) {	
+if (hideStatusHud) {
 }
 else if (ds_list_size(global.playerParty) > 0)
 {

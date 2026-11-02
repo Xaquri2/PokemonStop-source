@@ -22,6 +22,7 @@ minWalkTimerValue = 2
 maxWalkTimerValue = 3
 
 WobbleDir = "Right"
+figWobbleAngle = 0
 
 AddPokemonTrainer(trainerTeam,1,"Fig",8,GetRandomGender(30),FigOverworldSprite)
 

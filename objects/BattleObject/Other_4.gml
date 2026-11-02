@@ -90,7 +90,7 @@ if (room == RoomBattle or room == RoomBattleGodzilla)
 	}
 	else
 	{
-		ds_list_add(textList, string_concat(enemyName, " wants to battle"), string_concat(enemyName, " sent out ", enemyTeamMemberName),
+		ds_list_add(textList, string_concat(enemyName == "Mary2" ? "Mary" : enemyName, " wants to battle"), string_concat(enemyName == "Mary2" ? "Mary" : enemyName, " sent out ", enemyTeamMemberName),
 		string_concat("Go! ", playerTeamMemberName))
 	}
 	
