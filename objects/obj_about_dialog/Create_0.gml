@@ -4,6 +4,8 @@ aboutText = @"Welcome to Pokémon Stop!
 
 This game is an adaptation of a Paper Computer Game I made years ago, of the same name. Paper Computer Games are games my friends and I made for each other as kids, little adventures, and we've kept it up through the years! The games have developed their own characters, lore, and community.
 
+(For more info on PCGs, please visit our site: PaperComputerGames.com!) 
+
 This game is firmly set in the Pokémon world, and stars the cousin of Ash Ketchum. But it's also a mash-up with our PCG characters - characters like Ginkus (here called Professor Ginkgo), and Tutorial Bot. These characters are the Pokémon World's version of themselves - meaning they're slightly different than their counterparts in the PCG Universe. They won't remember their adventures from any of those games. Some creatures and characters unique to PCGs were created by my friends, or by other members of our community.
 
 It's also a mash-up with other universes - Mario, Zelda, Star Trek, Alien, etc. This is a fangame, and I don't claim to own the rights to any of these properties!
