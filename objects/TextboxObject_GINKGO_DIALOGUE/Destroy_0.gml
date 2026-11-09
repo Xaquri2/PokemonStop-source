@@ -1,5 +1,5 @@
 
-show_debug_message("TEXTBOX DESTROY EVENT FIRED");
+// show_debug_message("TEXTBOX DESTROY EVENT FIRED");
 if !instance_exists(TextSequenceSummoner2) {
 	instance_create_layer(300,300,"Instances",TextSequenceSummoner2);
 }

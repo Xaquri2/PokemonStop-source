@@ -1,9 +1,8 @@
-if (instance_exists(actionNPC) and !ds_list_empty(actionNPC.trainerTeam) and ds_list_find_index(global.beatenTrainers, actionNPC.name) == -1)
+// Friendly Morlock conversations must release movement just like other non-battle dialogue.
+if (instance_exists(actionNPC) and actionNPC.object_index != Morlock
+and !ds_list_empty(actionNPC.trainerTeam) and ds_list_find_index(global.beatenTrainers, actionNPC.name) == -1)
 {
-	if (actionNPC.object_index != Morlock) 
-	{
-		startBattle = true
-	}
+	startBattle = true
 }
 else
 {

@@ -260,6 +260,12 @@ if (nearestNPC != noone)
 			}
 		}
 
+		// Refresh the greeting in case the potion was used or expired inside the shop.
+		if (nearestNPC.name == "Morlockcita")
+			ds_list_set(nearestNPC.textList, 0, GetMorlockShopkeeperGreeting())
+		if (variable_instance_exists(nearestNPC, "morlockFriendlyText"))
+			RefreshMorlockDialogue(nearestNPC)
+
 		if (ds_list_empty(nearestNPC.trainerTeam) or ds_list_find_index(global.beatenTrainers, nearestNPC.name) == -1)
 		{
 			dialogue.textList = nearestNPC.textList

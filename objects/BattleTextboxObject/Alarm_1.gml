@@ -22,6 +22,10 @@ else if (whoAttacked == "Enemy")
 	if (BattleObject.Fluxxed2) damageValue *= random_range(0.8,1.2)
 }
 
+// HP is removed one point per tick. Use that same whole-number total when
+// predicting knockouts, including fractional recoil/traps and Flux modifiers.
+damageValue = max(0, ceil(damageValue))
+
 var target = noone
 for (var i = 0; i < instance_number(BattleEntityObject); i++)
 {
@@ -59,7 +63,7 @@ if (GetMoveCategory(moveName) != "Status")
 
 if (!recoil)
 {
-	if (whoAttacked == "Player" and GetHealth(enemyPkmn)-playerDamage <= 0)
+	if (whoAttacked == "Player" and GetHealth(enemyPkmn)-damageValue <= 0)
 	{
 		var name = GetName(enemyPkmn)
 		var level = GetLevel(enemyPkmn)
@@ -92,7 +96,7 @@ if (!recoil)
 			ds_list_add(textList, string_concat(battle.enemyName == "Mary2" ? "Mary" : battle.enemyName, " sent out ", name))
 		}
 	}
-	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-enemyDamage <= 0)
+	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-damageValue <= 0)
 	{
 		var name = GetName(playerPkmn)
 		var battle = instance_find(BattleObject, 0)
@@ -151,12 +155,25 @@ if (!recoil)
 }
 else
 {
-	for (var i = currentText+1; i < ds_list_size(textList); i++)
+	// Surviving recoil must not erase a knockout already queued by the attack.
+	// On a recoil KO, cancel remaining actions but retain pending faint/EXP/send-out
+	// messages for the other side (both Pokemon can faint on the same turn).
+	if (GetHealth(damagedPokemon)-damageValue <= 0)
 	{
-		ds_list_delete(textList, i)
+		var resolutionStart = ds_list_size(textList)
+		for (var i = currentText+1; i < ds_list_size(textList); i++)
+		{
+			if (string_count("fainted", ds_list_find_value(textList, i)) > 0)
+			{
+				resolutionStart = i
+				break
+			}
+		}
+		for (var i = resolutionStart-1; i > currentText; i--)
+			ds_list_delete(textList, i)
 	}
 
-	if (whoAttacked == "Player" and GetHealth(enemyPkmn)-eRecoilDamage <= 0)
+	if (whoAttacked == "Player" and GetHealth(enemyPkmn)-damageValue <= 0)
 	{
 		var name = GetName(enemyPkmn)
 		var level = GetLevel(enemyPkmn)
@@ -187,7 +204,7 @@ else
 			ds_list_add(textList, string_concat(battle.enemyName == "Mary2" ? "Mary" : battle.enemyName, " sent out ", name))
 		}
 	}
-	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-pRecoilDamage <= 0)
+	if (whoAttacked == "Enemy" and GetHealth(playerPkmn)-damageValue <= 0)
 	{
 		var name = GetName(playerPkmn)
 		var battle = instance_find(BattleObject, 0)

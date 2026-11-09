@@ -15,3 +15,4 @@ Enjoy!
 
 pageIndex = 0;
 pageCount = 1;
+closing = false;

@@ -13,7 +13,7 @@ for(const name of [...names,'Legacy Morlock Trainer']) {
  const c={name,self:1,instance_destroy:()=>{destroyed=true;}};
  vm.createContext(c);
  vm.runInContext(js(read('objects/MorlockTrainer/KeyPress_101.gml')),c);
- assert.equal(destroyed,!names.includes(name));
+ assert.equal(destroyed,false,'release builds disable the numpad enemy-removal shortcut');
 }
 const destroy=read('objects/BattleObject/Destroy_0.gml');
 const a=destroy.indexOf('\t\tfor (var i = 0; i < instance_number(enemyObjectType); i++)');
@@ -33,4 +33,4 @@ const missing=room.layers.flatMap(l=>l.instances||[])
  .map(i=>`rooms/MorlockCity3/InstanceCreationCode_${i.name}.gml`)
  .filter(p=>!fs.existsSync(p));
 assert.deepEqual(missing,[],'Room still references missing trainer creation scripts');
-console.log('Passed new-trainer E protection, legacy behavior, post-battle identity binding, and room script references.');
+console.log('Passed disabled numpad removal, post-battle identity binding, and room script references.');

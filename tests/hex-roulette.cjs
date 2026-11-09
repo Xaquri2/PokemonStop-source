@@ -33,7 +33,7 @@ const c = {
   GetEXPYield: () => 10, GetTrainerRank: () => 1, GetTrainerLoot: () => false,
   string_count: (needle, s) => s.split(needle).length - 1, string_concat: (...s) => s.join(''),
   irandom: max => { assert.equal(max, 3); return roll; },
-  floor: Math.floor, max: Math.max, clamp: (v, lo, hi) => Math.max(lo, Math.min(hi, v)),
+  floor: Math.floor, ceil: Math.ceil, max: Math.max, clamp: (v, lo, hi) => Math.max(lo, Math.min(hi, v)),
   ds_list_size: a => a.length, ds_list_find_value: (a, i) => a[i],
   ds_list_add: (a, ...v) => a.push(...v), ds_list_delete: (a, i) => a.splice(i, 1),
   alarm: [], whoAttacked: 'Player', recoil: false, playerPkmn: player, enemyPkmn: first,

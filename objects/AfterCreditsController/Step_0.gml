@@ -42,5 +42,7 @@ if DreamTentAFTERCREDITSCENE.image_alpha = 1 {
 if pauseOver2 == true {
 	GameObject.fade = true;
 	GameObject.targetRoom = RouteMinusOneBottom
+	// Use the room's placed player; no arrival warp needs to position them.
+	GameObject.targetWarp = "None"
 	GameObject.warp = true
 }

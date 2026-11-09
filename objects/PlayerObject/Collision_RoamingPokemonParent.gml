@@ -1,1 +1,1 @@
-show_debug_message("Player collided with Pokémon!");
+// show_debug_message("Player collided with Pokémon!");

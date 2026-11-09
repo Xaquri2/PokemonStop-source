@@ -235,6 +235,86 @@ function SetNPCFlag(name, flag)
 	else ds_map_add(global.npcFlags, name, flag)
 }
 
+function ConfigureMorlockDialogue(npc, friendlyText, humanText)
+{
+	npc.morlockFriendlyText = friendlyText
+	npc.morlockHumanText = humanText
+	RefreshMorlockDialogue(npc)
+}
+
+function RefreshMorlockDialogue(npc)
+{
+	var disguised = (HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0
+	var lines = disguised ? npc.morlockFriendlyText : npc.morlockHumanText
+	ds_list_clear(npc.textList)
+	ds_list_clear(npc.nameList)
+	ds_list_clear(npc.iconList)
+	for (var i = 0; i < array_length(lines); i++)
+	{
+		ds_list_add(npc.textList, lines[i])
+		ds_list_add(npc.nameList, "Morlock")
+		ds_list_add(npc.iconList, npc.sprite_index)
+	}
+}
+
+function RefreshMorlockTrainerDialogue(npc)
+{
+	// The sentry's challenge does not depend on the player's form.
+	if (npc.name != "BridgeMorlock" and npc.name != "Morlock Tunnel Scout") return
+	var disguised = (HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0
+	npc.morlockDialogueDisguised = disguised
+	ds_list_clear(npc.textList)
+	ds_list_clear(npc.nameList)
+	ds_list_clear(npc.iconList)
+	ds_list_clear(npc.postBattleTextList)
+	ds_list_clear(npc.postBattleNameList)
+	ds_list_clear(npc.postBattleIconList)
+	if (npc.name == "BridgeMorlock")
+	{
+		if (disguised)
+		{
+			ds_list_add(npc.textList, "Oh hello, fellow Morlock!",
+			"Man, all this study of human culture is making me HUNGRY!",
+			"Good thing you're not a human! I would've eaten you right on the spot! Heh, heh, heeee!",
+			"Ah, still, I guess I'll have to settle for demolishing your Pokémon!!!")
+			ds_list_add(npc.postBattleTextList, "Good match! You win fair and square!",
+			"I... should probably go get some dinner.", "Till the next time we meet!")
+		}
+		else
+		{
+			ds_list_add(npc.textList, "I am learning to respect your human culture.",
+			"I believe the polite phrasing is, 'may I please eat you?'")
+			ds_list_add(npc.postBattleTextList, "Ah, then I am NOT to eat you, it seems?",
+			"While I strongly disagree with your decision, I respect your resolve in making it.",
+			"Still, I hope to eat you the next time we meet!")
+		}
+	}
+	else
+	{
+		if (disguised)
+		{
+			ds_list_add(npc.textList, "Hey buddy, I'm practicing with my Pokémon so I can become the Pokémon Master!! Wanna spar?")
+			ds_list_add(npc.postBattleTextList, "Dang! I really gotta practice harder.", "Thanks for the match!")
+		}
+		else
+		{
+			ds_list_add(npc.textList, "Ack!! A Human!!")
+			ds_list_add(npc.postBattleTextList, "Beaten by a human!! How humiliating.",
+			"Hey, let's keep this between us & I won't eat you. Deal?")
+		}
+	}
+	repeat (ds_list_size(npc.textList))
+	{
+		ds_list_add(npc.nameList, "Morlock trainer")
+		ds_list_add(npc.iconList, npc.sprite_index)
+	}
+	repeat (ds_list_size(npc.postBattleTextList))
+	{
+		ds_list_add(npc.postBattleNameList, "Morlock trainer")
+		ds_list_add(npc.postBattleIconList, npc.sprite_index)
+	}
+}
+
 function PostBattleFlagActivation(flag)
 {
 	switch (flag)

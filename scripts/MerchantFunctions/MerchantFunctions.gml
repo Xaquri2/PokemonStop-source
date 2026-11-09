@@ -1,3 +1,10 @@
+function GetMorlockShopkeeperGreeting()
+{
+	if ((HasFlag("Potion") and !HasFlag("PotionCure")) or global.morlockTimer > 0)
+		return "Hey cutie!! What can I getcha??"
+	return "Hssss!!"
+}
+
 function IsMerchant(name)
 {
 	switch (name)

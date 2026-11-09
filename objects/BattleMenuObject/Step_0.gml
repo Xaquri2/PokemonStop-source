@@ -595,7 +595,7 @@ if (keyboard_check_pressed(vk_enter))
 							}
 						}
 						
-						CheckForFieldEffect(effStr, battleText.textList)
+						CheckForFieldEffect(battleText.textList)
 						instance_destroy(id)
 					}
 				}
@@ -1429,7 +1429,7 @@ if (keyboard_check_pressed(vk_enter))
 					}
 				}
 				
-				CheckForFieldEffect(effStr, battleText.textList)
+				CheckForFieldEffect(battleText.textList)
 			}
 			
 			instance_destroy(id)

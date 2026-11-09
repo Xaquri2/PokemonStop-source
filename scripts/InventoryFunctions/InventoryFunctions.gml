@@ -3,8 +3,8 @@ function GetItemInfo(categoryIndex, itemIndex) { return ds_list_find_value(ds_li
 function GetItemName(itemInfo) { return ds_list_find_value(itemInfo, 0) }
 function GetItemAmount(itemInfo) { return ds_list_find_value(itemInfo, 1) }
 function UpdateItemAmount(itemInfo, amount) {
-	if (GetItemName(itemInfo) == "Potion")
-		show_debug_message("[Inventory] Potion count: " + string(GetItemAmount(itemInfo)) + " -> " + string(amount) + " (room " + room_get_name(room) + ")")
+// 	if (GetItemName(itemInfo) == "Potion")
+// 		show_debug_message("[Inventory] Potion count: " + string(GetItemAmount(itemInfo)) + " -> " + string(amount) + " (room " + room_get_name(room) + ")")
 	ds_list_set(itemInfo, 1, amount)
 }
 function DeleteItem(categoryIndex, itemIndex) { ds_list_delete(ds_list_find_value(global.categoryItemList, categoryIndex), itemIndex) }
@@ -156,7 +156,7 @@ function GetItemSprite(name)
 
 function AddItem(name, amount)
 {
-	if (name == "Potion") show_debug_message("[Inventory] Adding " + string(amount) + " Potion(s) (room " + room_get_name(room) + ")")
+// 	if (name == "Potion") show_debug_message("[Inventory] Adding " + string(amount) + " Potion(s) (room " + room_get_name(room) + ")")
 	var category = GetItemCategory(name)
 
 	if (category != "")
@@ -250,7 +250,7 @@ function HasItem(itemName)
 function ConsumeItem(categoryIndex, itemIndex, amount)
 {
 	var itemInfo = GetItemInfo(categoryIndex, itemIndex)
-	if (GetItemName(itemInfo) == "Potion") show_debug_message("[Inventory] Using " + string(amount) + " Potion(s), stock before use: " + string(GetItemAmount(itemInfo)))
+// 	if (GetItemName(itemInfo) == "Potion") show_debug_message("[Inventory] Using " + string(amount) + " Potion(s), stock before use: " + string(GetItemAmount(itemInfo)))
 	if (GetItemAmount(itemInfo)-amount <= 0) DeleteItem(categoryIndex, itemIndex)
 	else
 	{

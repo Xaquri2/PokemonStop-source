@@ -97,7 +97,7 @@ else {
 #endregion
 
 #region Draw Morlock timer
-if (global.morlockTimer > 0)
+if (global.morlockTimer > 0 and !instance_exists(TextboxObject))
 {
     draw_sprite_ext(
         PlayerMorlockFACESPRITE,

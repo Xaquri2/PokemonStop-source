@@ -198,7 +198,7 @@ function LoadData()
 
 		if (saveState == noone)
 		{
-			show_debug_message("Save state does not exist: " + string(global.currentSaveState))
+// 			show_debug_message("Save state does not exist: " + string(global.currentSaveState))
 			return
 		}
 
@@ -253,7 +253,7 @@ function LoadData()
 			{
 				var itemArray = categoryArray[j]
 				var itemList = ds_list_create()
-				if (itemArray[0] == "Potion") show_debug_message("[Inventory] Loading Potion stock from save: " + string(itemArray[1]))
+// 				if (itemArray[0] == "Potion") show_debug_message("[Inventory] Loading Potion stock from save: " + string(itemArray[1]))
 
 				ds_list_add(itemList, itemArray[0], itemArray[1])
 				ds_list_add(categoryList, itemList)

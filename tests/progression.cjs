@@ -90,7 +90,8 @@ let lateSpecies=0;
 for(const match of learnSource.matchAll(/case "([^"]+)":/g)) {
  const name=match[1];
  const late=[24,32].map(level=>runtime.LearnsMoveAt(name,level));
- if(name==='Godzilla'||name==='Green Bubble') {assert.deepEqual(late,['','']);continue;}
+ // Scripted bosses can have a fixed moveset instead of normal later progression.
+ if(name==='Godzilla'||name==='Green Bubble'||name==='MEGA BOT') {assert.deepEqual(late,['','']);continue;}
  assert(late.every(Boolean),name+' missing later moves');
  const early=new Set(Array.from({length:23},(_,i)=>runtime.LearnsMoveAt(name,i+1)).filter(Boolean));
  for(const move of late) {

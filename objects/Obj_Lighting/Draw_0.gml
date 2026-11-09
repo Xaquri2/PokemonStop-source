@@ -5,16 +5,21 @@
 //draw_sprite_ext(TorchLightShaderTest, 0, PlayerObject.x, PlayerObject.y, 1, 1,0, c_white, 1)
 
 
-// recreate surface if needed
+// Camera sizes can change after room transitions or zooming.
+var cam = view_camera[0];
+var w = max(1, ceil(camera_get_view_width(cam)));
+var h = max(1, ceil(camera_get_view_height(cam)));
+if (surface_exists(light_surface)) {
+    if (surface_get_width(light_surface) != w or surface_get_height(light_surface) != h) {
+        surface_free(light_surface);
+        light_surface = -1;
+    }
+}
 if (!surface_exists(light_surface)) {
-    var cam = view_camera[0];
-    var w = camera_get_view_width(cam);
-    var h = camera_get_view_height(cam);
     light_surface = surface_create(w, h);
 }
 
 // get camera position
-var cam = view_camera[0];
 var cam_x = camera_get_view_x(cam);
 var cam_y = camera_get_view_y(cam);
 
@@ -29,7 +34,7 @@ if ((!HasFlag("Potion") or (HasFlag("Potion") and HasFlag("PotionCure"))) and gl
 	var flicker = .8 + random_range(-0.05, 0.05);
 
 	// cut out light
-	if (global.torch) {
+	if (global.torch and global.torchPower > 0) {
 	    gpu_set_blendmode(bm_subtract);
 
 	    draw_sprite_ext(

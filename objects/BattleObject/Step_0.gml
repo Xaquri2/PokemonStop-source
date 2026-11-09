@@ -118,7 +118,7 @@ if (cloud_level > cloud_target) {
     }
 }
 if room == RoomBattleGodzilla {
-	show_debug_message("Clouds layer:" + string(layer_get_visible("Clouds") ))
+// 	show_debug_message("Clouds layer:" + string(layer_get_visible("Clouds") ))
 }
 
 

@@ -202,6 +202,9 @@ function GetPokemonType(name)
         case "Magnemite":
             ds_list_add(types, "Electric", "Steel");
             break;
+        case "MEGA BOT":
+            ds_list_add(types, "Electric", "Steel");
+            break;
         case "Butterfree":
             ds_list_add(types, "Bug", "Flying");
             break;
@@ -778,6 +781,10 @@ function GetPokemonBaseStats(name) {
         case "Magnemite":
             ds_list_add(statList, 25, 35, 70, 95, 55, 45);
             break;
+        case "MEGA BOT":
+            // Collector's combined robot boss: bulky, with both attack types.
+            ds_list_add(statList, 100, 110, 110, 115, 90, 75);
+            break;
 
         case "Butterfree":
             ds_list_add(statList, 60, 45, 50, 90, 80, 70);
@@ -817,8 +824,8 @@ function GetPokemonBaseStats(name) {
             break;
 
         case "MissingNo":
-            // Keep the glitchy physical offense, with enough bulk to survive a hit.
-            ds_list_add(statList, 75, 136, 60, 6, 60, 29);
+            // Physical offense stays strongest, but its special moves must be usable too.
+            ds_list_add(statList, 85, 136, 70, 90, 70, 50);
             break;
 
         case "Articuno":
@@ -1298,8 +1305,8 @@ function GetMoveDetails(moveName)
             ds_list_add(moveInfo, moveName, "Grass", "Status", 0, 100, 5, "GrassyTerrain", 1, 1, 0);
             break;
         case "Dual Strike":
-            // Demogorgon's special "two-head" move
-            ds_list_add(moveInfo, moveName, "Dark", "Status", 0, 100, 5, "DualStrike", 1, 1, 0);
+            // Two physical hits; power is per hit, combined by GetDamage.
+            ds_list_add(moveInfo, moveName, "Dark", "Physical", 40, 100, 5, "DualStrike", 1, 1, 0);
             break;
         case "Force Lift":
             // Yodal’s custom telekinetic move
@@ -1500,7 +1507,7 @@ function LearnMove(pkmnInfo, moveName, pos)
     // Prevent learning the same move more than once
     if (ds_list_find_index(movesList, moveName) != -1)
     {
-        show_debug_message("Already knows move: " + moveName);
+//         show_debug_message("Already knows move: " + moveName);
         return;
     }
 
@@ -1522,12 +1529,12 @@ function LearnMove(pkmnInfo, moveName, pos)
         return;
     }
 
-    show_debug_message(
-        "LearnMove received invalid position: "
-        + string(pos)
-        + " for move "
-        + moveName
-    );
+//     show_debug_message(
+//         "LearnMove received invalid position: "
+//         + string(pos)
+//         + " for move "
+//         + moveName
+//     );
 }
 
 /// @param {string}   name    The name of the Pokémon to search the learnset of
@@ -1881,6 +1888,14 @@ function LearnsMoveAt(name, level)
             if (level == 16) return "Shadow Ball";
             if (level == 24) return "Hypnosis";
             if (level == 32) return "Psychic";
+            break;
+
+        case "MEGA BOT":
+            // Strong attacks from its component robots, without self-destruction.
+            if (level == 1)  return "Body Slam";
+            if (level == 4)  return "Thunderbolt";
+            if (level == 8)  return "Giga Impact";
+            if (level == 12) return "Hyper Beam";
             break;
 
         case "Box Bot":

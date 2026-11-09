@@ -1,4 +1,4 @@
-if (global.torch)
+if (global.torch and global.torchPower > 0)
 {
 	var color = c_orange;
 	var steps = 120*global.torchPower;

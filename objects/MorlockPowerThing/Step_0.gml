@@ -6,7 +6,7 @@ if (instance_number(Morlock) < 12)
 {
     var m = instance_create_layer(MorPos_x, MorPos_y, "Instances", Morlock);
 
-	m.name = Morlock;
+	m.name = "Morlock";
 	m.enemyName = "Morlock";
 	m.trainerTeam = ds_list_create();
 	    AddPokemonTrainer(

@@ -1000,8 +1000,8 @@ if (keyboard_check_pressed(vk_enter))
 			"I hope that, perhaps in your journeys, you’ll learn to see all sentient beings as THE SAME…",
 			"Humans, Morlocks, Pokémon, … even sentient ROBOTS…",
 			"Anyway...", "Sorry to rant, that’s just what I think.")
-			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
-			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
+			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)
 
 			player.talking = true
 
@@ -1049,7 +1049,7 @@ if (keyboard_check_pressed(vk_enter))
 			
 			ds_list_add(dialogue.nameList, "Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel",
 			"Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel",
-			"Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
+			"Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel","Nebogipfel")
 			ds_list_add(dialogue.iconList, NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite
 			,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite
 			,NebogipfelSprite,NebogipfelSprite,NebogipfelSprite)

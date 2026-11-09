@@ -1,1 +1,2 @@
-room_goto_next()
+// Developer test shortcut disabled for release.
+// room_goto_next()

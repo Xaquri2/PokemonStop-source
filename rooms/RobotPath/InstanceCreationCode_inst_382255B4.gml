@@ -1,6 +1,6 @@
 name = "Box Bot O"
 lineSightDir = "Down"
-lineSight = 64
+lineSight = 240
 trainerSprite = BoxBotIdleSprite
 
 ds_list_add(textList, "Scanning.",

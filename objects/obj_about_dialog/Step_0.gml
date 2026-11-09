@@ -1,3 +1,5 @@
+if (closing) exit;
+
 var guiWidth = display_get_gui_width();
 var guiHeight = display_get_gui_height();
 var boxWidth = min(800, guiWidth*0.84);
@@ -13,7 +15,7 @@ var clickedClose = mouse_check_button_pressed(mb_left)
 if (keyboard_check_pressed(vk_escape) or keyboard_check_pressed(ord("E"))
     or keyboard_check_pressed(vk_enter) or clickedClose)
 {
-    instance_destroy();
+    closing = true;
     exit;
 }
 if (keyboard_check_pressed(vk_right) or keyboard_check_pressed(vk_down) or mouse_wheel_down())

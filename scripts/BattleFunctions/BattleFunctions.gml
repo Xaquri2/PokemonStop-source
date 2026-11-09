@@ -90,6 +90,8 @@ function GetDamage(pkmn, targetPkmn, moveName)
 		}
 		// Apply after fixed-damage effects too; keep a successful attack at 1 HP minimum.
 		if (normalGhostResistance) damage = max(1, floor(damage * 0.5))
+		// Resolve both hits together so fainting, EXP, and send-out happen once.
+		if (moveEffect == "DualStrike") damage *= 2
 		return damage
 	}
 	else return 0
@@ -898,6 +900,10 @@ function DealEffect(moveName, effectName, accurancy, damage, user, target)
 						break
 					#endregion
 					
+					case "DualStrike":
+						str = "It strikes twice!"
+						break
+
 					case "Interface":
 						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerAttack", 100, 0, user, target))
 						ds_list_add(BattleTextboxObject.textList, DealEffect("LowerDefense", 100, 0, user, target))
@@ -1233,6 +1239,10 @@ function DealEffect(moveName, effectName, accurancy, damage, user, target)
 						str = "Reversing traps were layed on the field!"
 						break
 					#endregion
+
+					case "DualStrike":
+						str = "It strikes twice!"
+						break
 				
 					case "Recoil":
 					case "RecoilOnMiss":
@@ -1283,7 +1293,7 @@ function DealEffect(moveName, effectName, accurancy, damage, user, target)
 	return str
 }
 
-function CheckForFieldEffect(effString, tList)
+function CheckForFieldEffect(tList)
 {
 	if (BattleObject.currentField == "GrassyTerrain") ds_list_add(tList, "All pokémon on the field have been healed!")
 }
