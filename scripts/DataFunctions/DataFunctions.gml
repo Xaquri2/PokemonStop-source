@@ -1,6 +1,9 @@
 function SaveData()
 {
 	var player = instance_find(PlayerObject, 0)
+	// Battle rooms cannot be restored by LoadData, and have no overworld player.
+	if (!instance_exists(player) or instance_exists(BattleObject)
+	or room == RoomBattle or room == RoomBattleGodzilla) return false
 
 	var pokemonCollectionArray = []
 	for (var i = 0; i < ds_list_size(global.pokemonList); i++)
@@ -153,6 +156,7 @@ function SaveData()
 		file_text_write_string(file, json)
 		file_text_close(file)
 	}
+	return true
 }
 
 function LoadData()
@@ -343,7 +347,9 @@ function SaveStateAction(stateNumber, actionMode)
 	if (actionMode == "Save")
 	{
 		var game = instance_find(GameObject, 0)
-		if (instance_exists(game)) with (game) SaveData()
+		var saved = false
+		if (instance_exists(game)) with (game) saved = SaveData()
+		if (!saved) return false
 		text = string_concat("Saved Save State ", stateNumber)
 	}
 	else
@@ -363,6 +369,7 @@ function SaveStateAction(stateNumber, actionMode)
 	}
 
 	GenerateTextPopup(x,bbox_top-10,text)
+	return true
 }
 
 function GetSaveSlotTimestamp(slot)

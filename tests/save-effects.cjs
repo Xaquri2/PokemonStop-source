@@ -25,7 +25,9 @@ const c = {
     pcPokemonList:[], money:100, latestSaveState:1, followerType:0, pikminCount:0,
     catchIndex:0, saveFile:1, currentSaveState:1, standardStartRoom:100,
     lastKeyUsed:'Moltres Area Key', morlockTimer:12345},
-  PlayerObject:1, noone:-4, room:200, nestReturnRoom:300, areaKeyInfo:'Moltres Area Key',
+  PlayerObject:1, BattleObject:2, RoomBattle:400, RoomBattleGodzilla:401,
+  noone:-4, room:200, nestReturnRoom:300, areaKeyInfo:'Moltres Area Key',
+  instance_exists: instance => instance === player,
   instance_find: () => player,
   ds_list_size:a=>a.length, ds_list_find_value:(a,i)=>a[i], ds_list_set:(a,i,v)=>a[i]=v,
   ds_list_create:()=>[], ds_list_add:(a,...v)=>a.push(...v), ds_list_destroy:()=>{},
@@ -190,3 +192,45 @@ vm.runInNewContext(towerPickup, pickup);
 assert.equal(pickup.item, 'X Defense');
 assert.equal(pickup.itemTag, 'ShadowTowerXDefense');
 console.log('Passed Shadow Tower X Defense assignment and one-time missing-reward repair.');
+
+// A due autosave during encounters must preserve the file and retry after battle.
+let playerAvailable = true;
+let battleActive = false;
+c.instance_find = () => playerAvailable ? player : c.noone;
+c.instance_exists = instance => instance === player || (instance === c.BattleObject && battleActive);
+c.int64 = Number;
+c.x = 0; c.bbox_top = 0;
+let popups = 0;
+c.GenerateTextPopup = () => popups++;
+vm.runInContext(extract('SaveStateAction')
+  .replace('with (game) saved = SaveData()', 'saved = SaveData()')
+  .replace('with (game) LoadData()', 'LoadData()'), c);
+const alarmSource = fs.readFileSync('objects/GameObject/Alarm_1.gml', 'utf8').replace(/\band\b/g, '&&');
+c.global.autosave = true;
+c.alarm = [];
+const beforeBattle = [...files.entries()];
+for (const scenario of [
+  {room: 200, player: false, battle: false},
+  {room: 200, player: true, battle: true},
+  {room: c.RoomBattle, player: false, battle: true},
+  {room: c.RoomBattleGodzilla, player: true, battle: false},
+]) {
+  c.room = scenario.room; playerAvailable = scenario.player; battleActive = scenario.battle;
+  assert.equal(c.SaveData(), false);
+  c.alarm[1] = -1;
+  vm.runInContext(alarmSource, c);
+  assert.equal(c.alarm[1], 60);
+  assert.deepEqual([...files.entries()], beforeBattle);
+  assert.equal(popups, 0);
+}
+c.room = 200; playerAvailable = true; battleActive = false;
+c.alarm[1] = -1;
+vm.runInContext(alarmSource, c);
+assert.equal(popups, 1);
+assert.equal(c.alarm[1], -1);
+const resumed = JSON.parse(files.get(`savefile${c.global.saveFile}.json`));
+assert.equal(resumed[`saveState${c.global.latestSaveState}`].roomInfo, 200);
+c.global.autosave = false;
+vm.runInContext(alarmSource, c);
+assert.equal(popups, 1);
+console.log('Passed missing-player and battle autosave deferral, file preservation, successful retry, and disabled autosave.');
